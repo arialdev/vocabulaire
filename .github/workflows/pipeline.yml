@@ -1,4 +1,4 @@
-name: Deployment pipeline
+name: Ionic GitHub CI
 
 on:
   push:
@@ -47,8 +47,8 @@ jobs:
         run: npm run build
       - uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: www
+          path: www
 
   test:
     needs: [lint, build]
@@ -65,10 +65,10 @@ jobs:
         run: npm ci
       - uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: www
+          path: www
       - name: Test
-        run: npm test
+        run: npm run ng run app:test:ci
 
   e2e:
     needs: [lint, build]
@@ -85,11 +85,11 @@ jobs:
         run: npm ci
       - uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: www
+          path: www
       - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
           command: npm run e2e
           start: npm run start
-          wait-on: http://localhost:4200   
+          wait-on: http://localhost:4200 
