@@ -69,7 +69,10 @@
               ]
             },
             "ci": {
-              "progress": false
+              "progress": false,
+              "watch": false,
+              "browsers": "ChromeHeadless",
+              "codeCoverage": true
             }
           }
         },
