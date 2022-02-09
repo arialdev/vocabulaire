@@ -60,11 +60,13 @@ jobs:
         with:
           cache: 'npm'
           node-version: '16'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run ng run app:build:production
       - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
           command: npm run ci:cy-run
+          build: npm run ng run app:build:production
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          GITHUB_TOKEN: ${{github.token}}
