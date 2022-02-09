@@ -68,7 +68,7 @@ jobs:
           name: www
           path: www
       - name: Test
-        run: npm run ng run app:test:ci
+        run: npm run ci:test
 
   e2e:
     needs: [lint, build]
