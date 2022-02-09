@@ -69,7 +69,10 @@
               ]
             },
             "ci": {
-              "progress": false
+              "progress": false,
+              "watch": false,
+              "browsers": "ChromeHeadless",
+              "codeCoverage": true
             }
           }
         },
@@ -118,9 +121,7 @@
           "configurations": {
             "ci": {
               "progress": false,
-              "watch": false,
-              "browsers": "ChromeHeadless",
-              "codeCoverage": true
+              "watch": false
             }
           }
         },
@@ -143,14 +144,6 @@
           "configurations": {
             "production": {
               "devServerTarget": "app:serve:production"
-            },
-            "ci": {
-              "video":false,
-              "screenshotOnRunFailure":false
-            },
-            "dev": {
-              "video":true,
-              "screenshotOnRunFailure":true
             }
           }
         },
