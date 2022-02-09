@@ -31,25 +31,6 @@ jobs:
       - name: Lint
         run: npm run lint
 
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
-          node-version: '16'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run ng run app:build:production
-      - uses: actions/upload-artifact@v2
-        with:
-          name: www
-          path: www
-
   test:
     needs: [lint, build]
     runs-on: ubuntu-20.04
@@ -63,10 +44,8 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm ci
-      - uses: actions/download-artifact@v2
-        with:
-          name: www
-          path: www
+      - name: Build
+        run: npm run ng run app:build:production
       - name: Test
         run: npm run ci:test
 
@@ -83,10 +62,8 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm ci
-      - uses: actions/download-artifact@v2
-        with:
-          name: www
-          path: www
+      - name: Build
+        run: npm run ng run app:build:production
       - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
