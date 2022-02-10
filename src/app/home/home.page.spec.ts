@@ -38,4 +38,12 @@ describe('HomePage', () => {
     const buttonLink = buttons.query(By.css('ion-button'));
     expect(buttonLink.nativeElement.href).toBe('/folder/languages');
   });
+
+  it('should contains searchbar', () => {
+    expect(fixture.debugElement.query(By.css('ion-searchbar'))).toBeTruthy();
+  });
+
+  it('should contains book button', () => {
+    expect(fixture.debugElement.query(By.css('.book-button'))).toBeTruthy();
+  });
 });

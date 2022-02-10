@@ -35,3 +35,12 @@ ion-menu-button {
 .header-language {
   width: 32px;
 }
+
+.searchbar-row {
+  display: flex;
+  align-items: center;
+
+  .book-button > ion-icon {
+    font-size: 26px;
+  }
+}
