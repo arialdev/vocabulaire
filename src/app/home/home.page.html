@@ -15,11 +15,43 @@
 </ion-header>
 
 <ion-content>
-  <div class="searchbar-row">
-    <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search" inputmode="text"
-                   type="search"></ion-searchbar>
-    <ion-button class="book-button" fill="clear">
-      <ion-icon name="bookmark-outline" ></ion-icon>
-    </ion-button>
+
+  <div class="searchbar-container box-my">
+    <div class="terms-searchbar">
+      <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search"
+                     inputmode="text"
+                     type="search"></ion-searchbar>
+    </div>
+    <div class="book-button">
+      <ion-button fill="clear">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="searchbar-options">
+      <div class="sort-button">
+        <ion-button fill="clear" size="small">
+          <ion-icon src="assets/icons/sort-solid.svg"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="filter-button">
+        <ion-button fill="clear" size="small">
+          <ion-icon name="funnel-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="details-toggle">
+        <ion-item lines="none">
+          <ion-label>Details</ion-label>
+          <ion-toggle checked name="toggleDetails"></ion-toggle>
+        </ion-item>
+      </div>
+    </div>
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

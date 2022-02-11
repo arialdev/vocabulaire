@@ -46,4 +46,24 @@ describe('HomePage', () => {
   it('should contains book button', () => {
     expect(fixture.debugElement.query(By.css('.book-button'))).toBeTruthy();
   });
+
+  describe('Search options', () => {
+    it('should contains filter button', () => {
+      expect(fixture.debugElement.query(By.css('.filter-button'))).toBeTruthy();
+    });
+
+    it('should contains sorting button', () => {
+      expect(fixture.debugElement.query(By.css('.sort-button'))).toBeTruthy();
+    });
+
+    it('should contains details toggle', () => {
+      const toggle = fixture.debugElement.query(By.css('.details-toggle ion-toggle'));
+      expect(toggle).toBeTruthy();
+      expect(toggle.attributes['aria-checked']).toBeTruthy();
+    });
+  });
+
+  it('should contains add button', () => {
+    expect(fixture.debugElement.query(By.css('.add-term'))).toBeTruthy();
+  });
 });

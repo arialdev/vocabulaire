@@ -44,3 +44,58 @@ ion-menu-button {
     font-size: 26px;
   }
 }
+
+.box-my {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.searchbar-container {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0 0;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.terms-searchbar {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.book-button {
+  grid-area: 1 / 2 / 2 / 3;
+  align-self: center;
+
+  ion-button {
+    padding-inline-end: 8px;
+    padding-inline-start: 8px;
+
+    ion-icon {
+      font-size: 26px;
+    }
+  }
+}
+
+.searchbar-options {
+  justify-self: stretch;
+  justify-items: center;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.details-toggle {
+  display: inline-flex;
+  align-items: center;
+
+  ion-item::part(native) {
+    background: unset;
+  }
+}
+
+.add-term {
+  ion-icon {
+    color: white;
+  }
+}
