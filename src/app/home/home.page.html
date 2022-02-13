@@ -30,7 +30,7 @@
     <div class="searchbar-options">
       <div class="sort-button">
         <ion-button fill="clear" size="small">
-          <ion-icon src="assets/icons/sort-solid.svg"></ion-icon>
+          <ion-icon src="assets/icons/view/sort-solid.svg"></ion-icon>
         </ion-button>
       </div>
 
@@ -48,6 +48,29 @@
       </div>
     </div>
   </div>
+
+  <ion-list class="terms-list">
+    <ion-item class="term" lines="none" button="true">
+      <div class="item-box">
+        <div class="language-prefix term-label">ES</div>
+        <div class="term-name term-title">Mano</div>
+        <div class="translated-icon">
+          <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
+        </div>
+        <div class="translated-term term-title">Hand</div>
+        <div class="term-label secondary-term-label">Note:</div>
+        <div class="term-note">Do not mistake it for clock hand.</div>
+        <div class="categories">
+          <ion-chip color="primary-blue" disabled>
+            <ion-label>Noun</ion-label>
+          </ion-chip>
+          <ion-chip color="primary-blue" outline disabled>
+            <ion-label>Body</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">
     <ion-fab-button>

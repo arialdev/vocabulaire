@@ -99,3 +99,85 @@ ion-menu-button {
     color: white;
   }
 }
+
+.terms-list {
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  .term {
+    border: 1px solid #858585;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &::part(native) {
+      background-color: #fafff8;
+      padding: 8px;
+    }
+
+    .item-box {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: repeat(4, auto);
+      gap: 8px 8px;
+      grid-template-areas:
+    "language-prefix term-name"
+    "translated-icon translated-term"
+    "secondary-term-label term-note"
+    "categories categories";
+      align-items: center;
+      justify-items: start;
+      color: #313131;
+
+      .language-prefix {
+        grid-area: language-prefix;
+        font-family: "Lemon Milk", sans-serif;
+        font-size: 14px;
+      }
+
+      .term-title {
+        font-family: 'Rubik', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      .term-label {
+        color: #b3b3b3;
+      }
+
+      .term-name {
+        grid-area: term-name;
+      }
+
+      .translated-icon {
+        grid-area: translated-icon;
+        display: flex;
+
+        ion-icon {
+          font-size: 20px;
+        }
+      }
+
+      .translated-term {
+        grid-area: translated-term;
+      }
+
+      .secondary-term-label {
+        grid-area: secondary-term-label;
+        font-family: Calibri, monospace;
+      }
+
+      .term-note {
+        grid-area: term-note;
+      }
+
+      .categories {
+        grid-area: categories;
+
+        ion-chip {
+          opacity: unset;
+        }
+      }
+    }
+  }
+}
