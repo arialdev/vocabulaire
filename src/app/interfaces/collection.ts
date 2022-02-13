@@ -5,8 +5,7 @@ import {Tag} from './tag';
 
 export interface Collection {
   id: number;
-  originalLanguage: Language;
-  destinyLanguage: Language;
+  language: Language;
   active: boolean;
   terms: Array<Term>;
   gramaticalCategories: Array<Category>;
