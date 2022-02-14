@@ -45,18 +45,14 @@ ion-menu-button {
   }
 }
 
-.box-my {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
 .searchbar-container {
   display: grid;
   grid-template-columns: 9fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   gap: 0 0;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 8px;
 }
 
 .terms-searchbar {
@@ -125,7 +121,7 @@ ion-menu-button {
     "translated-icon translated-term"
     "secondary-term-label term-note"
     "categories categories";
-      align-items: center;
+      align-items: baseline;
       justify-items: start;
       color: #313131;
 
@@ -152,6 +148,7 @@ ion-menu-button {
       .translated-icon {
         grid-area: translated-icon;
         display: flex;
+        align-self: center;
 
         ion-icon {
           font-size: 20px;
@@ -180,4 +177,14 @@ ion-menu-button {
       }
     }
   }
+}
+
+.no-terms-message {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
 }

@@ -5,8 +5,8 @@ import {Category} from './category';
 export interface Term {
   id: number;
   collection: Collection;
-  from: string;
-  to: string;
+  originalTerm: string;
+  translatedTerm: string;
   notes: string;
   gramaticalCategories: Array<Category>;
   thematicCategories: Array<Category>;

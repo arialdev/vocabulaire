@@ -16,7 +16,7 @@
 
 <ion-content>
 
-  <div class="searchbar-container box-my">
+  <div class="searchbar-container">
     <div class="terms-searchbar">
       <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search"
                      inputmode="text"
@@ -49,28 +49,31 @@
     </div>
   </div>
 
-  <ion-list class="terms-list">
-    <ion-item class="term" lines="none" button="true">
+  <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
+    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms">
       <div class="item-box">
         <div class="language-prefix term-label">ES</div>
-        <div class="term-name term-title">Mano</div>
+        <div class="term-name term-title">{{term.originalTerm}}</div>
         <div class="translated-icon">
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
         </div>
-        <div class="translated-term term-title">Hand</div>
+        <div class="translated-term term-title">{{term.translatedTerm}}</div>
         <div class="term-label secondary-term-label">Note:</div>
-        <div class="term-note">Do not mistake it for clock hand.</div>
+        <div class="term-note">{{term.notes}}</div>
         <div class="categories">
-          <ion-chip color="primary-blue" disabled>
-            <ion-label>Noun</ion-label>
+          <ion-chip color="primary-blue" disabled *ngFor="let gc of term.gramaticalCategories">
+            <ion-label>{{gc.name}}</ion-label>
           </ion-chip>
-          <ion-chip color="primary-blue" outline disabled>
-            <ion-label>Body</ion-label>
+          <ion-chip color="primary-blue" outline disabled *ngFor="let tc of term.thematicCategories">
+            <ion-label>{{tc.name}}</ion-label>
           </ion-chip>
         </div>
       </div>
     </ion-item>
   </ion-list>
+  <ng-template #no_terms>
+    <p class="no-terms-message"> Add a new to start learning right now!</p>
+  </ng-template>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">
     <ion-fab-button>
