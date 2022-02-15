@@ -14,6 +14,7 @@ describe('HomePage', () => {
   const categoryType1: CategoryType = {
     id: 1,
     name: 'gramatical',
+    status: true,
     createdAt: new Date().getTime(),
     updatedAt: new Date().getTime()
   };
@@ -21,6 +22,7 @@ describe('HomePage', () => {
   const categoryType2: CategoryType = {
     id: 2,
     name: 'thematic',
+    status: true,
     createdAt: new Date().getTime(),
     updatedAt: new Date().getTime()
   };
@@ -29,6 +31,7 @@ describe('HomePage', () => {
     createdAt: new Date().getTime(),
     id: 1,
     type: categoryType1,
+    status: true,
     name: 'Sustantivo',
     updatedAt: new Date().getTime()
   };
@@ -37,6 +40,7 @@ describe('HomePage', () => {
     createdAt: new Date().getTime(),
     id: 2,
     type: categoryType2,
+    status: true,
     name: 'Cuerpo',
     updatedAt: new Date().getTime()
   };
@@ -51,6 +55,7 @@ describe('HomePage', () => {
     thematicCategories: [thematicCategory],
     translatedTerm: 'Hand',
     updatedAt: new Date().getTime(),
+    status: true,
   };
 
   beforeEach(waitForAsync(() => {
