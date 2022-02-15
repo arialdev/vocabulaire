@@ -5,6 +5,7 @@ export interface Tag {
   name: string;
   icon: string;
   options: TagOptions;
+  status: boolean;
   createdAt: number;
   updatedAt: number;
 }

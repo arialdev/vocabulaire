@@ -1,6 +1,10 @@
 import {Category} from './category';
 
 export interface CategoryFilter {
+  id: number;
   category: Category;
-  status: number;
+  code: number;
+  status: boolean;
+  createdAt: number;
+  updatedAt: number;
 }

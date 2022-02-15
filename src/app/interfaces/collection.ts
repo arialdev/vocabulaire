@@ -11,6 +11,7 @@ export interface Collection {
   gramaticalCategories: Array<Category>;
   thematicCategories: Array<Category>;
   tags: Array<Tag>;
+  status: boolean;
   createdAt: number;
   updatedAt: number;
 }

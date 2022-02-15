@@ -3,4 +3,7 @@ export interface Language {
   name: string;
   prefix: string;
   icon: string;
+  status: boolean;
+  createdAt: number;
+  updatedAt: number;
 }

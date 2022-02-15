@@ -10,6 +10,7 @@ export interface Term {
   notes: string;
   gramaticalCategories: Array<Category>;
   thematicCategories: Array<Category>;
+  status: boolean;
   updatedAt: number;
   createdAt: number;
 }
