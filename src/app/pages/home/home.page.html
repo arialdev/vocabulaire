@@ -61,10 +61,12 @@
         <div class="term-label secondary-term-label">Note:</div>
         <div class="term-note">{{term.notes}}</div>
         <div class="categories">
-          <ion-chip color="primary-blue" disabled *ngFor="let gc of term.gramaticalCategories">
+          <ion-chip class="gramatical-category" color="primary-blue" disabled
+                    *ngFor="let gc of term.gramaticalCategories">
             <ion-label>{{gc.name}}</ion-label>
           </ion-chip>
-          <ion-chip color="primary-blue" outline disabled *ngFor="let tc of term.thematicCategories">
+          <ion-chip class="thematic-category" color="primary-blue" outline disabled
+                    *ngFor="let tc of term.thematicCategories">
             <ion-label>{{tc.name}}</ion-label>
           </ion-chip>
         </div>

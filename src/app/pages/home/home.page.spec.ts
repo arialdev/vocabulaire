@@ -116,9 +116,15 @@ describe('HomePage', () => {
     component.terms = [];
     expect(fixture.debugElement.queryAll(By.css('.term')).length).toBe(component.terms.length);
     expect(fixture.debugElement.query(By.css('.no-terms-message'))).toBeTruthy();
-    component.terms = [term1, term1];
+    component.terms = [term1];
     fixture.detectChanges();
-    expect(fixture.debugElement.queryAll(By.css('.term')).length).toBe(component.terms.length);
+    const DOM_TERMS = fixture.debugElement.queryAll(By.css('.term'));
+    expect(DOM_TERMS.length).toBe(component.terms.length);
     expect(fixture.debugElement.query(By.css('.no-terms-message'))).toBeFalsy();
+    expect(DOM_TERMS[0].query(By.css('.term-name')).nativeElement.innerText).toBe(term1.originalTerm);
+    expect(DOM_TERMS[0].query(By.css('.translated-term')).nativeElement.innerText).toBe(term1.translatedTerm);
+    expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.notes);
+    expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.gramaticalCategories.length);
+    expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.thematicCategories.length);
   });
 });
