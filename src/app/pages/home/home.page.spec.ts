@@ -3,9 +3,9 @@ import {IonicModule} from '@ionic/angular';
 import {By} from '@angular/platform-browser';
 
 import {HomePage} from './home.page';
-import {Term} from '../interfaces/term';
-import {Category} from '../interfaces/category';
-import {CategoryType} from '../interfaces/category-type';
+import {Term} from '../../interfaces/term';
+import {Category} from '../../interfaces/category';
+import {CategoryType} from '../../interfaces/category-type';
 
 describe('HomePage', () => {
   let component: HomePage;

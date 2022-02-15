@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Term} from '../interfaces/term';
+import {Term} from '../../interfaces/term';
 
 @Component({
   selector: 'app-home',
