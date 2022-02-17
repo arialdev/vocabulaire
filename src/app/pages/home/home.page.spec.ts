@@ -1,11 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
 import {By} from '@angular/platform-browser';
-
 import {HomePage} from './home.page';
 import {Term} from '../../interfaces/term';
 import {Category} from '../../interfaces/category';
 import {CategoryType} from '../../interfaces/category-type';
+import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+import {IonicStorageModule} from '@ionic/storage-angular';
+import {Drivers} from '@ionic/storage';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -61,7 +63,11 @@ describe('HomePage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HomePage],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicStorageModule.forRoot({
+        // eslint-disable-next-line no-underscore-dangle
+        driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB],
+      }),],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
@@ -86,7 +92,7 @@ describe('HomePage', () => {
     const buttons = fixture.debugElement.query(By.css('.header ion-buttons[slot=end]'));
     expect(buttons).toBeTruthy();
     const buttonLink = buttons.query(By.css('ion-button'));
-    expect(buttonLink.nativeElement.href).toBe('/folder/languages');
+    expect(buttonLink.nativeElement.attributes.href.value).toBe('/folder/languages');
   });
 
   it('should contains searchbar', () => {
