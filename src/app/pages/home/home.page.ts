@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Term} from '../../interfaces/term';
+import {CollectionService} from '../../services/collection/collection.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,12 @@ export class HomePage implements OnInit {
 
   terms: Term[] = [];
 
-  constructor() {
+  constructor(private collectionService: CollectionService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const collection = await this.collectionService.getActiveCollection();
+    this.terms = collection.terms;
   }
 
 }
