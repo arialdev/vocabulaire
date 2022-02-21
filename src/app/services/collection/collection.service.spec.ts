@@ -25,10 +25,34 @@ describe('CollectionService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get active default collection', (done) => {
+  it('should get active default collection when none exists', (done) => {
     service.getActiveCollection().then((collection: Collection) => {
-      expect(collection.language.prefix).toBe('es');
+      expect(collection).toBeUndefined();
       done();
+    });
+  });
+
+  it('should get active default collection', (done) => {
+    const collection: Collection = {
+      active: false,
+      createdAt: new Date().getTime(),
+      gramaticalCategories: undefined,
+      id: undefined,
+      language: undefined,
+      status: true,
+      tags: [],
+      terms: [],
+      thematicCategories: [],
+      updatedAt: new Date().getTime(),
+    };
+
+    service.addCollection(collection).then((c: Collection) => {
+      service.setActiveCollection(collection.id).then(() => {
+        service.getActiveCollection().then((cActive: Collection) => {
+          expect(cActive).toEqual(c);
+          done();
+        });
+      });
     });
   });
 

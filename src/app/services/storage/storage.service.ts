@@ -57,7 +57,7 @@ export class StorageService {
   }
 
   private async initializeDB() {
-    await Promise.all([this.initializeSettings(), this.mockCollection()]);
+    await Promise.all([this.initializeSettings(), this.initializeCollections()]);
   }
 
   private async initializeSettings() {
@@ -66,51 +66,51 @@ export class StorageService {
     await this.set('settings', {...defaultSettings, ...settings});
   }
 
-  // private async initializeCollections() {
-  //   if (await this.get('collections')) {
-  //     return;
-  //   }
-  //   const collections: Collection[] = [];
-  //   await this.set('collections', collections);
-  // }
-
-  private async mockCollection() {
-    const spanish: Language = {
-      id: 1,
-      name: 'Spanish',
-      icon: 'assets/img/emojis/es.png',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      prefix: 'es'
-    };
-
-    const term1: Term = {
-      collection: undefined,
-      createdAt: new Date().getTime(),
-      originalTerm: 'Mano',
-      gramaticalCategories: [],
-      id: 1,
-      notes: 'No confundir con manecilla de reloj',
-      thematicCategories: [],
-      translatedTerm: 'Hand',
-      updatedAt: new Date().getTime(),
-      status: true,
-    };
-
-    const collection: Collection = {
-      id: 1,
-      status: true,
-      createdAt: new Date().getTime(),
-      gramaticalCategories: [],
-      active: true,
-      language: spanish,
-      updatedAt: new Date().getTime(),
-      tags: [],
-      terms: [term1],
-      thematicCategories: [],
-    };
-    const collections: Collection[] = [collection];
-    await this.myStorage.set('collections', collections);
+  private async initializeCollections() {
+    if (await this.get('collections')) {
+      return;
+    }
+    const collections: Collection[] = [];
+    await this.set('collections', collections);
   }
+
+  // private async mockCollection() {
+  //   const spanish: Language = {
+  //     id: 1,
+  //     name: 'Spanish',
+  //     icon: 'assets/img/emojis/es.png',
+  //     status: true,
+  //     createdAt: new Date().getTime(),
+  //     updatedAt: new Date().getTime(),
+  //     prefix: 'es'
+  //   };
+  //
+  //   const term1: Term = {
+  //     collection: undefined,
+  //     createdAt: new Date().getTime(),
+  //     originalTerm: 'Mano',
+  //     gramaticalCategories: [],
+  //     id: 1,
+  //     notes: 'No confundir con manecilla de reloj',
+  //     thematicCategories: [],
+  //     translatedTerm: 'Hand',
+  //     updatedAt: new Date().getTime(),
+  //     status: true,
+  //   };
+  //
+  //   const collection: Collection = {
+  //     id: 1,
+  //     status: true,
+  //     createdAt: new Date().getTime(),
+  //     gramaticalCategories: [],
+  //     active: true,
+  //     language: spanish,
+  //     updatedAt: new Date().getTime(),
+  //     tags: [],
+  //     terms: [term1],
+  //     thematicCategories: [],
+  //   };
+  //   const collections: Collection[] = [collection];
+  //   await this.myStorage.set('collections', collections);
+  // }
 }

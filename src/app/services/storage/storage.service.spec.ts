@@ -49,11 +49,14 @@ describe('StorageService', () => {
     });
   });
 
-  it('should get next free id from existing collection', (done) => {
-    service.getNextFreeId('collections').then((id: number) => {
-      expect(id).toBe(2);
-      done();
+  it('should get next free id', (done) => {
+    service.set('sample', [{id: 5, name: 'sample'}]).then(_ => {
+      service.getNextFreeId('sample').then((id: number) => {
+        expect(id).toBe(6);
+        done();
+      });
     });
+
   });
 
   it('should get next free id from existing empty collection', (done) => {
