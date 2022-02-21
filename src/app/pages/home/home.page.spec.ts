@@ -92,7 +92,7 @@ describe('HomePage', () => {
     const buttons = fixture.debugElement.query(By.css('.header ion-buttons[slot=end]'));
     expect(buttons).toBeTruthy();
     const buttonLink = buttons.query(By.css('ion-button'));
-    expect(buttonLink.nativeElement.attributes.href.value).toBe('/folder/languages');
+    expect(buttonLink.nativeElement.attributes.href.value).toBe('/collections');
   });
 
   it('should contains searchbar', () => {
