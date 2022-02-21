@@ -5,10 +5,12 @@ import {IonicStorageModule} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Collection} from '../../interfaces/collection';
+import {StorageService} from '../storage/storage.service';
 
 
 describe('CollectionService', () => {
   let service: CollectionService;
+  let storage: StorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -19,6 +21,8 @@ describe('CollectionService', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     service = TestBed.inject(CollectionService);
+    storage = TestBed.inject(StorageService);
+    storage.set('collections', []);
   });
 
   it('should be created', () => {
@@ -32,8 +36,21 @@ describe('CollectionService', () => {
     });
   });
 
-  it('should get active default collection', (done) => {
-    const collection: Collection = {
+  it('should get active collection', (done) => {
+    const collection1: Collection = {
+      active: true,
+      createdAt: new Date().getTime(),
+      gramaticalCategories: undefined,
+      id: undefined,
+      language: undefined,
+      status: true,
+      tags: [],
+      terms: [],
+      thematicCategories: [],
+      updatedAt: new Date().getTime(),
+    };
+
+    const collection2: Collection = {
       active: false,
       createdAt: new Date().getTime(),
       gramaticalCategories: undefined,
@@ -46,11 +63,16 @@ describe('CollectionService', () => {
       updatedAt: new Date().getTime(),
     };
 
-    service.addCollection(collection).then((c: Collection) => {
-      service.setActiveCollection(collection.id).then(() => {
-        service.getActiveCollection().then((cActive: Collection) => {
-          expect(cActive).toEqual(c);
-          done();
+    service.addCollection(collection1).then((c1: Collection) => {
+      service.addCollection(collection2).then((c2: Collection) => {
+        service.getActiveCollection().then(caPre => {
+          expect(caPre.id).toBe(c1.id);
+          service.setActiveCollection(c2.id).then(() => {
+            service.getActiveCollection().then((cActive: Collection) => {
+              expect(cActive.id).toEqual(c2.id);
+              done();
+            });
+          });
         });
       });
     });
@@ -80,13 +102,54 @@ describe('CollectionService', () => {
   });
 
   it('should remove collection', (done) => {
-    const id = 1;
-    service.removeCollection(id).then(_ => {
-      service.getCollections().then((collections: Collection[]) => {
-        const filtered = collections.filter(c => c.id === id);
-        expect(filtered.length).toBe(1);
-        expect(filtered[0].status).toBeFalsy();
-        done();
+    const newCollection: Collection = {
+      active: false,
+      createdAt: new Date().getTime(),
+      gramaticalCategories: undefined,
+      id: undefined,
+      language: undefined,
+      status: true,
+      tags: [],
+      terms: [],
+      thematicCategories: [],
+      updatedAt: new Date().getTime(),
+    };
+
+    service.addCollection(newCollection).then((collection: Collection) => {
+      service.removeCollection(collection.id).then(_ => {
+        service.getCollections().then((collections: Collection[]) => {
+          const filtered = collections.filter(c => c.id === collection.id);
+          expect(filtered.length).toBe(1);
+          expect(filtered[0].status).toBeFalsy();
+          done();
+        });
+      });
+    });
+  });
+
+  it('should delete active collection', (done) => {
+    const newCollection: Collection = {
+      active: false,
+      createdAt: new Date().getTime(),
+      gramaticalCategories: undefined,
+      id: undefined,
+      language: undefined,
+      status: true,
+      tags: [],
+      terms: [],
+      thematicCategories: [],
+      updatedAt: new Date().getTime(),
+    };
+
+    service.addCollection(newCollection).then((collection: Collection) => {
+      service.setActiveCollection(collection.id).then(() => {
+        service.removeCollection(collection.id).then(() => {
+          service.getCollections().then((collections: Collection[]) => {
+            const filtered = collections.filter(c => c.id === collection.id);
+            expect(filtered?.[0].status).toBeFalsy();
+            done();
+          });
+        });
       });
     });
   });
@@ -105,15 +168,17 @@ describe('CollectionService', () => {
       updatedAt: new Date().getTime(),
     };
 
-    service.addCollection(collection).then((c: Collection) => {
-      service.getActiveCollection().then((ca: Collection) => {
-        expect(c).not.toEqual(ca);
-        service.setActiveCollection(c.id).then(ca2 => {
-          expect(c).not.toEqual(ca);
-          expect(ca2).toEqual(c);
-          service.getActiveCollection().then((ca3: Collection) => {
-            expect(c).toEqual(ca3);
-            done();
+    service.addCollection(collection).then((newC1: Collection) => {
+      service.addCollection(collection).then((newC2: Collection) => {
+        service.getActiveCollection().then((activeC0: Collection) => {
+          expect(newC1.id).not.toEqual(activeC0?.id);
+          service.setActiveCollection(newC1.id).then(activeC1 => {
+            expect(activeC1.id).not.toEqual(activeC0?.id);
+            expect(activeC1.id).toEqual(newC1.id);
+            service.getActiveCollection().then((activeC2: Collection) => {
+              expect(activeC2).toEqual(activeC1);
+              done();
+            });
           });
         });
       });

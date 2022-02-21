@@ -81,4 +81,13 @@ describe('StorageService', () => {
       done();
     });
   });
+
+  it('should remove existing element', (done) => {
+    service.remove('sample').then(r => {
+      service.get('sample').then(e => {
+        expect(e).toBeNull();
+        done();
+      });
+    });
+  });
 });

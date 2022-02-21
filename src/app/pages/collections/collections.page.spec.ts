@@ -44,7 +44,8 @@ describe('CollectionsPage', () => {
     expect(backButton.attributes.defaultHref).toEqual('home');
   });
 
-  it('should contains tittle', () => {
-    expect(fixture.debugElement.query(By.css('ion-header ion-title')).properties.innerText).toEqual('Collections');
+  it('should contains title', () => {
+    const element = fixture.debugElement.query(By.css('ion-header ion-title'));
+    expect(element.nativeElement.innerText).toBe('Collections');
   });
 });

@@ -29,12 +29,21 @@ export class CollectionService {
 
   public async setActiveCollection(id: number): Promise<Collection> {
     const collections: Collection[] = await this.getCollections();
-    const collection = collections.find(c => c.status && c.id === id);
-    if (!collection) {
+    let found;
+    const filtered = collections.map((c) => {
+      c.active = false;
+      if (c.id === id && c.status) {
+        c.active = true;
+        found = c;
+      }
+      return c;
+    });
+    if (!found) {
       console.error('Could not find collection');
       return;
     }
-    this.activeCollection = collection;
+    this.activeCollection = found;
+    await this.storageService.set('collections', filtered);
     return this.activeCollection;
   }
 
@@ -47,15 +56,15 @@ export class CollectionService {
     return collection;
   }
 
-  public async removeCollection(id): Promise<void> {
+  public async removeCollection(id: number): Promise<void> {
     const collections = await this.getCollections();
     const filtered = collections.map(c => {
       if (c.id === id) {
-        c.status = false;
         if (c.active) {
           c.active = false;
           this.activeCollection = collections.find(x => x.status);
         }
+        c.status = false;
       }
       return c;
     });
