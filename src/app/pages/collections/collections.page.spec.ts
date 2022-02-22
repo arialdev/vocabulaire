@@ -1,9 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
-
 import {CollectionsPage} from './collections.page';
 import {By} from '@angular/platform-browser';
-import {HomePage} from '../home/home.page';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {Drivers} from '@ionic/storage';
@@ -15,11 +12,6 @@ describe('CollectionsPage', () => {
   let fixture: ComponentFixture<CollectionsPage>;
 
   beforeEach(waitForAsync(() => {
-    // TestBed.configureTestingModule({
-    //   declarations: [CollectionsPage],
-    //   imports: [IonicModule.forRoot()]
-    // }).compileComponents();
-
     TestBed.configureTestingModule({
       declarations: [CollectionsPage],
       imports: [IonicStorageModule.forRoot({
@@ -44,8 +36,4 @@ describe('CollectionsPage', () => {
     expect(backButton.attributes.defaultHref).toEqual('home');
   });
 
-  it('should contains title', () => {
-    const element = fixture.debugElement.query(By.css('ion-header ion-title'));
-    expect(element.nativeElement.innerText).toBe('Collections');
-  });
 });

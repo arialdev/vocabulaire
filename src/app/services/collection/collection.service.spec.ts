@@ -169,16 +169,14 @@ describe('CollectionService', () => {
     };
 
     service.addCollection(collection).then((newC1: Collection) => {
-      service.addCollection(collection).then((newC2: Collection) => {
-        service.getActiveCollection().then((activeC0: Collection) => {
-          expect(newC1.id).not.toEqual(activeC0?.id);
-          service.setActiveCollection(newC1.id).then(activeC1 => {
-            expect(activeC1.id).not.toEqual(activeC0?.id);
-            expect(activeC1.id).toEqual(newC1.id);
-            service.getActiveCollection().then((activeC2: Collection) => {
-              expect(activeC2).toEqual(activeC1);
-              done();
-            });
+      service.getActiveCollection().then((activeC0: Collection) => {
+        expect(newC1.id).not.toEqual(activeC0?.id);
+        service.setActiveCollection(newC1.id).then(activeC1 => {
+          expect(activeC1.id).not.toEqual(activeC0?.id);
+          expect(activeC1.id).toEqual(newC1.id);
+          service.getActiveCollection().then((activeC2: Collection) => {
+            expect(activeC2).toEqual(activeC1);
+            done();
           });
         });
       });
