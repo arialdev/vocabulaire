@@ -71,3 +71,12 @@
 .collection {
   --min-height: 60px;
 }
+
+.no-collections-message {
+  color: #2a2a2a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
