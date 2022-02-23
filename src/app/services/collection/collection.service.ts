@@ -71,9 +71,8 @@ export class CollectionService {
     await this.storageService.set('collections', filtered);
   }
 
-  public async getCollections() {
-    const collections: Collection[] = await this.storageService.get('collections');
-    return collections;
+  public async getCollections(): Promise<Collection[]> {
+    return this.storageService.get('collections');
   }
 
   private async getNextFreeID(): Promise<number> {

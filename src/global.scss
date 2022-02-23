@@ -25,13 +25,6 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
-@font-face {
-  font-family: "Lemon Milk";
-  src: url(assets/fonts/LEMONMILK-Regular.otf);
-}
-
 /* Colors */
 .ion-color-primary-blue {
   --ion-color-base: var(--ion-color-primary-blue);
@@ -41,3 +34,11 @@
   --ion-color-shade: var(--ion-color-primary-blue-shade);
   --ion-color-tint: var(--ion-color-primary-blue-tint);
 }
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Lemon Milk";
+  src: url(assets/fonts/LEMONMILK-Regular.otf);
+}
+

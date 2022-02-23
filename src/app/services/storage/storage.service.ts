@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {Collection} from '../../interfaces/collection';
-import {Language} from '../../interfaces/language';
-import {Term} from '../../interfaces/term';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +14,18 @@ export class StorageService {
     this.init();
   }
 
-  public set(key: string, value: any): Promise<any> {
-    if (this.myStorage) {
-      return this.myStorage.set(key, value);
-    } else {
-      return this.init().then(_ => this.set(key, value));
+  public async set(key: string, value: any): Promise<any> {
+    if (!this.myStorage) {
+      await this.init();
     }
+    return this.myStorage.set(key, value);
   }
 
-  public get(key: string): Promise<any> {
-    if (this.myStorage) {
-      return this.myStorage.get(key);
-    } else {
-      return this.init().then(_ => this.get(key));
+  public async get(key: string): Promise<any> {
+    if (!this.myStorage) {
+      await this.init();
     }
+    return this.myStorage.get(key);
   }
 
   public remove(key: string) {
@@ -42,7 +38,7 @@ export class StorageService {
 
   public async getNextFreeId(key: string): Promise<number> {
     if (!this.myStorage) {
-      return this.init().then(_ => this.getNextFreeId(key));
+      await this.init();
     }
 
     const values = await this.myStorage.get(key);
@@ -81,44 +77,4 @@ export class StorageService {
     const collections: Collection[] = [];
     await this.set('collections', collections);
   }
-
-  // private async mockCollection() {
-  //   const spanish: Language = {
-  //     id: 1,
-  //     name: 'Spanish',
-  //     icon: 'assets/img/emojis/es.png',
-  //     status: true,
-  //     createdAt: new Date().getTime(),
-  //     updatedAt: new Date().getTime(),
-  //     prefix: 'es'
-  //   };
-  //
-  //   const term1: Term = {
-  //     collection: undefined,
-  //     createdAt: new Date().getTime(),
-  //     originalTerm: 'Mano',
-  //     gramaticalCategories: [],
-  //     id: 1,
-  //     notes: 'No confundir con manecilla de reloj',
-  //     thematicCategories: [],
-  //     translatedTerm: 'Hand',
-  //     updatedAt: new Date().getTime(),
-  //     status: true,
-  //   };
-  //
-  //   const collection: Collection = {
-  //     id: 1,
-  //     status: true,
-  //     createdAt: new Date().getTime(),
-  //     gramaticalCategories: [],
-  //     active: true,
-  //     language: spanish,
-  //     updatedAt: new Date().getTime(),
-  //     tags: [],
-  //     terms: [term1],
-  //     thematicCategories: [],
-  //   };
-  //   const collections: Collection[] = [collection];
-  //   await this.myStorage.set('collections', collections);
-  // }
 }

@@ -4,9 +4,28 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Collections</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="new-collection" fill="clear" color="primary">
+        New
+      </ion-button>
+      <ion-button fill="clear" color="primary">
+        Manage
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
+    <ion-item class="collection" detail="false" button (click)="setActive(collection.id)" *ngFor="let collection of collections">
+      <div class="collection-box" [ngClass]="{'collection-active':collection.active}">
+        <ion-img [src]="collection.language.icon" class="collection-icon"></ion-img>
+        <div class="language-prefix">{{collection.language.prefix}}</div>
+        <div class="collection-name">{{collection.language.name}}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ng-template #no_collections>
+    <p class="no-terms-message"> Add a new to start learning right now!</p>
+  </ng-template>
 </ion-content>
