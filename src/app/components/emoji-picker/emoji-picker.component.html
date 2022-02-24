@@ -1,0 +1,12 @@
+<div class="modal-background"></div>
+<div class="component">
+  <div>
+
+  </div>
+  <div class="emoji-picker">
+    <ion-button class="emoji-listed" fill="clear" *ngFor="let emoji of emojis" slot="icon-only">
+      <ion-img  [src]="emoji" (click)="setEmoji()"></ion-img>
+    </ion-button>
+  </div>
+</div>
+

@@ -6,11 +6,6 @@
       </ion-button>
     </ion-buttons>
     <ion-title>New collection</ion-title>
-    <!--    <ion-buttons slot="end">-->
-    <!--      <ion-button (click)="saveCollection()" class="save-collection" fill="clear" color="primary" slot="icon-only">-->
-    <!--        <ion-icon name="save-outline"></ion-icon>-->
-    <!--      </ion-button>-->
-    <!--    </ion-buttons>-->
   </ion-toolbar>
 </ion-header>
 
@@ -26,8 +21,10 @@
     </ion-item>
     <ion-item>
       <ion-label position="fixed">Icon</ion-label>
-      <ion-input formControlName="icon" type="text" required></ion-input>
+      <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸">
+      </ion-input>
     </ion-item>
     <ion-button class="submit-button" type="submit" expand="block">Submit</ion-button>
   </form>
+  <app-emoji-picker></app-emoji-picker>
 </ion-content>

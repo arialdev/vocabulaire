@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 import {NewCollectionPageRoutingModule} from './new-collection-routing.module';
 
 import {NewCollectionPage} from './new-collection.page';
+import {EmojiPickerComponent} from "../../../components/emoji-picker/emoji-picker.component";
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import {NewCollectionPage} from './new-collection.page';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [NewCollectionPage]
+  declarations: [NewCollectionPage, EmojiPickerComponent]
 })
 export class NewCollectionPageModule {
 }

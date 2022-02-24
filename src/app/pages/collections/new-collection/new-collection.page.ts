@@ -10,7 +10,7 @@ export class NewCollectionPage implements OnInit {
 
   collectionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
       prefix: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
@@ -21,11 +21,11 @@ export class NewCollectionPage implements OnInit {
   ngOnInit() {
   }
 
+
   saveCollection() {
   }
 
   onSubmit() {
     console.log(this.collectionForm.status);
   }
-
 }
