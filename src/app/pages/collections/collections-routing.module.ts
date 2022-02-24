@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CollectionsPage
+  },
+  {
+    path: 'new',
+    loadChildren: () => import('./new-collection/new-collection.module').then( m => m.NewCollectionPageModule)
   }
 ];
 
