@@ -82,9 +82,9 @@ describe('CollectionsPage', () => {
   });
 
   it('should contains back button', () => {
-    const backButton = fixture.debugElement.query(By.css('ion-header ion-back-button'));
+    const backButton = fixture.debugElement.query(By.css('ion-header .back-button'));
     expect(backButton).toBeTruthy();
-    expect(backButton.attributes.defaultHref).toEqual('home');
+    expect(backButton.attributes.href).toEqual('/home');
   });
 
   it('should list collections', () => {
@@ -109,7 +109,7 @@ describe('CollectionsPage', () => {
     await service.addCollection(mockInactiveCollection);
     await component.ngOnInit();
     await component.setActive(mockInactiveCollection.id);
-    const actives = component.collections.filter(c => c.active);
+    const actives = component.collections.filter(c => c.active && c.status);
     expect(actives.length).toBe(1);
     expect(actives[0].id).toBe(mockInactiveCollection.id);
   });

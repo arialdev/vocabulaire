@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms';
+import {Collection} from '../../../classes/collection/collection';
+import {CollectionService} from '../../../services/collection/collection.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-collection',
@@ -12,7 +15,7 @@ export class NewCollectionPage implements OnInit {
   selectedEmoji: string;
   modalStatus: boolean;
 
-  constructor() {
+  constructor(private collectionService: CollectionService, public router: Router) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
       prefix: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
@@ -22,19 +25,24 @@ export class NewCollectionPage implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedEmoji = 'assets/img/emojis/people/smile.png';
+    this.selectEmoji('assets/img/emojis/people/smile.png');
   }
 
-
-  saveCollection() {
-  }
-
-  onSubmit() {
-    console.log(this.collectionForm.status);
+  async onSubmit() {
+    if (this.collectionForm.valid) {
+      const collection: Collection = new Collection(
+        this.collectionForm.get('name').value,
+        this.collectionForm.get('prefix').value,
+        this.collectionForm.get('icon').value
+      );
+      await this.collectionService.addCollection(collection);
+      await this.router.navigate(['collections']);
+    }
   }
 
   selectEmoji(e) {
     this.selectedEmoji = e ?? this.selectedEmoji;
+    this.collectionForm.patchValue({icon: this.selectedEmoji});
     this.modalStatus = false;
   }
 
