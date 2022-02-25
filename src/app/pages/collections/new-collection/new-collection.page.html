@@ -21,10 +21,12 @@
     </ion-item>
     <ion-item>
       <ion-label position="fixed">Icon</ion-label>
-      <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸">
-      </ion-input>
+      <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸"></ion-input>
+      <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
+        <ion-img [src]="this.selectedEmoji"></ion-img>
+      </ion-button>
     </ion-item>
     <ion-button class="submit-button" type="submit" expand="block">Submit</ion-button>
   </form>
-  <app-emoji-picker></app-emoji-picker>
+  <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
 </ion-content>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-emoji-picker',
@@ -7,13 +7,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class EmojiPickerComponent implements OnInit {
 
+  @Output() newEmojiEvent: EventEmitter<string>;
+  selectedEmoji: string;
   categories: string[];
   emojis;
   selectedCategory: string;
-  selectedEmoji: string;
-
 
   constructor() {
+    this.newEmojiEvent = new EventEmitter<string>();
     this.emojis = {
       activities: [
         'badminton.png',
@@ -1838,7 +1839,6 @@ export class EmojiPickerComponent implements OnInit {
         'worm.png',
         'zebra.png']
     };
-
     this.categories = ['people',
       'animals',
       'food',
@@ -1854,11 +1854,16 @@ export class EmojiPickerComponent implements OnInit {
     this.selectedCategory = this.categories[0];
   }
 
-  setEmoji(e) {
-    this.selectedEmoji = e;
-  }
-
   selectCategory(e) {
     this.selectedCategory = e;
+  }
+
+  setEmoji(e) {
+    this.selectedEmoji = e;
+    this.newEmojiEvent.emit(e);
+  }
+
+  closeModal() {
+    this.newEmojiEvent.emit(this.selectedEmoji);
   }
 }
