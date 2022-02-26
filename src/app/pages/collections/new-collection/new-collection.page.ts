@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-new-collection',
@@ -14,8 +15,14 @@ export class NewCollectionPage implements OnInit {
   collectionForm: FormGroup;
   selectedEmoji: string;
   modalStatus: boolean;
+  title: string;
+  private editingId: number;
 
-  constructor(private collectionService: CollectionService, public router: Router) {
+  constructor(
+    private collectionService: CollectionService,
+    private route: ActivatedRoute,
+    private navCtrl: NavController
+  ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
       prefix: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
@@ -25,7 +32,14 @@ export class NewCollectionPage implements OnInit {
   }
 
   ngOnInit() {
-    this.selectEmoji('assets/img/emojis/people/smile.png');
+    this.route.queryParamMap.subscribe(params => {
+      const id = params.get('id');
+      if (!id) {
+        this.newMode();
+      } else {
+        this.editMode(Number(id));
+      }
+    });
   }
 
   async onSubmit() {
@@ -35,8 +49,12 @@ export class NewCollectionPage implements OnInit {
         this.collectionForm.get('prefix').value,
         this.collectionForm.get('icon').value
       );
-      await this.collectionService.addCollection(collection);
-      await this.router.navigate(['collections']);
+      if (this.editingId) {
+        await this.collectionService.updateCollectionById(this.editingId, collection);
+      } else {
+        await this.collectionService.addCollection(collection);
+      }
+      await this.navCtrl.navigateBack('collections');
     }
   }
 
@@ -48,5 +66,26 @@ export class NewCollectionPage implements OnInit {
 
   toggleModal() {
     this.modalStatus = !this.modalStatus;
+  }
+
+  private newMode() {
+    this.selectEmoji('assets/img/emojis/people/smile.png');
+    this.title = 'New collection';
+    this.editingId = null;
+  }
+
+  private async editMode(id: number) {
+    if (isNaN(id)) {
+      return this.newMode();
+    }
+    const collection: Collection = await this.collectionService.getCollectionById(id);
+    this.collectionForm.patchValue({
+      name: collection.language.name,
+      prefix: collection.language.prefix,
+      icon: collection.language.icon
+    });
+    this.selectEmoji(collection.language.icon);
+    this.title = 'Edit collection';
+    this.editingId = id;
   }
 }
