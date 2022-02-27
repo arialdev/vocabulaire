@@ -26,7 +26,18 @@
         <ion-img [src]="this.selectedEmoji"></ion-img>
       </ion-button>
     </ion-item>
-    <ion-button class="submit-button" type="submit" expand="block">Submit</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="editingId">
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="submit-button" type="submit" expand="block">{{editingId ? 'Save' : 'Submit'}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </form>
   <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
 </ion-content>

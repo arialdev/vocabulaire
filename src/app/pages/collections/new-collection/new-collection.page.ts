@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-new-collection',
@@ -16,12 +16,13 @@ export class NewCollectionPage implements OnInit {
   selectedEmoji: string;
   modalStatus: boolean;
   title: string;
-  private editingId: number;
+  editingId: number;
 
   constructor(
     private collectionService: CollectionService,
     private route: ActivatedRoute,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public alertController: AlertController
   ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -66,6 +67,27 @@ export class NewCollectionPage implements OnInit {
 
   toggleModal() {
     this.modalStatus = !this.modalStatus;
+  }
+
+  async openDeletionAlert() {
+    const alert = await this.alertController.create({
+      header: 'Confirm deletion',
+      message: 'This action cannot be undone',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        }, {
+          text: 'Delete',
+          handler: async () => {
+            await this.collectionService.removeCollection(this.editingId);
+            await this.navCtrl.navigateBack('collections');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   private newMode() {

@@ -58,7 +58,7 @@ export class CollectionService {
 
   public async removeCollection(id: number): Promise<void> {
     const collections = await this.getCollections();
-    const filtered = collections.map(c => {
+    const updatedCollections = collections.map(c => {
       if (c.id === id) {
         if (c.active) {
           c.active = false;
@@ -68,11 +68,12 @@ export class CollectionService {
       }
       return c;
     });
-    await this.storageService.set('collections', filtered);
+    await this.storageService.set('collections', updatedCollections);
   }
 
   public async getCollections(): Promise<Collection[]> {
-    return this.storageService.get('collections');
+    const collections: Collection[] = await this.storageService.get('collections');
+    return collections.filter(c => c.status);
   }
 
   public async getCollectionById(id: number) {
