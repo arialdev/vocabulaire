@@ -23,13 +23,13 @@ export class CollectionsPage {
   }
 
   async ionViewWillEnter() {
-    await this.getCollections();
+    await this.getCollections(true);
     this.managementStatus = false;
   }
 
   async setActive(id) {
     await this.collectionService.setActiveCollection(id);
-    await this.getCollections();
+    await this.getCollections(false);
   }
 
   toggleManage() {
@@ -47,8 +47,10 @@ export class CollectionsPage {
     }
   }
 
-  private async getCollections() {
+  private async getCollections(order: boolean = false) {
     this.collections = await this.collectionService.getCollections();
-    this.collections.sort((c) => c.active ? -1 : 1);
+    if (order) {
+      this.collections.sort((c) => c.active ? -1 : 1);
+    }
   }
 }
