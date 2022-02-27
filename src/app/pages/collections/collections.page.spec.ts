@@ -107,7 +107,7 @@ describe('CollectionsPage', () => {
   it('set active', async () => {
     await service.addCollection(mockActiveCollection);
     await service.addCollection(mockInactiveCollection);
-    await component.ngOnInit();
+    await component.ionViewWillEnter();
     await component.setActive(mockInactiveCollection.id);
     const actives = component.collections.filter(c => c.active && c.status);
     expect(actives.length).toBe(1);

@@ -33,14 +33,12 @@ export class NewCollectionPage implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(params => {
-      const id = params.get('id');
-      if (!id) {
-        this.newMode();
-      } else {
-        this.editMode(Number(id));
-      }
-    });
+    const id = this.route.snapshot.queryParamMap.get('id');
+    if (!id) {
+      this.newMode();
+    } else {
+      this.editMode(Number(id));
+    }
   }
 
   async onSubmit() {

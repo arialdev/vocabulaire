@@ -72,8 +72,7 @@ export class CollectionService {
   }
 
   public async getCollections(): Promise<Collection[]> {
-    const collections: Collection[] = await this.storageService.get('collections');
-    return collections.filter(c => c.status);
+    return this.storageService.get('collections');
   }
 
   public async getCollectionById(id: number) {

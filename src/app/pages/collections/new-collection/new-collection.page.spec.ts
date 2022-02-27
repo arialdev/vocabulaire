@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
+import {IonicModule, NavController} from '@ionic/angular';
 
 import {NewCollectionPage} from './new-collection.page';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -10,8 +10,9 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {StorageService} from '../../../services/storage/storage.service';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Collection} from '../../../interfaces/collection';
+import {NavMock} from '../../../../mocks';
 
 describe('NewCollectionPage', () => {
   let component: NewCollectionPage;
@@ -23,7 +24,23 @@ describe('NewCollectionPage', () => {
   beforeEach(waitForAsync(() => {
     routerSpy = {navigate: jasmine.createSpy('navigate')};
     TestBed.configureTestingModule({
-      providers: [{provide: Router, useValue: routerSpy}],
+      providers: [
+        {provide: Router, useValue: routerSpy},
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              queryParamMap: {
+                get: () => undefined,
+              },
+            },
+          },
+        },
+        {
+          provide: NavController,
+          useClass: NavMock,
+        },
+      ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), IonicStorageModule.forRoot({
         // eslint-disable-next-line no-underscore-dangle
@@ -66,6 +83,10 @@ describe('NewCollectionPage', () => {
       prefix: 'SL',
       icon: 'assets/img/emojis/people/smile.png',
     };
+
+    const navCtrl = fixture.debugElement.injector.get(NavController);
+    spyOn(navCtrl, 'navigateBack');
+
     component.collectionForm.patchValue(newValues);
     component.onSubmit().then(() => {
       service.getCollections().then((cs: Collection[]) => {
@@ -75,7 +96,8 @@ describe('NewCollectionPage', () => {
           c.language.icon === newValues.icon
         );
         expect(collection).toBeTruthy();
-        expect(routerSpy.navigate.calls.first().args[0]).toContain('collections');
+        expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
+        // expect(routerSpy.navigate.calls.first().args[0]).toContain('collections');
         done();
       });
     });
