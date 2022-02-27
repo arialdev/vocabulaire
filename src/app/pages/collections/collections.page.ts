@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CollectionsPage {
 
   public collections: Collection [];
-  public managementStatus: boolean;
+  public managingMode: boolean;
 
   constructor(
     private collectionService: CollectionService,
@@ -19,25 +19,25 @@ export class CollectionsPage {
     private activatedRoute: ActivatedRoute,
   ) {
     this.collections = [];
-    this.managementStatus = false;
+    this.managingMode = false;
   }
 
   async ionViewWillEnter() {
-    await this.getCollections(true);
-    this.managementStatus = false;
+    await this.getCollections();
+    this.managingMode = false;
   }
 
   async setActive(id) {
     await this.collectionService.setActiveCollection(id);
-    await this.getCollections(false);
+    await this.getCollections();
   }
 
   toggleManage() {
-    this.managementStatus = !this.managementStatus;
+    this.managingMode = !this.managingMode;
   }
 
   onItemClick(id) {
-    if (this.managementStatus) {
+    if (this.managingMode) {
       this.router.navigate(['new'], {
         relativeTo: this.activatedRoute,
         queryParams: {id}
@@ -47,9 +47,9 @@ export class CollectionsPage {
     }
   }
 
-  private async getCollections(order: boolean = false) {
+  private async getCollections() {
     this.collections = await this.collectionService.getCollections();
-    if (order) {
+    if (this.managingMode) {
       this.collections.sort((c) => c.active ? -1 : 1);
     }
   }

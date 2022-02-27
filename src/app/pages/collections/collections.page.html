@@ -8,7 +8,7 @@
     <ion-title>Collections</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear" color="primary" (click)="toggleManage()">
-        {{managementStatus ? 'SET' : 'MANAGE'}}
+        {{managingMode ? 'SET' : 'MANAGE'}}
       </ion-button>
       <ion-button href="/collections/new" class="new-collection" fill="clear" color="primary">
         New
@@ -19,7 +19,7 @@
 
 <ion-content>
   <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
-    <ion-item class="collection" [detail]="this.managementStatus" button (click)="onItemClick(collection.id)"
+    <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.id)"
               *ngFor="let collection of collections">
       <div class="collection-box" [ngClass]="{'collection-active':collection.active}">
         <ion-img [src]="collection.language.icon" class="collection-icon"></ion-img>
