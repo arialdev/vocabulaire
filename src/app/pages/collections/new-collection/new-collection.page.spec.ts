@@ -19,13 +19,11 @@ describe('NewCollectionPage', () => {
   let fixture: ComponentFixture<NewCollectionPage>;
   let storage: StorageService;
   let service: CollectionService;
-  let routerSpy;
 
   beforeEach(waitForAsync(() => {
-    routerSpy = {navigate: jasmine.createSpy('navigate')};
+
     TestBed.configureTestingModule({
       providers: [
-        {provide: Router, useValue: routerSpy},
         {
           provide: ActivatedRoute,
           useValue: {
@@ -97,7 +95,6 @@ describe('NewCollectionPage', () => {
         );
         expect(collection).toBeTruthy();
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
-        // expect(routerSpy.navigate.calls.first().args[0]).toContain('collections');
         done();
       });
     });
