@@ -28,12 +28,11 @@ export class StorageService {
     return this.myStorage.get(key);
   }
 
-  public remove(key: string) {
-    if (this.myStorage) {
-      return this.myStorage.remove(key);
-    } else {
-      return this.init().then(_ => this.remove(key));
+  public async remove(key: string) {
+    if (!this.myStorage) {
+      await this.init();
     }
+    return this.myStorage.remove(key);
   }
 
   public async getNextFreeId(key: string): Promise<number> {
