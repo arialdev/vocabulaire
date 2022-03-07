@@ -48,7 +48,7 @@ export class CollectionsPage {
   }
 
   private async getCollections() {
-    this.collections = await this.collectionService.getCollections();
+    this.collections = (await this.collectionService.getCollections()).filter((c => c.status));
     if (this.managingMode) {
       this.collections.sort((c) => c.active ? -1 : 1);
     }
