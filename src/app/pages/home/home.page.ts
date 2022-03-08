@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     const collection = await this.collectionService.getActiveCollection();
-    this.terms = collection.terms;
+    // this.terms = collection.terms;
   }
 
 }

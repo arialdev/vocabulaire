@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {Collection} from '../../interfaces/collection';
+import {AbstractStorageService} from './abstract-storage-service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StorageService {
+export class StorageService implements AbstractStorageService {
 
   private myStorage: Storage | null = null;
 

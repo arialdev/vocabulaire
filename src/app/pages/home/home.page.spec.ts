@@ -4,10 +4,9 @@ import {HomePage} from './home.page';
 import {Term} from '../../interfaces/term';
 import {Category} from '../../interfaces/category';
 import {CategoryType} from '../../interfaces/category-type';
-import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
-import {IonicStorageModule} from '@ionic/storage-angular';
-import {Drivers} from '@ionic/storage';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
+import {MockStorageService} from '../../services/storage/mock-storage.service';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -63,10 +62,7 @@ describe('HomePage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HomePage],
-      imports: [IonicStorageModule.forRoot({
-        // eslint-disable-next-line no-underscore-dangle
-        driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB],
-      }),],
+      providers: [{provide: AbstractStorageService, useClass: MockStorageService}],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {StorageService} from '../storage/storage.service';
 import {Collection} from '../../interfaces/collection';
+import {AbstractStorageService} from '../storage/abstract-storage-service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class CollectionService {
 
   private activeCollection: Collection;
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: AbstractStorageService) {
   }
 
   public async getActiveCollection(): Promise<Collection> {
@@ -61,8 +61,7 @@ export class CollectionService {
     const updatedCollections = collections.map(c => {
       if (c.id === id) {
         if (c.active) {
-          c.active = false;
-          this.activeCollection = collections.find(x => x.status);
+          throw new Error('Cannot delete active collection');
         }
         c.status = false;
       }
@@ -72,7 +71,8 @@ export class CollectionService {
   }
 
   public async getCollections(): Promise<Collection[]> {
-    return this.storageService.get('collections');
+    const collections: Collection[] = await this.storageService.get('collections');
+    return collections.filter(c => c.status);
   }
 
   public async getCollectionById(id: number) {
@@ -80,7 +80,7 @@ export class CollectionService {
     return collections.find(c => c.id === id && c.status);
   }
 
-  public async updateCollectionById(id: number, collection: Collection): Promise<void> {
+  public async updateCollectionById(id: number, collection: Collection): Promise<Collection> {
     const collections = await this.getCollections();
     const editedCollections = collections.map(c => {
       if (c.id === id) {
@@ -88,11 +88,15 @@ export class CollectionService {
         c.language.prefix = collection.language.prefix;
         c.language.icon = collection.language.icon;
         c.updatedAt = new Date().getTime();
-        c.status = true;
+        if (!c.status) {
+          c.status = true;
+          c.createdAt = new Date().getTime();
+        }
       }
       return c;
     });
     await this.storageService.set('collections', editedCollections);
+    return this.getCollectionById(id);
   }
 
   private async getNextFreeID(): Promise<number> {

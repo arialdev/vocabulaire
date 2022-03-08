@@ -1,27 +1,22 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {IonicModule, NavController} from '@ionic/angular';
-
 import {NewCollectionPage} from './new-collection.page';
 import {ReactiveFormsModule} from '@angular/forms';
-import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
-import {Drivers} from '@ionic/storage';
-import {IonicStorageModule} from '@ionic/storage-angular';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {StorageService} from '../../../services/storage/storage.service';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../interfaces/collection';
 import {NavMock} from '../../../../mocks';
+import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
+import {MockStorageService} from '../../../services/storage/mock-storage.service';
 
 describe('NewCollectionPage', () => {
   let component: NewCollectionPage;
   let fixture: ComponentFixture<NewCollectionPage>;
-  let storage: StorageService;
   let service: CollectionService;
 
   beforeEach(waitForAsync(() => {
-
     TestBed.configureTestingModule({
       providers: [
         {
@@ -34,22 +29,19 @@ describe('NewCollectionPage', () => {
             },
           },
         },
+        {provide: AbstractStorageService, useClass: MockStorageService},
         {
           provide: NavController,
           useClass: NavMock,
         },
       ],
       declarations: [NewCollectionPage],
-      imports: [IonicModule.forRoot(), IonicStorageModule.forRoot({
-        // eslint-disable-next-line no-underscore-dangle
-        driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB],
-      }), ReactiveFormsModule, RouterTestingModule],
+      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NewCollectionPage);
     component = fixture.componentInstance;
-    storage = TestBed.inject(StorageService);
     service = TestBed.inject(CollectionService);
     fixture.detectChanges();
   }));
