@@ -88,10 +88,6 @@ export class CollectionService {
         c.language.prefix = collection.language.prefix;
         c.language.icon = collection.language.icon;
         c.updatedAt = new Date().getTime();
-        if (!c.status) {
-          c.status = true;
-          c.createdAt = new Date().getTime();
-        }
       }
       return c;
     });
