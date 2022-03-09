@@ -1,32 +1,20 @@
-export class NavMock {
-  public navigateBack = (url: string | any[], options: any) => {
-  };
-  public navigateForward = (url: string | any[], options: any) => {
-  };
-  public navigateRoot = (url: string | any[], options: any) => {
-  };
+import {AlertOptions} from '@ionic/angular';
+
+export class MockNavController {
+  public navigateBack = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
+  public navigateForward = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
+  public navigateRoot = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
 }
 
-export class StorageMock {
-  private storage: Map<string, any>;
+export class MockAlertController {
+  private createAlertCalled: boolean;
+  private opts: AlertOptions;
 
-  constructor() {
-    this.storage = new Map<string, any>();
+  create(opts?: AlertOptions): Promise<HTMLIonAlertElement> {
+    this.createAlertCalled = true;
+    this.opts = opts;
+    return Promise.resolve({
+      present: (): Promise<void> => Promise.resolve()
+    } as HTMLIonAlertElement);
   }
-
-  public create = () => Promise.resolve();
-  public defineDriver = (driver: any) => Promise.resolve();
-  public get = (key: string) => Promise.resolve(this.storage.get(key));
-  public set = (key: string, data: any) => {
-    this.storage.set(key, data);
-    return Promise.resolve();
-  };
-  public remove = (key: string) => {
-    this.storage.delete(key);
-    return Promise.resolve();
-  };
-  public clear = () => {
-    this.storage = new Map<string, any>();
-    return Promise.resolve();
-  };
 }

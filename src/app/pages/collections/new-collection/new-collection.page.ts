@@ -32,16 +32,16 @@ export class NewCollectionPage implements OnInit {
     this.modalStatus = false;
   }
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.queryParamMap.get('id');
-    if (!id) {
-      this.newMode();
+    if (id) {
+      await this.editMode(Number(id));
     } else {
-      this.editMode(Number(id));
+      this.newMode();
     }
   }
 
-  async onSubmit() {
+  async onSubmit(): Promise<void> {
     if (this.collectionForm.valid) {
       const collection: Collection = new Collection(
         this.collectionForm.get('name').value,
@@ -57,17 +57,17 @@ export class NewCollectionPage implements OnInit {
     }
   }
 
-  selectEmoji(e) {
+  selectEmoji(e): void {
     this.selectedEmoji = e ?? this.selectedEmoji;
     this.collectionForm.patchValue({icon: this.selectedEmoji});
     this.modalStatus = false;
   }
 
-  toggleModal() {
+  toggleModal(): void {
     this.modalStatus = !this.modalStatus;
   }
 
-  async openDeletionAlert() {
+  async openDeletionAlert(): Promise<void> {
     const alert = await this.alertController.create({
       header: 'Confirm deletion',
       message: 'This action cannot be undone',
@@ -88,13 +88,13 @@ export class NewCollectionPage implements OnInit {
     await alert.present();
   }
 
-  private newMode() {
+  private newMode(): void {
     this.selectEmoji('assets/img/emojis/people/smile.png');
     this.title = 'New collection';
     this.editingId = null;
   }
 
-  private async editMode(id: number) {
+  private async editMode(id: number): Promise<void> {
     if (isNaN(id)) {
       return this.newMode();
     }

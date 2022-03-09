@@ -9,12 +9,12 @@ import {AbstractStorageService} from '../../services/storage/abstract-storage-se
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
-let mockLanguage1: Language;
-let mockLanguage2: Language;
-let mockActiveCollection: Collection;
-let mockInactiveCollection: Collection;
-
 describe('CollectionsPage', () => {
+  let mockLanguage1: Language;
+  let mockLanguage2: Language;
+  let mockActiveCollection: Collection;
+  let mockInactiveCollection: Collection;
+
   let component: CollectionsPage;
   let fixture: ComponentFixture<CollectionsPage>;
   let service: CollectionService;
@@ -24,6 +24,7 @@ describe('CollectionsPage', () => {
   beforeEach(waitForAsync(() => {
     routerSpy = {navigate: jasmine.createSpy('navigate')};
     mockActivatedRoute = {snapshot: {queryParamMap: {get: () => 'collections'}}};
+
     TestBed.configureTestingModule({
       declarations: [CollectionsPage],
       providers: [
