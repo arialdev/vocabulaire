@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Collection} from '../../interfaces/collection';
+import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
 
 @Injectable({
@@ -75,7 +75,7 @@ export class CollectionService {
     return collections.filter(c => c.status);
   }
 
-  public async getCollectionById(id: number) {
+  public async getCollectionById(id: number): Promise<Collection> {
     const collections = await this.getCollections();
     return collections.find(c => c.id === id && c.status);
   }
@@ -93,6 +93,18 @@ export class CollectionService {
     });
     await this.storageService.set('collections', editedCollections);
     return this.getCollectionById(id);
+  }
+
+  public sortCollections(collections: Collection[]): Collection[] {
+    return collections.sort((c1: Collection, c2: Collection) => {
+      if (!(c1.active || c2.active)) {
+        return 1;
+      }
+      if (c1.active) {
+        return -1;
+      }
+      return 1;
+    });
   }
 
   private async getNextFreeID(): Promise<number> {

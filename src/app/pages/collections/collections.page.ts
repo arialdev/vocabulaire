@@ -22,35 +22,35 @@ export class CollectionsPage {
     this.managingMode = false;
   }
 
-  async ionViewWillEnter() {
-    await this.getCollections();
+  async ionViewWillEnter(): Promise<void> {
     this.managingMode = false;
+    await this.loadCollections();
   }
 
-  async setActive(id) {
+  async setActive(id): Promise<void> {
+    const collection = this.collections.find(c => c.id === id);
     await this.collectionService.setActiveCollection(id);
-    await this.getCollections();
+    this.collections.filter(c => c.active).forEach(c => c.active = false);
+    collection.active = true;
   }
 
   toggleManage() {
     this.managingMode = !this.managingMode;
   }
 
-  onItemClick(id) {
+  async onItemClick(id): Promise<void> {
     if (this.managingMode) {
-      this.router.navigate(['new'], {
+      await this.router.navigate(['new'], {
         relativeTo: this.activatedRoute,
         queryParams: {id}
       });
     } else {
-      this.setActive(id);
+      await this.setActive(id);
     }
   }
 
-  private async getCollections() {
-    this.collections = (await this.collectionService.getCollections()).filter((c => c.status));
-    if (this.managingMode) {
-      this.collections.sort((c) => c.active ? -1 : 1);
-    }
+  private async loadCollections(): Promise<void> {
+    const collections = (await this.collectionService.getCollections()).filter((c => c.status));
+    this.collections = this.collectionService.sortCollections(collections);
   }
 }
