@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
-import {Collection} from '../../interfaces/collection';
+import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from './abstract-storage-service';
 
 @Injectable({

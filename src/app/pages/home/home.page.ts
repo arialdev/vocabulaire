@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Term} from '../../interfaces/term';
+import {Term} from '../../classes/term/term';
 import {CollectionService} from '../../services/collection/collection.service';
 
 @Component({

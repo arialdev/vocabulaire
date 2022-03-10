@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Collection} from '../../interfaces/collection';
+import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
 import {ActivatedRoute, Router} from '@angular/router';
 

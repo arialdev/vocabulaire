@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {HomePage} from './home.page';
-import {Term} from '../../interfaces/term';
+import {Term} from '../../classes/term/term';
 import {Category} from '../../interfaces/category';
 import {CategoryType} from '../../interfaces/category-type';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -46,18 +46,8 @@ describe('HomePage', () => {
     updatedAt: new Date().getTime()
   };
 
-  const term1: Term = {
-    collection: undefined,
-    createdAt: new Date().getTime(),
-    originalTerm: 'Mano',
-    gramaticalCategories: [gramaticalCategory],
-    id: 1,
-    notes: 'No confundir con manecilla de reloj',
-    thematicCategories: [thematicCategory],
-    translatedTerm: 'Hand',
-    updatedAt: new Date().getTime(),
-    status: true,
-  };
+  const term1: Term = new Term(undefined, 'Mano', 'Hand', 'No confundir con manecilla de reloj');
+  term1.setId(1);
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -128,10 +118,10 @@ describe('HomePage', () => {
     const DOM_TERMS = fixture.debugElement.queryAll(By.css('.term'));
     expect(DOM_TERMS.length).toBe(component.terms.length);
     expect(fixture.debugElement.query(By.css('.no-terms-message'))).toBeFalsy();
-    expect(DOM_TERMS[0].query(By.css('.term-name')).nativeElement.innerText).toBe(term1.originalTerm);
-    expect(DOM_TERMS[0].query(By.css('.translated-term')).nativeElement.innerText).toBe(term1.translatedTerm);
-    expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.notes);
-    expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.gramaticalCategories.length);
-    expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.thematicCategories.length);
+    expect(DOM_TERMS[0].query(By.css('.term-name')).nativeElement.innerText).toBe(term1.getOriginalTerm());
+    expect(DOM_TERMS[0].query(By.css('.translated-term')).nativeElement.innerText).toBe(term1.getTranslatedTerm());
+    expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.getNotes());
+    expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.getGramaticalCategories().length);
+    expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.getThematicCategories().length);
   });
 });

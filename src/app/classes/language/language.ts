@@ -1,6 +1,4 @@
-import * as LanguageInterface from '../../interfaces/language';
-
-export class Language implements LanguageInterface.Language {
+export class Language {
   createdAt: number;
   icon: string;
   id: number;

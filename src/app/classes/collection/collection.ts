@@ -1,10 +1,9 @@
-import * as CollectionInterface from '../../interfaces/collection';
 import {Category} from '../../interfaces/category';
 import {Tag} from '../../interfaces/tag';
-import {Term} from '../../interfaces/term';
+import {Term} from '../term/term';
 import {Language} from '../language/language';
 
-export class Collection implements CollectionInterface.Collection {
+export class Collection {
   active: boolean;
   createdAt: number;
   gramaticalCategories: Array<Category>;
