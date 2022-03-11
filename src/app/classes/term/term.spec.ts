@@ -1,6 +1,6 @@
 import {Term} from './term';
 import {Collection} from '../collection/collection';
-import {Category} from '../../interfaces/category';
+import {Category} from '../category/category';
 
 describe('Term', () => {
 
@@ -9,20 +9,15 @@ describe('Term', () => {
 
   beforeEach(() => {
     collection = new Collection('Spanish', 'ES', 'es');
-    term = new Term(collection, 'Mano', 'Hand');
+    term = new Term('Mano', 'Hand');
   });
 
   it('should create an instance', () => {
     expect(term).toBeTruthy();
-  });
-
-  it('should get undefined ID', () => {
-    expect(term.getId()).toBeUndefined();
-  });
-
-  it('should set new id', () => {
-    term.setId(5);
-    expect(term.getId()).toBe(5);
+    expect(new Term('', '')).toBeTruthy();
+    expect(new Term('a', 'b', 'c')).toBeTruthy();
+    expect(new Term('a', 'b', collection)).toBeTruthy();
+    expect(new Term('a', 'b', 'c', collection)).toBeTruthy();
   });
 
   it('should get originalTerm', () => {
@@ -30,8 +25,10 @@ describe('Term', () => {
   });
 
   it('should set originalTerm', () => {
+    spyOn(term, 'updateUpdatedTime');
     term.setOriginalTerm('Sample');
     expect(term.getOriginalTerm()).toEqual('Sample');
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should get translated', () => {
@@ -39,8 +36,10 @@ describe('Term', () => {
   });
 
   it('should set translatedTerm', () => {
+    spyOn(term, 'updateUpdatedTime');
     term.setTranslatedTerm('Sample');
     expect(term.getTranslatedTerm()).toEqual('Sample');
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should get default notes', () => {
@@ -48,9 +47,11 @@ describe('Term', () => {
   });
 
   it('should update notes', () => {
+    spyOn(term, 'updateUpdatedTime');
     const newNote = 'Esto es una nota';
     term.setNotes(newNote);
     expect(term.getNotes()).toEqual(newNote);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should get default Status', () => {
@@ -58,123 +59,77 @@ describe('Term', () => {
   });
 
   it('should change status', () => {
+    spyOn(term, 'updateUpdatedTime');
     term.setStatus(false);
     expect(term.getStatus()).toBeFalse();
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
-  it('should get collection', () => {
-    expect(term.getCollection()).toEqual(collection);
+  it('should get default collection when undefined', () => {
+    expect(term.getCollection()).toBeUndefined();
+  });
+
+  it('should get default collection', () => {
+    expect(new Term('a', 'b', 'c', collection).getCollection()).toEqual(collection);
   });
 
   it('should update collection', () => {
-    const newCollection: Collection = new Collection('French', 'FR', 'fr');
+    spyOn(term, 'updateUpdatedTime');
+    expect(term.getCollection()).toBeUndefined();
+    term.setCollection(collection);
     expect(term.getCollection()).toEqual(collection);
-    term.setCollection(newCollection);
-    expect(term.getCollection()).not.toEqual(collection);
-    expect(term.getCollection()).toEqual(newCollection);
-  });
-
-  it('should get creation time', () => {
-    expect(term.getCreationTime()).not.toBeNaN();
-  });
-
-  it('should get update time', () => {
-    expect(term.getUpdatingTime()).not.toBeNaN();
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should add gramaticalCategory', () => {
-    const category: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category: Category = new Category('Cuerpo', undefined);
     term.addGramaticalCategory(category);
     expect(term.getGramaticalCategories()).toContain(category);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should add thematicCategory', () => {
-    const category: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category: Category = new Category('Cuerpo', undefined);
     term.addThematicCategory(category);
     expect(term.getThematicCategories()).toContain(category);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should add multiple gramatical categories', () => {
-    const category1: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
-    const category2: Category = {
-      id: 2,
-      name: 'infantil',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category1: Category = new Category('Cuerpo', undefined);
+    const category2: Category = new Category('Infantil', undefined);
     term.addGramaticalCategories([category1, category2]);
     expect(term.getGramaticalCategories()).toEqual([category1, category2]);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should add multiple thematic categories', () => {
-    const category1: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
-    const category2: Category = {
-      id: 2,
-      name: 'infantil',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category1: Category = new Category('Cuerpo', undefined);
+    const category2: Category = new Category('Infantil', undefined);
     term.addThematicCategories([category1, category2]);
     expect(term.getThematicCategories()).toEqual([category1, category2]);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should remove gramatical categories', () => {
-    const category: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category: Category = new Category('Cuerpo', undefined);
     term.addGramaticalCategory(category);
-    expect(term.removeGramaticalCategory(category.id)).toEqual(category);
+    expect(term.removeGramaticalCategory(category.getId())).toEqual(category);
     expect(term.getGramaticalCategories()).toEqual([]);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should remove thematic categories', () => {
-    const category: Category = {
-      id: 1,
-      name: 'cuerpo',
-      status: true,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      type: undefined,
-    };
+    spyOn(term, 'updateUpdatedTime');
+    const category: Category = new Category('Cuerpo', undefined);
     term.addThematicCategory(category);
-    expect(term.removeThematicCategory(category.id)).toEqual(category);
+    expect(term.removeThematicCategory(category.getId())).toEqual(category);
     expect(term.getThematicCategories()).toEqual([]);
+    expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 });

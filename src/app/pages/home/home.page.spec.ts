@@ -2,8 +2,8 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {HomePage} from './home.page';
 import {Term} from '../../classes/term/term';
-import {Category} from '../../interfaces/category';
-import {CategoryType} from '../../interfaces/category-type';
+import {Category} from '../../classes/category/category';
+import {CategoryType} from '../../classes/categoryType/category-type';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
@@ -12,41 +12,21 @@ describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
 
-  const categoryType1: CategoryType = {
-    id: 1,
-    name: 'gramatical',
-    status: true,
-    createdAt: new Date().getTime(),
-    updatedAt: new Date().getTime()
-  };
+  const categoryType1: CategoryType = new CategoryType('gramatical');
+  categoryType1.setId(1);
 
-  const categoryType2: CategoryType = {
-    id: 2,
-    name: 'thematic',
-    status: true,
-    createdAt: new Date().getTime(),
-    updatedAt: new Date().getTime()
-  };
+  const categoryType2: CategoryType = new CategoryType('thematic');
+  categoryType1.setId(2);
 
-  const gramaticalCategory: Category = {
-    createdAt: new Date().getTime(),
-    id: 1,
-    type: categoryType1,
-    status: true,
-    name: 'Sustantivo',
-    updatedAt: new Date().getTime()
-  };
+  const gramaticalCategory: Category = new Category('Sustantivo', categoryType1);
+  gramaticalCategory.setId(1);
 
-  const thematicCategory: Category = {
-    createdAt: new Date().getTime(),
-    id: 2,
-    type: categoryType2,
-    status: true,
-    name: 'Cuerpo',
-    updatedAt: new Date().getTime()
-  };
+  const thematicCategory: Category = new Category('Cuerpo', categoryType2);
+  thematicCategory.setId(1);
 
-  const term1: Term = new Term(undefined, 'Mano', 'Hand', 'No confundir con manecilla de reloj');
+  const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj');
+  term1.addGramaticalCategory(gramaticalCategory);
+  term1.addThematicCategory(thematicCategory);
   term1.setId(1);
 
   beforeEach(waitForAsync(() => {

@@ -72,9 +72,10 @@ describe('NewCollectionPage for creation', () => {
     component.onSubmit().then(() => {
       service.getCollections().then((cs: Collection[]) => {
         const collection = cs.find(c =>
-          c.language.name === newValues.name &&
-          c.language.prefix === newValues.prefix &&
-          c.language.icon === newValues.icon
+          //TODO implement comparator
+          c.getLanguage().getName() === newValues.name &&
+          c.getLanguage().getPrefix() === newValues.prefix &&
+          c.getLanguage().getIcon() === newValues.icon
         );
         expect(collection).toBeTruthy();
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
@@ -112,28 +113,10 @@ describe('NewCollectionPage for update', () => {
   }));
 
   beforeEach(waitForAsync(() => {
-    mockInactiveCollection = {
-      active: false,
-      createdAt: new Date(2020, 1, 1).getTime(),
-      gramaticalCategories: undefined,
-      id: undefined,
-      language: {
-        createdAt: new Date(2020, 1, 1).getTime(),
-        icon: 'assets/img/emojis/fr.png',
-        id: 1,
-        name: 'French',
-        prefix: 'FR',
-        status: true,
-        updatedAt: new Date(2020, 1, 2).getTime(),
-      },
-      status: true,
-      tags: [],
-      terms: [],
-      thematicCategories: [],
-      updatedAt: new Date(2020, 1, 2).getTime(),
-    };
+    mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
     initializeCollections();
   }));
+
 
   const initializeCollections = (): Promise<void> => new Promise(res => {
     service.addCollection(mockInactiveCollection).then(() => {
@@ -151,15 +134,18 @@ describe('NewCollectionPage for update', () => {
   it('should submit collection for update', (done) => {
     const navCtrl = fixture.debugElement.injector.get(NavController);
     spyOn(navCtrl, 'navigateBack');
-    const previousDate = mockInactiveCollection.updatedAt;
+    const previousDate = mockInactiveCollection.getUpdatingTime();
+    const clock = jasmine.clock().install();
+    clock.tick(1000);
     component.onSubmit().then(() => {
-      service.getCollectionById(mockInactiveCollection.id).then(c => {
-        expect(c.updatedAt).not.toBe(previousDate);
-        expect(c.language).toEqual(mockInactiveCollection.language);
+      service.getCollectionById(mockInactiveCollection.getId()).then(c => {
+        expect(c.getUpdatingTime()).not.toBe(previousDate);
+        expect(c.getLanguage()).toEqual(mockInactiveCollection.getLanguage());
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
         done();
       });
     });
+    clock.uninstall();
   });
 
   it('should toggle mode if invalid ID provided', (done) => {

@@ -1,32 +1,35 @@
 import {Collection} from '../collection/collection';
-import {Category} from '../../interfaces/category';
+import {Category} from '../category/category';
+import {StoringItem} from '../storing-item';
 
-export class Term {
-  private id: number;
+export class Term extends StoringItem {
   private collection: Collection;
   private originalTerm: string;
   private translatedTerm: string;
   private notes: string;
   private gramaticalCategories: Array<Category>;
   private thematicCategories: Array<Category>;
-  private status: boolean;
-  private createdAt: number;
-  private updatedAt: number;
 
-  constructor(collection: Collection, originalTerm: string, translatedTerm: string, notes: string = '') {
-    this.collection = collection;
+  constructor(originalTerm: string, translatedTerm: string, notes?: string, collection?: Collection);
+  constructor(originalTerm: string, translatedTerm: string, collection: Collection);
+  constructor(originalTerm: string, translatedTerm: string, extra1?: string | Collection, extra2?: Collection) {
+    super();
     this.originalTerm = originalTerm;
     this.translatedTerm = translatedTerm;
-    this.notes = notes;
     this.gramaticalCategories = [];
     this.thematicCategories = [];
-    this.status = true;
-    this.updateCreationTime();
-    this.updateUpdatedTime();
-  }
 
-  public getId(): number {
-    return this.id;
+    if (extra2 && extra2 instanceof Collection) {
+      this.collection = extra2;
+    }
+    if (extra1 && typeof extra1 === 'string') {
+      this.notes = extra1;
+    } else {
+      this.notes = '';
+    }
+    if (extra1 && extra1 instanceof Collection) {
+      this.collection = extra1;
+    }
   }
 
   public getCollection(): Collection {
@@ -51,23 +54,6 @@ export class Term {
 
   public getThematicCategories(): Category[] {
     return this.thematicCategories;
-  }
-
-  public getStatus(): boolean {
-    return this.status;
-  }
-
-  public getCreationTime(): number {
-    return this.createdAt;
-  }
-
-  public getUpdatingTime(): number {
-    return this.updatedAt;
-  }
-
-  public setId(id: number): void {
-    this.id = id;
-    this.updateUpdatedTime();
   }
 
   public setCollection(collection: Collection): void {
@@ -111,30 +97,16 @@ export class Term {
   }
 
   public removeGramaticalCategory(categoryId: number): Category {
-    const category = this.gramaticalCategories.find(c => c.id === categoryId);
-    this.gramaticalCategories = this.gramaticalCategories.filter(c => c.id !== categoryId);
+    const category = this.gramaticalCategories.find(c => c.getId() === categoryId);
+    this.gramaticalCategories = this.gramaticalCategories.filter(c => c.getId() !== categoryId);
     this.updateUpdatedTime();
     return category;
   }
 
   public removeThematicCategory(categoryId: number): Category {
-    const category = this.thematicCategories.find(c => c.id === categoryId);
-    this.thematicCategories = this.thematicCategories.filter(c => c.id !== categoryId);
+    const category = this.thematicCategories.find(c => c.getId() === categoryId);
+    this.thematicCategories = this.thematicCategories.filter(c => c.getId() !== categoryId);
     this.updateUpdatedTime();
     return category;
-  }
-
-  public setStatus(status: boolean) {
-    this.status = status;
-    this.updateUpdatedTime();
-  }
-
-  private updateCreationTime(time: number = undefined): void {
-    this.createdAt = new Date().getTime();
-    this.updateUpdatedTime();
-  }
-
-  private updateUpdatedTime(time: number = undefined): void {
-    this.updatedAt = new Date().getTime();
   }
 }

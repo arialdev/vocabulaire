@@ -4,14 +4,11 @@ import {CollectionService} from '../../services/collection/collection.service';
 import {By} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Collection} from '../../classes/collection/collection';
-import {Language} from '../../classes/language/language';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 describe('CollectionsPage', () => {
-  let mockLanguage1: Language;
-  let mockLanguage2: Language;
   let mockActiveCollection: Collection;
   let mockInactiveCollection: Collection;
 
@@ -42,50 +39,9 @@ describe('CollectionsPage', () => {
   }));
 
   beforeEach(() => {
-    mockLanguage1 = {
-      createdAt: new Date(2020, 1, 1).getTime(),
-      icon: 'assets/img/emojis/uk.png',
-      id: 1,
-      name: 'English',
-      prefix: 'EN',
-      status: true,
-      updatedAt: new Date(2020, 1, 2).getTime(),
-    };
-
-    mockLanguage2 = {
-      createdAt: new Date(2020, 1, 1).getTime(),
-      icon: 'assets/img/emojis/fr.png',
-      id: 1,
-      name: 'French',
-      prefix: 'FR',
-      status: true,
-      updatedAt: new Date(2020, 1, 2).getTime(),
-    };
-
-    mockActiveCollection = {
-      active: true,
-      createdAt: new Date(2020, 1, 1).getTime(),
-      gramaticalCategories: undefined,
-      id: undefined,
-      language: mockLanguage1,
-      status: true,
-      tags: [],
-      terms: [],
-      thematicCategories: [],
-      updatedAt: new Date(2020, 1, 2).getTime(),
-    };
-    mockInactiveCollection = {
-      active: false,
-      createdAt: new Date(2020, 1, 1).getTime(),
-      gramaticalCategories: undefined,
-      id: undefined,
-      language: mockLanguage2,
-      status: true,
-      tags: [],
-      terms: [],
-      thematicCategories: [],
-      updatedAt: new Date(2020, 1, 2).getTime(),
-    };
+    mockActiveCollection = new Collection('English', 'EN', 'assets/img/emojis/uk.png');
+    mockActiveCollection.setActive();
+    mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
   });
 
   it('should create', () => {
@@ -119,10 +75,10 @@ describe('CollectionsPage', () => {
     await service.addCollection(mockActiveCollection);
     await service.addCollection(mockInactiveCollection);
     await component.ionViewWillEnter();
-    await component.setActive(mockInactiveCollection.id);
-    const actives = component.collections.filter(c => c.active && c.status);
+    await component.setActive(mockInactiveCollection.getId());
+    const actives = component.collections.filter(c => c.isActive() && c.getStatus());
     expect(actives.length).toBe(1);
-    expect(actives[0].id).toBe(mockInactiveCollection.id);
+    expect(actives[0].getId()).toBe(mockInactiveCollection.getId());
   });
 
   it('should toggle managing/setting mode', () => {
@@ -135,11 +91,11 @@ describe('CollectionsPage', () => {
 
   it('should click item and navigate to its sheet when managing mode', (done) => {
     component.managingMode = true;
-    mockInactiveCollection.id = 1;
+    mockInactiveCollection.setId(1);
     component.collections = [mockInactiveCollection];
     fixture.detectChanges();
 
-    component.onItemClick(mockInactiveCollection.id).then(() => {
+    component.onItemClick(mockInactiveCollection.getId()).then(() => {
       expect(routerSpy.navigate.calls.first().args[0]).toContain('new');
       done();
     });
@@ -147,13 +103,13 @@ describe('CollectionsPage', () => {
 
   it('should click item and set it active when setting mode', (done) => {
     component.managingMode = false;
-    mockInactiveCollection.id = 1;
+    mockInactiveCollection.setId(1);
     component.collections = [mockInactiveCollection];
     fixture.detectChanges();
     const spy = spyOn(component, 'setActive');
 
-    component.onItemClick(mockInactiveCollection.id).then(() => {
-      expect(spy).toHaveBeenCalledWith(mockInactiveCollection.id);
+    component.onItemClick(mockInactiveCollection.getId()).then(() => {
+      expect(spy).toHaveBeenCalledWith(mockInactiveCollection.getId());
       done();
     });
   });
@@ -162,10 +118,10 @@ describe('CollectionsPage', () => {
     component.managingMode = true;
     service.addCollection(mockInactiveCollection).then(cInactive => {
       service.addCollection(mockActiveCollection).then(cActive1 => {
-        service.addCollection({...mockInactiveCollection}).then(cInactive2 => {
-          service.addCollection({...mockInactiveCollection}).then(cInactive3 => {
+        service.addCollection(new Collection('Chinese', 'CN', 'cn')).then(cInactive2 => {
+          service.addCollection(new Collection('Spanish', 'ES', 'es')).then(cInactive3 => {
             component.ionViewWillEnter().then(() => {
-              expect(component.collections.map(c => c.id)).toEqual([cActive1.id, cInactive.id, cInactive2.id, cInactive3.id]);
+              expect(component.collections.map(c => c.getId())).toEqual([cActive1, cInactive, cInactive2, cInactive3].map(c => c.getId()));
               done();
             });
           });

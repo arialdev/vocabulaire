@@ -1,4 +1,4 @@
-import {Category} from './category';
+import {Category} from '../classes/category/category';
 
 export interface CategoryFilter {
   id: number;

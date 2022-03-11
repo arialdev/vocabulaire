@@ -28,10 +28,11 @@ export class CollectionsPage {
   }
 
   async setActive(id): Promise<void> {
-    const collection = this.collections.find(c => c.id === id);
+    const collection = this.collections.find(c => c.getId() === id);
     await this.collectionService.setActiveCollection(id);
-    this.collections.filter(c => c.active).forEach(c => c.active = false);
-    collection.active = true;
+    this.collections.filter(c => c.isActive()).forEach(c => c.setInactive());
+    //If we reload the updated collections they'd be unsorted, so we just update the view manually
+    collection.setActive();
   }
 
   toggleManage() {
@@ -50,7 +51,7 @@ export class CollectionsPage {
   }
 
   private async loadCollections(): Promise<void> {
-    const collections = (await this.collectionService.getCollections()).filter((c => c.status));
+    const collections = (await this.collectionService.getCollections()).filter((c => c.getStatus()));
     this.collections = this.collectionService.sortCollections(collections);
   }
 }

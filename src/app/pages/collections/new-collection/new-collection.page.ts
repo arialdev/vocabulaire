@@ -100,11 +100,11 @@ export class NewCollectionPage implements OnInit {
     }
     const collection: Collection = await this.collectionService.getCollectionById(id);
     this.collectionForm.patchValue({
-      name: collection.language.name,
-      prefix: collection.language.prefix,
-      icon: collection.language.icon
+      name: collection.getLanguage().getName(),
+      prefix: collection.getLanguage().getPrefix(),
+      icon: collection.getLanguage().getIcon()
     });
-    this.selectEmoji(collection.language.icon);
+    this.selectEmoji(collection.getLanguage().getIcon());
     this.title = 'Edit collection';
     this.editingId = id;
   }

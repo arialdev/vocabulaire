@@ -18,7 +18,7 @@ export class CollectionService {
     }
 
     const collections: Collection[] = await this.getCollections();
-    const collection = collections.find((c: Collection) => c.active && c.status);
+    const collection = collections.find((c: Collection) => c.isActive() && c.getStatus());
     if (!collection) {
       console.error('No active collection found!');
     } else {
@@ -31,9 +31,9 @@ export class CollectionService {
     const collections: Collection[] = await this.getCollections();
     let found;
     const filtered = collections.map((c) => {
-      c.active = false;
-      if (c.id === id && c.status) {
-        c.active = true;
+      c.setInactive();
+      if (c.getId() === id && c.getStatus()) {
+        c.setActive();
         found = c;
       }
       return c;
@@ -50,7 +50,7 @@ export class CollectionService {
 
   public async addCollection(collection: Collection): Promise<Collection> {
     const collections = await this.getCollections();
-    collection.id = await this.getNextFreeID();
+    collection.setId(await this.getNextFreeID());
     collections.push(collection);
     await this.storageService.set('collections', collections);
     return collection;
@@ -59,11 +59,11 @@ export class CollectionService {
   public async removeCollection(id: number): Promise<void> {
     const collections = await this.getCollections();
     const updatedCollections = collections.map(c => {
-      if (c.id === id) {
-        if (c.active) {
+      if (c.getId() === id) {
+        if (c.isActive()) {
           throw new Error('Cannot delete active collection');
         }
-        c.status = false;
+        c.setStatus(false);
       }
       return c;
     });
@@ -72,22 +72,19 @@ export class CollectionService {
 
   public async getCollections(): Promise<Collection[]> {
     const collections: Collection[] = await this.storageService.get('collections');
-    return collections.filter(c => c.status);
+    return collections.filter(c => c.getStatus());
   }
 
   public async getCollectionById(id: number): Promise<Collection> {
     const collections = await this.getCollections();
-    return collections.find(c => c.id === id && c.status);
+    return collections.find(c => c.getId() === id && c.getStatus());
   }
 
   public async updateCollectionById(id: number, collection: Collection): Promise<Collection> {
     const collections = await this.getCollections();
     const editedCollections = collections.map(c => {
-      if (c.id === id) {
-        c.language.name = collection.language.name;
-        c.language.prefix = collection.language.prefix;
-        c.language.icon = collection.language.icon;
-        c.updatedAt = new Date().getTime();
+      if (c.getId() === id) {
+        c.setLanguage(collection.getLanguage());
       }
       return c;
     });
@@ -97,10 +94,10 @@ export class CollectionService {
 
   public sortCollections(collections: Collection[]): Collection[] {
     return collections.sort((c1: Collection, c2: Collection) => {
-      if (!(c1.active || c2.active)) {
+      if (!(c1.isActive() || c2.isActive())) {
         return 1;
       }
-      if (c1.active) {
+      if (c1.isActive()) {
         return -1;
       }
       return 1;
