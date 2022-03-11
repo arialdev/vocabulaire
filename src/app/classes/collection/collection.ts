@@ -1,5 +1,5 @@
 import {Category} from '../category/category';
-import {Tag} from '../../interfaces/tag';
+import {Tag} from '../tag/tag';
 import {Term} from '../term/term';
 import {Language} from '../language/language';
 import {StoringItem} from '../storing-item';
@@ -27,7 +27,6 @@ export class Collection extends StoringItem {
     this.active = false;
     this.tags = [];
   }
-
 
   public getLanguage(): Language {
     return this.language;
@@ -122,8 +121,8 @@ export class Collection extends StoringItem {
   }
 
   public removeTag(id: number): Tag {
-    const tag = this.tags.find(t => t.id === id);
-    this.tags = this.tags.filter(t => t.id !== id);
+    const tag = this.tags.find(t => t.getId() === id);
+    this.tags = this.tags.filter(t => t.getId() !== id);
     this.updateUpdatedTime();
     return tag;
   }

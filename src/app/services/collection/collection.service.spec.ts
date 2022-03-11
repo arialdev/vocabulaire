@@ -22,31 +22,6 @@ describe('CollectionService', () => {
     mockActiveCollection = new Collection('English', 'EN', 'assets/img/emojis/uk.png');
     mockActiveCollection.setActive();
     mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
-
-    // mockActiveCollection = {
-    //   active: true,
-    //   createdAt: new Date(2020, 1, 1).getTime(),
-    //   gramaticalCategories: undefined,
-    //   id: undefined,
-    //   language: mockLanguage1,
-    //   status: true,
-    //   tags: [],
-    //   terms: [],
-    //   thematicCategories: [],
-    //   updatedAt: new Date(2020, 1, 2).getTime(),
-    // };
-    // mockInactiveCollection = {
-    //   active: false,
-    //   createdAt: new Date(2020, 1, 1).getTime(),
-    //   gramaticalCategories: undefined,
-    //   id: undefined,
-    //   language: mockLanguage2,
-    //   status: true,
-    //   tags: [],
-    //   terms: [],
-    //   thematicCategories: [],
-    //   updatedAt: new Date(2020, 1, 2).getTime(),
-    // };
   });
 
   it('should be created', () => {

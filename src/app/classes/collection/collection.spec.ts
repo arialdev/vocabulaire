@@ -3,7 +3,7 @@ import {Language} from '../language/language';
 import {Term} from '../term/term';
 import {Category} from '../category/category';
 import {CategoryType} from '../categoryType/category-type';
-import {Tag} from '../../interfaces/tag';
+import {Tag} from '../tag/tag';
 
 describe('Collection', () => {
 
@@ -119,15 +119,8 @@ describe('Collection', () => {
 
   it('should add tag', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const tag: Tag = {
-      id: 1,
-      icon: 'smile',
-      name: 'expressions',
-      options: undefined,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      status: true
-    };
+    const tag = new Tag('expressions', 'smile', undefined);
+    tag.setId(1);
     collection.addTag(tag);
     expect(collection.getTags()).toEqual([tag]);
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
@@ -135,17 +128,10 @@ describe('Collection', () => {
 
   it('should remove tag', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const tag: Tag = {
-      id: 1,
-      icon: 'smile',
-      name: 'expressions',
-      options: undefined,
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime(),
-      status: true
-    };
+    const tag = new Tag('expressions', 'smile', undefined);
+    tag.setId(1);
     collection.addTag(tag);
-    collection.removeTag(tag.id);
+    collection.removeTag(tag.getId());
     expect(collection.getTags()).toEqual([]);
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
   });
