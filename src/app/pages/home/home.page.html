@@ -53,20 +53,20 @@
     <ion-item class="term" lines="none" button="true" *ngFor="let term of terms">
       <div class="item-box">
         <div class="language-prefix term-label">ES</div>
-        <div class="term-name term-title">{{term.originalTerm}}</div>
+        <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
         <div class="translated-icon">
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
         </div>
-        <div class="translated-term term-title">{{term.translatedTerm}}</div>
+        <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
         <div class="term-label secondary-term-label">Note:</div>
         <div class="term-note">{{term.notes}}</div>
         <div class="categories">
           <ion-chip class="gramatical-category" color="primary-blue" disabled
-                    *ngFor="let gc of term.gramaticalCategories">
+                    *ngFor="let gc of term.getGramaticalCategories()">
             <ion-label>{{gc.name}}</ion-label>
           </ion-chip>
           <ion-chip class="thematic-category" color="primary-blue" outline disabled
-                    *ngFor="let tc of term.thematicCategories">
+                    *ngFor="let tc of term.getThematicCategories()">
             <ion-label>{{tc.name}}</ion-label>
           </ion-chip>
         </div>
