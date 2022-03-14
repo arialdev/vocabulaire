@@ -7,6 +7,7 @@ import {CategoryType} from '../../classes/categoryType/category-type';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
+import {Collection} from '../../classes/collection/collection';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -24,7 +25,9 @@ describe('HomePage', () => {
   const thematicCategory: Category = new Category('Cuerpo', categoryType2);
   thematicCategory.setId(1);
 
-  const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj');
+  const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj',
+    new Collection('', '', '')
+  );
   term1.addGramaticalCategory(gramaticalCategory);
   term1.addThematicCategory(thematicCategory);
   term1.setId(1);

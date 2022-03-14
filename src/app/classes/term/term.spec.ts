@@ -1,6 +1,7 @@
 import {Term} from './term';
 import {Collection} from '../collection/collection';
 import {Category} from '../category/category';
+import {CategoryType} from '../categoryType/category-type';
 
 describe('Term', () => {
 
@@ -9,15 +10,18 @@ describe('Term', () => {
 
   beforeEach(() => {
     collection = new Collection('Spanish', 'ES', 'es');
-    term = new Term('Mano', 'Hand');
+    term = new Term('Mano', 'Hand', collection);
   });
 
   it('should create an instance', () => {
     expect(term).toBeTruthy();
-    expect(new Term('', '')).toBeTruthy();
-    expect(new Term('a', 'b', 'c')).toBeTruthy();
-    expect(new Term('a', 'b', collection)).toBeTruthy();
     expect(new Term('a', 'b', 'c', collection)).toBeTruthy();
+    expect(new Term(JSON.parse(JSON.stringify(term)))).toEqual(term);
+    expect(new Term({
+      ...JSON.parse(JSON.stringify(term)),
+      gramaticalCategories: [new Category('noun', new CategoryType('thematic'))],
+      thematicCategories: [new Category('body', new CategoryType('gramatical'))],
+    })).toBeTruthy();
   });
 
   it('should get originalTerm', () => {
@@ -43,7 +47,8 @@ describe('Term', () => {
   });
 
   it('should get default notes', () => {
-    expect(term.getNotes()).toBeFalsy();
+    expect(term.getNotes()).toEqual('');
+    expect(new Term('a', 'b', 'c', collection).getNotes()).toEqual('c');
   });
 
   it('should update notes', () => {
@@ -65,19 +70,16 @@ describe('Term', () => {
     expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 
-  it('should get default collection when undefined', () => {
-    expect(term.getCollection()).toBeUndefined();
-  });
-
   it('should get default collection', () => {
     expect(new Term('a', 'b', 'c', collection).getCollection()).toEqual(collection);
   });
 
   it('should update collection', () => {
     spyOn(term, 'updateUpdatedTime');
-    expect(term.getCollection()).toBeUndefined();
-    term.setCollection(collection);
     expect(term.getCollection()).toEqual(collection);
+    const newCollection = new Collection('x', 'y', 'z');
+    term.setCollection(newCollection);
+    expect(term.getCollection()).toEqual(newCollection);
     expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 

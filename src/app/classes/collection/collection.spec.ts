@@ -4,6 +4,7 @@ import {Term} from '../term/term';
 import {Category} from '../category/category';
 import {CategoryType} from '../categoryType/category-type';
 import {Tag} from '../tag/tag';
+import {TagOptions} from '../tagOptions/tag-options';
 
 describe('Collection', () => {
 
@@ -14,12 +15,20 @@ describe('Collection', () => {
   beforeEach(() => {
     language = new Language('Italian', 'it', 'it.png');
     collection = new Collection(language);
-    term = new Term('sample', 'ejemplo');
+    term = new Term('sample', 'ejemplo', collection);
   });
 
   it('should create an instance', () => {
     expect(collection).toBeTruthy();
     expect(new Collection('French', 'fr', 'fr.png')).toBeTruthy();
+    expect(new Collection(JSON.parse(JSON.stringify(collection)))).toEqual(collection);
+    expect(new Collection({
+      ...JSON.parse(JSON.stringify(collection)),
+      terms: [new Term('a', 'b', collection)],
+      gramaticalCategories: [new Category('noun', new CategoryType('thematic'))],
+      thematicCategories: [new Category('body', new CategoryType('gramatical'))],
+      tags: [new Tag('a', 'b', new TagOptions(''))],
+    })).toBeTruthy();
   });
 
   it('should get language', () => {
@@ -49,10 +58,7 @@ describe('Collection', () => {
 
   it('should add multiple terms', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const newTerms = [
-      term,
-      new Term('sample2', 'ejemplo2')
-    ];
+    const newTerms = [term, new Term('sample2', 'ejemplo2', collection)];
     collection.addTerms(newTerms);
     const terms = collection.getTerms();
     expect(terms).toEqual(newTerms);

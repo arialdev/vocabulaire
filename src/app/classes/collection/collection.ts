@@ -12,14 +12,26 @@ export class Collection extends StoringItem {
   private active: boolean;
   private tags: Array<Tag>;
 
-  constructor(language: Language)
+  constructor(language: Language);
+  constructor(collectionData: any);
   constructor(languageName: string, languagePrefix: string, languageIcon: string)
-  constructor(language: Language | string, languagePrefix?: string, languageIcon?: string) {
-    super();
-    if (language instanceof Language) {
-      this.language = language;
+  constructor(data: Language | string | any, languagePrefix?: string, languageIcon?: string) {
+
+    if (data instanceof Language) {
+      super();
+      this.language = data;
+    } else if (typeof data === 'string') {
+      super();
+      this.language = new Language(data, languagePrefix, languageIcon);
     } else {
-      this.language = new Language(language, languagePrefix, languageIcon);
+      super(data.id, data.status, data.createdAt, data.updatedAt);
+      this.language = new Language(data.language);
+      this.terms = data.terms.map(t => new Term(t));
+      this.gramaticalCategories = data.gramaticalCategories.map(gc => new Category(gc));
+      this.thematicCategories = data.thematicCategories.map(tc => new Category(tc));
+      this.active = data.active;
+      this.tags = data.tags.map(t => new Tag(t));
+      return;
     }
     this.terms = [];
     this.gramaticalCategories = [];

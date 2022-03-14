@@ -5,10 +5,18 @@ export class Category extends StoringItem {
   private name: string;
   private type: CategoryType;
 
-  constructor(name: string, type: CategoryType) {
-    super();
-    this.name = name;
-    this.type = type;
+  constructor(categoryData);
+  constructor(name: string, type: CategoryType);
+  constructor(data: string | any, type?: CategoryType) {
+    if (typeof data === 'string') {
+      super();
+      this.name = data;
+      this.type = type;
+    } else {
+      super(data.id, data.status, data.createdAt, data.updatedAt);
+      this.name = data.name;
+      this.type = data.type ? new CategoryType(data.type) : undefined;
+    }
   }
 
   public getName(): string {

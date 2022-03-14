@@ -5,11 +5,21 @@ export class Language extends StoringItem {
   private prefix: string;
   private icon: string;
 
-  constructor(name: string, prefix: string, icon: string) {
-    super();
-    this.name = name;
-    this.prefix = prefix.toUpperCase();
-    this.icon = icon;
+  constructor(languageData: any);
+  constructor(name: string, prefix: string, icon: string);
+  constructor(language: string | any, prefix?: string, icon?: string) {
+
+    if (typeof language === 'string') {
+      super();
+      this.name = language;
+      this.prefix = prefix.toUpperCase();
+      this.icon = icon;
+    } else {
+      super(language.id, language.status, language.createdAt, language.updatedAt);
+      this.name = language.name;
+      this.prefix = language.prefix;
+      this.icon = language.icon;
+    }
   }
 
   public getName(): string {

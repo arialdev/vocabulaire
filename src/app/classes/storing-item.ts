@@ -4,11 +4,13 @@ export class StoringItem {
   private createdAt: number;
   private updatedAt: number;
 
-  constructor() {
-    this.id = undefined;
-    this.status = true;
-    this.updateCreationTime();
-    this.updateUpdatedTime();
+  constructor();
+  constructor(id: number, status: boolean, createdAt: number, updatedAt: number);
+  constructor(id?: number, status?: boolean, createdAt?: number, updatedAt?: number) {
+    this.id = id;
+    this.status = status ?? true;
+    this.updateCreationTime(createdAt);
+    this.updateUpdatedTime(updatedAt);
   }
 
   public getId(): number {
@@ -37,12 +39,16 @@ export class StoringItem {
     return this.updatedAt;
   }
 
-  public updateUpdatedTime(): void {
-    this.updatedAt = new Date().getTime();
+  public updateUpdatedTime(): void;
+  public updateUpdatedTime(datetime: number): void;
+  public updateUpdatedTime(time?: number): void {
+    this.updatedAt = time ?? new Date().getTime();
   }
 
-  private updateCreationTime(): void {
-    this.createdAt = new Date().getTime();
+  protected updateCreationTime(): void;
+  protected updateCreationTime(datetime: number): void;
+  protected updateCreationTime(time?: number): void {
+    this.createdAt = time ?? new Date().getTime();
     this.updateUpdatedTime();
   }
 }

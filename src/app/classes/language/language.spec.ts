@@ -8,6 +8,7 @@ describe('Language', () => {
   });
   it('should create an instance', () => {
     expect(language).toBeTruthy();
+    expect(new Language(JSON.parse(JSON.stringify(language)))).toEqual(language);
   });
 
   it('should get name', () => {

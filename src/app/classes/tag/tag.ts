@@ -6,11 +6,20 @@ export class Tag extends StoringItem {
   private icon: string;
   private options: TagOptions;
 
-  constructor(name: string, icon: string, options: TagOptions) {
-    super();
-    this.name = name;
-    this.icon = icon;
-    this.options = options;
+  constructor(tagData);
+  constructor(name: string, icon: string, options: TagOptions);
+  constructor(data: string | any, icon?: string, options?: TagOptions) {
+    if (typeof data === 'string') {
+      super();
+      this.name = data;
+      this.icon = icon;
+      this.options = options;
+    } else {
+      super(data.id, data.status, data.createdAt, data.updatedAt);
+      this.name = data.name;
+      this.icon = data.icon;
+      this.options = new TagOptions(data.options);
+    }
   }
 
   public getName(): string {

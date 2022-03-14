@@ -134,18 +134,14 @@ describe('NewCollectionPage for update', () => {
   it('should submit collection for update', (done) => {
     const navCtrl = fixture.debugElement.injector.get(NavController);
     spyOn(navCtrl, 'navigateBack');
-    const previousDate = mockInactiveCollection.getUpdatingTime();
-    const clock = jasmine.clock().install();
-    clock.tick(1000);
+    spyOn(Collection.prototype, 'updateUpdatedTime');
     component.onSubmit().then(() => {
       service.getCollectionById(mockInactiveCollection.getId()).then(c => {
-        expect(c.getUpdatingTime()).not.toBe(previousDate);
-        expect(c.getLanguage()).toEqual(mockInactiveCollection.getLanguage());
+        expect(c.updateUpdatedTime).toHaveBeenCalled();
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
         done();
       });
     });
-    clock.uninstall();
   });
 
   it('should toggle mode if invalid ID provided', (done) => {

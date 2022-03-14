@@ -13,12 +13,20 @@ export class TagOptions extends StoringItem {
   private gramaticalCategoriesOptions: CategoryFilter[];
   private thematicCategoriesOptions: CategoryFilter[];
 
-
-  constructor(searchText: string) {
-    super();
-    this.searchText = searchText;
-    this.gramaticalCategoriesOptions = [];
-    this.thematicCategoriesOptions = [];
+  constructor(searchText: string)
+  constructor(dataOptions)
+  constructor(data: string | any) {
+    if (typeof data === 'string') {
+      super();
+      this.searchText = data;
+      this.gramaticalCategoriesOptions = [];
+      this.thematicCategoriesOptions = [];
+    } else {
+      super(data.id, data.status, data.createdAt, data.updatedAt);
+      this.searchText = data.searchText;
+      this.gramaticalCategoriesOptions = data.gramaticalCategoriesOptions.map(gco => new CategoryFilter(gco));
+      this.thematicCategoriesOptions = data.thematicCategoriesOptions.map(gto => new CategoryFilter(gto));
+    }
   }
 
   public getSearchText(): string {

@@ -14,6 +14,7 @@ describe('CategoryFilter', () => {
   it('should create an instance', () => {
     expect(categoryFilter).toBeTruthy();
     expect(new CategoryFilter(category, false)).toBeTruthy();
+    expect(new CategoryFilter(JSON.parse(JSON.stringify(categoryFilter)))).toEqual(categoryFilter);
   });
 
   it('should get category', () => {

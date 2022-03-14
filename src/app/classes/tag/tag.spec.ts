@@ -12,6 +12,7 @@ describe('Tag', () => {
 
   it('should create an instance', () => {
     expect(tag).toBeTruthy();
+    expect(new Tag(JSON.parse(JSON.stringify(tag)))).toEqual(tag);
   });
 
   it('should get name', () => {

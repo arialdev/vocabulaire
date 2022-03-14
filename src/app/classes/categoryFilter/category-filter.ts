@@ -5,11 +5,19 @@ export class CategoryFilter extends StoringItem {
   private category: Category;
   private selected: boolean;
 
+  constructor(categoryFilterData);
   constructor(category: Category, selected: boolean);
-  constructor(category: Category, selected: boolean) {
-    super();
-    this.category = category;
-    this.selected = selected;
+  constructor(data: Category | any, selected?: boolean) {
+    if (data instanceof Category) {
+      super();
+      this.category = data;
+      this.selected = selected;
+    } else {
+      super(data.id, data.status, data.createdAt, data.updatedAt);
+      this.category = data.category ? new Category(data.category) : undefined;
+      this.selected = data.selected ?? false;
+    }
+
   }
 
   public getCategory(): Category {

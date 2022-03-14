@@ -10,6 +10,7 @@ describe('CategoryType', () => {
 
   it('should create an instance', () => {
     expect(categoryType).toBeTruthy();
+    expect(new CategoryType(JSON.parse(JSON.stringify(categoryType)))).toEqual(categoryType);
   });
 
   it('should get name', () => {

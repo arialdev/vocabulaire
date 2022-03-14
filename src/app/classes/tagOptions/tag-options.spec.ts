@@ -1,5 +1,7 @@
 import {CategorySelection, TagOptions} from './tag-options';
 import {Category} from '../category/category';
+import {CategoryType} from '../categoryType/category-type';
+import {CategoryFilter} from '../categoryFilter/category-filter';
 
 describe('TagOptions', () => {
   let tagOptions: TagOptions;
@@ -10,6 +12,12 @@ describe('TagOptions', () => {
 
   it('should create an instance', () => {
     expect(tagOptions).toBeTruthy();
+    expect(new TagOptions(JSON.parse(JSON.stringify(tagOptions)))).toEqual(tagOptions);
+    expect(new TagOptions({
+      ...JSON.parse(JSON.stringify(tagOptions)),
+      gramaticalCategoriesOptions: [new CategoryFilter(new Category('noun', new CategoryType('gramatical')), true)],
+      thematicCategoriesOptions: [new CategoryFilter(new Category('body', new CategoryType('thematic')), false)],
+    })).toBeTruthy();
   });
 
   it('should get search text', () => {
@@ -41,12 +49,15 @@ describe('TagOptions', () => {
     let c1: Category;
     let c2: Category;
     let c3: Category;
+    let categoryType: CategoryType;
     beforeEach(() => {
-      c1 = new Category('c1', undefined);
+      categoryType = new CategoryType('sample');
+      categoryType.setId(1);
+      c1 = new Category('c1', categoryType);
       c1.setId(1);
-      c2 = new Category('c1', undefined);
+      c2 = new Category('c1', categoryType);
       c2.setId(2);
-      c3 = new Category('c1', undefined);
+      c3 = new Category('c1', categoryType);
       c3.setId(3);
       tagOptions.addGramaticalCategory(c1, false);
       tagOptions.addGramaticalCategory(c2, true);
