@@ -14,8 +14,8 @@ export class CategoryFilter extends StoringItem {
       this.selected = selected;
     } else {
       super(data.id, data.status, data.createdAt, data.updatedAt);
-      this.category = data.category ? new Category(data.category) : undefined;
-      this.selected = data.selected ?? false;
+      this.category = new Category(data.category);
+      this.selected = data.selected;
     }
 
   }
