@@ -7,6 +7,8 @@ import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Emoji} from '../../classes/emoji/emoji';
+import {EmojisMap} from '../../services/emoji/emojisMap';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -28,6 +30,7 @@ describe('CollectionsPage', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: Router, useValue: routerSpy},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
+        {provide: EmojisMap},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -39,9 +42,9 @@ describe('CollectionsPage', () => {
   }));
 
   beforeEach(() => {
-    mockActiveCollection = new Collection('English', 'EN', 'assets/img/emojis/uk.png');
+    mockActiveCollection = new Collection('English', 'EN', new Emoji('uk', 'flags'));
     mockActiveCollection.setActive();
-    mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
+    mockInactiveCollection = new Collection('French', 'FR', new Emoji('fr', 'flags'));
   });
 
   it('should create', () => {
@@ -118,8 +121,8 @@ describe('CollectionsPage', () => {
     component.managingMode = true;
     service.addCollection(mockInactiveCollection).then(cInactive => {
       service.addCollection(mockActiveCollection).then(cActive1 => {
-        service.addCollection(new Collection('Chinese', 'CN', 'cn')).then(cInactive2 => {
-          service.addCollection(new Collection('Spanish', 'ES', 'es')).then(cInactive3 => {
+        service.addCollection(new Collection('Chinese', 'CN', new Emoji('cn', 'flags'))).then(cInactive2 => {
+          service.addCollection(new Collection('Spanish', 'ES', new Emoji('es', 'flags'))).then(cInactive3 => {
             component.ionViewWillEnter().then(() => {
               expect(component.collections.map(c => c.getId())).toEqual([cActive1, cInactive, cInactive2, cInactive3].map(c => c.getId()));
               done();

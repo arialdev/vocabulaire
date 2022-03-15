@@ -2,6 +2,8 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {IonicModule} from '@ionic/angular';
 
 import {EmojiPickerComponent} from './emoji-picker.component';
+import {Emoji} from '../../classes/emoji/emoji';
+import {EmojisMap} from '../../services/emoji/emojisMap';
 
 describe('EmojiPickerComponent', () => {
   let component: EmojiPickerComponent;
@@ -10,7 +12,8 @@ describe('EmojiPickerComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EmojiPickerComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot()],
+      providers: [{provide: EmojisMap}]
     }).compileComponents();
 
     fixture = TestBed.createComponent(EmojiPickerComponent);
@@ -29,9 +32,10 @@ describe('EmojiPickerComponent', () => {
 
   it('should set emoji', () => {
     spyOn(component.newEmojiEvent, 'emit');
-    component.setEmoji('sample');
-    expect(component.selectedEmoji).toBe('sample');
-    expect(component.newEmojiEvent.emit).toHaveBeenCalledWith('sample');
+    const emoji = new Emoji('uk', 'flags');
+    component.setEmoji(emoji);
+    expect(component.selectedEmoji).toEqual(emoji);
+    expect(component.newEmojiEvent.emit).toHaveBeenCalledWith(emoji);
   });
 
   it('should close modal', () => {

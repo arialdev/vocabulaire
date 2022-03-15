@@ -8,6 +8,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {Collection} from '../../classes/collection/collection';
+import {Emoji} from '../../classes/emoji/emoji';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -26,7 +27,7 @@ describe('HomePage', () => {
   thematicCategory.setId(1);
 
   const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj',
-    new Collection('', '', '')
+    new Collection('', '', new Emoji('uk', 'flags'))
   );
   term1.addGramaticalCategory(gramaticalCategory);
   term1.addThematicCategory(thematicCategory);

@@ -1,14 +1,15 @@
 import {TagOptions} from '../tagOptions/tag-options';
 import {StoringItem} from '../storing-item';
+import {Emoji} from '../emoji/emoji';
 
 export class Tag extends StoringItem {
   private name: string;
-  private icon: string;
+  private icon: Emoji;
   private options: TagOptions;
 
   constructor(tagData);
-  constructor(name: string, icon: string, options: TagOptions);
-  constructor(data: string | any, icon?: string, options?: TagOptions) {
+  constructor(name: string, icon: Emoji, options: TagOptions);
+  constructor(data: string | any, icon?: Emoji, options?: TagOptions) {
     if (typeof data === 'string') {
       super();
       this.name = data;
@@ -17,7 +18,7 @@ export class Tag extends StoringItem {
     } else {
       super(data.id, data.status, data.createdAt, data.updatedAt);
       this.name = data.name;
-      this.icon = data.icon;
+      this.icon = new Emoji(data.icon);
       this.options = new TagOptions(data.options);
     }
   }
@@ -31,11 +32,11 @@ export class Tag extends StoringItem {
     this.updateUpdatedTime();
   }
 
-  public getIcon(): string {
+  public getIcon(): Emoji {
     return this.icon;
   }
 
-  public setIcon(icon: string): void {
+  public setIcon(icon: Emoji): void {
     this.icon = icon;
     this.updateUpdatedTime();
   }

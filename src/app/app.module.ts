@@ -13,6 +13,7 @@ import {Drivers} from '@ionic/storage';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {StorageService} from './services/storage/storage.service';
+import {EmojisMap} from './services/emoji/emojisMap';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,14 +27,10 @@ import {StorageService} from './services/storage/storage.service';
       driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB]
     })],
   providers: [
-    {
-      provide: RouteReuseStrategy,
-      useClass: IonicRouteStrategy
-    },
-    {
-      provide: AbstractStorageService,
-      useClass: StorageService
-    }],
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    {provide: AbstractStorageService, useClass: StorageService},
+    {provide: EmojisMap},
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

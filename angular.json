@@ -103,7 +103,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "codeCoverageExclude": ["src/*"],
+            "codeCoverageExclude": ["src/*", "src/app/services/emoji/emojisMap.ts"],
             "styles": [],
             "scripts": [],
             "assets": [

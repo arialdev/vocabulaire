@@ -4,6 +4,8 @@ import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
 import {AlertController, NavController} from '@ionic/angular';
+import {Emoji} from '../../../classes/emoji/emoji';
+import {EmojiService} from '../../../services/emoji/emoji.service';
 
 @Component({
   selector: 'app-new-collection',
@@ -13,7 +15,7 @@ import {AlertController, NavController} from '@ionic/angular';
 export class NewCollectionPage implements OnInit {
 
   collectionForm: FormGroup;
-  selectedEmoji: string;
+  selectedEmoji: Emoji;
   modalStatus: boolean;
   title: string;
   editingId: number;
@@ -22,7 +24,8 @@ export class NewCollectionPage implements OnInit {
     private collectionService: CollectionService,
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private emojiService: EmojiService,
   ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -46,7 +49,7 @@ export class NewCollectionPage implements OnInit {
       const collection: Collection = new Collection(
         this.collectionForm.get('name').value,
         this.collectionForm.get('prefix').value,
-        this.collectionForm.get('icon').value
+        this.selectedEmoji
       );
       if (this.editingId) {
         await this.collectionService.updateCollectionById(this.editingId, collection);
@@ -57,9 +60,13 @@ export class NewCollectionPage implements OnInit {
     }
   }
 
-  selectEmoji(e): void {
-    this.selectedEmoji = e ?? this.selectedEmoji;
-    this.collectionForm.patchValue({icon: this.selectedEmoji});
+  selectEmoji(emoji: Emoji): void {
+    if (!emoji) {
+      return;
+    }
+    const route = this.getEmojisRoute(emoji);
+    this.selectedEmoji = emoji ?? this.selectedEmoji;
+    this.collectionForm.patchValue({icon: route});
     this.modalStatus = false;
   }
 
@@ -88,8 +95,12 @@ export class NewCollectionPage implements OnInit {
     await alert.present();
   }
 
+  getEmojisRoute(emoji: Emoji): string {
+    return this.emojiService.getEmojiRoute(emoji);
+  }
+
   private newMode(): void {
-    this.selectEmoji('assets/img/emojis/people/smile.png');
+    this.selectDefaultEmoji();
     this.title = 'New collection';
     this.editingId = null;
   }
@@ -107,5 +118,9 @@ export class NewCollectionPage implements OnInit {
     this.selectEmoji(collection.getLanguage().getIcon());
     this.title = 'Edit collection';
     this.editingId = id;
+  }
+
+  private selectDefaultEmoji(): void {
+    this.selectEmoji(this.emojiService.getEmojiByName('smile'));
   }
 }

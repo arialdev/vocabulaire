@@ -10,6 +10,9 @@ import {Collection} from '../../../classes/collection/collection';
 import {MockAlertController, MockNavController} from '../../../../mocks';
 import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../../services/storage/mock-storage.service';
+import {Emoji} from '../../../classes/emoji/emoji';
+import {EmojisMap} from '../../../services/emoji/emojisMap';
+import isEqual from 'lodash.isequal';
 
 describe('NewCollectionPage for creation', () => {
   let component: NewCollectionPage;
@@ -17,14 +20,17 @@ describe('NewCollectionPage for creation', () => {
   let service: CollectionService;
 
   let mockActivatedRoute;
+  let emoji: Emoji;
 
   beforeEach(waitForAsync(() => {
+    emoji = new Emoji('smile', 'people');
     mockActivatedRoute = {snapshot: {queryParamMap: {get: () => undefined}}};
     TestBed.configureTestingModule({
       providers: [
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
+        {provide: EmojisMap},
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
@@ -42,8 +48,8 @@ describe('NewCollectionPage for creation', () => {
   });
 
   it('should select emoji', () => {
-    component.selectEmoji('sample');
-    expect(component.selectedEmoji).toBe('sample');
+    component.selectEmoji(emoji);
+    expect(component.selectedEmoji).toEqual(emoji);
     expect(component.modalStatus).toBeFalse();
   });
 
@@ -62,7 +68,7 @@ describe('NewCollectionPage for creation', () => {
     const newValues = {
       name: 'Sample',
       prefix: 'SL',
-      icon: 'assets/img/emojis/people/smile.png',
+      icon: emoji,
     };
 
     const navCtrl = fixture.debugElement.injector.get(NavController);
@@ -75,7 +81,8 @@ describe('NewCollectionPage for creation', () => {
           //TODO implement comparator
           c.getLanguage().getName() === newValues.name &&
           c.getLanguage().getPrefix() === newValues.prefix &&
-          c.getLanguage().getIcon() === newValues.icon
+          //TODO implements comparator
+          isEqual(c.getLanguage().getIcon(), newValues.icon)
         );
         expect(collection).toBeTruthy();
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
@@ -103,6 +110,7 @@ describe('NewCollectionPage for update', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
+        {provide: EmojisMap},
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
@@ -113,7 +121,7 @@ describe('NewCollectionPage for update', () => {
   }));
 
   beforeEach(waitForAsync(() => {
-    mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
+    mockInactiveCollection = new Collection('French', 'FR', new Emoji('fr', 'flags'));
     initializeCollections();
   }));
 

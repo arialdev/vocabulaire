@@ -1,13 +1,16 @@
 import {Tag} from './tag';
 import {TagOptions} from '../tagOptions/tag-options';
+import {Emoji} from '../emoji/emoji';
 
 describe('Tag', () => {
 
   let tag: Tag;
   let tagOptions: TagOptions;
+  let emoji: Emoji;
   beforeEach(() => {
+    emoji = new Emoji('smile', 'people');
     tagOptions = new TagOptions('');
-    tag = new Tag('Body nouns', 'hand.png', tagOptions);
+    tag = new Tag('Body nouns', emoji, tagOptions);
   });
 
   it('should create an instance', () => {
@@ -27,13 +30,14 @@ describe('Tag', () => {
   });
 
   it('should get icon', () => {
-    expect(tag.getIcon()).toEqual('hand.png');
+    expect(tag.getIcon()).toEqual(emoji);
   });
 
   it('should set icon', () => {
     spyOn(tag, 'updateUpdatedTime');
-    tag.setIcon('sample');
-    expect(tag.getIcon()).toEqual('sample');
+    const newIcon = new Emoji('cn', 'flags');
+    tag.setIcon(newIcon);
+    expect(tag.getIcon()).toEqual(newIcon);
     expect(tag.updateUpdatedTime).toHaveBeenCalled();
   });
 

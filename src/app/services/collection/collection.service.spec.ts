@@ -3,6 +3,7 @@ import {CollectionService} from './collection.service';
 import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {MockStorageService} from '../storage/mock-storage.service';
+import {Emoji} from '../../classes/emoji/emoji';
 
 describe('CollectionService', () => {
   let service: CollectionService;
@@ -19,9 +20,9 @@ describe('CollectionService', () => {
   });
 
   beforeEach(() => {
-    mockActiveCollection = new Collection('English', 'EN', 'assets/img/emojis/uk.png');
+    mockActiveCollection = new Collection('English', 'EN', new Emoji('uk', 'flags'));
     mockActiveCollection.setActive();
-    mockInactiveCollection = new Collection('French', 'FR', 'assets/img/emojis/fr.png');
+    mockInactiveCollection = new Collection('French', 'FR', new Emoji('fr', 'flags'));
   });
 
   it('should be created', () => {

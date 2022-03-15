@@ -1,10 +1,12 @@
 import {Language} from './language';
+import {Emoji} from '../emoji/emoji';
 
 describe('Language', () => {
   let language: Language;
-
+  let emoji: Emoji;
   beforeEach(() => {
-    language = new Language('french', 'fr', 'icon');
+    emoji = new Emoji('uk', 'flags');
+    language = new Language('french', 'fr', emoji);
   });
   it('should create an instance', () => {
     expect(language).toBeTruthy();
@@ -34,13 +36,14 @@ describe('Language', () => {
   });
 
   it('should get icon', () => {
-    expect(language.getIcon()).toEqual('icon');
+    expect(language.getIcon()).toEqual(emoji);
   });
 
   it('should set icon', () => {
     spyOn(language, 'updateUpdatedTime');
-    language.setIcon('it');
-    expect(language.getIcon()).toEqual('it');
+    const newEmoji = new Emoji('es', 'flags');
+    language.setIcon(newEmoji);
+    expect(language.getIcon()).toEqual(newEmoji);
     expect(language.updateUpdatedTime).toHaveBeenCalled();
   });
 });

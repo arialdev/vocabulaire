@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {EmojiService} from '../../services/emoji/emoji.service';
+import {Emoji} from '../../classes/emoji/emoji';
 
 @Component({
   selector: 'app-collections',
@@ -17,6 +19,7 @@ export class CollectionsPage {
     private collectionService: CollectionService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private emojiService: EmojiService
   ) {
     this.collections = [];
     this.managingMode = false;
@@ -48,6 +51,10 @@ export class CollectionsPage {
     } else {
       await this.setActive(id);
     }
+  }
+
+  getEmojiRoute(emoji: Emoji) {
+    return this.emojiService.getEmojiRoute(emoji);
   }
 
   private async loadCollections(): Promise<void> {

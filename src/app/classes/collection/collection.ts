@@ -3,6 +3,7 @@ import {Tag} from '../tag/tag';
 import {Term} from '../term/term';
 import {Language} from '../language/language';
 import {StoringItem} from '../storing-item';
+import {Emoji} from '../emoji/emoji';
 
 export class Collection extends StoringItem {
   private language: Language;
@@ -14,8 +15,8 @@ export class Collection extends StoringItem {
 
   constructor(language: Language);
   constructor(collectionData: any);
-  constructor(languageName: string, languagePrefix: string, languageIcon: string)
-  constructor(data: Language | string | any, languagePrefix?: string, languageIcon?: string) {
+  constructor(languageName: string, languagePrefix: string, languageIcon: Emoji)
+  constructor(data: Language | string | any, languagePrefix?: string, languageIcon?: Emoji) {
 
     if (data instanceof Language) {
       super();

@@ -2,6 +2,7 @@ import {Term} from './term';
 import {Collection} from '../collection/collection';
 import {Category} from '../category/category';
 import {CategoryType} from '../categoryType/category-type';
+import {Emoji} from '../emoji/emoji';
 
 describe('Term', () => {
 
@@ -9,7 +10,7 @@ describe('Term', () => {
   let term: Term;
 
   beforeEach(() => {
-    collection = new Collection('Spanish', 'ES', 'es');
+    collection = new Collection('Spanish', 'ES', new Emoji('es', 'flags'));
     term = new Term('Mano', 'Hand', collection);
   });
 
@@ -77,7 +78,7 @@ describe('Term', () => {
   it('should update collection', () => {
     spyOn(term, 'updateUpdatedTime');
     expect(term.getCollection()).toEqual(collection);
-    const newCollection = new Collection('x', 'y', 'z');
+    const newCollection = new Collection('x', 'y', new Emoji('cn', 'flags'));
     term.setCollection(newCollection);
     expect(term.getCollection()).toEqual(newCollection);
     expect(term.updateUpdatedTime).toHaveBeenCalled();

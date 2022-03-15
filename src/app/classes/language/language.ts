@@ -1,13 +1,14 @@
 import {StoringItem} from '../storing-item';
+import {Emoji} from '../emoji/emoji';
 
 export class Language extends StoringItem {
   private name: string;
   private prefix: string;
-  private icon: string;
+  private icon: Emoji;
 
   constructor(languageData: any);
-  constructor(name: string, prefix: string, icon: string);
-  constructor(language: string | any, prefix?: string, icon?: string) {
+  constructor(name: string, prefix: string, icon: Emoji);
+  constructor(language: string | any, prefix?: string, icon?: Emoji) {
 
     if (typeof language === 'string') {
       super();
@@ -18,7 +19,7 @@ export class Language extends StoringItem {
       super(language.id, language.status, language.createdAt, language.updatedAt);
       this.name = language.name;
       this.prefix = language.prefix;
-      this.icon = language.icon;
+      this.icon = new Emoji(language.icon);
     }
   }
 
@@ -40,11 +41,11 @@ export class Language extends StoringItem {
     this.updateUpdatedTime();
   }
 
-  public getIcon(): string {
+  public getIcon(): Emoji {
     return this.icon;
   }
 
-  public setIcon(icon: string): void {
+  public setIcon(icon: Emoji): void {
     this.icon = icon;
     this.updateUpdatedTime();
   }

@@ -23,7 +23,7 @@
       <ion-label position="fixed">Icon</ion-label>
       <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸"></ion-input>
       <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
-        <ion-img [src]="this.selectedEmoji"></ion-img>
+        <ion-img [src]="getEmojisRoute(this.selectedEmoji)"></ion-img>
       </ion-button>
     </ion-item>
     <ion-grid>
