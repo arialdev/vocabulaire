@@ -48,8 +48,8 @@ describe('CategoriesPage', () => {
   const initialize = (): Promise<void> => new Promise(res => {
     collectionService.addCollection(collection).then((c) => {
       collectionService.setActiveCollection(c.getId()).then(cActive => {
-        categoryService.addGramaticalCategory(cActive.getId(), gramaticalCategory).then(() => {
-          categoryService.addThematicCategory(cActive.getId(), thematicCategory).then(() => {
+        categoryService.addCategory(gramaticalCategory, cActive.getId()).then(() => {
+          categoryService.addCategory(thematicCategory, cActive.getId()).then(() => {
             collection = cActive;
             fixture = TestBed.createComponent(CategoriesPage);
             component = fixture.componentInstance;

@@ -16,35 +16,35 @@ export class CategoryService {
     private collectionService: CollectionService) {
   }
 
-  public async addGramaticalCategory(collectionId: number, category: Category): Promise<void> {
+  public async addCategory(category: Category, collectionId: number): Promise<Category> {
     const collections = await this.collectionService.getCollections();
     category.setId(await this.getNextFreeID());
     const collection = collections.find(c => c.getId() === collectionId);
     if (!collection) {
       throw new Error(`Collection with ID ${collectionId} not found`);
     }
-    collection.addGramaticalCategory(category);
-    return this.storageService.set('collections', collections);
-  }
-
-  public async addThematicCategory(collectionId: number, category: Category): Promise<void> {
-    const collections = await this.collectionService.getCollections();
-    category.setId(await this.getNextFreeID());
-    const collection = collections.find(c => c.getId() === collectionId);
-    if (!collection) {
-      throw new Error(`Collection with ID ${collectionId} not found`);
+    const type = category.getType().getName();
+    switch (type) {
+      case 'gramatical':
+        collection.addGramaticalCategory(category);
+        break;
+      case 'thematic':
+        collection.addThematicCategory(category);
+        break;
     }
-    collection.addThematicCategory(category);
-    return this.storageService.set('collections', collections);
+    await this.storageService.set('collections', collections);
+    return category;
   }
 
-  public async updateGramaticalCategory(newName: string, collectionID: number, categoryID: number): Promise<Category> {
+  public async updateCategory(newName: string, collectionID: number, categoryID: number): Promise<Category> {
     const collections = await this.collectionService.getCollections();
     const collection = collections.find(c => c.getId() === collectionID);
     if (!collection) {
       throw new Error(`Collection with ID ${collectionID} not found`);
     }
-    const category = collection.getGramaticalCategories().find(c => c.getId() === categoryID);
+    const category = collections
+      .flatMap(co => [...co.getGramaticalCategories(), ...co.getThematicCategories()])
+      .find(c => c.getId() === categoryID);
     if (!category) {
       throw new Error(`Category with ID ${categoryID} not found`);
     }
@@ -53,37 +53,13 @@ export class CategoryService {
     return category;
   }
 
-  public async updateThematicCategory(newName: string, collectionID: number, categoryID: number): Promise<Category> {
-    const collections = await this.collectionService.getCollections();
-    const collection = collections.find(c => c.getId() === collectionID);
-    if (!collection) {
-      throw new Error(`Collection with ID ${collectionID} not found`);
-    }
-    const category = collection.getThematicCategories().find(c => c.getId() === categoryID);
-    if (!category) {
-      throw new Error(`Category with ID ${categoryID} not found`);
-    }
-    category.setName(newName);
-    await this.storageService.set('collections', collections);
-    return category;
-  }
-
-  public async deleteGramaticalCategory(collectionID: number, categoryID: number): Promise<void> {
+  public async deleteCategory(collectionID: number, categoryID: number): Promise<void> {
     const collections = await this.collectionService.getCollections();
     const collection: Collection = collections.find(c => c.getId() === collectionID);
     if (!collection) {
       throw new Error(`Collection with ID ${collectionID} not found`);
     }
     collection.removeGramaticalCategory(categoryID);
-    await this.storageService.set('collections', collections);
-  }
-
-  public async deleteThematicCategory(collectionID: number, categoryID: number): Promise<void> {
-    const collections = await this.collectionService.getCollections();
-    const collection: Collection = collections.find(c => c.getId() === collectionID);
-    if (!collection) {
-      throw new Error(`Collection with ID ${collectionID} not found`);
-    }
     collection.removeThematicCategory(categoryID);
     await this.storageService.set('collections', collections);
   }

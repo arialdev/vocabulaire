@@ -51,11 +51,7 @@ export class CategoriesPage implements OnInit {
   }
 
   async deleteCategory(category: Category): Promise<void> {
-    if (this.isGramaticalMode()) {
-      await this.categoryService.deleteGramaticalCategory(this.collection.getId(), category.getId());
-    } else {
-      await this.categoryService.deleteThematicCategory(this.collection.getId(), category.getId());
-    }
+    await this.categoryService.deleteCategory(this.collection.getId(), category.getId());
     await this.refreshCategories();
   }
 
@@ -83,23 +79,19 @@ export class CategoriesPage implements OnInit {
     return alert.present();
   }
 
-  private createCategory(name: string): Promise<void> {
+  private createCategory(name: string): Promise<Category> {
     let category: Category;
     if (this.isGramaticalMode()) {
       category = new Category(name, new CategoryType('gramatical'));
-      return this.categoryService.addGramaticalCategory(this.collection.getId(), category);
+      return this.categoryService.addCategory(category, this.collection.getId());
     } else {
       category = new Category(name, new CategoryType('thematic'));
-      return this.categoryService.addThematicCategory(this.collection.getId(), category);
+      return this.categoryService.addCategory(category, this.collection.getId());
     }
   }
 
   private updateCategory(name: string, category: Category): Promise<Category> {
-    if (this.isGramaticalMode()) {
-      return this.categoryService.updateGramaticalCategory(name, this.collection.getId(), category.getId());
-    } else {
-      return this.categoryService.updateThematicCategory(name, this.collection.getId(), category.getId());
-    }
+    return this.categoryService.updateCategory(name, this.collection.getId(), category.getId());
   }
 
   private isGramaticalMode() {
