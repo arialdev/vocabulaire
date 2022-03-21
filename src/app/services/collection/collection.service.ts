@@ -7,6 +7,8 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 })
 export class CollectionService {
 
+  private nextFreeID;
+
   constructor(private storageService: AbstractStorageService) {
   }
 
@@ -89,6 +91,11 @@ export class CollectionService {
   }
 
   private async getNextFreeID(): Promise<number> {
-    return this.storageService.getNextFreeId('collections');
+    if (!this.nextFreeID) {
+      this.nextFreeID = (await this.getCollections())
+        .map(c => c.getId())
+        .reduce((acc, id) => Math.max(acc, id ?? 0), 0);
+    }
+    return ++this.nextFreeID;
   }
 }

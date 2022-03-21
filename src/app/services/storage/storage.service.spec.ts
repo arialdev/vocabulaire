@@ -49,39 +49,6 @@ describe('StorageService', () => {
     });
   });
 
-  it('should get next free id', (done) => {
-    service.set('sample', [{id: 5, name: 'sample'}]).then(_ => {
-      service.getNextFreeId('sample').then((id: number) => {
-        expect(id).toBe(6);
-        done();
-      });
-    });
-
-  });
-
-  it('should get next free id from existing empty collection', (done) => {
-    service.set('collections', []).then(_ => {
-      service.getNextFreeId('collections').then((id: number) => {
-        expect(id).toBe(1);
-        done();
-      });
-    });
-  });
-
-  it('should not get next free id from non existing collection', (done) => {
-    service.getNextFreeId('null').then(id => {
-      expect(id).toBeUndefined();
-      done();
-    });
-  });
-
-  it('should not get next free id from an item', (done) => {
-    service.getNextFreeId('settings').then(id => {
-      expect(id).toBeUndefined();
-      done();
-    });
-  });
-
   it('should remove existing element', (done) => {
     service.remove('sample').then(() => {
       service.get('sample').then(e => {
