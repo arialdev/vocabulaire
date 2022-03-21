@@ -11,7 +11,7 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {Category} from '../../classes/category/category';
 import {CategoryService} from '../../services/category/category.service';
-import {CategoryType} from '../../classes/categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 
 describe('CategoriesPage', () => {
   let component: CategoriesPage;
@@ -40,8 +40,8 @@ describe('CategoriesPage', () => {
 
   beforeEach(waitForAsync(() => {
     collection = new Collection('English', 'EN', new Emoji('flags', 'uk'));
-    gramaticalCategory = new Category('Verb', new CategoryType('gramatical'));
-    thematicCategory = new Category('Body', new CategoryType('thematic'));
+    gramaticalCategory = new Category('Verb', CategoryType.gramatical);
+    thematicCategory = new Category('Body', CategoryType.thematic);
     initialize();
   }));
 

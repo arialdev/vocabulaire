@@ -23,12 +23,12 @@ export class CategoryService {
     if (!collection) {
       throw new Error(`Collection with ID ${collectionId} not found`);
     }
-    const type = category.getType().getName();
+    const type = category.getType();
     switch (type) {
-      case 'gramatical':
+      case 0:
         collection.addGramaticalCategory(category);
         break;
-      case 'thematic':
+      case 1:
         collection.addThematicCategory(category);
         break;
     }

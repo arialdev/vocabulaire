@@ -3,13 +3,12 @@ import {By} from '@angular/platform-browser';
 import {HomePage} from './home.page';
 import {Term} from '../../classes/term/term';
 import {Category} from '../../classes/category/category';
-import {CategoryType} from '../../classes/categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
-import {TermPage} from '../term/term.page';
 import {CollectionService} from '../../services/collection/collection.service';
 
 describe('HomePage', () => {
@@ -19,11 +18,8 @@ describe('HomePage', () => {
   let collection: Collection;
   let collectionService: CollectionService;
 
-  const categoryType1: CategoryType = new CategoryType('gramatical');
-  categoryType1.setId(1);
-
-  const categoryType2: CategoryType = new CategoryType('thematic');
-  categoryType1.setId(2);
+  const categoryType1: CategoryType = CategoryType.gramatical;
+  const categoryType2: CategoryType = CategoryType.thematic;
 
   const gramaticalCategory: Category = new Category('Sustantivo', categoryType1);
   gramaticalCategory.setId(1);

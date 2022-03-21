@@ -1,7 +1,7 @@
 import {Term} from './term';
 import {Collection} from '../collection/collection';
 import {Category} from '../category/category';
-import {CategoryType} from '../categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 import {Emoji} from '../emoji/emoji';
 
 describe('Term', () => {
@@ -20,8 +20,8 @@ describe('Term', () => {
     expect(new Term(JSON.parse(JSON.stringify(term)))).toEqual(term);
     expect(new Term({
       ...JSON.parse(JSON.stringify(term)),
-      gramaticalCategories: [new Category('noun', new CategoryType('thematic'))],
-      thematicCategories: [new Category('body', new CategoryType('gramatical'))],
+      gramaticalCategories: [new Category('noun', CategoryType.thematic)],
+      thematicCategories: [new Category('body', CategoryType.gramatical)],
     })).toBeTruthy();
   });
 

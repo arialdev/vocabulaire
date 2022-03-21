@@ -1,8 +1,7 @@
 import {TagOptions} from './tag-options';
 import {Category} from '../category/category';
-import {CategoryType} from '../categoryType/category-type';
+import {CategorySelection, CategoryType} from '../../enums/enums';
 import {CategoryFilter} from '../categoryFilter/category-filter';
-import {CategorySelection} from '../../enums/enums';
 
 describe('TagOptions', () => {
   let tagOptions: TagOptions;
@@ -16,8 +15,8 @@ describe('TagOptions', () => {
     expect(new TagOptions(JSON.parse(JSON.stringify(tagOptions)))).toEqual(tagOptions);
     expect(new TagOptions({
       ...JSON.parse(JSON.stringify(tagOptions)),
-      gramaticalCategoriesOptions: [new CategoryFilter(new Category('noun', new CategoryType('gramatical')), true)],
-      thematicCategoriesOptions: [new CategoryFilter(new Category('body', new CategoryType('thematic')), false)],
+      gramaticalCategoriesOptions: [new CategoryFilter(new Category('noun', CategoryType.gramatical), true)],
+      thematicCategoriesOptions: [new CategoryFilter(new Category('body', CategoryType.thematic), false)],
     })).toBeTruthy();
   });
 
@@ -52,8 +51,7 @@ describe('TagOptions', () => {
     let c3: Category;
     let categoryType: CategoryType;
     beforeEach(() => {
-      categoryType = new CategoryType('sample');
-      categoryType.setId(1);
+      categoryType = CategoryType.gramatical;
       c1 = new Category('c1', categoryType);
       c1.setId(1);
       c2 = new Category('c1', categoryType);

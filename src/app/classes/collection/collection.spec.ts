@@ -2,7 +2,7 @@ import {Collection} from './collection';
 import {Language} from '../language/language';
 import {Term} from '../term/term';
 import {Category} from '../category/category';
-import {CategoryType} from '../categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 import {Tag} from '../tag/tag';
 import {TagOptions} from '../tagOptions/tag-options';
 import {Emoji} from '../emoji/emoji';
@@ -28,8 +28,8 @@ describe('Collection', () => {
     expect(new Collection({
       ...JSON.parse(JSON.stringify(collection)),
       terms: [new Term('a', 'b')],
-      gramaticalCategories: [new Category('noun', new CategoryType('thematic'))],
-      thematicCategories: [new Category('body', new CategoryType('gramatical'))],
+      gramaticalCategories: [new Category('noun', CategoryType.thematic)],
+      thematicCategories: [new Category('body', CategoryType.gramatical)],
       tags: [new Tag('a', icon, new TagOptions(''))],
     })).toBeTruthy();
   });
@@ -82,7 +82,7 @@ describe('Collection', () => {
 
   it('should add gramatical category', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const gramaticalCategory = new Category('noun', new CategoryType('gramatical'));
+    const gramaticalCategory = new Category('noun', CategoryType.gramatical);
     collection.addGramaticalCategory(gramaticalCategory);
     expect(collection.getGramaticalCategories()).toEqual([gramaticalCategory]);
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
@@ -90,7 +90,7 @@ describe('Collection', () => {
 
   it('should remove gramatical category', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const gramaticalCategory = new Category('noun', new CategoryType('gramatical'));
+    const gramaticalCategory = new Category('noun', CategoryType.gramatical);
     gramaticalCategory.setId(12);
     collection.addGramaticalCategory(gramaticalCategory);
     collection.removeGramaticalCategory(12);
@@ -104,7 +104,7 @@ describe('Collection', () => {
 
   it('should add thematic category', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const gramaticalCategory = new Category('noun', new CategoryType('thematic'));
+    const gramaticalCategory = new Category('noun', CategoryType.thematic);
     collection.addThematicCategory(gramaticalCategory);
     expect(collection.getThematicCategories()).toEqual([gramaticalCategory]);
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
@@ -112,7 +112,7 @@ describe('Collection', () => {
 
   it('should remove thematic category', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const thematicCategory = new Category('noun', new CategoryType('thematic'));
+    const thematicCategory = new Category('noun', CategoryType.thematic);
     thematicCategory.setId(12);
     collection.addThematicCategory(thematicCategory);
     collection.removeThematicCategory(12);

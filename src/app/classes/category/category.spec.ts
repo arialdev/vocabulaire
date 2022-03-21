@@ -1,5 +1,5 @@
 import {Category} from './category';
-import {CategoryType} from '../categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 
 describe('Category', () => {
 
@@ -7,7 +7,7 @@ describe('Category', () => {
   let type: CategoryType;
 
   beforeEach(() => {
-    type = new CategoryType('thematic');
+    type = CategoryType.thematic;
     category = new Category('body', type);
     spyOn(category, 'updateUpdatedTime');
   });
@@ -33,7 +33,7 @@ describe('Category', () => {
   });
 
   it('should update type', () => {
-    const newType = new CategoryType('gramatical');
+    const newType = CategoryType.gramatical;
     category.setType(newType);
     expect(category.getType()).toEqual(newType);
     expect(category.updateUpdatedTime).toHaveBeenCalled();

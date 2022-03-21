@@ -6,7 +6,7 @@ import {MockStorageService} from '../storage/mock-storage.service';
 import {Category} from '../../classes/category/category';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
-import {CategoryType} from '../../classes/categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 import {CollectionService} from '../collection/collection.service';
 
 describe('CategoryService', () => {
@@ -28,7 +28,7 @@ describe('CategoryService', () => {
 
   beforeEach(waitForAsync(() => {
     collection = new Collection('English', 'EN', new Emoji('flags', 'uk'));
-    category = new Category('Verb', new CategoryType('gramatical'));
+    category = new Category('Verb', CategoryType.gramatical);
     initialize();
   }));
 
@@ -47,7 +47,7 @@ describe('CategoryService', () => {
 
   it('should add category', async () => {
     const gc = await service.addCategory(category, collection.getId());
-    const tc = await service.addCategory(new Category('sample2', new CategoryType('thematic')), collection.getId());
+    const tc = await service.addCategory(new Category('sample2', CategoryType.thematic), collection.getId());
     collection = await collectionService.getCollectionById(collection.getId());
     expect(collection.getGramaticalCategories()).toEqual([gc]);
     expect(collection.getThematicCategories()).toEqual([tc]);
@@ -76,7 +76,7 @@ describe('CategoryService', () => {
 
   it('should delete category', async () => {
     const gc = await service.addCategory(category, collection.getId());
-    const tc = await service.addCategory(new Category('sample2', new CategoryType('thematic')), collection.getId());
+    const tc = await service.addCategory(new Category('sample2', CategoryType.thematic), collection.getId());
 
     await service.deleteCategory(collection.getId(), gc.getId());
     collection = await collectionService.getCollectionById(collection.getId());

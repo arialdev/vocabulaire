@@ -4,8 +4,8 @@ import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Category} from '../../classes/category/category';
 import {AlertController} from '@ionic/angular';
-import {CategoryType} from '../../classes/categoryType/category-type';
 import {CategoryService} from '../../services/category/category.service';
+import {CategoryType} from '../../enums/enums';
 
 @Component({
   selector: 'app-categories',
@@ -82,10 +82,10 @@ export class CategoriesPage implements OnInit {
   private createCategory(name: string): Promise<Category> {
     let category: Category;
     if (this.isGramaticalMode()) {
-      category = new Category(name, new CategoryType('gramatical'));
+      category = new Category(name, CategoryType.gramatical);
       return this.categoryService.addCategory(category, this.collection.getId());
     } else {
-      category = new Category(name, new CategoryType('thematic'));
+      category = new Category(name, CategoryType.thematic);
       return this.categoryService.addCategory(category, this.collection.getId());
     }
   }

@@ -6,10 +6,9 @@ import {MockStorageService} from '../storage/mock-storage.service';
 import {Collection} from '../../classes/collection/collection';
 import {Term} from '../../classes/term/term';
 import {Emoji} from '../../classes/emoji/emoji';
-import {TermPage} from '../../pages/term/term.page';
 import {CollectionService} from '../collection/collection.service';
 import {Category} from '../../classes/category/category';
-import {CategoryType} from '../../classes/categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 
 describe('TermService', () => {
   let service: TermService;
@@ -33,8 +32,8 @@ describe('TermService', () => {
   });
 
   beforeEach(waitForAsync(() => {
-    const ctg = new CategoryType('gramatical');
-    const ctt = new CategoryType('thematic');
+    const ctg = CategoryType.gramatical;
+    const ctt = CategoryType.thematic;
     c1 = new Category('noun', ctg);
     c1.setId(1);
     c2 = new Category('verb', ctg);

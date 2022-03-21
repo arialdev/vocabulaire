@@ -1,6 +1,6 @@
 import {CategoryFilter} from './category-filter';
 import {Category} from '../category/category';
-import {CategoryType} from '../categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 
 describe('CategoryFilter', () => {
   let categoryFilter: CategoryFilter;
@@ -23,7 +23,7 @@ describe('CategoryFilter', () => {
 
   it('should setCategory', () => {
     spyOn(categoryFilter, 'updateUpdatedTime');
-    const newCategory = new Category('people', new CategoryType('thematic'));
+    const newCategory = new Category('people', CategoryType.thematic);
     categoryFilter.setCategory(newCategory);
     expect(categoryFilter.getCategory()).toEqual(newCategory);
     expect(categoryFilter.updateUpdatedTime).toHaveBeenCalled();

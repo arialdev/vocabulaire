@@ -1,4 +1,4 @@
-import {CategoryType} from '../categoryType/category-type';
+import {CategoryType} from '../../enums/enums';
 import {StoringItem} from '../storing-item';
 
 export class Category extends StoringItem {
@@ -15,7 +15,7 @@ export class Category extends StoringItem {
     } else {
       super(data.id, data.status, data.createdAt, data.updatedAt);
       this.name = data.name;
-      this.type = data.type ? new CategoryType(data.type) : undefined;
+      this.type = data.type;
     }
   }
 
