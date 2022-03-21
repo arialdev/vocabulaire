@@ -1,7 +1,8 @@
-import {CategorySelection, TagOptions} from './tag-options';
+import {TagOptions} from './tag-options';
 import {Category} from '../category/category';
 import {CategoryType} from '../categoryType/category-type';
 import {CategoryFilter} from '../categoryFilter/category-filter';
+import {CategorySelection} from '../../enums/enums';
 
 describe('TagOptions', () => {
   let tagOptions: TagOptions;

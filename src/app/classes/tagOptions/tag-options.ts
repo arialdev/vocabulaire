@@ -1,12 +1,8 @@
 import {StoringItem} from '../storing-item';
 import {CategoryFilter} from '../categoryFilter/category-filter';
 import {Category} from '../category/category';
+import {CategorySelection} from '../../enums/enums';
 
-export enum CategorySelection {
-  selected = 1,
-  nonSelected = -1,
-  all = 0,
-}
 
 export class TagOptions extends StoringItem {
   private searchText: string;
