@@ -50,7 +50,7 @@
   </div>
 
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
-    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms">
+    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" [href]="'term/'+term.getId()">
       <div class="item-box">
         <div class="language-prefix term-label">ES</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>

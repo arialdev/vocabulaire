@@ -67,8 +67,8 @@ export class Collection extends StoringItem {
   public removeTerm(termId: number): Term {
     const term = this.terms.find(t => t.getId() === termId);
     this.terms = this.terms.filter(t => t.getId() !== termId);
-    //TODO set status false?
     this.updateUpdatedTime();
+    term.setStatus(false);
     return term;
   }
 

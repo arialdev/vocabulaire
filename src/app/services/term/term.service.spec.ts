@@ -81,4 +81,42 @@ describe('TermService', () => {
     const newTerm2 = await service.addTerm(new Term('sample', 'ejemplo'), collection.getId());
     expect([newTerm1.getId(), newTerm2.getId()]).toEqual([1, 2]);
   });
+
+  it('should delete term', async () => {
+    const newTerm1 = await service.addTerm(term, collection.getId());
+    await service.deleteTerm(newTerm1.getId(), collection.getId());
+    collection = await collectionService.getCollectionById(collection.getId());
+    expect(collection.getTerms()).toEqual([]);
+  });
+
+  it('should throw error if invalid collection reference when deleting term', async () => {
+    await expectAsync(service.deleteTerm(-1, -1)).toBeRejectedWithError(`Collection with ID -1 not found`);
+  });
+
+  it('should update term', async () => {
+    const oldC1 = new Category('csampleCOld', CategoryType.gramatical);
+    const oldC2 = new Category('csampleTOld', CategoryType.thematic);
+    term.addGramaticalCategory(oldC1);
+    term.addThematicCategory(oldC2);
+    term = await service.addTerm(term, collection.getId());
+
+    const newTerm: Term = new Term('sample', 'ejemplo', 'this is a note');
+    const newC1 = new Category('csampleC', CategoryType.gramatical);
+    const newC2 = new Category('csampleT', CategoryType.thematic);
+    term.addGramaticalCategory(newC1);
+    term.addThematicCategory(newC2);
+
+    const updatedTerm = await service.updateTerm(term.getId(), newTerm, collection.getId());
+    expect(updatedTerm.getOriginalTerm()).toEqual(newTerm.getOriginalTerm());
+    expect(updatedTerm.getTranslatedTerm()).toEqual(newTerm.getTranslatedTerm());
+    expect(updatedTerm.getNotes()).toEqual(newTerm.getNotes());
+    expect(updatedTerm.getGramaticalCategories()).toEqual(newTerm.getGramaticalCategories());
+    expect(updatedTerm.getThematicCategories()).toEqual(newTerm.getThematicCategories());
+  });
+
+  it('should throw error if invalid collection or term reference when updating term', async () => {
+    const newTerm: Term = new Term('sample', 'ejemplo', 'this is a note');
+    await expectAsync(service.updateTerm(-1, newTerm, -1)).toBeRejectedWithError(`Collection with ID -1 not found`);
+    await expectAsync(service.updateTerm(-1, newTerm, collection.getId())).toBeRejectedWithError(`Term with ID -1 not found`);
+  });
 });
