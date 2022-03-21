@@ -17,7 +17,6 @@ export class Collection extends StoringItem {
   constructor(collectionData: any);
   constructor(languageName: string, languagePrefix: string, languageIcon: Emoji)
   constructor(data: Language | string | any, languagePrefix?: string, languageIcon?: Emoji) {
-
     if (data instanceof Language) {
       super();
       this.language = data;
@@ -55,15 +54,11 @@ export class Collection extends StoringItem {
   }
 
   public addTerm(term: Term): void {
-    term.setCollection(this);
     this.terms.push(term);
     this.updateUpdatedTime();
   }
 
   public addTerms(terms: Iterable<Term>): Term[] {
-    for (const term of terms) {
-      term.setCollection(this);
-    }
     this.terms = [...this.terms, ...terms];
     this.updateUpdatedTime();
     return this.terms;
@@ -72,7 +67,6 @@ export class Collection extends StoringItem {
   public removeTerm(termId: number): Term {
     const term = this.terms.find(t => t.getId() === termId);
     this.terms = this.terms.filter(t => t.getId() !== termId);
-    term.setCollection(undefined);
     //TODO set status false?
     this.updateUpdatedTime();
     return term;

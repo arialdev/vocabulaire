@@ -29,11 +29,8 @@ describe('CollectionService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get active default collection when none exists', (done) => {
-    service.getActiveCollection().then((collection: Collection) => {
-      expect(collection).toBeUndefined();
-      done();
-    });
+  it('should get active default collection when none exists', async () => {
+    await expectAsync(service.getActiveCollection()).toBeRejectedWithError('No active collection found!');
   });
 
   it('should get active collection', (done) => {
@@ -87,34 +84,18 @@ describe('CollectionService', () => {
 
   it('should set active collection', (done) => {
     service.addCollection(mockInactiveCollection).then((newC1: Collection) => {
-      service.getActiveCollection().then((activeC0: Collection) => {
-        expect(newC1.getId()).not.toEqual(activeC0?.getId());
-        service.setActiveCollection(newC1.getId()).then(activeC1 => {
-          expect(activeC1.getId()).not.toBe(activeC0?.getId());
-          expect(activeC1.getId()).toBe(newC1.getId());
-          service.getActiveCollection().then((activeC2: Collection) => {
-            expect(activeC2.getId()).toBe(activeC1.getId());
-            done();
-          });
+      service.setActiveCollection(newC1.getId()).then(activeC1 => {
+        expect(activeC1.getId()).toBe(newC1.getId());
+        service.getActiveCollection().then((activeC2: Collection) => {
+          expect(activeC2.getId()).toBe(activeC1.getId());
+          done();
         });
       });
     });
   });
 
-  it('given no collections when getting active collection then return undefined', (done) => {
-    service.removeCollection(1).then(_ => {
-      service.getActiveCollection().then(c => {
-        expect(c).toBeUndefined();
-        done();
-      });
-    });
-  });
-
-  it('should return undefined when setting a not found collection as active', (done) => {
-    service.setActiveCollection(-1).then(c => {
-      expect(c).toBeUndefined();
-      done();
-    });
+  it('should return undefined when setting a not found collection as active', async () => {
+    await expectAsync(service.setActiveCollection(-1)).toBeRejectedWithError('Could not find collection with ID -1');
   });
 
   it('should get collection by its ID', (done) => {

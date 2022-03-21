@@ -155,7 +155,7 @@ describe('NewCollectionPage for update', () => {
   it('should toggle mode if invalid ID provided', (done) => {
     mockActivatedRoute.snapshot.queryParamMap.get = () => 'sample';
     component.ngOnInit().then(() => {
-      component.editingId = null;
+      expect(component.editingId).toBeNull();
       done();
     });
   });

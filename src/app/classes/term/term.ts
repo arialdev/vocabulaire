@@ -1,9 +1,7 @@
-import {Collection} from '../collection/collection';
 import {Category} from '../category/category';
 import {StoringItem} from '../storing-item';
 
 export class Term extends StoringItem {
-  private collection: Collection;
   private originalTerm: string;
   private translatedTerm: string;
   private notes: string;
@@ -11,40 +9,24 @@ export class Term extends StoringItem {
   private thematicCategories: Array<Category>;
 
   constructor(data);
-  constructor(originalTerm: string, translatedTerm: string, collection: Collection);
-  constructor(originalTerm: string, translatedTerm: string, notes: string, collection: Collection);
-  constructor(data: string | any, translatedTerm?: string, extra1?: Collection | string, extra2?: Collection) {
+  constructor(originalTerm: string, translatedTerm: string);
+  constructor(originalTerm: string, translatedTerm: string, notes: string);
+  constructor(data: string | any, translatedTerm?: string, notes?: string) {
     if (typeof data === 'string' && translatedTerm !== undefined) {
       super();
       this.originalTerm = data;
       this.translatedTerm = translatedTerm;
       this.gramaticalCategories = [];
       this.thematicCategories = [];
-
-      if (typeof extra1 === 'string' && extra2 instanceof Collection) {
-        this.notes = extra1;
-        this.collection = extra2;
-      } else if (extra1 instanceof Collection) {
-        this.collection = extra1;
-        this.notes = '';
-      }
-
-      if (extra1 && extra1 instanceof Collection) {
-        this.collection = extra1;
-      }
+      this.notes = notes ?? '';
     } else {
       super(data.id, data.status, data.createdAt, data.updatedAt);
-      this.collection = new Collection(data.collection);
       this.originalTerm = data.originalTerm;
       this.translatedTerm = data.translatedTerm;
       this.notes = data.notes;
       this.gramaticalCategories = data.gramaticalCategories.map(gc => new Category(gc));
       this.thematicCategories = data.thematicCategories.map(tc => new Category(tc));
     }
-  }
-
-  public getCollection(): Collection {
-    return this.collection;
   }
 
   public getOriginalTerm(): string {
@@ -65,11 +47,6 @@ export class Term extends StoringItem {
 
   public getThematicCategories(): Category[] {
     return this.thematicCategories;
-  }
-
-  public setCollection(collection: Collection): void {
-    this.collection = collection;
-    this.updateUpdatedTime();
   }
 
   public setOriginalTerm(term: string): void {

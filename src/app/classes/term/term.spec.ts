@@ -11,12 +11,12 @@ describe('Term', () => {
 
   beforeEach(() => {
     collection = new Collection('Spanish', 'ES', new Emoji('es', 'flags'));
-    term = new Term('Mano', 'Hand', collection);
+    term = new Term('Mano', 'Hand');
   });
 
   it('should create an instance', () => {
     expect(term).toBeTruthy();
-    expect(new Term('a', 'b', 'c', collection)).toBeTruthy();
+    expect(new Term('a', 'b', 'c')).toBeTruthy();
     expect(new Term(JSON.parse(JSON.stringify(term)))).toEqual(term);
     expect(new Term({
       ...JSON.parse(JSON.stringify(term)),
@@ -49,7 +49,7 @@ describe('Term', () => {
 
   it('should get default notes', () => {
     expect(term.getNotes()).toEqual('');
-    expect(new Term('a', 'b', 'c', collection).getNotes()).toEqual('c');
+    expect(new Term('a', 'b', 'c').getNotes()).toEqual('c');
   });
 
   it('should update notes', () => {
@@ -68,19 +68,6 @@ describe('Term', () => {
     spyOn(term, 'updateUpdatedTime');
     term.setStatus(false);
     expect(term.getStatus()).toBeFalse();
-    expect(term.updateUpdatedTime).toHaveBeenCalled();
-  });
-
-  it('should get default collection', () => {
-    expect(new Term('a', 'b', 'c', collection).getCollection()).toEqual(collection);
-  });
-
-  it('should update collection', () => {
-    spyOn(term, 'updateUpdatedTime');
-    expect(term.getCollection()).toEqual(collection);
-    const newCollection = new Collection('x', 'y', new Emoji('cn', 'flags'));
-    term.setCollection(newCollection);
-    expect(term.getCollection()).toEqual(newCollection);
     expect(term.updateUpdatedTime).toHaveBeenCalled();
   });
 

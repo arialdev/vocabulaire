@@ -9,10 +9,15 @@ import {AbstractStorageService} from '../../services/storage/abstract-storage-se
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
+import {TermPage} from '../term/term.page';
+import {CollectionService} from '../../services/collection/collection.service';
 
 describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
+
+  let collection: Collection;
+  let collectionService: CollectionService;
 
   const categoryType1: CategoryType = new CategoryType('gramatical');
   categoryType1.setId(1);
@@ -26,9 +31,7 @@ describe('HomePage', () => {
   const thematicCategory: Category = new Category('Cuerpo', categoryType2);
   thematicCategory.setId(1);
 
-  const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj',
-    new Collection('', '', new Emoji('uk', 'flags'))
-  );
+  const term1: Term = new Term('Mano', 'Hand', 'No confundir con manecilla de reloj');
   term1.addGramaticalCategory(gramaticalCategory);
   term1.addThematicCategory(thematicCategory);
   term1.setId(1);
@@ -40,10 +43,25 @@ describe('HomePage', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    collectionService = TestBed.inject(CollectionService);
   }));
+
+  beforeEach(waitForAsync(() => {
+    collection = new Collection('English', 'EN', new Emoji('flags', 'uk'));
+    initialize();
+  }));
+
+  const initialize = (): Promise<void> => new Promise(res => {
+    collectionService.addCollection(collection).then((c) => {
+      collectionService.setActiveCollection(c.getId()).then(cActive => {
+        collection = cActive;
+        fixture = TestBed.createComponent(HomePage);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+        res();
+      });
+    });
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

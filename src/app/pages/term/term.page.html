@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button href="/home" router-direction="back" fill="clear" color="primary">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">{{languageLabel}}</ion-label>
+      <ion-input formControlName="originalTerm" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Translated</ion-label>
+      <ion-input formControlName="translatedTerm" type="text" required></ion-input>
+    </ion-item>
+    <div class="categories-box">
+      <div class="dropdown">
+        <ion-item lines="none">
+          <ion-label> Gramatical categories</ion-label>
+          <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+                      #gramaticalCategoriesDropdown selectedText=" " formControlName="gramaticalCategories"
+                      (ionChange)="updateChips($event, 0)">
+            <ion-select-option *ngFor="let category of gramaticalCategoriesList"
+                               [value]="category">{{category.getName()}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="categories-chips">
+        <ion-chip *ngFor="let category of selectedGramaticalCategories">{{category.getName()}}</ion-chip>
+      </div>
+      <div class="manage-categories">
+        <ion-button fill="clear" color="dark" href="categories/Gramatical">
+          <ion-icon name="options-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <ion-item-divider class="low-divider"></ion-item-divider>
+    <div class="categories-box">
+      <div class="dropdown">
+        <ion-item lines="none">
+          <ion-label> Thematic categories</ion-label>
+          <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+                      #thematicCategoriesDropdown selectedText=" " formControlName="thematicCategories"
+                      (ionChange)="updateChips($event, 1)">
+            <ion-select-option *ngFor="let category of thematicCategoriesList"
+                               [value]="category">{{category.getName()}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="categories-chips">
+        <ion-chip *ngFor="let category of selectedThematicCategories">{{category.getName()}}</ion-chip>
+      </div>
+      <div class="manage-categories">
+        <ion-button fill="clear" color="dark" href="categories/Thematic">
+          <ion-icon name="options-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <ion-item-divider class="low-divider"></ion-item-divider>
+    <ion-item>
+      <ion-label position="floating">Notes</ion-label>
+      <ion-textarea autoGrow maxlength="140" formControlName="notes"></ion-textarea>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="editingId">
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="submit-button" type="submit" expand="block">{{editingId ? 'Save' : 'Submit'}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+</ion-content>

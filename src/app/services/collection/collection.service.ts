@@ -7,44 +7,28 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 })
 export class CollectionService {
 
-  private activeCollection: Collection;
-
   constructor(private storageService: AbstractStorageService) {
   }
 
   public async getActiveCollection(): Promise<Collection> {
-    if (this.activeCollection) {
-      return this.activeCollection;
-    }
-
     const collections: Collection[] = await this.getCollections();
     const collection = collections.find((c: Collection) => c.isActive() && c.getStatus());
     if (!collection) {
-      console.error('No active collection found!');
-    } else {
-      this.activeCollection = collection;
+      throw new Error('No active collection found!');
     }
-    return this.activeCollection;
+    return collection;
   }
 
   public async setActiveCollection(id: number): Promise<Collection> {
     const collections: Collection[] = await this.getCollections();
-    let found;
-    const filtered = collections.map((c) => {
-      c.setInactive();
-      if (c.getId() === id && c.getStatus()) {
-        c.setActive();
-        found = c;
-      }
-      return c;
-    });
-    if (!found) {
-      console.error('Could not find collection');
-      return;
+    collections.forEach(c => c.setInactive());
+    const activeCollection = collections.find(c => c.getId() === id);
+    if (!activeCollection) {
+      throw new Error(`Could not find collection with ID ${id}`);
     }
-    this.activeCollection = found;
-    await this.storageService.set('collections', filtered);
-    return this.activeCollection;
+    activeCollection.setActive();
+    await this.storageService.set('collections', collections);
+    return activeCollection;
   }
 
 

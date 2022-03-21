@@ -18,7 +18,7 @@ describe('Collection', () => {
     icon = new Emoji('it', 'flags');
     language = new Language('Italian', 'it', icon);
     collection = new Collection(language);
-    term = new Term('sample', 'ejemplo', collection);
+    term = new Term('sample', 'ejemplo');
   });
 
   it('should create an instance', () => {
@@ -27,7 +27,7 @@ describe('Collection', () => {
     expect(new Collection(JSON.parse(JSON.stringify(collection)))).toEqual(collection);
     expect(new Collection({
       ...JSON.parse(JSON.stringify(collection)),
-      terms: [new Term('a', 'b', collection)],
+      terms: [new Term('a', 'b')],
       gramaticalCategories: [new Category('noun', new CategoryType('thematic'))],
       thematicCategories: [new Category('body', new CategoryType('gramatical'))],
       tags: [new Tag('a', icon, new TagOptions(''))],
@@ -55,17 +55,15 @@ describe('Collection', () => {
     collection.addTerm(term);
     const terms = collection.getTerms();
     expect(terms).toEqual([term]);
-    expect(terms.every(t => t.getCollection() === collection)).toBeTrue();
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
   });
 
   it('should add multiple terms', () => {
     spyOn(collection, 'updateUpdatedTime');
-    const newTerms = [term, new Term('sample2', 'ejemplo2', collection)];
+    const newTerms = [term, new Term('sample2', 'ejemplo2')];
     collection.addTerms(newTerms);
     const terms = collection.getTerms();
     expect(terms).toEqual(newTerms);
-    expect(terms.every(t => t.getCollection() === collection)).toBeTrue();
     expect(collection.updateUpdatedTime).toHaveBeenCalled();
   });
 
