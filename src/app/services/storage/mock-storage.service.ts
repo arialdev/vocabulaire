@@ -25,20 +25,4 @@ export class MockStorageService implements AbstractStorageService {
   remove(key: string): Promise<any> {
     return Promise.resolve(this.storage.delete(key));
   }
-
-  getNextFreeId(key: string): Promise<any> {
-    const values = this.storage.get(key);
-    if (!values) {
-      console.error('Error when getting collections from storage');
-      return Promise.resolve();
-    } else if (!Array.isArray(values)) {
-      console.error('Value is not an array!');
-      return Promise.resolve();
-    }
-    if (values.every(v => v.id)) {
-      return Promise.resolve((values[values.length - 1]?.id ?? 0) + 1);
-    }
-    return Promise.resolve();
-  }
-
 }

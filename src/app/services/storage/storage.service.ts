@@ -36,24 +36,6 @@ export class StorageService implements AbstractStorageService {
     return this.myStorage.remove(key);
   }
 
-  public async getNextFreeId(key: string): Promise<number> {
-    if (!this.myStorage) {
-      await this.init();
-    }
-
-    const values = await this.myStorage.get(key);
-    if (!values) {
-      console.error('Error when getting collections from storage');
-      return;
-    } else if (!Array.isArray(values)) {
-      console.error('Value is not an array!');
-      return;
-    }
-    if (values.every(v => v.id)) {
-      return (values[values.length - 1]?.id ?? 0) + 1;
-    }
-  }
-
   private async init() {
     await this.storage.defineDriver(CordovaSQLiteDriver);
     this.myStorage = await this.storage.create();
