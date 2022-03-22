@@ -126,5 +126,4 @@ export class TermPage implements OnInit {
       notes: term.getNotes()
     });
   }
-
 }
