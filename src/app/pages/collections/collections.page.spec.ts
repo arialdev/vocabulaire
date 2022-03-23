@@ -54,7 +54,7 @@ describe('CollectionsPage', () => {
   it('should contains back button', () => {
     const backButton = fixture.debugElement.query(By.css('ion-header .back-button'));
     expect(backButton).toBeTruthy();
-    expect(backButton.attributes.href).toEqual('/home');
+    expect(backButton.attributes.href).toEqual('');
   });
 
   // it('should list collections', () => {

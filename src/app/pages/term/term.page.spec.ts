@@ -29,7 +29,7 @@ describe('TermPage for creating term', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TermPage],
-      imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([{path: 'home', component: HomePage}])],
+      imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([{path: '', component: HomePage}])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
       ]

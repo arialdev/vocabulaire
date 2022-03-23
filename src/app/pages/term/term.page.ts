@@ -81,7 +81,7 @@ export class TermPage implements OnInit {
     } else {
       await this.termService.addTerm(term, this.activeCollection.getId());
     }
-    await this.navController.navigateBack('home');
+    await this.navController.navigateBack('');
   }
 
   async openDeletionAlert(): Promise<void> {
@@ -96,7 +96,7 @@ export class TermPage implements OnInit {
           text: 'Delete',
           handler: async () => {
             await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
-            await this.navController.navigateBack('home');
+            await this.navController.navigateBack('');
           }
         }
       ]
