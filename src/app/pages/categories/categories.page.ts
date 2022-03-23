@@ -51,7 +51,7 @@ export class CategoriesPage implements OnInit {
   }
 
   async deleteCategory(category: Category): Promise<void> {
-    await this.categoryService.deleteCategory(this.collection.getId(), category.getId());
+    await this.categoryService.deleteCategory(this.collection.getId(), category.getId(), category.getType());
     await this.refreshCategories();
   }
 

@@ -3,6 +3,7 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {Category} from '../../classes/category/category';
 import {CollectionService} from '../collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
+import {CategoryType} from '../../enums/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -53,14 +54,19 @@ export class CategoryService {
     return category;
   }
 
-  public async deleteCategory(collectionID: number, categoryID: number): Promise<void> {
+  public async deleteCategory(collectionID: number, categoryID: number, type: CategoryType): Promise<void> {
     const collections = await this.collectionService.getCollections();
     const collection: Collection = collections.find(c => c.getId() === collectionID);
     if (!collection) {
       throw new Error(`Collection with ID ${collectionID} not found`);
     }
-    collection.removeGramaticalCategory(categoryID);
-    collection.removeThematicCategory(categoryID);
+    if (type === 0) {
+      collection.removeGramaticalCategory(categoryID);
+      collection.getTerms().forEach(t => t.removeGramaticalCategory(categoryID));
+    } else {
+      collection.removeThematicCategory(categoryID);
+      collection.getTerms().forEach(t => t.removeThematicCategory(categoryID));
+    }
     await this.storageService.set('collections', collections);
   }
 

@@ -8,10 +8,13 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CategoryType} from '../../enums/enums';
 import {CollectionService} from '../collection/collection.service';
+import {TermService} from '../term/term.service';
+import {Term} from '../../classes/term/term';
 
 describe('CategoryService', () => {
   let service: CategoryService;
   let collectionService: CollectionService;
+  let termService: TermService;
 
   let collection: Collection;
   let category: Category;
@@ -24,6 +27,7 @@ describe('CategoryService', () => {
     });
     service = TestBed.inject(CategoryService);
     collectionService = TestBed.inject(CollectionService);
+    termService = TestBed.inject(TermService);
   });
 
   beforeEach(waitForAsync(() => {
@@ -77,18 +81,25 @@ describe('CategoryService', () => {
   it('should delete category', async () => {
     const gc = await service.addCategory(category, collection.getId());
     const tc = await service.addCategory(new Category('sample2', CategoryType.thematic), collection.getId());
+    let term = new Term('hola', 'hello');
+    term.addGramaticalCategory(gc);
+    term.addThematicCategory(tc);
+    await termService.addTerm(term, collection.getId());
 
-    await service.deleteCategory(collection.getId(), gc.getId());
+    await service.deleteCategory(collection.getId(), gc.getId(), gc.getType());
     collection = await collectionService.getCollectionById(collection.getId());
     expect(collection.getGramaticalCategories()).toEqual([]);
 
-    await service.deleteCategory(collection.getId(), tc.getId());
+    await service.deleteCategory(collection.getId(), tc.getId(), tc.getType());
     collection = await collectionService.getCollectionById(collection.getId());
     expect(collection.getThematicCategories()).toEqual([]);
+    term = collection.getTerms()[0];
+    expect(term.getGramaticalCategories()).toEqual([]);
+    expect(term.getThematicCategories()).toEqual([]);
   });
 
   it('should throw error when deleting category from non-existent collection', async () => {
-    await expectAsync(service.deleteCategory(-1, NaN))
+    await expectAsync(service.deleteCategory(-1, NaN, CategoryType.gramatical))
       .toBeRejectedWithError(`Collection with ID -1 not found`);
   });
 });
