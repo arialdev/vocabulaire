@@ -32,6 +32,7 @@ describe('TermPage for creating term', () => {
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([{path: '', component: HomePage}])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: NavController, useClass: MockNavController}
       ]
     }).compileComponents();
 
@@ -64,6 +65,15 @@ describe('TermPage for creating term', () => {
     expect(component).toBeTruthy();
     expect(component.editingID).toBeUndefined();
     expect(component.title).toEqual('New term');
+  });
+
+  it('should navigate to categories', async () => {
+    const navCtrl = fixture.debugElement.injector.get(NavController);
+    spyOn(navCtrl, 'navigateForward');
+    await component.navigateToCategories('Gramatical');
+    expect(navCtrl.navigateForward).toHaveBeenCalledWith(`categories/Gramatical`);
+    await component.navigateToCategories('Thematic');
+    expect(navCtrl.navigateForward).toHaveBeenCalledWith(`categories/Thematic`);
   });
 
   it('should update category chips', () => {
@@ -203,5 +213,16 @@ describe('TermPage for updating term', () => {
     spyOn(alertController, 'create').and.callThrough();
     await component.openDeletionAlert();
     expect(alertController.create).toHaveBeenCalled();
+  });
+
+  it('should compare categories', () => {
+    newCT1.setId(1);
+    newCT2.setId(2);
+    expect(component.compareWith(newCT1, newCT2)).toBeFalse();
+    expect(component.compareWith(newCT1, undefined)).toBeFalse();
+    expect(component.compareWith(newCT1, newCT1)).toBeTrue();
+    expect(component.compareWith(newCT1, [newCT1, newCT2])).toEqual(newCT1);
+    expect(component.compareWith(newCT1, [newCT2])).toBeFalsy();
+    expect(component.compareWith(undefined, [newCT2])).toBeFalse();
   });
 });

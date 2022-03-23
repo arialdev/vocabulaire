@@ -25,7 +25,7 @@
           <ion-label> Gramatical categories</ion-label>
           <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
                       #gramaticalCategoriesDropdown selectedText=" " formControlName="gramaticalCategories"
-                      (ionChange)="updateChips($event, 0)">
+                      (ionChange)="updateChips($event, 0)" [compareWith]="compareWith">
             <ion-select-option *ngFor="let category of gramaticalCategoriesList"
                                [value]="category">{{category.getName()}}</ion-select-option>
           </ion-select>
@@ -47,7 +47,7 @@
           <ion-label> Thematic categories</ion-label>
           <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
                       #thematicCategoriesDropdown selectedText=" " formControlName="thematicCategories"
-                      (ionChange)="updateChips($event, 1)">
+                      [compareWith]="compareWith" (ionChange)="updateChips($event, 1)">
             <ion-select-option *ngFor="let category of thematicCategoriesList"
                                [value]="category">{{category.getName()}}</ion-select-option>
           </ion-select>

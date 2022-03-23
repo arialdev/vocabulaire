@@ -34,7 +34,7 @@ describe('ActiveCollectionGuard (isolated)', () => {
 
   beforeEach(() => {
     collections = [];
-    routerSpy = jasmine.createSpyObj<NavController>('NavController', ['navigateForward']); // [1]
+    routerSpy = jasmine.createSpyObj<NavController>('NavController', ['navigateForward']);
     serviceStub = {
       addCollection: c => {
         c.setId(1);
@@ -59,8 +59,8 @@ describe('ActiveCollectionGuard (isolated)', () => {
         );
         return Promise.resolve(cA);
       }
-    }; // [2]
-    guard = new ActiveCollectionGuard(serviceStub as CollectionService, routerSpy); // [3]
+    };
+    guard = new ActiveCollectionGuard(serviceStub as CollectionService, routerSpy);
   });
 
   const fakeUrls = ['/'];

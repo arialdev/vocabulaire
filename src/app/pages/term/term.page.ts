@@ -28,6 +28,8 @@ export class TermPage implements OnInit {
 
   editingID: number;
 
+  compareWith = compareCategories;
+
   private activeCollection: Collection;
 
   constructor(
@@ -131,3 +133,13 @@ export class TermPage implements OnInit {
     });
   }
 }
+
+const compareCategories = (c1: Category, c2) => {
+  if (Array.isArray(c2)) {
+    if (!c1 || !c1.getId()) {
+      return false;
+    }
+    return c2.find(val => val && val.getId() === c1.getId());
+  }
+  return c1 && c2 ? c1.getId() === c2.getId() : c1 === c2;
+};
