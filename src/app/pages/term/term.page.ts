@@ -116,6 +116,10 @@ export class TermPage implements OnInit {
     }
   }
 
+  async navigateToCategories(type) {
+    await this.navController.navigateForward(`categories/${type}`);
+  }
+
   private async editingMode() {
     const term = this.activeCollection.getTerms().find(t => t.getId() === this.editingID);
     this.termForm.patchValue({
