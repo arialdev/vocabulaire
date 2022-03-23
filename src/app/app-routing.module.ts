@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {ActiveCollectionGuard} from './guards/active-collection.guard';
 
 const routes: Routes = [
   {
@@ -7,8 +8,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/folder/folder.module').then(m => m.FolderPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+    path: '',
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
+    canActivate: [ActiveCollectionGuard]
   },
   {
     path: 'collections',
@@ -16,15 +18,17 @@ const routes: Routes = [
   },
   {
     path: 'term',
-    loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule)
+    loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule),
+    canActivate: [ActiveCollectionGuard]
   },
   {
     path: 'term/:id',
-    loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule)
+    loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule),
   },
   {
     path: 'categories/:type',
-    loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule)
+    loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule),
+    canActivate: [ActiveCollectionGuard]
   }
 
 ];
