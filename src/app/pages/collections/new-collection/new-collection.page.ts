@@ -54,7 +54,8 @@ export class NewCollectionPage implements OnInit {
       if (this.editingId) {
         await this.collectionService.updateCollectionById(this.editingId, collection);
       } else {
-        await this.collectionService.addCollection(collection);
+        const newCollection = await this.collectionService.addCollection(collection);
+        await this.collectionService.setActiveCollection(newCollection.getId());
       }
       await this.navCtrl.navigateBack('collections');
     }

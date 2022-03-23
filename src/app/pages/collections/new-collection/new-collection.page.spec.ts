@@ -73,6 +73,7 @@ describe('NewCollectionPage for creation', () => {
 
     const navCtrl = fixture.debugElement.injector.get(NavController);
     spyOn(navCtrl, 'navigateBack');
+    spyOn(service, 'setActiveCollection');
 
     component.collectionForm.patchValue(newValues);
     component.onSubmit().then(() => {
@@ -85,6 +86,7 @@ describe('NewCollectionPage for creation', () => {
           isEqual(c.getLanguage().getIcon(), newValues.icon)
         );
         expect(collection).toBeTruthy();
+        expect(service.setActiveCollection).toHaveBeenCalled();
         expect(navCtrl.navigateBack).toHaveBeenCalledWith('collections');
         done();
       });
