@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 export class EmojisMap {
   public emojisMap = {
     people: [

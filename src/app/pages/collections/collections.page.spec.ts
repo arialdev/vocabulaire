@@ -9,6 +9,7 @@ import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojisMap} from '../../services/emoji/emojisMap';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -22,10 +23,11 @@ describe('CollectionsPage', () => {
 
   beforeEach(waitForAsync(() => {
     routerSpy = {navigate: jasmine.createSpy('navigate')};
-    mockActivatedRoute = {snapshot: {queryParamMap: {get: () => 'collections'}}};
+    mockActivatedRoute = {snapshot: {paramMap: {get: () => 'collections'}}};
 
     TestBed.configureTestingModule({
       declarations: [CollectionsPage],
+      imports: [RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: Router, useValue: routerSpy},
@@ -52,9 +54,8 @@ describe('CollectionsPage', () => {
   });
 
   it('should contains back button', () => {
-    const backButton = fixture.debugElement.query(By.css('ion-header .back-button'));
+    const backButton = fixture.debugElement.query(By.css('ion-header ion-back-button'));
     expect(backButton).toBeTruthy();
-    expect(backButton.attributes.href).toEqual('');
   });
 
   // it('should list collections', () => {
@@ -99,7 +100,7 @@ describe('CollectionsPage', () => {
     fixture.detectChanges();
 
     component.onItemClick(mockInactiveCollection.getId()).then(() => {
-      expect(routerSpy.navigate.calls.first().args[0]).toContain('new');
+      expect(routerSpy.navigate.calls.first().args[0][0]).toBe(`${mockInactiveCollection.getId()}`);
       done();
     });
   });
@@ -131,5 +132,10 @@ describe('CollectionsPage', () => {
         });
       });
     });
+  });
+
+  it('should navigate to new collection', async () => {
+    await component.navigateToCollection();
+    expect(routerSpy.navigate.calls.first().args[0][0]).toBe('new');
   });
 });

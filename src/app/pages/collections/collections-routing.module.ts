@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { CollectionsPage } from './collections.page';
+import {CollectionsPage} from './collections.page';
 
 const routes: Routes = [
   {
@@ -9,8 +9,12 @@ const routes: Routes = [
     component: CollectionsPage
   },
   {
+    path: ':id',
+    loadChildren: () => import('./new-collection/new-collection.module').then(m => m.NewCollectionPageModule)
+  },
+  {
     path: 'new',
-    loadChildren: () => import('./new-collection/new-collection.module').then( m => m.NewCollectionPageModule)
+    loadChildren: () => import('./new-collection/new-collection.module').then(m => m.NewCollectionPageModule)
   }
 ];
 
@@ -18,4 +22,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CollectionsPageRoutingModule {}
+export class CollectionsPageRoutingModule {
+}

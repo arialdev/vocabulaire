@@ -10,6 +10,9 @@ import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {NavController} from '@ionic/angular';
+import {MockNavController} from '../../../mocks';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -35,7 +38,11 @@ describe('HomePage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HomePage],
-      providers: [{provide: AbstractStorageService, useClass: MockStorageService}],
+      imports: [RouterTestingModule.withRoutes([])],
+      providers: [
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: NavController, useClass: MockNavController}
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
@@ -75,8 +82,6 @@ describe('HomePage', () => {
   it('should display language icon', () => {
     const buttons = fixture.debugElement.query(By.css('.header ion-buttons[slot=end]'));
     expect(buttons).toBeTruthy();
-    const buttonLink = buttons.query(By.css('ion-button'));
-    expect(buttonLink.nativeElement.attributes.href.value).toBe('/collections');
   });
 
   it('should contains searchbar', () => {
@@ -121,5 +126,26 @@ describe('HomePage', () => {
     expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.getNotes());
     expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.getGramaticalCategories().length);
     expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.getThematicCategories().length);
+  });
+
+  it('should navigate to collections', async () => {
+    const navCtrl = fixture.debugElement.injector.get(NavController);
+    spyOn(navCtrl, 'navigateForward');
+    await component.navigateToCollections();
+    expect(navCtrl.navigateForward).toHaveBeenCalledWith('collections');
+  });
+
+  it('should navigate to new term', async () => {
+    const navCtrl = fixture.debugElement.injector.get(NavController);
+    spyOn(navCtrl, 'navigateForward');
+    await component.navigateToTerm();
+    expect(navCtrl.navigateForward).toHaveBeenCalledWith('term/new');
+  });
+
+  it('should navigate to existing term', async () => {
+    const navCtrl = fixture.debugElement.injector.get(NavController);
+    spyOn(navCtrl, 'navigateForward');
+    await component.navigateToTerm(1);
+    expect(navCtrl.navigateForward).toHaveBeenCalledWith('term/1');
   });
 });

@@ -24,7 +24,7 @@ describe('NewCollectionPage for creation', () => {
 
   beforeEach(waitForAsync(() => {
     emoji = new Emoji('smile', 'people');
-    mockActivatedRoute = {snapshot: {queryParamMap: {get: () => undefined}}};
+    mockActivatedRoute = {snapshot: {paramMap: {get: () => undefined}}};
     TestBed.configureTestingModule({
       providers: [
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
@@ -104,7 +104,7 @@ describe('NewCollectionPage for update', () => {
   let mockInactiveCollection: Collection;
 
   beforeEach(waitForAsync(() => {
-    mockActivatedRoute = {snapshot: {queryParamMap: {get: () => 1}}};
+    mockActivatedRoute = {snapshot: {paramMap: {get: () => 1}}};
 
     TestBed.configureTestingModule({
       providers: [
@@ -155,7 +155,7 @@ describe('NewCollectionPage for update', () => {
   });
 
   it('should toggle mode if invalid ID provided', (done) => {
-    mockActivatedRoute.snapshot.queryParamMap.get = () => 'sample';
+    mockActivatedRoute.snapshot.paramMap.get = () => 'sample';
     component.ngOnInit().then(() => {
       expect(component.editingId).toBeNull();
       done();

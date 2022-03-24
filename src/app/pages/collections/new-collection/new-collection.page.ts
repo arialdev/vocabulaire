@@ -22,7 +22,7 @@ export class NewCollectionPage implements OnInit {
 
   constructor(
     private collectionService: CollectionService,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private navCtrl: NavController,
     public alertController: AlertController,
     private emojiService: EmojiService,
@@ -36,7 +36,7 @@ export class NewCollectionPage implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const id = this.route.snapshot.queryParamMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       await this.editMode(Number(id));
     } else {

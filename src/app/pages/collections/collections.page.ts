@@ -19,7 +19,7 @@ export class CollectionsPage {
     private collectionService: CollectionService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private emojiService: EmojiService
+    private emojiService: EmojiService,
   ) {
     this.collections = [];
     this.managingMode = false;
@@ -44,10 +44,7 @@ export class CollectionsPage {
 
   async onItemClick(id): Promise<void> {
     if (this.managingMode) {
-      await this.router.navigate(['new'], {
-        relativeTo: this.activatedRoute,
-        queryParams: {id}
-      });
+      await this.navigateToCollection(id);
     } else {
       await this.setActive(id);
     }
@@ -55,6 +52,12 @@ export class CollectionsPage {
 
   getEmojiRoute(emoji: Emoji) {
     return this.emojiService.getEmojiRoute(emoji);
+  }
+
+  async navigateToCollection(id?: number) {
+    await this.router.navigate([`${id ?? 'new'}`], {
+      relativeTo: this.activatedRoute
+    });
   }
 
   private async loadCollections(): Promise<void> {

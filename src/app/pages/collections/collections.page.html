@@ -1,16 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button class="back-button" fill="clear" slot="icon-only" href="" router-direction="back">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Collections</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear" color="primary" (click)="toggleManage()">
-        {{managingMode ? 'SET' : 'MANAGE'}}
+        {{managingMode ? 'Set' : 'Manage'}}
       </ion-button>
-      <ion-button href="/collections/new" class="new-collection" fill="clear" color="primary">
+      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary">
         New
       </ion-button>
     </ion-buttons>

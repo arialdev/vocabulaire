@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/collections/collections.module').then(m => m.CollectionsPageModule)
   },
   {
-    path: 'term',
+    path: 'term/new',
     loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule),
     canActivate: [ActiveCollectionGuard]
   },

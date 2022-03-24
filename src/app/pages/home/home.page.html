@@ -7,7 +7,7 @@
     <ion-img class="header-logo" src="assets/img/logo.png"></ion-img>
 
     <ion-buttons slot="end">
-      <ion-button href="/collections">
+      <ion-button (click)="navigateToCollections()">
         <ion-img class="header-language" src="assets/img/emojis/flags/es.png"></ion-img>
       </ion-button>
     </ion-buttons>
@@ -50,7 +50,7 @@
   </div>
 
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
-    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" [href]="'term/'+term.getId()">
+    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
       <div class="item-box">
         <div class="language-prefix term-label">ES</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
@@ -78,7 +78,7 @@
   </ng-template>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">
-    <ion-fab-button href="term">
+    <ion-fab-button (click)="navigateToTerm()">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
