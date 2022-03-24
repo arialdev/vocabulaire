@@ -59,15 +59,15 @@
         </div>
         <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
         <div class="term-label secondary-term-label">Note:</div>
-        <div class="term-note">{{term.notes}}</div>
+        <div class="term-note">{{term.getNotes()}}</div>
         <div class="categories">
           <ion-chip class="gramatical-category" color="primary-blue" disabled
                     *ngFor="let gc of term.getGramaticalCategories()">
-            <ion-label>{{gc.name}}</ion-label>
+            <ion-label>{{gc.getName()}}</ion-label>
           </ion-chip>
           <ion-chip class="thematic-category" color="primary-blue" outline disabled
                     *ngFor="let tc of term.getThematicCategories()">
-            <ion-label>{{tc.name}}</ion-label>
+            <ion-label>{{tc.getName()}}</ion-label>
           </ion-chip>
         </div>
       </div>

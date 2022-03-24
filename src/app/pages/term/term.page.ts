@@ -107,7 +107,7 @@ export class TermPage implements OnInit {
     await alert.present();
   }
 
-  updateChips(event: CustomEvent, type: number) {
+  updateChips(event, type: number) {
     switch (type) {
       case 0:
         this.selectedGramaticalCategories = event.detail.value;
