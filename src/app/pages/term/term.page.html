@@ -30,7 +30,8 @@
         </ion-item>
       </div>
       <div class="categories-chips">
-        <ion-chip *ngFor="let category of selectedGramaticalCategories">{{category.getName()}}</ion-chip>
+        <ion-chip *ngFor="let category of selectedGramaticalCategories"
+                  color="primary-blue">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
         <ion-button fill="clear" color="dark" (click)="navigateToCategories('Gramatical')">
@@ -52,7 +53,8 @@
         </ion-item>
       </div>
       <div class="categories-chips">
-        <ion-chip *ngFor="let category of selectedThematicCategories">{{category.getName()}}</ion-chip>
+        <ion-chip *ngFor="let category of selectedThematicCategories" color="primary-blue"
+                  outline="true">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
         <ion-button fill="clear" color="dark" (click)="navigateToCategories('Thematic')">
