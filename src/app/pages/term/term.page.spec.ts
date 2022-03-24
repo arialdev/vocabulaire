@@ -56,7 +56,9 @@ describe('TermPage for creating term', () => {
         fixture = TestBed.createComponent(TermPage);
         component = fixture.componentInstance;
         fixture.detectChanges();
-        res();
+        component.ionViewWillEnter().then(() => {
+          res();
+        });
       });
     });
   });
@@ -166,7 +168,9 @@ describe('TermPage for updating term', () => {
             fixture = TestBed.createComponent(TermPage);
             component = fixture.componentInstance;
             fixture.detectChanges();
-            res();
+            component.ionViewWillEnter().then(() => {
+              res();
+            });
           });
         });
       });

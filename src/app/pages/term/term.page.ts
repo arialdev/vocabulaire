@@ -55,20 +55,25 @@ export class TermPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.activeCollection = await this.collectionService.getActiveCollection();
-    this.languageLabel = this.activeCollection.getLanguage().getName();
-    this.gramaticalCategoriesList = this.activeCollection.getGramaticalCategories();
-    this.thematicCategoriesList = this.activeCollection.getThematicCategories();
-
     const id: string = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.editingID = +id;
     }
     if (this.editingID) {
       this.title = 'Update term';
-      await this.editingMode();
     } else {
       this.title = 'New term';
+    }
+  }
+
+  async ionViewWillEnter() {
+    this.activeCollection = await this.collectionService.getActiveCollection();
+    this.languageLabel = this.activeCollection.getLanguage().getName();
+    this.gramaticalCategoriesList = this.activeCollection.getGramaticalCategories();
+    this.thematicCategoriesList = this.activeCollection.getThematicCategories();
+
+    if (this.editingID) {
+      await this.editingMode();
     }
   }
 

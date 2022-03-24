@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Term} from '../../classes/term/term';
 import {CollectionService} from '../../services/collection/collection.service';
 import {NavController} from '@ionic/angular';
@@ -8,19 +8,19 @@ import {NavController} from '@ionic/angular';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
   terms: Term[] = [];
 
   constructor(private collectionService: CollectionService, private navController: NavController) {
   }
 
-  async ngOnInit() {
+  async ionViewWillEnter() {
     const collection = await this.collectionService.getActiveCollection();
     this.terms = collection.getTerms();
   }
 
-  async navigateToCollections(){
+  async navigateToCollections() {
     await this.navController.navigateForward('collections');
   }
 
