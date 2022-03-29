@@ -37,7 +37,7 @@ export class EmojiPickerComponent implements OnInit {
     this.newEmojiEvent.emit(this.selectedEmoji);
   }
 
-  getEmojisFromCategory(category: string){
+  getEmojisFromCategory(category: string) {
     return this.emojiService.getEmojisFromCategory(category);
   }
 }

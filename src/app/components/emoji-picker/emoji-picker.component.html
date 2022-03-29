@@ -10,8 +10,7 @@
     <div class="emoji-grid">
       <ion-button class="emoji-listed" fill="clear"
                   *ngFor="let emoji of getEmojisFromCategory(selectedCategory)" slot="icon-only">
-        <ion-img [src]="emojiService.getEmojiRoute(emoji)"
-                 (click)="setEmoji(emoji)"></ion-img>
+        <img [src]="emojiService.getEmojiRoute(emoji)" (click)="setEmoji(emoji)" alt=""/>
       </ion-button>
     </div>
   </div>
