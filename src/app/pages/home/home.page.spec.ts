@@ -13,6 +13,7 @@ import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NavController} from '@ionic/angular';
 import {MockNavController} from '../../../mocks';
+import {TermService} from '../../services/term/term.service';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -20,6 +21,7 @@ describe('HomePage', () => {
 
   let collection: Collection;
   let collectionService: CollectionService;
+  let termService: TermService;
 
   const categoryType1: CategoryType = CategoryType.gramatical;
   const categoryType2: CategoryType = CategoryType.thematic;
@@ -47,6 +49,7 @@ describe('HomePage', () => {
     }).compileComponents();
 
     collectionService = TestBed.inject(CollectionService);
+    termService = TestBed.inject(TermService);
   }));
 
   beforeEach(waitForAsync(() => {
@@ -147,5 +150,13 @@ describe('HomePage', () => {
     spyOn(navCtrl, 'navigateForward');
     await component.navigateToTerm(1);
     expect(navCtrl.navigateForward).toHaveBeenCalledWith('term/1');
+  });
+
+  it('should init view', async () => {
+    spyOn(collectionService, 'getActiveCollection').and.resolveTo(collection);
+    spyOn(Collection.prototype, 'getTerms');
+    await component.ionViewWillEnter();
+    expect(collectionService.getActiveCollection).toHaveBeenCalled();
+    expect(Collection.prototype.getTerms).toHaveBeenCalled();
   });
 });
