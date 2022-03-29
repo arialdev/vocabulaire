@@ -1,9 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TestBed, waitForAsync} from '@angular/core/testing';
 
-import { RouterTestingModule } from '@angular/router/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {AbstractStorageService} from './services/storage/abstract-storage-service';
+import {MockStorageService} from './services/storage/mock-storage.service';
 
 describe('AppComponent', () => {
 
@@ -13,7 +15,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [ RouterTestingModule.withRoutes([])],
+      imports: [RouterTestingModule.withRoutes([])],
+      providers: [{provide: AbstractStorageService, useClass: MockStorageService}]
     }).compileComponents();
   }));
 
@@ -42,5 +45,4 @@ describe('AppComponent', () => {
     expect(menuItems[0].getAttribute('ng-reflect-router-link')).toEqual('/folder/Inbox');
     expect(menuItems[1].getAttribute('ng-reflect-router-link')).toEqual('/folder/Outbox');
   }));
-
 });
