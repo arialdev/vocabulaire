@@ -7,7 +7,7 @@ import {Emoji} from '../../classes/emoji/emoji';
 })
 export class EmojiService {
 
-  private readonly emojiRoute: string = 'assets/img/emojis/**/*.png';
+  private readonly emojiRoute: string = 'assets/img/emojis/**/*';
   private readonly headerEmojiRoute: string = 'assets/img/emojis/categories/*.svg';
   private readonly categoryMap: object;            //maps a category with its emojis names
   private emojisMap: Map<string, Emoji>;           //maps an id with its emoji object
@@ -42,7 +42,7 @@ export class EmojiService {
     if (!emoji || !this.emojisMap.get(emoji.getName())) {
       return;
     }
-    return this.emojiRoute.replace('**', emoji.getCategory()).replace('*.', `${emoji.getName()}.`);
+    return this.emojiRoute.replace('**', emoji.getCategory()).replace('*', `${emoji.getName()}`);
   }
 
 }
