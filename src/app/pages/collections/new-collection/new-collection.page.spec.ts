@@ -23,7 +23,7 @@ describe('NewCollectionPage for creation', () => {
   let emoji: Emoji;
 
   beforeEach(waitForAsync(() => {
-    emoji = new Emoji('smile', 'people');
+    emoji = new Emoji('2_smile.png', '1_people');
     mockActivatedRoute = {snapshot: {paramMap: {get: () => undefined}}};
     TestBed.configureTestingModule({
       providers: [
@@ -123,7 +123,7 @@ describe('NewCollectionPage for update', () => {
   }));
 
   beforeEach(waitForAsync(() => {
-    mockInactiveCollection = new Collection('French', 'FR', new Emoji('fr', 'flags'));
+    mockInactiveCollection = new Collection('French', 'FR', new Emoji('1645_fr.png', '8_flags'));
     initializeCollections();
   }));
 

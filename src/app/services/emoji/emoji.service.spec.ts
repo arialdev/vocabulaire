@@ -12,11 +12,11 @@ describe('EmojiService', () => {
   beforeEach(() => {
     mockEmojisMap = {
       emojisMap: {
-        people: ['smile', 'angry'],
-        food: ['apple'],
+        people: ['2_smile.png', '1_angry.png'],
+        food: ['3_apple.png'],
       }
     };
-    emoji = new Emoji('smile', 'people');
+    emoji = new Emoji('2_smile.png', 'people');
 
     TestBed.configureTestingModule({
       providers: [
@@ -31,12 +31,12 @@ describe('EmojiService', () => {
   });
 
   it('expect get emojis ids from category', () => {
-    expect(service.getEmojisFromCategory('people')).toEqual([emoji, new Emoji('angry', 'people')]);
-    expect(service.getEmojisFromCategory('food')).toEqual([new Emoji('apple', 'food')]);
+    expect(service.getEmojisFromCategory('people')).toEqual([emoji, new Emoji('1_angry.png', 'people')]);
+    expect(service.getEmojisFromCategory('food')).toEqual([new Emoji('3_apple.png', 'food')]);
   });
 
   it('expect get Emoji by id', () => {
-    expect(service.getEmojiByName('smile')).toEqual(emoji);
+    expect(service.getEmojiByName('2_smile.png')).toEqual(emoji);
   });
 
   it('expect get emojis route', () => {

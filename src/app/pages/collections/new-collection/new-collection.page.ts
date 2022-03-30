@@ -122,6 +122,6 @@ export class NewCollectionPage implements OnInit {
   }
 
   private selectDefaultEmoji(): void {
-    this.selectEmoji(this.emojiService.getEmojiByName('smile'));
+    this.selectEmoji(this.emojiService.getEmojiByName('2_smile.png'));
   }
 }
