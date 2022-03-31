@@ -62,13 +62,13 @@ export class NewCollectionPage implements OnInit {
   }
 
   selectEmoji(emoji: Emoji): void {
+    this.modalStatus = false;
     if (!emoji) {
       return;
     }
     const route = this.getEmojisRoute(emoji);
     this.selectedEmoji = emoji;
     this.collectionForm.patchValue({icon: route});
-    this.modalStatus = false;
   }
 
   toggleModal(): void {
