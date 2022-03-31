@@ -14,6 +14,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {NavController} from '@ionic/angular';
 import {MockNavController} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
+import {EmojisMap} from '../../services/emoji/emojisMap';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -43,7 +44,8 @@ describe('HomePage', () => {
       imports: [RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
-        {provide: NavController, useClass: MockNavController}
+        {provide: NavController, useClass: MockNavController},
+        {provide: EmojisMap}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
