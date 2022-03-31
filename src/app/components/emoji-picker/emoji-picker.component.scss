@@ -43,7 +43,7 @@
     --padding-end: unset;
     margin: 0 0 4px;
 
-    ion-icon{
+    ion-icon {
       color: black;
     }
   }
@@ -64,4 +64,9 @@
   --padding-start: unset;
   --padding-end: unset;
   margin: 0;
+}
+
+.selected-category {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.14);
+  border-radius: 100%;
 }
