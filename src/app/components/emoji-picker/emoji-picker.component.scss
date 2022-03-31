@@ -1,0 +1,72 @@
+.component {
+  position: absolute;
+  z-index: 10;
+  border-radius: 1rem;
+  border: 1px solid dimgrey;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 95%;
+  padding: 6px;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.emoji-picker {
+  overflow: scroll;
+  position: relative;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  //padding: 1rem;
+  grid-gap: 6px 10px;
+  position: relative;
+  height: 50vh;
+}
+
+.picker-header {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  position: sticky;
+  width: 100%;
+  margin-bottom: 6px;
+  grid-gap: 0 6px;
+  border-bottom: 1px solid dimgrey;
+
+  ion-button {
+    --padding-start: unset;
+    --padding-end: unset;
+    margin: 0 0 4px;
+
+    ion-icon {
+      color: black;
+    }
+  }
+}
+
+.modal-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(13, 13, 13, 0.11);
+  z-index: 9;
+}
+
+.emoji-listed {
+  --padding-start: unset;
+  --padding-end: unset;
+  margin: 0;
+}
+
+.selected-category {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.14);
+  border-radius: 100%;
+}

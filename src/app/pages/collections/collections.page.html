@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Collections</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="primary" (click)="toggleManage()">
+        {{managingMode ? 'Set' : 'Manage'}}
+      </ion-button>
+      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary">
+        New
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
+    <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.getId())"
+              *ngFor="let collection of collections">
+      <div class="collection-box" [ngClass]="{'collection-active':collection.isActive()}">
+        <ion-img [src]="getEmojiRoute(collection.getLanguage().getIcon())" class="collection-icon"></ion-img>
+        <div class="language-prefix">{{collection.getLanguage().getPrefix()}}</div>
+        <div class="collection-name">{{collection.getLanguage().getName()}}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ng-template #no_collections>
+    <p class="no-collections-message"> Add a new collection to start learning right now!</p>
+  </ng-template>
+</ion-content>

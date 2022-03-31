@@ -1,0 +1,85 @@
+<ion-header class="header" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-img class="header-logo" src="assets/img/logo.png"></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToCollections()">
+        <ion-img class="header-language" [src]="collectionIcon"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="searchbar-container">
+    <div class="terms-searchbar">
+      <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search"
+                     inputmode="text"
+                     type="search"></ion-searchbar>
+    </div>
+    <div class="book-button">
+      <ion-button fill="clear">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="searchbar-options">
+      <div class="sort-button">
+        <ion-button fill="clear" size="small">
+          <ion-icon src="assets/icons/view/sort-solid.svg"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="filter-button">
+        <ion-button fill="clear" size="small">
+          <ion-icon name="funnel-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="details-toggle">
+        <ion-item lines="none">
+          <ion-label>Details</ion-label>
+          <ion-toggle checked name="toggleDetails"></ion-toggle>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+
+  <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
+    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
+      <div class="item-box">
+        <div class="language-prefix term-label">ES</div>
+        <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
+        <div class="translated-icon">
+          <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
+        </div>
+        <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
+        <div class="term-label secondary-term-label">Note:</div>
+        <div class="term-note">{{term.getNotes()}}</div>
+        <div class="categories">
+          <ion-chip class="gramatical-category" color="primary-blue" disabled
+                    *ngFor="let gc of term.getGramaticalCategories()">
+            <ion-label>{{gc.getName()}}</ion-label>
+          </ion-chip>
+          <ion-chip class="thematic-category" color="primary-blue" outline disabled
+                    *ngFor="let tc of term.getThematicCategories()">
+            <ion-label>{{tc.getName()}}</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ng-template #no_terms>
+    <p class="no-terms-message"> Add a new term to start learning right now!</p>
+  </ng-template>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">
+    <ion-fab-button (click)="navigateToTerm()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

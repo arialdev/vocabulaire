@@ -74,6 +74,14 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** Primary blue **/
+  --ion-color-primary-blue: #3880ff;
+  --ion-color-primary-blue-rgb: 56,128,255;
+  --ion-color-primary-blue-contrast: #ffffff;
+  --ion-color-primary-blue-contrast-rgb: 255,255,255;
+  --ion-color-primary-blue-shade: #3171e0;
+  --ion-color-primary-blue-tint: #4c8dff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -82,7 +90,7 @@
    * -------------------------------------------
    */
 
-  body {
+  body[data-theme="dark"] {
     --ion-color-primary: #2fdf75;
     --ion-color-primary-rgb: 47, 223, 117;
     --ion-color-primary-contrast: #000000;
@@ -152,7 +160,7 @@
    * -------------------------------------------
    */
 
-  .ios body {
+  .ios body[data-theme="dark"] {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -184,7 +192,7 @@
     --ion-card-background: #1c1c1d;
   }
 
-  .ios ion-modal {
+  .ios ion-modal[data-theme="dark"] {
     --ion-background-color: var(--ion-color-step-100);
     --ion-toolbar-background: var(--ion-color-step-150);
     --ion-toolbar-border-color: var(--ion-color-step-250);
@@ -196,7 +204,7 @@
    * -------------------------------------------
    */
 
-  .md body {
+  .md body[data-theme="dark"] {
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 

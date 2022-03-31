@@ -1,0 +1,18 @@
+<div class="modal-background" (click)="closeModal()"></div>
+<div class="component">
+  <div class="picker-header">
+    <ion-button *ngFor="let category of categories" fill="clear" slot="icon-only" (click)="selectCategory(category)"
+                [class.selected-category]="category===selectedCategory">
+      <ion-icon size="large" [src]="emojiService.getCategoryPic(category)"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="emoji-picker">
+    <div class="emoji-grid">
+      <ion-button class="emoji-listed" fill="clear"
+                  *ngFor="let emoji of getEmojisFromCategory(selectedCategory)" slot="icon-only">
+        <img [src]="emojiService.getEmojiRoute(emoji)" (click)="setEmoji(emoji)" alt=""/>
+      </ion-button>
+    </div>
+  </div>
+</div>

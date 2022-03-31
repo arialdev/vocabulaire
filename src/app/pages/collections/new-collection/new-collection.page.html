@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/collections"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="fixed">Name</ion-label>
+      <ion-input formControlName="name" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Prefix</ion-label>
+      <ion-input formControlName="prefix" type="text" required autocapitalize="characters" maxlength="2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Icon</ion-label>
+      <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸"></ion-input>
+      <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
+        <ion-img [src]="getEmojisRoute(this.selectedEmoji)"></ion-img>
+      </ion-button>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="editingId">
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="submit-button" type="submit" expand="block">{{editingId ? 'Save' : 'Submit'}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+  <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
+</ion-content>

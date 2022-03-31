@@ -31,6 +31,7 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/ngv'),
       subdir: '.',
       reporters: [
+        {type: 'lcov', subdir: 'report-lcov'},
         {type: 'html'},
         {type: 'text-summary'}
       ]
@@ -40,7 +41,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless', 'Firefox'],
+    browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true
   });
