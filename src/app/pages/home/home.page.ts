@@ -16,8 +16,10 @@ export class HomePage {
   terms: Term[] = [];
   activeCollection: Collection;
   collectionIcon: string;
+  simpleView: boolean;
 
   constructor(private collectionService: CollectionService, private navController: NavController, private emojiService: EmojiService) {
+    this.simpleView = true;
   }
 
   async ionViewWillEnter() {
