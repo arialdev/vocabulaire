@@ -45,7 +45,7 @@ module.exports = function (config) {
     //   'src/app/**/*.ts': ['coverage']
     // },
     singleRun: true,
-    reporters: ['progress', 'coverage'],
+    reporters: ['coverage'],
     retryLimit: 0,
   });
 };
