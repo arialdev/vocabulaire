@@ -46,6 +46,9 @@
           },
           "configurations": {
             "production": {
+              "progress": false,
+              "watch": false,
+              "verbose": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -70,9 +73,7 @@
             },
             "ci": {
               "progress": false,
-              "watch": false,
-              "browsers": "ChromeHeadless",
-              "codeCoverage": true
+              "watch": false
             }
           }
         },
@@ -84,9 +85,6 @@
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
-            },
-            "ci": {
-              "progress": false
             }
           }
         },
@@ -108,8 +106,6 @@
               "src/app/services/emoji/emojisMap.ts",
               "src/app/services/storage/mock-storage.service.ts"
             ],
-            "styles": [],
-            "scripts": [],
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -125,8 +121,8 @@
           },
           "configurations": {
             "ci": {
-              "progress": false,
-              "watch": false
+              "karmaConfig": "karma.ci.conf.js",
+              "codeCoverage": true
             }
           }
         },
@@ -148,30 +144,6 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "app:serve:production"
-            }
-          }
-        },
-        "ionic-cordova-build": {
-          "builder": "@ionic/angular-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
-            }
-          }
-        },
-        "ionic-cordova-serve": {
-          "builder": "@ionic/angular-toolkit:cordova-serve",
-          "options": {
-            "cordovaBuildTarget": "app:ionic-cordova-build",
-            "devServerTarget": "app:serve"
-          },
-          "configurations": {
-            "production": {
-              "cordovaBuildTarget": "app:ionic-cordova-build:production",
               "devServerTarget": "app:serve:production"
             }
           }

@@ -5,18 +5,23 @@ process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
   config.set({
-    autoWatch: true,
+    autoWatch: false,
     basePath: '',
-    browsers: ['Chrome'],
+    browserNoActivityTimeout: 5000,
+    browserSocketTimeout: 5000,
+    browsers: ['ChromeHeadless'],
+    captureTimeout: 10000,
     client: {
       jasmine: {
+        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         failSpecWithNoExpectations: true,
         random: true,
-        verboseDeprecations: true,
+        verboseDeprecations: false,
       },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     colors: true,
+    concurrency: Infinity,
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/ngv'),
       subdir: '.',
@@ -27,21 +32,20 @@ module.exports = function (config) {
       ]
     },
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
-    },
-    logLevel: config.LOG_ERROR,
+    logLevel: config.LOG_INFO,
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
+      require('karma-jasmine'), //?
+      require('karma-chrome-launcher'), //mmm
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-firefox-launcher'),
     ],
     port: 9876,
-    reporters: ['progress', 'kjhtml'],
-    restartOnFileChange: true,
-    singleRun: false,
+    // preprocessors: {
+    //   'src/app/**/*.ts': ['coverage']
+    // },
+    singleRun: true,
+    reporters: ['progress', 'coverage'],
+    retryLimit: 0,
   });
 };
