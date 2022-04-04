@@ -15,9 +15,12 @@ export class HomePage {
 
   terms: Term[] = [];
   activeCollection: Collection;
+  simpleView: boolean;
   collectionIcon: string;
+  collectionPrefix: string;
 
   constructor(private collectionService: CollectionService, private navController: NavController, private emojiService: EmojiService) {
+    this.simpleView = true;
   }
 
   async ionViewWillEnter() {
@@ -25,6 +28,7 @@ export class HomePage {
     this.terms = this.activeCollection.getTerms();
     const emoji: Emoji = this.activeCollection.getLanguage().getIcon();
     this.collectionIcon = this.emojiService.getEmojiRoute(emoji);
+    this.collectionPrefix = this.activeCollection.getLanguage().getPrefix();
   }
 
   async navigateToCollections() {

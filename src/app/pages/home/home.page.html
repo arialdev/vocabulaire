@@ -43,7 +43,7 @@
       <div class="details-toggle">
         <ion-item lines="none">
           <ion-label>Details</ion-label>
-          <ion-toggle checked name="toggleDetails"></ion-toggle>
+          <ion-toggle [(ngModel)]="simpleView" name="toggleDetails"></ion-toggle>
         </ion-item>
       </div>
     </div>
@@ -52,15 +52,15 @@
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
     <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
       <div class="item-box">
-        <div class="language-prefix term-label">ES</div>
+        <div class="language-prefix term-label">{{collectionPrefix}}</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
         <div class="translated-icon">
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
         </div>
         <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
-        <div class="term-label secondary-term-label">Note:</div>
-        <div class="term-note">{{term.getNotes()}}</div>
-        <div class="categories">
+        <div class="term-label secondary-term-label" *ngIf="simpleView">Note:</div>
+        <div class="term-note" *ngIf="simpleView">{{term.getNotes()}}</div>
+        <div class="categories" *ngIf="simpleView">
           <ion-chip class="gramatical-category" color="primary-blue" disabled
                     *ngFor="let gc of term.getGramaticalCategories()">
             <ion-label>{{gc.getName()}}</ion-label>

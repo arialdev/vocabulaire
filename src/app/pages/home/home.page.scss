@@ -113,20 +113,14 @@ ion-menu-button {
 
     .item-box {
       display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: repeat(4, auto);
+      grid-auto-columns: 1fr;
+      grid-template-columns: 40px 1fr;
       gap: 8px 8px;
-      grid-template-areas:
-    "language-prefix term-name"
-    "translated-icon translated-term"
-    "secondary-term-label term-note"
-    "categories categories";
       align-items: baseline;
       justify-items: start;
       color: #313131;
 
       .language-prefix {
-        grid-area: language-prefix;
         font-family: "Lemon Milk", sans-serif;
         font-size: 14px;
       }
@@ -141,12 +135,7 @@ ion-menu-button {
         color: #b3b3b3;
       }
 
-      .term-name {
-        grid-area: term-name;
-      }
-
       .translated-icon {
-        grid-area: translated-icon;
         display: flex;
         align-self: center;
 
@@ -155,21 +144,12 @@ ion-menu-button {
         }
       }
 
-      .translated-term {
-        grid-area: translated-term;
-      }
-
       .secondary-term-label {
-        grid-area: secondary-term-label;
         font-family: Calibri, monospace;
       }
 
-      .term-note {
-        grid-area: term-note;
-      }
-
       .categories {
-        grid-area: categories;
+        grid-column-end: span 2;
 
         ion-chip {
           opacity: unset;

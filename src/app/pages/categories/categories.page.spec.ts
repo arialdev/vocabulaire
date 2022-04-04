@@ -12,6 +12,7 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {Category} from '../../classes/category/category';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('CategoriesPage', () => {
   let component: CategoriesPage;
@@ -33,6 +34,7 @@ describe('CategoriesPage', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
     collectionService = TestBed.inject(CollectionService);
     categoryService = TestBed.inject(CategoryService);
