@@ -10,7 +10,7 @@ module.exports = function (config) {
     browserNoActivityTimeout: 5000,
     browserSocketTimeout: 5000,
     browsers: ['ChromeHeadless'],
-    captureTimeout: 10000,
+    captureTimeout: 60000,
     client: {
       jasmine: {
         // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
