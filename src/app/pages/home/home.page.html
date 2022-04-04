@@ -52,7 +52,7 @@
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
     <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
       <div class="item-box">
-        <div class="language-prefix term-label">ES</div>
+        <div class="language-prefix term-label">{{collectionPrefix}}</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
         <div class="translated-icon">
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
