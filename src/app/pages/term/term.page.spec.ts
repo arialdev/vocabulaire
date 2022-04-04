@@ -15,6 +15,8 @@ import {Term} from '../../classes/term/term';
 import {MockAlertController, MockNavController} from '../../../mocks';
 import {CategoryType} from '../../enums/enums';
 import {HomePage} from '../home/home.page';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('TermPage for creating term', () => {
   let component: TermPage;
@@ -29,11 +31,16 @@ describe('TermPage for creating term', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TermPage],
-      imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([{path: '', component: HomePage}])],
+      imports: [
+        IonicModule.forRoot(),
+        RouterTestingModule.withRoutes([{path: '', component: HomePage}]),
+        ReactiveFormsModule,
+      ],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController}
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     collectionService = TestBed.inject(CollectionService);
@@ -129,7 +136,8 @@ describe('TermPage for updating term', () => {
       declarations: [TermPage],
       imports: [
         IonicModule.forRoot(),
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
       ],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
@@ -137,7 +145,8 @@ describe('TermPage for updating term', () => {
         {provide: AlertController, useClass: MockAlertController},
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     collectionService = TestBed.inject(CollectionService);
