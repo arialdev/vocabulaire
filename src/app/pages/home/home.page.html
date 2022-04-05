@@ -29,10 +29,24 @@
     </div>
     <div class="searchbar-options">
       <div class="sort-button">
-        <ion-button fill="clear" size="small">
+        <ion-button id="sorting-trigger" fill="clear" size="small">
           <ion-icon src="assets/icons/view/sort-solid.svg"></ion-icon>
         </ion-button>
       </div>
+      <ion-popover trigger="sorting-trigger" dismissOnSelect arrow="false">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-list-header>
+                <ion-label>Sort by:</ion-label>
+              </ion-list-header>
+              <ion-item *ngFor="let sorting of sortingOptions;let i=index" button detail="false" (click)="sort(i+1)">
+                {{sorting}}
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
 
       <div class="filter-button">
         <ion-button fill="clear" size="small">

@@ -156,9 +156,34 @@ describe('HomePage', () => {
 
   it('should init view', async () => {
     spyOn(collectionService, 'getActiveCollection').and.resolveTo(collection);
-    spyOn(Collection.prototype, 'getTerms');
+    spyOn(Collection.prototype, 'getTerms').and.returnValue([]);
     await component.ionViewWillEnter();
     expect(collectionService.getActiveCollection).toHaveBeenCalled();
     expect(Collection.prototype.getTerms).toHaveBeenCalled();
+  });
+
+  it('should sort terms', () => {
+    const t1 = new Term('bb', 'xx');
+    const t2 = new Term('cc', 'yy');
+    const t3 = new Term('aa', 'zz');
+    t2.updateUpdatedTime(10000);
+    t3.updateUpdatedTime(20000);
+    t1.updateUpdatedTime(30000);
+    component.terms = [t1, t2, t3];
+
+    component.sort(1);
+    expect(component.terms).toEqual([t3, t1, t2]);
+    component.sort(1);
+    expect(component.terms).toEqual([t2, t1, t3]);
+
+    component.sort(2);
+    expect(component.terms).toEqual([t1, t2, t3]);
+    component.sort(2);
+    expect(component.terms).toEqual([t3, t2, t1]);
+
+    component.sort(3);
+    expect(component.terms).toEqual([t1, t3, t2]);
+    component.sort(3);
+    expect(component.terms).toEqual([t2, t3, t1]);
   });
 });
