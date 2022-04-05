@@ -72,9 +72,9 @@
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
         </div>
         <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
-        <div class="term-label secondary-term-label" *ngIf="simpleView">Note:</div>
-        <div class="term-note" *ngIf="simpleView">{{term.getNotes()}}</div>
-        <div class="categories" *ngIf="simpleView">
+        <div class="term-label secondary-term-label" *ngIf="simpleView && term.getNotes()">Note:</div>
+        <div class="term-note" *ngIf="simpleView && term.getNotes()">{{term.getNotes()}}</div>
+        <div class="categories" *ngIf="simpleView && (term.getGramaticalCategories().length||term.getThematicCategories().length)">
           <ion-chip class="gramatical-category" color="primary-blue" disabled
                     *ngFor="let gc of term.getGramaticalCategories()">
             <ion-label>{{gc.getName()}}</ion-label>
