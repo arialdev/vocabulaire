@@ -78,17 +78,25 @@ export class TermPage implements OnInit {
   }
 
   async onSubmit() {
-    const {originalTerm, translatedTerm, gramaticalCategories, thematicCategories, notes} = this.termForm.getRawValue();
-    const term = new Term(originalTerm, translatedTerm, notes);
-    term.addGramaticalCategories(gramaticalCategories);
-    term.addThematicCategories(thematicCategories);
+    if (this.termForm.valid) {
+      const {
+        originalTerm,
+        translatedTerm,
+        gramaticalCategories,
+        thematicCategories,
+        notes
+      } = this.termForm.getRawValue();
+      const term = new Term(originalTerm, translatedTerm, notes);
+      term.addGramaticalCategories(gramaticalCategories);
+      term.addThematicCategories(thematicCategories);
 
-    if (this.editingID) {
-      await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
-    } else {
-      await this.termService.addTerm(term, this.activeCollection.getId());
+      if (this.editingID) {
+        await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
+      } else {
+        await this.termService.addTerm(term, this.activeCollection.getId());
+      }
+      await this.navController.navigateBack('');
     }
-    await this.navController.navigateBack('');
   }
 
   async openDeletionAlert(): Promise<void> {
