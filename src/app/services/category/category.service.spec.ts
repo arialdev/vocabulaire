@@ -74,6 +74,9 @@ describe('CategoryService', () => {
     const updatedGC = await service.updateCategory('Updated sample', collection.getId(), gc.getId());
     const updatedTC = await service.updateCategory('Updated sample 2', collection.getId(), tc.getId());
 
+    collection = await collectionService.getCollectionById(collection.getId());
+    term = collection.getTerms().find(t => t.getId() === term.getId());
+
     expect(updatedGC.getName()).toEqual('Updated sample');
     expect(updatedGC.getId()).toEqual(gc.getId());
     expect(updatedTC.getName()).toEqual('Updated sample 2');
