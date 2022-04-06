@@ -11,8 +11,8 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {NavController} from '@ionic/angular';
-import {MockNavController} from '../../../mocks';
+import {AlertController, NavController} from '@ionic/angular';
+import {MockAlertController, MockNavController} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 
@@ -45,7 +45,8 @@ describe('HomePage', () => {
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
-        {provide: EmojisMap}
+        {provide: EmojisMap},
+        {provide: AlertController, useClass: MockAlertController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -185,5 +186,16 @@ describe('HomePage', () => {
     expect(component.terms).toEqual([t1, t3, t2]);
     component.sort(3);
     expect(component.terms).toEqual([t2, t3, t1]);
+  });
+
+  it('should present filter alert', async () => {
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    component.activeCollection.addGramaticalCategory(new Category('Body', CategoryType.thematic));
+    const alertController = fixture.debugElement.injector.get(AlertController);
+    spyOn(alertController, 'create').and.callThrough();
+    await component.presentAlertCheckbox(0);
+    expect(alertController.create).toHaveBeenCalled();
+    await component.presentAlertCheckbox(1);
+    expect(alertController.create).toHaveBeenCalledTimes(2);
   });
 });
