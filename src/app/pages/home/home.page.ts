@@ -109,8 +109,25 @@ export class HomePage {
     await alert.present();
   }
 
-  private filterTerms(): void {
-    this.terms = this.activeCollection.getTerms().filter(t => {
+  handleSearchbar(event) {
+    const text = event.target.value.toLowerCase();
+    const defaultTerms = this.activeCollection.getTerms();
+    this.terms = defaultTerms.filter(t =>
+      t.getOriginalTerm().toLowerCase().includes(text)
+      || t.getTranslatedTerm().toLowerCase().includes(text)
+      || t.getNotes().toLowerCase().includes(text)
+      || sanitizeText(t.getOriginalTerm()).includes(text)
+      || sanitizeText(t.getTranslatedTerm()).includes(text)
+      || sanitizeText(t.getNotes()).includes(text)
+    );
+    this.filterTerms(false);
+  }
+
+  private filterTerms(force = true): void {
+    if (force) {
+      this.terms = this.activeCollection.getTerms();
+    }
+    this.terms = this.terms.filter(t => {
       const gramaticalRes = t.getGramaticalCategories().some(c => this.filters[0].map((cc: Category) => cc.getId()).includes(c.getId()));
       const thematicRes = t.getThematicCategories().some(c => this.filters[1].map((cc: Category) => cc.getId()).includes(c.getId()));
 
@@ -128,3 +145,8 @@ export class HomePage {
     this.sort(this.activeSortingCode, true);
   }
 }
+
+const sanitizeText = (text: string) => text
+  .normalize('NFD')
+  .replaceAll(/[\u0300-\u036f]/g, '')
+  .toLowerCase();

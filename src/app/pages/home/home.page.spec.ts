@@ -198,4 +198,32 @@ describe('HomePage', () => {
     await component.presentAlertCheckbox(1);
     expect(alertController.create).toHaveBeenCalledTimes(2);
   });
+
+  it('should filter searchbar', () => {
+    const t1 = new Term('bb', 'xx', 'bx');
+    const t2 = new Term('cc', 'yy', 'cy');
+    const t3 = new Term('aá', 'zz', 'açz');
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    component.activeCollection.addTerms([t1, t2, t3]);
+    const event = {target: {value: 'ç'}};
+    component.handleSearchbar(event);
+    expect(component.terms).toEqual([t3]);
+  });
+
+  it('should filter filters', () => {
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    const t1 = new Term('bb', 'xx', 'bx');
+    const t2 = new Term('cc', 'yy', 'cy');
+    const gc = new Category('Noun', CategoryType.gramatical);
+    const tc = new Category('Noun', CategoryType.thematic);
+    component.activeCollection.addGramaticalCategory(gc);
+    component.activeCollection.addThematicCategory(tc);
+    t1.addGramaticalCategory(gc);
+    t2.addThematicCategory(tc);
+    component.activeCollection.addTerms([t1, t2]);
+
+    const event = {target: {value: ''}};
+    component.handleSearchbar(event);
+    expect(component.terms).toEqual([t1, t2]);
+  });
 });
