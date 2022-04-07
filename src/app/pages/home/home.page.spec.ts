@@ -11,8 +11,8 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {NavController} from '@ionic/angular';
-import {MockNavController} from '../../../mocks';
+import {AlertController, NavController} from '@ionic/angular';
+import {MockAlertController, MockNavController} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 
@@ -45,7 +45,8 @@ describe('HomePage', () => {
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
-        {provide: EmojisMap}
+        {provide: EmojisMap},
+        {provide: AlertController, useClass: MockAlertController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -156,9 +157,73 @@ describe('HomePage', () => {
 
   it('should init view', async () => {
     spyOn(collectionService, 'getActiveCollection').and.resolveTo(collection);
-    spyOn(Collection.prototype, 'getTerms');
+    spyOn(Collection.prototype, 'getTerms').and.returnValue([]);
     await component.ionViewWillEnter();
     expect(collectionService.getActiveCollection).toHaveBeenCalled();
     expect(Collection.prototype.getTerms).toHaveBeenCalled();
+  });
+
+  it('should sort terms', () => {
+    const t1 = new Term('bb', 'xx');
+    const t2 = new Term('cc', 'yy');
+    const t3 = new Term('aa', 'zz');
+    t2.updateUpdatedTime(10000);
+    t3.updateUpdatedTime(20000);
+    t1.updateUpdatedTime(30000);
+    component.terms = [t1, t2, t3];
+
+    component.sort(1);
+    expect(component.terms).toEqual([t3, t1, t2]);
+    component.sort(1);
+    expect(component.terms).toEqual([t2, t1, t3]);
+
+    component.sort(2);
+    expect(component.terms).toEqual([t1, t2, t3]);
+    component.sort(2);
+    expect(component.terms).toEqual([t3, t2, t1]);
+
+    component.sort(3);
+    expect(component.terms).toEqual([t1, t3, t2]);
+    component.sort(3);
+    expect(component.terms).toEqual([t2, t3, t1]);
+  });
+
+  it('should present filter alert', async () => {
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    component.activeCollection.addGramaticalCategory(new Category('Body', CategoryType.thematic));
+    const alertController = fixture.debugElement.injector.get(AlertController);
+    spyOn(alertController, 'create').and.callThrough();
+    await component.presentAlertCheckbox(0);
+    expect(alertController.create).toHaveBeenCalled();
+    await component.presentAlertCheckbox(1);
+    expect(alertController.create).toHaveBeenCalledTimes(2);
+  });
+
+  it('should filter searchbar', () => {
+    const t1 = new Term('bb', 'xx', 'bx');
+    const t2 = new Term('cc', 'yy', 'cy');
+    const t3 = new Term('aá', 'zz', 'açz');
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    component.activeCollection.addTerms([t1, t2, t3]);
+    const event = {target: {value: 'ç'}};
+    component.handleSearchbar(event);
+    expect(component.terms).toEqual([t3]);
+  });
+
+  it('should filter filters', () => {
+    component.activeCollection = new Collection('French', 'FR', new Emoji('fr.png', 'flags'));
+    const t1 = new Term('bb', 'xx', 'bx');
+    const t2 = new Term('cc', 'yy', 'cy');
+    const gc = new Category('Noun', CategoryType.gramatical);
+    const tc = new Category('Noun', CategoryType.thematic);
+    component.activeCollection.addGramaticalCategory(gc);
+    component.activeCollection.addThematicCategory(tc);
+    t1.addGramaticalCategory(gc);
+    t2.addThematicCategory(tc);
+    component.activeCollection.addTerms([t1, t2]);
+
+    const event = {target: {value: ''}};
+    component.handleSearchbar(event);
+    expect(component.terms).toEqual([t1, t2]);
   });
 });

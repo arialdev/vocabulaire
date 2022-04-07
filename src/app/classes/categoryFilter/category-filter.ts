@@ -17,7 +17,6 @@ export class CategoryFilter extends StoringItem {
       this.category = new Category(data.category);
       this.selected = data.selected;
     }
-
   }
 
   public getCategory(): Category {

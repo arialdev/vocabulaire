@@ -50,6 +50,22 @@ export class CategoryService {
       throw new Error(`Category with ID ${categoryID} not found`);
     }
     category.setName(newName);
+
+    if (category.getType() === 0) {
+      collection.getTerms().forEach(t => t.getGramaticalCategories().forEach(gc => {
+        if (gc.getId() === categoryID) {
+          gc.setName(newName);
+        }
+      }));
+    } else {
+      collection.getTerms().forEach(t => t.getThematicCategories().forEach(tc => {
+        if (tc.getId() === categoryID) {
+          tc.setName(newName);
+        }
+      }));
+    }
+
+
     await this.storageService.set('collections', collections);
     return category;
   }

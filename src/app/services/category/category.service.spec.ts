@@ -63,9 +63,27 @@ describe('CategoryService', () => {
 
   it('should update category', async () => {
     const gc = await service.addCategory(category, collection.getId());
+    let tc = new Category('theme', CategoryType.thematic);
+    tc = await service.addCategory(tc, collection.getId());
+
+    let term = new Term('hola', 'bye');
+    term.addGramaticalCategory(gc);
+    term.addThematicCategory(tc);
+    term = await termService.addTerm(term, collection.getId());
+
     const updatedGC = await service.updateCategory('Updated sample', collection.getId(), gc.getId());
+    const updatedTC = await service.updateCategory('Updated sample 2', collection.getId(), tc.getId());
+
+    collection = await collectionService.getCollectionById(collection.getId());
+    term = collection.getTerms().find(t => t.getId() === term.getId());
+
     expect(updatedGC.getName()).toEqual('Updated sample');
     expect(updatedGC.getId()).toEqual(gc.getId());
+    expect(updatedTC.getName()).toEqual('Updated sample 2');
+    expect(updatedTC.getId()).toEqual(tc.getId());
+
+    expect(term.getGramaticalCategories().find(c => c.getId() === gc.getId()).getName()).toEqual('Updated sample');
+    expect(term.getThematicCategories().find(c => c.getId() === tc.getId()).getName()).toEqual('Updated sample 2');
   });
 
   it('should throw error when updating category from non-existent collection', async () => {
