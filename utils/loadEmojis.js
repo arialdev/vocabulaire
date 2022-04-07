@@ -2,10 +2,45 @@
 const fs = require('fs');
 const path = require('path');
 const scrapeIt = require('scrape-it');
+var argv = require('minimist')(process.argv.slice(2));
 
 const shortcodesFile = path.join(__dirname, 'sortedShortcodes.txt');
+const commands = {
+  help: {
+    name: 'help',
+    description: 'Displays info about the commands',
+    function: help,
+  },
+  sync: {
+    name: 'sync',
+    description: 'Updates the EmojiMap.ts file with the existing emojis on disk',
+    function: overrideEmojiMap,
+  },
+  scrap: {
+    name: 'scrap',
+    description: 'Scraps all the emoji categories and its associated emojis from emojipedia.com looking for their shortcodes (ids).Finally, it stores all their ids in order in a txt file named ./sortedShortcodes.txt',
+    function: scrap,
+  },
+  sort: {
+    name: 'sort',
+    description: 'Reads all the emojis from disk and renames them replacing their order prefix with their new position',
+    function: sortEmojis,
+  },
+}
 
+if (commands[argv._[0]]) {
+  commands[argv._[0]].function.call();
+}
+else {
+  commands.help.function.call();
+}
 
+/**
+ * Reads all the emojis stored and returns an object where keys are the emojis categories
+ * and its values are the associated emojis names (with extension)
+ * @example {food: ['apple.png', 'corn.png'], symbol:['forbiden.png']}
+ * @returns An object containing the categories and its emojis.
+ */
 function classifyEmojis() {
   const route = path.join(__dirname, '..', 'src', 'assets', 'img', 'emojis');
   let categories = fs.readdirSync(route);
@@ -21,6 +56,10 @@ function classifyEmojis() {
   return res;
 }
 
+/**
+ * Updates the EmojiMap.ts file with the existing data on disk
+ * @requires classifyEmojis
+ */
 function overrideEmojiMap() {
   let value = classifyEmojis();
   const route = path.join(__dirname, '..', 'src', 'app', 'services', 'emoji', 'emojisMap.ts');
@@ -33,6 +72,10 @@ function overrideEmojiMap() {
   console.info('Caution: linting and beautify pending');
 }
 
+/**
+ * Scraps all the emoji categories and its associated emojis from emojipedia.com looking for their shortcodes (ids). 
+ * Finally, it stores all their ids in order in a txt file named ./sortedShortcodes.txt
+ */
 async function scrap() {
   const route = 'https://emojipedia.org/';
   const categories = ['people', 'nature', 'food-drink', 'activity', 'travel-places', 'objects', 'symbols', 'flags'];
@@ -81,6 +124,9 @@ async function scrap() {
   return res;
 }
 
+/**
+ * Reads all the emojis from disk and renames them replacing their order prefix with their new position
+ */
 function sortEmojis() {
   const route = path.join(__dirname, '..', 'src', 'assets', 'img', 'emojis');
   let shortcodes = fs.readFileSync(shortcodesFile, 'utf8');
@@ -101,4 +147,8 @@ function sortEmojis() {
   })
 }
 
-overrideEmojiMap();
+//overrideEmojiMap();
+
+function help() {
+  console.log(Object.keys(commands).reduce((acc, c) => acc + `\x1b[33m ${commands[c].name}\x1b[0m:\t${commands[c].description}\n`, '\n'));
+};
