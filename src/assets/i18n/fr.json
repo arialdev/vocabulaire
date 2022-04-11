@@ -1,0 +1,88 @@
+{
+  "home": {
+    "searchbar-placeholder": "Rechercher un terme",
+    "details-label": "Détail",
+    "filter": {
+      "label": "Filtrer par {{type}}",
+      "cancel": "Annuler",
+      "ok": "OK"
+    },
+    "sort": {
+      "label": "Trier par:",
+      "opt": {
+        "t-org": "Terme d'origine",
+        "t-trans": "Terme traduit",
+        "date": "Date"
+      }
+    },
+    "no-term-msg": "Ajoutez un nouveau terme pour commencer votre apprentissage!"
+  },
+  "collections": {
+    "title": "Collections",
+    "buttons": {
+      "manage": "Gérer",
+      "set": "Établir",
+      "new": "Nouvelle"
+    },
+    "form": {
+      "title-new": "Nouvelle collection",
+      "title-edit": "Modifier la collection",
+      "name": "Nom",
+      "prefix": "Préfixe",
+      "icon": "Icône",
+      "create": "Créer",
+      "update": "Actualiser",
+      "delete": "Supprimer"
+    },
+    "no-coll-msg": {
+      "title": "Dans Vocabulaire vous pouvez apprendre plusieurs langues en même temps en les séparant en collections.",
+      "body": "Ajoutez une nouvelle collection pour commencer votre apprentissage!"
+    }
+  },
+  "term": {
+    "title-new": "Nouveau terme",
+    "title-edit": "Modifier terme",
+    "form": {
+      "tr": "Traduction"
+    },
+    "create": "Créer",
+    "update": "Actualiser",
+    "delete": "Supprimer"
+  },
+  "category": {
+    "searchbar-placeholder": "Rechercher une catégorie",
+    "new-button": "Créer une catégorie",
+    "delete": "Supprimer",
+    "alert": {
+      "header": {
+        "create": "Nouvelle catégorie {{type}}",
+        "edit": "Modifier catégorie {{type}}"
+      },
+      "placeholder": "Nom de la catégorie",
+      "cancel": "Annuler",
+      "ok": {
+        "update": "Renommer",
+        "save": "Enregistrer"
+      }
+    }
+  },
+  "data": {
+    "category": {
+      "gc": "Catégorie grammaticale",
+      "gcs": "Catégories grammaticales",
+      "tc": "Catégorie thématique",
+      "tcs": "Categorías thématiques",
+      "name": "Catégorie",
+      "name-p": "Catégories",
+      "type": {
+        "g": "Grammaticale",
+        "gs": "Grammaticales",
+        "t": "Thématique",
+        "ts": "Thématiques"
+      }
+    },
+    "term": {
+      "notes": "Notes"
+    }
+  }
+}
