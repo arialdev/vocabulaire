@@ -5,6 +5,11 @@ import {ActiveCollectionGuard} from './guards/active-collection.guard';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
     canActivate: [ActiveCollectionGuard]
   },
@@ -25,7 +30,18 @@ const routes: Routes = [
     path: 'categories/:type',
     loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule),
     canActivate: [ActiveCollectionGuard]
+  },
+  {
+    path: 'word-of-the-day',
+    loadChildren: () => import('./pages/wod/wod.module').then(m => m.WodPageModule),
+    canActivate: [ActiveCollectionGuard]
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule),
+    canActivate: [ActiveCollectionGuard]
   }
+
 ];
 
 @NgModule({
