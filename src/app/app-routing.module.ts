@@ -4,10 +4,6 @@ import {ActiveCollectionGuard} from './guards/active-collection.guard';
 
 const routes: Routes = [
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./pages/folder/folder.module').then(m => m.FolderPageModule)
-  },
-  {
     path: '',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
     canActivate: [ActiveCollectionGuard]
@@ -30,7 +26,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule),
     canActivate: [ActiveCollectionGuard]
   }
-
 ];
 
 @NgModule({

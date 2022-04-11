@@ -8,22 +8,13 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public appPages = [
-    {title: 'Inbox', url: '/folder/Inbox', icon: 'mail'},
-    {title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane'},
-    {title: 'Favorites', url: '/folder/Favorites', icon: 'heart'},
-    {title: 'Archived', url: '/folder/Archived', icon: 'archive'},
-    {title: 'Trash', url: '/folder/Trash', icon: 'trash'},
-    {title: 'Spam', url: '/folder/Spam', icon: 'warning'},
-  ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public tags = ['Verbs', 'Swearing'];
 
   constructor(private storageService: AbstractStorageService, private translateService: TranslateService) {
   }
 
   async ngOnInit(): Promise<void> {
-    this.translateService.setDefaultLang('es');
-    await this.loadTheme();
+    await Promise.all([this.loadTheme(), this.setLanguage()]);
   }
 
   private async loadTheme() {
@@ -33,5 +24,9 @@ export class AppComponent implements OnInit {
     } else {
       document.body.setAttribute('data-theme', 'light');
     }
+  }
+
+  private async setLanguage() {
+    this.translateService.setDefaultLang('es');
   }
 }
