@@ -8,7 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [placeholder]="searchbarPlaceholder" animated></ion-searchbar>
+  <ion-searchbar [placeholder]="searchbarPlaceholder" animated="true" enterkeyhint="search" inputmode="text"
+                 type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
   <div class="centered">
     <ion-button fill="outline" class="new-category" (click)="newCategory()">
       <ion-icon name="add-outline" slot="start"></ion-icon>

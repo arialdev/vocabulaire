@@ -21,9 +21,9 @@
     "title": "Collections",
     "buttons": {
       "manage": "Manage",
-      "set": "Select",
-      "new": "New"
+      "set": "Select"
     },
+    "new": "New collection",
     "form": {
       "title-new": "New collection",
       "title-edit": "Edit collection",

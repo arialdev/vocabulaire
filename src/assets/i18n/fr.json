@@ -21,9 +21,9 @@
     "title": "Collections",
     "buttons": {
       "manage": "Gérer",
-      "set": "Établir",
-      "new": "Nouvelle"
+      "set": "Établir"
     },
+    "new": "Nouvelle collection",
     "form": {
       "title-new": "Nouvelle collection",
       "title-edit": "Modifier la collection",

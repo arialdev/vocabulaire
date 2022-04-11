@@ -7,13 +7,17 @@
     <ion-buttons slot="end">
       <ion-button fill="clear" color="primary" (click)="toggleManage()"
                   [translate]="managingMode ? 'collections.buttons.set' : 'collections.buttons.manage'"></ion-button>
-      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary"
-                  [translate]="'collections.buttons.new'"></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="centered new-button">
+    <ion-button fill="outline" (click)="navigateToCollection()">
+      <ion-icon name="add-outline" slot="start"></ion-icon>
+      <div [translate]="'collections.new'"></div>
+    </ion-button>
+  </div>
   <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
     <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.getId())"
               *ngFor="let collection of collections">

@@ -18,7 +18,7 @@ export class CategoriesPage implements OnInit {
   title: string;
   categories: Category[];
   searchbarPlaceholder: string;
-  private collection: Collection;
+  private activeCollection: Collection;
   private type: number;
 
   constructor(
@@ -64,8 +64,17 @@ export class CategoriesPage implements OnInit {
   }
 
   async deleteCategory(category: Category): Promise<void> {
-    await this.categoryService.deleteCategory(this.collection.getId(), category.getId(), category.getType());
+    await this.categoryService.deleteCategory(this.activeCollection.getId(), category.getId(), category.getType());
     await this.refreshCategories();
+  }
+
+  handleSearchbar(event) {
+    const text = event.target.value.toLowerCase();
+    const defaultCategories = this.isGramaticalMode() ? this.activeCollection.getGramaticalCategories()
+      : this.activeCollection.getThematicCategories();
+    this.categories = defaultCategories.filter(c =>
+      c.getName().toLowerCase().includes(text) || sanitizeText(c.getName()).includes(text)
+    );
   }
 
   private async createAlert(title: string, value: string, buttonText: string, handler) {
@@ -96,15 +105,15 @@ export class CategoriesPage implements OnInit {
     let category: Category;
     if (this.isGramaticalMode()) {
       category = new Category(name, CategoryType.gramatical);
-      return this.categoryService.addCategory(category, this.collection.getId());
+      return this.categoryService.addCategory(category, this.activeCollection.getId());
     } else {
       category = new Category(name, CategoryType.thematic);
-      return this.categoryService.addCategory(category, this.collection.getId());
+      return this.categoryService.addCategory(category, this.activeCollection.getId());
     }
   }
 
   private updateCategory(name: string, category: Category): Promise<Category> {
-    return this.categoryService.updateCategory(name, this.collection.getId(), category.getId());
+    return this.categoryService.updateCategory(name, this.activeCollection.getId(), category.getId());
   }
 
   private isGramaticalMode() {
@@ -112,8 +121,9 @@ export class CategoriesPage implements OnInit {
   }
 
   private async refreshCategories() {
-    this.collection = await this.collectionService.getActiveCollection();
-    this.categories = this.isGramaticalMode() ? this.collection.getGramaticalCategories() : this.collection.getThematicCategories();
+    this.activeCollection = await this.collectionService.getActiveCollection();
+    this.categories = this.isGramaticalMode() ? this.activeCollection.getGramaticalCategories()
+      : this.activeCollection.getThematicCategories();
   }
 
   private async translate() {
@@ -121,3 +131,8 @@ export class CategoriesPage implements OnInit {
     this.searchbarPlaceholder = await this.translateService.get('category.searchbar-placeholder').toPromise();
   }
 }
+
+const sanitizeText = (text: string) => text
+  .normalize('NFD')
+  .replaceAll(/[\u0300-\u036f]/g, '')
+  .toLowerCase();

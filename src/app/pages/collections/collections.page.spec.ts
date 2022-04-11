@@ -58,23 +58,6 @@ describe('CollectionsPage', () => {
     expect(backButton).toBeTruthy();
   });
 
-  // it('should list collections', () => {
-  //   expect(component.collections.length).toBe(0);
-  //   expect(fixture.debugElement.query(By.css('collections-list'))).toBeNull();
-  //   component.collections = [mockInactiveCollection, mockActiveCollection];
-  //   fixture.detectChanges();
-  //   expect(component.collections.length).toBe(2);
-  //   const list = fixture.debugElement.query(By.css('.collections-list'));
-  //   expect(list).toBeTruthy();
-  //   expect(list.queryAll(By.css('.collection')).length).toBe(2);
-  //   expect(list.queryAll(By.css('.collection>.collection-active')).length).toBe(1);
-  //
-  //   const docCollection = list.query(By.css('.collection-active'));
-  //   expect(docCollection.query(By.css('.collection-icon')).nativeElement.src).toBe(mockActiveCollection.language.icon);
-  //   expect(docCollection.query(By.css('.language-prefix')).nativeElement.innerText).toBe(mockActiveCollection.language.prefix);
-  //   expect(docCollection.query(By.css('.collection-name')).nativeElement.innerText).toBe(mockActiveCollection.language.name);
-  // });
-
   it('should set collection active', async () => {
     await service.addCollection(mockActiveCollection);
     await service.addCollection(mockInactiveCollection);
