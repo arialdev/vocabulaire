@@ -13,11 +13,13 @@ import {Category} from '../../classes/category/category';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslatePipe, MockTranslateService} from '../../../mocks';
 
 describe('CategoriesPage', () => {
   let component: CategoriesPage;
   let fixture: ComponentFixture<CategoriesPage>;
-  let mockActivatedRoute;
+  let mockActivatedRoute: any;
 
   let collectionService: CollectionService;
   let categoryService: CategoryService;
@@ -26,13 +28,14 @@ describe('CategoriesPage', () => {
   let thematicCategory: Category;
 
   beforeEach(waitForAsync(() => {
-    mockActivatedRoute = {snapshot: {paramMap: {get: () => 'Gramatical'}}};
+    mockActivatedRoute = {snapshot: {params: {type: 0}}};
     TestBed.configureTestingModule({
-      declarations: [CategoriesPage],
+      declarations: [CategoriesPage, MockTranslatePipe],
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -79,7 +82,9 @@ describe('CategoriesPage', () => {
   });
 
   it('should delete thematic category', async () => {
-    component.title = 'Thematic';
+    fixture.debugElement.injector.get(ActivatedRoute).snapshot.params.type = 1;
+    fixture.detectChanges();
+    await component.ngOnInit();
     await component.deleteCategory(thematicCategory);
     expect(component.categories).toEqual([]);
   });

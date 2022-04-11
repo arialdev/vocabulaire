@@ -1,0 +1,88 @@
+{
+  "home": {
+    "searchbar-placeholder": "Buscar término",
+    "details-label": "Detalle",
+    "filter": {
+      "label": "Filtrar por {{type}}",
+      "cancel": "Cancelar",
+      "ok": "OK"
+    },
+    "sort": {
+      "label": "Ordenar por:",
+      "opt": {
+        "t-org": "Término original",
+        "t-trans": "Término traducido",
+        "date": "Fecha"
+      }
+    },
+    "no-term-msg": "Añade un nuevo término para comenzar tu aprendizaje!"
+  },
+  "collections": {
+    "title": "Colecciones",
+    "buttons": {
+      "manage": "Gestionar",
+      "set": "Seleccionar",
+      "new": "Añadir"
+    },
+    "form": {
+      "title-new": "Nueva colección",
+      "title-edit": "Editar colección",
+      "name": "Nombre",
+      "prefix": "Prefijo",
+      "icon": "Icono",
+      "create": "Crear",
+      "update": "Aplicar",
+      "delete": "Eliminar"
+    },
+    "no-coll-msg": {
+      "title": "En Vocabulaire puedes aprender varios idiomas a la vez separándolos en colecciones.",
+      "body": "Añade una nueva colección para comenzar tu aprendizaje!"
+    }
+  },
+  "term": {
+    "title-new": "Nuevo término",
+    "title-edit": "Editar término",
+    "form": {
+      "tr": "Traducción"
+    },
+    "create": "Crear",
+    "update": "Aplicar",
+    "delete": "Eliminar"
+  },
+  "category": {
+    "searchbar-placeholder": "Buscar categoría",
+    "new-button": "Crear categoría",
+    "delete": "Eliminar",
+    "alert": {
+      "header": {
+        "create": "Nueva categoría {{type}}",
+        "edit": "Editar categoría {{type}}"
+      },
+      "placeholder": "Nombre de la categoría",
+      "cancel": "Cancelar",
+      "ok": {
+        "update": "Renombrar",
+        "save": "Guardar"
+      }
+    }
+  },
+  "data": {
+    "category": {
+      "gc": "Categoría gramatical",
+      "gcs": "Categorías gramaticales",
+      "tc": "Categoría temática",
+      "tcs": "Categorías temáticas",
+      "name": "Categoría",
+      "name-p": "Categorías",
+      "type": {
+        "g": "Gramatical",
+        "gs": "Gramaticales",
+        "t": "Temática",
+        "ts": "Temáticas"
+      }
+    },
+    "term": {
+      "notes": "Notas"
+    }
+  }
+}

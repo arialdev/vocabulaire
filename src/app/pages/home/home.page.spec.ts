@@ -12,9 +12,10 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AlertController, NavController} from '@ionic/angular';
-import {MockAlertController, MockNavController} from '../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService, MockTranslatePipe} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
+import {TranslateService} from '@ngx-translate/core';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -40,13 +41,14 @@ describe('HomePage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [HomePage, MockTranslatePipe],
       imports: [RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
         {provide: EmojisMap},
-        {provide: AlertController, useClass: MockAlertController}
+        {provide: AlertController, useClass: MockAlertController},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

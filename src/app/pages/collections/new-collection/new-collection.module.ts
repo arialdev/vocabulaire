@@ -8,6 +8,7 @@ import {NewCollectionPageRoutingModule} from './new-collection-routing.module';
 
 import {NewCollectionPage} from './new-collection.page';
 import {EmojiPickerComponent} from '../../../components/emoji-picker/emoji-picker.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {EmojiPickerComponent} from '../../../components/emoji-picker/emoji-picke
     IonicModule,
     NewCollectionPageRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [NewCollectionPage, EmojiPickerComponent]
 })

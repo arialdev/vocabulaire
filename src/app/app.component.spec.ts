@@ -6,6 +6,8 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {MockStorageService} from './services/storage/mock-storage.service';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslateService} from '../mocks';
 
 describe('AppComponent', () => {
 
@@ -16,7 +18,10 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [RouterTestingModule.withRoutes([])],
-      providers: [{provide: AbstractStorageService, useClass: MockStorageService}]
+      providers: [
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: TranslateService, useClass: MockTranslateService}
+      ]
     }).compileComponents();
   }));
 

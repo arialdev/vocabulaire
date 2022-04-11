@@ -6,6 +6,7 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
 import {Category} from '../../classes/category/category';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -20,20 +21,21 @@ export class HomePage {
   collectionIcon: string;
   collectionPrefix: string;
   sortingOptions: string[];
+  searchbarPlaceholder: string;
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
-  private filters: { 0: []; 1: [] };
+  private readonly filters: { 0: []; 1: [] };
 
   constructor(
     private collectionService: CollectionService,
     private navController: NavController,
     private emojiService: EmojiService,
-    private alertController: AlertController) {
+    private alertController: AlertController,
+    private translateService: TranslateService
+  ) {
     this.terms = [];
     this.simpleView = true;
     this.filters = {0: [], 1: []};
-
-    this.sortingOptions = ['Original term', 'Translated term', 'Updated date'];
     this.activeSortingCode = -3;
     this.sortingFunctions = {
       '-1': (t1: Term, t2: Term) => -1 * t1.getOriginalTerm().localeCompare(t2.getOriginalTerm()),
@@ -52,6 +54,10 @@ export class HomePage {
     const emoji: Emoji = this.activeCollection.getLanguage().getIcon();
     this.collectionIcon = this.emojiService.getEmojiRoute(emoji);
     this.collectionPrefix = this.activeCollection.getLanguage().getPrefix();
+    this.searchbarPlaceholder = await this.translateService.get('home.searchbar-placeholder').toPromise();
+    this.sortingOptions = Object
+      .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
+        .toPromise());
   }
 
   async navigateToCollections(): Promise<void> {
@@ -72,10 +78,13 @@ export class HomePage {
 
   async presentAlertCheckbox(categoryType: number): Promise<void> {
     let categories: Category[];
+    let categoryText: string;
     if (categoryType === 0) {
       categories = this.activeCollection.getGramaticalCategories();
+      categoryText = (await this.translateService.get('data.category.gc').toPromise()).toLowerCase();
     } else {
       categories = this.activeCollection.getThematicCategories();
+      categoryText = (await this.translateService.get('data.category.tc').toPromise()).toLowerCase();
     }
 
     const inputs: AlertInput[] = [];
@@ -90,15 +99,15 @@ export class HomePage {
     });
 
     const alert = await this.alertController.create({
-      header: 'Filter terms',
+      header: await this.translateService.get('home.filter.label', {type: categoryText}).toPromise(),
       inputs,
       buttons: [
         {
-          text: 'Cancel',
+          text: await this.translateService.get('home.filter.cancel').toPromise(),
           role: 'cancel',
         },
         {
-          text: 'Ok',
+          text: await this.translateService.get('home.filter.ok').toPromise(),
           handler: (checkedCategories) => {
             this.filters[categoryType] = checkedCategories;
             this.filterTerms();

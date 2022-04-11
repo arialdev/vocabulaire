@@ -15,6 +15,13 @@ import {AbstractStorageService} from './services/storage/abstract-storage-servic
 import {StorageService} from './services/storage/storage.service';
 import {EmojisMap} from './services/emoji/emojisMap';
 
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+
+export const createTranslateLoader = (http: HttpClient) =>
+  new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +32,16 @@ import {EmojisMap} from './services/emoji/emojisMap';
     IonicStorageModule.forRoot({
       // eslint-disable-next-line no-underscore-dangle
       driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB]
-    })],
+    }),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
+  ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     {provide: AbstractStorageService, useClass: StorageService},
@@ -35,3 +51,5 @@ import {EmojisMap} from './services/emoji/emojisMap';
 })
 export class AppModule {
 }
+
+

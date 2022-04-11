@@ -18,7 +18,7 @@
 
   <div class="searchbar-container">
     <div class="terms-searchbar">
-      <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search"
+      <ion-searchbar [placeholder]="searchbarPlaceholder" animated="true" enterkeyhint="search"
                      inputmode="text"
                      type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
@@ -38,7 +38,7 @@
           <ion-content>
             <ion-list>
               <ion-list-header>
-                <ion-label>Sort by:</ion-label>
+                <ion-label [translate]="'home.sort.label'"></ion-label>
               </ion-list-header>
               <ion-item *ngFor="let sorting of sortingOptions;let i=index" button="true" detail="false"
                         (click)="sort(i+1)">
@@ -60,10 +60,10 @@
           <ion-content>
             <ion-list>
               <ion-item button="true" detail="true" (click)="presentAlertCheckbox(0)">
-                <ion-label>Gramatical categories</ion-label>
+                <ion-label [translate]="'data.category.gcs'"></ion-label>
               </ion-item>
               <ion-item button="true" detail="true" (click)="presentAlertCheckbox(1)">
-                <ion-label>Thematic categories</ion-label>
+                <ion-label [translate]="'data.category.tcs'"></ion-label>
               </ion-item>
             </ion-list>
           </ion-content>
@@ -72,7 +72,7 @@
 
       <div class="details-toggle">
         <ion-item lines="none">
-          <ion-label>Details</ion-label>
+          <ion-label [translate]="'home.details-label'"></ion-label>
           <ion-toggle [(ngModel)]="simpleView" name="toggleDetails"></ion-toggle>
         </ion-item>
       </div>
@@ -105,7 +105,7 @@
     </ion-item>
   </ion-list>
   <ng-template #no_terms>
-    <p class="no-terms-message"> Add a new term to start learning right now!</p>
+    <p class="no-terms-message" [translate]="'home.no-term-msg'"></p>
   </ng-template>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">

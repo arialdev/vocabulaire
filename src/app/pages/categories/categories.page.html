@@ -3,16 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{title}} categories</ion-title>
+    <ion-title>{{this.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Search" animated></ion-searchbar>
+  <ion-searchbar [placeholder]="searchbarPlaceholder" animated></ion-searchbar>
   <div class="centered">
     <ion-button fill="outline" class="new-category" (click)="newCategory()">
       <ion-icon name="add-outline" slot="start"></ion-icon>
-      New category
+      <div [translate]="'category.new-button'"></div>
     </ion-button>
   </div>
   <ion-list>
@@ -23,7 +23,7 @@
       <ion-item-options side="end">
         <ion-item-option color="danger" (click)="deleteCategory(category)">
           <ion-icon slot="start" name="trash-outline"></ion-icon>
-          Delete
+          <div [translate]="'category.delete'"></div>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>

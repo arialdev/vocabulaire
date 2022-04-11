@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CollectionsPageRoutingModule } from './collections-routing.module';
 
 import { CollectionsPage } from './collections.page';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CollectionsPageRoutingModule
+    CollectionsPageRoutingModule,
+    TranslateModule
   ],
   declarations: [CollectionsPage]
 })

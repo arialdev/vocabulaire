@@ -1,20 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { CategoriesPageRoutingModule } from './categories-routing.module';
+import {CategoriesPageRoutingModule} from './categories-routing.module';
 
-import { CategoriesPage } from './categories.page';
+import {CategoriesPage} from './categories.page';
+
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriesPageRoutingModule
+    CategoriesPageRoutingModule,
+    TranslateModule
   ],
   declarations: [CategoriesPage]
 })
-export class CategoriesPageModule {}
+export class CategoriesPageModule {
+}

@@ -6,6 +6,7 @@ import {Category} from '../../classes/category/category';
 import {AlertController} from '@ionic/angular';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
@@ -16,24 +17,32 @@ export class CategoriesPage implements OnInit {
 
   title: string;
   categories: Category[];
+  searchbarPlaceholder: string;
   private collection: Collection;
+  private type: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private collectionService: CollectionService,
     private alertController: AlertController,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private translateService: TranslateService
   ) {
   }
 
   async ngOnInit() {
-    this.title = this.activatedRoute.snapshot.paramMap.get('type');
+    this.type = +this.activatedRoute.snapshot.params.type;
+    await this.translate();
     return this.refreshCategories();
   }
 
-  newCategory() {
+  async newCategory() {
+    const type = (await this.translateService
+      .get('data.category.type.' + (this.isGramaticalMode() ? 'g' : 't'))
+      .toPromise())
+      .toLowerCase();
     return this.createAlert(
-      `New ${this.title.toLowerCase()} category`,
+      await this.translateService.get('category.alert.header.create', {type}).toPromise(),
       undefined,
       'Save',
       (text) => this.createCategory(text[0])
@@ -41,9 +50,13 @@ export class CategoriesPage implements OnInit {
   }
 
 
-  editCategory(category: Category) {
+  async editCategory(category: Category) {
+    const type = (await this.translateService
+      .get('data.category.type.' + (this.isGramaticalMode() ? 'g' : 't'))
+      .toPromise())
+      .toLowerCase();
     return this.createAlert(
-      `Edit ${this.title.toLowerCase()} category`,
+      await this.translateService.get('category.alert.header.edit', {type}).toPromise(),
       category.getName(),
       'Update',
       (text) => this.updateCategory(text[0], category)
@@ -60,7 +73,7 @@ export class CategoriesPage implements OnInit {
       header: title,
       inputs: [{
         value,
-        placeholder: 'Category name'
+        placeholder: await this.translateService.get('category.alert.placeholder').toPromise()
       }],
       backdropDismiss: true,
       translucent: true,
@@ -95,7 +108,7 @@ export class CategoriesPage implements OnInit {
   }
 
   private isGramaticalMode() {
-    return this.title === 'Gramatical';
+    return this.type === 0;
   }
 
   private async refreshCategories() {
@@ -103,4 +116,8 @@ export class CategoriesPage implements OnInit {
     this.categories = this.isGramaticalMode() ? this.collection.getGramaticalCategories() : this.collection.getThematicCategories();
   }
 
+  private async translate() {
+    this.title = await this.translateService.get('data.category.' + (this.isGramaticalMode() ? 'gcs' : 'tcs')).toPromise();
+    this.searchbarPlaceholder = await this.translateService.get('category.searchbar-placeholder').toPromise();
+  }
 }

@@ -1,4 +1,6 @@
 import {AlertOptions} from '@ionic/angular';
+import {Observable} from 'rxjs';
+import {Pipe, PipeTransform} from '@angular/core';
 
 export const mockTimeLapse = (originalTime: number, predicate: (previousTime: number) => void) => {
   const clock = jasmine.clock().install();
@@ -8,9 +10,9 @@ export const mockTimeLapse = (originalTime: number, predicate: (previousTime: nu
 };
 
 export class MockNavController {
-  public navigateBack = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
-  public navigateForward = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
-  public navigateRoot = (url: string | any[], options: any): Promise<boolean> => Promise.resolve(true);
+  public navigateBack = (): Promise<boolean> => Promise.resolve(true);
+  public navigateForward = (): Promise<boolean> => Promise.resolve(true);
+  public navigateRoot = (): Promise<boolean> => Promise.resolve(true);
 }
 
 export class MockAlertController {
@@ -23,5 +25,32 @@ export class MockAlertController {
     return Promise.resolve({
       present: (): Promise<void> => Promise.resolve()
     } as HTMLIonAlertElement);
+  }
+}
+
+@Pipe({
+  name: 'translate'
+})
+export class MockTranslatePipe implements PipeTransform {
+  public name = 'translate';
+
+  public transform(query: string, ..._args: any[]): any {
+    return query;
+  }
+}
+
+export class MockTranslateService {
+  setDefaultLang() {
+    return;
+  }
+
+  get(key: string | string[]): Observable<string | string[]> {
+    return Array.isArray(key) ? new Observable<string | string[]>(o => {
+      o.next(['sample']);
+      o.complete();
+    }) : new Observable(o => {
+      o.next('sample');
+      o.complete();
+    });
   }
 }

@@ -11,18 +11,18 @@
   <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">{{languageLabel}}</ion-label>
-      <ion-input formControlName="originalTerm" type="text" required></ion-input>
+      <ion-input [formControlName]="'originalTerm'" type="text" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Translated</ion-label>
-      <ion-input formControlName="translatedTerm" type="text" required></ion-input>
+      <ion-label position="floating" [translate]="'term.form.tr'"></ion-label>
+      <ion-input [formControlName]="'translatedTerm'" type="text" required></ion-input>
     </ion-item>
     <div class="categories-box">
       <div class="dropdown">
         <ion-item lines="none">
-          <ion-label> Gramatical categories</ion-label>
+          <ion-label [translate]="'data.category.gcs'"></ion-label>
           <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
-                      #gramaticalCategoriesDropdown selectedText=" " formControlName="gramaticalCategories"
+                      #gramaticalCategoriesDropdown selectedText=" " [formControlName]="'gramaticalCategories'"
                       (ionChange)="updateChips($event, 0)" [compareWith]="compareWith">
             <ion-select-option *ngFor="let category of gramaticalCategoriesList"
                                [value]="category">{{category.getName()}}</ion-select-option>
@@ -34,7 +34,7 @@
                   color="primary-blue">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
-        <ion-button fill="clear" color="dark" (click)="navigateToCategories('Gramatical')">
+        <ion-button fill="clear" color="dark" (click)="navigateToCategories(0)">
           <ion-icon name="options-outline"></ion-icon>
         </ion-button>
       </div>
@@ -43,9 +43,9 @@
     <div class="categories-box">
       <div class="dropdown">
         <ion-item lines="none">
-          <ion-label> Thematic categories</ion-label>
+          <ion-label [translate]="'data.category.tcs'"></ion-label>
           <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
-                      #thematicCategoriesDropdown selectedText=" " formControlName="thematicCategories"
+                      #thematicCategoriesDropdown selectedText=" " [formControlName]="'thematicCategories'"
                       [compareWith]="compareWith" (ionChange)="updateChips($event, 1)">
             <ion-select-option *ngFor="let category of thematicCategoriesList"
                                [value]="category">{{category.getName()}}</ion-select-option>
@@ -57,25 +57,27 @@
                   outline="true">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
-        <ion-button fill="clear" color="dark" (click)="navigateToCategories('Thematic')">
+        <ion-button fill="clear" color="dark" (click)="navigateToCategories(1)">
           <ion-icon name="options-outline"></ion-icon>
         </ion-button>
       </div>
     </div>
     <ion-item-divider class="low-divider"></ion-item-divider>
     <ion-item>
-      <ion-label position="floating">Notes</ion-label>
-      <ion-textarea autoGrow maxlength="140" formControlName="notes"></ion-textarea>
+      <ion-label position="floating" [translate]="'data.term.notes'"></ion-label>
+      <ion-textarea autoGrow maxlength="140" [formControlName]="'notes'"></ion-textarea>
     </ion-item>
 
     <ion-grid>
       <ion-row>
         <ion-col *ngIf="editingID">
-          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger"
+                      [translate]="'term.delete'">
           </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button class="submit-button" type="submit" expand="block">{{editingID ? 'Save' : 'Submit'}}</ion-button>
+          <ion-button class="submit-button" type="submit" expand="block"
+                      [translate]="editingID ? 'term.update' : 'term.create'"></ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

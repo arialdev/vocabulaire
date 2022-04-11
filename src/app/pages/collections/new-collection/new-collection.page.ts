@@ -6,6 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AlertController, NavController} from '@ionic/angular';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojiService} from '../../../services/emoji/emoji.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-collection',
@@ -26,6 +27,7 @@ export class NewCollectionPage implements OnInit {
     private navCtrl: NavController,
     public alertController: AlertController,
     private emojiService: EmojiService,
+    private translateService: TranslateService
   ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -40,7 +42,7 @@ export class NewCollectionPage implements OnInit {
     if (id) {
       await this.editMode(Number(id));
     } else {
-      this.newMode();
+      await this.newMode();
     }
   }
 
@@ -100,9 +102,9 @@ export class NewCollectionPage implements OnInit {
     return this.emojiService.getEmojiRoute(emoji);
   }
 
-  private newMode(): void {
+  private async newMode(): Promise<void> {
     this.selectDefaultEmoji();
-    this.title = 'New collection';
+    this.title = await this.translateService.get('collections.form.title-new').toPromise();
     this.editingId = null;
   }
 
@@ -117,7 +119,7 @@ export class NewCollectionPage implements OnInit {
       icon: collection.getLanguage().getIcon()
     });
     this.selectEmoji(collection.getLanguage().getIcon());
-    this.title = 'Edit collection';
+    this.title = await this.translateService.get('collections.form.title-edit').toPromise();
     this.editingId = id;
   }
 

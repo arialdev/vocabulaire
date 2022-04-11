@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,11 @@ export class AppComponent implements OnInit {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor(private storageService: AbstractStorageService) {
+  constructor(private storageService: AbstractStorageService, private translateService: TranslateService) {
   }
 
   async ngOnInit(): Promise<void> {
+    this.translateService.setDefaultLang('es');
     await this.loadTheme();
   }
 

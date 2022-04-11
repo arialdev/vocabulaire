@@ -12,11 +12,12 @@ import {Category} from '../../classes/category/category';
 import {ActivatedRoute} from '@angular/router';
 import {TermService} from '../../services/term/term.service';
 import {Term} from '../../classes/term/term';
-import {MockAlertController, MockNavController} from '../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService} from '../../../mocks';
 import {CategoryType} from '../../enums/enums';
 import {HomePage} from '../home/home.page';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 describe('TermPage for creating term', () => {
   let component: TermPage;
@@ -38,7 +39,8 @@ describe('TermPage for creating term', () => {
       ],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
-        {provide: NavController, useClass: MockNavController}
+        {provide: NavController, useClass: MockNavController},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -73,7 +75,6 @@ describe('TermPage for creating term', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     expect(component.editingID).toBeUndefined();
-    expect(component.title).toEqual('New term');
   });
 
   it('should navigate to categories', async () => {
@@ -145,6 +146,7 @@ describe('TermPage for updating term', () => {
         {provide: AlertController, useClass: MockAlertController},
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -189,7 +191,6 @@ describe('TermPage for updating term', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     expect(component.editingID).toBe(1);
-    expect(component.title).toEqual('Update term');
     expect(component.termForm.getRawValue()).toEqual({
       originalTerm: term.getOriginalTerm(),
       translatedTerm: term.getTranslatedTerm(),

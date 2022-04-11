@@ -7,6 +7,7 @@ import {Category} from '../../classes/category/category';
 import {Term} from '../../classes/term/term';
 import {TermService} from '../../services/term/term.service';
 import {ActivatedRoute} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-term',
@@ -37,7 +38,8 @@ export class TermPage implements OnInit {
     private termService: TermService,
     private navController: NavController,
     private activatedRoute: ActivatedRoute,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private translateService: TranslateService
   ) {
     this.termForm = new FormGroup({
       originalTerm: new FormControl('', Validators.required),
@@ -60,9 +62,9 @@ export class TermPage implements OnInit {
       this.editingID = +id;
     }
     if (this.editingID) {
-      this.title = 'Update term';
+      this.title = await this.translateService.get('term.title-edit').toPromise();
     } else {
-      this.title = 'New term';
+      this.title = await this.translateService.get('term.title-new').toPromise();
     }
   }
 

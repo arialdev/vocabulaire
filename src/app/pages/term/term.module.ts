@@ -8,13 +8,16 @@ import {TermPageRoutingModule} from './term-routing.module';
 
 import {TermPage} from './term.page';
 
+import {TranslateModule} from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     TermPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [TermPage]
 })

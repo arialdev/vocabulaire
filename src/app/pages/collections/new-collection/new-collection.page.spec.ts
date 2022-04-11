@@ -7,12 +7,13 @@ import {CollectionService} from '../../../services/collection/collection.service
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../classes/collection/collection';
-import {MockAlertController, MockNavController} from '../../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService} from '../../../../mocks';
 import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../../services/storage/mock-storage.service';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojisMap} from '../../../services/emoji/emojisMap';
 import isEqual from 'lodash.isequal';
+import {TranslateService} from '@ngx-translate/core';
 
 describe('NewCollectionPage for creation', () => {
   let component: NewCollectionPage;
@@ -31,6 +32,7 @@ describe('NewCollectionPage for creation', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
         {provide: EmojisMap},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
@@ -113,6 +115,7 @@ describe('NewCollectionPage for update', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
         {provide: EmojisMap},
+        {provide: TranslateService,useClass: MockTranslateService}
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],

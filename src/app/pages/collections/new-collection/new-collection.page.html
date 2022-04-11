@@ -10,16 +10,16 @@
 <ion-content>
   <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="fixed">Name</ion-label>
-      <ion-input formControlName="name" type="text" required></ion-input>
+      <ion-label position="fixed" [translate]="'collections.form.name'"></ion-label>
+      <ion-input [formControlName]="'name'" type="text" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="fixed">Prefix</ion-label>
-      <ion-input formControlName="prefix" type="text" required autocapitalize="characters" maxlength="2"></ion-input>
+      <ion-label position="fixed" [translate]="'collections.form.prefix'">Prefix</ion-label>
+      <ion-input [formControlName]="'prefix'" type="text" required autocapitalize="characters" maxlength="2"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="fixed">Icon</ion-label>
-      <ion-input class="emoji-input" formControlName="icon" type="text" required value="🇪🇸"></ion-input>
+      <ion-label position="fixed" [translate]="'collections.form.icon'">Icon</ion-label>
+      <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required></ion-input>
       <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
         <ion-img [src]="getEmojisRoute(this.selectedEmoji)"></ion-img>
       </ion-button>
@@ -27,11 +27,12 @@
     <ion-grid>
       <ion-row>
         <ion-col *ngIf="editingId">
-          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
-          </ion-button>
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger"
+                      [translate]="'collections.form.delete'"></ion-button>
         </ion-col>
         <ion-col>
-          <ion-button class="submit-button" type="submit" expand="block">{{editingId ? 'Save' : 'Submit'}}</ion-button>
+          <ion-button class="submit-button" type="submit" expand="block"
+                      [translate]="editingId ? 'collections.form.update' : 'collections.form.create'"></ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -3,14 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Collections</ion-title>
+    <ion-title [translate]="'collections.title'"></ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="clear" color="primary" (click)="toggleManage()">
-        {{managingMode ? 'Set' : 'Manage'}}
-      </ion-button>
-      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary">
-        New
-      </ion-button>
+      <ion-button fill="clear" color="primary" (click)="toggleManage()"
+                  [translate]="managingMode ? 'collections.buttons.set' : 'collections.buttons.manage'"></ion-button>
+      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary"
+                  [translate]="'collections.buttons.new'"></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -27,6 +25,9 @@
     </ion-item>
   </ion-list>
   <ng-template #no_collections>
-    <p class="no-collections-message"> Add a new collection to start learning right now!</p>
+    <div class="no-collections-message">
+      <p [translate]="'collections.no-coll-msg.title'"></p>
+      <p [translate]="'collections.no-coll-msg.body'"></p>
+    </div>
   </ng-template>
 </ion-content>
