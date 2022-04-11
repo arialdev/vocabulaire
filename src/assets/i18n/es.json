@@ -15,7 +15,7 @@
         "date": "Fecha"
       }
     },
-    "no-term-msg": "Añade un nuevo término para comenzar tu aprendizaje!"
+    "no-term-msg": "¡Añade un nuevo término para comenzar tu aprendizaje!"
   },
   "collections": {
     "title": "Colecciones",
@@ -36,7 +36,7 @@
     },
     "no-coll-msg": {
       "title": "En Vocabulaire puedes aprender varios idiomas a la vez separándolos en colecciones.",
-      "body": "Añade una nueva colección para comenzar tu aprendizaje!"
+      "body": "¡Añade una nueva colección para comenzar tu aprendizaje!"
     }
   },
   "term": {
