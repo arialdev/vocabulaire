@@ -1,6 +1,89 @@
 {
   "home": {
     "searchbar-placeholder": "Search term",
-    "details-label": "Detail"
+    "details-label": "Detail",
+    "filter": {
+      "label": "Filter by {{type}}",
+      "cancel": "Cancel",
+      "ok": "OK"
+    },
+    "sort": {
+      "label": "Sort by:",
+      "opt": {
+        "t-org": "Original term",
+        "t-trans": "Translated term",
+        "date": "Date"
+      }
+    },
+    "no-term-msg": "Add a new term to start learning!"
+  },
+  "collections": {
+    "title": "Collections",
+    "buttons": {
+      "manage": "Manage",
+      "set": "Select",
+      "new": "New"
+    },
+    "form": {
+      "title-new": "New collection",
+      "title-edit": "Edit collection",
+      "name": "Name",
+      "prefix": "Prefix",
+      "icon": "Icon",
+      "create": "Save",
+      "update": "Update",
+      "delete": "Delete"
+    },
+    "no-coll-msg": {
+      "title": "With Vocabulaire you can learn multiple languages at the same time classifying them by collections.",
+      "body": "Add a new collection to start learning!"
+    }
+  },
+  "term": {
+    "title-new": "New term",
+    "title-edit": "Edit term",
+    "form": {
+      "tr": "Translation"
+    },
+    "create": "New",
+    "update": "Update",
+    "delete": "Delete"
+  },
+  "category": {
+    "searchbar-placeholder": "Search category",
+    "new-button": "New category",
+    "delete": "Delete",
+    "alert": {
+      "header": {
+        "create": "New {{type}} category",
+        "edit": "Edit {{type}} category"
+      },
+      "placeholder": "Category´s name",
+      "cancel": "Cancel",
+      "ok": {
+        "update": "Rename",
+        "save": "Save"
+      }
+    }
+  },
+  "data": {
+    "category": {
+      "gc": "Gramatical category",
+      "gcs": "Gramatical Categories",
+      "tc": "Thematic category",
+      "tcs": "Thematic categories",
+      "name": "Category",
+      "name-p": "Categories",
+      "type": {
+        "g": "Gramatical",
+        "gs": "Gramatical",
+        "t": "Thematic",
+        "ts": "Thematic"
+      }
+    },
+    "term": {
+      "notes": "Notes"
+    }
   }
 }
+
