@@ -9,7 +9,7 @@ export class MockStorageService implements AbstractStorageService {
 
   constructor() {
     this.storage = new Map<string, any>();
-    this.storage.set('settings', {darkMode: false, language: 'en'});
+    this.storage.set('settings', {darkMode: false, preferredLanguage: {prefix: 'en', name: 'English'}});
     this.storage.set('collections', []);
   }
 

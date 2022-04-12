@@ -27,7 +27,7 @@ describe('StorageService', () => {
 
   it('should get existing value', (done) => {
     service.get('settings').then(s => {
-      expect(s).toEqual({darkMode: false, language: 'en'});
+      expect(s).toEqual({darkMode: false, preferredLanguage: {prefix: 'en', name: 'English'}});
       done();
     });
   });

@@ -48,7 +48,7 @@ export class StorageService implements AbstractStorageService {
 
   private async initializeSettings() {
     const settings = await this.get('settings');
-    const defaultSettings = {darkMode: false, language: 'en'};
+    const defaultSettings = {darkMode: false, preferredLanguage: {prefix: 'en', name: 'English'}};
     await this.set('settings', {...defaultSettings, ...settings});
   }
 

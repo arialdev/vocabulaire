@@ -84,5 +84,8 @@
     "term": {
       "notes": "Notas"
     }
+  },
+  "settings": {
+    "title": "Ajustes"
   }
 }

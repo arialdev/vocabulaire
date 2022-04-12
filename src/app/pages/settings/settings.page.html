@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title [translate]="'settings.title'"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Dark Mode</ion-label>
+      <ion-toggle [checked]="darkMode" (ionChange)="toggleTheme($event)"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Language</ion-label>
+      <ion-select interface="popover" [value]="preferredLanguage" (ionChange)="setLanguage($event)">
+        <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

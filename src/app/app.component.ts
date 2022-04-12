@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {TranslateService} from '@ngx-translate/core';
+import {SettingsService} from './services/settings/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,11 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   public tags = ['Verbs', 'Swearing'];
 
-  constructor(private storageService: AbstractStorageService, private translateService: TranslateService) {
+  constructor(
+    private storageService: AbstractStorageService,
+    private translateService: TranslateService,
+    private settingsService: SettingsService
+  ) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -18,12 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   private async loadTheme() {
-    const settings = await this.storageService.get('settings');
-    if (settings.darkMode) {
-      document.body.setAttribute('data-theme', 'dark');
-    } else {
-      document.body.setAttribute('data-theme', 'light');
-    }
+    await this.settingsService.loadTheme();
   }
 
   private async setLanguage() {
