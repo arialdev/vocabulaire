@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule, MenuController} from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import {CategoriesPage} from './categories.page';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
@@ -14,7 +14,7 @@ import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {MockMenuController, MockTranslatePipe, MockTranslateService} from '../../../mocks';
+import {MockTranslatePipe, MockTranslateService} from '../../../mocks';
 
 describe('CategoriesPage', () => {
   let component: CategoriesPage;
@@ -36,7 +36,6 @@ describe('CategoriesPage', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
         {provide: TranslateService, useClass: MockTranslateService},
-        {provide: MenuController, useClass: MockMenuController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

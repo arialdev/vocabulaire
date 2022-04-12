@@ -10,8 +10,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MenuController} from '@ionic/angular';
-import {MockMenuController} from '../../../mocks';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -35,7 +33,6 @@ describe('CollectionsPage', () => {
         {provide: Router, useValue: routerSpy},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
         {provide: EmojisMap},
-        {provide: MenuController, useClass: MockMenuController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

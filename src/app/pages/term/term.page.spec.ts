@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {AlertController, IonicModule, MenuController, NavController} from '@ionic/angular';
+import {AlertController, IonicModule, NavController} from '@ionic/angular';
 
 import {TermPage} from './term.page';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
@@ -12,7 +12,7 @@ import {Category} from '../../classes/category/category';
 import {ActivatedRoute} from '@angular/router';
 import {TermService} from '../../services/term/term.service';
 import {Term} from '../../classes/term/term';
-import {MockAlertController, MockMenuController, MockNavController, MockTranslateService} from '../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService} from '../../../mocks';
 import {CategoryType} from '../../enums/enums';
 import {HomePage} from '../home/home.page';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -147,7 +147,6 @@ describe('TermPage for updating term', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
         {provide: TranslateService, useClass: MockTranslateService},
-        {provide: MenuController, useClass: MockMenuController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

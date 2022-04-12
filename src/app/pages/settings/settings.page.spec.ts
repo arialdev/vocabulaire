@@ -1,8 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule, MenuController} from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import {SettingsPage} from './settings.page';
-import {MockMenuController} from '../../../mocks';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -17,7 +16,6 @@ describe('SettingsPage', () => {
       declarations: [SettingsPage],
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
       providers: [
-        {provide: MenuController, useClass: MockMenuController},
         {provide: AbstractStorageService, useClass: MockStorageService}
       ]
     }).compileComponents();

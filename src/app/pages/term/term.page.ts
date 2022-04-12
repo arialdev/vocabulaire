@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
-import {AlertController, IonSelect, MenuController, NavController} from '@ionic/angular';
+import {AlertController, IonSelect, NavController} from '@ionic/angular';
 import {Category} from '../../classes/category/category';
 import {Term} from '../../classes/term/term';
 import {TermService} from '../../services/term/term.service';
@@ -39,8 +39,7 @@ export class TermPage implements OnInit {
     private navController: NavController,
     private activatedRoute: ActivatedRoute,
     private alertController: AlertController,
-    private translateService: TranslateService,
-    private menuController: MenuController
+    private translateService: TranslateService
   ) {
     this.termForm = new FormGroup({
       originalTerm: new FormControl('', Validators.required),
@@ -58,7 +57,6 @@ export class TermPage implements OnInit {
   }
 
   async ngOnInit() {
-    await this.menuController.enable(false, 'main-content');
     const id: string = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.editingID = +id;

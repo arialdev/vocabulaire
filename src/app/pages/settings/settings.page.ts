@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from '@ionic/angular';
 import {SettingsService} from '../../services/settings/settings.service';
 import {GuiLanguage} from '../../interfaces/gui-language';
 
@@ -14,14 +13,12 @@ export class SettingsPage implements OnInit {
   languages: GuiLanguage[];
 
   constructor(
-    private menuController: MenuController,
     private settingsService: SettingsService
   ) {
     this.languages = this.settingsService.getLanguages();
   }
 
   async ngOnInit() {
-    await this.menuController.enable(false, 'main-content');
     this.darkMode = await this.settingsService.isDarkMode();
     const language: GuiLanguage = await this.settingsService.getPreferredLanguage();
     this.preferredLanguage = language ?? this.languages[0];

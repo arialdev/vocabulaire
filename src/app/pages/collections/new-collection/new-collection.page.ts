@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
-import {AlertController, MenuController, NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojiService} from '../../../services/emoji/emoji.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -27,8 +27,7 @@ export class NewCollectionPage implements OnInit {
     private navCtrl: NavController,
     public alertController: AlertController,
     private emojiService: EmojiService,
-    private translateService: TranslateService,
-    private menuController: MenuController
+    private translateService: TranslateService
   ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -39,7 +38,6 @@ export class NewCollectionPage implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    await this.menuController.enable(false, 'main-content');
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       await this.editMode(Number(id));

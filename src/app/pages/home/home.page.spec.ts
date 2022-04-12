@@ -11,14 +11,8 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AlertController, MenuController, NavController} from '@ionic/angular';
-import {
-  MockAlertController,
-  MockNavController,
-  MockTranslateService,
-  MockTranslatePipe,
-  MockMenuController
-} from '../../../mocks';
+import {AlertController, NavController} from '@ionic/angular';
+import {MockAlertController, MockNavController, MockTranslateService, MockTranslatePipe,} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {TranslateService} from '@ngx-translate/core';
@@ -55,7 +49,6 @@ describe('HomePage', () => {
         {provide: EmojisMap},
         {provide: AlertController, useClass: MockAlertController},
         {provide: TranslateService, useClass: MockTranslateService},
-        {provide: MenuController, useClass: MockMenuController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

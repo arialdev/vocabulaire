@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Term} from '../../classes/term/term';
 import {CollectionService} from '../../services/collection/collection.service';
-import {AlertController, AlertInput, MenuController, NavController} from '@ionic/angular';
+import {AlertController, AlertInput, NavController} from '@ionic/angular';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
@@ -31,8 +31,7 @@ export class HomePage {
     private navController: NavController,
     private emojiService: EmojiService,
     private alertController: AlertController,
-    private translateService: TranslateService,
-    private menuController: MenuController
+    private translateService: TranslateService
   ) {
     this.terms = [];
     this.simpleView = true;
@@ -49,7 +48,6 @@ export class HomePage {
   }
 
   async ionViewWillEnter(): Promise<void> {
-    await this.menuController.enable(true, 'main-content');
     this.activeCollection = await this.collectionService.getActiveCollection();
     this.terms = this.activeCollection.getTerms();
     this.sort(this.activeSortingCode);

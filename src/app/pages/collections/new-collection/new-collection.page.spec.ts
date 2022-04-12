@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {AlertController, IonicModule, MenuController, NavController} from '@ionic/angular';
+import {AlertController, IonicModule, NavController} from '@ionic/angular';
 import {NewCollectionPage} from './new-collection.page';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -7,7 +7,7 @@ import {CollectionService} from '../../../services/collection/collection.service
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../classes/collection/collection';
-import {MockAlertController, MockMenuController, MockNavController, MockTranslateService} from '../../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService} from '../../../../mocks';
 import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../../services/storage/mock-storage.service';
 import {Emoji} from '../../../classes/emoji/emoji';
@@ -116,7 +116,6 @@ describe('NewCollectionPage for update', () => {
         {provide: AlertController, useClass: MockAlertController},
         {provide: EmojisMap},
         {provide: TranslateService, useClass: MockTranslateService},
-        {provide: MenuController, useClass: MockMenuController}
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
