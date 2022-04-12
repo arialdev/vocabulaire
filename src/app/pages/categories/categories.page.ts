@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Category} from '../../classes/category/category';
-import {AlertController} from '@ionic/angular';
+import {AlertController, MenuController} from '@ionic/angular';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
 import {TranslateService} from '@ngx-translate/core';
@@ -26,13 +26,14 @@ export class CategoriesPage implements OnInit {
     private collectionService: CollectionService,
     private alertController: AlertController,
     private categoryService: CategoryService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private menuController: MenuController
   ) {
   }
 
   async ngOnInit() {
     this.type = +this.activatedRoute.snapshot.params.type;
-    await this.translate();
+    await Promise.all([this.translate(), this.menuController.enable(false, 'main-content')]);
     return this.refreshCategories();
   }
 

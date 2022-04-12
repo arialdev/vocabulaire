@@ -4,6 +4,7 @@ import {CollectionService} from '../../services/collection/collection.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EmojiService} from '../../services/emoji/emoji.service';
 import {Emoji} from '../../classes/emoji/emoji';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-collections',
@@ -20,12 +21,14 @@ export class CollectionsPage {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private emojiService: EmojiService,
+    private menuController: MenuController
   ) {
     this.collections = [];
     this.managingMode = false;
   }
 
   async ionViewWillEnter(): Promise<void> {
+    await this.menuController.enable(false, 'main-content');
     this.managingMode = false;
     await this.loadCollections();
   }

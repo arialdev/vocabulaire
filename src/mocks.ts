@@ -54,3 +54,9 @@ export class MockTranslateService {
     });
   }
 }
+
+export class MockMenuController {
+  enable() {
+    return Promise.resolve();
+  }
+}

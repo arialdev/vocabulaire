@@ -37,8 +37,8 @@ describe('AppComponent', () => {
     const app = fixture.nativeElement;
     const menuItems = app.querySelectorAll('ion-label');
     expect(menuItems.length).toEqual(5);
-    expect(menuItems[0].textContent).toContain('Inbox');
-    expect(menuItems[1].textContent).toContain('Outbox');
+    expect(menuItems[0].textContent).toContain('Home');
+    expect(menuItems[1].textContent).toContain('Word of the Day');
   }));
 
   it('should have urls', waitForAsync(() => {
