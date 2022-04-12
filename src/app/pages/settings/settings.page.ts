@@ -27,10 +27,6 @@ export class SettingsPage implements OnInit {
     this.preferredLanguage = language ?? this.languages[0];
   }
 
-  setLanguage(event) {
-    console.log(event.detail);
-  }
-
   async toggleTheme(event) {
     if (await this.settingsService.isDarkMode() !== event.detail.checked) {
       await this.settingsService.toggleTheme();

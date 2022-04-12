@@ -22,14 +22,6 @@ export class SettingsService {
     ];
   }
 
-  private static colorTest(systemInitiatedDark) {
-    if (systemInitiatedDark.matches) {
-      document.body.setAttribute('data-settings', 'dark');
-    } else {
-      document.body.setAttribute('data-settings', 'light');
-    }
-  }
-
   public async isDarkMode(): Promise<boolean> {
     if (this.darkMode === undefined) {
       await this.initializeService();
@@ -52,8 +44,6 @@ export class SettingsService {
     if (this.darkMode === undefined) {
       await this.initializeService();
     }
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
-    systemDark.addListener(SettingsService.colorTest);
     if (this.darkMode) {
       document.body.setAttribute('data-theme', 'dark');
     } else {
@@ -62,6 +52,9 @@ export class SettingsService {
   }
 
   public async toggleTheme() {
+    if (this.darkMode === undefined) {
+      await this.initializeService();
+    }
     this.darkMode = !this.darkMode;
     const settings: Settings = await this.storageService.get('settings');
     settings.darkMode = this.darkMode;
