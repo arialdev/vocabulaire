@@ -15,7 +15,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Language</ion-label>
-      <ion-select interface="popover" [value]="preferredLanguage">
+      <ion-select interface="popover" [value]="preferredLanguage" (ionChange)="changeLanguage($event)">
         <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
       </ion-select>
     </ion-item>

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
-import {TranslateService} from '@ngx-translate/core';
 import {SettingsService} from './services/settings/settings.service';
 
 @Component({
@@ -13,20 +12,15 @@ export class AppComponent implements OnInit {
 
   constructor(
     private storageService: AbstractStorageService,
-    private translateService: TranslateService,
     private settingsService: SettingsService
   ) {
   }
 
   async ngOnInit(): Promise<void> {
-    await Promise.all([this.loadTheme(), this.setLanguage()]);
+    await this.loadTheme();
   }
 
   private async loadTheme() {
     await this.settingsService.loadTheme();
-  }
-
-  private async setLanguage() {
-    this.translateService.setDefaultLang('es');
   }
 }

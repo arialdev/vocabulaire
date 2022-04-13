@@ -29,4 +29,9 @@ export class SettingsPage implements OnInit {
       await this.settingsService.toggleTheme();
     }
   }
+
+  async changeLanguage(event) {
+    const language: GuiLanguage = event.detail.value;
+    await this.settingsService.setLanguage(language);
+  }
 }

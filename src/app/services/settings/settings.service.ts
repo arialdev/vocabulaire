@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {Settings} from '../../interfaces/settings';
 import {GuiLanguage} from '../../interfaces/gui-language';
+import {TranslateService} from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class SettingsService {
   private preferredLanguage: GuiLanguage;
   private readonly languages: GuiLanguage[];
 
-  constructor(private storageService: AbstractStorageService) {
+  constructor(private storageService: AbstractStorageService, private translateService: TranslateService) {
     this.initializeService();
     this.languages = [
       {prefix: 'en', name: 'English'},
@@ -62,10 +63,25 @@ export class SettingsService {
     await this.loadTheme();
   }
 
+  public async setLanguage(language: GuiLanguage): Promise<void> {
+    if (this.languages.some(l => l.prefix === language.prefix)) {
+      const settings: Settings = await this.getSettingsFromDisk();
+      settings.preferredLanguage = language;
+      await this.storageService.set('settings', settings);
+      this.translateService.use(language.prefix);
+    }
+  }
+
   private async initializeService(): Promise<void> {
-    const settings: Settings = await this.storageService.get('settings');
+    const settings: Settings = await this.getSettingsFromDisk();
     this.darkMode = settings.darkMode;
     this.preferredLanguage = settings.preferredLanguage;
+    this.translateService.setDefaultLang(this.languages[0].prefix);
+    this.translateService.use(this.preferredLanguage.prefix);
     await this.loadTheme();
+  }
+
+  private async getSettingsFromDisk(): Promise<Settings> {
+    return this.storageService.get('settings');
   }
 }
