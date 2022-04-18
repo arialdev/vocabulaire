@@ -40,6 +40,13 @@ export const createTranslateLoader = (http: HttpClient) =>
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
+    }),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
     })
   ],
   providers: [

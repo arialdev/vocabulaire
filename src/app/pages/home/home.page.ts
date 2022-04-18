@@ -21,7 +21,6 @@ export class HomePage {
   collectionIcon: string;
   collectionPrefix: string;
   sortingOptions: string[];
-  searchbarPlaceholder: string;
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
   private readonly filters: { 0: []; 1: [] };
@@ -54,7 +53,6 @@ export class HomePage {
     const emoji: Emoji = this.activeCollection.getLanguage().getIcon();
     this.collectionIcon = this.emojiService.getEmojiRoute(emoji);
     this.collectionPrefix = this.activeCollection.getLanguage().getPrefix();
-    this.searchbarPlaceholder = await this.translateService.get('home.searchbar-placeholder').toPromise();
     this.sortingOptions = Object
       .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
         .toPromise());
