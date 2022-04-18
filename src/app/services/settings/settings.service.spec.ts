@@ -3,13 +3,18 @@ import {TestBed} from '@angular/core/testing';
 import {SettingsService} from './settings.service';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {MockStorageService} from '../storage/mock-storage.service';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslateService} from '../../../mocks';
 
 describe('ThemeService', () => {
   let service: SettingsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [{provide: AbstractStorageService, useClass: MockStorageService}]
+      providers: [
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: TranslateService, useClass: MockTranslateService}
+      ]
     });
     service = TestBed.inject(SettingsService);
   });

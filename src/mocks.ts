@@ -53,6 +53,10 @@ export class MockTranslateService {
       o.complete();
     });
   }
+
+  use() {
+    return new Observable();
+  }
 }
 
 export class MockMenuController {

@@ -6,6 +6,9 @@ import {AbstractStorageService} from '../../services/storage/abstract-storage-se
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SettingsService} from '../../services/settings/settings.service';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslateService} from '../../../mocks';
+import {GuiLanguage} from '../../interfaces/gui-language';
 
 describe('SettingsPage', () => {
   let component: SettingsPage;
@@ -16,7 +19,8 @@ describe('SettingsPage', () => {
       declarations: [SettingsPage],
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
       providers: [
-        {provide: AbstractStorageService, useClass: MockStorageService}
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: TranslateService, useClass: MockTranslateService}
       ]
     }).compileComponents();
 
@@ -47,4 +51,13 @@ describe('SettingsPage', () => {
     await component.ngOnInit();
     expect(component.preferredLanguage.prefix).toEqual('en');
   });
+
+  it('should changeLanguage', () => {
+    const settingsService = fixture.debugElement.injector.get(SettingsService);
+    spyOn(settingsService, 'setLanguage');
+    const lang: GuiLanguage = {prefix: 'fr', name: 'French'};
+    component.changeLanguage({detail: {value: lang}});
+    expect(settingsService.setLanguage).toHaveBeenCalledWith(lang);
+  })
+  ;
 });
