@@ -15,7 +15,7 @@ describe('StorageService', () => {
         // eslint-disable-next-line no-underscore-dangle
         driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB],
       }),],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
     service = TestBed.inject(StorageService);
   });
@@ -56,5 +56,13 @@ describe('StorageService', () => {
         done();
       });
     });
+  });
+
+  it('should import data', async () => {
+    const data = {collections: [], settings: {}};
+    const file = new File([JSON.stringify(data)], 'data.json', {type: 'text/plain'});
+    spyOn(service, 'set');
+    await service.importData(file);
+    expect(service.set).toHaveBeenCalledTimes(Object.keys(data).length);
   });
 });

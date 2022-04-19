@@ -58,6 +58,26 @@ describe('SettingsPage', () => {
     const lang: GuiLanguage = {prefix: 'fr', name: 'French'};
     component.changeLanguage({detail: {value: lang}});
     expect(settingsService.setLanguage).toHaveBeenCalledWith(lang);
-  })
-  ;
+  });
+
+  it('should open file explorer', () => {
+    const button = document.getElementById('file-importer');
+    spyOn(button, 'click');
+    component.openFileExplorer();
+    expect(button.click).toHaveBeenCalled();
+  });
+
+  it('should export data', () => {
+    const storageService = fixture.debugElement.injector.get(AbstractStorageService);
+    spyOn(storageService, 'exportData');
+    component.exportData();
+    expect(storageService.exportData).toHaveBeenCalled();
+  });
+
+  it('should import data', () => {
+    const storageService = fixture.debugElement.injector.get(AbstractStorageService);
+    spyOn(storageService, 'importData');
+    component.importData({target: {files: []}});
+    expect(storageService.importData).toHaveBeenCalledWith(undefined);
+  });
 });

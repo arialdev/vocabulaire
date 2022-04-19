@@ -5,6 +5,7 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {MockStorageService} from '../storage/mock-storage.service';
 import {TranslateService} from '@ngx-translate/core';
 import {MockTranslateService} from '../../../mocks';
+import {GuiLanguage} from '../../interfaces/gui-language';
 
 describe('ThemeService', () => {
   let service: SettingsService;
@@ -41,5 +42,16 @@ describe('ThemeService', () => {
     expect(document.body.setAttribute).toHaveBeenCalledWith('data-theme', 'dark');
     await service.toggleTheme();
     expect(document.body.setAttribute).toHaveBeenCalledWith('data-theme', 'light');
+  });
+
+  it('should set valid language', async () => {
+    const lang: GuiLanguage = {prefix: 'fr', name: 'Français'};
+    const translateService = TestBed.inject(TranslateService);
+    const storageService = TestBed.inject(AbstractStorageService);
+    spyOn(translateService, 'use');
+    spyOn(storageService, 'set');
+    await service.setLanguage(lang);
+    expect(translateService.use).toHaveBeenCalledWith(lang.prefix);
+    expect(storageService.set).toHaveBeenCalled();
   });
 });

@@ -86,7 +86,11 @@
     }
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "dark-mode": "Dark mode",
+    "language": "Language",
+    "export": "EXPORT DATA",
+    "import": "IMPORT DATA"
   }
 }
 

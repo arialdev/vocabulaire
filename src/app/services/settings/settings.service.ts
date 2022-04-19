@@ -72,7 +72,7 @@ export class SettingsService {
     }
   }
 
-  private async initializeService(): Promise<void> {
+  async initializeService(): Promise<void> {
     const settings: Settings = await this.getSettingsFromDisk();
     this.darkMode = settings.darkMode;
     this.preferredLanguage = settings.preferredLanguage;

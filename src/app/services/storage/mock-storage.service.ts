@@ -25,4 +25,12 @@ export class MockStorageService implements AbstractStorageService {
   remove(key: string): Promise<any> {
     return Promise.resolve(this.storage.delete(key));
   }
+
+  exportData(): Promise<any> {
+    return Promise.resolve(undefined);
+  }
+
+  importData(): Promise<any> {
+    return Promise.resolve(undefined);
+  }
 }

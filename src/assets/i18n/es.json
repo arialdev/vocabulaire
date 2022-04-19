@@ -86,6 +86,10 @@
     }
   },
   "settings": {
-    "title": "Ajustes"
+    "title": "Ajustes",
+    "dark-mode": "Tema oscuro",
+    "language": "Idioma",
+    "export": "Exportar datos",
+    "import": "Importar datos"
   }
 }

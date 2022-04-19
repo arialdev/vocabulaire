@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../services/settings/settings.service';
 import {GuiLanguage} from '../../interfaces/gui-language';
+import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 
 @Component({
   selector: 'app-settings',
@@ -13,7 +14,8 @@ export class SettingsPage implements OnInit {
   languages: GuiLanguage[];
 
   constructor(
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private storageService: AbstractStorageService,
   ) {
     this.languages = this.settingsService.getLanguages();
   }
@@ -33,5 +35,19 @@ export class SettingsPage implements OnInit {
   async changeLanguage(event) {
     const language: GuiLanguage = event.detail.value;
     await this.settingsService.setLanguage(language);
+  }
+
+  async exportData() {
+    await this.storageService.exportData();
+  }
+
+  async importData(event) {
+    await this.storageService.importData(event.target.files[0]);
+    await this.settingsService.initializeService();
+    await this.ngOnInit();
+  }
+
+  openFileExplorer() {
+    document.getElementById('file-importer').click();
   }
 }
