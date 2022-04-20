@@ -1,0 +1,15 @@
+<ion-header class="header" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="success"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-img class="header-logo" src="assets/img/logo.png"></ion-img>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToCollections()">
+        <ion-img class="header-language" [src]="collectionIcon"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

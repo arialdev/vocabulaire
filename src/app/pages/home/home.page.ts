@@ -58,10 +58,6 @@ export class HomePage {
         .toPromise());
   }
 
-  async navigateToCollections(): Promise<void> {
-    await this.navController.navigateForward('collections');
-  }
-
   async navigateToTerm(id?: number) {
     await this.navController.navigateForward(`term/${id ? id : 'new'}`);
   }
