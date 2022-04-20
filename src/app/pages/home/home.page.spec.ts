@@ -78,44 +78,6 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display logo in header', () => {
-    const logo = fixture.debugElement.query(By.css('.header .header-logo'));
-    expect(logo.nativeElement.localName).toBe('ion-img');
-  });
-
-  it('should display menu in header', () => {
-    expect(fixture.debugElement.query(By.css('.header ion-menu-button'))).toBeTruthy();
-  });
-
-  it('should display language icon', () => {
-    const buttons = fixture.debugElement.query(By.css('.header ion-buttons[slot=end]'));
-    expect(buttons).toBeTruthy();
-  });
-
-  it('should contains searchbar', () => {
-    expect(fixture.debugElement.query(By.css('ion-searchbar'))).toBeTruthy();
-  });
-
-  it('should contains book button', () => {
-    expect(fixture.debugElement.query(By.css('.book-button'))).toBeTruthy();
-  });
-
-  describe('Search options', () => {
-    it('should contains filter button', () => {
-      expect(fixture.debugElement.query(By.css('.filter-button'))).toBeTruthy();
-    });
-
-    it('should contains sorting button', () => {
-      expect(fixture.debugElement.query(By.css('.sort-button'))).toBeTruthy();
-    });
-
-    it('should contains details toggle', () => {
-      const toggle = fixture.debugElement.query(By.css('.details-toggle ion-toggle'));
-      expect(toggle).toBeTruthy();
-      // expect(toggle.attributes['aria-checked']).toBeTruthy();
-    });
-  });
-
   it('should contains add button', () => {
     expect(fixture.debugElement.query(By.css('.add-term'))).toBeTruthy();
   });
@@ -134,13 +96,6 @@ describe('HomePage', () => {
     expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.getNotes());
     expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.getGramaticalCategories().length);
     expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.getThematicCategories().length);
-  });
-
-  it('should navigate to collections', async () => {
-    const navCtrl = fixture.debugElement.injector.get(NavController);
-    spyOn(navCtrl, 'navigateForward');
-    await component.navigateToCollections();
-    expect(navCtrl.navigateForward).toHaveBeenCalledWith('collections');
   });
 
   it('should navigate to new term', async () => {
