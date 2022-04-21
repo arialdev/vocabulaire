@@ -20,9 +20,11 @@ export class HeaderComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const activeCollection = await this.collectionService.getActiveCollection();
-    const emoji: Emoji = activeCollection.getLanguage().getIcon();
-    this.collectionIcon = this.emojiService.getEmojiRoute(emoji);
+    await this.collectionService.getActiveCollection();
+    this.collectionService.currentActiveCollection.subscribe(activeCollection => {
+      const emoji: Emoji = activeCollection.getLanguage().getIcon();
+      this.collectionIcon = this.emojiService.getEmojiRoute(emoji);
+    });
   }
 
   async navigateToCollections(): Promise<void> {

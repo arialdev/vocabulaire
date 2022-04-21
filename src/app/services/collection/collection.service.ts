@@ -1,15 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectionService {
 
+  public currentActiveCollection: Observable<Collection>;
+  private activeCollectionSubject: BehaviorSubject<Collection>;
+
   private nextFreeID;
 
   constructor(private storageService: AbstractStorageService) {
+    this.getActiveCollection()
+      .then(ac => this.activeCollectionSubject = new BehaviorSubject<Collection>(ac))
+      .catch(_ => this.activeCollectionSubject = new BehaviorSubject<Collection>(undefined))
+      .finally(() => this.currentActiveCollection = this.activeCollectionSubject.asObservable());
   }
 
   public async getActiveCollection(): Promise<Collection> {
@@ -18,6 +26,7 @@ export class CollectionService {
     if (!collection) {
       throw new Error('No active collection found!');
     }
+    this.activeCollectionSubject.next(collection);
     return collection;
   }
 
@@ -30,6 +39,7 @@ export class CollectionService {
     }
     activeCollection.setActive();
     await this.storageService.set('collections', collections);
+    this.activeCollectionSubject.next(activeCollection);
     return activeCollection;
   }
 
