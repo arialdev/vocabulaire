@@ -14,10 +14,10 @@ export class CollectionService {
   private nextFreeID;
 
   constructor(private storageService: AbstractStorageService) {
-    this.getActiveCollection()
-      .then(ac => this.activeCollectionSubject = new BehaviorSubject<Collection>(ac))
-      .catch(_ => this.activeCollectionSubject = new BehaviorSubject<Collection>(undefined))
-      .finally(() => this.currentActiveCollection = this.activeCollectionSubject.asObservable());
+    this.getActiveCollection().finally(() => {
+      this.activeCollectionSubject = new BehaviorSubject<Collection>(undefined);
+      this.currentActiveCollection = this.activeCollectionSubject.asObservable();
+    });
   }
 
   public async getActiveCollection(): Promise<Collection> {
