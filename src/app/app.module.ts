@@ -18,6 +18,7 @@ import {EmojisMap} from './services/emoji/emojisMap';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {EmojiPipeModule} from './pipes/emoji-pipe/emoji-pipe.module';
 
 export const createTranslateLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +48,8 @@ export const createTranslateLoader = (http: HttpClient) =>
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    EmojiPipeModule
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
