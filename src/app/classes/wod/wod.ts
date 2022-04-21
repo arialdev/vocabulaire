@@ -11,7 +11,7 @@ export class Wod {
       this.term = term;
       this.retrievedDate = new Date();
     } else {
-      this.term = term.term;
+      this.term = new Term(term.term);
       this.retrievedDate = term.retrievedDate;
     }
   }
