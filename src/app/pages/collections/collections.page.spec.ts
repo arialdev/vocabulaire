@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {RouterTestingModule} from '@angular/router/testing';
+import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -27,7 +28,7 @@ describe('CollectionsPage', () => {
 
     TestBed.configureTestingModule({
       declarations: [CollectionsPage],
-      imports: [RouterTestingModule.withRoutes([])],
+      imports: [RouterTestingModule.withRoutes([]), EmojiPipeModule],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: Router, useValue: routerSpy},

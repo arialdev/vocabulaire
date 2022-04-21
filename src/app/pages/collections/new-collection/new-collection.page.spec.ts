@@ -14,6 +14,7 @@ import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojisMap} from '../../../services/emoji/emojisMap';
 import isEqual from 'lodash.isequal';
 import {TranslateService} from '@ngx-translate/core';
+import {EmojiPipeModule} from '../../../pipes/emoji-pipe/emoji-pipe.module';
 
 describe('NewCollectionPage for creation', () => {
   let component: NewCollectionPage;
@@ -35,7 +36,7 @@ describe('NewCollectionPage for creation', () => {
         {provide: TranslateService, useClass: MockTranslateService}
       ],
       declarations: [NewCollectionPage],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
+      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule, EmojiPipeModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
@@ -118,7 +119,7 @@ describe('NewCollectionPage for update', () => {
         {provide: TranslateService, useClass: MockTranslateService},
       ],
       declarations: [NewCollectionPage],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule],
+      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule, EmojiPipeModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 

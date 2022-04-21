@@ -9,6 +9,7 @@ import {EmojisMap} from '../../services/emoji/emojisMap';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
+import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -20,7 +21,7 @@ describe('HeaderComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), EmojiPipeModule],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},

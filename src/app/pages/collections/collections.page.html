@@ -22,7 +22,7 @@
     <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.getId())"
               *ngFor="let collection of collections">
       <div class="collection-box" [ngClass]="{'collection-active':collection.isActive()}">
-        <ion-img [src]="getEmojiRoute(collection.getLanguage().getIcon())" class="collection-icon"></ion-img>
+        <ion-img [src]="collection.getLanguage().getIcon()|emoji" class="collection-icon"></ion-img>
         <div class="language-prefix">{{collection.getLanguage().getPrefix()}}</div>
         <div class="collection-name">{{collection.getLanguage().getName()}}</div>
       </div>

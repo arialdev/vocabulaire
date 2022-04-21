@@ -15,13 +15,14 @@
     </ion-item>
     <ion-item>
       <ion-label position="fixed" [translate]="'collections.form.prefix'">Prefix</ion-label>
-      <ion-input [formControlName]="'prefix'" type="text" required autocapitalize="characters" maxlength="2"></ion-input>
+      <ion-input [formControlName]="'prefix'" type="text" required autocapitalize="characters"
+                 maxlength="2"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="fixed" [translate]="'collections.form.icon'">Icon</ion-label>
       <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required></ion-input>
       <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
-        <ion-img [src]="getEmojisRoute(this.selectedEmoji)"></ion-img>
+        <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
       </ion-button>
     </ion-item>
     <ion-grid>
