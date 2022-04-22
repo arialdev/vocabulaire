@@ -58,3 +58,9 @@ export class MockTranslateService {
     return new Observable();
   }
 }
+
+export class MockMenuController {
+  close() {
+    return Promise.resolve();
+  }
+}

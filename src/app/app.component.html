@@ -24,7 +24,7 @@
             <span class="counter">({{tags.length}}/{{maxTagsBound}})</span>
           </ion-list-header>
           <ion-item-sliding *ngFor="let tag of tags">
-            <ion-item lines="none" button="true">
+            <ion-item lines="none" button="true" (click)="loadTag(tag)">
               <ion-img [src]="tag.getIcon()|emoji"></ion-img>
               <ion-label>{{tag.getName()}}</ion-label>
             </ion-item>

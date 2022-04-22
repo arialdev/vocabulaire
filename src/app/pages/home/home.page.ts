@@ -8,6 +8,8 @@ import {EmojiService} from '../../services/emoji/emoji.service';
 import {Category} from '../../classes/category/category';
 import {TranslateService} from '@ngx-translate/core';
 import {TagOptions} from '../../classes/tagOptions/tag-options';
+import {Tag} from '../../classes/tag/tag';
+import {TagService} from '../../services/tag/tag.service';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +34,8 @@ export class HomePage {
     private navController: NavController,
     private emojiService: EmojiService,
     private alertController: AlertController,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private _: TagService
   ) {
     this.terms = [];
     this.simpleView = true;
@@ -58,6 +61,7 @@ export class HomePage {
     this.sortingOptions = Object
       .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
         .toPromise());
+    this.loadTag();
   }
 
   async navigateToTerm(id?: number) {
@@ -90,7 +94,7 @@ export class HomePage {
         type: `checkbox`,
         label: c.getName(),
         value: c,
-        checked: this.filters[categoryType].includes(c)
+        checked: this.filters[categoryType].some((category: Category) => category.getId() === c.getId())
       });
     });
 
@@ -155,6 +159,19 @@ export class HomePage {
       return gramaticalRes && thematicRes;
     });
     this.sort(this.activeSortingCode, true);
+  }
+
+  private loadTag() {
+    TagService.getTag().subscribe((tag: Tag) => {
+      if (tag) {
+        const tagOptions = tag.getOptions();
+        this.searchValue = tagOptions.getSearchText();
+        this.filters[0] = tagOptions.getGramaticalCategories();
+        this.filters[1] = tagOptions.getThematicCategories();
+        this.handleSearchbar({target: {value: this.searchValue}});
+        this.filterTerms();
+      }
+    });
   }
 }
 

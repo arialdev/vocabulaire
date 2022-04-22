@@ -8,7 +8,6 @@ import {BehaviorSubject, Observable} from 'rxjs';
 })
 export class CollectionService {
 
-  public static maxTagsBound = 6;
   public currentActiveCollection: Observable<Collection>;
   private activeCollectionSubject: BehaviorSubject<Collection>;
 

@@ -3,15 +3,28 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {Tag} from '../../classes/tag/tag';
 import {CollectionService} from '../collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
 
+  public static maxTagsBound = 6;
+  private static tagSubject: BehaviorSubject<Tag>;
+
   private nextFreeID: number;
 
   constructor(private storageService: AbstractStorageService, private collectionService: CollectionService) {
+    TagService.tagSubject = new BehaviorSubject<Tag>(undefined);
+  }
+
+  public static loadTag(tag: Tag): void {
+    TagService.tagSubject.next(tag);
+  }
+
+  public static getTag(): Observable<Tag> {
+    return TagService.tagSubject.asObservable();
   }
 
   public async addTag(tag: Tag, collectionId: number): Promise<Tag> {

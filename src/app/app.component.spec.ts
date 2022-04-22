@@ -7,7 +7,13 @@ import {AppComponent} from './app.component';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {MockStorageService} from './services/storage/mock-storage.service';
 import {TranslateService} from '@ngx-translate/core';
-import {MockTranslateService} from '../mocks';
+import {MockMenuController, MockTranslateService} from '../mocks';
+import {CollectionService} from './services/collection/collection.service';
+import {Collection} from './classes/collection/collection';
+import {Tag} from './classes/tag/tag';
+import {Emoji} from './classes/emoji/emoji';
+import {TagService} from './services/tag/tag.service';
+import {MenuController} from '@ionic/angular';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -21,7 +27,8 @@ describe('AppComponent', () => {
       imports: [RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
-        {provide: TranslateService, useClass: MockTranslateService}
+        {provide: TranslateService, useClass: MockTranslateService},
+        {provide: MenuController, useClass: MockMenuController}
       ]
     }).compileComponents();
 
@@ -33,5 +40,27 @@ describe('AppComponent', () => {
   it('should create the app', waitForAsync(() => {
     expect(app).toBeTruthy();
   }));
+
+  it('should load tags', async () => {
+    const c = new Collection('a', 'a', new Emoji('a', 'a'));
+    const tag = new Tag('tag', undefined, undefined);
+    c.addTag(tag);
+
+    const collectionService = TestBed.inject(CollectionService);
+    spyOn(collectionService, 'getActiveCollection').and.resolveTo(c);
+
+    await app.loadTags();
+    expect(app.tags).toEqual([tag]);
+  });
+
+  it('should load tag', async () => {
+    spyOn(TagService, 'loadTag');
+    const menuController = TestBed.inject(MenuController);
+    spyOn(menuController, 'close');
+    const tag = new Tag('tag', undefined, undefined);
+    await app.loadTag(tag);
+    expect(TagService.loadTag).toHaveBeenCalledWith(tag);
+    expect(menuController.close).toHaveBeenCalled();
+  });
 
 });

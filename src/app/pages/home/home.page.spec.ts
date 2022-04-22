@@ -16,6 +16,10 @@ import {MockAlertController, MockNavController, MockTranslateService, MockTransl
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {TranslateService} from '@ngx-translate/core';
+import {TagService} from '../../services/tag/tag.service';
+import {Tag} from '../../classes/tag/tag';
+import {TagOptions} from '../../classes/tagOptions/tag-options';
+import {CategoryService} from '../../services/category/category.service';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -189,5 +193,27 @@ describe('HomePage', () => {
     spyOn(navController, 'navigateForward');
     await component.addTag();
     expect(navController.navigateForward).toHaveBeenCalled();
+  });
+
+  it('should load tag', async () => {
+    const t1 = new Term('aa', 'bb', 'cc');
+    let t2 = new Term('xx', 'yy', 'zz');
+    const gc = new Category('Noun', CategoryType.gramatical);
+    collection.addGramaticalCategory(gc);
+    t2.addGramaticalCategory(gc);
+
+    const categoryService = TestBed.inject(CategoryService);
+    await categoryService.addCategory(gc, collection.getId());
+    await termService.addTerm(t1, collection.getId());
+    t2 = await termService.addTerm(t2, collection.getId());
+
+    const tagOptions = new TagOptions('tag options');
+    tagOptions.addGramaticalCategory(gc, true);
+    const tag = new Tag('new tag', undefined, tagOptions);
+    TagService.loadTag(tag);
+
+    fixture.detectChanges();
+    await component.ionViewWillEnter();
+    expect(component.terms).toEqual([t2]);
   });
 });

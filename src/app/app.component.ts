@@ -3,6 +3,8 @@ import {AbstractStorageService} from './services/storage/abstract-storage-servic
 import {SettingsService} from './services/settings/settings.service';
 import {CollectionService} from './services/collection/collection.service';
 import {Tag} from './classes/tag/tag';
+import {MenuController, NavController} from '@ionic/angular';
+import {TagService} from './services/tag/tag.service';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +18,12 @@ export class AppComponent implements OnInit {
   constructor(
     private storageService: AbstractStorageService,
     private settingsService: SettingsService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private navController: NavController,
+    private menuController: MenuController
   ) {
     this.tags = [];
-    this.maxTagsBound = CollectionService.maxTagsBound;
+    this.maxTagsBound = TagService.maxTagsBound;
   }
 
   async ngOnInit(): Promise<void> {
@@ -28,6 +32,11 @@ export class AppComponent implements OnInit {
 
   async loadTags() {
     this.tags = (await this.collectionService.getActiveCollection()).getTags();
+  }
+
+  async loadTag(tag: Tag) {
+    TagService.loadTag(tag);
+    await this.menuController.close();
   }
 
   private async loadTheme() {
