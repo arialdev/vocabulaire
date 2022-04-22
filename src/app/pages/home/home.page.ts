@@ -7,6 +7,7 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
 import {Category} from '../../classes/category/category';
 import {TranslateService} from '@ngx-translate/core';
+import {TagOptions} from '../../classes/tagOptions/tag-options';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +22,10 @@ export class HomePage {
   collectionIcon: string;
   collectionPrefix: string;
   sortingOptions: string[];
+  searchValue: string;
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
-  private readonly filters: { 0: []; 1: [] };
+  private readonly filters: any;
 
   constructor(
     private collectionService: CollectionService,
@@ -124,6 +126,13 @@ export class HomePage {
       || sanitizeText(t.getNotes()).includes(text)
     );
     this.filterTerms(false);
+  }
+
+  async addTag() {
+    const tagOptions = new TagOptions(this.searchValue ?? '');
+    this.filters[0].forEach(gc => tagOptions.addGramaticalCategory(gc, true));
+    this.filters[1].forEach(tc => tagOptions.addThematicCategory(tc, true));
+    await this.navController.navigateForward('tag/new', {state: {tagOptions}});
   }
 
   private filterTerms(force = true): void {

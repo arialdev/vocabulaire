@@ -183,4 +183,11 @@ describe('HomePage', () => {
     component.handleSearchbar(event);
     expect(component.terms).toEqual([t1, t2]);
   });
+
+  it('should add tag', async () => {
+    const navController = TestBed.inject(NavController);
+    spyOn(navController, 'navigateForward');
+    await component.addTag();
+    expect(navController.navigateForward).toHaveBeenCalled();
+  });
 });

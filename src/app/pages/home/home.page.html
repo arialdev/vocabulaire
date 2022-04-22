@@ -4,11 +4,11 @@
 
   <div class="searchbar-container">
     <div class="terms-searchbar">
-      <ion-searchbar [placeholder]="'home.searchbar-placeholder'|translate" animated="true" enterkeyhint="search"
+      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'home.searchbar-placeholder'|translate" animated="true" enterkeyhint="search"
                      inputmode="text" type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
     <div class="book-button">
-      <ion-button fill="clear">
+      <ion-button fill="clear" (click)="addTag()">
         <ion-icon name="bookmark-outline"></ion-icon>
       </ion-button>
     </div>
