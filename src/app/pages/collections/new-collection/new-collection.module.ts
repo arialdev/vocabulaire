@@ -7,22 +7,22 @@ import {IonicModule} from '@ionic/angular';
 import {NewCollectionPageRoutingModule} from './new-collection-routing.module';
 
 import {NewCollectionPage} from './new-collection.page';
-import {EmojiPickerComponent} from '../../../components/emoji-picker/emoji-picker.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {EmojiPipeModule} from '../../../pipes/emoji-pipe/emoji-pipe.module';
+import {EmojiPickerModule} from '../../../components/emoji-picker/emoji-picker.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
     NewCollectionPageRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    EmojiPipeModule
+    EmojiPipeModule,
+    EmojiPickerModule
   ],
-  declarations: [NewCollectionPage, EmojiPickerComponent]
+  declarations: [NewCollectionPage]
 })
 export class NewCollectionPageModule {
 }
