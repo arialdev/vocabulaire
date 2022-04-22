@@ -14,6 +14,7 @@ import {Tag} from './classes/tag/tag';
 import {Emoji} from './classes/emoji/emoji';
 import {TagService} from './services/tag/tag.service';
 import {MenuController} from '@ionic/angular';
+import {TagOptions} from './classes/tagOptions/tag-options';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -61,6 +62,25 @@ describe('AppComponent', () => {
     await app.loadTag(tag);
     expect(TagService.loadTag).toHaveBeenCalledWith(tag);
     expect(menuController.close).toHaveBeenCalled();
+  });
+
+  it('should delete tag', async () => {
+    spyOn(app, 'loadTags');
+
+    const tagService = TestBed.inject(TagService);
+    spyOn(tagService, 'removeTag');
+
+    const c = new Collection('a', 'a', new Emoji('a', 'a'));
+    c.setId(1);
+    const collectionService = TestBed.inject(CollectionService);
+    spyOn(collectionService, 'getActiveCollection').and.resolveTo(c);
+
+    const tag = new Tag('verbs', undefined, new TagOptions(''));
+    tag.setId(8);
+
+    await app.deleteTag(tag);
+    expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), c.getId());
+    expect(app.loadTags).toHaveBeenCalled();
   });
 
 });

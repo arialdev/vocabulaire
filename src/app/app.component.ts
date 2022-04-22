@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
     private settingsService: SettingsService,
     private collectionService: CollectionService,
     private navController: NavController,
-    private menuController: MenuController
+    private menuController: MenuController,
+    private tagService: TagService
   ) {
     this.tags = [];
     this.maxTagsBound = TagService.maxTagsBound;
@@ -37,6 +38,12 @@ export class AppComponent implements OnInit {
   async loadTag(tag: Tag) {
     TagService.loadTag(tag);
     await this.menuController.close();
+  }
+
+  async deleteTag(tag: Tag) {
+    const activeCollection = await this.collectionService.getActiveCollection();
+    await this.tagService.removeTag(tag.getId(), activeCollection.getId());
+    await this.loadTags();
   }
 
   private async loadTheme() {
