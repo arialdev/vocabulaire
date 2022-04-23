@@ -7,6 +7,8 @@ import SwiperCore from 'swiper';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
+import {Collection} from '../../classes/collection/collection';
+import {CollectionService} from '../../services/collection/collection.service';
 
 @Component({
   selector: 'app-tutorial',
@@ -34,7 +36,8 @@ export class TutorialPage implements AfterContentChecked {
     private menuController: MenuController,
     private settingsService: SettingsService,
     private emojiService: EmojiService,
-    private navController: NavController
+    private navController: NavController,
+    private collectionService: CollectionService
   ) {
     /* Component */
     this.showPreviousNavButton = false;
@@ -60,7 +63,7 @@ export class TutorialPage implements AfterContentChecked {
   }
 
   ionViewWillLeave(): Promise<HTMLIonMenuElement> {
-    return this.menuController.enable(false);
+    return this.menuController.enable(true);
   }
 
   ngAfterContentChecked() {
@@ -82,10 +85,6 @@ export class TutorialPage implements AfterContentChecked {
     this.swiper.swiperRef.slidePrev();
   }
 
-  navToHome(): Promise<boolean> {
-    return this.navController.navigateForward('home');
-  }
-
   /* Slide 1 */
   async changeLanguage(event) {
     const language: GuiLanguage = event.detail.value;
@@ -93,8 +92,17 @@ export class TutorialPage implements AfterContentChecked {
   }
 
   /* Slide 2 */
-  async onSubmit(): Promise<void> {
-    throw new Error('Not implemented');
+  async onSubmit(): Promise<boolean> {
+    if (this.collectionForm.valid) {
+      const collection: Collection = new Collection(
+        this.collectionForm.get('name').value,
+        this.collectionForm.get('prefix').value,
+        this.selectedEmoji
+      );
+      const newCollection = await this.collectionService.addCollection(collection);
+      await this.collectionService.setActiveCollection(newCollection.getId());
+      return this.navController.navigateForward('/');
+    }
   }
 
   selectEmoji(emoji: Emoji): void {

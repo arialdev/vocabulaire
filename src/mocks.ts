@@ -63,4 +63,7 @@ export class MockMenuController {
   close() {
     return Promise.resolve();
   }
+  enable(){
+    return Promise.resolve();
+  }
 }

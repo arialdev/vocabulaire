@@ -17,6 +17,7 @@ import {CollectionService} from '../../services/collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
 import {TagService} from '../../services/tag/tag.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('NewTagPage', () => {
   let component: NewTagPage;
@@ -41,7 +42,7 @@ describe('NewTagPage', () => {
         IonicModule.forRoot(),
         RouterTestingModule.withRoutes([{path: '/', component: HomePage}]),
         EmojiPickerModule,
-        EmojiPipeModule
+        EmojiPipeModule,
       ],
       providers: [
         {provide: EmojisMap},
@@ -104,7 +105,8 @@ describe('NewTagPage with no data provided', () => {
         IonicModule.forRoot(),
         RouterTestingModule.withRoutes([{path: '/', component: HomePage}]),
         EmojiPickerModule,
-        EmojiPipeModule
+        EmojiPipeModule,
+        ReactiveFormsModule
       ],
       providers: [
         {provide: EmojisMap},
