@@ -6,29 +6,41 @@
 .swiper-slide {
   text-align: center;
 
-  h1 {
-    margin: 20% auto 60px;
-    font-family: "Caviar Dreams", 'sans-serif';
-    font-weight: bold;
-    font-size: 30pt;
+  .text {
+    h1 {
+      margin: 20% auto 60px;
+      font-family: "Caviar Dreams", 'sans-serif';
+      font-weight: bold;
+      font-size: 30pt;
 
-    &.short {
-      margin-bottom: 20px;
+      &.short {
+        margin-bottom: 20px;
+      }
+    }
+
+    .description {
+      margin: 60px auto 40px;
+      font-family: "Louis George Cafe", 'sans-serif';
+      font-size: 16pt;
+
+      &.short {
+        margin: 20px auto 30px;
+      }
     }
   }
 
-  .description {
-    margin: 60px auto 40px;
-    font-family: "Louis George Cafe", 'sans-serif';
-    font-size: 16pt;
-
-    &.short {
-      margin: 20px auto 30px;
+  .slide-2 {
+    .emoji-input {
+      display: none;
     }
-  }
 
-  .submit-button {
-    margin-top: 30px;
+    .emoji-button ion-img {
+      width: 26px;
+    }
+
+    .submit-button {
+      margin-top: 30px;
+    }
   }
 }
 

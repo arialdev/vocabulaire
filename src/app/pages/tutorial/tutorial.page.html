@@ -4,12 +4,14 @@
     class="swiper-container"
     [initialSlide]="0"
     [slidesPerView]="1"
-    [virtual]="true"
     (slideChange)="onSlideChange($event)"
   >
     <ng-template swiperSlide>
-      <h1>Bienvenido a Vocabulaire</h1>
-      <p class="description">Primero, escoge el idioma de la interfaz</p>
+      <div class="text">
+        <h1>Bienvenido a Vocabulaire</h1>
+        <p class="description">Primero, escoge el idioma de la interfaz</p>
+      </div>
+
       <ion-item>
         <ion-label>Interfaz</ion-label>
         <ion-select interface="popover" [value]="preferredLanguage" (ionChange)="changeLanguage($event)">
@@ -19,12 +21,13 @@
     </ng-template>
 
     <ng-template swiperSlide>
+      <div class="text">
+        <h1 class="short">Create your first collection</h1>
+        <p class="description short">You can save vocabulary from different languages in collections. Create your first
+          collection to start your learning.</p>
+      </div>
 
-      <h1 class="short">Create your first collection</h1>
-      <p class="description short">You can save vocabulary from different languages in collections. Create your first
-        collection to start your learning.</p>
-
-      <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()" class="slide-2">
         <ion-item>
           <ion-label position="fixed" [translate]="'collections.form.name'"></ion-label>
           <ion-input [formControlName]="'name'" type="text" required></ion-input>
