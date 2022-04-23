@@ -1,0 +1,68 @@
+.swiper-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 40px;
+    font-family: "Caviar Dreams", 'sans-serif';
+    font-weight: bold;
+    font-size: 30pt;
+  }
+
+  .description {
+    margin: 30px;
+    font-family: "Louis George Cafe", 'sans-serif';
+    font-size: 16pt;
+  }
+}
+
+.progress-bar {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 5%;
+}
+
+.nav-slide {
+  position: fixed;
+  bottom: 10%;
+  transform: rotate(-90);
+}
+
+.back-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}
+
+.end-sliding {
+  right: 10px;
+}
+
+.bounce {
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-15px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+}

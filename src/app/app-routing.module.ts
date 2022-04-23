@@ -44,7 +44,11 @@ const routes: Routes = [
   {
     path: 'tag/new',
     loadChildren: () => import('./pages/new-tag/new-tag.module').then( m => m.NewTagPageModule)
+  },  {
+    path: 'tutorial',
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
   }
+
 
 
 ];

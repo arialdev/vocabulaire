@@ -1,0 +1,60 @@
+<ion-content>
+  <swiper
+    #swiper
+    class="swiper-container"
+    [initialSlide]="0"
+    [slidesPerView]="1"
+    [virtual]="true"
+  >
+    <ng-template swiperSlide>
+      <h1>Bienvenido a Vocabulaire</h1>
+      <p class="description">Primero, escoge el idioma de la interfaz</p>
+      <ion-item>
+        <ion-label>Interfaz</ion-label>
+        <ion-select interface="popover" [value]="preferredLanguage" (ionChange)="changeLanguage($event)">
+          <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
+      <ion-button fill="clear" class="nav-slide next-arrow bounce" (click)="nextSlide()">
+        <ion-icon slot="icon-only" size="large" color="primary" name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <h1>Create your first collection</h1>
+      <p class="description">You can save vocabulary from different languages in collections. Create your first
+        collection to start your learning.</p>
+
+      <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="fixed" [translate]="'collections.form.name'"></ion-label>
+          <ion-input [formControlName]="'name'" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed" [translate]="'collections.form.prefix'"></ion-label>
+          <ion-input [formControlName]="'prefix'" type="text" required autocapitalize="characters"
+                     maxlength="2"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed" [translate]="'collections.form.icon'"></ion-label>
+          <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required></ion-input>
+          <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
+            <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
+          </ion-button>
+        </ion-item>
+      </form>
+      <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
+
+      <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
+      <ion-button fill="clear" class="nav-slide back-arrow" (click)="previousSlide()">
+        <ion-icon slot="icon-only" size="large" color="primary" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="success" class="nav-slide end-sliding" (click)="navToHome()">
+        Start
+      </ion-button>
+    </ng-template>
+  </swiper>
+
+</ion-content>

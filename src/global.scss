@@ -24,6 +24,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~swiper/swiper-bundle.css";
 
 /* Colors */
 .ion-color-primary-blue {
@@ -41,6 +42,7 @@
   font-family: "Lemon Milk";
   src: url(assets/fonts/LEMONMILK-Regular.otf);
 }
+
 @font-face {
   font-family: "Lemon Milk Light";
   src: url(assets/fonts/LEMONMILK-Light.otf);
@@ -61,6 +63,11 @@
   font-family: "Caviar Dreams";
   src: url(assets/fonts/CaviarDreams_Italic.ttf);
   font-style: italic;
+}
+
+@font-face {
+  font-family: "Louis George Cafe";
+  src: url(assets/fonts/Louis_George_Cafe.ttf);
 }
 
 
