@@ -19,7 +19,10 @@ SwiperCore.use([Virtual]);
 export class TutorialPage implements AfterContentChecked {
 
   @ViewChild('swiper', {static: false}) swiper: SwiperComponent;
+
   progress: number;
+  showPreviousNavButton: boolean;
+  showNextNavButton: boolean;
 
   languages: GuiLanguage[];
   preferredLanguage: GuiLanguage;
@@ -34,6 +37,9 @@ export class TutorialPage implements AfterContentChecked {
     private settingsService: SettingsService,
     private emojiService: EmojiService
   ) {
+    this.showPreviousNavButton = false;
+    this.showNextNavButton = true;
+
     this.languages = this.settingsService.getLanguages();
     this.preferredLanguage = this.languages[0];
 
@@ -66,6 +72,7 @@ export class TutorialPage implements AfterContentChecked {
   }
 
   nextSlide() {
+    console.log(this.swiper.swiperRef);
     this.swiper.swiperRef.slideNext();
   }
 
@@ -87,6 +94,11 @@ export class TutorialPage implements AfterContentChecked {
 
   toggleModal(): void {
     this.modalStatus = !this.modalStatus;
+  }
+
+  onSlideChange([event]: SwiperCore[]) {
+    this.showPreviousNavButton = event.activeIndex !== 0;
+    this.showNextNavButton = event.activeIndex !== event.slides.length - 1;
   }
 
   private selectDefaultEmoji(): void {

@@ -5,6 +5,7 @@
     [initialSlide]="0"
     [slidesPerView]="1"
     [virtual]="true"
+    (slideChange)="onSlideChange($event)"
   >
     <ng-template swiperSlide>
       <h1>Bienvenido a Vocabulaire</h1>
@@ -15,16 +16,12 @@
           <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
         </ion-select>
       </ion-item>
-
-      <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
-      <ion-button fill="clear" class="nav-slide next-arrow bounce" (click)="nextSlide()">
-        <ion-icon slot="icon-only" size="large" color="primary" name="chevron-forward-outline"></ion-icon>
-      </ion-button>
     </ng-template>
 
     <ng-template swiperSlide>
-      <h1>Create your first collection</h1>
-      <p class="description">You can save vocabulary from different languages in collections. Create your first
+
+      <h1 class="short">Create your first collection</h1>
+      <p class="description short">You can save vocabulary from different languages in collections. Create your first
         collection to start your learning.</p>
 
       <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
@@ -44,17 +41,25 @@
             <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
           </ion-button>
         </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button class="submit-button" type="submit" expand="block" color="success">Empezar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </form>
       <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
-
-      <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
-      <ion-button fill="clear" class="nav-slide back-arrow" (click)="previousSlide()">
-        <ion-icon slot="icon-only" size="large" color="primary" name="chevron-back-outline"></ion-icon>
-      </ion-button>
-      <ion-button color="success" class="nav-slide end-sliding" (click)="navToHome()">
-        Start
-      </ion-button>
     </ng-template>
   </swiper>
+  <footer class="footer">
+    <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
+    <ion-button fill="clear" class="nav-slide back-arrow" (click)="previousSlide()" *ngIf="showPreviousNavButton">
+      <ion-icon slot="icon-only" size="large" color="primary" name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" class="nav-slide next-arrow bounce" (click)="nextSlide()" *ngIf="showNextNavButton">
+      <ion-icon slot="icon-only" size="large" color="primary" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </footer>
 
 </ion-content>
