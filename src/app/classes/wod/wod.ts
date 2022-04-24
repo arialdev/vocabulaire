@@ -12,7 +12,7 @@ export class Wod {
       this.retrievedDate = new Date();
     } else {
       this.term = new Term(term.term);
-      this.retrievedDate = term.retrievedDate;
+      this.retrievedDate = new Date(term.retrievedDate);
     }
   }
 
