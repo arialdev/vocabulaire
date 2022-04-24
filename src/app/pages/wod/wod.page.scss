@@ -34,9 +34,8 @@
 .term {
   border-radius: 5%;
   margin: 40px 30px;
-  box-shadow: 7px 6px 5px -1px #E0E0E0;
-  border: 1px solid #b9b9b9;
-  --background: #fffcf7;
+  box-shadow: 3px 2px 5px -1px var(--ion-color-medium-shade);
+  border: 1px solid var(--ion-color-medium);
 }
 
 .item-box {
@@ -85,9 +84,17 @@
   .categories {
     grid-area: categories;
 
-    & ion-chip {
+    ion-chip {
       opacity: unset;
-      --background: white;
+      background-color: var(--ion-color-light);
+
+      &.primary {
+        border: 1px solid var(--ion-color-primary);
+      }
+
+      &.secondary {
+        border: 1px solid var(--ion-color-darkgreen);
+      }
     }
   }
 
@@ -96,6 +103,7 @@
     font-family: "Caviar Dreams", 'sans-serif';
     font-style: italic;
     font-size: 18px;
+    margin-bottom: 8px;
   }
 
 }

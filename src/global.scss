@@ -36,6 +36,24 @@
   --ion-color-tint: var(--ion-color-primary-blue-tint);
 }
 
+.ion-color-light2 {
+  --ion-color-base: var(--ion-color-light2);
+  --ion-color-base-rgb: var(--ion-color-light2-rgb);
+  --ion-color-contrast: var(--ion-color-light2-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-light2-contrast-rgb);
+  --ion-color-shade: var(--ion-color-light2-shade);
+  --ion-color-tint: var(--ion-color-light2-tint);
+}
+
+.ion-color-darkgreen {
+  --ion-color-base: var(--ion-color-darkgreen);
+  --ion-color-base-rgb: var(--ion-color-darkgreen-rgb);
+  --ion-color-contrast: var(--ion-color-darkgreen-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-darkgreen-contrast-rgb);
+  --ion-color-shade: var(--ion-color-darkgreen-shade);
+  --ion-color-tint: var(--ion-color-darkgreen-tint);
+}
+
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 @font-face {

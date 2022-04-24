@@ -65,7 +65,7 @@
   </div>
 
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
-    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
+    <ion-item color="light2" class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
       <div class="item-box">
         <div class="language-prefix term-label">{{collectionPrefix}}</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
@@ -77,11 +77,11 @@
         <div class="term-note" *ngIf="simpleView && term.getNotes()">{{term.getNotes()}}</div>
         <div class="categories"
              *ngIf="simpleView && (term.getGramaticalCategories().length||term.getThematicCategories().length)">
-          <ion-chip class="gramatical-category" color="primary-blue" disabled="true"
+          <ion-chip class="gramatical-category primary" color="primary" disabled="true"
                     *ngFor="let gc of term.getGramaticalCategories()">
             <ion-label>{{gc.getName()}}</ion-label>
           </ion-chip>
-          <ion-chip class="thematic-category" color="primary-blue" outline="true" disabled="true"
+          <ion-chip class="thematic-category secondary" color="darkgreen" outline="true" disabled="true"
                     *ngFor="let tc of term.getThematicCategories()">
             <ion-label>{{tc.getName()}}</ion-label>
           </ion-chip>

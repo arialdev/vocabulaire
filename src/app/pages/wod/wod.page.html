@@ -6,7 +6,7 @@
     <ion-img class="bulb-pic" [src]="bulbPath"></ion-img>
     <span>Word of the Day</span>
   </div>
-  <ion-item class="term" lines="none" *ngIf="wod;else no_wod">
+  <ion-item class="term" color="light" lines="none" *ngIf="wod;else no_wod">
     <div class="item-box">
       <div class="item-header">{{wod.getTerm().getTranslatedTerm()}}</div>
       <div class="translated-term">
@@ -15,11 +15,11 @@
       </div>
       <div class="categories"
            *ngIf="wod.getTerm().getGramaticalCategories().length + wod.getTerm().getThematicCategories().length">
-        <ion-chip class="gramatical-category" color="primary-blue" disabled="true"
+        <ion-chip class="gramatical-category primary" color="primary" disabled="true"
                   *ngFor="let gc of wod.getTerm().getGramaticalCategories()">
           <ion-label>{{gc.getName()}}</ion-label>
         </ion-chip>
-        <ion-chip class="thematic-category" color="primary-blue" outline="true" disabled="true"
+        <ion-chip class="thematic-category secondary" color="darkgreen" outline="true" disabled="true"
                   *ngFor="let tc of wod.getTerm().getThematicCategories()">
           <ion-label>{{tc.getName()}}</ion-label>
         </ion-chip>
