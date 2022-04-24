@@ -81,6 +81,14 @@ export class SettingsService {
     await this.loadTheme();
   }
 
+  async initializeApp(): Promise<void> {
+    return this.storageService.set('initialized', true);
+  }
+
+  async isInitialized(): Promise<boolean> {
+    return (await this.storageService.get('initialized')) ?? false;
+  }
+
   private async getSettingsFromDisk(): Promise<Settings> {
     return this.storageService.get('settings');
   }

@@ -54,4 +54,19 @@ describe('ThemeService', () => {
     expect(translateService.use).toHaveBeenCalledWith(lang.prefix);
     expect(storageService.set).toHaveBeenCalled();
   });
+
+  it('should initialize app settings', async () => {
+    const storageService = TestBed.inject(AbstractStorageService);
+    spyOn(storageService, 'set');
+    await service.initializeApp();
+    expect(storageService.set).toHaveBeenCalledWith('initialized', true);
+  });
+
+  it('should check if app is initialized', async () => {
+    let res = await service.isInitialized();
+    expect(res).toBeFalse();
+    await service.initializeApp();
+    res = await service.isInitialized();
+    expect(res).toBeTrue();
+  });
 });

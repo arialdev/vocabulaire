@@ -101,6 +101,7 @@ export class TutorialPage implements AfterContentChecked {
       );
       const newCollection = await this.collectionService.addCollection(collection);
       await this.collectionService.setActiveCollection(newCollection.getId());
+      await this.settingsService.initializeApp();
       return this.navController.navigateForward('/');
     }
   }
