@@ -25,7 +25,10 @@ export class HomePage {
   collectionPrefix: string;
   sortingOptions: string[];
   searchValue: string;
+
   isFiltering: boolean;
+  isTag: boolean;
+
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
   private readonly filters: any;
@@ -36,7 +39,7 @@ export class HomePage {
     private emojiService: EmojiService,
     private alertController: AlertController,
     private translateService: TranslateService,
-    private _: TagService
+    private tagService: TagService
   ) {
     this.terms = [];
     this.simpleView = true;
@@ -51,6 +54,7 @@ export class HomePage {
       3: (t1: Term, t2: Term) => t2.getUpdatingTime() - t1.getUpdatingTime(),
     };
     this.isFiltering = false;
+    this.isTag = false;
   }
 
   async ionViewWillEnter(): Promise<void> {
@@ -132,9 +136,19 @@ export class HomePage {
       || sanitizeText(t.getNotes()).includes(text)
     );
     this.filterTerms(false);
+    this.isTag = false;
   }
 
-  async addTag() {
+  async toggleTag(): Promise<void> {
+    if (this.isTag) {
+      TagService.getTag().subscribe((tag: Tag) => {
+        if (tag) {
+          this.tagService.removeTag(tag.getId(), this.activeCollection.getId());
+          this.isTag = false;
+        }
+      });
+      return;
+    }
     const tagOptions = new TagOptions(this.searchValue ?? '');
     this.filters[0].forEach(gc => tagOptions.addGramaticalCategory(gc, true));
     this.filters[1].forEach(tc => tagOptions.addThematicCategory(tc, true));
@@ -165,6 +179,7 @@ export class HomePage {
 
     const activeFilters = Object.values(this.filters).map((l: Category[]) => l.length).reduce((acc, l) => acc + l);
     this.isFiltering = activeFilters > 0;
+    this.isTag = false;
   }
 
   private loadTag() {
@@ -174,8 +189,9 @@ export class HomePage {
         this.searchValue = tagOptions.getSearchText();
         this.filters[0] = tagOptions.getGramaticalCategories();
         this.filters[1] = tagOptions.getThematicCategories();
+        this.terms = this.activeCollection.getTerms();
         this.handleSearchbar({target: {value: this.searchValue}});
-        this.filterTerms();
+        this.isTag = true;
       }
     });
   }

@@ -191,7 +191,7 @@ describe('HomePage', () => {
   it('should add tag', async () => {
     const navController = TestBed.inject(NavController);
     spyOn(navController, 'navigateForward');
-    await component.addTag();
+    await component.toggleTag();
     expect(navController.navigateForward).toHaveBeenCalled();
   });
 

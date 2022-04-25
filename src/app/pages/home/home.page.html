@@ -9,8 +9,8 @@
                      inputmode="text" type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
     <div class="book-button">
-      <ion-button fill="clear" (click)="addTag()">
-        <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-button fill="clear" (click)="toggleTag()">
+        <ion-icon [name]="isTag?'bookmark':'bookmark-outline'"></ion-icon>
       </ion-button>
     </div>
     <div class="searchbar-options">
