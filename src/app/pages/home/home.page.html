@@ -4,7 +4,8 @@
 
   <div class="searchbar-container">
     <div class="terms-searchbar">
-      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'home.searchbar-placeholder'|translate" animated="true" enterkeyhint="search"
+      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'home.searchbar-placeholder'|translate" animated="true"
+                     enterkeyhint="search"
                      inputmode="text" type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
     <div class="book-button">
@@ -36,7 +37,7 @@
 
       <div class="filter-button">
         <ion-button id="filter-trigger" fill="clear" size="small">
-          <ion-icon name="funnel-outline"></ion-icon>
+          <ion-icon [name]="isFiltering?'funnel':'funnel-outline'"></ion-icon>
         </ion-button>
       </div>
 
@@ -65,7 +66,8 @@
   </div>
 
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
-    <ion-item color="light2" class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
+    <ion-item color="light2" class="term" lines="none" button="true" *ngFor="let term of terms"
+              (click)="navigateToTerm(term.getId())">
       <div class="item-box">
         <div class="language-prefix term-label">{{collectionPrefix}}</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>

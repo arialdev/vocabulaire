@@ -25,6 +25,7 @@ export class HomePage {
   collectionPrefix: string;
   sortingOptions: string[];
   searchValue: string;
+  isFiltering: boolean;
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
   private readonly filters: any;
@@ -49,6 +50,7 @@ export class HomePage {
       '-3': (t1: Term, t2: Term) => t1.getUpdatingTime() - t2.getUpdatingTime(),
       3: (t1: Term, t2: Term) => t2.getUpdatingTime() - t1.getUpdatingTime(),
     };
+    this.isFiltering = false;
   }
 
   async ionViewWillEnter(): Promise<void> {
@@ -158,7 +160,11 @@ export class HomePage {
       }
       return gramaticalRes && thematicRes;
     });
+
     this.sort(this.activeSortingCode, true);
+
+    const activeFilters = Object.values(this.filters).map((l: Category[]) => l.length).reduce((acc, l) => acc + l);
+    this.isFiltering = activeFilters > 0;
   }
 
   private loadTag() {
