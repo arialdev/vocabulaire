@@ -198,16 +198,17 @@ describe('HomePage', () => {
   it('should load tag', async () => {
     const t1 = new Term('aa', 'bb', 'cc');
     let t2 = new Term('xx', 'yy', 'zz');
-    const gc = new Category('Noun', CategoryType.gramatical);
+    let gc = new Category('Noun', CategoryType.gramatical);
     collection.addGramaticalCategory(gc);
-    t2.addGramaticalCategory(gc);
 
     const categoryService = TestBed.inject(CategoryService);
-    await categoryService.addCategory(gc, collection.getId());
+    gc = await categoryService.addCategory(gc, collection.getId());
+
+    t2.addGramaticalCategory(gc);
     await termService.addTerm(t1, collection.getId());
     t2 = await termService.addTerm(t2, collection.getId());
 
-    const tagOptions = new TagOptions('tag options');
+    const tagOptions = new TagOptions('x');
     tagOptions.addGramaticalCategory(gc, true);
     const tag = new Tag('new tag', undefined, tagOptions);
     TagService.loadTag(tag);
