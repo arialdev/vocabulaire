@@ -12,28 +12,50 @@ export class TagService {
 
   public static maxTagsBound = 6;
   private static tagSubject: BehaviorSubject<Tag>;
+  private static tagDeletion: BehaviorSubject<boolean>;
 
   private nextFreeID: number;
 
   constructor(private storageService: AbstractStorageService, private collectionService: CollectionService) {
     TagService.tagSubject = new BehaviorSubject<Tag>(undefined);
+    TagService.tagDeletion = new BehaviorSubject<boolean>(true);
   }
 
   public static loadTag(tag: Tag): void {
     TagService.tagSubject.next(tag);
   }
 
-  public static getTag(): Observable<Tag> {
+  public static getTagAsObservable(): Observable<Tag> {
     return TagService.tagSubject.asObservable();
   }
 
+  public static getTagDeletionAsObservable(): Observable<boolean> {
+    return TagService.tagDeletion.asObservable();
+  }
+
+  public static getTagAsPromise(): Promise<Tag> {
+    return new Promise<Tag>((resolve) => {
+      this.getTagAsObservable().subscribe(res => resolve(res));
+    });
+  }
+
+  /**
+   * Adds a new tag into the collection indicated by its id
+   *
+   * @param tag
+   * @param collectionId
+   * @throws Error if maximum number of tags in collection is reached
+   */
   public async addTag(tag: Tag, collectionId: number): Promise<Tag> {
     const collections = await this.collectionService.getCollections();
-    tag.setId(await this.getNextFreeID());
     const collection = collections.find(c => c.getId() === collectionId);
     if (!collection) {
       throw new Error(`Collection with ID ${collectionId} not found`);
     }
+    if (collection.getTags().length >= TagService.maxTagsBound) {
+      throw new Error('Maximum number of tags reached');
+    }
+    tag.setId(await this.getNextFreeID());
     collection.addTag(tag);
     await this.storageService.set('collections', collections);
     return tag;
@@ -50,7 +72,8 @@ export class TagService {
       throw new Error(`Tag with ID ${tagId} not found`);
     }
     collection.removeTag(tagId);
-    return this.storageService.set('collections', collections);
+    await this.storageService.set('collections', collections);
+    TagService.tagDeletion.next(true);
   }
 
   /**

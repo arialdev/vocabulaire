@@ -28,6 +28,7 @@ export class HomePage {
 
   isFiltering: boolean;
   isTag: boolean;
+  isTagButtonAvailable: boolean;
 
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
@@ -53,8 +54,10 @@ export class HomePage {
       '-3': (t1: Term, t2: Term) => t1.getUpdatingTime() - t2.getUpdatingTime(),
       3: (t1: Term, t2: Term) => t2.getUpdatingTime() - t1.getUpdatingTime(),
     };
+    this.searchValue = '';
     this.isFiltering = false;
     this.isTag = false;
+    this.isTagButtonAvailable = true;
   }
 
   async ionViewWillEnter(): Promise<void> {
@@ -68,6 +71,7 @@ export class HomePage {
       .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
         .toPromise());
     this.loadTag();
+    TagService.getTagDeletionAsObservable().subscribe(() => this.checkTagButtonAvailability(true));
   }
 
   async navigateToTerm(id?: number) {
@@ -139,25 +143,32 @@ export class HomePage {
     );
     this.filterTerms();
     this.isTag = false;
+    return this.checkTagButtonAvailability();
   }
 
   async toggleTag(): Promise<void> {
     if (this.isTag) {
-      TagService.getTag().subscribe((tag: Tag) => {
-        if (tag) {
-          this.tagService.removeTag(tag.getId(), this.activeCollection.getId());
-          this.isTag = false;
-        }
-      });
+      const tag = await TagService.getTagAsPromise();
+      if (tag) {
+        await this.tagService.removeTag(tag.getId(), this.activeCollection.getId());
+        this.isTag = false;
+      }
       return;
     }
-    const tagOptions = new TagOptions(this.searchValue ?? '');
+    const tagOptions = new TagOptions(this.searchValue);
     this.filters[0].forEach(gc => tagOptions.addGramaticalCategory(gc, true));
     this.filters[1].forEach(tc => tagOptions.addThematicCategory(tc, true));
     await this.navController.navigateForward('tag/new', {state: {tagOptions}});
   }
 
-  private filterTerms(): void {
+  private async checkTagButtonAvailability(refresh = false): Promise<void> {
+    if (refresh) {
+      this.activeCollection = await this.collectionService.getActiveCollection();
+    }
+    this.isTagButtonAvailable = this.isTag || this.activeCollection.getTags().length < TagService.maxTagsBound;
+  }
+
+  private filterTerms(): Promise<void> {
     this.terms = this.terms.filter(t => {
       const gramaticalRes = t.getGramaticalCategories().some(c => this.filters[0].map((cc: Category) => cc.getId()).includes(c.getId()));
       const thematicRes = t.getThematicCategories().some(c => this.filters[1].map((cc: Category) => cc.getId()).includes(c.getId()));
@@ -179,10 +190,11 @@ export class HomePage {
     const activeFilters = Object.values(this.filters).map((l: Category[]) => l.length).reduce((acc, l) => acc + l);
     this.isFiltering = activeFilters > 0;
     this.isTag = false;
+    return this.checkTagButtonAvailability();
   }
 
   private loadTag() {
-    TagService.getTag().subscribe((tag: Tag) => {
+    TagService.getTagAsObservable().subscribe((tag: Tag) => {
       if (tag) {
         const tagOptions = tag.getOptions();
         this.searchValue = tagOptions.getSearchText();
@@ -192,6 +204,7 @@ export class HomePage {
         this.handleSearchbar({target: {value: this.searchValue}});
         this.isTag = true;
       }
+      this.checkTagButtonAvailability();
     });
   }
 }

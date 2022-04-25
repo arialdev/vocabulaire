@@ -49,7 +49,11 @@ export class NewTagPage implements OnInit {
     if (this.tagForm.valid) {
       const tag = new Tag(this.tagForm.get('name').value, this.tagForm.get('icon').value, this.tagOptions);
       const activeCollection: Collection = await this.collectionService.getActiveCollection();
-      await this.tagService.addTag(tag, activeCollection.getId());
+      try {
+        await this.tagService.addTag(tag, activeCollection.getId());
+      } catch (e) {
+        //TODO toast
+      }
       await this.navController.navigateBack('/');
     }
   }

@@ -217,4 +217,17 @@ describe('HomePage', () => {
     await component.ionViewWillEnter();
     expect(component.terms).toEqual([t2]);
   });
+
+  it('should remove tag', async () => {
+    component.isTag = true;
+    component.activeCollection = collection;
+    const tag = new Tag('new tag', undefined, new TagOptions('x'));
+    tag.setId(1);
+    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
+    const tagService = TestBed.inject(TagService);
+    spyOn(tagService, 'removeTag');
+    await component.toggleTag();
+    expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), collection.getId());
+    expect(component.isTag).toBeFalse();
+  });
 });

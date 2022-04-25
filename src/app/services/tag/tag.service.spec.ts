@@ -72,4 +72,23 @@ describe('TagService', () => {
     collection = await collectionService.getActiveCollection();
     expect(collection.getTags().length).toBe(0);
   });
+
+  it('should throw error when adding tag and higher bound had been reached', async () => {
+    const tag: Tag = new Tag('tag', new Emoji('', ''), new TagOptions(''));
+    for (let i = 0; i < TagService.maxTagsBound; i++) {
+      await service.addTag(tag, collection.getId());
+    }
+    await expectAsync(service.addTag(tag, collection.getId())).toBeRejectedWithError('Maximum number of tags reached');
+  });
+
+  it('should get tag as promise', async () => {
+    let res = await TagService.getTagAsPromise();
+    console.log(res);
+    expect(res).toBeUndefined();
+    let tag = new Tag('tag', new Emoji('a', 'a'), new TagOptions(''));
+    tag = await service.addTag(tag, collection.getId());
+    TagService.loadTag(tag);
+    res = await TagService.getTagAsPromise();
+    expect(res).toEqual(tag);
+  });
 });
