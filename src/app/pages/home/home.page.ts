@@ -116,6 +116,8 @@ export class HomePage {
           text: await this.translateService.get('home.filter.ok').toPromise(),
           handler: (checkedCategories) => {
             this.filters[categoryType] = checkedCategories;
+            this.terms = this.activeCollection.getTerms();
+            this.handleSearchbar({target: {value: this.searchValue}});
             this.filterTerms();
           }
         }
@@ -135,7 +137,7 @@ export class HomePage {
       || sanitizeText(t.getTranslatedTerm()).includes(text)
       || sanitizeText(t.getNotes()).includes(text)
     );
-    this.filterTerms(false);
+    this.filterTerms();
     this.isTag = false;
   }
 
@@ -155,10 +157,7 @@ export class HomePage {
     await this.navController.navigateForward('tag/new', {state: {tagOptions}});
   }
 
-  private filterTerms(force = true): void {
-    if (force) {
-      this.terms = this.activeCollection.getTerms();
-    }
+  private filterTerms(): void {
     this.terms = this.terms.filter(t => {
       const gramaticalRes = t.getGramaticalCategories().some(c => this.filters[0].map((cc: Category) => cc.getId()).includes(c.getId()));
       const thematicRes = t.getThematicCategories().some(c => this.filters[1].map((cc: Category) => cc.getId()).includes(c.getId()));
