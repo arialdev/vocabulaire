@@ -50,17 +50,23 @@ export class NewTagPage implements OnInit {
     if (this.tagForm.valid) {
       const tag = new Tag(this.tagForm.get('name').value, this.tagForm.get('icon').value, this.tagOptions);
       const activeCollection: Collection = await this.collectionService.getActiveCollection();
+      let toast: HTMLIonToastElement;
       try {
         await this.tagService.addTag(tag, activeCollection.getId());
+        toast = await this.toastController.create({
+          message: 'Tag created successfully',
+          color: 'success',
+          icon: 'bookmark',
+          duration: 800
+        });
       } catch (e) {
-        //TODO toast
+        toast = await this.toastController.create({
+          header: 'Error when creating tag',
+          message: e.toString(),
+          color: 'danger',
+          duration: 800
+        });
       }
-      const toast = await this.toastController.create({
-        message: 'Tag created successfully',
-        color: 'success',
-        icon: 'bookmark',
-        duration: 800
-      });
       await Promise.allSettled([this.navController.navigateBack('/'), toast.present()]);
     }
   }

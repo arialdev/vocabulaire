@@ -82,10 +82,8 @@ describe('NewCollectionPage for creation', () => {
     component.onSubmit().then(() => {
       service.getCollections().then((cs: Collection[]) => {
         const collection = cs.find(c =>
-          //TODO implement comparator
           c.getLanguage().getName() === newValues.name &&
           c.getLanguage().getPrefix() === newValues.prefix &&
-          //TODO implements comparator
           isEqual(c.getLanguage().getIcon(), newValues.icon)
         );
         expect(collection).toBeTruthy();

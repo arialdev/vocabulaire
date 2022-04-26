@@ -26,14 +26,12 @@ describe('NewTagPage', () => {
 
   let routerSpy;
   let collectionServiceSpy;
-  let tagServiceSpy;
 
   beforeEach(waitForAsync(() => {
     tagOptions = new TagOptions('búsqueda');
     const collection = new Collection('a', 'b', undefined);
     collection.setId(1);
     collectionServiceSpy = {getActiveCollection: jasmine.createSpy('getActiveCollection').and.returnValue(collection)};
-    tagServiceSpy = {addTag: jasmine.createSpy('addTag')};
     routerSpy = {getCurrentNavigation: jasmine.createSpy('getCurrentNavigation').and.returnValue({extras: {state: tagOptions}})};
 
     TestBed.configureTestingModule({
@@ -51,7 +49,6 @@ describe('NewTagPage', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: CollectionService, useValue: collectionServiceSpy},
-        {provide: TagService, useValue: tagServiceSpy},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -87,13 +84,33 @@ describe('NewTagPage', () => {
 
     const navController = TestBed.inject(NavController);
     const toastController = TestBed.inject(ToastController);
+    const tagService = TestBed.inject(TagService);
     spyOn(navController, 'navigateBack');
     spyOn(toastController, 'create').and.callThrough();
+    spyOn(tagService, 'addTag');
 
     await component.onSubmit();
-    expect(tagServiceSpy.addTag).toHaveBeenCalled();
+    expect(tagService.addTag).toHaveBeenCalled();
     expect(navController.navigateBack).toHaveBeenCalledWith('/');
     expect(toastController.create).toHaveBeenCalled();
+  });
+
+  it('it should fail at creating tag', async () => {
+    component.tagForm.patchValue({name: 'new tag', icon: new Emoji('a', 'b')});
+
+    const navController = TestBed.inject(NavController);
+    const toastController = TestBed.inject(ToastController);
+
+    spyOn(navController, 'navigateBack');
+    spyOn(toastController, 'create').and.callThrough();
+    await component.onSubmit();
+    expect(toastController.create).toHaveBeenCalledWith({
+      header: 'Error when creating tag',
+      message: 'TypeError: this.collectionService.getCollections is not a function',
+      color: 'danger',
+      duration: 800
+    });
+    expect(navController.navigateBack).toHaveBeenCalledWith('/');
   });
 });
 
