@@ -11,7 +11,7 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AlertController, NavController, ToastController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {MockAlertController, MockNavController, MockTranslateService, MockTranslatePipe,} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
@@ -220,24 +220,25 @@ describe('HomePage', () => {
   });
 
   it('should remove tag', async () => {
-    component.isTag = true;
-    component.activeCollection = collection;
     const tag = new Tag('new tag', undefined, new TagOptions('x'));
     tag.setId(1);
 
-    const tagService = TestBed.inject(TagService);
-    const toastController = TestBed.inject(ToastController);
+    component.activeTag = tag;
+    component.activeCollection = collection;
 
-    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(new BehaviorSubject(true).asObservable());
-    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
-    spyOn(tagService, 'removeTag');
-    spyOn(toastController, 'create').and.callThrough();
+    const tagService = TestBed.inject(TagService);
 
     await component.ionViewWillEnter();
+
+    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(new BehaviorSubject(tag.getId()).asObservable());
+    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
+    spyOn(tagService, 'removeTag');
+
     await component.toggleTag();
+    component.activeTag = tag;
+    await component.ionViewWillEnter();
 
     expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), collection.getId());
-    expect(toastController.create).toHaveBeenCalled();
-    expect(component.isTag).toBeFalse();
+    expect(component.activeTag).toBeFalsy();
   });
 });

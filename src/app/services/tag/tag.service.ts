@@ -12,13 +12,13 @@ export class TagService {
 
   public static readonly maxTagsBound = 6;
   private static tagSubject: BehaviorSubject<Tag>;
-  private static tagDeletion: BehaviorSubject<boolean>;
+  private static tagDeletion: BehaviorSubject<number>;
 
   private nextFreeID: number;
 
   constructor(private storageService: AbstractStorageService, private collectionService: CollectionService) {
     TagService.tagSubject = new BehaviorSubject<Tag>(undefined);
-    TagService.tagDeletion = new BehaviorSubject<boolean>(false);
+    TagService.tagDeletion = new BehaviorSubject<number>(undefined);
   }
 
   public static loadTag(tag: Tag): void {
@@ -29,7 +29,7 @@ export class TagService {
     return TagService.tagSubject.asObservable();
   }
 
-  public static getTagDeletionAsObservable(): Observable<boolean> {
+  public static getTagDeletionAsObservable(): Observable<number> {
     return TagService.tagDeletion.asObservable();
   }
 
@@ -73,7 +73,7 @@ export class TagService {
     }
     collection.removeTag(tagId);
     await this.storageService.set('collections', collections);
-    TagService.tagDeletion.next(true);
+    TagService.tagDeletion.next(tag.getId());
   }
 
   /**

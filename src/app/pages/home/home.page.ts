@@ -27,7 +27,7 @@ export class HomePage {
   searchValue: string;
 
   isFiltering: boolean;
-  isTag: boolean;
+  activeTag: Tag;
   isTagButtonAvailable: boolean;
 
   private activeSortingCode: number;
@@ -57,7 +57,7 @@ export class HomePage {
     };
     this.searchValue = '';
     this.isFiltering = false;
-    this.isTag = false;
+    this.activeTag = undefined;
     this.isTagButtonAvailable = true;
   }
 
@@ -73,8 +73,11 @@ export class HomePage {
         .toPromise());
     await this.loadTag();
     TagService.getTagDeletionAsObservable().subscribe(async v => {
+      if (this.activeTag && this.activeTag.getId() === v) {
+        this.activeTag = undefined;
+      }
       await this.checkTagButtonAvailability(true);
-      if (v) {
+      if (v !== undefined) {
         const toast = await this.toastController.create({
           message: 'Tag deleted successfully',
           color: 'success',
@@ -154,16 +157,16 @@ export class HomePage {
       || sanitizeText(t.getNotes()).includes(text)
     );
     await this.filterTerms();
-    this.isTag = false;
+    this.activeTag = undefined;
     return this.checkTagButtonAvailability();
   }
 
   async toggleTag(): Promise<void> {
-    if (this.isTag) {
+    if (this.activeTag) {
       const tag = await TagService.getTagAsPromise();
       if (tag) {
         await this.tagService.removeTag(tag.getId(), this.activeCollection.getId());
-        this.isTag = false;
+        this.activeTag = undefined;
       }
     } else {
       const tagOptions = new TagOptions(this.searchValue);
@@ -177,7 +180,7 @@ export class HomePage {
     if (refresh) {
       this.activeCollection = await this.collectionService.getActiveCollection();
     }
-    this.isTagButtonAvailable = this.isTag || this.activeCollection.getTags().length < TagService.maxTagsBound;
+    this.isTagButtonAvailable = Boolean(this.activeTag) || this.activeCollection.getTags().length < TagService.maxTagsBound;
   }
 
   private filterTerms(): Promise<void> {
@@ -201,7 +204,7 @@ export class HomePage {
 
     const activeFilters = Object.values(this.filters).map((l: Category[]) => l.length).reduce((acc, l) => acc + l);
     this.isFiltering = activeFilters > 0;
-    this.isTag = false;
+    this.activeTag = undefined;
     return this.checkTagButtonAvailability();
   }
 
@@ -214,7 +217,7 @@ export class HomePage {
         this.filters[1] = tagOptions.getThematicCategories();
         this.terms = this.activeCollection.getTerms();
         await this.handleSearchbar({target: {value: this.searchValue}});
-        this.isTag = true;
+        this.activeTag = tag;
       }
       await this.checkTagButtonAvailability();
     });

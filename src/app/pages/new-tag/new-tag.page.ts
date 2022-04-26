@@ -67,6 +67,7 @@ export class NewTagPage implements OnInit {
           duration: 800
         });
       }
+      TagService.loadTag(tag);
       await Promise.allSettled([this.navController.navigateBack('/'), toast.present()]);
     }
   }
