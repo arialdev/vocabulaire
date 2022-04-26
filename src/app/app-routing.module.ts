@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {ActiveCollectionGuard} from './guards/active-collection.guard';
 import {TutorialGuard} from './guards/tutorial.guard';
+import {CreateTagGuard} from './guards/create-tag.guard';
 
 const routes: Routes = [
   {
@@ -47,7 +48,7 @@ const routes: Routes = [
   {
     path: 'tag/new',
     loadChildren: () => import('./pages/new-tag/new-tag.module').then(m => m.NewTagPageModule),
-    canActivate: [ActiveCollectionGuard, TutorialGuard]
+    canActivate: [ActiveCollectionGuard, TutorialGuard, CreateTagGuard]
   },
   {
     path: 'tutorial',

@@ -71,7 +71,7 @@ export class HomePage {
     this.sortingOptions = Object
       .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
         .toPromise());
-    this.loadTag();
+    await this.loadTag();
     TagService.getTagDeletionAsObservable().subscribe(async v => {
       await this.checkTagButtonAvailability(true);
       if (v) {

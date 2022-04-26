@@ -10,7 +10,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 })
 export class TagService {
 
-  public static maxTagsBound = 6;
+  public static readonly maxTagsBound = 6;
   private static tagSubject: BehaviorSubject<Tag>;
   private static tagDeletion: BehaviorSubject<boolean>;
 
