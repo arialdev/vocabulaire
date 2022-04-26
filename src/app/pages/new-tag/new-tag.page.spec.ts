@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule, NavController} from '@ionic/angular';
+import {IonicModule, NavController, ToastController} from '@ionic/angular';
 
 import {NewTagPage} from './new-tag.page';
 import {EmojisMap} from '../../services/emoji/emojisMap';
@@ -43,6 +43,7 @@ describe('NewTagPage', () => {
         RouterTestingModule.withRoutes([{path: '/', component: HomePage}]),
         EmojiPickerModule,
         EmojiPipeModule,
+        ReactiveFormsModule
       ],
       providers: [
         {provide: EmojisMap},
@@ -83,11 +84,16 @@ describe('NewTagPage', () => {
 
   it('should submit new tag', async () => {
     component.tagForm.patchValue({name: 'new tag', icon: new Emoji('a', 'b')});
+
     const navController = TestBed.inject(NavController);
+    const toastController = TestBed.inject(ToastController);
     spyOn(navController, 'navigateBack');
+    spyOn(toastController, 'create').and.callThrough();
+
     await component.onSubmit();
     expect(tagServiceSpy.addTag).toHaveBeenCalled();
     expect(navController.navigateBack).toHaveBeenCalledWith('/');
+    expect(toastController.create).toHaveBeenCalled();
   });
 });
 

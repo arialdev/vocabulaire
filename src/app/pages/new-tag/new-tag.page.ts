@@ -4,7 +4,7 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
 import {Router} from '@angular/router';
 import {TagOptions} from '../../classes/tagOptions/tag-options';
-import {NavController} from '@ionic/angular';
+import {NavController, ToastController} from '@ionic/angular';
 import {Tag} from '../../classes/tag/tag';
 import {TagService} from '../../services/tag/tag.service';
 import {CollectionService} from '../../services/collection/collection.service';
@@ -27,7 +27,8 @@ export class NewTagPage implements OnInit {
     private router: Router,
     private navController: NavController,
     private tagService: TagService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private toastController: ToastController
   ) {
     this.tagForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -54,7 +55,13 @@ export class NewTagPage implements OnInit {
       } catch (e) {
         //TODO toast
       }
-      await this.navController.navigateBack('/');
+      const toast = await this.toastController.create({
+        message: 'Tag created successfully',
+        color: 'success',
+        icon: 'bookmark',
+        duration: 800
+      });
+      await Promise.allSettled([this.navController.navigateBack('/'), toast.present()]);
     }
   }
 

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Term} from '../../classes/term/term';
 import {CollectionService} from '../../services/collection/collection.service';
-import {AlertController, AlertInput, NavController} from '@ionic/angular';
+import {AlertController, AlertInput, NavController, ToastController} from '@ionic/angular';
 import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
@@ -40,7 +40,8 @@ export class HomePage {
     private emojiService: EmojiService,
     private alertController: AlertController,
     private translateService: TranslateService,
-    private tagService: TagService
+    private tagService: TagService,
+    private toastController: ToastController
   ) {
     this.terms = [];
     this.simpleView = true;
@@ -71,7 +72,18 @@ export class HomePage {
       .values(await this.translateService.get(['home.sort.opt.t-org', 'home.sort.opt.t-trans', 'home.sort.opt.date'])
         .toPromise());
     this.loadTag();
-    TagService.getTagDeletionAsObservable().subscribe(() => this.checkTagButtonAvailability(true));
+    TagService.getTagDeletionAsObservable().subscribe(async v => {
+      await this.checkTagButtonAvailability(true);
+      if (v) {
+        const toast = await this.toastController.create({
+          message: 'Tag deleted successfully',
+          color: 'success',
+          icon: 'trash',
+          duration: 800
+        });
+        await toast.present();
+      }
+    });
   }
 
   async navigateToTerm(id?: number) {
@@ -130,7 +142,7 @@ export class HomePage {
     await alert.present();
   }
 
-  handleSearchbar(event) {
+  async handleSearchbar(event) {
     const text = event.target.value.toLowerCase();
     const defaultTerms = this.activeCollection.getTerms();
     this.terms = defaultTerms.filter(t =>
@@ -141,7 +153,7 @@ export class HomePage {
       || sanitizeText(t.getTranslatedTerm()).includes(text)
       || sanitizeText(t.getNotes()).includes(text)
     );
-    this.filterTerms();
+    await this.filterTerms();
     this.isTag = false;
     return this.checkTagButtonAvailability();
   }
@@ -153,12 +165,12 @@ export class HomePage {
         await this.tagService.removeTag(tag.getId(), this.activeCollection.getId());
         this.isTag = false;
       }
-      return;
+    } else {
+      const tagOptions = new TagOptions(this.searchValue);
+      this.filters[0].forEach(gc => tagOptions.addGramaticalCategory(gc, true));
+      this.filters[1].forEach(tc => tagOptions.addThematicCategory(tc, true));
+      await this.navController.navigateForward('tag/new', {state: {tagOptions}});
     }
-    const tagOptions = new TagOptions(this.searchValue);
-    this.filters[0].forEach(gc => tagOptions.addGramaticalCategory(gc, true));
-    this.filters[1].forEach(tc => tagOptions.addThematicCategory(tc, true));
-    await this.navController.navigateForward('tag/new', {state: {tagOptions}});
   }
 
   private async checkTagButtonAvailability(refresh = false): Promise<void> {
@@ -193,18 +205,18 @@ export class HomePage {
     return this.checkTagButtonAvailability();
   }
 
-  private loadTag() {
-    TagService.getTagAsObservable().subscribe((tag: Tag) => {
+  private async loadTag() {
+    TagService.getTagAsObservable().subscribe(async (tag: Tag) => {
       if (tag) {
         const tagOptions = tag.getOptions();
         this.searchValue = tagOptions.getSearchText();
         this.filters[0] = tagOptions.getGramaticalCategories();
         this.filters[1] = tagOptions.getThematicCategories();
         this.terms = this.activeCollection.getTerms();
-        this.handleSearchbar({target: {value: this.searchValue}});
+        await this.handleSearchbar({target: {value: this.searchValue}});
         this.isTag = true;
       }
-      this.checkTagButtonAvailability();
+      await this.checkTagButtonAvailability();
     });
   }
 }

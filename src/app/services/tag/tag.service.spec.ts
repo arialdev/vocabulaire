@@ -83,7 +83,6 @@ describe('TagService', () => {
 
   it('should get tag as promise', async () => {
     let res = await TagService.getTagAsPromise();
-    console.log(res);
     expect(res).toBeUndefined();
     let tag = new Tag('tag', new Emoji('a', 'a'), new TagOptions(''));
     tag = await service.addTag(tag, collection.getId());

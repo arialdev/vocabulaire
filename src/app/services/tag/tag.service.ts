@@ -18,7 +18,7 @@ export class TagService {
 
   constructor(private storageService: AbstractStorageService, private collectionService: CollectionService) {
     TagService.tagSubject = new BehaviorSubject<Tag>(undefined);
-    TagService.tagDeletion = new BehaviorSubject<boolean>(true);
+    TagService.tagDeletion = new BehaviorSubject<boolean>(false);
   }
 
   public static loadTag(tag: Tag): void {

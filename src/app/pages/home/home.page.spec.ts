@@ -11,7 +11,7 @@ import {Collection} from '../../classes/collection/collection';
 import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AlertController, NavController} from '@ionic/angular';
+import {AlertController, NavController, ToastController} from '@ionic/angular';
 import {MockAlertController, MockNavController, MockTranslateService, MockTranslatePipe,} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
@@ -20,6 +20,7 @@ import {TagService} from '../../services/tag/tag.service';
 import {Tag} from '../../classes/tag/tag';
 import {TagOptions} from '../../classes/tagOptions/tag-options';
 import {CategoryService} from '../../services/category/category.service';
+import {BehaviorSubject} from 'rxjs';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -223,11 +224,20 @@ describe('HomePage', () => {
     component.activeCollection = collection;
     const tag = new Tag('new tag', undefined, new TagOptions('x'));
     tag.setId(1);
-    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
+
     const tagService = TestBed.inject(TagService);
+    const toastController = TestBed.inject(ToastController);
+
+    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(new BehaviorSubject(true).asObservable());
+    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
     spyOn(tagService, 'removeTag');
+    spyOn(toastController, 'create').and.callThrough();
+
+    await component.ionViewWillEnter();
     await component.toggleTag();
+
     expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), collection.getId());
+    expect(toastController.create).toHaveBeenCalled();
     expect(component.isTag).toBeFalse();
   });
 });
