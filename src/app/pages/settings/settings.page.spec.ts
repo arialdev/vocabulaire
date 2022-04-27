@@ -9,6 +9,7 @@ import {SettingsService} from '../../services/settings/settings.service';
 import {TranslateService} from '@ngx-translate/core';
 import {MockTranslateService} from '../../../mocks';
 import {GuiLanguage} from '../../interfaces/gui-language';
+import {FormsModule} from '@angular/forms';
 
 describe('SettingsPage', () => {
   let component: SettingsPage;
@@ -17,7 +18,7 @@ describe('SettingsPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SettingsPage],
-      imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
+      imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([]), FormsModule],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: TranslateService, useClass: MockTranslateService}
