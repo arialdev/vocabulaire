@@ -52,21 +52,19 @@ export class CollectionService {
 
   public async removeCollection(id: number): Promise<void> {
     const collections = await this.getCollections();
-    const updatedCollections = collections.map(c => {
-      if (c.getId() === id) {
-        if (c.isActive()) {
-          throw new Error('Cannot delete active collection');
-        }
-        c.setStatus(false);
-      }
-      return c;
-    });
-    await this.storageService.set('collections', updatedCollections);
+    const collection = collections.find(c => c.getId() === id);
+    if (!collection) {
+      throw new Error(`Could not find collection with ID ${id}`);
+    }
+    if (collection.isActive()) {
+      throw new Error('Cannot delete active collection');
+    }
+    await this.storageService.set('collections', collections.filter(c => c.getId() !== id));
   }
 
   public async getCollections(): Promise<Collection[]> {
     const collections = await this.storageService.get('collections');
-    return collections.map(c => new Collection(c)).filter(c => c.getStatus());
+    return collections.map(c => new Collection(c));
   }
 
   public async getCollectionById(id: number): Promise<Collection> {

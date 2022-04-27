@@ -72,12 +72,18 @@ describe('CollectionService', () => {
     });
   });
 
+  it('should throw error when not finding requested collection for deletion', async () => {
+    await expectAsync(service.removeCollection(-1)).toBeRejectedWithError(`Could not find collection with ID ${-1}`);
+  });
+
   it('should not delete active collection', (done) => {
     service.addCollection(mockInactiveCollection).then((collection: Collection) => {
       service.setActiveCollection(collection.getId()).then(() => {
-        expectAsync(service.removeCollection(collection.getId())).toBeRejected().then(() => {
-          done();
-        });
+        expectAsync(service.removeCollection(collection.getId()))
+          .toBeRejectedWithError('Cannot delete active collection')
+          .then(() => {
+            done();
+          });
       });
     });
   });
