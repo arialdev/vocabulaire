@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
-import {AlertController, IonSelect, NavController} from '@ionic/angular';
+import {AlertController, IonSelect, NavController, ToastController} from '@ionic/angular';
 import {Category} from '../../classes/category/category';
 import {Term} from '../../classes/term/term';
 import {TermService} from '../../services/term/term.service';
@@ -32,6 +32,7 @@ export class TermPage implements OnInit {
   compareWith = compareCategories;
 
   private activeCollection: Collection;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private collectionService: CollectionService,
@@ -39,7 +40,8 @@ export class TermPage implements OnInit {
     private navController: NavController,
     private activatedRoute: ActivatedRoute,
     private alertController: AlertController,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private toastController: ToastController
   ) {
     this.termForm = new FormGroup({
       originalTerm: new FormControl('', Validators.required),
@@ -79,7 +81,7 @@ export class TermPage implements OnInit {
     }
   }
 
-  async onSubmit() {
+  async onSubmit(): Promise<void> {
     if (this.termForm.valid) {
       const {
         originalTerm,
@@ -92,12 +94,39 @@ export class TermPage implements OnInit {
       term.addGramaticalCategories(gramaticalCategories);
       term.addThematicCategories(thematicCategories);
 
+      await this.toast?.dismiss();
       if (this.editingID) {
-        await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
+        try {
+          await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
+          this.toast = await this.toastController.create({
+            message: 'Term updated successfully',
+            icon: 'chatbox',
+            color: 'success',
+            duration: 800,
+          });
+        } catch (_) {
+        }
       } else {
-        await this.termService.addTerm(term, this.activeCollection.getId());
+        try {
+          await this.termService.addTerm(term, this.activeCollection.getId());
+          this.toast = await this.toastController.create({
+            message: 'Term created successfully',
+            icon: 'chatbox',
+            color: 'success',
+            duration: 800,
+          });
+        } catch (error) {
+          this.toast = await this.toastController.create({
+            header: 'Error when creating term',
+            message: 'Active collection not found',
+            icon: 'chatbox',
+            color: 'danger',
+            duration: 1000,
+          });
+          return this.toast.present();
+        }
       }
-      await this.navController.navigateBack('');
+      await Promise.allSettled([this.toast.present(), this.navController.navigateBack('')]);
     }
   }
 
@@ -112,8 +141,25 @@ export class TermPage implements OnInit {
         }, {
           text: 'Delete',
           handler: async () => {
-            await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
-            await this.navController.navigateBack('');
+            await this.toast?.dismiss();
+            try {
+              await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
+              this.toast = await this.toastController.create({
+                message: 'Term deleted successfully',
+                icon: 'chatbox',
+                color: 'success',
+                duration: 800
+              });
+              await Promise.allSettled([this.toast.present(), await this.navController.navigateBack('')]);
+            } catch (_) {
+              this.toast = await this.toastController.create({
+                header: 'Error when deleting term',
+                message: 'Active collection not found',
+                icon: 'chatbox',
+                color: 'danger',
+                duration: 1000
+              });
+            }
           }
         }
       ]

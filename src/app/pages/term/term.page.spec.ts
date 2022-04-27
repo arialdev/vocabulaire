@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {AlertController, IonicModule, NavController} from '@ionic/angular';
+import {AlertController, IonicModule, NavController, ToastController} from '@ionic/angular';
 
 import {TermPage} from './term.page';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
@@ -12,7 +12,7 @@ import {Category} from '../../classes/category/category';
 import {ActivatedRoute} from '@angular/router';
 import {TermService} from '../../services/term/term.service';
 import {Term} from '../../classes/term/term';
-import {MockAlertController, MockNavController, MockTranslateService} from '../../../mocks';
+import {MockAlertController, MockNavController, MockToastController, MockTranslateService} from '../../../mocks';
 import {CategoryType} from '../../enums/enums';
 import {HomePage} from '../home/home.page';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -40,7 +40,8 @@ describe('TermPage for creating term', () => {
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
-        {provide: TranslateService, useClass: MockTranslateService}
+        {provide: TranslateService, useClass: MockTranslateService},
+        {provide: ToastController, useClass: MockToastController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -96,6 +97,8 @@ describe('TermPage for creating term', () => {
   });
 
   it('should create term when submit', async () => {
+    const toastController = TestBed.inject(ToastController);
+    spyOn(toastController, 'create').and.callThrough();
 
     component.termForm.patchValue({
       originalTerm: 'sample',
@@ -109,12 +112,47 @@ describe('TermPage for creating term', () => {
     collection = await collectionService.getCollectionById(collection.getId());
     const term = collection.getTerms()[0];
     expect(term).not.toBeUndefined();
-    collection = await collectionService.getCollectionById(collection.getId());
     expect(term.getOriginalTerm()).toEqual('sample');
     expect(term.getTranslatedTerm()).toEqual('sample');
     expect(term.getGramaticalCategories()).toEqual([newCG]);
     expect(term.getThematicCategories()).toEqual([newCT]);
     expect(term.getNotes()).toEqual('sample');
+    expect(toastController.create).toHaveBeenCalledWith({
+      message: 'Term created successfully',
+      icon: 'chatbox',
+      color: 'success',
+      duration: 800,
+    });
+
+    await component.onSubmit();
+    expect(toastController.create).toHaveBeenCalledTimes(2);
+  });
+
+  it('should should error toast when creating term in nonexistent collection', async () => {
+    const toastController = TestBed.inject(ToastController);
+    spyOn(toastController, 'create').and.callThrough();
+
+    const mockCollection = new Collection('', '', new Emoji('', ''));
+    mockCollection.setId(-1);
+    spyOn(collectionService, 'getActiveCollection')
+      .and.resolveTo(mockCollection);
+
+    await component.ionViewWillEnter();
+    component.termForm.patchValue({
+      originalTerm: 'sample',
+      translatedTerm: 'sample',
+      gramaticalCategories: [newCG],
+      thematicCategories: [newCT],
+      notes: 'sample'
+    });
+    await component.onSubmit();
+    expect(toastController.create).toHaveBeenCalledWith({
+      header: 'Error when creating term',
+      message: 'Active collection not found',
+      icon: 'chatbox',
+      color: 'danger',
+      duration: 1000,
+    });
   });
 });
 
@@ -201,7 +239,10 @@ describe('TermPage for updating term', () => {
   });
 
   it('should update when submit', async () => {
+    const toastController = TestBed.inject(ToastController);
+    spyOn(toastController, 'create').and.callThrough();
     spyOn(termService, 'updateTerm');
+
     component.termForm.patchValue({
       originalTerm: term.getOriginalTerm() + '1',
       translatedTerm: term.getTranslatedTerm() + '1',
@@ -211,6 +252,12 @@ describe('TermPage for updating term', () => {
     });
     await component.onSubmit();
     expect(termService.updateTerm).toHaveBeenCalled();
+    expect(toastController.create).toHaveBeenCalledWith({
+      message: 'Term updated successfully',
+      icon: 'chatbox',
+      color: 'success',
+      duration: 800,
+    });
   });
 
   it('should update category chips and replace older ones', () => {
