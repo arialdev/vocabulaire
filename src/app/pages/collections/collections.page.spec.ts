@@ -11,6 +11,8 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {RouterTestingModule} from '@angular/router/testing';
 import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
+import {ToastController} from '@ionic/angular';
+import {MockToastController} from '../../../mocks';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -34,6 +36,7 @@ describe('CollectionsPage', () => {
         {provide: Router, useValue: routerSpy},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
         {provide: EmojisMap},
+        {provide: ToastController, useClass: MockToastController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -59,16 +62,6 @@ describe('CollectionsPage', () => {
     expect(backButton).toBeTruthy();
   });
 
-  it('should set collection active', async () => {
-    await service.addCollection(mockActiveCollection);
-    await service.addCollection(mockInactiveCollection);
-    await component.ionViewWillEnter();
-    await component.setActive(mockInactiveCollection.getId());
-    const actives = component.collections.filter(c => c.isActive() && c.getStatus());
-    expect(actives.length).toBe(1);
-    expect(actives[0].getId()).toBe(mockInactiveCollection.getId());
-  });
-
   it('should toggle managing/setting mode', () => {
     const previousState = component.managingMode;
     component.toggleManage();
@@ -89,17 +82,24 @@ describe('CollectionsPage', () => {
     });
   });
 
-  it('should click item and set it active when setting mode', (done) => {
+  it('should click item and set it active when setting mode', async () => {
     component.managingMode = false;
     mockInactiveCollection.setId(1);
-    component.collections = [mockInactiveCollection];
+    const c = new Collection('', '', new Emoji('', ''));
+    c.setActive();
+    component.collections = [mockInactiveCollection, c];
     fixture.detectChanges();
-    const spy = spyOn(component, 'setActive');
 
-    component.onItemClick(mockInactiveCollection.getId()).then(() => {
-      expect(spy).toHaveBeenCalledWith(mockInactiveCollection.getId());
-      done();
-    });
+    const toastController = TestBed.inject(ToastController);
+
+    const spy = spyOn(service, 'setActiveCollection');
+    spyOn(toastController, 'create').and.resolveTo({
+      present: (): Promise<void> => Promise.resolve()
+    } as HTMLIonToastElement);
+
+    await component.onItemClick(mockInactiveCollection.getId());
+    expect(spy).toHaveBeenCalledWith(mockInactiveCollection.getId());
+    expect(toastController.create).toHaveBeenCalled();
   });
 
   it('should sort collections', (done) => {
