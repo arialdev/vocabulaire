@@ -123,4 +123,8 @@ describe('CollectionService', () => {
       });
     });
   });
+
+  it('should throw error when trying to update nonexistent collection', async () => {
+    await expectAsync(service.updateCollectionById(-1, undefined)).toBeRejectedWithError('Could not find collection with ID -1');
+  });
 });

@@ -1,4 +1,4 @@
-import {AlertOptions, ToastOptions} from '@ionic/angular';
+import {AlertOptions} from '@ionic/angular';
 import {Observable} from 'rxjs';
 import {Pipe, PipeTransform} from '@angular/core';
 
@@ -29,12 +29,7 @@ export class MockAlertController {
 }
 
 export class MockToastController {
-  private createToastCalled: boolean;
-  private opts: ToastOptions;
-
-  create(opts?: ToastOptions): Promise<HTMLIonToastElement> {
-    this.createToastCalled = true;
-    this.opts = opts;
+  create(): Promise<HTMLIonToastElement> {
     return Promise.resolve({
       present: (): Promise<void> => Promise.resolve()
     } as HTMLIonToastElement);

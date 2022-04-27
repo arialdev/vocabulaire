@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {AlertController, IonicModule, NavController} from '@ionic/angular';
+import {AlertController, IonicModule, NavController, ToastController} from '@ionic/angular';
 import {NewCollectionPage} from './new-collection.page';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -7,7 +7,7 @@ import {CollectionService} from '../../../services/collection/collection.service
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../classes/collection/collection';
-import {MockAlertController, MockNavController, MockTranslateService} from '../../../../mocks';
+import {MockAlertController, MockNavController, MockToastController, MockTranslateService} from '../../../../mocks';
 import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../../services/storage/mock-storage.service';
 import {Emoji} from '../../../classes/emoji/emoji';
@@ -92,7 +92,6 @@ describe('NewCollectionPage for creation', () => {
         done();
       });
     });
-
   });
 });
 
@@ -115,6 +114,7 @@ describe('NewCollectionPage for update', () => {
         {provide: AlertController, useClass: MockAlertController},
         {provide: EmojisMap},
         {provide: TranslateService, useClass: MockTranslateService},
+        {provide: ToastController, useClass: MockToastController}
       ],
       declarations: [NewCollectionPage],
       imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule, EmojiPipeModule],
@@ -154,6 +154,27 @@ describe('NewCollectionPage for update', () => {
         done();
       });
     });
+  });
+
+  it('should throw error when trying to update nonexistent collection', async () => {
+    const navCtrl = TestBed.inject(NavController);
+    spyOn(navCtrl, 'navigateBack');
+    const toastController = TestBed.inject(ToastController);
+    spyOn(toastController, 'create').and.resolveTo({
+      present: (): Promise<void> => Promise.resolve()
+    } as HTMLIonToastElement);
+
+    await service.removeCollection(1);
+    fixture.detectChanges();
+    await component.onSubmit();
+
+    expect(toastController.create).toHaveBeenCalledWith({
+      message: 'Could not find collection',
+      color: 'danger',
+      icon: 'alert-circle',
+      duration: 1000
+    });
+    expect(navCtrl.navigateBack).not.toHaveBeenCalled();
   });
 
   it('should toggle mode if invalid ID provided', (done) => {

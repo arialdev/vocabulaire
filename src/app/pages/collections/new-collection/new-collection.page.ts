@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
-import {AlertController, NavController} from '@ionic/angular';
+import {AlertController, NavController, ToastController} from '@ionic/angular';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojiService} from '../../../services/emoji/emoji.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -27,7 +27,8 @@ export class NewCollectionPage implements OnInit {
     private navCtrl: NavController,
     public alertController: AlertController,
     private emojiService: EmojiService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private toastController: ToastController
   ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -53,13 +54,36 @@ export class NewCollectionPage implements OnInit {
         this.collectionForm.get('prefix').value,
         this.selectedEmoji
       );
+      let toast: HTMLIonToastElement;
       if (this.editingId) {
-        await this.collectionService.updateCollectionById(this.editingId, collection);
+        try {
+          await this.collectionService.updateCollectionById(this.editingId, collection);
+          toast = await this.toastController.create({
+            message: 'Collection updated successfully',
+            color: 'success',
+            icon: 'thumbs-up',
+            duration: 800
+          });
+        } catch (e) {
+          toast = await this.toastController.create({
+            message: 'Could not find collection',
+            color: 'danger',
+            icon: 'alert-circle',
+            duration: 1000
+          });
+          return toast.present();
+        }
       } else {
         const newCollection = await this.collectionService.addCollection(collection);
         await this.collectionService.setActiveCollection(newCollection.getId());
+        toast = await this.toastController.create({
+          message: 'Collection added successfully',
+          color: 'success',
+          icon: 'thumbs-up',
+          duration: 800
+        });
       }
-      await this.navCtrl.navigateBack('collections');
+      await Promise.allSettled([toast.present(), this.navCtrl.navigateBack('collections')]);
     }
   }
 
@@ -88,8 +112,25 @@ export class NewCollectionPage implements OnInit {
         }, {
           text: 'Delete',
           handler: async () => {
-            await this.collectionService.removeCollection(this.editingId);
-            await this.navCtrl.navigateBack('collections');
+            let toast: HTMLIonToastElement;
+            try {
+              await this.collectionService.removeCollection(this.editingId);
+              toast = await this.toastController.create({
+                message: 'Collection deleted successfully',
+                color: 'success',
+                icon: 'trash',
+                duration: 800
+              });
+              await Promise.allSettled([toast.present(), this.navCtrl.navigateBack('collections')]);
+            } catch (e) {
+              toast = await this.toastController.create({
+                message: e.toString() === 'Could not find collection with ID ${id}' ? 'Could not find collection' : e.toString(),
+                color: 'danger',
+                icon: 'alert-circle',
+                duration: 1000
+              });
+              await toast.present();
+            }
           }
         }
       ]

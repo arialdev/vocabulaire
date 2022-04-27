@@ -72,16 +72,15 @@ export class CollectionService {
     return collections.find(c => c.getId() === id && c.getStatus());
   }
 
-  public async updateCollectionById(id: number, collection: Collection): Promise<Collection> {
+  public async updateCollectionById(id: number, collectionData: Collection): Promise<Collection> {
     const collections = await this.getCollections();
-    const editedCollections = collections.map(c => {
-      if (c.getId() === id) {
-        c.setLanguage(collection.getLanguage());
-      }
-      return c;
-    });
-    await this.storageService.set('collections', editedCollections);
-    return this.getCollectionById(id);
+    const collection = collections.find(c=>c.getId()===id);
+    if(!collection){
+      throw new Error(`Could not find collection with ID ${id}`);
+    }
+    collection.setLanguage(collectionData.getLanguage());
+    await this.storageService.set('collections', collections);
+    return collection;
   }
 
   public sortCollections(collections: Collection[]): Collection[] {
