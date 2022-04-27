@@ -13,6 +13,7 @@ export class CollectionsPage {
 
   public collections: Collection [];
   public managingMode: boolean;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private collectionService: CollectionService,
@@ -54,13 +55,14 @@ export class CollectionsPage {
     //If we reload the updated collections they'd be unsorted, so we just update the view manually
     collection.setActive();
 
-    const toast = await this.toastController.create({
+    await this.toast?.dismiss();
+    this.toast = await this.toastController.create({
       message: `${collection.getLanguage().getName()} set as active collection`,
       icon: 'star',
       color: 'success',
       duration: 800
     });
-    await toast.present();
+    await this.toast.present();
   }
 
   private async loadCollections(): Promise<void> {

@@ -103,6 +103,8 @@ describe('NewTagPage', () => {
 
     spyOn(navController, 'navigateBack');
     spyOn(toastController, 'create').and.callThrough();
+
+    await component.onSubmit();
     await component.onSubmit();
     expect(toastController.create).toHaveBeenCalledWith({
       header: 'Error when creating tag',

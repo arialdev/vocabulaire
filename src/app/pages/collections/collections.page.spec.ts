@@ -93,10 +93,9 @@ describe('CollectionsPage', () => {
     const toastController = TestBed.inject(ToastController);
 
     const spy = spyOn(service, 'setActiveCollection');
-    spyOn(toastController, 'create').and.resolveTo({
-      present: (): Promise<void> => Promise.resolve()
-    } as HTMLIonToastElement);
+    spyOn(toastController, 'create').and.callThrough();
 
+    await component.onItemClick(mockInactiveCollection.getId());
     await component.onItemClick(mockInactiveCollection.getId());
     expect(spy).toHaveBeenCalledWith(mockInactiveCollection.getId());
     expect(toastController.create).toHaveBeenCalled();

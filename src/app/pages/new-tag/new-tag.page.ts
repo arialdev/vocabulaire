@@ -21,6 +21,7 @@ export class NewTagPage implements OnInit {
   selectedEmoji: Emoji;
   modalStatus: boolean;
   private tagOptions: TagOptions;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private emojiService: EmojiService,
@@ -50,17 +51,17 @@ export class NewTagPage implements OnInit {
     if (this.tagForm.valid) {
       const tag = new Tag(this.tagForm.get('name').value, this.tagForm.get('icon').value, this.tagOptions);
       const activeCollection: Collection = await this.collectionService.getActiveCollection();
-      let toast: HTMLIonToastElement;
+      await this.toast?.dismiss();
       try {
         await this.tagService.addTag(tag, activeCollection.getId());
-        toast = await this.toastController.create({
+        this.toast = await this.toastController.create({
           message: 'Tag created successfully',
           color: 'success',
           icon: 'bookmark',
           duration: 800
         });
       } catch (e) {
-        toast = await this.toastController.create({
+        this.toast = await this.toastController.create({
           header: 'Error when creating tag',
           message: e.toString(),
           color: 'danger',
@@ -68,7 +69,7 @@ export class NewTagPage implements OnInit {
         });
       }
       TagService.loadTag(tag);
-      await Promise.allSettled([this.navController.navigateBack('/'), toast.present()]);
+      await Promise.allSettled([this.navController.navigateBack('/'), this.toast.present()]);
     }
   }
 

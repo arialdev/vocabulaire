@@ -223,6 +223,9 @@ describe('HomePage', () => {
     const tag = new Tag('new tag', undefined, new TagOptions('x'));
     tag.setId(1);
 
+    const behaviourSubject = new BehaviorSubject(tag.getId());
+    const behaviourObservable = behaviourSubject.asObservable();
+
     component.activeTag = tag;
     component.activeCollection = collection;
 
@@ -230,8 +233,8 @@ describe('HomePage', () => {
 
     await component.ionViewWillEnter();
 
-    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(new BehaviorSubject(tag.getId()).asObservable());
-    spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
+    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(behaviourObservable);
+    const tagServiceSpy = spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
     spyOn(tagService, 'removeTag');
 
     await component.toggleTag();
@@ -240,5 +243,28 @@ describe('HomePage', () => {
 
     expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), collection.getId());
     expect(component.activeTag).toBeFalsy();
+
+    //Check toast dismissing
+    await new Promise<void>(async resolve => {
+      setTimeout(async () => {
+        const tag2 = new Tag('new tag2', undefined, new TagOptions('y'));
+        tag2.setId(2);
+        tagServiceSpy.and.resolveTo(tag2);
+
+        component.activeTag = tag2;
+        component.activeCollection = collection;
+
+        behaviourSubject.next(2);
+
+        await component.toggleTag();
+        component.activeTag = tag2;
+        await component.ionViewWillEnter();
+
+        expect(component.activeTag).toBeFalsy();
+        resolve();
+      }, 250);
+    });
+
+
   });
 });

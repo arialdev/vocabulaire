@@ -21,6 +21,8 @@ export class NewCollectionPage implements OnInit {
   title: string;
   editingId: number;
 
+  private toast: HTMLIonToastElement;
+
   constructor(
     private collectionService: CollectionService,
     private activatedRoute: ActivatedRoute,
@@ -54,36 +56,36 @@ export class NewCollectionPage implements OnInit {
         this.collectionForm.get('prefix').value,
         this.selectedEmoji
       );
-      let toast: HTMLIonToastElement;
+      await this.toast?.dismiss();
       if (this.editingId) {
         try {
           await this.collectionService.updateCollectionById(this.editingId, collection);
-          toast = await this.toastController.create({
+          this.toast = await this.toastController.create({
             message: 'Collection updated successfully',
             color: 'success',
             icon: 'thumbs-up',
             duration: 800
           });
         } catch (e) {
-          toast = await this.toastController.create({
+          this.toast = await this.toastController.create({
             message: 'Could not find collection',
             color: 'danger',
             icon: 'alert-circle',
             duration: 1000
           });
-          return toast.present();
+          return this.toast.present();
         }
       } else {
         const newCollection = await this.collectionService.addCollection(collection);
         await this.collectionService.setActiveCollection(newCollection.getId());
-        toast = await this.toastController.create({
+        this.toast = await this.toastController.create({
           message: 'Collection added successfully',
           color: 'success',
           icon: 'thumbs-up',
           duration: 800
         });
       }
-      await Promise.allSettled([toast.present(), this.navCtrl.navigateBack('collections')]);
+      await Promise.allSettled([this.toast.present(), this.navCtrl.navigateBack('collections')]);
     }
   }
 
@@ -112,24 +114,24 @@ export class NewCollectionPage implements OnInit {
         }, {
           text: 'Delete',
           handler: async () => {
-            let toast: HTMLIonToastElement;
+            this.toast?.dismiss();
             try {
               await this.collectionService.removeCollection(this.editingId);
-              toast = await this.toastController.create({
+              this.toast = await this.toastController.create({
                 message: 'Collection deleted successfully',
                 color: 'success',
                 icon: 'trash',
                 duration: 800
               });
-              await Promise.allSettled([toast.present(), this.navCtrl.navigateBack('collections')]);
+              await Promise.allSettled([this.toast.present(), this.navCtrl.navigateBack('collections')]);
             } catch (e) {
-              toast = await this.toastController.create({
+              this.toast = await this.toastController.create({
                 message: e.toString() === 'Could not find collection with ID ${id}' ? 'Could not find collection' : e.toString(),
                 color: 'danger',
                 icon: 'alert-circle',
                 duration: 1000
               });
-              await toast.present();
+              await this.toast.present();
             }
           }
         }

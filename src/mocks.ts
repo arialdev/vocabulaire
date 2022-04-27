@@ -31,7 +31,8 @@ export class MockAlertController {
 export class MockToastController {
   create(): Promise<HTMLIonToastElement> {
     return Promise.resolve({
-      present: (): Promise<void> => Promise.resolve()
+      present: (): Promise<void> => Promise.resolve(),
+      dismiss: (): Promise<boolean> => Promise.resolve(true)
     } as HTMLIonToastElement);
   }
 }

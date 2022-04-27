@@ -160,12 +160,11 @@ describe('NewCollectionPage for update', () => {
     const navCtrl = TestBed.inject(NavController);
     spyOn(navCtrl, 'navigateBack');
     const toastController = TestBed.inject(ToastController);
-    spyOn(toastController, 'create').and.resolveTo({
-      present: (): Promise<void> => Promise.resolve()
-    } as HTMLIonToastElement);
+    spyOn(toastController, 'create').and.callThrough();
 
     await service.removeCollection(1);
     fixture.detectChanges();
+    await component.onSubmit();
     await component.onSubmit();
 
     expect(toastController.create).toHaveBeenCalledWith({

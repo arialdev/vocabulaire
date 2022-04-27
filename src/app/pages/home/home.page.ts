@@ -33,6 +33,7 @@ export class HomePage {
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
   private readonly filters: any;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private collectionService: CollectionService,
@@ -78,13 +79,14 @@ export class HomePage {
       }
       await this.checkTagButtonAvailability(true);
       if (v !== undefined) {
-        const toast = await this.toastController.create({
+        await this.toast?.dismiss();
+        this.toast = await this.toastController.create({
           message: 'Tag deleted successfully',
           color: 'success',
           icon: 'trash',
           duration: 800
         });
-        await toast.present();
+        await this.toast.present();
       }
     });
   }
