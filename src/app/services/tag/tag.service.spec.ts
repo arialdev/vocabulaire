@@ -9,6 +9,9 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../collection/collection.service';
 import {Tag} from '../../classes/tag/tag';
 import {TagOptions} from '../../classes/tagOptions/tag-options';
+import {Term} from '../../classes/term/term';
+import {Category} from '../../classes/category/category';
+import {CategoryType} from '../../enums/enums';
 
 describe('TagService', () => {
   let service: TagService;
@@ -89,5 +92,99 @@ describe('TagService', () => {
     TagService.loadTag(tag);
     res = await TagService.getTagAsPromise();
     expect(res).toEqual(tag);
+  });
+
+  it('should get existing tag by id', async () => {
+    const mockCollection = new Collection('', '', undefined);
+    const tag = new Tag('mockTag', undefined, undefined);
+    tag.setId(1);
+    mockCollection.addTag(tag);
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(mockCollection);
+    await expectAsync(service.getTagById(tag.getId(), 1)).toBeResolvedTo(tag);
+  });
+
+  it('should get undefined when requesting nonexistent tag by id', async () => {
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(new Collection('', '', undefined));
+    await expectAsync(service.getTagById(undefined, undefined)).toBeResolvedTo(undefined);
+  });
+
+  it('should throw error when requesting tag by id from nonexistent collection', async () => {
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(undefined);
+    await expectAsync(service.getTagById(undefined, -1)).toBeRejectedWithError(`Collection with ID -1 not found`);
+  });
+
+  it('should get term list from tag options', async () => {
+    const mockCollection = new Collection('', '', undefined);
+    mockCollection.setId(5);
+    const gc = new Category('gc', CategoryType.gramatical);
+    gc.setId(1);
+    const tc = new Category('tc', CategoryType.thematic);
+    tc.setId(2);
+    const terms: Term[] = [];
+    for (let i = 97; i < 102; i++) {
+      const term = new Term(String.fromCharCode(i), String.fromCharCode(i - 32));
+      term.setId(1);
+      if (i % 2 === 0) {
+        term.addThematicCategory(tc);
+      } else {
+        term.addGramaticalCategory(gc);
+      }
+      mockCollection.addTerm(term);
+      terms.push(term);
+    }
+
+    const tagText = new Tag('tag1', undefined, new TagOptions('a'));
+    tagText.setId(1);
+    const tagOptionsGC = new TagOptions('');
+    tagOptionsGC.addGramaticalCategory(gc, true);
+    const tagCG = new Tag('tag2', undefined, tagOptionsGC);
+    tagCG.setId(2);
+    const tagOptionsTC = new TagOptions('');
+    tagOptionsTC.addThematicCategory(tc, true);
+    const tagTC = new Tag('tag3', undefined, tagOptionsTC);
+    tagTC.setId(3);
+    const tagOptionsCC = new TagOptions('');
+    tagOptionsCC.addGramaticalCategory(gc, true);
+    tagOptionsCC.addThematicCategory(tc, true);
+    const tagCC = new Tag('tag4', undefined, tagOptionsCC);
+    tagCC.setId(4);
+
+    mockCollection.addTag(tagText);
+    mockCollection.addTag(tagCG);
+    mockCollection.addTag(tagTC);
+    mockCollection.addTag(tagCC);
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(mockCollection);
+
+    await expectAsync(service.getTermsFromTag(tagText, mockCollection)).toBeResolvedTo([terms[0]]);
+    await expectAsync(service.getTermsFromTag(tagCG, mockCollection)).toBeResolvedTo([terms[0], terms[2], terms[4]]);
+    await expectAsync(service.getTermsFromTag(tagTC, mockCollection)).toBeResolvedTo([terms[1], terms[3]]);
+    await expectAsync(service.getTermsFromTag(tagCC, mockCollection)).toBeResolvedTo([]);
+
+    await expectAsync(service.getTermsFromTag(tagText.getId(), mockCollection.getId())).toBeResolvedTo([terms[0]]);
+    await expectAsync(service.getTermsFromTag(tagCG.getId(), mockCollection.getId())).toBeResolvedTo([terms[0], terms[2], terms[4]]);
+    await expectAsync(service.getTermsFromTag(tagTC.getId(), mockCollection.getId())).toBeResolvedTo([terms[1], terms[3]]);
+    await expectAsync(service.getTermsFromTag(tagCC.getId(), mockCollection.getId())).toBeResolvedTo([]);
+  });
+
+  it('should throw error when requesting terms from tag in an nonexistent collection', async () => {
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(undefined);
+    await expectAsync(service.getTermsFromTag(undefined, undefined)).toBeRejectedWithError(`Collection with ID undefined not found`);
+    await expectAsync(service.getTermsFromTag(undefined, 5)).toBeRejectedWithError(`Collection with ID 5 not found`);
+  });
+
+  it('should throw error when requesting terms from unexistent tag', async () => {
+    const mockCollection = new Collection('', '', undefined);
+    mockCollection.setId(5);
+    const tag1 = new Tag('', undefined, new TagOptions(''));
+    tag1.setId(3);
+    mockCollection.addTag(tag1);
+    const tag2 = new Tag('', undefined, new TagOptions(''));
+    tag2.setId(9);
+    spyOn(collectionService, 'getCollectionById').and.resolveTo(mockCollection);
+    await expectAsync(service.getTermsFromTag(undefined, mockCollection))
+      .toBeRejectedWithError(`Tag with ID undefined not found in collection`);
+    await expectAsync(service.getTermsFromTag(undefined, 5)).toBeRejectedWithError(`Tag with ID undefined not found in collection`);
+    await expectAsync(service.getTermsFromTag(5, 5)).toBeRejectedWithError(`Tag with ID 5 not found in collection`);
+    await expectAsync(service.getTermsFromTag(tag2, mockCollection)).toBeRejectedWithError(`Tag with ID 9 not found in collection`);
   });
 });

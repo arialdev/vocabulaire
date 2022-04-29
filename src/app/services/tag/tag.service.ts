@@ -4,6 +4,9 @@ import {Tag} from '../../classes/tag/tag';
 import {CollectionService} from '../collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Term} from '../../classes/term/term';
+import {Category} from '../../classes/category/category';
+import {TagOptions} from '../../classes/tagOptions/tag-options';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +40,49 @@ export class TagService {
     return new Promise<Tag>((resolve) => {
       this.getTagAsObservable().subscribe(res => resolve(res));
     });
+  }
+
+  private static sanitizeText(text: string): string {
+    return text
+      .normalize('NFD')
+      .replaceAll(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  }
+
+  public async getTagById(tagId: number, collectionId: number): Promise<Tag | undefined> {
+    const collection = await this.collectionService.getCollectionById(collectionId);
+    if (!collection) {
+      throw new Error(`Collection with ID ${collectionId} not found`);
+    }
+    return collection.getTags().find(t => t.getId() === tagId);
+  }
+
+  public async getTermsFromTag(tag: Tag, collection: Collection): Promise<Term[]>;
+  public async getTermsFromTag(tagId: number, collectionId: number): Promise<Term[]>;
+  public async getTermsFromTag(tagData: number | Tag, collectionData: number | Collection): Promise<Term[]> {
+    let collection: Collection;
+    let tag: Tag;
+    if (typeof collectionData === 'number') {
+      collection = await this.collectionService.getCollectionById(collectionData);
+    } else {
+      collection = collectionData;
+    }
+    if (!collection) {
+      throw new Error(`Collection with ID ${collectionData} not found`);
+    }
+    if (typeof tagData === 'number') {
+      tag = collection.getTags().find(t => t.getId() === tagData);
+    } else {
+      tag = tagData;
+    }
+    if (!tag || !collection.getTags().some(t => t.getId() === tag.getId())) {
+      throw new Error(`Tag with ID ${tag?.getId() ?? tagData} not found in collection`);
+    }
+    return this.filterTermsByCategories(
+      tag.getOptions(), this.filterTermsBySearchValue(
+        tag.getOptions().getSearchText(), collection.getTerms()
+      )
+    );
   }
 
   /**
@@ -74,6 +120,38 @@ export class TagService {
     collection.removeTag(tagId);
     await this.storageService.set('collections', collections);
     TagService.tagDeletion.next(tag.getId());
+  }
+
+  private filterTermsByCategories(tagOptions: TagOptions, terms: Term[]): Term[] {
+    return terms.filter(t => {
+      const gramaticalRes = t.getGramaticalCategories()
+        .some(c => tagOptions.getGramaticalCategories().map((cc: Category) => cc.getId()).includes(c.getId()));
+      const thematicRes = t.getThematicCategories()
+        .some(c => tagOptions.getThematicCategories().map((cc: Category) => cc.getId()).includes(c.getId()));
+
+      if (!tagOptions.getGramaticalCategories().length && !tagOptions.getThematicCategories().length) {
+        return true;
+      }
+      if (tagOptions.getGramaticalCategories().length && !tagOptions.getThematicCategories().length) {
+        return gramaticalRes;
+      }
+      if (!tagOptions.getGramaticalCategories().length && tagOptions.getThematicCategories().length) {
+        return thematicRes;
+      }
+      return gramaticalRes && thematicRes;
+    });
+  }
+
+  private filterTermsBySearchValue(searchValue: string, terms: Term[]): Term[] {
+    const text = searchValue.toLowerCase();
+    return terms.filter(t =>
+      t.getOriginalTerm().toLowerCase().includes(text)
+      || t.getTranslatedTerm().toLowerCase().includes(text)
+      || t.getNotes().toLowerCase().includes(text)
+      || TagService.sanitizeText(t.getOriginalTerm()).includes(text)
+      || TagService.sanitizeText(t.getTranslatedTerm()).includes(text)
+      || TagService.sanitizeText(t.getNotes()).includes(text)
+    );
   }
 
   /**

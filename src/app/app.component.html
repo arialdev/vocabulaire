@@ -24,6 +24,11 @@
             <span class="counter">({{tags.length}}/{{maxTagsBound}})</span>
           </ion-list-header>
           <ion-item-sliding *ngFor="let tag of tags">
+            <ion-item-options side="start">
+              <ion-item-option color="secondary" (click)="exportPDFFromTag(tag)">
+                <ion-icon slot="icon-only" name="document-text"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
             <ion-item lines="none" button="true" (click)="loadTag(tag)">
               <ion-img [src]="tag.getIcon()|emoji"></ion-img>
               <ion-label>{{tag.getName()}}</ion-label>
@@ -40,7 +45,7 @@
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" routerLink='/settings' lines="none" detail="false"
                       routerLinkActive="selected">
-              <ion-icon slot="start" name="settings-outline"></ion-icon>
+              <ion-icon size="large" slot="start" name="settings-outline"></ion-icon>
               <ion-label>Settings</ion-label>
             </ion-item>
           </ion-menu-toggle>
