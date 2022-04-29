@@ -13,12 +13,12 @@ import {Drivers} from '@ionic/storage';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {StorageService} from './services/storage/storage.service';
-import {EmojisMap} from './services/emoji/emojisMap';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {EmojiPipeModule} from './pipes/emoji-pipe/emoji-pipe.module';
+import {MenuPageModule} from './pages/menu/menu.module';
+import {EmojisMap} from './services/emoji/emojisMap';
 
 export const createTranslateLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,7 +49,7 @@ export const createTranslateLoader = (http: HttpClient) =>
         deps: [HttpClient]
       }
     }),
-    EmojiPipeModule
+    MenuPageModule
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
