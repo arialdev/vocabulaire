@@ -42,7 +42,7 @@ export class FileService {
                 const blob = new Blob([reader.result], {type: 'text/plain; charset=utf-8'});
                 resolve2(blob.text());
               } else {
-                resolve(reader.result);
+                resolve2(reader.result);
               }
             };
             reader.readAsDataURL(res);
