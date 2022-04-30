@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Share, ShareResult} from '@capacitor/share';
-import {Directory, Filesystem, WriteFileResult} from '@capacitor/filesystem';
+import {Directory, Encoding, Filesystem, WriteFileResult} from '@capacitor/filesystem';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -23,11 +23,12 @@ export class FileService {
     });
   }
 
-  public async saveFileInCache(path: string, data: string): Promise<WriteFileResult> {
+  public async saveFileInCache(path: string, data: string, encoding?: Encoding | undefined): Promise<WriteFileResult> {
     return Filesystem.writeFile({
       path,
       data,
       directory: Directory.Cache,
+      encoding
     });
   }
 

@@ -5,6 +5,8 @@ import {Drivers} from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {FileService} from '../fileService/file.service';
+import {MockFileService} from '../../../mocks';
 
 describe('StorageService', () => {
   let service: StorageService;
@@ -15,7 +17,8 @@ describe('StorageService', () => {
         // eslint-disable-next-line no-underscore-dangle
         driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB],
       }),],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [{provide: FileService, useClass: MockFileService}]
     });
     service = TestBed.inject(StorageService);
   });
@@ -64,5 +67,13 @@ describe('StorageService', () => {
     spyOn(service, 'set');
     await service.importData(file);
     expect(service.set).toHaveBeenCalledTimes(Object.keys(data).length);
+  });
+
+  it('should export data', async () => {
+    const fileService = TestBed.inject(FileService);
+    spyOn(fileService, 'saveFileInCache').and.callThrough();
+    spyOn(fileService, 'shareFile').and.callThrough();
+    await service.exportData();
+    expect(fileService.saveFileInCache).toHaveBeenCalledBefore(fileService.shareFile);
   });
 });

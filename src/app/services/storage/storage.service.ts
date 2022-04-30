@@ -3,8 +3,8 @@ import {Storage} from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from './abstract-storage-service';
-import {Directory, Encoding, Filesystem} from '@capacitor/filesystem';
-import {Share} from '@capacitor/share';
+import {Encoding} from '@capacitor/filesystem';
+import {FileService} from '../fileService/file.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class StorageService implements AbstractStorageService {
 
   private myStorage: Storage | null = null;
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage, private fileService: FileService) {
     this.init();
   }
 
@@ -47,19 +47,9 @@ export class StorageService implements AbstractStorageService {
     for (const k of keys) {
       res[k] = await this.myStorage.get(k);
     }
-    const savedFile = await Filesystem.writeFile({
-      path: `vocabulaire_data_${new Date().getTime()}.json`,
-      data: JSON.stringify(res),
-      directory: Directory.Cache,
-      encoding: Encoding.UTF8,
-    });
-    if (await Share.canShare()) {
-      await Share.share({
-        dialogTitle: 'Export data file',
-        title: 'share data',
-        url: savedFile.uri
-      });
-    }
+    const path = `vocabulaire_data_${new Date().getTime()}.json`;
+    const savedFile = await this.fileService.saveFileInCache(path, JSON.stringify(res), Encoding.UTF8);
+    await this.fileService.shareFile(savedFile.uri, 'Export your data file');
   }
 
   public async importData(file: File) {

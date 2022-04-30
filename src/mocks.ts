@@ -1,6 +1,8 @@
 import {AlertOptions} from '@ionic/angular';
 import {Observable} from 'rxjs';
 import {Pipe, PipeTransform} from '@angular/core';
+import {WriteFileResult} from '@capacitor/filesystem';
+import {ShareResult} from '@capacitor/share';
 
 export const mockTimeLapse = (originalTime: number, predicate: (previousTime: number) => void) => {
   const clock = jasmine.clock().install();
@@ -76,4 +78,19 @@ export class MockMenuController {
   enable() {
     return Promise.resolve();
   }
+}
+
+export class MockFileService {
+  shareFile(): Promise<ShareResult> {
+    return Promise.resolve({} as ShareResult);
+  }
+
+  saveFileInCache(): Promise<WriteFileResult> {
+    return Promise.resolve({uri: 'path'} as WriteFileResult);
+  }
+
+  getBase64(): Promise<string> {
+    return Promise.resolve('data');
+  }
+
 }
