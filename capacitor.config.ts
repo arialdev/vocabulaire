@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'dev.arial.vocabulaire',
   appName: 'Vocabulaire',
   webDir: 'www',
   bundledWebRuntime: false

@@ -16,7 +16,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "ci:start-server": "angular-http-server --path ./www -p 4200",
-    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cypress:run"
+    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cypress:run",
+    "resources:android": "capacitor-resources -p android"
   },
   "private": true,
   "dependencies": {
