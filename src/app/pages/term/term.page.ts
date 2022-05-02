@@ -145,6 +145,8 @@ export class TermPage implements OnInit {
         }
       }
       await Promise.allSettled([this.toast.present(), this.navController.navigateBack('')]);
+    }else{
+      this.termForm.markAllAsTouched();
     }
   }
 

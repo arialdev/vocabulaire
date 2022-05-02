@@ -166,6 +166,12 @@ describe('TermPage for creating term', () => {
     component.inputOnBlur('originalTerm');
     expect(component.showLength.originalTerm).toBeFalse();
   });
+
+  it('should mark input as touched when trying to submit wrong data', async () => {
+    await component.onSubmit();
+    expect(component.termForm.get('originalTerm').touched).toBeTrue();
+    expect(component.termForm.get('translatedTerm').touched).toBeTrue();
+  });
 });
 
 describe('TermPage for updating term', () => {
