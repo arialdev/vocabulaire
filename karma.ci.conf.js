@@ -7,8 +7,8 @@ module.exports = function (config) {
   config.set({
     autoWatch: false,
     basePath: '',
-    browserNoActivityTimeout: 5000,
-    browserSocketTimeout: 5000,
+    browserNoActivityTimeout: 10000,
+    browserSocketTimeout: 10000,
     browsers: ['ChromeHeadless'],
     captureTimeout: 60000,
     client: {
@@ -34,16 +34,13 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     logLevel: config.LOG_INFO,
     plugins: [
-      require('karma-jasmine'), //?
-      require('karma-chrome-launcher'), //mmm
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
     port: 9876,
-    // preprocessors: {
-    //   'src/app/**/*.ts': ['coverage']
-    // },
     singleRun: true,
     reporters: ['coverage'],
     retryLimit: 0,
