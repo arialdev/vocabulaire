@@ -4,6 +4,8 @@ import {AbstractStorageService} from './services/storage/abstract-storage-servic
 import {MockStorageService} from './services/storage/mock-storage.service';
 import {TranslateService} from '@ngx-translate/core';
 import {MockTranslateService} from '../mocks';
+import {ScreenOrientation} from '@awesome-cordova-plugins/screen-orientation/ngx';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -14,8 +16,11 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
-        {provide: TranslateService, useClass: MockTranslateService}
-      ]
+        {provide: TranslateService, useClass: MockTranslateService},
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        {provide: ScreenOrientation, useValue: {lock: () => Promise.resolve(), ORIENTATIONS: {PORTRAIT: 1}}}
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

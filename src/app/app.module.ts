@@ -19,6 +19,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {MenuPageModule} from './pages/menu/menu.module';
 import {EmojisMap} from './services/emoji/emojisMap';
+import {ScreenOrientation} from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 export const createTranslateLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,6 +56,7 @@ export const createTranslateLoader = (http: HttpClient) =>
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     {provide: AbstractStorageService, useClass: StorageService},
     {provide: EmojisMap},
+    {provide: ScreenOrientation}
   ],
   bootstrap: [AppComponent],
 })
