@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
-import {AlertController, NavController, ToastController} from '@ionic/angular';
+import {AlertController, InputCustomEvent, NavController, ToastController} from '@ionic/angular';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojiService} from '../../../services/emoji/emoji.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -20,6 +20,22 @@ export class NewCollectionPage implements OnInit {
   modalStatus: boolean;
   title: string;
   editingId: number;
+  maxLanguageNameLength = 25;
+
+  validationMessages = {
+    name: [
+      {type: 'required', message: 'Collection name is required (e.g., English)'},
+      {type: 'minlength', message: `Collection name must have at least ${2} characters`},
+      {type: 'maxlength', message: `Collection name must have less than ${this.maxLanguageNameLength} characters`}
+    ],
+    prefix: [
+      {type: 'required', message: 'Collection prefix is required (e.g., FR)'},
+      {type: 'maxlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`},
+      {type: 'minlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`}
+    ],
+    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+  };
+  showLength = {name: false};
 
   private toast: HTMLIonToastElement;
 
@@ -33,8 +49,16 @@ export class NewCollectionPage implements OnInit {
     private toastController: ToastController
   ) {
     this.collectionForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      prefix: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(this.maxLanguageNameLength)
+      ]),
+      prefix: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(2)
+      ]),
       icon: new FormControl('', Validators.required),
     });
     this.modalStatus = false;
@@ -86,6 +110,8 @@ export class NewCollectionPage implements OnInit {
         });
       }
       await Promise.allSettled([this.toast.present(), this.navCtrl.navigateBack('collections')]);
+    } else {
+      this.collectionForm.markAllAsTouched();
     }
   }
 
@@ -114,7 +140,7 @@ export class NewCollectionPage implements OnInit {
         }, {
           text: 'Delete',
           handler: async () => {
-            this.toast?.dismiss();
+            await this.toast?.dismiss();
             try {
               await this.collectionService.removeCollection(this.editingId);
               this.toast = await this.toastController.create({
@@ -143,6 +169,27 @@ export class NewCollectionPage implements OnInit {
 
   getEmojisRoute(emoji: Emoji): string {
     return this.emojiService.getEmojiRoute(emoji);
+  }
+
+  inputOnFocus(formControlName: string): void {
+    this.showLength[formControlName] = true;
+  }
+
+  inputOnBlur(formControlName: string): void {
+    this.showLength[formControlName] = false;
+  }
+
+  generatePrefix(event: InputCustomEvent) {
+    if (event.detail.value.length >= 2) {
+      this.collectionForm.get('prefix').patchValue(event.detail.value.substring(0, 2).toUpperCase());
+    } else {
+      this.collectionForm.get('prefix').patchValue('');
+      this.collectionForm.get('prefix').markAsTouched();
+    }
+  }
+
+  autocapitalize(event: InputCustomEvent) {
+    this.collectionForm.get('prefix').patchValue(event.detail.value.toUpperCase());
   }
 
   private async newMode(): Promise<void> {

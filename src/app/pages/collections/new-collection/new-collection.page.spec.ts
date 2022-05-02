@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {AlertController, IonicModule, NavController, ToastController} from '@ionic/angular';
+import {AlertController, InputCustomEvent, IonicModule, NavController, ToastController} from '@ionic/angular';
 import {NewCollectionPage} from './new-collection.page';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
@@ -7,13 +7,13 @@ import {CollectionService} from '../../../services/collection/collection.service
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../classes/collection/collection';
-import {MockAlertController, MockNavController, MockToastController, MockTranslateService} from '../../../../mocks';
+import {MockAlertController, MockNavController, MockToastController,} from '../../../../mocks';
 import {AbstractStorageService} from '../../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../../services/storage/mock-storage.service';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojisMap} from '../../../services/emoji/emojisMap';
 import isEqual from 'lodash.isequal';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
 import {EmojiPipeModule} from '../../../pipes/emoji-pipe/emoji-pipe.module';
 
 describe('NewCollectionPage for creation', () => {
@@ -33,10 +33,14 @@ describe('NewCollectionPage for creation', () => {
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
         {provide: EmojisMap},
-        {provide: TranslateService, useClass: MockTranslateService}
       ],
       declarations: [NewCollectionPage],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule, EmojiPipeModule],
+      imports: [IonicModule.forRoot(),
+        ReactiveFormsModule,
+        RouterTestingModule,
+        EmojiPipeModule,
+        TranslateModule.forRoot()
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
@@ -93,6 +97,45 @@ describe('NewCollectionPage for creation', () => {
       });
     });
   });
+
+  it('should mark input as touched when trying to submit wrong data', async () => {
+    await component.onSubmit();
+    expect(component.collectionForm.get('name').touched).toBeTrue();
+    expect(component.collectionForm.get('prefix').touched).toBeTrue();
+  });
+
+  it('should display length on focus', () => {
+    expect(component.showLength.name).toBeFalse();
+    component.inputOnFocus('name');
+    expect(component.showLength.name).toBeTrue();
+  });
+
+  it('should not display length on blur', () => {
+    component.showLength.name = true;
+    component.inputOnBlur('name');
+    expect(component.showLength.name).toBeFalse();
+  });
+
+  it('should generate automatically collection prefix when setting name', () => {
+    const event: InputCustomEvent = {detail: {value: 'hola'}} as InputCustomEvent;
+    expect(component.collectionForm.get('prefix').value).toBeFalsy();
+    component.generatePrefix(event);
+    expect(component.collectionForm.get('prefix').value).toBeTruthy();
+  });
+
+  it('should delete collection prefix when setting short name', () => {
+    expect(component.collectionForm.get('prefix').touched).toBeFalse();
+    expect(component.collectionForm.get('prefix').value).toBeFalsy();
+    component.generatePrefix({detail: {value: 'h'}} as InputCustomEvent);
+    expect(component.collectionForm.get('prefix').value).toBeFalsy();
+    expect(component.collectionForm.get('prefix').touched).toBeTrue();
+
+    component.generatePrefix({detail: {value: ''}} as InputCustomEvent);
+    expect(component.collectionForm.get('prefix').value).toBeFalsy();
+
+    component.generatePrefix({detail: {value: 'hola'}} as InputCustomEvent);
+    expect(component.collectionForm.get('prefix').value).toBeTruthy();
+  });
 });
 
 describe('NewCollectionPage for update', () => {
@@ -113,11 +156,15 @@ describe('NewCollectionPage for update', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
         {provide: EmojisMap},
-        {provide: TranslateService, useClass: MockTranslateService},
-        {provide: ToastController, useClass: MockToastController}
+        {provide: ToastController, useClass: MockToastController},
       ],
       declarations: [NewCollectionPage],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule, RouterTestingModule, EmojiPipeModule],
+      imports: [
+        IonicModule.forRoot(),
+        ReactiveFormsModule,
+        RouterTestingModule,
+        EmojiPipeModule,
+        TranslateModule.forRoot()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
