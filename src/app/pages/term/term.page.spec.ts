@@ -12,12 +12,12 @@ import {Category} from '../../classes/category/category';
 import {ActivatedRoute} from '@angular/router';
 import {TermService} from '../../services/term/term.service';
 import {Term} from '../../classes/term/term';
-import {MockAlertController, MockNavController, MockToastController, MockTranslateService} from '../../../mocks';
+import {MockAlertController, MockNavController, MockToastController} from '../../../mocks';
 import {CategoryType} from '../../enums/enums';
 import {HomePage} from '../home/home.page';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('TermPage for creating term', () => {
   let component: TermPage;
@@ -36,11 +36,11 @@ describe('TermPage for creating term', () => {
         IonicModule.forRoot(),
         RouterTestingModule.withRoutes([{path: '', component: HomePage}]),
         ReactiveFormsModule,
+        TranslateModule.forRoot()
       ],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
-        {provide: TranslateService, useClass: MockTranslateService},
         {provide: ToastController, useClass: MockToastController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -154,6 +154,18 @@ describe('TermPage for creating term', () => {
       duration: 1000,
     });
   });
+
+  it('should display length on focus', () => {
+    expect(component.showLength.originalTerm).toBeFalse();
+    component.inputOnFocus('originalTerm');
+    expect(component.showLength.originalTerm).toBeTrue();
+  });
+
+  it('should not display length on blur', () => {
+    component.showLength.originalTerm = true;
+    component.inputOnBlur('originalTerm');
+    expect(component.showLength.originalTerm).toBeFalse();
+  });
 });
 
 describe('TermPage for updating term', () => {
@@ -177,6 +189,7 @@ describe('TermPage for updating term', () => {
         IonicModule.forRoot(),
         RouterTestingModule,
         ReactiveFormsModule,
+        TranslateModule.forRoot()
       ],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
@@ -184,7 +197,6 @@ describe('TermPage for updating term', () => {
         {provide: AlertController, useClass: MockAlertController},
         {provide: NavController, useClass: MockNavController},
         {provide: AlertController, useClass: MockAlertController},
-        {provide: TranslateService, useClass: MockTranslateService},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

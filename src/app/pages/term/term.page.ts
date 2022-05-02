@@ -18,7 +18,22 @@ export class TermPage implements OnInit {
   @ViewChild('gramaticalCategoriesDropdown') gramaticalCategoriesDropdown: IonSelect;
   @ViewChild('thematicCategoriesDropdown') thematicCategoriesDropdown: IonSelect;
   title: string;
+  readonly maxTermNameLength: number = 25;
+  readonly maxNotesLength: number = 400;
   termForm: FormGroup;
+  validationMessages = {
+    originalTerm: [
+      {type: 'required', message: 'Original term is required'},
+      {type: 'maxlength', message: `Translated term must have less than ${this.maxTermNameLength} characters`}
+    ],
+    translatedTerm: [
+      {type: 'required', message: 'Translated term is required'},
+      {type: 'maxlength', message: `Original term must have less than ${this.maxTermNameLength} characters`}
+    ],
+    gramaticalCategories: [],
+    thematicCategories: [],
+    notes: [{type: 'maxlength', message: `Notes must have less than ${this.maxNotesLength} characters`}]
+  };
   customAlertOptions: any;
   languageLabel: string;
   gramaticalCategoriesList: Category[];
@@ -28,6 +43,8 @@ export class TermPage implements OnInit {
   selectedThematicCategories: Category[];
 
   editingID: number;
+
+  showLength = {originalTerm: false, translatedTerm: false, notes: false};
 
   compareWith = compareCategories;
 
@@ -44,12 +61,13 @@ export class TermPage implements OnInit {
     private toastController: ToastController
   ) {
     this.termForm = new FormGroup({
-      originalTerm: new FormControl('', Validators.required),
-      translatedTerm: new FormControl('', Validators.required),
+      originalTerm: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(this.maxTermNameLength)])),
+      translatedTerm: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(this.maxTermNameLength)])),
       gramaticalCategories: new FormControl(''),
       thematicCategories: new FormControl(''),
-      notes: new FormControl(''),
+      notes: new FormControl('', Validators.maxLength(this.maxNotesLength)),
     });
+
     this.customAlertOptions = {
       header: 'Gramatical categories',
       translucent: true,
@@ -181,6 +199,14 @@ export class TermPage implements OnInit {
 
   async navigateToCategories(type) {
     await this.navController.navigateForward(`categories/${type}`);
+  }
+
+  inputOnFocus(formControlName: string): void {
+    this.showLength[formControlName] = true;
+  }
+
+  inputOnBlur(formControlName: string): void {
+    this.showLength[formControlName] = false;
   }
 
   private async editingMode() {

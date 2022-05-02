@@ -89,3 +89,25 @@
 }
 
 
+.error-message {
+  margin: 6px 1rem 2px;
+  color: var(--ion-color-danger);
+  font-size: smaller;
+}
+
+.warning-message {
+  text-align: end;
+  margin: auto 6px;
+
+  &.warning {
+    color: var(--ion-color-warning);
+  }
+
+  &.strong-warning {
+    color: #FFA200FF;
+  }
+
+  &.danger {
+    color: var(--ion-color-danger);
+  }
+}
