@@ -67,6 +67,7 @@ export class SettingsService {
     if (this.languages.some(l => l.prefix === language.prefix)) {
       const settings: Settings = await this.getSettingsFromDisk();
       settings.preferredLanguage = language;
+      this.preferredLanguage = language;
       await this.storageService.set('settings', settings);
       this.translateService.use(language.prefix);
     }

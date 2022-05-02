@@ -13,6 +13,8 @@ export class SettingsPage implements OnInit {
   darkMode: boolean;
   languages: GuiLanguage[];
 
+  compareWith = compareLanguages;
+
   constructor(
     private settingsService: SettingsService,
     private storageService: AbstractStorageService,
@@ -51,3 +53,5 @@ export class SettingsPage implements OnInit {
     document.getElementById('file-importer').click();
   }
 }
+
+const compareLanguages = (c1: GuiLanguage, c2: GuiLanguage) => c1.prefix === c2.prefix;
