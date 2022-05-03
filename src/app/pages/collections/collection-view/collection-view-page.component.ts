@@ -10,10 +10,10 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-collection',
-  templateUrl: './new-collection.page.html',
-  styleUrls: ['./new-collection.page.scss'],
+  templateUrl: './collection-view-page.component.html',
+  styleUrls: ['./collection-view-page.component.scss'],
 })
-export class NewCollectionPage implements OnInit {
+export class CollectionViewPage implements OnInit {
 
   collectionForm: FormGroup;
   selectedEmoji: Emoji;

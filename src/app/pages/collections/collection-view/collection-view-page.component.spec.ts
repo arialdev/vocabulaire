@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AlertController, InputCustomEvent, IonicModule, NavController, ToastController} from '@ionic/angular';
-import {NewCollectionPage} from './new-collection.page';
+import {CollectionViewPage} from './collection-view-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {CollectionService} from '../../../services/collection/collection.service';
@@ -16,9 +16,9 @@ import isEqual from 'lodash.isequal';
 import {TranslateModule} from '@ngx-translate/core';
 import {EmojiPipeModule} from '../../../pipes/emoji-pipe/emoji-pipe.module';
 
-describe('NewCollectionPage for creation', () => {
-  let component: NewCollectionPage;
-  let fixture: ComponentFixture<NewCollectionPage>;
+describe('CollectionViewPage for creation', () => {
+  let component: CollectionViewPage;
+  let fixture: ComponentFixture<CollectionViewPage>;
   let service: CollectionService;
 
   let mockActivatedRoute;
@@ -34,7 +34,7 @@ describe('NewCollectionPage for creation', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: EmojisMap},
       ],
-      declarations: [NewCollectionPage],
+      declarations: [CollectionViewPage],
       imports: [IonicModule.forRoot(),
         ReactiveFormsModule,
         RouterTestingModule,
@@ -44,7 +44,7 @@ describe('NewCollectionPage for creation', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NewCollectionPage);
+    fixture = TestBed.createComponent(CollectionViewPage);
     component = fixture.componentInstance;
     service = TestBed.inject(CollectionService);
     fixture.detectChanges();
@@ -138,9 +138,9 @@ describe('NewCollectionPage for creation', () => {
   });
 });
 
-describe('NewCollectionPage for update', () => {
-  let component: NewCollectionPage;
-  let fixture: ComponentFixture<NewCollectionPage>;
+describe('CollectionViewPage for update', () => {
+  let component: CollectionViewPage;
+  let fixture: ComponentFixture<CollectionViewPage>;
   let service: CollectionService;
 
   let mockActivatedRoute;
@@ -158,7 +158,7 @@ describe('NewCollectionPage for update', () => {
         {provide: EmojisMap},
         {provide: ToastController, useClass: MockToastController},
       ],
-      declarations: [NewCollectionPage],
+      declarations: [CollectionViewPage],
       imports: [
         IonicModule.forRoot(),
         ReactiveFormsModule,
@@ -179,7 +179,7 @@ describe('NewCollectionPage for update', () => {
 
   const initializeCollections = (): Promise<void> => new Promise(res => {
     service.addCollection(mockInactiveCollection).then(() => {
-      fixture = TestBed.createComponent(NewCollectionPage);
+      fixture = TestBed.createComponent(CollectionViewPage);
       component = fixture.componentInstance;
       fixture.detectChanges();
       res();

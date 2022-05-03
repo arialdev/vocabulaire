@@ -4,9 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {NewCollectionPageRoutingModule} from './new-collection-routing.module';
+import {CollectionViewPageRoutingModule} from './collection-view-routing.module';
 
-import {NewCollectionPage} from './new-collection.page';
+import {CollectionViewPage} from './collection-view-page.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {EmojiPipeModule} from '../../../pipes/emoji-pipe/emoji-pipe.module';
 import {EmojiPickerModule} from '../../../components/emoji-picker/emoji-picker.module';
@@ -15,14 +15,14 @@ import {EmojiPickerModule} from '../../../components/emoji-picker/emoji-picker.m
   imports: [
     CommonModule,
     IonicModule,
-    NewCollectionPageRoutingModule,
+    CollectionViewPageRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
     EmojiPipeModule,
-    EmojiPickerModule
+    EmojiPickerModule,
   ],
-  declarations: [NewCollectionPage]
+  declarations: [CollectionViewPage]
 })
-export class NewCollectionPageModule {
+export class CollectionViewPageModule {
 }
