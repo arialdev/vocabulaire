@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, RouterEvent} from '@angular/router';
+import {NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {Tag} from '../../classes/tag/tag';
 import {TagService} from '../../services/tag/tag.service';
 import {CollectionService} from '../../services/collection/collection.service';
@@ -27,7 +27,11 @@ export class MenuPage {
     private pdfService: PdfService,
     private toastController: ToastController
   ) {
-    this.router.events.subscribe((e: RouterEvent) => this.selectedPath = e.url);
+    this.router.events.subscribe((e: RouterEvent) => {
+      if (e instanceof NavigationEnd) {
+        this.selectedPath = e.urlAfterRedirects;
+      }
+    });
     this.tags = [];
     this.maxTagsBound = TagService.maxTagsBound;
     this.isCordovaReady = false;

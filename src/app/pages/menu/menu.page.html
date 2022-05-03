@@ -5,14 +5,14 @@
         <ion-list class="menu-list menu-page-links">
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" routerLink='/home' lines="none" detail="false"
-                      [class.active-item]="selectedPath === '/menu/home'">
+                      [class.selected]="selectedPath === '/home'">
               <ion-icon slot="start" name="home-outline"></ion-icon>
               <ion-label>Home</ion-label>
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" routerLink='/word-of-the-day' lines="none" detail="false"
-                      [class.active-item]="selectedPath === '/menu/word-of-the-day'">
+                      [class.selected]="selectedPath === '/word-of-the-day'">
               <ion-icon slot="start" name="bulb-outline"></ion-icon>
               <ion-label>Word of the Day</ion-label>
             </ion-item>
@@ -44,8 +44,7 @@
 
         <ion-list class="menu-list menu-page-links">
           <ion-menu-toggle auto-hide="false">
-            <ion-item routerDirection="root" routerLink='/settings' lines="none" detail="false"
-                      [class.active-item]="selectedPath === '/menu/settings'">
+            <ion-item routerDirection="root" routerLink='/settings' lines="none" detail="false">
               <ion-icon size="large" slot="start" name="settings-outline"></ion-icon>
               <ion-label>Settings</ion-label>
             </ion-item>
