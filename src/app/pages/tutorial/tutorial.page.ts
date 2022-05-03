@@ -1,6 +1,6 @@
 import {AfterContentChecked, Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SettingsService} from '../../services/settings/settings.service';
-import {InputCustomEvent, MenuController, NavController} from '@ionic/angular';
+import {MenuController, NavController} from '@ionic/angular';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {SwiperComponent} from 'swiper/angular';
 import SwiperCore from 'swiper';
@@ -147,7 +147,7 @@ export class TutorialPage implements AfterContentChecked {
     this.showLength[formControlName] = false;
   }
 
-  generatePrefix(event: InputCustomEvent) {
+  generatePrefix(event) {
     if (event.detail.value.length >= 2) {
       this.collectionForm.get('prefix').patchValue(event.detail.value.substring(0, 2).toUpperCase());
     } else {
@@ -156,8 +156,9 @@ export class TutorialPage implements AfterContentChecked {
     }
   }
 
-  autocapitalize(event: InputCustomEvent) {
+  autocapitalize(event) {
     this.collectionForm.get('prefix').patchValue(event.detail.value.toUpperCase());
   }
 }
+
 const compareLanguages = (c1: GuiLanguage, c2: GuiLanguage) => c1.prefix === c2.prefix;

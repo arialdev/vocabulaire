@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Collection} from '../../../classes/collection/collection';
 import {CollectionService} from '../../../services/collection/collection.service';
 import {ActivatedRoute} from '@angular/router';
-import {AlertController, InputCustomEvent, NavController, ToastController} from '@ionic/angular';
+import {AlertController, NavController, ToastController} from '@ionic/angular';
 import {Emoji} from '../../../classes/emoji/emoji';
 import {EmojiService} from '../../../services/emoji/emoji.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -179,7 +179,7 @@ export class CollectionViewPage implements OnInit {
     this.showLength[formControlName] = false;
   }
 
-  generatePrefix(event: InputCustomEvent) {
+  generatePrefix(event) {
     if (event.detail.value.length >= 2) {
       this.collectionForm.get('prefix').patchValue(event.detail.value.substring(0, 2).toUpperCase());
     } else {
@@ -188,7 +188,7 @@ export class CollectionViewPage implements OnInit {
     }
   }
 
-  autocapitalize(event: InputCustomEvent) {
+  autocapitalize(event) {
     this.collectionForm.get('prefix').patchValue(event.detail.value.toUpperCase());
   }
 
