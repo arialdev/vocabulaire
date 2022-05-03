@@ -1,6 +1,6 @@
 import {AfterContentChecked, Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SettingsService} from '../../services/settings/settings.service';
-import {MenuController, NavController} from '@ionic/angular';
+import {InputCustomEvent, MenuController, NavController} from '@ionic/angular';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {SwiperComponent} from 'swiper/angular';
 import SwiperCore from 'swiper';
@@ -26,11 +26,26 @@ export class TutorialPage implements AfterContentChecked {
 
   languages: GuiLanguage[];
   preferredLanguage: GuiLanguage;
-
+  compareWith = compareLanguages;
 
   collectionForm: FormGroup;
   modalStatus: boolean;
   selectedEmoji: Emoji;
+  maxLanguageNameLength = 25;
+  validationMessages = {
+    name: [
+      {type: 'required', message: 'Collection name is required (e.g., English)'},
+      {type: 'minlength', message: `Collection name must have at least ${2} characters`},
+      {type: 'maxlength', message: `Collection name must have less than ${this.maxLanguageNameLength} characters`}
+    ],
+    prefix: [
+      {type: 'required', message: 'Collection prefix is required (e.g., FR)'},
+      {type: 'maxlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`},
+      {type: 'minlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`}
+    ],
+    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+  };
+  showLength = {name: false};
 
   constructor(
     private menuController: MenuController,
@@ -45,7 +60,6 @@ export class TutorialPage implements AfterContentChecked {
 
     /* Slide 1 */
     this.languages = this.settingsService.getLanguages();
-    this.preferredLanguage = this.languages[0];
 
     /* Slide 2 */
     this.collectionForm = new FormGroup({
@@ -58,6 +72,10 @@ export class TutorialPage implements AfterContentChecked {
   }
 
   /* Component */
+  async ionViewWillEnter() {
+    this.preferredLanguage = (await this.settingsService.getPreferredLanguage()) ?? this.languages[0];
+  }
+
   ionViewDidEnter(): Promise<HTMLIonMenuElement> {
     return this.menuController.enable(false);
   }
@@ -103,6 +121,8 @@ export class TutorialPage implements AfterContentChecked {
       await this.collectionService.setActiveCollection(newCollection.getId());
       await this.settingsService.initializeApp();
       return this.navController.navigateForward('/');
+    } else {
+      this.collectionForm.markAllAsTouched();
     }
   }
 
@@ -118,4 +138,26 @@ export class TutorialPage implements AfterContentChecked {
   toggleModal(): void {
     this.modalStatus = !this.modalStatus;
   }
+
+  inputOnFocus(formControlName: string): void {
+    this.showLength[formControlName] = true;
+  }
+
+  inputOnBlur(formControlName: string): void {
+    this.showLength[formControlName] = false;
+  }
+
+  generatePrefix(event: InputCustomEvent) {
+    if (event.detail.value.length >= 2) {
+      this.collectionForm.get('prefix').patchValue(event.detail.value.substring(0, 2).toUpperCase());
+    } else {
+      this.collectionForm.get('prefix').patchValue('');
+      this.collectionForm.get('prefix').markAsTouched();
+    }
+  }
+
+  autocapitalize(event: InputCustomEvent) {
+    this.collectionForm.get('prefix').patchValue(event.detail.value.toUpperCase());
+  }
 }
+const compareLanguages = (c1: GuiLanguage, c2: GuiLanguage) => c1.prefix === c2.prefix;

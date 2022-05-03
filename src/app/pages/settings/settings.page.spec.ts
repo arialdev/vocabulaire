@@ -81,4 +81,12 @@ describe('SettingsPage', () => {
     component.importData({target: {files: []}});
     expect(storageService.importData).toHaveBeenCalledWith(undefined);
   });
+
+  it('should compare languages', () => {
+    const lan1: GuiLanguage = {prefix: 'it', name: 'Italiano'};
+    const lan2: GuiLanguage = {prefix: 'cn', name: 'Chinese'};
+    component.languages = [lan1, lan2];
+    expect(component.compareWith(lan1, lan2)).toBeFalse();
+    expect(component.compareWith(lan1, lan1)).toBeTrue();
+  });
 });
