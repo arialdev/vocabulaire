@@ -9,11 +9,10 @@ import {EmojisMap} from '../../services/emoji/emojisMap';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TranslateModule} from '@ngx-translate/core';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {SwiperComponent, SwiperModule} from 'swiper/angular';
+import {SwiperModule} from 'swiper/angular';
 import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
 import {EmojiPickerModule} from '../../components/emoji-picker/emoji-picker.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import SwiperCore from 'swiper';
 import {SettingsService} from '../../services/settings/settings.service';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {Collection} from '../../classes/collection/collection';
@@ -66,41 +65,6 @@ describe('TutorialPage', () => {
     spyOn(menuController, 'enable');
     component.ionViewWillLeave();
     expect(menuController.enable).toHaveBeenCalledWith(true);
-  });
-
-  it('should load swiper', () => {
-    component.swiper = new SwiperComponent(undefined, undefined, undefined, undefined);
-    component.swiper.swiperRef = jasmine.createSpyObj({slides: [undefined, undefined], progress: 0});
-    component.ngAfterContentChecked();
-    expect(component.progress).not.toBeUndefined();
-  });
-
-  it('should hide and show buttons when slide changes', () => {
-    // component.onSlideChange([jasmine.createSpyObj({activeIndex: () => 0, slides: () => Array(2).fill('a')})]);
-
-    const swiper = {slides: Array(2) as any, activeIndex: 0} as SwiperCore;
-    component.onSlideChange([swiper]);
-    expect(component.showNextNavButton).toBeTrue();
-    expect(component.showPreviousNavButton).toBeFalse();
-
-    swiper.activeIndex = 1;
-    component.onSlideChange([swiper]);
-    expect(component.showNextNavButton).toBeFalse();
-    expect(component.showPreviousNavButton).toBeTrue();
-  });
-
-  it('should go to next slide', () => {
-    component.swiper = {} as SwiperComponent;
-    component.swiper.swiperRef = jasmine.createSpyObj({slideNext: () => true});
-    component.nextSlide();
-    expect(component.swiper.swiperRef.slideNext).toHaveBeenCalled();
-  });
-
-  it('should go to previous slide', () => {
-    component.swiper = {} as SwiperComponent;
-    component.swiper.swiperRef = jasmine.createSpyObj({slidePrev: () => true});
-    component.previousSlide();
-    expect(component.swiper.swiperRef.slidePrev).toHaveBeenCalled();
   });
 
   it('should change language', () => {

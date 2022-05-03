@@ -4,7 +4,6 @@
     class="swiper-container"
     [initialSlide]="0"
     [slidesPerView]="1"
-    (slideChange)="onSlideChange($event)"
   >
     <!--    1st slide-->
     <ng-template swiperSlide>
@@ -14,10 +13,19 @@
       </div>
       <ion-item>
         <ion-label>Interfaz</ion-label>
-        <ion-select [compareWith]="compareWith" interface="popover" [value]="preferredLanguage" (ionChange)="changeLanguage($event)">
+        <ion-select [compareWith]="compareWith" interface="popover" [value]="preferredLanguage"
+                    (ionChange)="changeLanguage($event)">
           <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
         </ion-select>
       </ion-item>
+
+      <div class="swiping-message-box">
+        <div>
+          <span class="swiping-message">Swipe to continue!</span>
+          <ion-icon class="icon" color="primary" src="assets/icons/view/swipe-icon.svg"></ion-icon>
+        </div>
+      </div>
+
     </ng-template>
 
     <!--    2nd slide-->
@@ -94,13 +102,4 @@
     </ng-template>
 
   </swiper>
-  <footer class="footer">
-    <ion-progress-bar class="progress-bar" [value]="progress"></ion-progress-bar>
-    <ion-button fill="clear" class="nav-slide back-arrow" (click)="previousSlide()" *ngIf="showPreviousNavButton">
-      <ion-icon slot="icon-only" size="large" color="primary" name="chevron-back-outline"></ion-icon>
-    </ion-button>
-    <ion-button fill="clear" class="nav-slide next-arrow bounce" (click)="nextSlide()" *ngIf="showNextNavButton">
-      <ion-icon slot="icon-only" size="large" color="primary" name="chevron-forward-outline"></ion-icon>
-    </ion-button>
-  </footer>
 </ion-content>

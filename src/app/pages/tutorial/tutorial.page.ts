@@ -1,14 +1,15 @@
-import {AfterContentChecked, Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SettingsService} from '../../services/settings/settings.service';
 import {MenuController, NavController} from '@ionic/angular';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {SwiperComponent} from 'swiper/angular';
-import SwiperCore from 'swiper';
+
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Emoji} from '../../classes/emoji/emoji';
 import {EmojiService} from '../../services/emoji/emoji.service';
 import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
+
 
 @Component({
   selector: 'app-tutorial',
@@ -16,13 +17,9 @@ import {CollectionService} from '../../services/collection/collection.service';
   styleUrls: ['./tutorial.page.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TutorialPage implements AfterContentChecked {
+export class TutorialPage {
 
   @ViewChild('swiper', {static: false}) swiper: SwiperComponent;
-
-  progress: number;
-  showPreviousNavButton: boolean;
-  showNextNavButton: boolean;
 
   languages: GuiLanguage[];
   preferredLanguage: GuiLanguage;
@@ -54,10 +51,6 @@ export class TutorialPage implements AfterContentChecked {
     private navController: NavController,
     private collectionService: CollectionService
   ) {
-    /* Component */
-    this.showPreviousNavButton = false;
-    this.showNextNavButton = true;
-
     /* Slide 1 */
     this.languages = this.settingsService.getLanguages();
 
@@ -82,25 +75,6 @@ export class TutorialPage implements AfterContentChecked {
 
   ionViewWillLeave(): Promise<HTMLIonMenuElement> {
     return this.menuController.enable(true);
-  }
-
-  ngAfterContentChecked() {
-    if (this.swiper) {
-      this.progress = (this.swiper.swiperRef.progress + 1) / this.swiper.swiperRef.slides.length;
-    }
-  }
-
-  onSlideChange([event]: SwiperCore[]) {
-    this.showPreviousNavButton = event.activeIndex !== 0;
-    this.showNextNavButton = event.activeIndex !== event.slides.length - 1;
-  }
-
-  nextSlide() {
-    this.swiper.swiperRef.slideNext();
-  }
-
-  previousSlide() {
-    this.swiper.swiperRef.slidePrev();
   }
 
   /* Slide 1 */
