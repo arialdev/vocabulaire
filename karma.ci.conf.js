@@ -43,6 +43,6 @@ module.exports = function (config) {
     port: 9876,
     singleRun: true,
     reporters: ['coverage'],
-    retryLimit: 0,
+    retryLimit: 2,
   });
 };
