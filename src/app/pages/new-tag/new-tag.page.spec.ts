@@ -114,6 +114,24 @@ describe('NewTagPage', () => {
     });
     expect(navController.navigateBack).toHaveBeenCalledWith('/');
   });
+
+  it('should mark input as touched when trying to submit wrong data', async () => {
+    await component.onSubmit();
+    expect(component.tagForm.get('name').touched).toBeTrue();
+    expect(component.tagForm.get('icon').touched).toBeTrue();
+  });
+
+  it('should display length on focus', () => {
+    expect(component.showLength.name).toBeFalse();
+    component.inputOnFocus('name');
+    expect(component.showLength.name).toBeTrue();
+  });
+
+  it('should not display length on blur', () => {
+    component.showLength.name = true;
+    component.inputOnBlur('name');
+    expect(component.showLength.name).toBeFalse();
+  });
 });
 
 describe('NewTagPage with no data provided', () => {

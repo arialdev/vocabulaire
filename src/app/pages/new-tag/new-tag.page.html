@@ -10,16 +10,44 @@
 <ion-content>
   <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="fixed">Name</ion-label>
-      <ion-input [formControlName]="'name'" type="text" required></ion-input>
+      <ion-label position="floating">
+        Name
+        <span class="warning-message"
+              *ngIf=" showLength.name && tagForm.get('name').value.length>maxTagNameLength*0.6"
+              [class.strong-warning]="tagForm.get('name').value.length>maxTagNameLength*0.8"
+              [class.warning]="tagForm.get('name').value.length>maxTagNameLength*0.5"
+              [class.danger]="tagForm.get('name').value.length>maxTagNameLength">
+          {{ tagForm.get('name').value.length }}/{{maxTagNameLength}}
+        </span>
+      </ion-label>
+      <ion-input [formControlName]="'name'" type="text" required="true" [maxlength]="maxTagNameLength"
+                 (ionFocus)="inputOnFocus('name')" (ionBlur)="inputOnBlur('name')"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.name">
+        <div class="error-message"
+             *ngIf="tagForm.get('name').hasError(validation.type) && (tagForm.get('name').dirty
+             || tagForm.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
     <ion-item>
       <ion-label position="fixed">Icon</ion-label>
-      <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required></ion-input>
+      <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required="true"></ion-input>
       <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
         <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
       </ion-button>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.icon">
+        <div class="error-message"
+             *ngIf="tagForm.get('icon').hasError(validation.type) && (tagForm.get('icon').dirty
+             || tagForm.get('icon').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
     <ion-grid>
       <ion-row>
         <ion-col>

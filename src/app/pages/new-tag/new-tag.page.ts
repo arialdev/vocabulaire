@@ -20,6 +20,17 @@ export class NewTagPage implements OnInit {
   tagForm: FormGroup;
   selectedEmoji: Emoji;
   modalStatus: boolean;
+
+  maxTagNameLength = 25;
+  validationMessages = {
+    name: [
+      {type: 'required', message: 'Tag name is required (e.g., Food)'},
+      {type: 'maxlength', message: `Tag name must have less than ${this.maxTagNameLength} characters`}
+    ],
+    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+  };
+  showLength = {name: false};
+
   private tagOptions: TagOptions;
   private toast: HTMLIonToastElement;
 
@@ -32,7 +43,7 @@ export class NewTagPage implements OnInit {
     private toastController: ToastController
   ) {
     this.tagForm = new FormGroup({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.maxLength(this.maxTagNameLength)]),
       icon: new FormControl('', Validators.required),
     });
     this.modalStatus = false;
@@ -70,6 +81,8 @@ export class NewTagPage implements OnInit {
       }
       TagService.loadTag(tag);
       await Promise.allSettled([this.navController.navigateBack('/'), this.toast.present()]);
+    } else {
+      this.tagForm.markAllAsTouched();
     }
   }
 
@@ -84,5 +97,13 @@ export class NewTagPage implements OnInit {
     }
     this.selectedEmoji = emoji;
     this.tagForm.patchValue({icon: emoji});
+  }
+
+  inputOnFocus(formControlName: string): void {
+    this.showLength[formControlName] = true;
+  }
+
+  inputOnBlur(formControlName: string): void {
+    this.showLength[formControlName] = false;
   }
 }

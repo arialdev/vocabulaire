@@ -98,10 +98,10 @@ describe('CollectionViewPage for creation', () => {
     });
   });
 
-  it('should mark input as touched when trying to submit wrong data', async () => {
-    await component.onSubmit();
-    expect(component.collectionForm.get('name').touched).toBeTrue();
-    expect(component.collectionForm.get('prefix').touched).toBeTrue();
+  it('should not display length on blur', () => {
+    component.showLength.name = true;
+    component.inputOnBlur('name');
+    expect(component.showLength.name).toBeFalse();
   });
 
   it('should display length on focus', () => {
@@ -110,17 +110,10 @@ describe('CollectionViewPage for creation', () => {
     expect(component.showLength.name).toBeTrue();
   });
 
-  it('should not display length on blur', () => {
-    component.showLength.name = true;
-    component.inputOnBlur('name');
-    expect(component.showLength.name).toBeFalse();
-  });
-
-  it('should generate automatically collection prefix when setting name', () => {
-    const event: InputCustomEvent = {detail: {value: 'hola'}} as InputCustomEvent;
-    expect(component.collectionForm.get('prefix').value).toBeFalsy();
-    component.generatePrefix(event);
-    expect(component.collectionForm.get('prefix').value).toBeTruthy();
+  it('should mark input as touched when trying to submit wrong data', async () => {
+    await component.onSubmit();
+    expect(component.collectionForm.get('name').touched).toBeTrue();
+    expect(component.collectionForm.get('prefix').touched).toBeTrue();
   });
 
   it('should delete collection prefix when setting short name', () => {
@@ -134,6 +127,13 @@ describe('CollectionViewPage for creation', () => {
     expect(component.collectionForm.get('prefix').value).toBeFalsy();
 
     component.generatePrefix({detail: {value: 'hola'}} as InputCustomEvent);
+    expect(component.collectionForm.get('prefix').value).toBeTruthy();
+  });
+
+  it('should generate automatically collection prefix when setting name', () => {
+    const event: InputCustomEvent = {detail: {value: 'hola'}} as InputCustomEvent;
+    expect(component.collectionForm.get('prefix').value).toBeFalsy();
+    component.generatePrefix(event);
     expect(component.collectionForm.get('prefix').value).toBeTruthy();
   });
 });
