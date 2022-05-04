@@ -7,5 +7,5 @@ export abstract class AbstractStorageService {
 
   public abstract exportData(): Promise<any>;
 
-  public abstract importData(file: File): Promise<any>;
+  public abstract importData(file: File): Promise<boolean>;
 }

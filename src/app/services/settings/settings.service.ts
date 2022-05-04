@@ -17,7 +17,7 @@ export class SettingsService {
     this.initializeService();
     this.languages = [
       {prefix: 'en', name: 'English'},
-      {prefix: 'es', name: 'Castellano'},
+      {prefix: 'es', name: 'Español'},
       {prefix: 'fr', name: 'Français'},
       {prefix: 'it', name: 'Italiano'}
     ];

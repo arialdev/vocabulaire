@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../services/settings/settings.service';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
+import {ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -9,16 +10,21 @@ import {AbstractStorageService} from '../../services/storage/abstract-storage-se
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
+  fileInput: string;
   preferredLanguage: GuiLanguage;
   darkMode: boolean;
   languages: GuiLanguage[];
 
   compareWith = compareLanguages;
 
+  private toast: HTMLIonToastElement;
+
   constructor(
     private settingsService: SettingsService,
     private storageService: AbstractStorageService,
+    private toastController: ToastController
   ) {
+    this.fileInput = '';
     this.languages = this.settingsService.getLanguages();
   }
 
@@ -43,14 +49,36 @@ export class SettingsPage implements OnInit {
     await this.storageService.exportData();
   }
 
-  async importData(event) {
-    await this.storageService.importData(event.target.files[0]);
-    await this.settingsService.initializeService();
-    await this.ngOnInit();
+  async importData(event): Promise<void> {
+    const res: PromiseSettledResult<boolean> = (await Promise.allSettled([
+      this.toast?.dismiss(),
+      this.storageService.importData(event.target.files[0])
+    ]))[1];
+    if (res.status === 'fulfilled' && res.value) {
+      await this.settingsService.initializeService();
+      await this.ngOnInit();
+      this.toast = await this.toastController.create({
+        message: 'Data imported successfully',
+        color: 'success',
+        icon: 'download-outline',
+        duration: 800
+      });
+    } else if (res.status === 'rejected') {
+      this.toast = await this.toastController.create({
+        header: 'Could not import data',
+        message: res.reason.message,
+        color: 'danger',
+        icon: 'download',
+        duration: 1000
+      });
+    }
+    this.fileInput = '';
+    return this.toast.present();
   }
 
   openFileExplorer() {
-    document.getElementById('file-importer').click();
+    const input = document.getElementById('file-importer');
+    input.click();
   }
 }
 

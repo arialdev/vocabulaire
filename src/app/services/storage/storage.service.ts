@@ -39,6 +39,42 @@ export class StorageService implements AbstractStorageService {
   }
 
   public async exportData() {
+    const res = await this.getAllData();
+    const path = `vocabulaire_data_${new Date().getTime()}.json`;
+    const savedFile = await this.fileService.saveFileInCache(path, JSON.stringify(res), Encoding.UTF8);
+    await this.fileService.shareFile(savedFile.uri, 'Export your data file');
+  }
+
+  public async importData(file: File): Promise<boolean> {
+    const oldData = await this.getAllData();
+    let content;
+    let keys: string[];
+    try {
+      content = JSON.parse(await file.text());
+      keys = Object.keys(content);
+    } catch (_) {
+      throw new Error('Corrupted file');
+    }
+    try {
+      content.settings.darkMode ??= false;
+      content.settings.preferredLanguage ??= {prefix: 'en', name: 'English'};
+      content.settings.initialized ??= true;
+      for (const k of keys) {
+        await this.set(k, content[k]);
+      }
+      (await this.get('collections')).map(c => new Collection(c));
+    } catch (_) {
+      await this.storage.clear();
+      const oldKeys = Object.keys(oldData);
+      for (const k of oldKeys) {
+        await this.set(k, oldData[k]);
+      }
+      throw new Error('File has corrupted data');
+    }
+    return true;
+  }
+
+  private async getAllData() {
     if (!this.myStorage) {
       await this.init();
     }
@@ -47,17 +83,7 @@ export class StorageService implements AbstractStorageService {
     for (const k of keys) {
       res[k] = await this.myStorage.get(k);
     }
-    const path = `vocabulaire_data_${new Date().getTime()}.json`;
-    const savedFile = await this.fileService.saveFileInCache(path, JSON.stringify(res), Encoding.UTF8);
-    await this.fileService.shareFile(savedFile.uri, 'Export your data file');
-  }
-
-  public async importData(file: File) {
-    const content: any = JSON.parse(await file.text());
-    const keys = Object.keys(content);
-    for (const k of keys) {
-      await this.set(k, content[k]);
-    }
+    return res;
   }
 
   private async init() {

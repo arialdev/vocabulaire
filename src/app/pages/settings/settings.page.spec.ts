@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
+import {IonicModule, ToastController} from '@ionic/angular';
 
 import {SettingsPage} from './settings.page';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
@@ -7,7 +7,7 @@ import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SettingsService} from '../../services/settings/settings.service';
 import {TranslateService} from '@ngx-translate/core';
-import {MockTranslateService} from '../../../mocks';
+import {MockToastController, MockTranslateService} from '../../../mocks';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {FormsModule} from '@angular/forms';
 
@@ -21,7 +21,8 @@ describe('SettingsPage', () => {
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([]), FormsModule],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
-        {provide: TranslateService, useClass: MockTranslateService}
+        {provide: TranslateService, useClass: MockTranslateService},
+        {provide: ToastController, useClass: MockToastController}
       ]
     }).compileComponents();
 
@@ -75,11 +76,37 @@ describe('SettingsPage', () => {
     expect(storageService.exportData).toHaveBeenCalled();
   });
 
-  it('should import data', () => {
+  it('should import data', async () => {
     const storageService = fixture.debugElement.injector.get(AbstractStorageService);
-    spyOn(storageService, 'importData');
-    component.importData({target: {files: []}});
+    const toastController = TestBed.inject(ToastController);
+    spyOn(storageService, 'importData').and.resolveTo(true);
+    spyOn(toastController, 'create').and.callThrough();
+    await component.importData({target: {files: []}});
     expect(storageService.importData).toHaveBeenCalledWith(undefined);
+    await component.importData({target: {files: []}});
+    expect(storageService.importData).toHaveBeenCalledTimes(2);
+    expect(toastController.create).toHaveBeenCalledWith({
+      message: 'Data imported successfully',
+      color: 'success',
+      icon: 'download-outline',
+      duration: 800
+    });
+  });
+
+  it('should fail when trying to import data', async () => {
+    const toastController = TestBed.inject(ToastController);
+    spyOn(toastController, 'create').and.callThrough();
+    const storageService = fixture.debugElement.injector.get(AbstractStorageService);
+    spyOn(storageService, 'importData').and.rejectWith({message: 'Import has failed'});
+    await component.importData({target: {files: []}});
+    expect(storageService.importData).toHaveBeenCalledWith(undefined);
+    expect(toastController.create).toHaveBeenCalledWith({
+      header: 'Could not import data',
+      message: 'Import has failed',
+      color: 'danger',
+      icon: 'download',
+      duration: 1000
+    });
   });
 
   it('should compare languages', () => {
