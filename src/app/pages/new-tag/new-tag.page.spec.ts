@@ -5,7 +5,7 @@ import {NewTagPage} from './new-tag.page';
 import {EmojisMap} from '../../services/emoji/emojisMap';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MockNavController} from '../../../mocks';
+import {MockNavController, MockToastController} from '../../../mocks';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {MockStorageService} from '../../services/storage/mock-storage.service';
 import {EmojiPickerModule} from '../../components/emoji-picker/emoji-picker.module';
@@ -18,6 +18,7 @@ import {Collection} from '../../classes/collection/collection';
 import {TagService} from '../../services/tag/tag.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('NewTagPage', () => {
   let component: NewTagPage;
@@ -31,7 +32,10 @@ describe('NewTagPage', () => {
     tagOptions = new TagOptions('búsqueda');
     const collection = new Collection('a', 'b', undefined);
     collection.setId(1);
-    collectionServiceSpy = {getActiveCollection: jasmine.createSpy('getActiveCollection').and.returnValue(collection)};
+    collectionServiceSpy = {
+      getActiveCollection: jasmine.createSpy('getActiveCollection').and.resolveTo(collection),
+      getCollections: jasmine.createSpy('getCollections').and.resolveTo([collection])
+    };
     routerSpy = {getCurrentNavigation: jasmine.createSpy('getCurrentNavigation').and.returnValue({extras: {state: tagOptions}})};
 
     TestBed.configureTestingModule({
@@ -41,7 +45,8 @@ describe('NewTagPage', () => {
         RouterTestingModule.withRoutes([{path: '/', component: HomePage}]),
         EmojiPickerModule,
         EmojiPipeModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule.forRoot()
       ],
       providers: [
         {provide: EmojisMap},
@@ -49,6 +54,7 @@ describe('NewTagPage', () => {
         {provide: NavController, useClass: MockNavController},
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: CollectionService, useValue: collectionServiceSpy},
+        {provide: ToastController, useClass: MockToastController}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -100,19 +106,28 @@ describe('NewTagPage', () => {
 
     const navController = TestBed.inject(NavController);
     const toastController = TestBed.inject(ToastController);
+    const tagService = TestBed.inject(TagService);
+    const tagServiceSpy = spyOn(tagService, 'addTag').and.rejectWith({message: 'fail'});
 
     spyOn(navController, 'navigateBack');
     spyOn(toastController, 'create').and.callThrough();
 
     await component.onSubmit();
-    await component.onSubmit();
     expect(toastController.create).toHaveBeenCalledWith({
-      header: 'Error when creating tag',
-      message: 'TypeError: this.collectionService.getCollections is not a function',
+      header: 'tag.toast.fail.max-reached.header',
+      message: 'fail',
       color: 'danger',
-      duration: 800
+      duration: 1000
     });
     expect(navController.navigateBack).toHaveBeenCalledWith('/');
+    tagServiceSpy.and.rejectWith({message: `Collection with ID 1 not found`});
+    await component.onSubmit();
+    expect(toastController.create).toHaveBeenCalledWith({
+      header: 'tag.toast.fail.max-reached.header',
+      message: 'tag.toast.fail.no-active-collection.msg',
+      color: 'danger',
+      duration: 1000
+    });
   });
 
   it('should mark input as touched when trying to submit wrong data', async () => {
@@ -149,7 +164,8 @@ describe('NewTagPage with no data provided', () => {
         RouterTestingModule.withRoutes([{path: '/', component: HomePage}]),
         EmojiPickerModule,
         EmojiPipeModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule.forRoot()
       ],
       providers: [
         {provide: EmojisMap},

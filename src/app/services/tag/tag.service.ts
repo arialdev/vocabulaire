@@ -99,7 +99,7 @@ export class TagService {
       throw new Error(`Collection with ID ${collectionId} not found`);
     }
     if (collection.getTags().length >= TagService.maxTagsBound) {
-      throw new Error('Maximum number of tags reached');
+      throw new Error('tag.toast.fail.max-reached.msg');
     }
     tag.setId(await this.getNextFreeID());
     collection.addTag(tag);

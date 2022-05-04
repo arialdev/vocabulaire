@@ -1,21 +1,20 @@
 {
-  "home": {
-    "searchbar-placeholder": "Rechercher un terme",
-    "details-label": "Détail",
-    "filter": {
-      "label": "Filtrer par {{type}}",
+  "category": {
+    "searchbar-placeholder": "Rechercher une catégorie",
+    "new-button": "Créer une catégorie",
+    "delete": "Supprimer",
+    "alert": {
+      "header": {
+        "create": "Nouvelle catégorie {{type}}",
+        "edit": "Modifier catégorie {{type}}"
+      },
+      "placeholder": "Nom de la catégorie",
       "cancel": "Annuler",
-      "ok": "OK"
-    },
-    "sort": {
-      "label": "Trier par:",
-      "opt": {
-        "t-org": "Terme d'origine",
-        "t-trans": "Terme traduit",
-        "date": "Date"
+      "ok": {
+        "update": "Renommer",
+        "save": "Enregistrer"
       }
-    },
-    "no-term-msg": "Ajoutez un nouveau terme pour commencer votre apprentissage!"
+    }
   },
   "collections": {
     "title": "Collections",
@@ -39,33 +38,6 @@
       "body": "Ajoutez une nouvelle collection pour commencer votre apprentissage!"
     }
   },
-  "term": {
-    "title-new": "Nouveau terme",
-    "title-edit": "Modifier terme",
-    "form": {
-      "tr": "Traduction"
-    },
-    "create": "Créer",
-    "update": "Actualiser",
-    "delete": "Supprimer"
-  },
-  "category": {
-    "searchbar-placeholder": "Rechercher une catégorie",
-    "new-button": "Créer une catégorie",
-    "delete": "Supprimer",
-    "alert": {
-      "header": {
-        "create": "Nouvelle catégorie {{type}}",
-        "edit": "Modifier catégorie {{type}}"
-      },
-      "placeholder": "Nom de la catégorie",
-      "cancel": "Annuler",
-      "ok": {
-        "update": "Renommer",
-        "save": "Enregistrer"
-      }
-    }
-  },
   "data": {
     "category": {
       "gc": "Catégorie grammaticale",
@@ -84,6 +56,24 @@
     "term": {
       "notes": "Notes"
     }
+  },
+  "home": {
+    "searchbar-placeholder": "Rechercher un terme",
+    "details-label": "Détail",
+    "filter": {
+      "label": "Filtrer par {{type}}",
+      "cancel": "Annuler",
+      "ok": "OK"
+    },
+    "sort": {
+      "label": "Trier par:",
+      "opt": {
+        "t-org": "Terme d'origine",
+        "t-trans": "Terme traduit",
+        "date": "Date"
+      }
+    },
+    "no-term-msg": "Ajoutez un nouveau terme pour commencer votre apprentissage!"
   },
   "settings": {
     "title": "Paramètres",
@@ -108,5 +98,47 @@
         }
       }
     }
+  },
+  "tag": {
+    "title": "Nouvelle étiquette",
+    "form": {
+      "name": "Nom",
+      "icon": "Icône",
+      "button": "Enregistrer",
+      "validation": {
+        "name": {
+          "required": "Entrez un nom pour l'étiquette (ex., Nourriture)",
+          "maxlength": "Le nombre maximum de caractères autorisés est de {{max}}"
+        },
+        "icon": {
+          "required": "Choisissez une icône en cliquant sur l'émoticône"
+        }
+      }
+    },
+    "toast": {
+      "success": {
+        "msg": "Étiquette créée avec succès"
+      },
+      "fail": {
+        "no-active-collection":{
+          "header": "Erreur lors de la création de l'étiquette",
+          "msg": "La collection n'a pas pu être identifiée"
+        },
+        "max-reached":{
+          "header": "Nombre maximal d'étiquettes atteint",
+          "msg": "Supprimez des étiquettes pour pouvoir continuer à les créer"
+        }
+      }
+    }
+  },
+  "term": {
+    "title-new": "Nouveau terme",
+    "title-edit": "Modifier terme",
+    "form": {
+      "tr": "Traduction"
+    },
+    "create": "Créer",
+    "update": "Actualiser",
+    "delete": "Supprimer"
   }
 }

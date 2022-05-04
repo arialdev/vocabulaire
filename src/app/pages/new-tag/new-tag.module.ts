@@ -9,6 +9,7 @@ import {NewTagPageRoutingModule} from './new-tag-routing.module';
 import {NewTagPage} from './new-tag.page';
 import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
 import {EmojiPickerModule} from '../../components/emoji-picker/emoji-picker.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {EmojiPickerModule} from '../../components/emoji-picker/emoji-picker.modu
     EmojiPipeModule,
     ReactiveFormsModule,
     EmojiPickerModule,
+    TranslateModule
   ],
   declarations: [NewTagPage]
 })

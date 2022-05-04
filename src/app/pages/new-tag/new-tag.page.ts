@@ -9,6 +9,7 @@ import {Tag} from '../../classes/tag/tag';
 import {TagService} from '../../services/tag/tag.service';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-tag',
@@ -21,13 +22,13 @@ export class NewTagPage implements OnInit {
   selectedEmoji: Emoji;
   modalStatus: boolean;
 
-  maxTagNameLength = 25;
+  maxTagNameLength = 30;
   validationMessages = {
     name: [
-      {type: 'required', message: 'Tag name is required (e.g., Food)'},
-      {type: 'maxlength', message: `Tag name must have less than ${this.maxTagNameLength} characters`}
+      {type: 'required', message: 'tag.form.validation.name.required'},
+      {type: 'maxlength', message: `tag.form.validation.name.maxlength`}
     ],
-    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+    icon: [{type: 'required', message: 'tag.form.validation.icon.required'}]
   };
   showLength = {name: false};
 
@@ -40,7 +41,8 @@ export class NewTagPage implements OnInit {
     private navController: NavController,
     private tagService: TagService,
     private collectionService: CollectionService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private translationService: TranslateService
   ) {
     this.tagForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(this.maxTagNameLength)]),
@@ -66,17 +68,23 @@ export class NewTagPage implements OnInit {
       try {
         await this.tagService.addTag(tag, activeCollection.getId());
         this.toast = await this.toastController.create({
-          message: 'Tag created successfully',
+          message: await this.translationService.get('tag.toast.success.msg').toPromise(),
           color: 'success',
           icon: 'bookmark',
           duration: 800
         });
       } catch (e) {
+        let message;
+        if (e.message === `Collection with ID ${activeCollection.getId()} not found`) {
+          message = 'tag.toast.fail.no-active-collection.msg';
+        } else {
+          message = e.message;
+        }
         this.toast = await this.toastController.create({
-          header: 'Error when creating tag',
-          message: e.toString(),
+          header: await this.translationService.get('tag.toast.fail.max-reached.header').toPromise(),
+          message: await this.translationService.get(message).toPromise(),
           color: 'danger',
-          duration: 800
+          duration: 1000
         });
       }
       TagService.loadTag(tag);

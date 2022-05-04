@@ -1,21 +1,20 @@
 {
-  "home": {
-    "searchbar-placeholder": "Search term",
-    "details-label": "Detail",
-    "filter": {
-      "label": "Filter by {{type}}",
+  "category": {
+    "searchbar-placeholder": "Search category",
+    "new-button": "New category",
+    "delete": "Delete",
+    "alert": {
+      "header": {
+        "create": "New {{type}} category",
+        "edit": "Edit {{type}} category"
+      },
+      "placeholder": "Category´s name",
       "cancel": "Cancel",
-      "ok": "OK"
-    },
-    "sort": {
-      "label": "Sort by:",
-      "opt": {
-        "t-org": "Original term",
-        "t-trans": "Translated term",
-        "date": "Date"
+      "ok": {
+        "update": "Rename",
+        "save": "Save"
       }
-    },
-    "no-term-msg": "Add a new term to start learning!"
+    }
   },
   "collections": {
     "title": "Collections",
@@ -39,33 +38,6 @@
       "body": "Add a new collection to start learning!"
     }
   },
-  "term": {
-    "title-new": "New term",
-    "title-edit": "Edit term",
-    "form": {
-      "tr": "Translation"
-    },
-    "create": "New",
-    "update": "Update",
-    "delete": "Delete"
-  },
-  "category": {
-    "searchbar-placeholder": "Search category",
-    "new-button": "New category",
-    "delete": "Delete",
-    "alert": {
-      "header": {
-        "create": "New {{type}} category",
-        "edit": "Edit {{type}} category"
-      },
-      "placeholder": "Category´s name",
-      "cancel": "Cancel",
-      "ok": {
-        "update": "Rename",
-        "save": "Save"
-      }
-    }
-  },
   "data": {
     "category": {
       "gc": "Gramatical category",
@@ -84,6 +56,24 @@
     "term": {
       "notes": "Notes"
     }
+  },
+  "home": {
+    "searchbar-placeholder": "Search term",
+    "details-label": "Detail",
+    "filter": {
+      "label": "Filter by {{type}}",
+      "cancel": "Cancel",
+      "ok": "OK"
+    },
+    "sort": {
+      "label": "Sort by:",
+      "opt": {
+        "t-org": "Original term",
+        "t-trans": "Translated term",
+        "date": "Date"
+      }
+    },
+    "no-term-msg": "Add a new term to start learning!"
   },
   "settings": {
     "title": "Settings",
@@ -108,6 +98,47 @@
         }
       }
     }
+  },
+  "tag": {
+    "title": "New tag",
+    "form": {
+      "name": "Name",
+      "icon": "Icon",
+      "button": "Save",
+      "validation": {
+        "name": {
+          "required": "Tag name is required (e.g., Food)",
+          "maxlength": "Tag name must have less than {{max}} characters"
+        },
+        "icon": {
+          "required": "Choose an icon by touching the emoji icon"
+        }
+      }
+    },
+    "toast": {
+      "success": {
+        "msg": "Tag created successfully"
+      },
+      "fail": {
+        "no-active-collection":{
+          "header": "Error when creating tag",
+          "msg": "Could not find collection"
+        },
+        "max-reached":{
+          "header": "Maximum number of tags reached",
+          "msg": "Delete one tag in order to continue creating them"
+        }
+      }
+    }
+  },
+  "term": {
+    "title-new": "New term",
+    "title-edit": "Edit term",
+    "form": {
+      "tr": "Translation"
+    },
+    "create": "New",
+    "update": "Update",
+    "delete": "Delete"
   }
 }
-

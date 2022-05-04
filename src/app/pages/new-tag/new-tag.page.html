@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>New tag</ion-title>
+    <ion-title [translate]="'tag.title'"></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
   <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        Name
+        {{'tag.form.name'|translate}}
         <span class="warning-message"
               *ngIf=" showLength.name && tagForm.get('name').value.length>maxTagNameLength*0.6"
               [class.strong-warning]="tagForm.get('name').value.length>maxTagNameLength*0.8"
@@ -27,13 +27,13 @@
       <ng-container *ngFor="let validation of validationMessages.name">
         <div class="error-message"
              *ngIf="tagForm.get('name').hasError(validation.type) && (tagForm.get('name').dirty
-             || tagForm.get('name').touched)">
-          {{ validation.message }}
+             || tagForm.get('name').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxTagNameLength}">
         </div>
       </ng-container>
     </div>
     <ion-item>
-      <ion-label position="fixed">Icon</ion-label>
+      <ion-label position="fixed" [translate]="'tag.form.icon'"></ion-label>
       <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required="true"></ion-input>
       <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
         <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
@@ -43,8 +43,7 @@
       <ng-container *ngFor="let validation of validationMessages.icon">
         <div class="error-message"
              *ngIf="tagForm.get('icon').hasError(validation.type) && (tagForm.get('icon').dirty
-             || tagForm.get('icon').touched)">
-          {{ validation.message }}
+             || tagForm.get('icon').touched)" [translate]="validation.message">
         </div>
       </ng-container>
     </div>

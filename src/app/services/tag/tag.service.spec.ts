@@ -81,7 +81,7 @@ describe('TagService', () => {
     for (let i = 0; i < TagService.maxTagsBound; i++) {
       await service.addTag(tag, collection.getId());
     }
-    await expectAsync(service.addTag(tag, collection.getId())).toBeRejectedWithError('Maximum number of tags reached');
+    await expectAsync(service.addTag(tag, collection.getId())).toBeRejectedWithError('tag.toast.fail.max-reached.msg');
   });
 
   it('should get tag as promise', async () => {
