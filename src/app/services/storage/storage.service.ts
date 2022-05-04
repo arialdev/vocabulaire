@@ -13,7 +13,10 @@ export class StorageService implements AbstractStorageService {
 
   private myStorage: Storage | null = null;
 
-  constructor(private storage: Storage, private fileService: FileService) {
+  constructor(
+    private storage: Storage,
+    private fileService: FileService,
+  ) {
     this.init();
   }
 
@@ -53,7 +56,7 @@ export class StorageService implements AbstractStorageService {
       content = JSON.parse(await file.text());
       keys = Object.keys(content);
     } catch (_) {
-      throw new Error('Corrupted file');
+      throw new Error('settings.import.toast.bad-file.message');
     }
     try {
       content.settings.darkMode ??= false;
@@ -69,7 +72,7 @@ export class StorageService implements AbstractStorageService {
       for (const k of oldKeys) {
         await this.set(k, oldData[k]);
       }
-      throw new Error('File has corrupted data');
+      throw new Error('settings.import.toast.bad-data.message');
     }
     return true;
   }

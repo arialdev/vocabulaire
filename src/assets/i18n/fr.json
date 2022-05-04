@@ -89,7 +89,24 @@
     "title": "Paramètres",
     "dark-mode": "Mode sombre",
     "language": "Langue",
-    "export": "Exporter des données",
-    "import": "Importer des données"
+    "export": {
+      "button": "Exporter des données"
+    },
+    "import": {
+      "button": "Importer des données",
+      "toast": {
+        "success": {
+          "message": "Données importées avec succès"
+        },
+        "bad-file": {
+          "title": "Impossible d'importer les données",
+          "message": "Fichier corrompu"
+        },
+        "bad-data": {
+          "title": "Impossible d'importer les données",
+          "message": "Le fichier contient des données corrompues"
+        }
+      }
+    }
   }
 }

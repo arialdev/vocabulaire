@@ -91,7 +91,7 @@ describe('StorageService', () => {
 
   it('should return corrupted file error when importing wrong file', async () => {
     const file = new File(['file content'], 'data.json', {type: 'text/plain'});
-    await expectAsync(service.importData(file)).toBeRejectedWithError('Corrupted file');
+    await expectAsync(service.importData(file)).toBeRejectedWithError('settings.import.toast.bad-file.message');
   });
 
   it('should return corrupted data error when importing file with ambiguous data', async () => {
@@ -100,6 +100,6 @@ describe('StorageService', () => {
       settings: {darkMode: true, preferredLanguage: {prefix: 'en', name: 'English'}, initialized: true}
     };
     const file = new File([JSON.stringify(data)], 'data.json', {type: 'text/plain'});
-    await expectAsync(service.importData(file)).toBeRejectedWithError('File has corrupted data');
+    await expectAsync(service.importData(file)).toBeRejectedWithError('settings.import.toast.bad-data.message');
   });
 });

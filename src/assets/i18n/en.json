@@ -89,8 +89,25 @@
     "title": "Settings",
     "dark-mode": "Dark mode",
     "language": "Language",
-    "export": "EXPORT DATA",
-    "import": "IMPORT DATA"
+    "export": {
+      "button": "EXPORT DATA"
+    },
+    "import": {
+      "button": "IMPORT DATA",
+      "toast": {
+        "success": {
+          "message": "Data imported successfully"
+        },
+        "bad-file": {
+          "title": "Could not import data",
+          "message": "Corrupted file"
+        },
+        "bad-data": {
+          "title": "Could not import data",
+          "message": "File has corrupted data"
+        }
+      }
+    }
   }
 }
 

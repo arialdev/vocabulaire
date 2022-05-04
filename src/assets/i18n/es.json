@@ -89,7 +89,24 @@
     "title": "Ajustes",
     "dark-mode": "Tema oscuro",
     "language": "Idioma",
-    "export": "Exportar datos",
-    "import": "Importar datos"
+    "export": {
+      "button": "Exportar datos"
+    },
+    "import": {
+      "button": "Importar datos",
+      "toast": {
+        "success": {
+          "message": "Datos importados con éxito"
+        },
+        "bad-file": {
+          "title": "No se pudieron importar los datos",
+          "message": "Fichero corrupto"
+        },
+        "bad-data": {
+          "title": "No se pudieron importar los datos",
+          "message": "El fichero tiene datos corruptos"
+        }
+      }
+    }
   }
 }

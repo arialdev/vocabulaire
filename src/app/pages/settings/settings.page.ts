@@ -3,6 +3,7 @@ import {SettingsService} from '../../services/settings/settings.service';
 import {GuiLanguage} from '../../interfaces/gui-language';
 import {AbstractStorageService} from '../../services/storage/abstract-storage-service';
 import {ToastController} from '@ionic/angular';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
@@ -22,7 +23,8 @@ export class SettingsPage implements OnInit {
   constructor(
     private settingsService: SettingsService,
     private storageService: AbstractStorageService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private translateService: TranslateService
   ) {
     this.fileInput = '';
     this.languages = this.settingsService.getLanguages();
@@ -58,15 +60,15 @@ export class SettingsPage implements OnInit {
       await this.settingsService.initializeService();
       await this.ngOnInit();
       this.toast = await this.toastController.create({
-        message: 'Data imported successfully',
+        message:  await this.translateService.get('settings.import.toast.success.message').toPromise(),
         color: 'success',
         icon: 'download-outline',
         duration: 800
       });
     } else if (res.status === 'rejected') {
       this.toast = await this.toastController.create({
-        header: 'Could not import data',
-        message: res.reason.message,
+        header: await this.translateService.get('settings.import.toast.bad-file.title').toPromise(),
+        message: await this.translateService.get(res.reason.message).toPromise(),
         color: 'danger',
         icon: 'download',
         duration: 1000

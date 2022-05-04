@@ -22,9 +22,9 @@
     </ion-item>
   </ion-list>
   <div class="centered">
-    <ion-button class="export-button" color="primary-blue" fill="clear" [translate]="'settings.export'"
+    <ion-button class="export-button" color="primary-blue" fill="clear" [translate]="'settings.export.button'"
                 (click)="exportData()"></ion-button>
-    <ion-button class="import-button" color="primary-blue" fill="clear" [translate]="'settings.import'"
+    <ion-button class="import-button" color="primary-blue" fill="clear" [translate]="'settings.import.button'"
                 (click)="openFileExplorer()"></ion-button>
     <input id="file-importer" class="ion-hide" type="file" accept="application/json" [(ngModel)]="fileInput"
            (change)="importData($event)">

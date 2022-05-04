@@ -86,7 +86,7 @@ describe('SettingsPage', () => {
     await component.importData({target: {files: []}});
     expect(storageService.importData).toHaveBeenCalledTimes(2);
     expect(toastController.create).toHaveBeenCalledWith({
-      message: 'Data imported successfully',
+      message: 'sample',
       color: 'success',
       icon: 'download-outline',
       duration: 800
@@ -101,8 +101,8 @@ describe('SettingsPage', () => {
     await component.importData({target: {files: []}});
     expect(storageService.importData).toHaveBeenCalledWith(undefined);
     expect(toastController.create).toHaveBeenCalledWith({
-      header: 'Could not import data',
-      message: 'Import has failed',
+      header: 'sample',
+      message: 'sample',
       color: 'danger',
       icon: 'download',
       duration: 1000
