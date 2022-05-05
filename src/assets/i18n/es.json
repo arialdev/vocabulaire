@@ -247,5 +247,12 @@
       }
     },
     "update": "Aplicar"
+  },
+  "wod": {
+    "no-msg": {
+      "1": "La palabra del día escoge un término de tu vocabulario para que continúes con tu aprendizaje",
+      "2": "Añade un mínimo de {{bound}} términos para empezar a utilizar esta funcionalidad"
+    },
+    "title": "La Palabra del Día"
   }
 }

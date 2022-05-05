@@ -247,5 +247,12 @@
       }
     },
     "update": "Actualiser"
+  },
+  "wod": {
+    "no-msg": {
+      "1": "Le mot du jour choisit un terme de votre vocabulaire pour que vous puissiez poursuivre votre apprentissage",
+      "2": "Ajoutez un minimum de {{bound}} ermes pour commencer à utiliser cette fonctionnalité"
+    },
+    "title": "Le Mot du Jour"
   }
 }

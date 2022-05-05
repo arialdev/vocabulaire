@@ -11,6 +11,7 @@ import {Collection} from '../../classes/collection/collection';
 import {Wod} from '../../classes/wod/wod';
 import {Term} from '../../classes/term/term';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('WodPage', () => {
   let component: WodPage;
@@ -19,14 +20,12 @@ describe('WodPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [WodPage],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), TranslateModule.forRoot()],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: EmojisMap},
-        // {provide: CollectionService, useClass: MockCollectionService},
-        // {provide: TermService, useClass: MockCollectionService}
       ],
-      schemas:[CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(WodPage);

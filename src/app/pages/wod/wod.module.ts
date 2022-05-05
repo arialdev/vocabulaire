@@ -8,6 +8,7 @@ import {WodPageRoutingModule} from './wod-routing.module';
 
 import {WodPage} from './wod.page';
 import {HeaderModule} from '../../components/header/header.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {HeaderModule} from '../../components/header/header.module';
     FormsModule,
     IonicModule,
     WodPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    TranslateModule
   ],
   declarations: [WodPage]
 })

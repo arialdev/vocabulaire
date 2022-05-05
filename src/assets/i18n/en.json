@@ -247,5 +247,12 @@
       }
     },
     "update": "Update"
+  },
+  "wod": {
+    "no-msg": {
+      "1": "Word of the Day picks a term from your vocabulary so you don't miss it",
+      "2": "Add at least {{bound}} terms to use this functionality"
+    },
+    "title": "Word of the Day"
   }
 }

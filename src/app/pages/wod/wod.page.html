@@ -4,7 +4,7 @@
 <ion-content>
   <div class="title">
     <ion-img class="bulb-pic" [src]="bulbPath"></ion-img>
-    <span>Word of the Day</span>
+    <span [translate]="'wod.title'"></span>
   </div>
   <ion-item class="term" color="light" lines="none" *ngIf="wod;else no_wod">
     <div class="item-box">
@@ -29,8 +29,8 @@
   </ion-item>
   <ng-template #no_wod>
     <div class="no-wod-message">
-      <p>Word of the Day picks a term from your vocabulary so you don't miss it</p>
-      <p class="subtitle">Add at least {{termsBound}} terms to use this functionality</p>
+      <p [translate]="'wod.no-msg.1'"></p>
+      <p class="subtitle" [translate]="'wod.no-msg.2'" [translateParams]="{bound:termsBound}"></p>
     </div>
   </ng-template>
 
