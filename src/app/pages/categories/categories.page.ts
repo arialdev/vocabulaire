@@ -44,7 +44,7 @@ export class CategoriesPage implements OnInit {
     return this.createAlert(
       await this.translateService.get('category.alert.header.create', {type}).toPromise(),
       undefined,
-      'Save',
+      await this.translateService.get('category.alert.ok.save').toPromise(),
       (text) => this.createCategory(text[0])
     );
   }
@@ -58,7 +58,7 @@ export class CategoriesPage implements OnInit {
     return this.createAlert(
       await this.translateService.get('category.alert.header.edit', {type}).toPromise(),
       category.getName(),
-      'Update',
+      await this.translateService.get('category.alert.ok.update').toPromise(),
       (text) => this.updateCategory(text[0], category)
     );
   }
@@ -89,7 +89,7 @@ export class CategoriesPage implements OnInit {
       animated: true,
       keyboardClose: true,
       buttons: [
-        {text: 'Cancel', role: 'cancel'},
+        {text: await this.translateService.get('category.alert.cancel').toPromise(), role: 'cancel'},
         {
           text: buttonText, role: 'set', handler: async (t) => {
             await handler(t);

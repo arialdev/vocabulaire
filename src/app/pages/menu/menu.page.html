@@ -7,21 +7,21 @@
             <ion-item routerDirection="root" routerLink='/home' lines="none" detail="false"
                       [class.selected]="selectedPath === '/home'">
               <ion-icon slot="start" name="home-outline"></ion-icon>
-              <ion-label>Home</ion-label>
+              <ion-label [translate]="'home.title'"></ion-label>
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" routerLink='/word-of-the-day' lines="none" detail="false"
                       [class.selected]="selectedPath === '/word-of-the-day'">
               <ion-icon slot="start" name="bulb-outline"></ion-icon>
-              <ion-label>Word of the Day</ion-label>
+              <ion-label [translate]="'wod.title'"></ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
         <ion-list id="tag-list">
           <ion-list-header>
-            Tags:
+            <span [translate]="'data.tag.tags'"></span>:
             <span class="counter">({{tags.length}}/{{maxTagsBound}})</span>
           </ion-list-header>
           <ion-item-sliding *ngFor="let tag of tags">
@@ -46,7 +46,7 @@
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" routerLink='/settings' lines="none" detail="false">
               <ion-icon size="large" slot="start" name="settings-outline"></ion-icon>
-              <ion-label>Settings</ion-label>
+              <ion-label [translate]="'settings.title'"></ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

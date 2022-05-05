@@ -8,6 +8,7 @@ import {MenuPageRoutingModule} from './menu-routing.module';
 
 import {MenuPage} from './menu.page';
 import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
     FormsModule,
     IonicModule,
     MenuPageRoutingModule,
-    EmojiPipeModule
+    EmojiPipeModule,
+    TranslateModule
   ],
   exports: [
     MenuPage

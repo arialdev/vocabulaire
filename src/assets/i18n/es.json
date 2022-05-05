@@ -106,6 +106,10 @@
         "ts": "Temáticas"
       }
     },
+    "tag": {
+      "tag": "Etiqueta",
+      "tags": "Etiquetas"
+    },
     "term": {
       "notes": "Notas"
     }
@@ -126,7 +130,8 @@
         "t-org": "Término original",
         "t-trans": "Término traducido"
       }
-    }
+    },
+    "title": "Principal"
   },
   "settings": {
     "dark-mode": "Tema oscuro",
