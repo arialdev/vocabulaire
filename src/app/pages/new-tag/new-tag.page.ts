@@ -32,6 +32,10 @@ export class NewTagPage implements OnInit {
   };
   showLength = {name: false};
 
+  translation = {
+    name: 'tag.form.name'
+  };
+
   private tagOptions: TagOptions;
   private toast: HTMLIonToastElement;
 

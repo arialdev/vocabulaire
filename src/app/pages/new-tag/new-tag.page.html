@@ -11,7 +11,7 @@
   <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        {{'tag.form.name'|translate}}
+        {{translation.name|translate}}
         <span class="warning-message"
               *ngIf=" showLength.name && tagForm.get('name').value.length>maxTagNameLength*0.6"
               [class.strong-warning]="tagForm.get('name').value.length>maxTagNameLength*0.8"

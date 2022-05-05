@@ -46,6 +46,13 @@ export class TermPage implements OnInit {
 
   showLength = {originalTerm: false, translatedTerm: false, notes: false};
 
+  translation = {
+    form: {
+      translatedTerm: 'term.form.tr',
+      notes:'data.term.notes'
+    }
+  };
+
   compareWith = compareCategories;
 
   private activeCollection: Collection;
@@ -145,7 +152,7 @@ export class TermPage implements OnInit {
         }
       }
       await Promise.allSettled([this.toast.present(), this.navController.navigateBack('')]);
-    }else{
+    } else {
       this.termForm.markAllAsTouched();
     }
   }

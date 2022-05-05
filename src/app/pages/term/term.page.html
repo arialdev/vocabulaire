@@ -35,7 +35,7 @@
     </div>
     <ion-item>
       <ion-label position="floating">
-        {{'term.form.tr'| translate}}
+        {{translation.form.translatedTerm| translate}}
         <span class="warning-message"
               *ngIf=" showLength.translatedTerm && termForm.get('translatedTerm').value.length>maxTermNameLength*0.6"
               [class.strong-warning]="termForm.get('translatedTerm').value.length>maxTermNameLength*0.8"
@@ -105,7 +105,7 @@
     <ion-item-divider class="low-divider"></ion-item-divider>
     <ion-item>
       <ion-label position="floating">
-        {{'data.term.notes' | translate}}
+        {{translation.form.notes | translate}}
         <span class="warning-message"
               *ngIf=" showLength.notes && termForm.get('notes').value.length>maxNotesLength*0.6"
               [class.strong-warning]="termForm.get('notes').value.length>maxNotesLength*0.8"

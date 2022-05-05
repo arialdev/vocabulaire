@@ -4,9 +4,9 @@
 
   <div class="searchbar-container">
     <div class="terms-searchbar">
-      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'home.searchbar-placeholder'|translate" animated="true"
-                     enterkeyhint="search"
-                     inputmode="text" type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="translation.searchbarPlaceholder|translate"
+                     animated="true" enterkeyhint="search" inputmode="text" type="search"
+                     (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
     <div class="book-button">
       <ion-button [disabled]="!isTagButtonAvailable" fill="clear" (click)="toggleTag()">

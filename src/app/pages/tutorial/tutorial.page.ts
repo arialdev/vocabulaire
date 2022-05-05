@@ -44,6 +44,12 @@ export class TutorialPage {
   };
   showLength = {name: false};
 
+  translation = {
+    form: {
+      name: 'collections.form.name'
+    }
+  };
+
   constructor(
     private menuController: MenuController,
     private settingsService: SettingsService,

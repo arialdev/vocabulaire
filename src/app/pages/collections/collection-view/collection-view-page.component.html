@@ -11,7 +11,7 @@
   <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        {{'collections.form.name' | translate}}
+        {{translation.form.name | translate}}
         <span class="warning-message"
               *ngIf=" showLength.name && collectionForm.get('name').value.length>maxLanguageNameLength*0.6"
               [class.strong-warning]="collectionForm.get('name').value.length>maxLanguageNameLength*0.8"

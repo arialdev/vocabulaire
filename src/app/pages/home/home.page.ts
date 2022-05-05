@@ -30,6 +30,10 @@ export class HomePage {
   activeTag: Tag;
   isTagButtonAvailable: boolean;
 
+  readonly  translation: {
+    searchbarPlaceholder: 'home.searchbar-placeholder';
+  };
+
   private activeSortingCode: number;
   private readonly sortingFunctions: any;
   private readonly filters: any;

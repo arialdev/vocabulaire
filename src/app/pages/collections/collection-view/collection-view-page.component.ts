@@ -37,6 +37,12 @@ export class CollectionViewPage implements OnInit {
   };
   showLength = {name: false};
 
+  translation = {
+    form: {
+      name: 'collections.form.name'
+    }
+  };
+
   private toast: HTMLIonToastElement;
 
   constructor(
