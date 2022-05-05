@@ -1,30 +1,65 @@
 {
   "category": {
-    "searchbar-placeholder": "Rechercher une catégorie",
-    "new-button": "Créer une catégorie",
-    "delete": "Supprimer",
     "alert": {
+      "cancel": "Annuler",
       "header": {
         "create": "Nouvelle catégorie {{type}}",
         "edit": "Modifier catégorie {{type}}"
       },
-      "placeholder": "Nom de la catégorie",
-      "cancel": "Annuler",
       "ok": {
-        "update": "Renommer",
-        "save": "Enregistrer"
-      }
-    }
+        "save": "Enregistrer",
+        "update": "Renommer"
+      },
+      "placeholder": "Nom de la catégorie"
+    },
+    "delete": "Supprimer",
+    "new-button": "Créer une catégorie",
+    "searchbar-placeholder": "Rechercher une catégorie"
   },
   "collections": {
     "alert": {
       "deletion": {
+        "cancel": "Annuler",
         "header": "Confirmer la élimination",
         "msg": "Cette action ne peut pas être renverser",
-        "cancel": "Annuler",
         "ok": "Éliminer"
       }
     },
+    "buttons": {
+      "manage": "Gérer",
+      "set": "Établir"
+    },
+    "form": {
+      "create": "Créer",
+      "delete": "Supprimer",
+      "icon": "Icône",
+      "name": "Nom",
+      "prefix": "Préfixe",
+      "title-edit": "Modifier la collection",
+      "title-new": "Nouvelle collection",
+      "update": "Actualiser",
+      "validation": {
+        "icon": {
+          "required": "Choisissez une icône pour la collection en cliquant sur le bouton émoticône"
+        },
+        "name": {
+          "maxlength": "Le nom de la collection doit comporter un maximum de {{max}} caractères",
+          "minlength": "Le nom de la collection doit comporter au moins {{min}} caractères",
+          "required": "Entrez le nom de la collection (ex., Anglais)"
+        },
+        "prefix": {
+          "maxlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)",
+          "minlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)",
+          "required": "Entrez un préfixe de langue de collection (ex., EN)"
+        }
+      }
+    },
+    "new": "Nouvelle collection",
+    "no-coll-msg": {
+      "body": "Ajoutez une nouvelle collection pour commencer votre apprentissage!",
+      "title": "Dans Vocabulaire vous pouvez apprendre plusieurs langues en même temps en les séparant en collections."
+    },
+    "title": "Collections",
     "toast": {
       "active": "{{name}} défini comme la collection active",
       "create": {
@@ -32,73 +67,38 @@
           "msg": "Collection créée avec succès"
         }
       },
-      "update": {
-        "success": {
-          "msg": "Collection actualisée avec succès"
-        },
-        "error-no-collection": {
-          "msg": "Collection introuvable"
-        }
-      },
       "delete": {
-        "success": {
-          "msg": "Collection éliminée avec succès"
-        },
-        "error-no-collection": {
-          "msg": "Collection introuvable"
+        "error": {
+          "msg": "Erreur interne"
         },
         "error-active": {
           "msg": "Impossible de éliminer une collection active"
         },
-        "error": {
-          "msg": "Erreur interne"
+        "error-no-collection": {
+          "msg": "Collection introuvable"
+        },
+        "success": {
+          "msg": "Collection éliminée avec succès"
+        }
+      },
+      "update": {
+        "error-no-collection": {
+          "msg": "Collection introuvable"
+        },
+        "success": {
+          "msg": "Collection actualisée avec succès"
         }
       }
-    },
-    "title": "Collections",
-    "buttons": {
-      "manage": "Gérer",
-      "set": "Établir"
-    },
-    "new": "Nouvelle collection",
-    "form": {
-      "title-new": "Nouvelle collection",
-      "title-edit": "Modifier la collection",
-      "name": "Nom",
-      "prefix": "Préfixe",
-      "icon": "Icône",
-      "create": "Créer",
-      "update": "Actualiser",
-      "delete": "Supprimer",
-      "validation": {
-        "name": {
-          "required": "Entrez le nom de la collection (ex., Anglais)",
-          "minlength": "Le nom de la collection doit comporter au moins {{min}} caractères",
-          "maxlength": "Le nom de la collection doit comporter un maximum de {{max}} caractères"
-        },
-        "prefix": {
-          "required": "Entrez un préfixe de langue de collection (ex., EN)",
-          "maxlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)",
-          "minlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)"
-        },
-        "icon": {
-          "required": "Choisissez une icône pour la collection en cliquant sur le bouton émoticône"
-        }
-      }
-    },
-    "no-coll-msg": {
-      "title": "Dans Vocabulaire vous pouvez apprendre plusieurs langues en même temps en les séparant en collections.",
-      "body": "Ajoutez une nouvelle collection pour commencer votre apprentissage!"
     }
   },
   "data": {
     "category": {
       "gc": "Catégorie grammaticale",
       "gcs": "Catégories grammaticales",
-      "tc": "Catégorie thématique",
-      "tcs": "Categorías thématiques",
       "name": "Catégorie",
       "name-p": "Catégories",
+      "tc": "Catégorie thématique",
+      "tcs": "Catégories thématiques",
       "type": {
         "g": "Grammaticale",
         "gs": "Grammaticales",
@@ -111,87 +111,141 @@
     }
   },
   "home": {
-    "searchbar-placeholder": "Rechercher un terme",
     "details-label": "Détail",
     "filter": {
-      "label": "Filtrer par {{type}}",
       "cancel": "Annuler",
+      "label": "Filtrer par {{type}}",
       "ok": "OK"
     },
+    "no-term-msg": "Ajoutez un nouveau terme pour commencer votre apprentissage!",
+    "searchbar-placeholder": "Rechercher un terme",
     "sort": {
       "label": "Trier par:",
       "opt": {
+        "date": "Date",
         "t-org": "Terme d'origine",
-        "t-trans": "Terme traduit",
-        "date": "Date"
+        "t-trans": "Terme traduit"
       }
-    },
-    "no-term-msg": "Ajoutez un nouveau terme pour commencer votre apprentissage!"
+    }
   },
   "settings": {
-    "title": "Paramètres",
     "dark-mode": "Mode sombre",
-    "language": "Langue",
     "export": {
       "button": "Exporter des données"
     },
     "import": {
       "button": "Importer des données",
       "toast": {
-        "success": {
-          "message": "Données importées avec succès"
+        "bad-data": {
+          "message": "Le fichier contient des données corrompues",
+          "title": "Impossible d'importer les données"
         },
         "bad-file": {
-          "title": "Impossible d'importer les données",
-          "message": "Fichier corrompu"
+          "message": "Fichier corrompu",
+          "title": "Impossible d'importer les données"
         },
-        "bad-data": {
-          "title": "Impossible d'importer les données",
-          "message": "Le fichier contient des données corrompues"
-        }
-      }
-    }
-  },
-  "tag": {
-    "title": "Nouvelle étiquette",
-    "form": {
-      "name": "Nom",
-      "icon": "Icône",
-      "button": "Enregistrer",
-      "validation": {
-        "name": {
-          "required": "Entrez un nom pour l'étiquette (ex., Nourriture)",
-          "maxlength": "Le nombre maximum de caractères autorisés est de {{max}}"
-        },
-        "icon": {
-          "required": "Choisissez une icône en cliquant sur l'émoticône"
+        "success": {
+          "message": "Données importées avec succès"
         }
       }
     },
-    "toast": {
-      "success": {
-        "msg": "Étiquette créée avec succès"
-      },
-      "fail": {
-        "no-active-collection": {
-          "header": "Erreur lors de la création de l'étiquette",
-          "msg": "La collection n'a pas pu être identifiée"
+    "language": "Langue",
+    "title": "Paramètres"
+  },
+  "tag": {
+    "form": {
+      "button": "Enregistrer",
+      "icon": "Icône",
+      "name": "Nom",
+      "validation": {
+        "icon": {
+          "required": "Choisissez une icône en cliquant sur l'émoticône"
         },
+        "name": {
+          "maxlength": "Le nombre maximum de caractères autorisés est de {{max}}",
+          "required": "Entrez un nom pour l'étiquette (ex., Nourriture)"
+        }
+      }
+    },
+    "title": "Nouvelle étiquette",
+    "toast": {
+      "fail": {
         "max-reached": {
           "header": "Nombre maximal d'étiquettes atteint",
           "msg": "Supprimez des étiquettes pour pouvoir continuer à les créer"
+        },
+        "no-active-collection": {
+          "header": "Erreur lors de la création de l'étiquette",
+          "msg": "La collection n'a pas pu être identifiée"
         }
+      },
+      "success": {
+        "msg": "Étiquette créée avec succès"
       }
     }
   },
   "term": {
-    "title-new": "Nouveau terme",
-    "title-edit": "Modifier terme",
-    "form": {
-      "tr": "Traduction"
+    "alert": {
+      "delete": {
+        "cancel": "Annuler",
+        "header": "Confirmer la élimination",
+        "msg": "Cette action ne peut pas être annulée",
+        "ok": "Éliminer"
+      }
+    },
+    "category": {
+      "select": {
+        "cancel": "Annuler",
+        "ok": "OK"
+      }
     },
     "create": "Créer",
-    "update": "Actualiser",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "form": {
+      "tr": "Traduction",
+      "validation": {
+        "gc": {},
+        "notes": {
+          "maxlength": "Les notes doivent contenir moins de {{max}} caractères"
+        },
+        "or-term": {
+          "maxlength": "Le terme d'origine ne peut pas contenir plus de {{max}} caractères",
+          "required": "Entrez le terme d'origine (langue de la collection)"
+        },
+        "tc": {},
+        "tr-term": {
+          "maxlength": "Le terme traduit ne peut pas contenir plus de {{max}} caractères",
+          "required": "Entrez le terme traduit (langue propre)"
+        }
+      }
+    },
+    "title-edit": "Modifier terme",
+    "title-new": "Nouveau terme",
+    "toast": {
+      "create": {
+        "collection-not-found": {
+          "header": "Erreur lors de la création du terme",
+          "msg": "Collection introuvable"
+        },
+        "success": {
+          "msg": "Terme créé avec succès"
+        }
+      },
+      "delete": {
+        "collection-not-found": {
+          "header": "Erreur lors de la suppression du terme",
+          "msg": "Collection introuvable"
+        },
+        "success": {
+          "msg": "Terme supprimé avec succès"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Terme actualisé avec succès"
+        }
+      }
+    },
+    "update": "Actualiser"
   }
 }

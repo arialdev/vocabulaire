@@ -23,18 +23,19 @@ export class TermPage implements OnInit {
   termForm: FormGroup;
   validationMessages = {
     originalTerm: [
-      {type: 'required', message: 'Original term is required'},
-      {type: 'maxlength', message: `Translated term must have less than ${this.maxTermNameLength} characters`}
+      {type: 'required', message: 'term.form.validation.or-term.required'},
+      {type: 'maxlength', message: 'term.form.validation.or-term.maxlength'}
     ],
     translatedTerm: [
-      {type: 'required', message: 'Translated term is required'},
-      {type: 'maxlength', message: `Original term must have less than ${this.maxTermNameLength} characters`}
+      {type: 'required', message: 'term.form.validation.tr-term.required'},
+      {type: 'maxlength', message: 'term.form.validation.tr-term.maxlength'},
     ],
     gramaticalCategories: [],
     thematicCategories: [],
-    notes: [{type: 'maxlength', message: `Notes must have less than ${this.maxNotesLength} characters`}]
+    notes: [{type: 'maxlength', message: 'term.form.validation.notes.maxlength'}]
   };
-  customAlertOptions: any;
+  customAlertGCsOptions: any;
+  customAlertTCsOptions: any;
   languageLabel: string;
   gramaticalCategoriesList: Category[];
   thematicCategoriesList: Category[];
@@ -50,6 +51,10 @@ export class TermPage implements OnInit {
     form: {
       translatedTerm: 'term.form.tr',
       notes: 'data.term.notes'
+    },
+    select: {
+      ok: 'term.category.select.ok',
+      cancel: 'term.category.select.cancel',
     }
   };
 
@@ -74,9 +79,10 @@ export class TermPage implements OnInit {
       thematicCategories: new FormControl(''),
       notes: new FormControl('', Validators.maxLength(this.maxNotesLength)),
     });
-
-    this.customAlertOptions = {
-      header: 'Gramatical categories',
+    this.customAlertGCsOptions = {
+      translucent: true,
+    };
+    this.customAlertGCsOptions = {
       translucent: true,
     };
     this.selectedGramaticalCategories = [];
@@ -124,7 +130,7 @@ export class TermPage implements OnInit {
         try {
           await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
           this.toast = await this.toastController.create({
-            message: 'Term updated successfully',
+            message: await this.translateService.get('term.toast.update.success.msg').toPromise(),
             icon: 'chatbox',
             color: 'success',
             duration: 800,
@@ -135,15 +141,15 @@ export class TermPage implements OnInit {
         try {
           await this.termService.addTerm(term, this.activeCollection.getId());
           this.toast = await this.toastController.create({
-            message: 'Term created successfully',
+            message: await this.translateService.get('term.toast.create.success.msg').toPromise(),
             icon: 'chatbox',
             color: 'success',
             duration: 800,
           });
         } catch (error) {
           this.toast = await this.toastController.create({
-            header: 'Error when creating term',
-            message: 'Active collection not found',
+            header: await this.translateService.get('term.toast.create.collection-not-found.header').toPromise(),
+            message: await this.translateService.get('term.toast.create.collection-not-found.msg').toPromise(),
             icon: 'chatbox',
             color: 'danger',
             duration: 1000,
@@ -158,21 +164,22 @@ export class TermPage implements OnInit {
   }
 
   async openDeletionAlert(): Promise<void> {
+    const text = await this.translateService.get('term.alert.delete').toPromise();
     const alert = await this.alertController.create({
-      header: 'Confirm deletion',
-      message: 'This action cannot be undone',
+      header: text.header,
+      message: text.msg,
       buttons: [
         {
-          text: 'Cancel',
+          text: text.cancel,
           role: 'cancel',
         }, {
-          text: 'Delete',
+          text: text.ok,
           handler: async () => {
             await this.toast?.dismiss();
             try {
               await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
               this.toast = await this.toastController.create({
-                message: 'Term deleted successfully',
+                message: await this.translateService.get('term.toast.delete.success.msg').toPromise(),
                 icon: 'chatbox',
                 color: 'success',
                 duration: 800
@@ -180,11 +187,11 @@ export class TermPage implements OnInit {
               await Promise.allSettled([this.toast.present(), await this.navController.navigateBack('')]);
             } catch (_) {
               this.toast = await this.toastController.create({
-                header: 'Error when deleting term',
-                message: 'Active collection not found',
+                header: await this.translateService.get('term.toast.delete.collection-not-found.header').toPromise(),
+                message: await this.translateService.get('term.toast.delete.collection-not-found.msg').toPromise(),
                 icon: 'chatbox',
                 color: 'danger',
-                duration: 1000
+                duration: 1000,
               });
             }
           }

@@ -118,7 +118,7 @@ describe('TermPage for creating term', () => {
     expect(term.getThematicCategories()).toEqual([newCT]);
     expect(term.getNotes()).toEqual('sample');
     expect(toastController.create).toHaveBeenCalledWith({
-      message: 'Term created successfully',
+      message: 'term.toast.create.success.msg',
       icon: 'chatbox',
       color: 'success',
       duration: 800,
@@ -147,8 +147,8 @@ describe('TermPage for creating term', () => {
     });
     await component.onSubmit();
     expect(toastController.create).toHaveBeenCalledWith({
-      header: 'Error when creating term',
-      message: 'Active collection not found',
+      header: 'term.toast.create.collection-not-found.header',
+      message: 'term.toast.create.collection-not-found.msg',
       icon: 'chatbox',
       color: 'danger',
       duration: 1000,
@@ -271,7 +271,7 @@ describe('TermPage for updating term', () => {
     await component.onSubmit();
     expect(termService.updateTerm).toHaveBeenCalled();
     expect(toastController.create).toHaveBeenCalledWith({
-      message: 'Term updated successfully',
+      message: 'term.toast.update.success.msg',
       icon: 'chatbox',
       color: 'success',
       duration: 800,

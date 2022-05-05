@@ -1,30 +1,65 @@
 {
   "category": {
-    "searchbar-placeholder": "Buscar categoría",
-    "new-button": "Crear categoría",
-    "delete": "Eliminar",
     "alert": {
+      "cancel": "Cancelar",
       "header": {
         "create": "Nueva categoría {{type}}",
         "edit": "Editar categoría {{type}}"
       },
-      "placeholder": "Nombre de la categoría",
-      "cancel": "Cancelar",
       "ok": {
-        "update": "Renombrar",
-        "save": "Guardar"
-      }
-    }
+        "save": "Guardar",
+        "update": "Renombrar"
+      },
+      "placeholder": "Nombre de la categoría"
+    },
+    "delete": "Eliminar",
+    "new-button": "Crear categoría",
+    "searchbar-placeholder": "Buscar categoría"
   },
   "collections": {
     "alert": {
       "deletion": {
+        "cancel": "Cancelar",
         "header": "Confirmar eliminación",
         "msg": "Esta acción no podrá ser revertida",
-        "cancel": "Cancelar",
         "ok": "Eliminar"
       }
     },
+    "buttons": {
+      "manage": "Gestionar",
+      "set": "Seleccionar"
+    },
+    "form": {
+      "create": "Crear",
+      "delete": "Eliminar",
+      "icon": "Icono",
+      "name": "Nombre",
+      "prefix": "Prefijo",
+      "title-edit": "Editar colección",
+      "title-new": "Nueva colección",
+      "update": "Aplicar",
+      "validation": {
+        "icon": {
+          "required": "Escoge un icono para la colección pulsando sobre el botón del emoticono"
+        },
+        "name": {
+          "maxlength": "El nombre de la colección debe tener un máximo de {{max}} caracteres",
+          "minlength": "El nombre de la colección debe tener un mínimo de {{min}} caracteres",
+          "required": "Introduce el nombre de la colección (p. ej., Inglés)"
+        },
+        "prefix": {
+          "maxlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)",
+          "minlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)",
+          "required": "Introduce un prefijo del idioma de la colección (p. ej., EN)"
+        }
+      }
+    },
+    "new": "Crear colección",
+    "no-coll-msg": {
+      "body": "¡Añade una nueva colección para comenzar tu aprendizaje!",
+      "title": "En Vocabulaire puedes aprender varios idiomas a la vez separándolos en colecciones."
+    },
+    "title": "Colecciones",
     "toast": {
       "active": "{{name}} es ahora la colección activa",
       "create": {
@@ -32,73 +67,38 @@
           "msg": "Colección creada exitosamente"
         }
       },
-      "update": {
-        "success": {
-          "msg": "Colección actualizada correctamente"
-        },
-        "error-no-collection": {
-          "msg": "No se pudo encontrar la colección"
-        }
-      },
       "delete": {
-        "success": {
-          "msg": "Colección eliminada correctamente"
-        },
-        "error-no-collection": {
-          "msg": "No se pudo encontrar la colección"
+        "error": {
+          "msg": "Error interno"
         },
         "error-active": {
           "msg": "No se puede eliminar una colección activa"
         },
-        "error": {
-          "msg": "Error interno"
+        "error-no-collection": {
+          "msg": "No se pudo encontrar la colección"
+        },
+        "success": {
+          "msg": "Colección eliminada correctamente"
+        }
+      },
+      "update": {
+        "error-no-collection": {
+          "msg": "No se pudo encontrar la colección"
+        },
+        "success": {
+          "msg": "Colección actualizada correctamente"
         }
       }
-    },
-    "title": "Colecciones",
-    "buttons": {
-      "manage": "Gestionar",
-      "set": "Seleccionar"
-    },
-    "new": "Crear colección",
-    "form": {
-      "title-new": "Nueva colección",
-      "title-edit": "Editar colección",
-      "name": "Nombre",
-      "prefix": "Prefijo",
-      "icon": "Icono",
-      "create": "Crear",
-      "update": "Aplicar",
-      "delete": "Eliminar",
-      "validation": {
-        "name": {
-          "required": "Introduce el nombre de la colección (p. ej., Inglés)",
-          "minlength": "El nombre de la colección debe tener un mínimo de {{min}} caracteres",
-          "maxlength": "El nombre de la colección debe tener un máximo de {{max}} caracteres"
-        },
-        "prefix": {
-          "required": "Introduce un prefijo del idioma de la colección (p. ej., EN)",
-          "maxlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)",
-          "minlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)"
-        },
-        "icon": {
-          "required": "Escoge un icono para la colección pulsando sobre el botón del emoticono"
-        }
-      }
-    },
-    "no-coll-msg": {
-      "title": "En Vocabulaire puedes aprender varios idiomas a la vez separándolos en colecciones.",
-      "body": "¡Añade una nueva colección para comenzar tu aprendizaje!"
     }
   },
   "data": {
     "category": {
       "gc": "Categoría gramatical",
       "gcs": "Categorías gramaticales",
-      "tc": "Categoría temática",
-      "tcs": "Categorías temáticas",
       "name": "Categoría",
       "name-p": "Categorías",
+      "tc": "Categoría temática",
+      "tcs": "Categorías temáticas",
       "type": {
         "g": "Gramatical",
         "gs": "Gramaticales",
@@ -111,87 +111,141 @@
     }
   },
   "home": {
-    "searchbar-placeholder": "Buscar término",
     "details-label": "Detalle",
     "filter": {
-      "label": "Filtrar por {{type}}",
       "cancel": "Cancelar",
+      "label": "Filtrar por {{type}}",
       "ok": "OK"
     },
+    "no-term-msg": "¡Añade un nuevo término para comenzar tu aprendizaje!",
+    "searchbar-placeholder": "Buscar término",
     "sort": {
       "label": "Ordenar por:",
       "opt": {
+        "date": "Fecha",
         "t-org": "Término original",
-        "t-trans": "Término traducido",
-        "date": "Fecha"
+        "t-trans": "Término traducido"
       }
-    },
-    "no-term-msg": "¡Añade un nuevo término para comenzar tu aprendizaje!"
+    }
   },
   "settings": {
-    "title": "Ajustes",
     "dark-mode": "Tema oscuro",
-    "language": "Idioma",
     "export": {
       "button": "Exportar datos"
     },
     "import": {
       "button": "Importar datos",
       "toast": {
-        "success": {
-          "message": "Datos importados con éxito"
+        "bad-data": {
+          "message": "El fichero tiene datos corruptos",
+          "title": "No se pudieron importar los datos"
         },
         "bad-file": {
-          "title": "No se pudieron importar los datos",
-          "message": "Fichero corrupto"
+          "message": "Fichero corrupto",
+          "title": "No se pudieron importar los datos"
         },
-        "bad-data": {
-          "title": "No se pudieron importar los datos",
-          "message": "El fichero tiene datos corruptos"
-        }
-      }
-    }
-  },
-  "tag": {
-    "title": "Nueva etiqueta",
-    "form": {
-      "name": "Nombre",
-      "icon": "Icono",
-      "button": "Guardar",
-      "validation": {
-        "name": {
-          "required": "Introduce un nombre para la etiqueta (p. ej., Comida)",
-          "maxlength": "El nombre de la etiqueta no puede tener más de {{max}} caracteres"
-        },
-        "icon": {
-          "required": "Escoge un icono pulsando sobre el emoticono"
+        "success": {
+          "message": "Datos importados con éxito"
         }
       }
     },
-    "toast": {
-      "success": {
-        "msg": "Etiqueta creada correctamente"
-      },
-      "fail": {
-        "no-active-collection":{
-          "header": "Error al crear la etiqueta",
-          "msg": "No se pudo identificar la colección"
+    "language": "Idioma",
+    "title": "Ajustes"
+  },
+  "tag": {
+    "form": {
+      "button": "Guardar",
+      "icon": "Icono",
+      "name": "Nombre",
+      "validation": {
+        "icon": {
+          "required": "Escoge un icono pulsando sobre el emoticono"
         },
-        "max-reached":{
+        "name": {
+          "maxlength": "El nombre de la etiqueta no puede tener más de {{max}} caracteres",
+          "required": "Introduce un nombre para la etiqueta (p. ej., Comida)"
+        }
+      }
+    },
+    "title": "Nueva etiqueta",
+    "toast": {
+      "fail": {
+        "max-reached": {
           "header": "Número máximo de etiquetas alcanzado",
           "msg": "Elimina etiquetas para poder seguir creándolas"
+        },
+        "no-active-collection": {
+          "header": "Error al crear la etiqueta",
+          "msg": "No se pudo identificar la colección"
         }
+      },
+      "success": {
+        "msg": "Etiqueta creada correctamente"
       }
     }
   },
   "term": {
-    "title-new": "Nuevo término",
-    "title-edit": "Editar término",
-    "form": {
-      "tr": "Traducción"
+    "alert": {
+      "delete": {
+        "cancel": "Cancelar",
+        "header": "Confirmar eliminación",
+        "msg": "Esta acción no podrá ser revertida",
+        "ok": "Eliminar"
+      }
+    },
+    "category": {
+      "select": {
+        "cancel": "Cancelar",
+        "ok": "OK"
+      }
     },
     "create": "Crear",
-    "update": "Aplicar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "form": {
+      "tr": "Traducción",
+      "validation": {
+        "gc": {},
+        "notes": {
+          "maxlength": "Las notas deben contener menos de {{max}} characters"
+        },
+        "or-term": {
+          "maxlength": "El término original no puede contener más de {{max}} caracteres",
+          "required": "Introduce el término original (idioma de la colección)"
+        },
+        "tc": {},
+        "tr-term": {
+          "maxlength": "El término traducido no puede contener más de {{max}} caracteres",
+          "required": "Introduce el término traducido (idioma propio)"
+        }
+      }
+    },
+    "title-edit": "Editar término",
+    "title-new": "Nuevo término",
+    "toast": {
+      "create": {
+        "collection-not-found": {
+          "header": "Error al crear el término",
+          "msg": "No se encontró la colección"
+        },
+        "success": {
+          "msg": "Término creado correctamente"
+        }
+      },
+      "delete": {
+        "collection-not-found": {
+          "header": "Error al eliminar el término",
+          "msg": "No se encontró la colección"
+        },
+        "success": {
+          "msg": "Término eliminado correctamente"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Término actualizado correctamente"
+        }
+      }
+    },
+    "update": "Aplicar"
   }
 }

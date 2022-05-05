@@ -28,8 +28,8 @@
       <ng-container *ngFor="let validation of validationMessages.translatedTerm">
         <div class="error-message"
              *ngIf="termForm.get('originalTerm').hasError(validation.type) && (termForm.get('originalTerm').dirty
-             || termForm.get('originalTerm').touched)">
-          {{ validation.message }}
+             || termForm.get('originalTerm').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxTermNameLength}">
         </div>
       </ng-container>
     </div>
@@ -52,8 +52,8 @@
       <ng-container *ngFor="let validation of validationMessages.originalTerm">
         <div class="error-message"
              *ngIf="termForm.get('translatedTerm').hasError(validation.type) && (termForm.get('translatedTerm').dirty
-             || termForm.get('translatedTerm').touched)">
-          {{ validation.message }}
+             || termForm.get('translatedTerm').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxTermNameLength}">
         </div>
       </ng-container>
     </div>
@@ -61,7 +61,8 @@
       <div class="dropdown">
         <ion-item lines="none">
           <ion-label [translate]="'data.category.gcs'"></ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+          <ion-select multiple="true" [cancelText]="translation.select.cancel | translate"
+                      [okText]="translation.select.ok | translate" [interfaceOptions]="customAlertGCsOptions"
                       #gramaticalCategoriesDropdown selectedText=" " formControlName="gramaticalCategories"
                       (ionChange)="updateChips($event, 0)" [compareWith]="compareWith">
             <ion-select-option *ngFor="let category of gramaticalCategoriesList"
@@ -84,7 +85,8 @@
       <div class="dropdown">
         <ion-item lines="none">
           <ion-label [translate]="'data.category.tcs'"></ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+          <ion-select multiple="true" [cancelText]="translation.select.cancel | translate"
+                      [okText]="translation.select.ok | translate" [interfaceOptions]="customAlertTCsOptions"
                       #thematicCategoriesDropdown selectedText=" " formControlName="thematicCategories"
                       [compareWith]="compareWith" (ionChange)="updateChips($event, 1)">
             <ion-select-option *ngFor="let category of thematicCategoriesList"
@@ -121,8 +123,9 @@
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validationMessages.notes">
         <div class="error-message"
-             *ngIf="termForm.get('notes').hasError(validation.type) && (termForm.get('notes').dirty || termForm.get('notes').touched)">
-          {{ validation.message }}
+             *ngIf="termForm.get('notes').hasError(validation.type) && (termForm.get('notes').dirty
+             || termForm.get('notes').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxNotesLength}">
         </div>
       </ng-container>
     </div>
