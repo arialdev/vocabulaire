@@ -46,10 +46,10 @@ export class TermPage implements OnInit {
 
   showLength = {originalTerm: false, translatedTerm: false, notes: false};
 
-  translation = {
+  readonly translation = {
     form: {
       translatedTerm: 'term.form.tr',
-      notes:'data.term.notes'
+      notes: 'data.term.notes'
     }
   };
 

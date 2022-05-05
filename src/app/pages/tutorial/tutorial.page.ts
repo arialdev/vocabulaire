@@ -44,7 +44,7 @@ export class TutorialPage {
   };
   showLength = {name: false};
 
-  translation = {
+  readonly translation = {
     form: {
       name: 'collections.form.name'
     }

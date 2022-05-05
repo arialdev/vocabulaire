@@ -32,7 +32,7 @@ export class NewTagPage implements OnInit {
   };
   showLength = {name: false};
 
-  translation = {
+  readonly translation = {
     name: 'tag.form.name'
   };
 

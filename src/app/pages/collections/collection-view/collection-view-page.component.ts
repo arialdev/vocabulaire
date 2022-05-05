@@ -37,7 +37,7 @@ export class CollectionViewPage implements OnInit {
   };
   showLength = {name: false};
 
-  translation = {
+  readonly translation = {
     form: {
       name: 'collections.form.name'
     }
