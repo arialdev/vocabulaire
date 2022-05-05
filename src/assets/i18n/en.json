@@ -17,6 +17,44 @@
     }
   },
   "collections": {
+    "alert": {
+      "deletion": {
+        "header": "Confirm deletion",
+        "msg": "This action cannot be undone",
+        "cancel": "Cancel",
+        "ok": "Delete"
+      }
+    },
+    "toast": {
+      "active": "{{name}} set as active collection",
+      "create": {
+        "success": {
+          "msg": "Collection added successfully"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Collection updated successfully"
+        },
+        "error-no-collection": {
+          "msg": "Could not find collection"
+        }
+      },
+      "delete": {
+        "success": {
+          "msg": "Collection deleted successfully"
+        },
+        "error-no-collection": {
+          "msg": "Could not find collection"
+        },
+        "error-active": {
+          "msg": "Cannot delete active collection"
+        },
+        "error": {
+          "msg": "Internal error"
+        }
+      }
+    },
     "title": "Collections",
     "buttons": {
       "manage": "Manage",
@@ -31,7 +69,22 @@
       "icon": "Icon",
       "create": "Save",
       "update": "Update",
-      "delete": "Delete"
+      "delete": "Delete",
+      "validation": {
+        "name": {
+          "required": "Collection name is required (e.g., French)",
+          "minlength": "Collection name must have at least {{min}} characters",
+          "maxlength": "Collection name must have less than {{max}} characters"
+        },
+        "prefix": {
+          "required": "Collection prefix is required (e.g., FR)",
+          "maxlength": "Collection prefix must have exactly {{q}} characters (e.g., FR)",
+          "minlength": "Collection prefix must have exactly ${q} characters (e.g., FR)"
+        },
+        "icon": {
+          "required": "Choose an icon by touching the emoji icon"
+        }
+      }
     },
     "no-coll-msg": {
       "title": "With Vocabulaire you can learn multiple languages at the same time classifying them by collections.",
@@ -120,11 +173,11 @@
         "msg": "Tag created successfully"
       },
       "fail": {
-        "no-active-collection":{
+        "no-active-collection": {
           "header": "Error when creating tag",
           "msg": "Could not find collection"
         },
-        "max-reached":{
+        "max-reached": {
           "header": "Maximum number of tags reached",
           "msg": "Delete one tag in order to continue creating them"
         }

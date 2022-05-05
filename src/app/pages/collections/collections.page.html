@@ -19,7 +19,7 @@
     </ion-button>
   </div>
   <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
-    <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.getId())"
+    <ion-item class="collection" [detail]="this.managingMode" button="true" (click)="onItemClick(collection.getId())"
               *ngFor="let collection of collections">
       <div class="collection-box" [ngClass]="{'collection-active':collection.isActive()}">
         <ion-img [src]="collection.getLanguage().getIcon()|emoji" class="collection-icon"></ion-img>

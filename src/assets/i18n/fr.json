@@ -17,6 +17,44 @@
     }
   },
   "collections": {
+    "alert": {
+      "deletion": {
+        "header": "Confirmer la élimination",
+        "msg": "Cette action ne peut pas être renverser",
+        "cancel": "Annuler",
+        "ok": "Éliminer"
+      }
+    },
+    "toast": {
+      "active": "{{name}} défini comme la collection active",
+      "create": {
+        "success": {
+          "msg": "Collection créée avec succès"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Collection actualisée avec succès"
+        },
+        "error-no-collection": {
+          "msg": "Collection introuvable"
+        }
+      },
+      "delete": {
+        "success": {
+          "msg": "Collection éliminée avec succès"
+        },
+        "error-no-collection": {
+          "msg": "Collection introuvable"
+        },
+        "error-active": {
+          "msg": "Impossible de éliminer une collection active"
+        },
+        "error": {
+          "msg": "Erreur interne"
+        }
+      }
+    },
     "title": "Collections",
     "buttons": {
       "manage": "Gérer",
@@ -31,7 +69,22 @@
       "icon": "Icône",
       "create": "Créer",
       "update": "Actualiser",
-      "delete": "Supprimer"
+      "delete": "Supprimer",
+      "validation": {
+        "name": {
+          "required": "Entrez le nom de la collection (ex., Anglais)",
+          "minlength": "Le nom de la collection doit comporter au moins {{min}} caractères",
+          "maxlength": "Le nom de la collection doit comporter un maximum de {{max}} caractères"
+        },
+        "prefix": {
+          "required": "Entrez un préfixe de langue de collection (ex., EN)",
+          "maxlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)",
+          "minlength": "Le préfixe de la collection doit comporter exactement {{q}} caractères (p. ej., EN)"
+        },
+        "icon": {
+          "required": "Choisissez une icône pour la collection en cliquant sur le bouton émoticône"
+        }
+      }
     },
     "no-coll-msg": {
       "title": "Dans Vocabulaire vous pouvez apprendre plusieurs langues en même temps en les séparant en collections.",
@@ -120,11 +173,11 @@
         "msg": "Étiquette créée avec succès"
       },
       "fail": {
-        "no-active-collection":{
+        "no-active-collection": {
           "header": "Erreur lors de la création de l'étiquette",
           "msg": "La collection n'a pas pu être identifiée"
         },
-        "max-reached":{
+        "max-reached": {
           "header": "Nombre maximal d'étiquettes atteint",
           "msg": "Supprimez des étiquettes pour pouvoir continuer à les créer"
         }

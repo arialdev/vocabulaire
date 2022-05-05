@@ -215,7 +215,7 @@ describe('CollectionViewPage for update', () => {
     await component.onSubmit();
 
     expect(toastController.create).toHaveBeenCalledWith({
-      message: 'Could not find collection',
+      message: 'collections.toast.update.error-no-collection.msg',
       color: 'danger',
       icon: 'alert-circle',
       duration: 1000

@@ -12,7 +12,8 @@ import {EmojisMap} from '../../services/emoji/emojisMap';
 import {RouterTestingModule} from '@angular/router/testing';
 import {EmojiPipeModule} from '../../pipes/emoji-pipe/emoji-pipe.module';
 import {ToastController} from '@ionic/angular';
-import {MockToastController} from '../../../mocks';
+import {MockToastController, MockTranslateService} from '../../../mocks';
+import {TranslateService} from '@ngx-translate/core';
 
 describe('CollectionsPage', () => {
   let mockActiveCollection: Collection;
@@ -36,7 +37,8 @@ describe('CollectionsPage', () => {
         {provide: Router, useValue: routerSpy},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
         {provide: EmojisMap},
-        {provide: ToastController, useClass: MockToastController}
+        {provide: ToastController, useClass: MockToastController},
+        {provide: TranslateService, useClass: MockTranslateService}
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

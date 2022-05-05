@@ -3,6 +3,7 @@ import {Collection} from '../../classes/collection/collection';
 import {CollectionService} from '../../services/collection/collection.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-collections',
@@ -19,7 +20,8 @@ export class CollectionsPage {
     private collectionService: CollectionService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private translateService: TranslateService
   ) {
     this.collections = [];
     this.managingMode = false;
@@ -57,10 +59,10 @@ export class CollectionsPage {
 
     await this.toast?.dismiss();
     this.toast = await this.toastController.create({
-      message: `${collection.getLanguage().getName()} set as active collection`,
+      message: await this.translateService.get('collections.toast.active', {name: collection.getLanguage().getName()}).toPromise(),
       icon: 'star',
       color: 'success',
-      duration: 800
+      duration: 800,
     });
     await this.toast.present();
   }

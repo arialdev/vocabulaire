@@ -28,8 +28,8 @@
       <ng-container *ngFor="let validation of validationMessages.name">
         <div class="error-message"
              *ngIf="collectionForm.get('name').hasError(validation.type) && (collectionForm.get('name').dirty
-             || collectionForm.get('name').touched)">
-          {{ validation.message }}
+             || collectionForm.get('name').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxLanguageNameLength, min:2}">
         </div>
       </ng-container>
     </div>
@@ -42,8 +42,8 @@
       <ng-container *ngFor="let validation of validationMessages.prefix">
         <div class="error-message"
              *ngIf="collectionForm.get('prefix').hasError(validation.type) && (collectionForm.get('prefix').dirty
-             || collectionForm.get('prefix').touched)">
-          {{ validation.message }}
+             || collectionForm.get('prefix').touched)" [translate]="validation.message"
+             [translateParams]="{max:2, min:2}">
         </div>
       </ng-container>
     </div>
@@ -58,8 +58,7 @@
       <ng-container *ngFor="let validation of validationMessages.icon">
         <div class="error-message"
              *ngIf="collectionForm.get('icon').hasError(validation.type) && (collectionForm.get('icon').dirty
-             || collectionForm.get('icon').touched)">
-          {{ validation.message }}
+             || collectionForm.get('icon').touched)" [translate]="validation.message">
         </div>
       </ng-container>
     </div>

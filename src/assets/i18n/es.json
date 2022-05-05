@@ -17,6 +17,44 @@
     }
   },
   "collections": {
+    "alert": {
+      "deletion": {
+        "header": "Confirmar eliminación",
+        "msg": "Esta acción no podrá ser revertida",
+        "cancel": "Cancelar",
+        "ok": "Eliminar"
+      }
+    },
+    "toast": {
+      "active": "{{name}} es ahora la colección activa",
+      "create": {
+        "success": {
+          "msg": "Colección creada exitosamente"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Colección actualizada correctamente"
+        },
+        "error-no-collection": {
+          "msg": "No se pudo encontrar la colección"
+        }
+      },
+      "delete": {
+        "success": {
+          "msg": "Colección eliminada correctamente"
+        },
+        "error-no-collection": {
+          "msg": "No se pudo encontrar la colección"
+        },
+        "error-active": {
+          "msg": "No se puede eliminar una colección activa"
+        },
+        "error": {
+          "msg": "Error interno"
+        }
+      }
+    },
     "title": "Colecciones",
     "buttons": {
       "manage": "Gestionar",
@@ -31,7 +69,22 @@
       "icon": "Icono",
       "create": "Crear",
       "update": "Aplicar",
-      "delete": "Eliminar"
+      "delete": "Eliminar",
+      "validation": {
+        "name": {
+          "required": "Introduce el nombre de la colección (p. ej., Inglés)",
+          "minlength": "El nombre de la colección debe tener un mínimo de {{min}} caracteres",
+          "maxlength": "El nombre de la colección debe tener un máximo de {{max}} caracteres"
+        },
+        "prefix": {
+          "required": "Introduce un prefijo del idioma de la colección (p. ej., EN)",
+          "maxlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)",
+          "minlength": "El prefijo de la colección debe tener exactamente {{q}} caracteres (p. ej., EN)"
+        },
+        "icon": {
+          "required": "Escoge un icono para la colección pulsando sobre el botón del emoticono"
+        }
+      }
     },
     "no-coll-msg": {
       "title": "En Vocabulaire puedes aprender varios idiomas a la vez separándolos en colecciones.",

@@ -22,24 +22,24 @@ export class CollectionViewPage implements OnInit {
   editingId: number;
   maxLanguageNameLength = 25;
 
-  validationMessages = {
+  readonly validationMessages = {
     name: [
-      {type: 'required', message: 'Collection name is required (e.g., English)'},
-      {type: 'minlength', message: `Collection name must have at least ${2} characters`},
-      {type: 'maxlength', message: `Collection name must have less than ${this.maxLanguageNameLength} characters`}
+      {type: 'required', message: 'collections.form.validation.name.required'},
+      {type: 'minlength', message: 'collections.form.validation.name.min'},
+      {type: 'maxlength', message: 'collections.form.validation.name.max'}
     ],
     prefix: [
-      {type: 'required', message: 'Collection prefix is required (e.g., FR)'},
-      {type: 'maxlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`},
-      {type: 'minlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`}
+      {type: 'required', message: 'collections.form.validation.prefix.required'},
+      {type: 'minlength', message: 'collections.form.validation.prefix.min'},
+      {type: 'maxlength', message: 'collections.form.validation.prefix.max'},
     ],
-    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+    icon: [{type: 'required', message: 'collections.form.validation.prefix.required'}]
   };
   showLength = {name: false};
 
   readonly translation = {
     form: {
-      name: 'collections.form.name'
+      name: 'collections.form.name',
     }
   };
 
@@ -91,14 +91,14 @@ export class CollectionViewPage implements OnInit {
         try {
           await this.collectionService.updateCollectionById(this.editingId, collection);
           this.toast = await this.toastController.create({
-            message: 'Collection updated successfully',
+            message: await this.translateService.get('collections.toast.update.success.msg').toPromise(),
             color: 'success',
             icon: 'thumbs-up',
             duration: 800
           });
         } catch (e) {
           this.toast = await this.toastController.create({
-            message: 'Could not find collection',
+            message: await this.translateService.get('collections.toast.update.error-no-collection.msg').toPromise(),
             color: 'danger',
             icon: 'alert-circle',
             duration: 1000
@@ -109,7 +109,7 @@ export class CollectionViewPage implements OnInit {
         const newCollection = await this.collectionService.addCollection(collection);
         await this.collectionService.setActiveCollection(newCollection.getId());
         this.toast = await this.toastController.create({
-          message: 'Collection added successfully',
+          message: await this.translateService.get('collections.toast.create.success.msg').toPromise(),
           color: 'success',
           icon: 'thumbs-up',
           duration: 800
@@ -136,29 +136,38 @@ export class CollectionViewPage implements OnInit {
   }
 
   async openDeletionAlert(): Promise<void> {
+    const text = await this.translateService.get('collections.alert.deletion').toPromise();
     const alert = await this.alertController.create({
-      header: 'Confirm deletion',
-      message: 'This action cannot be undone',
+      header: text.header,
+      message: text.msg,
       buttons: [
         {
-          text: 'Cancel',
+          text: text.cancel,
           role: 'cancel',
         }, {
-          text: 'Delete',
+          text: text.ok,
           handler: async () => {
             await this.toast?.dismiss();
             try {
               await this.collectionService.removeCollection(this.editingId);
               this.toast = await this.toastController.create({
-                message: 'Collection deleted successfully',
+                message: await this.translateService.get('collections.toast.delete.success.msg').toPromise(),
                 color: 'success',
                 icon: 'trash',
                 duration: 800
               });
               await Promise.allSettled([this.toast.present(), this.navCtrl.navigateBack('collections')]);
             } catch (e) {
+              let message: string;
+              if (e.message === `Could not find collection with ID ${this.editingId}`) {
+                message = 'collections.toast.delete.error-no-collection.msg';
+              } else if (e.message === 'Cannot delete active collection') {
+                message = 'collections.toast.delete.error-active.msg';
+              } else {
+                message = 'collections.toast.delete.error.msg';
+              }
               this.toast = await this.toastController.create({
-                message: e.toString() === 'Could not find collection with ID ${id}' ? 'Could not find collection' : e.toString(),
+                message: await this.translateService.get(message).toPromise(),
                 color: 'danger',
                 icon: 'alert-circle',
                 duration: 1000
