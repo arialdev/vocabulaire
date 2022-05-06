@@ -253,6 +253,19 @@
     },
     "update": "Applicare"
   },
+  "tutorial": {
+    "1": {
+      "title": "Benvenuto in Vocabulaire",
+      "description": "Innanzitutto, scegli la lingua dell'interfaccia",
+      "language-label": "Interfaccia",
+      "swipe": "Scorri per continuare!"
+    },
+    "2": {
+      "title": "Crea la tua prima collezione",
+      "description": "Puoi separare il vocabolario di diverse lingue in collezioni. Crea la tua prima collezione per iniziare il tuo apprendimento.",
+      "button": "Inizio"
+    }
+  },
   "wod": {
     "no-msg": {
       "1": "La parola del giorno sceglie un termine dal tuo vocabolario in modo che tu possa continuare con il tuo apprendimento",

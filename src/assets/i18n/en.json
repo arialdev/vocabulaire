@@ -253,6 +253,19 @@
     },
     "update": "Update"
   },
+  "tutorial": {
+    "1": {
+      "title": "Welcome to Vocabulaire",
+      "description": "First choose language for the interface",
+      "language-label": "Interface",
+      "swipe": "Swipe to continue!"
+    },
+    "2": {
+      "title": "Create your first collection",
+      "description": "You can save vocabulary from different languages in collections. Create your first collection to start your learning.",
+      "button": "Start"
+    }
+  },
   "wod": {
     "no-msg": {
       "1": "Word of the Day picks a term from your vocabulary so you don't miss it",

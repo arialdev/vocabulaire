@@ -253,6 +253,19 @@
     },
     "update": "Actualiser"
   },
+  "tutorial": {
+    "1": {
+      "title": "Bienvenue dans Vocabulaire",
+      "description": "Tout d'abord, choisissez la langue de l'interface",
+      "language-label": "Interface",
+      "swipe": "Faites glisser pour continuer!"
+    },
+    "2": {
+      "title": "Créez votre première collection",
+      "description": "Vous pouvez séparer le vocabulaire de différentes langues en collections. Créez votre première collection pour commencer votre apprentissage.",
+      "button": "Commencer"
+    }
+  },
   "wod": {
     "no-msg": {
       "1": "Le mot du jour choisit un terme de votre vocabulaire pour que vous puissiez poursuivre votre apprentissage",
