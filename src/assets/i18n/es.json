@@ -209,7 +209,6 @@
     "form": {
       "tr": "Traducción",
       "validation": {
-        "gc": {},
         "notes": {
           "maxlength": "Las notas deben contener menos de {{max}} characters"
         },
@@ -217,7 +216,6 @@
           "maxlength": "El término original no puede contener más de {{max}} caracteres",
           "required": "Introduce el término original (idioma de la colección)"
         },
-        "tc": {},
         "tr-term": {
           "maxlength": "El término traducido no puede contener más de {{max}} caracteres",
           "required": "Introduce el término traducido (idioma propio)"
@@ -255,15 +253,15 @@
   },
   "tutorial": {
     "1": {
-      "title": "Bienvenido a Vocabulaire",
       "description": "Primero, escoge el idioma de la interfaz",
       "language-label": "Interfaz",
-      "swipe": "¡Desliza para continuar!"
+      "swipe": "¡Desliza para continuar!",
+      "title": "Bienvenido/a a Vocabulaire"
     },
     "2": {
-      "title": "Crea tu primera colección",
+      "button": "Empezar",
       "description": "Puedes separar el vocabulario de distintos idiomas en colecciones. Crea tu primera colección para comenzar tu aprendizaje.",
-      "button": "Empezar"
+      "title": "Crea tu primera colección"
     }
   },
   "wod": {

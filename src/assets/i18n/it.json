@@ -4,7 +4,7 @@
       "cancel": "Cancellare",
       "header": {
         "create": "Nuova categoria {{type}}",
-        "edit": "Modificare categoría {{type}}"
+        "edit": "Modificare categoria {{type}}"
       },
       "ok": {
         "save": "Salvare",
@@ -35,17 +35,17 @@
       "icon": "Icona",
       "name": "Nome",
       "prefix": "Prefisso",
-      "title-edit": "Modificare collezione",
-      "title-new": "Nuova collezione",
+      "title-edit": "Modificare raccolta",
+      "title-new": "Nuova raccolta",
       "update": "Applicare",
       "validation": {
         "icon": {
-          "required": "Scegli un'icona per la collezione facendo clic sul pulsante dell'emoticon"
+          "required": "Scegli un'icona per le raccolta facendo clic sul pulsante dell'emoticon"
         },
         "name": {
-          "maxlength": "Il nome della collezione deve contenere un massimo di {{max}} caratteri",
-          "minlength": "El nombre de la colección debe tener un minimo de {{min}} caratteri",
-          "required": "Inserisci il nome della collezione (p. e., Inglés)"
+          "maxlength": "Il nome della raccolta deve contenere un massimo di {{max}} caratteri",
+          "minlength": "Il nome della raccolta deve contenere un minimo de {{min}} caratteri",
+          "required": "Inserisci il nome della raccolta (p. e., Inglese)"
         },
         "prefix": {
           "maxlength": "Il prefisso della raccolta deve contenere esattamente {{q}} caracteres (e.g. EN)",
@@ -54,17 +54,17 @@
         }
       }
     },
-    "new": "Creare collezione",
+    "new": "Creare raccolta",
     "no-coll-msg": {
-      "body": "Aggiungi una nuova collezione per iniziare il tuo apprendimento!",
+      "body": "Aggiungi una nuova raccolta per iniziare il tuo apprendimento!",
       "title": "In Vocabulaire puoi imparare più lingue contemporaneamente separandole in raccolte."
     },
-    "title": "Collezioni",
+    "title": "Raccolte",
     "toast": {
-      "active": "{{name}} ora è la collezione attiva",
+      "active": "{{name}} ora è le raccolta attiva",
       "create": {
         "success": {
-          "msg": "Collezione creata correttamente"
+          "msg": "Raccolta creata correttamente"
         }
       },
       "delete": {
@@ -72,21 +72,21 @@
           "msg": "Errore interno"
         },
         "error-active": {
-          "msg": "Impossibile eliminare una collezione attiva"
+          "msg": "Impossibile eliminare una raccolta attiva"
         },
         "error-no-collection": {
-          "msg": "Non è stato possibile trovare la collezione"
+          "msg": "Non è stato possibile trovare le raccolta"
         },
         "success": {
-          "msg": "Collezione eliminata con successo"
+          "msg": "Raccolta eliminata con successo"
         }
       },
       "update": {
         "error-no-collection": {
-          "msg": "Non è stato possibile trovare la collezione"
+          "msg": "Non è stato possibile trovare le raccolta"
         },
         "success": {
-          "msg": "Collezione aggiornata con successo"
+          "msg": "Raccolta aggiornata con successo"
         }
       }
     }
@@ -97,8 +97,8 @@
       "gcs": "Categorie grammaticali",
       "name": "Categoria",
       "name-p": "Categorie",
-      "tc": "Categoria temática",
-      "tcs": "Categorie temáticas",
+      "tc": "Categoria tematica",
+      "tcs": "Categorie tematiche",
       "type": {
         "g": "Grammaticale",
         "gs": "Grammaticali",
@@ -136,7 +136,7 @@
   "settings": {
     "dark-mode": "Tema scuro",
     "export": {
-      "button": "Esportare i dati"
+      "button": "Esportare dati"
     },
     "import": {
       "button": "Importare dati",
@@ -155,7 +155,7 @@
       }
     },
     "language": "Lingua",
-    "title": "Adeguamenti"
+    "title": "Impostazioni"
   },
   "tag": {
     "form": {
@@ -172,7 +172,7 @@
         }
       }
     },
-    "title": "Nuova tag",
+    "title": "Nuovo tag",
     "toast": {
       "fail": {
         "max-reached": {
@@ -181,7 +181,7 @@
         },
         "no-active-collection": {
           "header": "Errore durante la creazione del tag",
-          "msg": "Impossibile identificare la raccolta"
+          "msg": "Impossibile identificare le raccolta"
         }
       },
       "success": {
@@ -192,7 +192,7 @@
   "term": {
     "alert": {
       "delete": {
-        "cancel": "Cancelare",
+        "cancel": "Cancellare",
         "header": "Confermare l'eliminazione",
         "msg": "Questa azione non può essere annullata",
         "ok": "Eliminare"
@@ -200,7 +200,7 @@
     },
     "category": {
       "select": {
-        "cancel": "Cancelare",
+        "cancel": "Cancellare",
         "ok": "OK"
       }
     },
@@ -209,15 +209,13 @@
     "form": {
       "tr": "Traduzione",
       "validation": {
-        "gc": {},
         "notes": {
           "maxlength": "Le note devono contenere meno di {{max}} caratteri"
         },
         "or-term": {
           "maxlength": "Il termine originale non può contenere più di {{max}} caratteri",
-          "required": "Inserisci il termine originale (lingua della collezione)"
+          "required": "Inserisci il termine originale (lingua della raccolta)"
         },
-        "tc": {},
         "tr-term": {
           "maxlength": "Il termine tradotto non può contenere più di {{max}} caratteri",
           "required": "Inserisci il termine tradotto (lingua propria)"
@@ -230,7 +228,7 @@
       "create": {
         "collection-not-found": {
           "header": "Errore durante la creazione del termine",
-          "msg": "Collezione non trovata"
+          "msg": "Raccolta non trovata"
         },
         "success": {
           "msg": "Termine creato con successo"
@@ -239,7 +237,7 @@
       "delete": {
         "collection-not-found": {
           "header": "Errore durante la rimozione del termine",
-          "msg": "Collezione non trovata"
+          "msg": "Raccolta non trovata"
         },
         "success": {
           "msg": "Termine rimosso correttamente"
@@ -255,15 +253,15 @@
   },
   "tutorial": {
     "1": {
-      "title": "Benvenuto in Vocabulaire",
       "description": "Innanzitutto, scegli la lingua dell'interfaccia",
       "language-label": "Interfaccia",
-      "swipe": "Scorri per continuare!"
+      "swipe": "Scorri per continuare!",
+      "title": "Benvenuto in Vocabulaire"
     },
     "2": {
-      "title": "Crea la tua prima collezione",
-      "description": "Puoi separare il vocabolario di diverse lingue in collezioni. Crea la tua prima collezione per iniziare il tuo apprendimento.",
-      "button": "Inizio"
+      "button": "Inizio",
+      "description": "Puoi separare il vocabolario di diverse lingue in raccolte. Crea la tua prima raccolta per iniziare il tuo apprendimento.",
+      "title": "Crea la tua prima raccolta"
     }
   },
   "wod": {

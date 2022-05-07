@@ -209,7 +209,6 @@
     "form": {
       "tr": "Translation",
       "validation": {
-        "gc": {},
         "notes": {
           "maxlength": "Notes must have less than {{max}} characters"
         },
@@ -217,7 +216,6 @@
           "maxlength": "Original term must have less than {{max}} characters",
           "required": "Original term is required (collection's language)"
         },
-        "tc": {},
         "tr-term": {
           "maxlength": "Translated term must have less than {{max}} characters",
           "required": "Translated term is required (your language)"
@@ -255,15 +253,15 @@
   },
   "tutorial": {
     "1": {
-      "title": "Welcome to Vocabulaire",
       "description": "First choose language for the interface",
       "language-label": "Interface",
-      "swipe": "Swipe to continue!"
+      "swipe": "Swipe to continue!",
+      "title": "Welcome to Vocabulaire"
     },
     "2": {
-      "title": "Create your first collection",
+      "button": "Start",
       "description": "You can save vocabulary from different languages in collections. Create your first collection to start your learning.",
-      "button": "Start"
+      "title": "Create your first collection"
     }
   },
   "wod": {
