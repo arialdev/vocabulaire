@@ -29,18 +29,18 @@ export class TutorialPage {
   modalStatus: boolean;
   selectedEmoji: Emoji;
   maxLanguageNameLength = 25;
-  validationMessages = {
+  readonly validationMessages = {
     name: [
-      {type: 'required', message: 'Collection name is required (e.g., English)'},
-      {type: 'minlength', message: `Collection name must have at least ${2} characters`},
-      {type: 'maxlength', message: `Collection name must have less than ${this.maxLanguageNameLength} characters`}
+      {type: 'required', message: 'collections.form.validation.name.required'},
+      {type: 'minlength', message: 'collections.form.validation.name.min'},
+      {type: 'maxlength', message: 'collections.form.validation.name.max'}
     ],
     prefix: [
-      {type: 'required', message: 'Collection prefix is required (e.g., FR)'},
-      {type: 'maxlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`},
-      {type: 'minlength', message: `Collection prefix must have exactly ${2} characters (e.g., EN)`}
+      {type: 'required', message: 'collections.form.validation.prefix.required'},
+      {type: 'minlength', message: 'collections.form.validation.prefix.min'},
+      {type: 'maxlength', message: 'collections.form.validation.prefix.max'},
     ],
-    icon: [{type: 'required', message: `Choose an icon by touching the emoji icon`}]
+    icon: [{type: 'required', message: 'collections.form.validation.prefix.required'}]
   };
   showLength = {name: false};
 
