@@ -148,10 +148,7 @@ describe('Vocabulaire e2e', () => {
       cy.get('.terms-list .term').should('have.length', 2);
       cy.get('ion-menu-button').click({waitForAnimations: true});
       cy.get('#tag-list ion-item').eq(0).click({waitForAnimations: true});
-      cy.get('ion-menu')
-        .trigger('pointerdown', {which: 1})
-        .trigger('pointermove', 'left')
-        .trigger('pointerup', {force: true});
+      cy.wait(2000);
       cy.get('.terms-list .term').should('have.length', 1);
     });
   });
