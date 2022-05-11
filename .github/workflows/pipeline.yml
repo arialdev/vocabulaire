@@ -56,20 +56,21 @@ jobs:
     needs: [lint]
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
           node-version: '16'
-      - name: E2E tests
+      - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           command: npm run ci:cy-run
           build: npm run ng run app:build:production
           record: true
-          parallel: true
+          parallel: false
         env:
           CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
           GITHUB_TOKEN: ${{github.token}}
