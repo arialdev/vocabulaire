@@ -96,7 +96,7 @@ There, you can generate an apk by clicking on Build > Build Bundle(s) / APK(s) >
 
 The app that you'll generate will not have the appropriate assets for the app icon and splashscreen.
 You can find them on *<root of the project>/resources/android-applied*.
-You shall copy all those files and paste them on *<root of the project/android/app/src/main/res>*.
+You shall copy all those files and paste them on *<root of the project>/android/app/src/main/res*.
 
 ![How to paste assets for Android Platform](/resources/readme/android-assets.png "How to paste assets for Android Platform")
 
