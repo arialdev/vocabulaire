@@ -45,23 +45,26 @@ There are also used other interesting modules such as:
 
 ## Set the project up
 
-### Install Node
+### 1. Install Node
 This project is currently working on versions equal to or greater than version 16. Functioning cannot be assured on lower versions.
 For installing Node you can follow the official instructions [here](https://nodejs.org/en/download/).
 
-### Install Angular Cli
+*Note: you may have to restart your computer.*
+
+### 2. Install Angular Cli
 You can find more information on [its oficial website](https://angular.io/cli).
 ```shell
 npm install -g @angular/cli
 ```
 
-### Install Ionic Cli
+### 3. Install Ionic Cli
 You can find more information on [its oficial website](https://ionicframework.com/docs/cli).
 ```shell
 npm install -g @ionic/cli
 ```
 
-### Install dependencies
+### 4. Install dependencies
+Run the following command inside the project directory.
 ```shell
 npm i
 ```
