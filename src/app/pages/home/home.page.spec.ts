@@ -12,9 +12,15 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../../services/collection/collection.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AlertController, NavController} from '@ionic/angular';
-import {MockAlertController, MockNavController} from '../../../mocks';
+import {MockAlertController, MockNavController, MockTranslateService, MockTranslatePipe,} from '../../../mocks';
 import {TermService} from '../../services/term/term.service';
 import {EmojisMap} from '../../services/emoji/emojisMap';
+import {TranslateService} from '@ngx-translate/core';
+import {TagService} from '../../services/tag/tag.service';
+import {Tag} from '../../classes/tag/tag';
+import {TagOptions} from '../../classes/tagOptions/tag-options';
+import {CategoryService} from '../../services/category/category.service';
+import {BehaviorSubject} from 'rxjs';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -40,13 +46,14 @@ describe('HomePage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [HomePage, MockTranslatePipe],
       imports: [RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: NavController, useClass: MockNavController},
         {provide: EmojisMap},
-        {provide: AlertController, useClass: MockAlertController}
+        {provide: AlertController, useClass: MockAlertController},
+        {provide: TranslateService, useClass: MockTranslateService},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -76,44 +83,6 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display logo in header', () => {
-    const logo = fixture.debugElement.query(By.css('.header .header-logo'));
-    expect(logo.nativeElement.localName).toBe('ion-img');
-  });
-
-  it('should display menu in header', () => {
-    expect(fixture.debugElement.query(By.css('.header ion-menu-button'))).toBeTruthy();
-  });
-
-  it('should display language icon', () => {
-    const buttons = fixture.debugElement.query(By.css('.header ion-buttons[slot=end]'));
-    expect(buttons).toBeTruthy();
-  });
-
-  it('should contains searchbar', () => {
-    expect(fixture.debugElement.query(By.css('ion-searchbar'))).toBeTruthy();
-  });
-
-  it('should contains book button', () => {
-    expect(fixture.debugElement.query(By.css('.book-button'))).toBeTruthy();
-  });
-
-  describe('Search options', () => {
-    it('should contains filter button', () => {
-      expect(fixture.debugElement.query(By.css('.filter-button'))).toBeTruthy();
-    });
-
-    it('should contains sorting button', () => {
-      expect(fixture.debugElement.query(By.css('.sort-button'))).toBeTruthy();
-    });
-
-    it('should contains details toggle', () => {
-      const toggle = fixture.debugElement.query(By.css('.details-toggle ion-toggle'));
-      expect(toggle).toBeTruthy();
-      // expect(toggle.attributes['aria-checked']).toBeTruthy();
-    });
-  });
-
   it('should contains add button', () => {
     expect(fixture.debugElement.query(By.css('.add-term'))).toBeTruthy();
   });
@@ -132,13 +101,6 @@ describe('HomePage', () => {
     expect(DOM_TERMS[0].query(By.css('.term-note')).nativeElement.innerText).toBe(term1.getNotes());
     expect(DOM_TERMS[0].queryAll(By.css('.categories .gramatical-category')).length).toBe(term1.getGramaticalCategories().length);
     expect(DOM_TERMS[0].queryAll(By.css('.categories .thematic-category')).length).toBe(term1.getThematicCategories().length);
-  });
-
-  it('should navigate to collections', async () => {
-    const navCtrl = fixture.debugElement.injector.get(NavController);
-    spyOn(navCtrl, 'navigateForward');
-    await component.navigateToCollections();
-    expect(navCtrl.navigateForward).toHaveBeenCalledWith('collections');
   });
 
   it('should navigate to new term', async () => {
@@ -225,5 +187,84 @@ describe('HomePage', () => {
     const event = {target: {value: ''}};
     component.handleSearchbar(event);
     expect(component.terms).toEqual([t1, t2]);
+  });
+
+  it('should add tag', async () => {
+    const navController = TestBed.inject(NavController);
+    spyOn(navController, 'navigateForward');
+    await component.toggleTag();
+    expect(navController.navigateForward).toHaveBeenCalled();
+  });
+
+  it('should load tag', async () => {
+    const t1 = new Term('aa', 'bb', 'cc');
+    let t2 = new Term('xx', 'yy', 'zz');
+    let gc = new Category('Noun', CategoryType.gramatical);
+    collection.addGramaticalCategory(gc);
+
+    const categoryService = TestBed.inject(CategoryService);
+    gc = await categoryService.addCategory(gc, collection.getId());
+
+    t2.addGramaticalCategory(gc);
+    await termService.addTerm(t1, collection.getId());
+    t2 = await termService.addTerm(t2, collection.getId());
+
+    const tagOptions = new TagOptions('x');
+    tagOptions.addGramaticalCategory(gc, true);
+    const tag = new Tag('new tag', undefined, tagOptions);
+    TagService.loadTag(tag);
+
+    fixture.detectChanges();
+    await component.ionViewWillEnter();
+    expect(component.terms).toEqual([t2]);
+  });
+
+  it('should remove tag', async () => {
+    const tag = new Tag('new tag', undefined, new TagOptions('x'));
+    tag.setId(1);
+
+    const behaviourSubject = new BehaviorSubject(tag.getId());
+    const behaviourObservable = behaviourSubject.asObservable();
+
+    component.activeTag = tag;
+    component.activeCollection = collection;
+
+    const tagService = TestBed.inject(TagService);
+
+    await component.ionViewWillEnter();
+
+    spyOn(TagService, 'getTagDeletionAsObservable').and.returnValue(behaviourObservable);
+    const tagServiceSpy = spyOn(TagService, 'getTagAsPromise').and.resolveTo(tag);
+    spyOn(tagService, 'removeTag');
+
+    await component.toggleTag();
+    component.activeTag = tag;
+    await component.ionViewWillEnter();
+
+    expect(tagService.removeTag).toHaveBeenCalledWith(tag.getId(), collection.getId());
+    expect(component.activeTag).toBeFalsy();
+
+    //Check toast dismissing
+    await new Promise<void>(async resolve => {
+      setTimeout(async () => {
+        const tag2 = new Tag('new tag2', undefined, new TagOptions('y'));
+        tag2.setId(2);
+        tagServiceSpy.and.resolveTo(tag2);
+
+        component.activeTag = tag2;
+        component.activeCollection = collection;
+
+        behaviourSubject.next(2);
+
+        await component.toggleTag();
+        component.activeTag = tag2;
+        await component.ionViewWillEnter();
+
+        expect(component.activeTag).toBeFalsy();
+        resolve();
+      }, 250);
+    });
+
+
   });
 });

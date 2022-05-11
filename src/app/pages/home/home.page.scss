@@ -27,15 +27,6 @@ ion-menu-button {
   text-decoration: none;
 }
 
-.header-logo {
-  width: 150px;
-  margin: auto;
-}
-
-.header-language {
-  width: 32px;
-}
-
 .searchbar-row {
   display: flex;
   align-items: center;
@@ -99,6 +90,7 @@ ion-menu-button {
 .terms-list {
   margin-left: 1rem;
   margin-right: 1rem;
+  background-color: unset;
 
   .term {
     border: 1px solid #858585;
@@ -107,7 +99,7 @@ ion-menu-button {
     margin-bottom: 1rem;
 
     &::part(native) {
-      background-color: #fafff8;
+      //background-color: #fafff8;
       padding: 8px;
     }
 
@@ -129,6 +121,7 @@ ion-menu-button {
         font-family: 'Rubik', sans-serif;
         font-weight: 600;
         font-size: 20px;
+        color: var(--ion-color-dark);
       }
 
       .term-label {
@@ -144,6 +137,10 @@ ion-menu-button {
         }
       }
 
+      .term-note {
+        color: var(--ion-color-dark);
+      }
+
       .secondary-term-label {
         font-family: Calibri, monospace;
       }
@@ -153,6 +150,13 @@ ion-menu-button {
 
         ion-chip {
           opacity: unset;
+          background-color: var(--ion-color-light2);
+          &.primary{
+            border: 1px solid var(--ion-color-primary);
+          }
+          &.secondary{
+            border: 1px solid var(--ion-color-darkgreen);
+          }
         }
       }
     }

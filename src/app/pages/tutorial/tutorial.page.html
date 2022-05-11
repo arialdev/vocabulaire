@@ -1,0 +1,103 @@
+<ion-content>
+  <swiper
+    #swiper
+    class="swiper-container"
+  >
+    <!--    1st slide-->
+    <ng-template swiperSlide>
+      <div class="text">
+        <h1 [translate]="'tutorial.1.title'"></h1>
+        <p class="description" [translate]="'tutorial.1.description'"></p>
+      </div>
+      <ion-item>
+        <ion-label [translate]="'tutorial.1.language-label'"></ion-label>
+        <ion-select class="language-selector" [compareWith]="compareWith" interface="popover"
+                    [value]="preferredLanguage"
+                    (ionChange)="changeLanguage($event)">
+          <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="swiping-message-box">
+        <div>
+          <span class="swiping-message" [translate]="'tutorial.1.swipe'"></span>
+          <ion-icon class="icon" color="primary" src="assets/icons/view/swipe-icon.svg"></ion-icon>
+        </div>
+      </div>
+
+    </ng-template>
+
+    <!--    2nd slide-->
+    <ng-template swiperSlide>
+      <div class="text">
+        <h1 class="short" [translate]="'tutorial.2.title'"></h1>
+        <p class="description short" [translate]="'tutorial.2.description'"></p>
+      </div>
+      <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()" class="slide-2">
+        <ion-item>
+          <ion-label position="floating">
+            {{translation.form.name | translate}}
+            <span class="warning-message"
+                  *ngIf=" showLength.name && collectionForm.get('name').value.length>maxLanguageNameLength*0.6"
+                  [class.strong-warning]="collectionForm.get('name').value.length>maxLanguageNameLength*0.8"
+                  [class.warning]="collectionForm.get('name').value.length>maxLanguageNameLength*0.5"
+                  [class.danger]="collectionForm.get('name').value.length>maxLanguageNameLength">
+          {{ collectionForm.get('name').value.length }}/{{maxLanguageNameLength}}
+        </span>
+          </ion-label>
+          <ion-input [formControlName]="'name'" type="text" required="true" [maxlength]="maxLanguageNameLength"
+                     (ionFocus)="inputOnFocus('name')" (ionBlur)="inputOnBlur('name')"
+                     (ionChange)="generatePrefix($event)"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.name">
+            <div class="error-message"
+                 *ngIf="collectionForm.get('name').hasError(validation.type) && (collectionForm.get('name').dirty
+             || collectionForm.get('name').touched)" [translate]="validation.message"
+                 [translateParams]="{max:maxLanguageNameLength, min:2}">
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label position="floating" [translate]="'collections.form.prefix'"></ion-label>
+          <ion-input [formControlName]="'prefix'" type="text" required="true" autocapitalize="characters"
+                     (ionChange)="autocapitalize($event)" maxlength="2"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.prefix">
+            <div class="error-message"
+                 *ngIf="collectionForm.get('prefix').hasError(validation.type) && (collectionForm.get('prefix').dirty
+             || collectionForm.get('prefix').touched)" [translate]="validation.message"
+                 [translateParams]="{max:2, min:2}">
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label position="fixed" [translate]="'collections.form.icon'"></ion-label>
+          <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required="true"></ion-input>
+          <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
+            <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
+          </ion-button>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.icon">
+            <div class="error-message"
+                 *ngIf="collectionForm.get('icon').hasError(validation.type) && (collectionForm.get('icon').dirty
+             || collectionForm.get('icon').touched)" [translate]="validation.message">
+            </div>
+          </ng-container>
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button class="submit-button" type="submit" expand="block" color="success"
+                          [translate]="'tutorial.2.button'"></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+      <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
+    </ng-template>
+
+  </swiper>
+</ion-content>

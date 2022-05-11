@@ -4,6 +4,7 @@ import {Term} from '../term/term';
 import {Language} from '../language/language';
 import {StoringItem} from '../storing-item';
 import {Emoji} from '../emoji/emoji';
+import {Wod} from '../wod/wod';
 
 export class Collection extends StoringItem {
   private language: Language;
@@ -12,6 +13,7 @@ export class Collection extends StoringItem {
   private thematicCategories: Array<Category>;
   private active: boolean;
   private tags: Array<Tag>;
+  private wodHistory: Wod[];
 
   constructor(language: Language);
   constructor(collectionData: any);
@@ -31,6 +33,7 @@ export class Collection extends StoringItem {
       this.thematicCategories = data.thematicCategories.map(tc => new Category(tc));
       this.active = data.active;
       this.tags = data.tags.map(t => new Tag(t));
+      this.wodHistory = data.wodHistory.map(w => new Wod(w));
       return;
     }
     this.terms = [];
@@ -38,6 +41,7 @@ export class Collection extends StoringItem {
     this.thematicCategories = [];
     this.active = false;
     this.tags = [];
+    this.wodHistory = [];
   }
 
   public getLanguage(): Language {
@@ -132,5 +136,9 @@ export class Collection extends StoringItem {
     this.tags = this.tags.filter(t => t.getId() !== id);
     this.updateUpdatedTime();
     return tag;
+  }
+
+  public getWodHistory(): Wod[] {
+    return this.wodHistory;
   }
 }

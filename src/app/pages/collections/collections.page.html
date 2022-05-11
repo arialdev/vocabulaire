@@ -3,30 +3,35 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Collections</ion-title>
+    <ion-title [translate]="'collections.title'"></ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="clear" color="primary" (click)="toggleManage()">
-        {{managingMode ? 'Set' : 'Manage'}}
-      </ion-button>
-      <ion-button (click)="navigateToCollection()" class="new-collection" fill="clear" color="primary">
-        New
-      </ion-button>
+      <ion-button fill="clear" color="primary" (click)="toggleManage()"
+                  [translate]="managingMode ? 'collections.buttons.set' : 'collections.buttons.manage'"></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="centered new-button">
+    <ion-button fill="outline" (click)="navigateToCollection()">
+      <ion-icon name="add-outline" slot="start"></ion-icon>
+      <div [translate]="'collections.new'"></div>
+    </ion-button>
+  </div>
   <ion-list class="collections-list" *ngIf="collections.length; else no_collections">
-    <ion-item class="collection" [detail]="this.managingMode" button (click)="onItemClick(collection.getId())"
+    <ion-item class="collection" [detail]="this.managingMode" button="true" (click)="onItemClick(collection.getId())"
               *ngFor="let collection of collections">
       <div class="collection-box" [ngClass]="{'collection-active':collection.isActive()}">
-        <ion-img [src]="getEmojiRoute(collection.getLanguage().getIcon())" class="collection-icon"></ion-img>
+        <ion-img [src]="collection.getLanguage().getIcon()|emoji" class="collection-icon"></ion-img>
         <div class="language-prefix">{{collection.getLanguage().getPrefix()}}</div>
         <div class="collection-name">{{collection.getLanguage().getName()}}</div>
       </div>
     </ion-item>
   </ion-list>
   <ng-template #no_collections>
-    <p class="no-collections-message"> Add a new collection to start learning right now!</p>
+    <div class="no-collections-message">
+      <p [translate]="'collections.no-coll-msg.title'"></p>
+      <p [translate]="'collections.no-coll-msg.body'"></p>
+    </div>
   </ng-template>
 </ion-content>

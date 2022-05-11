@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-split-pane contentId="content">
+    <ion-menu menu-id="main-menu" contentId="content" type="overlay" (ionWillOpen)="loadTags()">
+      <ion-content>
+        <ion-list class="menu-list menu-page-links">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" routerLink='/home' lines="none" detail="false"
+                      [class.selected]="selectedPath === '/home'">
+              <ion-icon slot="start" name="home-outline"></ion-icon>
+              <ion-label [translate]="'home.title'"></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" routerLink='/word-of-the-day' lines="none" detail="false"
+                      [class.selected]="selectedPath === '/word-of-the-day'">
+              <ion-icon slot="start" name="bulb-outline"></ion-icon>
+              <ion-label [translate]="'wod.title'"></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="tag-list">
+          <ion-list-header>
+            <span [translate]="'data.tag.tags'"></span>:
+            <span class="counter">({{tags.length}}/{{maxTagsBound}})</span>
+          </ion-list-header>
+          <ion-item-sliding *ngFor="let tag of tags">
+            <ion-item-options side="start">
+              <ion-item-option color="secondary" (click)="exportPDFFromTag(tag)">
+                <ion-icon slot="icon-only" name="document-text"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+            <ion-item lines="none" button="true" (click)="loadTag(tag)">
+              <ion-img [src]="tag.getIcon()|emoji"></ion-img>
+              <ion-label>{{tag.getName()}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="deleteTag(tag)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
+        <ion-list class="menu-list menu-page-links">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" routerLink='/settings' lines="none" detail="false">
+              <ion-icon size="large" slot="start" name="settings-outline"></ion-icon>
+              <ion-label [translate]="'settings.title'"></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

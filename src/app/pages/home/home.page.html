@@ -1,30 +1,16 @@
-<ion-header class="header" [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
-    <ion-img class="header-logo" src="assets/img/logo.png"></ion-img>
-
-    <ion-buttons slot="end">
-      <ion-button (click)="navigateToCollections()">
-        <ion-img class="header-language" [src]="collectionIcon"></ion-img>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
 
   <div class="searchbar-container">
     <div class="terms-searchbar">
-      <ion-searchbar placeholder="Search terms" animated="true" enterkeyhint="search"
-                     inputmode="text"
-                     type="search" (ionInput)="handleSearchbar($event)"></ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchValue" [placeholder]="translation.searchbarPlaceholder|translate"
+                     animated="true" enterkeyhint="search" inputmode="text" type="search"
+                     (ionInput)="handleSearchbar($event)"></ion-searchbar>
     </div>
     <div class="book-button">
-      <ion-button fill="clear">
-        <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-button [disabled]="!isTagButtonAvailable" fill="clear" (click)="toggleTag()">
+        <ion-icon [name]="activeTag?'bookmark':'bookmark-outline'"></ion-icon>
       </ion-button>
     </div>
     <div class="searchbar-options">
@@ -38,7 +24,7 @@
           <ion-content>
             <ion-list>
               <ion-list-header>
-                <ion-label>Sort by:</ion-label>
+                <ion-label [translate]="'home.sort.label'"></ion-label>
               </ion-list-header>
               <ion-item *ngFor="let sorting of sortingOptions;let i=index" button="true" detail="false"
                         (click)="sort(i+1)">
@@ -51,7 +37,7 @@
 
       <div class="filter-button">
         <ion-button id="filter-trigger" fill="clear" size="small">
-          <ion-icon name="funnel-outline"></ion-icon>
+          <ion-icon [name]="isFiltering?'funnel':'funnel-outline'"></ion-icon>
         </ion-button>
       </div>
 
@@ -60,10 +46,10 @@
           <ion-content>
             <ion-list>
               <ion-item button="true" detail="true" (click)="presentAlertCheckbox(0)">
-                <ion-label>Gramatical categories</ion-label>
+                <ion-label [translate]="'data.category.gcs'"></ion-label>
               </ion-item>
               <ion-item button="true" detail="true" (click)="presentAlertCheckbox(1)">
-                <ion-label>Thematic categories</ion-label>
+                <ion-label [translate]="'data.category.tcs'"></ion-label>
               </ion-item>
             </ion-list>
           </ion-content>
@@ -72,7 +58,7 @@
 
       <div class="details-toggle">
         <ion-item lines="none">
-          <ion-label>Details</ion-label>
+          <ion-label [translate]="'home.details-label'"></ion-label>
           <ion-toggle [(ngModel)]="simpleView" name="toggleDetails"></ion-toggle>
         </ion-item>
       </div>
@@ -80,7 +66,8 @@
   </div>
 
   <ion-list class="terms-list" *ngIf="terms.length; else no_terms">
-    <ion-item class="term" lines="none" button="true" *ngFor="let term of terms" (click)="navigateToTerm(term.getId())">
+    <ion-item color="light2" class="term" lines="none" button="true" *ngFor="let term of terms"
+              (click)="navigateToTerm(term.getId())">
       <div class="item-box">
         <div class="language-prefix term-label">{{collectionPrefix}}</div>
         <div class="term-name term-title">{{term.getOriginalTerm()}}</div>
@@ -92,11 +79,11 @@
         <div class="term-note" *ngIf="simpleView && term.getNotes()">{{term.getNotes()}}</div>
         <div class="categories"
              *ngIf="simpleView && (term.getGramaticalCategories().length||term.getThematicCategories().length)">
-          <ion-chip class="gramatical-category" color="primary-blue" disabled="true"
+          <ion-chip class="gramatical-category primary" color="primary" disabled="true"
                     *ngFor="let gc of term.getGramaticalCategories()">
             <ion-label>{{gc.getName()}}</ion-label>
           </ion-chip>
-          <ion-chip class="thematic-category" color="primary-blue" outline="true" disabled="true"
+          <ion-chip class="thematic-category secondary" color="darkgreen" outline="true" disabled="true"
                     *ngFor="let tc of term.getThematicCategories()">
             <ion-label>{{tc.getName()}}</ion-label>
           </ion-chip>
@@ -105,7 +92,7 @@
     </ion-item>
   </ion-list>
   <ng-template #no_terms>
-    <p class="no-terms-message"> Add a new term to start learning right now!</p>
+    <p class="no-terms-message" [translate]="'home.no-term-msg'"></p>
   </ng-template>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-term floating-button-be">

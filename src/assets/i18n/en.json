@@ -1,0 +1,274 @@
+{
+  "category": {
+    "alert": {
+      "cancel": "Cancel",
+      "header": {
+        "create": "New {{type}} category",
+        "edit": "Edit {{type}} category"
+      },
+      "ok": {
+        "save": "Save",
+        "update": "Rename"
+      },
+      "placeholder": "Category´s name"
+    },
+    "delete": "Delete",
+    "new-button": "New category",
+    "searchbar-placeholder": "Search category"
+  },
+  "collections": {
+    "alert": {
+      "deletion": {
+        "cancel": "Cancel",
+        "header": "Confirm deletion",
+        "msg": "This action cannot be undone",
+        "ok": "Delete"
+      }
+    },
+    "buttons": {
+      "manage": "Manage",
+      "set": "Select"
+    },
+    "form": {
+      "create": "Save",
+      "delete": "Delete",
+      "icon": "Icon",
+      "name": "Name",
+      "prefix": "Prefix",
+      "title-edit": "Edit collection",
+      "title-new": "New collection",
+      "update": "Update",
+      "validation": {
+        "icon": {
+          "required": "Choose an icon by touching the emoji icon"
+        },
+        "name": {
+          "maxlength": "Collection name must have less than {{max}} characters",
+          "minlength": "Collection name must have at least {{min}} characters",
+          "required": "Collection name is required (e.g., French)"
+        },
+        "prefix": {
+          "maxlength": "Collection prefix must have exactly {{q}} characters (e.g., FR)",
+          "minlength": "Collection prefix must have exactly ${q} characters (e.g., FR)",
+          "required": "Collection prefix is required (e.g., FR)"
+        }
+      }
+    },
+    "new": "New collection",
+    "no-coll-msg": {
+      "body": "Add a new collection to start learning!",
+      "title": "With Vocabulaire you can learn multiple languages at the same time classifying them by collections."
+    },
+    "title": "Collections",
+    "toast": {
+      "active": "{{name}} set as active collection",
+      "create": {
+        "success": {
+          "msg": "Collection added successfully"
+        }
+      },
+      "delete": {
+        "error": {
+          "msg": "Internal error"
+        },
+        "error-active": {
+          "msg": "Cannot delete active collection"
+        },
+        "error-no-collection": {
+          "msg": "Could not find collection"
+        },
+        "success": {
+          "msg": "Collection deleted successfully"
+        }
+      },
+      "update": {
+        "error-no-collection": {
+          "msg": "Could not find collection"
+        },
+        "success": {
+          "msg": "Collection updated successfully"
+        }
+      }
+    }
+  },
+  "data": {
+    "category": {
+      "gc": "Gramatical category",
+      "gcs": "Gramatical Categories",
+      "name": "Category",
+      "name-p": "Categories",
+      "tc": "Thematic category",
+      "tcs": "Thematic categories",
+      "type": {
+        "g": "Gramatical",
+        "gs": "Gramatical",
+        "t": "Thematic",
+        "ts": "Thematic"
+      }
+    },
+    "tag": {
+      "tag": "Tag",
+      "tags": "Tags"
+    },
+    "term": {
+      "notes": "Notes"
+    }
+  },
+  "home": {
+    "details-label": "Detail",
+    "filter": {
+      "cancel": "Cancel",
+      "label": "Filter by {{type}}",
+      "ok": "OK"
+    },
+    "no-term-msg": "Add a new term to start learning!",
+    "searchbar-placeholder": "Search term",
+    "sort": {
+      "label": "Sort by:",
+      "opt": {
+        "date": "Date",
+        "t-org": "Original term",
+        "t-trans": "Translated term"
+      }
+    },
+    "title": "Home"
+  },
+  "settings": {
+    "dark-mode": "Dark mode",
+    "export": {
+      "button": "EXPORT DATA"
+    },
+    "import": {
+      "button": "IMPORT DATA",
+      "toast": {
+        "bad-data": {
+          "message": "File has corrupted data",
+          "title": "Could not import data"
+        },
+        "bad-file": {
+          "message": "Corrupted file",
+          "title": "Could not import data"
+        },
+        "success": {
+          "message": "Data imported successfully"
+        }
+      }
+    },
+    "language": "Language",
+    "title": "Settings"
+  },
+  "tag": {
+    "form": {
+      "button": "Save",
+      "icon": "Icon",
+      "name": "Name",
+      "validation": {
+        "icon": {
+          "required": "Choose an icon by touching the emoji icon"
+        },
+        "name": {
+          "maxlength": "Tag name must have less than {{max}} characters",
+          "required": "Tag name is required (e.g., Food)"
+        }
+      }
+    },
+    "title": "New tag",
+    "toast": {
+      "fail": {
+        "max-reached": {
+          "header": "Maximum number of tags reached",
+          "msg": "Delete one tag in order to continue creating them"
+        },
+        "no-active-collection": {
+          "header": "Error when creating tag",
+          "msg": "Could not find collection"
+        }
+      },
+      "success": {
+        "msg": "Tag created successfully"
+      }
+    }
+  },
+  "term": {
+    "alert": {
+      "delete": {
+        "cancel": "Cancel",
+        "header": "Confirm deletion",
+        "msg": "This action cannot be undone",
+        "ok": "Delete"
+      }
+    },
+    "category": {
+      "select": {
+        "cancel": "Cancel",
+        "ok": "OK"
+      }
+    },
+    "create": "New",
+    "delete": "Delete",
+    "form": {
+      "tr": "Translation",
+      "validation": {
+        "notes": {
+          "maxlength": "Notes must have less than {{max}} characters"
+        },
+        "or-term": {
+          "maxlength": "Original term must have less than {{max}} characters",
+          "required": "Original term is required (collection's language)"
+        },
+        "tr-term": {
+          "maxlength": "Translated term must have less than {{max}} characters",
+          "required": "Translated term is required (your language)"
+        }
+      }
+    },
+    "title-edit": "Edit term",
+    "title-new": "New term",
+    "toast": {
+      "create": {
+        "collection-not-found": {
+          "header": "Error when creating term",
+          "msg": "Active collection not found"
+        },
+        "success": {
+          "msg": "Term created successfully"
+        }
+      },
+      "delete": {
+        "collection-not-found": {
+          "header": "Error when deleting term",
+          "msg": "Active collection not found"
+        },
+        "success": {
+          "msg": "Term deleted successfully"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Term updated successfully"
+        }
+      }
+    },
+    "update": "Update"
+  },
+  "tutorial": {
+    "1": {
+      "description": "First choose language for the interface",
+      "language-label": "Interface",
+      "swipe": "Swipe to continue!",
+      "title": "Welcome to Vocabulaire"
+    },
+    "2": {
+      "button": "Start",
+      "description": "You can save vocabulary from different languages in collections. Create your first collection to start your learning.",
+      "title": "Create your first collection"
+    }
+  },
+  "wod": {
+    "no-msg": {
+      "1": "Word of the Day picks a term from your vocabulary so you don't miss it",
+      "2": "Add at least {{bound}} terms to use this functionality"
+    },
+    "title": "Word of the Day"
+  }
+}

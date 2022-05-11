@@ -1,48 +1,34 @@
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {TestBed, waitForAsync} from '@angular/core/testing';
-
-import {RouterTestingModule} from '@angular/router/testing';
-
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {MockStorageService} from './services/storage/mock-storage.service';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslateService} from '../mocks';
+import {ScreenOrientation} from '@awesome-cordova-plugins/screen-orientation/ngx';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('AppComponent', () => {
-
+  let app: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(waitForAsync(() => {
-
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [RouterTestingModule.withRoutes([])],
-      providers: [{provide: AbstractStorageService, useClass: MockStorageService}]
+      providers: [
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: TranslateService, useClass: MockTranslateService},
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        {provide: ScreenOrientation, useValue: {lock: () => Promise.resolve(), ORIENTATIONS: {PORTRAIT: 1}}}
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+    fixture.detectChanges();
   }));
 
   it('should create the app', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
-
-  it('should have menu labels', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.nativeElement;
-    const menuItems = app.querySelectorAll('ion-label');
-    expect(menuItems.length).toEqual(12);
-    expect(menuItems[0].textContent).toContain('Inbox');
-    expect(menuItems[1].textContent).toContain('Outbox');
-  }));
-
-  it('should have urls', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.nativeElement;
-    const menuItems = app.querySelectorAll('ion-item');
-    expect(menuItems.length).toEqual(12);
-    expect(menuItems[0].getAttribute('ng-reflect-router-link')).toEqual('/folder/Inbox');
-    expect(menuItems[1].getAttribute('ng-reflect-router-link')).toEqual('/folder/Outbox');
   }));
 });

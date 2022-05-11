@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title [translate]="'settings.title'"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label [translate]="'settings.dark-mode'"></ion-label>
+      <ion-toggle [(ngModel)]="darkMode" (ionChange)="toggleTheme($event)"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label [translate]="'settings.language'"></ion-label>
+      <ion-select [compareWith]="compareWith" interface="popover" [value]="preferredLanguage"
+                  (ionChange)="changeLanguage($event)">
+        <ion-select-option *ngFor="let lan of languages" [value]="lan">{{lan.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div class="centered">
+    <ion-button class="export-button" color="primary-blue" fill="clear" [translate]="'settings.export.button'"
+                (click)="exportData()"></ion-button>
+    <ion-button class="import-button" color="primary-blue" fill="clear" [translate]="'settings.import.button'"
+                (click)="openFileExplorer()"></ion-button>
+    <input id="file-importer" class="ion-hide" type="file" accept="application/json" [(ngModel)]="fileInput"
+           (change)="importData($event)">
+
+  </div>
+</ion-content>

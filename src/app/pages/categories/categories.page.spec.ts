@@ -13,11 +13,13 @@ import {Category} from '../../classes/category/category';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslatePipe, MockTranslateService} from '../../../mocks';
 
 describe('CategoriesPage', () => {
   let component: CategoriesPage;
   let fixture: ComponentFixture<CategoriesPage>;
-  let mockActivatedRoute;
+  let mockActivatedRoute: any;
 
   let collectionService: CollectionService;
   let categoryService: CategoryService;
@@ -26,13 +28,14 @@ describe('CategoriesPage', () => {
   let thematicCategory: Category;
 
   beforeEach(waitForAsync(() => {
-    mockActivatedRoute = {snapshot: {paramMap: {get: () => 'Gramatical'}}};
+    mockActivatedRoute = {snapshot: {params: {type: 0}}};
     TestBed.configureTestingModule({
-      declarations: [CategoriesPage],
+      declarations: [CategoriesPage, MockTranslatePipe],
       imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
       providers: [
         {provide: AbstractStorageService, useClass: MockStorageService},
         {provide: ActivatedRoute, useValue: mockActivatedRoute},
+        {provide: TranslateService, useClass: MockTranslateService},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -67,7 +70,15 @@ describe('CategoriesPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create alert', async () => {
+  it('should create alert for gramatical category', async () => {
+    await expectAsync(component.newCategory()).toBeResolvedTo();
+    await expectAsync(component.editCategory(new Category('body', undefined))).toBeResolvedTo();
+  });
+
+  it('should create alert for gramatical category', async () => {
+    fixture.debugElement.injector.get(ActivatedRoute).snapshot.params.type = 1;
+    fixture.detectChanges();
+    await component.ngOnInit();
     await expectAsync(component.newCategory()).toBeResolvedTo();
     await expectAsync(component.editCategory(new Category('body', undefined))).toBeResolvedTo();
   });
@@ -79,8 +90,37 @@ describe('CategoriesPage', () => {
   });
 
   it('should delete thematic category', async () => {
-    component.title = 'Thematic';
+    fixture.debugElement.injector.get(ActivatedRoute).snapshot.params.type = 1;
+    fixture.detectChanges();
+    await component.ngOnInit();
     await component.deleteCategory(thematicCategory);
     expect(component.categories).toEqual([]);
+  });
+
+  it('should filter searchbar', async () => {
+    const gc1 = new Category('be', CategoryType.gramatical);
+    let gc2 = new Category('cá', CategoryType.gramatical);
+    let gc3 = new Category('aá', CategoryType.gramatical);
+    let tc1 = new Category('by', CategoryType.thematic);
+    const tc2 = new Category('cá', CategoryType.thematic);
+    const tc3 = new Category('aá', CategoryType.thematic);
+    await categoryService.addCategory(gc1, collection.getId());
+    gc2 = await categoryService.addCategory(gc2, collection.getId());
+    gc3 = await categoryService.addCategory(gc3, collection.getId());
+    tc1 = await categoryService.addCategory(tc1, collection.getId());
+    await categoryService.addCategory(tc2, collection.getId());
+    await categoryService.addCategory(tc3, collection.getId());
+    fixture.detectChanges();
+    await component.ngOnInit();
+    let event = {target: {value: 'á'}};
+    component.handleSearchbar(event);
+    expect(component.categories).toEqual([gc2, gc3]);
+
+    fixture.debugElement.injector.get(ActivatedRoute).snapshot.params.type = 1;
+    fixture.detectChanges();
+    await component.ngOnInit();
+    event = {target: {value: 'y'}};
+    component.handleSearchbar(event);
+    expect(component.categories).toEqual([thematicCategory, tc1]);
   });
 });

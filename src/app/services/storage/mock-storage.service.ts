@@ -9,7 +9,7 @@ export class MockStorageService implements AbstractStorageService {
 
   constructor() {
     this.storage = new Map<string, any>();
-    this.storage.set('settings', {darkMode: false, language: 'en'});
+    this.storage.set('settings', {darkMode: false, preferredLanguage: {prefix: 'en', name: 'English'}});
     this.storage.set('collections', []);
   }
 
@@ -24,5 +24,13 @@ export class MockStorageService implements AbstractStorageService {
 
   remove(key: string): Promise<any> {
     return Promise.resolve(this.storage.delete(key));
+  }
+
+  exportData(): Promise<any> {
+    return Promise.resolve(undefined);
+  }
+
+  importData(): Promise<any> {
+    return Promise.resolve(undefined);
   }
 }

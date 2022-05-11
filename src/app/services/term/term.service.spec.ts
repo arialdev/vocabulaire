@@ -9,6 +9,7 @@ import {Emoji} from '../../classes/emoji/emoji';
 import {CollectionService} from '../collection/collection.service';
 import {Category} from '../../classes/category/category';
 import {CategoryType} from '../../enums/enums';
+import {Wod} from '../../classes/wod/wod';
 
 describe('TermService', () => {
   let service: TermService;
@@ -118,5 +119,54 @@ describe('TermService', () => {
     const newTerm: Term = new Term('sample', 'ejemplo', 'this is a note');
     await expectAsync(service.updateTerm(-1, newTerm, -1)).toBeRejectedWithError(`Collection with ID -1 not found`);
     await expectAsync(service.updateTerm(-1, newTerm, collection.getId())).toBeRejectedWithError(`Term with ID -1 not found`);
+  });
+
+
+  it('should get undefined when retrieving Word of the Day if there are not enough terms', async () => {
+    await expectAsync(service.getWoD(collection.getId())).toBeResolvedTo(undefined);
+  });
+
+  it('should throw error when retrieving wod if no collection is active', async () => {
+    await expectAsync(service.getWoD(-1)).toBeRejectedWithError(`Collection with ID -1 not found`);
+  });
+
+  it('should return new wod', async () => {
+    for (let i = 0; i < service.getWODBound(); i++) {
+      const newTerm = new Term('Hola', 'Hello');
+      await service.addTerm(newTerm, collection.getId());
+    }
+    const wod = await service.getWoD(collection.getId());
+    expect(wod).toBeTruthy();
+  });
+
+  it('should return current wod', async () => {
+    for (let i = 0; i < service.getWODBound(); i++) {
+      const newTerm = new Term(`Hola_${i}`, `Hello_${i}`);
+      await service.addTerm(newTerm, collection.getId());
+    }
+    const wod = await service.getWoD(collection.getId());
+    const newWod = await service.getWoD(collection.getId());
+    expect(wod).toEqual(newWod);
+  });
+
+  it('should return different WoDs', async () => {
+    for (let i = 0; i < service.getWODBound(); i++) {
+      const newTerm = new Term(`Hola_${i}`, `Hello_${i}`);
+      await service.addTerm(newTerm, collection.getId());
+    }
+    const set: Set<Wod> = new Set<Wod>();
+
+    for (let i = 0; i < service.getWODBound(); i++) {
+      const clock = jasmine.clock().install();
+      clock.mockDate(new Date(1999 + i, 1, 1));
+      const wod = await service.getWoD(collection.getId());
+      set.add(wod);
+      clock.uninstall();
+    }
+    expect(set.size).toBeGreaterThan(1);
+  });
+
+  it('get wod bound', () => {
+    expect(service.getWODBound()).toBeGreaterThan(0);
   });
 });

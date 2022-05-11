@@ -3,6 +3,7 @@ import {AbstractStorageService} from '../storage/abstract-storage-service';
 import {CollectionService} from '../collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
 import {Term} from '../../classes/term/term';
+import {Wod} from '../../classes/wod/wod';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,14 @@ import {Term} from '../../classes/term/term';
 export class TermService {
 
   private nextFreeID: number;
+  private readonly wodBound: number;
+  private readonly wodSlidingLength: number;
 
   constructor(
     private storageService: AbstractStorageService,
     private collectionService: CollectionService) {
+    this.wodBound = 5;
+    this.wodSlidingLength = 3;
   }
 
   public async addTerm(newTerm: Term, collectionID: number): Promise<Term> {
@@ -83,6 +88,40 @@ export class TermService {
 
     await this.storageService.set('collections', collections);
     return term;
+  }
+
+  public async getWoD(collectionID: number): Promise<Wod | undefined> {
+    const collections = await this.collectionService.getCollections();
+    const collection = collections.find(c => c.getId() === collectionID);
+    if (!collection) {
+      throw new Error(`Collection with ID ${collectionID} not found`);
+    }
+
+    const terms = collection.getTerms();
+    const wodHistory: Wod[] = collection.getWodHistory();
+    if (terms.length < this.getWODBound()) {
+      return;
+    }
+
+    if (wodHistory.length && wodHistory[wodHistory.length - 1].getRetrievedDate().toDateString() === new Date().toDateString()) {
+      return wodHistory[wodHistory.length - 1];
+    }
+
+    const validTerms = terms.filter(t => !wodHistory.some(w => w.getTerm().getId() === t.getId()));
+    const randomTerm = validTerms[Math.floor(Math.random() * terms.length)];
+    if (randomTerm) {
+      const wod = new Wod(randomTerm);
+      wodHistory.push(new Wod(wod));
+      if (wodHistory.length > this.wodSlidingLength) {
+        wodHistory.shift();
+      }
+      await this.storageService.set('collections', collections);
+      return wod;
+    }
+  }
+
+  public getWODBound() {
+    return this.wodBound;
   }
 
   /**

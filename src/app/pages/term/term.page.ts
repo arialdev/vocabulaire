@@ -2,11 +2,12 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CollectionService} from '../../services/collection/collection.service';
 import {Collection} from '../../classes/collection/collection';
-import {AlertController, IonSelect, NavController} from '@ionic/angular';
+import {AlertController, IonSelect, NavController, ToastController} from '@ionic/angular';
 import {Category} from '../../classes/category/category';
 import {Term} from '../../classes/term/term';
 import {TermService} from '../../services/term/term.service';
 import {ActivatedRoute} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-term',
@@ -17,8 +18,24 @@ export class TermPage implements OnInit {
   @ViewChild('gramaticalCategoriesDropdown') gramaticalCategoriesDropdown: IonSelect;
   @ViewChild('thematicCategoriesDropdown') thematicCategoriesDropdown: IonSelect;
   title: string;
+  readonly maxTermNameLength: number = 25;
+  readonly maxNotesLength: number = 400;
   termForm: FormGroup;
-  customAlertOptions: any;
+  validationMessages = {
+    originalTerm: [
+      {type: 'required', message: 'term.form.validation.or-term.required'},
+      {type: 'maxlength', message: 'term.form.validation.or-term.maxlength'}
+    ],
+    translatedTerm: [
+      {type: 'required', message: 'term.form.validation.tr-term.required'},
+      {type: 'maxlength', message: 'term.form.validation.tr-term.maxlength'},
+    ],
+    gramaticalCategories: [],
+    thematicCategories: [],
+    notes: [{type: 'maxlength', message: 'term.form.validation.notes.maxlength'}]
+  };
+  customAlertGCsOptions: any;
+  customAlertTCsOptions: any;
   languageLabel: string;
   gramaticalCategoriesList: Category[];
   thematicCategoriesList: Category[];
@@ -28,26 +45,44 @@ export class TermPage implements OnInit {
 
   editingID: number;
 
+  showLength = {originalTerm: false, translatedTerm: false, notes: false};
+
+  readonly translation = {
+    form: {
+      translatedTerm: 'term.form.tr',
+      notes: 'data.term.notes'
+    },
+    select: {
+      ok: 'term.category.select.ok',
+      cancel: 'term.category.select.cancel',
+    }
+  };
+
   compareWith = compareCategories;
 
   private activeCollection: Collection;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private collectionService: CollectionService,
     private termService: TermService,
     private navController: NavController,
     private activatedRoute: ActivatedRoute,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private translateService: TranslateService,
+    private toastController: ToastController
   ) {
     this.termForm = new FormGroup({
-      originalTerm: new FormControl('', Validators.required),
-      translatedTerm: new FormControl('', Validators.required),
+      originalTerm: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(this.maxTermNameLength)])),
+      translatedTerm: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(this.maxTermNameLength)])),
       gramaticalCategories: new FormControl(''),
       thematicCategories: new FormControl(''),
-      notes: new FormControl(''),
+      notes: new FormControl('', Validators.maxLength(this.maxNotesLength)),
     });
-    this.customAlertOptions = {
-      header: 'Gramatical categories',
+    this.customAlertGCsOptions = {
+      translucent: true,
+    };
+    this.customAlertGCsOptions = {
       translucent: true,
     };
     this.selectedGramaticalCategories = [];
@@ -60,9 +95,9 @@ export class TermPage implements OnInit {
       this.editingID = +id;
     }
     if (this.editingID) {
-      this.title = 'Update term';
+      this.title = await this.translateService.get('term.title-edit').toPromise();
     } else {
-      this.title = 'New term';
+      this.title = await this.translateService.get('term.title-new').toPromise();
     }
   }
 
@@ -77,7 +112,7 @@ export class TermPage implements OnInit {
     }
   }
 
-  async onSubmit() {
+  async onSubmit(): Promise<void> {
     if (this.termForm.valid) {
       const {
         originalTerm,
@@ -90,28 +125,75 @@ export class TermPage implements OnInit {
       term.addGramaticalCategories(gramaticalCategories);
       term.addThematicCategories(thematicCategories);
 
+      await this.toast?.dismiss();
       if (this.editingID) {
-        await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
+        try {
+          await this.termService.updateTerm(this.editingID, term, this.activeCollection.getId());
+          this.toast = await this.toastController.create({
+            message: await this.translateService.get('term.toast.update.success.msg').toPromise(),
+            icon: 'chatbox',
+            color: 'success',
+            duration: 800,
+          });
+        } catch (_) {
+        }
       } else {
-        await this.termService.addTerm(term, this.activeCollection.getId());
+        try {
+          await this.termService.addTerm(term, this.activeCollection.getId());
+          this.toast = await this.toastController.create({
+            message: await this.translateService.get('term.toast.create.success.msg').toPromise(),
+            icon: 'chatbox',
+            color: 'success',
+            duration: 800,
+          });
+        } catch (error) {
+          this.toast = await this.toastController.create({
+            header: await this.translateService.get('term.toast.create.collection-not-found.header').toPromise(),
+            message: await this.translateService.get('term.toast.create.collection-not-found.msg').toPromise(),
+            icon: 'chatbox',
+            color: 'danger',
+            duration: 1000,
+          });
+          return this.toast.present();
+        }
       }
-      await this.navController.navigateBack('');
+      await Promise.allSettled([this.toast.present(), this.navController.navigateBack('')]);
+    } else {
+      this.termForm.markAllAsTouched();
     }
   }
 
   async openDeletionAlert(): Promise<void> {
+    const text = await this.translateService.get('term.alert.delete').toPromise();
     const alert = await this.alertController.create({
-      header: 'Confirm deletion',
-      message: 'This action cannot be undone',
+      header: text.header,
+      message: text.msg,
       buttons: [
         {
-          text: 'Cancel',
+          text: text.cancel,
           role: 'cancel',
         }, {
-          text: 'Delete',
+          text: text.ok,
           handler: async () => {
-            await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
-            await this.navController.navigateBack('');
+            await this.toast?.dismiss();
+            try {
+              await this.termService.deleteTerm(this.editingID, this.activeCollection.getId());
+              this.toast = await this.toastController.create({
+                message: await this.translateService.get('term.toast.delete.success.msg').toPromise(),
+                icon: 'chatbox',
+                color: 'success',
+                duration: 800
+              });
+              await Promise.allSettled([this.toast.present(), await this.navController.navigateBack('')]);
+            } catch (_) {
+              this.toast = await this.toastController.create({
+                header: await this.translateService.get('term.toast.delete.collection-not-found.header').toPromise(),
+                message: await this.translateService.get('term.toast.delete.collection-not-found.msg').toPromise(),
+                icon: 'chatbox',
+                color: 'danger',
+                duration: 1000,
+              });
+            }
           }
         }
       ]
@@ -133,6 +215,14 @@ export class TermPage implements OnInit {
 
   async navigateToCategories(type) {
     await this.navController.navigateForward(`categories/${type}`);
+  }
+
+  inputOnFocus(formControlName: string): void {
+    this.showLength[formControlName] = true;
+  }
+
+  inputOnBlur(formControlName: string): void {
+    this.showLength[formControlName] = false;
   }
 
   private async editingMode() {

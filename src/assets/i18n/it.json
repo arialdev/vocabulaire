@@ -1,0 +1,274 @@
+{
+  "category": {
+    "alert": {
+      "cancel": "Cancellare",
+      "header": {
+        "create": "Nuova categoria {{type}}",
+        "edit": "Modificare categoria {{type}}"
+      },
+      "ok": {
+        "save": "Salvare",
+        "update": "Rinominare"
+      },
+      "placeholder": "Nome della categoria"
+    },
+    "delete": "Eliminare",
+    "new-button": "Creare categoria",
+    "searchbar-placeholder": "Cercare categoria"
+  },
+  "collections": {
+    "alert": {
+      "deletion": {
+        "cancel": "Cancellare",
+        "header": "Confermare la eliminazione",
+        "msg": "Questa azione non può essere annullata",
+        "ok": "Eliminare"
+      }
+    },
+    "buttons": {
+      "manage": "Amministrare",
+      "set": "Selezionare"
+    },
+    "form": {
+      "create": "Creare",
+      "delete": "Eliminare",
+      "icon": "Icona",
+      "name": "Nome",
+      "prefix": "Prefisso",
+      "title-edit": "Modificare raccolta",
+      "title-new": "Nuova raccolta",
+      "update": "Applicare",
+      "validation": {
+        "icon": {
+          "required": "Scegli un'icona per le raccolta facendo clic sul pulsante dell'emoticon"
+        },
+        "name": {
+          "maxlength": "Il nome della raccolta deve contenere un massimo di {{max}} caratteri",
+          "minlength": "Il nome della raccolta deve contenere un minimo de {{min}} caratteri",
+          "required": "Inserisci il nome della raccolta (p. e., Inglese)"
+        },
+        "prefix": {
+          "maxlength": "Il prefisso della raccolta deve contenere esattamente {{q}} caracteres (e.g. EN)",
+          "minlength": "Il prefisso della raccolta deve contenere esattamente {{q}} caracteres (e.g., EN)",
+          "required": "Immettere un prefisso della lingua di raccolta (e.g., EN)"
+        }
+      }
+    },
+    "new": "Creare raccolta",
+    "no-coll-msg": {
+      "body": "Aggiungi una nuova raccolta per iniziare il tuo apprendimento!",
+      "title": "In Vocabulaire puoi imparare più lingue contemporaneamente separandole in raccolte."
+    },
+    "title": "Raccolte",
+    "toast": {
+      "active": "{{name}} ora è le raccolta attiva",
+      "create": {
+        "success": {
+          "msg": "Raccolta creata correttamente"
+        }
+      },
+      "delete": {
+        "error": {
+          "msg": "Errore interno"
+        },
+        "error-active": {
+          "msg": "Impossibile eliminare una raccolta attiva"
+        },
+        "error-no-collection": {
+          "msg": "Non è stato possibile trovare le raccolta"
+        },
+        "success": {
+          "msg": "Raccolta eliminata con successo"
+        }
+      },
+      "update": {
+        "error-no-collection": {
+          "msg": "Non è stato possibile trovare le raccolta"
+        },
+        "success": {
+          "msg": "Raccolta aggiornata con successo"
+        }
+      }
+    }
+  },
+  "data": {
+    "category": {
+      "gc": "Categoria grammaticale",
+      "gcs": "Categorie grammaticali",
+      "name": "Categoria",
+      "name-p": "Categorie",
+      "tc": "Categoria tematica",
+      "tcs": "Categorie tematiche",
+      "type": {
+        "g": "Grammaticale",
+        "gs": "Grammaticali",
+        "t": "Tematica",
+        "ts": "Tematiche"
+      }
+    },
+    "tag": {
+      "tag": "Tag",
+      "tags": "Tag"
+    },
+    "term": {
+      "notes": "Note"
+    }
+  },
+  "home": {
+    "details-label": "Dettaglio",
+    "filter": {
+      "cancel": "Cancellare",
+      "label": "Filtrare per {{type}}",
+      "ok": "OK"
+    },
+    "no-term-msg": "Aggiungi un nuovo termine per iniziare il tuo apprendimento!",
+    "searchbar-placeholder": "Cercare un termine",
+    "sort": {
+      "label": "Ordina per:",
+      "opt": {
+        "date": "Data",
+        "t-org": "Termine originario",
+        "t-trans": "Termine tradotto"
+      }
+    },
+    "title": "Principale"
+  },
+  "settings": {
+    "dark-mode": "Tema scuro",
+    "export": {
+      "button": "Esportare dati"
+    },
+    "import": {
+      "button": "Importare dati",
+      "toast": {
+        "bad-data": {
+          "message": "Il file ha dati danneggiati",
+          "title": "Impossibile importare i dati"
+        },
+        "bad-file": {
+          "message": "File corrotto",
+          "title": "Impossibile importare i dati"
+        },
+        "success": {
+          "message": "Dati importati correttamente"
+        }
+      }
+    },
+    "language": "Lingua",
+    "title": "Impostazioni"
+  },
+  "tag": {
+    "form": {
+      "button": "Salvare",
+      "icon": "Icona",
+      "name": "Nome",
+      "validation": {
+        "icon": {
+          "required": "Scegli un'icona facendo clic sull'emoticon"
+        },
+        "name": {
+          "maxlength": "Il nome del tag non può essere più lungo di {{max}} caratteri",
+          "required": "Immettere un nome per l'etichetta (e.g. Cibo)"
+        }
+      }
+    },
+    "title": "Nuovo tag",
+    "toast": {
+      "fail": {
+        "max-reached": {
+          "header": "Numero massimo di tags raggiunto",
+          "msg": "Elimina i tag in modo da poter continuare a crearli"
+        },
+        "no-active-collection": {
+          "header": "Errore durante la creazione del tag",
+          "msg": "Impossibile identificare le raccolta"
+        }
+      },
+      "success": {
+        "msg": "Tag creato con successo"
+      }
+    }
+  },
+  "term": {
+    "alert": {
+      "delete": {
+        "cancel": "Cancellare",
+        "header": "Confermare l'eliminazione",
+        "msg": "Questa azione non può essere annullata",
+        "ok": "Eliminare"
+      }
+    },
+    "category": {
+      "select": {
+        "cancel": "Cancellare",
+        "ok": "OK"
+      }
+    },
+    "create": "Creare",
+    "delete": "Eliminare",
+    "form": {
+      "tr": "Traduzione",
+      "validation": {
+        "notes": {
+          "maxlength": "Le note devono contenere meno di {{max}} caratteri"
+        },
+        "or-term": {
+          "maxlength": "Il termine originale non può contenere più di {{max}} caratteri",
+          "required": "Inserisci il termine originale (lingua della raccolta)"
+        },
+        "tr-term": {
+          "maxlength": "Il termine tradotto non può contenere più di {{max}} caratteri",
+          "required": "Inserisci il termine tradotto (lingua propria)"
+        }
+      }
+    },
+    "title-edit": "Modificare termine",
+    "title-new": "Nuovo termine",
+    "toast": {
+      "create": {
+        "collection-not-found": {
+          "header": "Errore durante la creazione del termine",
+          "msg": "Raccolta non trovata"
+        },
+        "success": {
+          "msg": "Termine creato con successo"
+        }
+      },
+      "delete": {
+        "collection-not-found": {
+          "header": "Errore durante la rimozione del termine",
+          "msg": "Raccolta non trovata"
+        },
+        "success": {
+          "msg": "Termine rimosso correttamente"
+        }
+      },
+      "update": {
+        "success": {
+          "msg": "Termine aggiornato con successo"
+        }
+      }
+    },
+    "update": "Applicare"
+  },
+  "tutorial": {
+    "1": {
+      "description": "Innanzitutto, scegli la lingua dell'interfaccia",
+      "language-label": "Interfaccia",
+      "swipe": "Scorri per continuare!",
+      "title": "Benvenuto in Vocabulaire"
+    },
+    "2": {
+      "button": "Inizio",
+      "description": "Puoi separare il vocabolario di diverse lingue in raccolte. Crea la tua prima raccolta per iniziare il tuo apprendimento.",
+      "title": "Crea la tua prima raccolta"
+    }
+  },
+  "wod": {
+    "no-msg": {
+      "1": "La parola del giorno sceglie un termine dal tuo vocabolario in modo che tu possa continuare con il tuo apprendimento",
+      "2": "Aggiungi un minimo di {{bound}} termini per iniziare a utilizzare questa funzionalità"
+    },
+    "title": "La Parola del Giorno"
+  }
+}

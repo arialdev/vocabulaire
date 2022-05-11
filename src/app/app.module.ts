@@ -13,7 +13,16 @@ import {Drivers} from '@ionic/storage';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AbstractStorageService} from './services/storage/abstract-storage-service';
 import {StorageService} from './services/storage/storage.service';
+
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {MenuPageModule} from './pages/menu/menu.module';
 import {EmojisMap} from './services/emoji/emojisMap';
+import {ScreenOrientation} from '@awesome-cordova-plugins/screen-orientation/ngx';
+
+export const createTranslateLoader = (http: HttpClient) =>
+  new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,13 +34,33 @@ import {EmojisMap} from './services/emoji/emojisMap';
     IonicStorageModule.forRoot({
       // eslint-disable-next-line no-underscore-dangle
       driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB]
-    })],
+    }),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
+    MenuPageModule
+  ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     {provide: AbstractStorageService, useClass: StorageService},
     {provide: EmojisMap},
+    {provide: ScreenOrientation}
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
 }
+
+

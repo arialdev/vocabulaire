@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+
+<ion-content>
+  <div class="title">
+    <ion-img class="bulb-pic" [src]="bulbPath"></ion-img>
+    <span [translate]="'wod.title'"></span>
+  </div>
+  <ion-item class="term" color="light" lines="none" *ngIf="wod;else no_wod">
+    <div class="item-box">
+      <div class="item-header">{{wod.getTerm().getTranslatedTerm()}}</div>
+      <div class="translated-term">
+        <img class="language-icon" [src]="languageFlag" alt="collection icon">
+        <span>{{wod.getTerm().getOriginalTerm()}}</span>
+      </div>
+      <div class="categories"
+           *ngIf="wod.getTerm().getGramaticalCategories().length + wod.getTerm().getThematicCategories().length">
+        <ion-chip class="gramatical-category primary" color="primary" disabled="true"
+                  *ngFor="let gc of wod.getTerm().getGramaticalCategories()">
+          <ion-label>{{gc.getName()}}</ion-label>
+        </ion-chip>
+        <ion-chip class="thematic-category secondary" color="darkgreen" outline="true" disabled="true"
+                  *ngFor="let tc of wod.getTerm().getThematicCategories()">
+          <ion-label>{{tc.getName()}}</ion-label>
+        </ion-chip>
+      </div>
+      <div class="notes" *ngIf="wod.getTerm().getNotes().length">{{wod.getTerm().getNotes()}}</div>
+    </div>
+  </ion-item>
+  <ng-template #no_wod>
+    <div class="no-wod-message">
+      <p [translate]="'wod.no-msg.1'"></p>
+      <p class="subtitle" [translate]="'wod.no-msg.2'" [translateParams]="{bound:termsBound}"></p>
+    </div>
+  </ng-template>
+
+</ion-content>

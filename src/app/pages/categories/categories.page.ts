@@ -6,6 +6,7 @@ import {Category} from '../../classes/category/category';
 import {AlertController} from '@ionic/angular';
 import {CategoryService} from '../../services/category/category.service';
 import {CategoryType} from '../../enums/enums';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
@@ -16,43 +17,64 @@ export class CategoriesPage implements OnInit {
 
   title: string;
   categories: Category[];
-  private collection: Collection;
+  searchbarPlaceholder: string;
+  private activeCollection: Collection;
+  private type: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private collectionService: CollectionService,
     private alertController: AlertController,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private translateService: TranslateService,
   ) {
   }
 
   async ngOnInit() {
-    this.title = this.activatedRoute.snapshot.paramMap.get('type');
+    this.type = +this.activatedRoute.snapshot.params.type;
+    await this.translate();
     return this.refreshCategories();
   }
 
-  newCategory() {
+  async newCategory() {
+    const type = (await this.translateService
+      .get('data.category.type.' + (this.isGramaticalMode() ? 'g' : 't'))
+      .toPromise())
+      .toLowerCase();
     return this.createAlert(
-      `New ${this.title.toLowerCase()} category`,
+      await this.translateService.get('category.alert.header.create', {type}).toPromise(),
       undefined,
-      'Save',
+      await this.translateService.get('category.alert.ok.save').toPromise(),
       (text) => this.createCategory(text[0])
     );
   }
 
 
-  editCategory(category: Category) {
+  async editCategory(category: Category) {
+    const type = (await this.translateService
+      .get('data.category.type.' + (this.isGramaticalMode() ? 'g' : 't'))
+      .toPromise())
+      .toLowerCase();
     return this.createAlert(
-      `Edit ${this.title.toLowerCase()} category`,
+      await this.translateService.get('category.alert.header.edit', {type}).toPromise(),
       category.getName(),
-      'Update',
+      await this.translateService.get('category.alert.ok.update').toPromise(),
       (text) => this.updateCategory(text[0], category)
     );
   }
 
   async deleteCategory(category: Category): Promise<void> {
-    await this.categoryService.deleteCategory(this.collection.getId(), category.getId(), category.getType());
+    await this.categoryService.deleteCategory(this.activeCollection.getId(), category.getId(), category.getType());
     await this.refreshCategories();
+  }
+
+  handleSearchbar(event) {
+    const text = event.target.value.toLowerCase();
+    const defaultCategories = this.isGramaticalMode() ? this.activeCollection.getGramaticalCategories()
+      : this.activeCollection.getThematicCategories();
+    this.categories = defaultCategories.filter(c =>
+      c.getName().toLowerCase().includes(text) || sanitizeText(c.getName()).includes(text)
+    );
   }
 
   private async createAlert(title: string, value: string, buttonText: string, handler) {
@@ -60,14 +82,14 @@ export class CategoriesPage implements OnInit {
       header: title,
       inputs: [{
         value,
-        placeholder: 'Category name'
+        placeholder: await this.translateService.get('category.alert.placeholder').toPromise()
       }],
       backdropDismiss: true,
       translucent: true,
       animated: true,
       keyboardClose: true,
       buttons: [
-        {text: 'Cancel', role: 'cancel'},
+        {text: await this.translateService.get('category.alert.cancel').toPromise(), role: 'cancel'},
         {
           text: buttonText, role: 'set', handler: async (t) => {
             await handler(t);
@@ -83,24 +105,34 @@ export class CategoriesPage implements OnInit {
     let category: Category;
     if (this.isGramaticalMode()) {
       category = new Category(name, CategoryType.gramatical);
-      return this.categoryService.addCategory(category, this.collection.getId());
+      return this.categoryService.addCategory(category, this.activeCollection.getId());
     } else {
       category = new Category(name, CategoryType.thematic);
-      return this.categoryService.addCategory(category, this.collection.getId());
+      return this.categoryService.addCategory(category, this.activeCollection.getId());
     }
   }
 
   private updateCategory(name: string, category: Category): Promise<Category> {
-    return this.categoryService.updateCategory(name, this.collection.getId(), category.getId());
+    return this.categoryService.updateCategory(name, this.activeCollection.getId(), category.getId());
   }
 
   private isGramaticalMode() {
-    return this.title === 'Gramatical';
+    return this.type === 0;
   }
 
   private async refreshCategories() {
-    this.collection = await this.collectionService.getActiveCollection();
-    this.categories = this.isGramaticalMode() ? this.collection.getGramaticalCategories() : this.collection.getThematicCategories();
+    this.activeCollection = await this.collectionService.getActiveCollection();
+    this.categories = this.isGramaticalMode() ? this.activeCollection.getGramaticalCategories()
+      : this.activeCollection.getThematicCategories();
   }
 
+  private async translate() {
+    this.title = await this.translateService.get('data.category.' + (this.isGramaticalMode() ? 'gcs' : 'tcs')).toPromise();
+    this.searchbarPlaceholder = await this.translateService.get('category.searchbar-placeholder').toPromise();
+  }
 }
+
+const sanitizeText = (text: string) => text
+  .normalize('NFD')
+  .replaceAll(/[\u0300-\u036f]/g, '')
+  .toLowerCase();

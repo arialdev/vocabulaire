@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/collections"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">
+        {{translation.form.name | translate}}
+        <span class="warning-message"
+              *ngIf=" showLength.name && collectionForm.get('name').value.length>maxLanguageNameLength*0.6"
+              [class.strong-warning]="collectionForm.get('name').value.length>maxLanguageNameLength*0.8"
+              [class.warning]="collectionForm.get('name').value.length>maxLanguageNameLength*0.5"
+              [class.danger]="collectionForm.get('name').value.length>maxLanguageNameLength">
+          {{ collectionForm.get('name').value.length }}/{{maxLanguageNameLength}}
+        </span>
+      </ion-label>
+      <ion-input [formControlName]="'name'" type="text" required="true" [maxlength]="maxLanguageNameLength"
+                 (ionFocus)="inputOnFocus('name')" (ionBlur)="inputOnBlur('name')"
+                 (ionChange)="generatePrefix($event)"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.name">
+        <div class="error-message"
+             *ngIf="collectionForm.get('name').hasError(validation.type) && (collectionForm.get('name').dirty
+             || collectionForm.get('name').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxLanguageNameLength, min:2}">
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating" [translate]="'collections.form.prefix'"></ion-label>
+      <ion-input [formControlName]="'prefix'" type="text" required="true" autocapitalize="characters"
+                 (ionChange)="autocapitalize($event)" maxlength="2"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.prefix">
+        <div class="error-message"
+             *ngIf="collectionForm.get('prefix').hasError(validation.type) && (collectionForm.get('prefix').dirty
+             || collectionForm.get('prefix').touched)" [translate]="validation.message"
+             [translateParams]="{max:2, min:2}">
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating" [translate]="'collections.form.icon'"></ion-label>
+      <ion-input class="emoji-input" [formControlName]="'icon'" type="text" required="true"></ion-input>
+      <ion-button class="emoji-button" fill="clear" (click)="toggleModal()">
+        <ion-img [src]="this.selectedEmoji|emoji"></ion-img>
+      </ion-button>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.icon">
+        <div class="error-message"
+             *ngIf="collectionForm.get('icon').hasError(validation.type) && (collectionForm.get('icon').dirty
+             || collectionForm.get('icon').touched)" [translate]="validation.message">
+        </div>
+      </ng-container>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="editingId">
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger"
+                      [translate]="'collections.form.delete'"></ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="submit-button" type="submit" expand="block"
+                      [translate]="editingId ? 'collections.form.update' : 'collections.form.create'"></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+  <app-emoji-picker (newEmojiEvent)="selectEmoji($event)" *ngIf="modalStatus"></app-emoji-picker>
+</ion-content>

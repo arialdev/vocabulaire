@@ -1,15 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Collection} from '../../classes/collection/collection';
 import {AbstractStorageService} from '../storage/abstract-storage-service';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectionService {
 
+  public currentActiveCollection: Observable<Collection>;
+  private activeCollectionSubject: BehaviorSubject<Collection>;
+
   private nextFreeID;
 
   constructor(private storageService: AbstractStorageService) {
+    this.activeCollectionSubject = new BehaviorSubject<Collection>(undefined);
+    this.currentActiveCollection = this.activeCollectionSubject.asObservable();
   }
 
   public async getActiveCollection(): Promise<Collection> {
@@ -18,6 +24,7 @@ export class CollectionService {
     if (!collection) {
       throw new Error('No active collection found!');
     }
+    this.activeCollectionSubject.next(collection);
     return collection;
   }
 
@@ -30,6 +37,7 @@ export class CollectionService {
     }
     activeCollection.setActive();
     await this.storageService.set('collections', collections);
+    this.activeCollectionSubject.next(activeCollection);
     return activeCollection;
   }
 
@@ -44,21 +52,19 @@ export class CollectionService {
 
   public async removeCollection(id: number): Promise<void> {
     const collections = await this.getCollections();
-    const updatedCollections = collections.map(c => {
-      if (c.getId() === id) {
-        if (c.isActive()) {
-          throw new Error('Cannot delete active collection');
-        }
-        c.setStatus(false);
-      }
-      return c;
-    });
-    await this.storageService.set('collections', updatedCollections);
+    const collection = collections.find(c => c.getId() === id);
+    if (!collection) {
+      throw new Error(`Could not find collection with ID ${id}`);
+    }
+    if (collection.isActive()) {
+      throw new Error('Cannot delete active collection');
+    }
+    await this.storageService.set('collections', collections.filter(c => c.getId() !== id));
   }
 
   public async getCollections(): Promise<Collection[]> {
     const collections = await this.storageService.get('collections');
-    return collections.map(c => new Collection(c)).filter(c => c.getStatus());
+    return collections.map(c => new Collection(c));
   }
 
   public async getCollectionById(id: number): Promise<Collection> {
@@ -66,16 +72,15 @@ export class CollectionService {
     return collections.find(c => c.getId() === id && c.getStatus());
   }
 
-  public async updateCollectionById(id: number, collection: Collection): Promise<Collection> {
+  public async updateCollectionById(id: number, collectionData: Collection): Promise<Collection> {
     const collections = await this.getCollections();
-    const editedCollections = collections.map(c => {
-      if (c.getId() === id) {
-        c.setLanguage(collection.getLanguage());
-      }
-      return c;
-    });
-    await this.storageService.set('collections', editedCollections);
-    return this.getCollectionById(id);
+    const collection = collections.find(c=>c.getId()===id);
+    if(!collection){
+      throw new Error(`Could not find collection with ID ${id}`);
+    }
+    collection.setLanguage(collectionData.getLanguage());
+    await this.storageService.set('collections', collections);
+    return collection;
   }
 
   public sortCollections(collections: Collection[]): Collection[] {

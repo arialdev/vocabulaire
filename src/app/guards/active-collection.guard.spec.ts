@@ -30,7 +30,7 @@ describe('ActiveCollectionGuard', () => {
 describe('ActiveCollectionGuard (isolated)', () => {
   let collections: Collection[];
   const routeMock: any = {snapshot: {}};
-  const routeStateMock: any = {snapshot: {}, url: '/'};
+  const routeStateMock: any = {snapshot: {}, url: '/home'};
 
   beforeEach(() => {
     collections = [];
@@ -63,7 +63,7 @@ describe('ActiveCollectionGuard (isolated)', () => {
     guard = new ActiveCollectionGuard(serviceStub as CollectionService, routerSpy);
   });
 
-  const fakeUrls = ['/'];
+  const fakeUrls = ['/home'];
   let guard: ActiveCollectionGuard;
   let routerSpy: jasmine.SpyObj<NavController>;
   let serviceStub: Partial<CollectionService>;

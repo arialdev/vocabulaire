@@ -1,0 +1,109 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 18px auto;
+  width: 50vw;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  & > .bulb-pic {
+    width: 80%;
+    margin: auto;
+  }
+
+  & > span {
+    text-align: center;
+    font-family: 'Caviar Dreams', sans-serif;
+    font-weight: bold;
+    font-size: 16pt;
+    margin-top: 6px;
+  }
+}
+
+.no-wod-message {
+  margin: 80px 15px 20px;
+  text-align: center;
+  font-family: "Caviar Dreams", sans-serif;
+  font-size: 20pt;
+
+  .subtitle {
+    font-size: 18pt;
+  }
+}
+
+.term {
+  border-radius: 5%;
+  margin: 40px 30px;
+  box-shadow: 3px 2px 5px -1px var(--ion-color-medium-shade);
+  border: 1px solid var(--ion-color-medium);
+}
+
+.item-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 15px 15px;
+  grid-template-areas:
+    "item-header"
+    "translated-term"
+    "categories"
+    "notes";
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+
+  .item-header {
+    grid-area: item-header;
+    font-family: "Lemon Milk", sans-serif;
+    font-size: 20px;
+    margin-top: 6px;
+  }
+
+  .language-icon {
+    grid-area: language-icon;
+  }
+
+  .translated-term {
+    grid-area: translated-term;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-inline-end: 12px;
+      width: 32px;
+    }
+
+    span {
+      font-family: "Lemon Milk Light", sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  .categories {
+    grid-area: categories;
+
+    ion-chip {
+      opacity: unset;
+      background-color: var(--ion-color-light);
+
+      &.primary {
+        border: 1px solid var(--ion-color-primary);
+      }
+
+      &.secondary {
+        border: 1px solid var(--ion-color-darkgreen);
+      }
+    }
+  }
+
+  .notes {
+    grid-area: notes;
+    font-family: "Caviar Dreams", sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+}

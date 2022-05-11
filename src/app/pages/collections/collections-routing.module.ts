@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    loadChildren: () => import('./new-collection/new-collection.module').then(m => m.NewCollectionPageModule)
+    loadChildren: () => import('./collection-view/collection-view.module').then(m => m.CollectionViewPageModule)
   },
   {
     path: 'new',
-    loadChildren: () => import('./new-collection/new-collection.module').then(m => m.NewCollectionPageModule)
+    loadChildren: () => import('./collection-view/collection-view.module').then(m => m.CollectionViewPageModule)
   }
 ];
 

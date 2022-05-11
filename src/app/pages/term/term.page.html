@@ -10,18 +10,59 @@
 <ion-content>
   <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="floating">{{languageLabel}}</ion-label>
-      <ion-input formControlName="originalTerm" type="text" required></ion-input>
+      <ion-label position="floating">
+        {{languageLabel}}
+        <span class="warning-message"
+              *ngIf=" showLength.originalTerm && termForm.get('originalTerm').value.length>maxTermNameLength*0.6"
+              [class.strong-warning]="termForm.get('originalTerm').value.length>maxTermNameLength*0.8"
+              [class.warning]="termForm.get('originalTerm').value.length>maxTermNameLength*0.5"
+              [class.danger]="termForm.get('originalTerm').value.length>maxTermNameLength">
+          {{ termForm.get('originalTerm').value.length }}/{{maxTermNameLength}}
+        </span>
+      </ion-label>
+      <ion-input formControlName="originalTerm" type="text" required="true" [maxlength]="maxTermNameLength"
+                 (ionFocus)="inputOnFocus('originalTerm')"
+                 (ionBlur)="inputOnBlur('originalTerm')"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.translatedTerm">
+        <div class="error-message"
+             *ngIf="termForm.get('originalTerm').hasError(validation.type) && (termForm.get('originalTerm').dirty
+             || termForm.get('originalTerm').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxTermNameLength}">
+        </div>
+      </ng-container>
+    </div>
     <ion-item>
-      <ion-label position="floating">Translated</ion-label>
-      <ion-input formControlName="translatedTerm" type="text" required></ion-input>
+      <ion-label position="floating">
+        {{translation.form.translatedTerm| translate}}
+        <span class="warning-message"
+              *ngIf=" showLength.translatedTerm && termForm.get('translatedTerm').value.length>maxTermNameLength*0.6"
+              [class.strong-warning]="termForm.get('translatedTerm').value.length>maxTermNameLength*0.8"
+              [class.warning]="termForm.get('translatedTerm').value.length>maxTermNameLength*0.5"
+              [class.danger]="termForm.get('translatedTerm').value.length>maxTermNameLength">
+          {{ termForm.get('translatedTerm').value.length }}/{{maxTermNameLength}}
+        </span>
+      </ion-label>
+      <ion-input formControlName="translatedTerm" type="text" required="true"
+                 [maxlength]="maxTermNameLength" (ionFocus)="inputOnFocus('translatedTerm')"
+                 (ionBlur)="inputOnBlur('translatedTerm')"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.originalTerm">
+        <div class="error-message"
+             *ngIf="termForm.get('translatedTerm').hasError(validation.type) && (termForm.get('translatedTerm').dirty
+             || termForm.get('translatedTerm').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxTermNameLength}">
+        </div>
+      </ng-container>
+    </div>
     <div class="categories-box">
       <div class="dropdown">
         <ion-item lines="none">
-          <ion-label> Gramatical categories</ion-label>
-          <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+          <ion-label [translate]="'data.category.gcs'"></ion-label>
+          <ion-select multiple="true" [cancelText]="translation.select.cancel | translate"
+                      [okText]="translation.select.ok | translate" [interfaceOptions]="customAlertGCsOptions"
                       #gramaticalCategoriesDropdown selectedText=" " formControlName="gramaticalCategories"
                       (ionChange)="updateChips($event, 0)" [compareWith]="compareWith">
             <ion-select-option *ngFor="let category of gramaticalCategoriesList"
@@ -34,7 +75,7 @@
                   color="primary-blue">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
-        <ion-button fill="clear" color="dark" (click)="navigateToCategories('Gramatical')">
+        <ion-button fill="clear" color="dark" (click)="navigateToCategories(0)">
           <ion-icon name="options-outline"></ion-icon>
         </ion-button>
       </div>
@@ -43,8 +84,9 @@
     <div class="categories-box">
       <div class="dropdown">
         <ion-item lines="none">
-          <ion-label> Thematic categories</ion-label>
-          <ion-select multiple cancelText="Cancel" okText="OK" [interfaceOptions]="customAlertOptions"
+          <ion-label [translate]="'data.category.tcs'"></ion-label>
+          <ion-select multiple="true" [cancelText]="translation.select.cancel | translate"
+                      [okText]="translation.select.ok | translate" [interfaceOptions]="customAlertTCsOptions"
                       #thematicCategoriesDropdown selectedText=" " formControlName="thematicCategories"
                       [compareWith]="compareWith" (ionChange)="updateChips($event, 1)">
             <ion-select-option *ngFor="let category of thematicCategoriesList"
@@ -57,25 +99,47 @@
                   outline="true">{{category.getName()}}</ion-chip>
       </div>
       <div class="manage-categories">
-        <ion-button fill="clear" color="dark" (click)="navigateToCategories('Thematic')">
+        <ion-button fill="clear" color="dark" (click)="navigateToCategories(1)">
           <ion-icon name="options-outline"></ion-icon>
         </ion-button>
       </div>
     </div>
     <ion-item-divider class="low-divider"></ion-item-divider>
     <ion-item>
-      <ion-label position="floating">Notes</ion-label>
-      <ion-textarea autoGrow maxlength="140" formControlName="notes"></ion-textarea>
+      <ion-label position="floating">
+        {{translation.form.notes | translate}}
+        <span class="warning-message"
+              *ngIf=" showLength.notes && termForm.get('notes').value.length>maxNotesLength*0.6"
+              [class.strong-warning]="termForm.get('notes').value.length>maxNotesLength*0.8"
+              [class.warning]="termForm.get('notes').value.length>maxNotesLength*0.5"
+              [class.danger]="termForm.get('notes').value.length>maxNotesLength">
+          {{ termForm.get('notes').value.length }}/{{maxNotesLength}}
+        </span>
+      </ion-label>
+      <ion-textarea formControlName="notes" autoGrow="true" [maxlength]="maxNotesLength"
+                    (ionFocus)="inputOnFocus('notes')" (ionBlur)="inputOnBlur('notes')">
+      </ion-textarea>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.notes">
+        <div class="error-message"
+             *ngIf="termForm.get('notes').hasError(validation.type) && (termForm.get('notes').dirty
+             || termForm.get('notes').touched)" [translate]="validation.message"
+             [translateParams]="{max:maxNotesLength}">
+        </div>
+      </ng-container>
+    </div>
 
     <ion-grid>
       <ion-row>
         <ion-col *ngIf="editingID">
-          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger">Delete
+          <ion-button class="submit-button" (click)="openDeletionAlert()" expand="block" color="danger"
+                      [translate]="'term.delete'">
           </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button class="submit-button" type="submit" expand="block">{{editingID ? 'Save' : 'Submit'}}</ion-button>
+          <ion-button class="submit-button" type="submit" expand="block"
+                      [translate]="editingID ? 'term.update' : 'term.create'"></ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
