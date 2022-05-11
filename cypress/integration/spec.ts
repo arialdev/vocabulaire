@@ -50,9 +50,11 @@ describe('Vocabulaire e2e', () => {
 
       it('should create grammatical category', () => {
         cy.get('.new-category').click({waitForAnimations: true});
+        cy.wait(2000);
         cy.get('ion-alert input').type('Noun');
         cy.wait(2000);
         cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
+        cy.wait(2000);
         cy.get('ion-list').contains('Noun');
       });
     });
@@ -64,9 +66,11 @@ describe('Vocabulaire e2e', () => {
 
       it('should create thematic category', () => {
         cy.get('.new-category').click({waitForAnimations: true});
+        cy.wait(2000);
         cy.get('ion-alert input').type('Body');
         cy.wait(2000);
         cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
+        cy.wait(2000);
         cy.get('ion-list').contains('Body');
 
       });
