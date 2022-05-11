@@ -13,7 +13,7 @@
 
   & > span {
     text-align: center;
-    font-family: 'Caviar Dreams', 'sans-serif';
+    font-family: 'Caviar Dreams', sans-serif;
     font-weight: bold;
     font-size: 16pt;
     margin-top: 6px;
@@ -23,7 +23,7 @@
 .no-wod-message {
   margin: 80px 15px 20px;
   text-align: center;
-  font-family: "Caviar Dreams", 'sans-serif';
+  font-family: "Caviar Dreams", sans-serif;
   font-size: 20pt;
 
   .subtitle {
@@ -56,7 +56,7 @@
 
   .item-header {
     grid-area: item-header;
-    font-family: "Lemon Milk", 'sans-serif';
+    font-family: "Lemon Milk", sans-serif;
     font-size: 20px;
     margin-top: 6px;
   }
@@ -76,7 +76,7 @@
     }
 
     span {
-      font-family: "Lemon Milk Light", 'sans-serif';
+      font-family: "Lemon Milk Light", sans-serif;
       font-size: 16px;
     }
   }
@@ -100,7 +100,7 @@
 
   .notes {
     grid-area: notes;
-    font-family: "Caviar Dreams", 'sans-serif';
+    font-family: "Caviar Dreams", sans-serif;
     font-style: italic;
     font-size: 18px;
     margin-bottom: 8px;
