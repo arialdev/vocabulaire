@@ -18,8 +18,8 @@ describe('Vocabulaire e2e', () => {
 
     it('should change language', () => {
       cy.contains('Welcome to Vocabulaire');
-      cy.get('.language-selector').click();
-      cy.get('.select-interface-option').eq(1).click();
+      cy.get('.language-selector').click({waitForAnimations: true});
+      cy.get('.select-interface-option').eq(1).click({waitForAnimations: true});
       cy.contains('Bienvenido/a a Vocabulaire').then(() => {
         indexedDB.deleteDatabase('_ionicstorage');
       });
@@ -33,11 +33,11 @@ describe('Vocabulaire e2e', () => {
       cy.get('.text > h1').contains('Create your first collection');
       cy.get('.slide-2 input').eq(0).should('be.empty').type('French');
       cy.get('.slide-2 input').eq(1).should('have.value', 'FR');
-      cy.get('.emoji-button').click();
-      cy.get('.emoji-listed').eq(1).click().then(e => {
+      cy.get('.emoji-button').click({waitForAnimations: true});
+      cy.get('.emoji-listed').eq(1).click({waitForAnimations: true}).then(e => {
         cy.get('.emoji-button').invoke('attr', 'src').should('eq', e.attr('src'));
       });
-      cy.get('.submit-button').click();
+      cy.get('.submit-button').click({waitForAnimations: true});
       cy.location('pathname').should('eq', '/home');
     });
   });
@@ -49,10 +49,10 @@ describe('Vocabulaire e2e', () => {
       });
 
       it('should create grammatical category', () => {
-        cy.get('.new-category').click();
+        cy.get('.new-category').click({waitForAnimations: true});
         cy.get('ion-alert input').type('Noun');
         cy.wait(800);
-        cy.get('ion-alert .alert-button').eq(1).click();
+        cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
         cy.get('ion-list').contains('Noun');
       });
     });
@@ -63,10 +63,10 @@ describe('Vocabulaire e2e', () => {
       });
 
       it('should create thematic category', () => {
-        cy.get('.new-category').click();
+        cy.get('.new-category').click({waitForAnimations: true});
         cy.get('ion-alert input').type('Body');
         cy.wait(800);
-        cy.get('ion-alert .alert-button').eq(1).click();
+        cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
         cy.get('ion-list').contains('Body');
 
       });
@@ -79,25 +79,25 @@ describe('Vocabulaire e2e', () => {
     });
 
     it('should add new term', () => {
-      cy.get('.add-term').click();
+      cy.get('.add-term').click({waitForAnimations: true});
       cy.location().should((loc) => expect(loc.pathname).to.eq('/term/new'));
       cy.get('form input').eq(0).should('be.empty').type('Main');
       cy.get('form input').eq(1).should('be.empty').type('Mano');
       cy.get('form textarea').should('be.empty').type('Nota de Mano');
 
-      cy.get('.categories-box').eq(0).click();
-      cy.get('.alert-checkbox').eq(0).click();
+      cy.get('.categories-box').eq(0).click({waitForAnimations: true});
+      cy.get('.alert-checkbox').eq(0).click({waitForAnimations: true});
       cy.wait(400);
-      cy.get('.alert-button').eq(1).click();
+      cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(0).contains('Noun');
 
-      cy.get('.categories-box').eq(1).click();
-      cy.get('.alert-checkbox').eq(0).click();
+      cy.get('.categories-box').eq(1).click({waitForAnimations: true});
+      cy.get('.alert-checkbox').eq(0).click({waitForAnimations: true});
       cy.wait(400);
-      cy.get('.alert-button').eq(1).click();
+      cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(1).contains('Body');
 
-      cy.get('.submit-button').click();
+      cy.get('.submit-button').click({waitForAnimations: true});
       cy.location('pathname').should('eq', '/home');
     });
   });
@@ -108,17 +108,17 @@ describe('Vocabulaire e2e', () => {
     });
 
     it('should create tag', () => {
-      cy.get('.add-term').click();
+      cy.get('.add-term').click({waitForAnimations: true});
       cy.location().should((loc) => expect(loc.pathname).to.eq('/term/new'));
       cy.get('form input').eq(0).should('be.empty').type('ffff');
       cy.get('form input').eq(1).should('be.empty').type('gggg');
       cy.get('form textarea').should('be.empty').type('hhhh');
 
-      cy.get('.categories-box').eq(0).click();
-      cy.get('.alert-checkbox').eq(0).click();
-      cy.get('.alert-button').eq(1).click();
+      cy.get('.categories-box').eq(0).click({waitForAnimations: true});
+      cy.get('.alert-checkbox').eq(0).click({waitForAnimations: true});
+      cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(0).contains('Noun');
-      cy.get('.submit-button').click();
+      cy.get('.submit-button').click({waitForAnimations: true});
       cy.wait(1000);
       cy.location('pathname').should('eq', '/home');
 
@@ -128,22 +128,22 @@ describe('Vocabulaire e2e', () => {
       cy.get('ion-popover ion-list ion-item').eq(1).click({waitForAnimations: true});
       cy.wait(1000);
       cy.get('ion-alert .alert-checkbox-group button').click({waitForAnimations: true});
-      cy.get('ion-alert .alert-button-group button').eq(1).click();
+      cy.get('ion-alert .alert-button-group button').eq(1).click({waitForAnimations: true});
       cy.wait(800);
       cy.get('ion-popover').eq(0).type('{esc}', {force: true});
       cy.get('.terms-list > .term').should('have.length', 1);
 
-      cy.get('.book-button ion-button').click();
+      cy.get('.book-button ion-button').click({waitForAnimations: true});
       cy.location('pathname').should('eq', '/tag/new');
       cy.get('form input').eq(0).type('nuevo tag');
-      cy.get('.submit-button').click();
+      cy.get('.submit-button').click({waitForAnimations: true});
       cy.location('pathname').should('eq', '/home');
       cy.get('.book-button ion-icon').invoke('attr', 'name').should('eq', 'bookmark');
       cy.get('.terms-list .term').should('have.length', 1);
       cy.visit('/home');
       cy.get('.terms-list .term').should('have.length', 2);
-      cy.get('ion-menu-button').click();
-      cy.get('#tag-list ion-item').eq(0).click();
+      cy.get('ion-menu-button').click({waitForAnimations: true});
+      cy.get('#tag-list ion-item').eq(0).click({waitForAnimations: true});
       cy.get('ion-menu')
         .trigger('pointerdown', {which: 1})
         .trigger('pointermove', 'left')
