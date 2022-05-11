@@ -51,7 +51,7 @@ describe('Vocabulaire e2e', () => {
       it('should create grammatical category', () => {
         cy.get('.new-category').click({waitForAnimations: true});
         cy.get('ion-alert input').type('Noun');
-        cy.wait(800);
+        cy.wait(2000);
         cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
         cy.get('ion-list').contains('Noun');
       });
@@ -65,7 +65,7 @@ describe('Vocabulaire e2e', () => {
       it('should create thematic category', () => {
         cy.get('.new-category').click({waitForAnimations: true});
         cy.get('ion-alert input').type('Body');
-        cy.wait(800);
+        cy.wait(2000);
         cy.get('ion-alert .alert-button').eq(1).click({waitForAnimations: true});
         cy.get('ion-list').contains('Body');
 
@@ -87,13 +87,13 @@ describe('Vocabulaire e2e', () => {
 
       cy.get('.categories-box').eq(0).click({waitForAnimations: true});
       cy.get('.alert-checkbox').eq(0).click({waitForAnimations: true});
-      cy.wait(400);
+      cy.wait(2000);
       cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(0).contains('Noun');
 
       cy.get('.categories-box').eq(1).click({waitForAnimations: true});
       cy.get('.alert-checkbox').eq(0).click({waitForAnimations: true});
-      cy.wait(400);
+      cy.wait(2000);
       cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(1).contains('Body');
 
@@ -119,17 +119,17 @@ describe('Vocabulaire e2e', () => {
       cy.get('.alert-button').eq(1).click({waitForAnimations: true});
       cy.get('.categories-chips').eq(0).contains('Noun');
       cy.get('.submit-button').click({waitForAnimations: true});
-      cy.wait(1000);
+      cy.wait(2000);
       cy.location('pathname').should('eq', '/home');
 
 
       cy.get('.terms-list .term').should('have.length', 2);
       cy.get('.filter-button').click({waitForAnimations: true});
       cy.get('ion-popover ion-list ion-item').eq(1).click({waitForAnimations: true});
-      cy.wait(1000);
+      cy.wait(2000);
       cy.get('ion-alert .alert-checkbox-group button').click({waitForAnimations: true});
       cy.get('ion-alert .alert-button-group button').eq(1).click({waitForAnimations: true});
-      cy.wait(800);
+      cy.wait(2000);
       cy.get('ion-popover').eq(0).type('{esc}', {force: true});
       cy.get('.terms-list > .term').should('have.length', 1);
 
