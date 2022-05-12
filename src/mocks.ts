@@ -65,6 +65,10 @@ export class MockTranslateService {
     });
   }
 
+  instant(): any {
+    return 'sample';
+  }
+
   use() {
     return new Observable();
   }

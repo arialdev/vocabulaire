@@ -133,6 +133,9 @@
     },
     "title": "Accueil"
   },
+  "pdf": {
+    "translation": "Traduction"
+  },
   "settings": {
     "dark-mode": "Mode sombre",
     "export": {

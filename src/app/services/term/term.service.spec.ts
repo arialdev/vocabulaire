@@ -146,7 +146,7 @@ describe('TermService', () => {
     }
     const wod = await service.getWoD(collection.getId());
     const newWod = await service.getWoD(collection.getId());
-    expect(wod).toEqual(newWod);
+    expect(wod.getTerm().getId()).toBe(newWod.getTerm().getId());
   });
 
   it('should return different WoDs', async () => {
@@ -168,5 +168,16 @@ describe('TermService', () => {
 
   it('get wod bound', () => {
     expect(service.getWODBound()).toBeGreaterThan(0);
+  });
+
+  it('should return another wod if current has been deleted', async () => {
+    for (let i = 0; i < service.getWODBound() + 1; i++) {
+      const newTerm = new Term(`Hola_${i}`, `Hello_${i}`);
+      await service.addTerm(newTerm, collection.getId());
+    }
+    const wod = await service.getWoD(collection.getId());
+    await service.deleteTerm(wod.getTerm().getId(), collection.getId());
+    const newWOD = await service.getWoD(collection.getId());
+    expect(wod.getTerm().getId()).not.toBe(newWOD.getTerm().getId());
   });
 });

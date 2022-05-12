@@ -8,6 +8,7 @@ import {TagService} from '../tag/tag.service';
 import {PDFGenerator} from '@awesome-cordova-plugins/pdf-generator';
 import {HttpClient} from '@angular/common/http';
 import {FileService} from '../fileService/file.service';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Injectable({
@@ -26,7 +27,7 @@ export class PdfService {
       text-align: center;
     }
     .title {
-      font-family: 'Maiandra GD',sans-serif;
+      font-family: 'Maiandra GD', sans-serif;
       margin: 4rem auto 3rem;
       display: flex;
       align-items: center;
@@ -81,26 +82,9 @@ export class PdfService {
     private emojiService: EmojiService,
     private collectionService: CollectionService,
     private tagService: TagService,
-    private fileService: FileService
+    private fileService: FileService,
+    private translateService: TranslateService
   ) {
-  }
-
-  private static renderTerm(collectionName: string, term: Term) {
-    const gcs = term.getGramaticalCategories().map(c => c.getName()).join(',');
-    const tcs = term.getThematicCategories().map(c => c.getName()).join(',');
-    return `
-<div class="term ">
-  <label class="language-label label">${collectionName}</label>
-  <div class="original-term">${term.getOriginalTerm()}</div>
-  <label class="translated-label label">Traducción:</label>
-  <div class="translated-term">${term.getTranslatedTerm()}</div>
-  <label class="grammatical-label label">Categorías gramaticales:</label>
-  <div class="grammatical-categories">${gcs}</div>
-  <label class="thematic-label label">Categorías temáticas:</label>
-  <div class="thematic-categories">${tcs}</div>
-  <label class="notes-label label">Notes:</label>
-  <div class="notes">${term.getNotes()}</div>
-</div>`;
   }
 
   public async generatePDF(collectionId: number, tagId: number): Promise<void> {
@@ -127,7 +111,7 @@ export class PdfService {
     return `
     ${this.header}
     ${await this.renderTag(collectionName, tag.getName(), tagIconData)}
-    ${terms.reduce((acc, t) => `${acc}${PdfService.renderTerm(collectionName, t)}`, '')}
+    ${terms.reduce((acc, t) => `${acc}${this.renderTerm(collectionName, t)}`, '')}
     ${this.footer}
     `;
   }
@@ -137,6 +121,24 @@ export class PdfService {
     return `
 <img class="logo" src="${imgData}" alt="Vocabulaire">
 <h1 class="title"><img class="tag-icon" src="${tagIconData}" alt="">${tagName} - ${languageName}</h1>`;
+  }
+
+  private renderTerm(collectionName: string, term: Term) {
+    const gcs = term.getGramaticalCategories().map(c => c.getName()).join(',');
+    const tcs = term.getThematicCategories().map(c => c.getName()).join(',');
+    return `
+<div class="term ">
+  <label class="language-label label">${collectionName}</label>
+  <div class="original-term">${term.getOriginalTerm()}</div>
+  <label class="translated-label label">${this.translateService.instant('pdf.translation')}:</label>
+  <div class="translated-term">${term.getTranslatedTerm()}</div>
+  <label class="grammatical-label label">${this.translateService.instant('data.category.gcs')}:</label>
+  <div class="grammatical-categories">${gcs}</div>
+  <label class="thematic-label label">${this.translateService.instant('data.category.tcs')}:</label>
+  <div class="thematic-categories">${tcs}</div>
+  <label class="notes-label label">${this.translateService.instant('data.term.notes')}:</label>
+  <div class="notes">${term.getNotes()}</div>
+</div>`;
   }
 
   private async exportData(tag: Tag, data: string) {

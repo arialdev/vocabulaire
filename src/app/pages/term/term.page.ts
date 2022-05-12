@@ -18,7 +18,7 @@ export class TermPage implements OnInit {
   @ViewChild('gramaticalCategoriesDropdown') gramaticalCategoriesDropdown: IonSelect;
   @ViewChild('thematicCategoriesDropdown') thematicCategoriesDropdown: IonSelect;
   title: string;
-  readonly maxTermNameLength: number = 25;
+  readonly maxTermNameLength: number = 45;
   readonly maxNotesLength: number = 400;
   termForm: FormGroup;
   validationMessages = {
