@@ -94,7 +94,7 @@
   "data": {
     "category": {
       "gc": "Gramatical category",
-      "gcs": "Gramatical Categories",
+      "gcs": "Gramatical categories",
       "name": "Category",
       "name-p": "Categories",
       "tc": "Thematic category",
@@ -132,6 +132,9 @@
       }
     },
     "title": "Home"
+  },
+  "pdf": {
+    "translation": "Translation"
   },
   "settings": {
     "dark-mode": "Dark mode",

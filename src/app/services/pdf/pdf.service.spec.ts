@@ -14,6 +14,8 @@ import {Collection} from '../../classes/collection/collection';
 import {FileService} from '../fileService/file.service';
 import {Category} from '../../classes/category/category';
 import {CategoryType} from '../../enums/enums';
+import {TranslateService} from '@ngx-translate/core';
+import {MockTranslateService} from '../../../mocks';
 
 describe('PdfService', () => {
   let service: PdfService;
@@ -25,7 +27,8 @@ describe('PdfService', () => {
       ],
       providers: [
         {provide: EmojisMap},
-        {provide: AbstractStorageService, useClass: MockStorageService}
+        {provide: AbstractStorageService, useClass: MockStorageService},
+        {provide: TranslateService, useClass: MockTranslateService}
       ]
     });
     service = TestBed.inject(PdfService);
