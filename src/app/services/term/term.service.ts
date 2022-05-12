@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {AbstractStorageService} from '../storage/abstract-storage-service';
-import {CollectionService} from '../collection/collection.service';
-import {Collection} from '../../classes/collection/collection';
-import {Term} from '../../classes/term/term';
-import {Wod} from '../../classes/wod/wod';
+import { Injectable } from '@angular/core';
+import { AbstractStorageService } from '../storage/abstract-storage-service';
+import { CollectionService } from '../collection/collection.service';
+import { Collection } from '../../classes/collection/collection';
+import { Term } from '../../classes/term/term';
+import { Wod } from '../../classes/wod/wod';
 
 @Injectable({
   providedIn: 'root'
@@ -97,16 +97,28 @@ export class TermService {
       throw new Error(`Collection with ID ${collectionID} not found`);
     }
 
+    //There are not enough terms
     const terms = collection.getTerms();
     const wodHistory: Wod[] = collection.getWodHistory();
     if (terms.length < this.getWODBound()) {
       return;
     }
 
+    //Daily WOD already generated
     if (wodHistory.length && wodHistory[wodHistory.length - 1].getRetrievedDate().toDateString() === new Date().toDateString()) {
-      return wodHistory[wodHistory.length - 1];
+      const wod = wodHistory.pop();
+      const freshWodTerm = collection.getTerms().find(t => t.getId() === wod.getTerm().getId());
+      if (freshWodTerm) {
+        const newWOD = new Wod(freshWodTerm);
+        wodHistory.push(newWOD);
+        await this.storageService.set('collections', collections);
+        return newWOD;
+      }
+      await this.storageService.set('collections', collections);
+      return this.getWoD(collectionID);
     }
 
+    //Generate daily WOD
     const validTerms = terms.filter(t => !wodHistory.some(w => w.getTerm().getId() === t.getId()));
     const randomTerm = validTerms[Math.floor(Math.random() * terms.length)];
     if (randomTerm) {
@@ -136,7 +148,7 @@ export class TermService {
       this.nextFreeID = collections.reduceRight((acc, c) => Math.max(
         acc,
         c.getTerms().reduceRight((acc2, t) => Math.max(acc2, t.getId() || -1), 0),
-      ), 0,);
+      ), 0);
     }
     return ++this.nextFreeID;
   }
