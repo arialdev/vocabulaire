@@ -139,7 +139,7 @@ npm run cypress:open
 You may prefer to start a server and run all E2E tests at once, maybe for CI reasons. You can achieve that by using
 
 ```shell
-ci:cy-run
+npm run ci:cy-run
 ```
 
 ## Open Source
