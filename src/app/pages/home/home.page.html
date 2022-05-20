@@ -75,7 +75,10 @@
           <ion-icon name="arrow-forward-outline" class="term-label"></ion-icon>
         </div>
         <div class="translated-term term-title">{{term.getTranslatedTerm()}}</div>
-        <div class="term-label secondary-term-label" *ngIf="simpleView && term.getNotes()">Note:</div>
+        <div class="term-label secondary-term-label" *ngIf="simpleView && term.getNotes()">
+          <span [translate]="'data.term.notes'"></span>
+          <span>:</span>
+        </div>
         <div class="term-note" *ngIf="simpleView && term.getNotes()">{{term.getNotes()}}</div>
         <div class="categories"
              *ngIf="simpleView && (term.getGramaticalCategories().length||term.getThematicCategories().length)">
