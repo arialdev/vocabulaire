@@ -106,7 +106,7 @@ ion-menu-button {
     .item-box {
       display: grid;
       grid-auto-columns: 1fr;
-      grid-template-columns: 40px 1fr;
+      grid-template-columns: max-content 1fr;
       gap: 8px 8px;
       align-items: baseline;
       justify-items: start;
