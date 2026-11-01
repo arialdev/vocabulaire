@@ -1,0 +1,1 @@
+ALTER TABLE `preferences` ADD `onboarding_step` integer DEFAULT 0 NOT NULL;

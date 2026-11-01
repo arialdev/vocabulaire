@@ -1,0 +1,6 @@
+appId: dev.arial.vocabulaire
+---
+- launchApp
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore

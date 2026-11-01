@@ -1,0 +1,15 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'dev.arial.vocabulaire'
+version = '1.0.0'
+
+android {
+  namespace 'dev.arial.vocabulaire.emojipicker'
+}
+
+dependencies {
+  implementation 'androidx.emoji2:emoji2-emojipicker:1.7.0'
+}

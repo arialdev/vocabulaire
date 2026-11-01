@@ -1,0 +1,18 @@
+appId: dev.arial.vocabulaire
+---
+- runFlow: first-collection.yaml
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: unsaved
+- hideKeyboard
+- back
+- assertVisible: Discard changes\?
+- tapOn: Keep editing
+- assertVisible: unsaved
+- back
+- tapOn: Discard
+- assertVisible: '.*neko.*cat.*'
+- tapOn: Delete
+- assertVisible: Delete term\?
+- tapOn: Cancel
+- assertVisible: '.*neko.*cat.*'

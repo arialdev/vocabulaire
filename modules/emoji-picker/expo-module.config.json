@@ -1,0 +1,4 @@
+{
+  "platforms": ["android"],
+  "android": { "modules": ["dev.arial.vocabulaire.emojipicker.EmojiPickerModule"] }
+}
