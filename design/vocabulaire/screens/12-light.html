@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>12 Collection validation — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "error-text": "#A53532",
+            "error-surface": "#FBE6E1",
+            "error-border": "#A53532",
+            "clay-text": "#684435",
+            "clay-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for a clean native mobile viewport feel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased flex justify-center items-center min-h-screen p-0 md:p-6 select-none">
+<!-- Mobile Frame (Android 412x892 reference viewport) -->
+<div class="relative w-full max-w-[412px] h-[892px] bg-canvas flex flex-col overflow-hidden shadow-2xl md:rounded-[36px] border border-divider/40">
+<!-- 1. Android Status Bar (24dp / h-6) -->
+<div class="w-full h-8 px-6 pt-1 flex justify-between items-center text-secondary text-xs font-medium tracking-tight z-20">
+<span class="font-semibold text-main tracking-normal">9:41</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- 2. Top App Bar (Task-focused sub-page with Close action, 56dp height) -->
+<header class="w-full h-14 px-4 flex items-center justify-between border-b border-divider/60 bg-canvas z-10 shrink-0">
+<div class="flex items-center gap-3">
+<!-- 48x48 touch hit target button -->
+<button aria-label="Discard and close" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-main" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="close">close</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">New collection</h1>
+</div>
+<!-- Subtle secondary decorative folio counter or quiet helper slot -->
+<div class="pr-2 text-secondary text-xs font-label">
+        Draft
+      </div>
+</header>
+<!-- 3. Scrollable Notebook Canvas -->
+<main class="flex-1 overflow-y-auto no-scrollbar px-6 pt-6 pb-6 flex flex-col justify-between">
+<div class="space-y-6">
+<!-- Atmosphere Prompt / Quiet Editorial Introduction -->
+<div class="pb-1">
+<p class="text-sm text-secondary leading-relaxed">
+            Create a dedicated notebook for your vocabulary. Add words, original expressions, and thematic associations as you encounter them.
+          </p>
+</div>
+<!-- Emoji Icon Selector Control -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-medium text-secondary uppercase tracking-wider">Notebook Icon</label>
+<div class="flex items-center gap-4 p-3 bg-surface border border-divider rounded-xl">
+<!-- 52dp Emoji Badge Container -->
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed flex items-center justify-center text-2xl border border-divider/50 shadow-sm shrink-0">
+              ☕
+            </div>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-medium text-main">Everyday coffee icon</div>
+<div class="text-xs text-secondary mt-0.5">Used as visual cue in library</div>
+</div>
+<button class="px-3.5 py-2 text-sm font-medium text-primary hover:bg-recessed active:opacity-80 transition-colors rounded-lg flex items-center gap-1.5 border border-divider/60" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+<span>Change</span>
+</button>
+</div>
+</div>
+<!-- Form Section -->
+<form class="space-y-5" id="collection-form" onsubmit="event.preventDefault();">
+<!-- 1. Name Field (Validation Error State) -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-main" for="collection-name">
+                Name
+              </label>
+<span class="text-xs font-medium text-error-text bg-error-surface px-2 py-0.5 rounded">
+                Required
+              </span>
+</div>
+<!-- Error State Input Box: 56dp (h-14), 1dp border #A53532, soft error tint #FBE6E1 -->
+<div class="relative flex items-center">
+<input aria-describedby="name-error-msg" aria-invalid="true" autofocus="" class="w-full h-14 pl-4 pr-12 rounded-xl bg-error-surface/60 border border-error-border text-main placeholder-secondary/50 focus:outline-none focus:ring-1 focus:ring-error-border text-base transition duration-150" id="collection-name" name="name" placeholder="e.g., Everyday French" type="text" value=""/>
+<!-- Error Exclamation Trailing Icon inside field -->
+<div class="absolute right-4 flex items-center pointer-events-none text-error-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="error">error</span>
+</div>
+</div>
+<!-- Calm, Specific Inline Error Message below field -->
+<div class="flex items-center gap-1.5 pt-1 text-error-text" id="name-error-msg" role="alert">
+<span class="material-symbols-outlined text-[16px] shrink-0" data-icon="info">info</span>
+<p class="text-sm font-normal leading-tight">Give your collection a name.</p>
+</div>
+</div>
+<!-- 2. Short Label Field (Valid / Retained User Content) -->
+</form>
+<!-- Subtle stationery card note explaining offline privacy -->
+<div class="p-4 rounded-xl border border-divider/60 bg-recessed/60 flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 shrink-0" data-icon="menu_book">menu_book</span>
+<p class="text-xs text-secondary leading-relaxed">
+            Your notebook resides entirely on this device. You can export a readable document or full backup JSON anytime from Settings.
+          </p>
+</div>
+</div>
+<!-- Spacing buffer to clear bottom pinned area gracefully -->
+<div class="h-6"></div>
+</main>
+<!-- 4. Anchored Bottom Action Bar (Thumb Zone) -->
+<div class="w-full px-6 py-4 bg-canvas border-t border-divider/60 shrink-0 flex flex-col gap-2.5 z-20">
+<!-- Primary Save Button: 56dp high, 12dp rounded-xl, #2D6046 fill -->
+<button class="w-full h-14 bg-primary text-on-primary hover:opacity-95 active:opacity-85 font-medium rounded-xl flex items-center justify-center gap-2 text-base transition duration-150 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="check">check</span>
+<span>Save collection</span>
+</button>
+<!-- Secondary Safe Cancel Action -->
+<button class="w-full h-11 text-secondary hover:text-main hover:bg-recessed/60 active:opacity-80 font-medium rounded-xl flex items-center justify-center text-sm transition duration-150" type="button">
+        Cancel
+      </button>
+</div>
+<!-- 5. Android Gesture Navigation Pill Inset (16dp / h-5) -->
+<div class="w-full h-5 pb-2 bg-canvas flex justify-center items-center shrink-0">
+<div class="w-28 h-1 bg-main/25 rounded-full"></div>
+</div>
+</div>
+</body></html>

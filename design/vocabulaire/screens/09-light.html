@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>09 New collection — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            clay: "#684435",
+            "clay-fill": "#F1E5DC",
+            destructive: "#A53532"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Subtle touch feedback */
+    button:active {
+      transform: scale(0.98);
+      transition: transform 0.08s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased min-h-screen flex justify-center selection:bg-selected-surface selection:text-main">
+<!-- Mobile Screen Container (412x892 dp standard Android viewport) -->
+<main class="w-full max-w-[412px] h-[892px] max-h-[892px] bg-canvas flex flex-col justify-between relative overflow-hidden shadow-sm">
+<!-- Top Flow: Status Bar + App Bar + Form Content -->
+<div class="flex flex-col flex-1 overflow-y-auto">
+<!-- Android System Status Bar (24dp) -->
+<div class="w-full h-6 px-6 pt-1.5 flex justify-between items-center text-xs font-label text-secondary select-none tracking-tight">
+<span class="font-medium text-main">9:41</span>
+<div class="flex items-center gap-1.5 opacity-90">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (56dp height) adhering to Shared Components contract & Design System -->
+<header class="w-full h-14 px-3 flex justify-between items-center bg-canvas">
+<div class="flex items-center gap-1">
+<!-- Leading Close (X) icon button with 48x48dp target -->
+<button aria-label="Close" class="w-12 h-12 flex items-center justify-center rounded-full text-main hover:bg-recessed transition-colors duration-150 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-tight text-main pl-1">New collection</h1>
+</div>
+<!-- Quiet trailing spacer to keep layout balanced -->
+<div class="w-12 h-12"></div>
+</header>
+<!-- Scrollable Form Body with 24dp (px-6) side gutters -->
+<div class="px-6 pt-3 pb-8 flex flex-col gap-6">
+<!-- Literary Introduction -->
+<div class="space-y-1.5">
+<h2 class="font-headline text-[26px] leading-[32px] text-main font-medium">
+            Give your words a home.
+          </h2>
+<p class="font-body text-sm leading-[21px] text-secondary">
+            Create a notebook for a language, a trip, or a specific topic you want to remember.
+          </p>
+</div>
+<!-- Emoji Selector Control -->
+<div class="flex flex-col items-center justify-center pt-2 pb-1">
+<div class="relative group">
+<button aria-label="Change collection icon" class="w-[72px] h-[72px] bg-surface rounded-2xl border border-divider flex items-center justify-center text-3xl shadow-sm hover:border-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="emoji-picker-btn" type="button">
+<span class="select-none" id="current-emoji">📖</span>
+</button>
+</div>
+<button class="mt-2.5 inline-flex items-center gap-1.5 text-xs font-label font-medium text-primary hover:opacity-80 py-1 px-2.5 rounded-full transition-opacity" onclick="cycleEmoji()" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
+<span>Change icon</span>
+</button>
+</div>
+<!-- Form Inputs -->
+<form class="flex flex-col gap-5" id="new-collection-form" onsubmit="event.preventDefault();">
+<!-- Name Field (Required) -->
+<div class="space-y-2">
+<div class="flex justify-between items-baseline px-0.5">
+<label class="font-label text-sm font-medium text-main" for="collection-name">
+                Name
+              </label>
+<span class="font-label text-xs text-secondary font-normal">
+                Required
+              </span>
+</div>
+<div class="relative">
+<input autocomplete="off" class="w-full h-14 px-4 bg-surface border border-divider rounded-xl font-body text-base text-main placeholder:text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors shadow-none" id="collection-name" name="name" placeholder="e.g. Everyday French" type="text"/>
+</div>
+</div>
+<!-- Short Label Field (Optional) -->
+<!-- Notebook stationery helper note -->
+<div class="flex items-start gap-2.5 px-3 py-3 rounded-lg bg-surface/70 border border-divider/60">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5" data-icon="info">info</span>
+<p class="font-body text-xs leading-[18px] text-secondary">
+              You can keep multiple languages or themes in separate collections. Words stay safely on this device.
+            </p>
+</div>
+</form>
+</div>
+</div>
+<!-- Fixed Lower Thumb Zone Action Area + Android Gesture Bar -->
+<div class="px-6 pt-3 pb-4 bg-canvas flex flex-col gap-2">
+<!-- Primary Save Button (56dp high, solid #2D6046) -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-label text-base font-medium flex items-center justify-center gap-2 hover:brightness-105 active:opacity-90 transition-all duration-150" form="new-collection-form" type="submit">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+<span>Save collection</span>
+</button>
+<!-- Secondary Cancel Button (Text action) -->
+<button class="w-full h-11 text-secondary hover:text-main font-label text-sm font-medium flex items-center justify-center transition-colors rounded-lg hover:bg-recessed/50" type="button">
+        Cancel
+      </button>
+<!-- Android Gesture Navigation Inset -->
+<div class="w-full flex justify-center items-center pt-2 pb-1">
+<div class="w-28 h-1 bg-[#20382E]/25 rounded-full"></div>
+</div>
+</div>
+</main>
+<!-- Interactive script for emoji cycling and lightweight feedback -->
+<script>
+    const sampleEmojis = ["📖", "☕", "🍋", "🌱", "🧭", "🥖", "🖋️", "🌊"];
+    let emojiIndex = 0;
+
+    function cycleEmoji() {
+      emojiIndex = (emojiIndex + 1) % sampleEmojis.length;
+      const emojiEl = document.getElementById('current-emoji');
+      if (emojiEl) {
+        emojiEl.textContent = sampleEmojis[emojiIndex];
+      }
+    }
+
+    const pickerBtn = document.getElementById('emoji-picker-btn');
+    if (pickerBtn) {
+      pickerBtn.addEventListener('click', cycleEmoji);
+    }
+  </script>
+</body></html>

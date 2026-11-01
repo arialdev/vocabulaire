@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 45 Backups — Light
+Backups screen with Back to Settings. Headline “Keep a copy of your words.” Short offline copy “Your notebook lives on this device. Save a backup somewhere safe.” Two clear sections: Export backup, summary 3 collections · 96 terms and primary Export backup; Restore from a file, helper Choose a Vocabulaire backup, outlined Choose backup file. Small compatibility note “Backups from the old Ionic app are not supported.” No cloud sync, schedule or fake last-export date.
+
+SEPARATE SCREEN: 46 Restore preview — Light
+Full-screen Restore preview, back to Backups. Selected file vocabulaire-2026-11-01.json, exported 1 November 2026, valid-file icon. Four clear count cells or rows: 3 Collections, 96 Terms, 12 Categories, 4 Saved filters. Subtle warning block “Restoring replaces all current data on this device.” Quiet Export current data first link. Primary Continue to confirmation, secondary Choose another file, Cancel restore text action. No restore action before confirmation.
+
+SEPARATE SCREEN: 47 Restore confirmation — Light
+Restore preview dimmed behind dialog “Replace all current data?” Copy “Replace your current notebook with vocabulaire-2026-11-01.json? This cannot be undone.” Visible brief imported counts 3 collections · 96 terms. Safe Cancel and destructive Replace all data. Do not use misleading Merge or generic Continue labels.
+
+SEPARATE SCREEN: 48 Restoring backup — Light
+Restore screen busy state. Simple spinner and “Restoring your notebook…” with copy “Keep Vocabulaire open while your data is restored.” File name visible; actions disabled. No fake numerical percent, no cancel once transactional replacement has started, no irrelevant upload/cloud symbol. Same surface language and safe spacing.
+

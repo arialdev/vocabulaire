@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>46 Restore preview — Dark</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter & Newsreader for editorial feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#171E1B',
+            surface: '#222D27',
+            'surface-recessed': '#1C2520',
+            'border-base': '#45574A',
+            'text-primary': '#F3F0E7',
+            'text-secondary': '#B8C6BC',
+            'primary-cta': '#B9D8BB',
+            'on-primary': '#173824',
+            'warning-surface': '#4A2926',
+            'warning-border': '#743C37',
+            'warning-accent': '#FFB4AB',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif-heading {
+      font-family: 'Newsreader', serif;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-text-primary min-h-screen flex flex-col justify-between selection:bg-primary-cta selection:text-on-primary">
+<!-- BEGIN: MainContentWrapper -->
+<div class="w-full max-w-[420px] mx-auto min-h-screen flex flex-col justify-between relative bg-canvas">
+<div>
+<!-- BEGIN: StatusBar -->
+<div class="pt-3 px-6 pb-2 flex justify-between items-center text-xs text-text-secondary select-none">
+<span class="font-medium tracking-tight">9:41</span>
+<div class="flex items-center space-x-2">
+<!-- Wi-Fi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4zm0 3.2c3.7 0 7.07 1.41 9.6 3.73L12 18.5 2.4 10.93A14.28 14.28 0 0 1 12 7.2z"></path>
+</svg>
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M2 22h20V2L2 22z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M17 5v14H7V5h10m1-2H6c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm2 5h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1V8z"></path>
+</svg>
+</div>
+</div>
+<!-- END: StatusBar -->
+<!-- BEGIN: TopAppBar -->
+<header class="flex items-center justify-between px-5 py-3 border-b border-border-base/20">
+<div class="flex items-center space-x-3.5">
+<button aria-label="Go back" class="p-1.5 -ml-1.5 text-text-primary hover:opacity-80 transition-opacity" type="button">
+<svg class="w-6 h-6 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-2xl font-serif-heading font-medium tracking-tight text-text-primary">Restore preview</h1>
+</div>
+<button aria-label="Settings" class="p-1.5 text-text-primary hover:opacity-80 transition-opacity" type="button">
+<svg class="w-5 h-5 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- END: TopAppBar -->
+<!-- BEGIN: ScrollableContent -->
+<main class="px-5 pt-5 pb-6 space-y-6">
+<!-- BEGIN: SectionBackupFile -->
+<section aria-labelledby="heading-backup-file">
+<h2 class="text-xs uppercase font-semibold tracking-wider text-text-secondary mb-2.5" id="heading-backup-file">BACKUP FILE</h2>
+<div class="bg-surface rounded-2xl p-4 border border-border-base flex items-center space-x-3.5">
+<div class="w-12 h-12 rounded-xl bg-surface-recessed border border-border-base/70 flex items-center justify-center text-primary-cta shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M9 13.5h6m-6 3h4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<p class="font-medium text-text-primary text-[15px] truncate">vocabulaire-2026-11-01.json</p>
+<p class="text-xs text-text-secondary mt-0.5 font-normal">Exported 1 November 2026</p>
+</div>
+</div>
+</section>
+<!-- END: SectionBackupFile -->
+<!-- BEGIN: SectionNotebookContent -->
+<section aria-labelledby="heading-notebook-content">
+<h2 class="text-lg font-serif-heading text-text-primary mb-3" id="heading-notebook-content">Notebook content</h2>
+<!-- 2x2 Stats Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Stat Card: Collections -->
+<div class="bg-surface rounded-2xl p-4 border border-border-base flex flex-col justify-between h-[106px]">
+<div class="flex justify-between items-start text-text-secondary">
+<span class="text-xs font-medium text-text-secondary">Collections</span>
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex items-baseline space-x-1.5">
+<span class="text-3xl font-serif-heading text-text-primary font-normal leading-none">3</span>
+<span class="text-xs text-text-secondary">binders</span>
+</div>
+</div>
+<!-- Stat Card: Terms -->
+<div class="bg-surface rounded-2xl p-4 border border-border-base flex flex-col justify-between h-[106px]">
+<div class="flex justify-between items-start text-text-secondary">
+<span class="text-xs font-medium text-text-secondary">Terms</span>
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex items-baseline space-x-1.5">
+<span class="text-3xl font-serif-heading text-text-primary font-normal leading-none">96</span>
+<span class="text-xs text-text-secondary">entries</span>
+</div>
+</div>
+<!-- Stat Card: Categories -->
+<div class="bg-surface rounded-2xl p-4 border border-border-base flex flex-col justify-between h-[106px]">
+<div class="flex justify-between items-start text-text-secondary">
+<span class="text-xs font-medium text-text-secondary">Categories</span>
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M6 6h.008v.008H6V6z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex items-baseline space-x-1.5">
+<span class="text-3xl font-serif-heading text-text-primary font-normal leading-none">12</span>
+<span class="text-xs text-text-secondary">tags</span>
+</div>
+</div>
+<!-- Stat Card: Saved filters -->
+<div class="bg-surface rounded-2xl p-4 border border-border-base flex flex-col justify-between h-[106px]">
+<div class="flex justify-between items-start text-text-secondary">
+<span class="text-xs font-medium text-text-secondary">Saved filters</span>
+<svg class="w-4 h-4 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3.75 6.75h16.5M7.5 12h9m-6 5.25h3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex items-baseline space-x-1.5">
+<span class="text-3xl font-serif-heading text-text-primary font-normal leading-none">4</span>
+<span class="text-xs text-text-secondary">views</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SectionNotebookContent -->
+<!-- BEGIN: WarningCard -->
+<section aria-label="Destructive action warning" class="bg-warning-surface rounded-2xl p-4 border border-warning-border space-y-3">
+<div class="flex items-start space-x-2.5">
+<svg class="w-5 h-5 text-warning-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-sm font-semibold text-warning-accent leading-snug">
+              Restoring replaces all current data on this device.
+            </h3>
+</div>
+<p class="text-[13px] leading-relaxed text-text-primary/85 pl-[29px]">
+            Any current terms, collections, or custom filters not included in this backup file will be permanently removed.
+          </p>
+<div class="pt-2 pl-[29px] border-t border-warning-accent/15">
+<button class="inline-flex items-center text-xs font-medium text-warning-accent underline underline-offset-4 decoration-warning-accent/60 hover:decoration-warning-accent space-x-1.5" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Export current data first</span>
+</button>
+</div>
+</section>
+<!-- END: WarningCard -->
+<!-- BEGIN: SecurityNotice -->
+<div class="flex items-center justify-center space-x-1.5 text-xs text-text-secondary pt-1">
+<svg class="w-3.5 h-3.5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Data stays on your device. No cloud sync involved.</span>
+</div>
+<!-- END: SecurityNotice -->
+</main>
+<!-- END: ScrollableContent -->
+</div>
+<!-- BEGIN: BottomActions -->
+<footer class="p-5 pt-3 pb-8 space-y-3 bg-canvas/95 backdrop-blur-sm border-t border-border-base/15">
+<!-- Primary confirmation button -->
+<button class="w-full h-13 py-3.5 px-6 rounded-2xl bg-primary-cta text-on-primary font-semibold text-[15px] flex items-center justify-center space-x-2 shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" type="button">
+<span>Continue to confirmation</span>
+<svg class="w-4 h-4 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Secondary action: Choose another file -->
+<button class="w-full h-13 py-3.5 px-6 rounded-2xl bg-surface border border-border-base text-text-primary font-medium text-[15px] flex items-center justify-center space-x-2 hover:bg-surface/80 active:scale-[0.99] transition-all" type="button">
+<svg class="w-4 h-4 stroke-[1.8] text-text-secondary" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Choose another file</span>
+</button>
+<!-- Tertiary action: Cancel -->
+<div class="text-center pt-1">
+<button class="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors py-1 px-4" type="button">
+          Cancel restore
+        </button>
+</div>
+<!-- Android Gesture Pill -->
+<div class="w-32 h-1 bg-border-base/70 rounded-full mx-auto mt-2 select-none"></div>
+</footer>
+<!-- END: BottomActions -->
+</div>
+<!-- END: MainContentWrapper -->
+</body></html>

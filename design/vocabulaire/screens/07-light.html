@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>07 Collection actions — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            selected: "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.25rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-stone-200 min-h-screen flex items-center justify-center p-0 md:p-6 antialiased selection:bg-[#E2ECDF] selection:text-[#20382E]">
+<!-- Mobile Frame: Android Artboard (412x892 dp) -->
+<div class="relative w-[412px] h-[892px] bg-canvas overflow-hidden shadow-2xl flex flex-col justify-between font-body text-main select-none">
+<!-- ------------------------------------------------ -->
+<!-- BACKGROUND SCREEN (Populated Collections Home)  -->
+<!-- ------------------------------------------------ -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col justify-between overflow-hidden pointer-events-none">
+<!-- Android Status Bar (Simulated) -->
+<div class="h-8 px-6 pt-2 flex items-center justify-between text-xs font-label text-secondary z-0">
+<span class="font-medium tracking-tight">09:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">wifi</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">battery_full</span>
+</div>
+</div>
+<!-- App Bar -->
+<header class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto border-b border-divider">
+<h1 class="font-headline text-2xl font-semibold tracking-tight text-main">Vocabulaire</h1>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</div>
+</header>
+<!-- Main Collections Background Body -->
+<main class="flex-1 px-6 pt-5 pb-20 overflow-y-hidden">
+<!-- Section Title & Meta -->
+<div class="flex items-baseline justify-between mb-4">
+<h2 class="font-headline text-2xl font-semibold text-main tracking-tight">Your collections</h2>
+<span class="font-label text-xs text-secondary font-medium tracking-wide">3 notebooks</span>
+</div>
+<!-- Collections List -->
+<div class="space-y-3">
+<!-- Item 1: ☕ Everyday French (Active Target) -->
+<div class="bg-surface rounded-2xl p-4 border border-divider shadow-sm flex items-center justify-between">
+<div class="flex items-center space-x-3.5">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed flex items-center justify-center text-2xl border border-divider/60">
+                ☕
+              </div>
+<div>
+<h3 class="font-headline text-xl font-semibold text-main leading-tight">Everyday French</h3>
+<span class="inline-block mt-1 font-label text-[11px] font-medium text-primary px-2 py-0.5 bg-selected rounded-full">48 terms</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</div>
+</div>
+<!-- Item 2: 🍋 Español de viaje -->
+<div class="bg-surface rounded-2xl p-4 border border-divider/80 shadow-sm flex items-center justify-between opacity-80">
+<div class="flex items-center space-x-3.5">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed flex items-center justify-center text-2xl border border-divider/60">
+                🍋
+              </div>
+<div>
+<h3 class="font-headline text-xl font-semibold text-main leading-tight">Español de viaje</h3>
+<span class="inline-block mt-1 font-label text-[11px] font-medium text-secondary px-2 py-0.5 bg-recessed rounded-full">32 terms</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</div>
+</div>
+<!-- Item 3: 🌱 日本語ノート -->
+<div class="bg-surface rounded-2xl p-4 border border-divider/80 shadow-sm flex items-center justify-between opacity-80">
+<div class="flex items-center space-x-3.5">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed flex items-center justify-center text-2xl border border-divider/60">
+                🌱
+              </div>
+<div>
+<h3 class="font-headline text-xl font-semibold text-main leading-tight">日本語ノート</h3>
+<span class="inline-block mt-1 font-label text-[11px] font-medium text-secondary px-2 py-0.5 bg-recessed rounded-full">16 terms</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Mock Background Primary Action FAB -->
+<div class="px-6 pb-8 flex justify-end">
+<div class="h-14 px-6 rounded-xl bg-primary text-on-primary font-label font-medium text-base flex items-center shadow-lg space-x-2">
+<span class="material-symbols-outlined text-[22px]">add</span>
+<span>New collection</span>
+</div>
+</div>
+</div>
+<!-- ------------------------------------------------ -->
+<!-- 48% SEMI-TRANSPARENT SCRIM                       -->
+<!-- ------------------------------------------------ -->
+<div aria-label="Scrim backdrop" class="absolute inset-0 bg-black/48 z-10 transition-opacity duration-200"></div>
+<!-- ------------------------------------------------ -->
+<!-- ELEVATED BOTTOM SHEET (Collection actions)       -->
+<!-- ------------------------------------------------ -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto bg-surface rounded-t-3xl border-t border-divider shadow-2xl w-full flex flex-col overflow-hidden" role="dialog">
+<!-- Drag Handle -->
+<div aria-hidden="true" class="w-full flex justify-center pt-3 pb-1">
+<div class="w-8 h-1 bg-divider rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<div class="px-6 pt-2 pb-4 flex items-center justify-between">
+<div class="pr-2 min-w-0">
+<h2 class="font-headline text-xl font-semibold text-main tracking-tight truncate flex items-center gap-2" id="sheet-title">
+<span>☕</span>
+<span>Everyday French</span>
+</h2>
+<p class="font-label text-xs text-secondary mt-0.5 font-normal tracking-normal">
+            48 terms · Created locally
+          </p>
+</div>
+<!-- Accessible Close button (48x48dp interactive touch target) -->
+<button aria-label="Close actions" class="w-12 h-12 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:opacity-70 transition-colors focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Ruled Divider Line -->
+<div class="h-px bg-divider w-full" role="separator"></div>
+<!-- Action Items Container -->
+<div class="px-4 py-2 space-y-1">
+<!-- Action 1: Edit collection (56dp height, 48dp+ tap area) -->
+<button class="w-full h-14 px-4 rounded-xl flex items-center justify-between hover:bg-recessed active:bg-selected active:opacity-80 transition-colors group focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<div class="flex items-center space-x-3.5">
+<span class="material-symbols-outlined text-main text-[22px] group-hover:scale-105 transition-transform" data-icon="edit">edit</span>
+<span class="font-label font-medium text-base text-main text-left">Edit collection</span>
+</div>
+<span class="material-symbols-outlined text-secondary/60 text-[18px]">chevron_right</span>
+</button>
+<!-- Action 2: Delete collection (Destructive quiet styling in #A53532) -->
+<button class="w-full h-14 px-4 rounded-xl flex items-center justify-between hover:bg-error-surface/50 active:bg-error-surface active:opacity-80 transition-colors group focus:outline-none focus:ring-2 focus:ring-destructive" type="button">
+<div class="flex items-center space-x-3.5">
+<span class="material-symbols-outlined text-destructive text-[22px] group-hover:scale-105 transition-transform" data-icon="delete">delete</span>
+<span class="font-label font-medium text-base text-destructive text-left">Delete collection</span>
+</div>
+<span class="material-symbols-outlined text-destructive/40 text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Bottom Cancel Button Section -->
+<div class="px-6 pt-1 pb-4">
+<button class="w-full h-[52px] rounded-xl bg-recessed hover:bg-divider/70 active:opacity-75 text-main font-label font-medium text-base transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+          Cancel
+        </button>
+</div>
+<!-- Android Gesture Navigation Bar Area -->
+<div class="h-6 w-full flex items-center justify-center pb-2">
+<div class="w-28 h-1 bg-main/30 rounded-full"></div>
+</div>
+</section>
+</div>
+</body></html>

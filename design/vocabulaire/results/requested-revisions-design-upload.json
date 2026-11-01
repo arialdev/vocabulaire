@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "data": {
+    "path": "design/vocabulaire/DESIGN.md",
+    "project": "8226357890556052909",
+    "id": "15350464754217091765",
+    "status": "uploaded",
+    "applyCommand": "stitch edit screen <screen-id> --project 8226357890556052909 --design-system 15350464754217091765"
+  }
+}

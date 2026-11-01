@@ -1,0 +1,66 @@
+[
+  {
+    "id": "22a4fe49fe8a4c94bb52a8233e5cdfcf",
+    "name": "projects/8226357890556052909/screens/22a4fe49fe8a4c94bb52a8233e5cdfcf",
+    "title": "13 Discard collection changes — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/5a10c1851b2142b085c8f65727d6dc9c:download",
+      "name": "projects/8226357890556052909/files/5a10c1851b2142b085c8f65727d6dc9c"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/c2f27234f05e4a0daab5b4ff8fa58ac2:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/c2f27234f05e4a0daab5b4ff8fa58ac2"
+    }
+  },
+  {
+    "id": "dbc7666e6a994563b303c894a49b9493",
+    "name": "projects/8226357890556052909/screens/dbc7666e6a994563b303c894a49b9493",
+    "title": "15 Vocabulary detailed — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4b8d30080ecb4a75be4d419870c6e99b:download",
+      "name": "projects/8226357890556052909/files/4b8d30080ecb4a75be4d419870c6e99b"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/d9e0e5f154b94f6aae2b0b7ceb54f6cb:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/d9e0e5f154b94f6aae2b0b7ceb54f6cb"
+    }
+  },
+  {
+    "id": "668dce2e32a345d5a3def05ed7c85ab9",
+    "name": "projects/8226357890556052909/screens/668dce2e32a345d5a3def05ed7c85ab9",
+    "title": "14 Vocabulary compact — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/7f60650df60c493b82ee255ed1a6b9bb:download",
+      "name": "projects/8226357890556052909/files/7f60650df60c493b82ee255ed1a6b9bb"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/a963dc36f4c749c1b05b4ec33f3ec055:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/a963dc36f4c749c1b05b4ec33f3ec055"
+    }
+  },
+  {
+    "id": "483fb794c0844a96832f56503f81c470",
+    "name": "projects/8226357890556052909/screens/483fb794c0844a96832f56503f81c470",
+    "title": "16 Vocabulary empty — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/dc26c5c0604146c4a04fe8581c48d308:download",
+      "name": "projects/8226357890556052909/files/dc26c5c0604146c4a04fe8581c48d308"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/c9b7fb4cdcc146db89babcc6b766f81b:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/c9b7fb4cdcc146db89babcc6b766f81b"
+    }
+  }
+]

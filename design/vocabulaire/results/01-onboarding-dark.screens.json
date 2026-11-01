@@ -1,0 +1,66 @@
+[
+  {
+    "id": "4cf95648e9e44f708a893ca042da3aaa",
+    "name": "projects/8226357890556052909/screens/4cf95648e9e44f708a893ca042da3aaa",
+    "title": "01 Onboarding Collections — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/057038afea3442f6ade69dd67de7ed29:download",
+      "name": "projects/8226357890556052909/files/057038afea3442f6ade69dd67de7ed29"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/fed0f89e5282480e812269da5383de0d:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/fed0f89e5282480e812269da5383de0d"
+    }
+  },
+  {
+    "id": "048f602f9d3a4936b7f753a637909ab5",
+    "name": "projects/8226357890556052909/screens/048f602f9d3a4936b7f753a637909ab5",
+    "title": "02 Onboarding Entries — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/aedc9f70b5da47579798dadbc381df7f:download",
+      "name": "projects/8226357890556052909/files/aedc9f70b5da47579798dadbc381df7f"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/1819d13069d742d7bc44c5bda0ed3fee:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/1819d13069d742d7bc44c5bda0ed3fee"
+    }
+  },
+  {
+    "id": "338ee671ce344988833ba17b7f7552eb",
+    "name": "projects/8226357890556052909/screens/338ee671ce344988833ba17b7f7552eb",
+    "title": "04 Onboarding Backups — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/5f8ad60a11c74d64b0ba02f9e4b6a56e:download",
+      "name": "projects/8226357890556052909/files/5f8ad60a11c74d64b0ba02f9e4b6a56e"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4ed7a7c8dcb74e81b4194bdb3eddd289:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/4ed7a7c8dcb74e81b4194bdb3eddd289"
+    }
+  },
+  {
+    "id": "5e73a09e8a444fefa09a382327f99824",
+    "name": "projects/8226357890556052909/screens/5e73a09e8a444fefa09a382327f99824",
+    "title": "03 Onboarding Filters — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/905f35962fc242ac9fbe28eebcd4f425:download",
+      "name": "projects/8226357890556052909/files/905f35962fc242ac9fbe28eebcd4f425"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f1a64ad324c9426cbf45cb123d684a9c:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/f1a64ad324c9426cbf45cb123d684a9c"
+    }
+  }
+]

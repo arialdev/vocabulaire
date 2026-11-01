@@ -1,0 +1,174 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "id": "14429aac7a924823b99b49728ab6707a",
+    "sourceScreenId": "37033c732f404fc498f11b72084a5473,a3a5335bf2634a089d354c514fa92d98,50310f9e6f3f4942a67791f9b18a708d,6ab7c1435b704ea6b5979bce002fcd18",
+    "resultScreenId": "14429aac7a924823b99b49728ab6707a",
+    "sourceScreenIds": [
+      "37033c732f404fc498f11b72084a5473",
+      "a3a5335bf2634a089d354c514fa92d98",
+      "50310f9e6f3f4942a67791f9b18a708d",
+      "6ab7c1435b704ea6b5979bce002fcd18"
+    ],
+    "resultScreenIds": [
+      "14429aac7a924823b99b49728ab6707a",
+      "e01e554f363949718a4c3bf21893d736",
+      "2041b292755e43efb996202bb34e5c62",
+      "916270eca96b42afbbeb77e98898a421"
+    ],
+    "updated": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "2024",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/b1ec7ab87d6240ebb93f8fcced5493fe:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/b1ec7ab87d6240ebb93f8fcced5493fe"
+                },
+                "id": "14429aac7a924823b99b49728ab6707a",
+                "name": "projects/8226357890556052909/screens/14429aac7a924823b99b49728ab6707a",
+                "prompt": "Create a DARK appearance counterpart of the provided source screen \"45 Backups — Light\", outputting an independent mobile artboard with title \"45 Backups — Dark\".\nApply the semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface and cards: #222D27\n- Recessed fields/badges: #1C2520\n- Main text / headings: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders / dividers: #45574A\n- Primary action fill: #B9D8BB with on-primary text: #173824\n- Secondary action / tonal button: surface #222D27 or recessed #1C2520 with border #45574A and text #F3F0E7\n- Alert / info card: #1C2520 or #222D27 with #45574A border and #B8C6BC text\n- System status bar icons/text and gesture indicator in dark mode styling (#F3F0E7 and #45574A / #B8C6BC).\n\nKeep the exact same layout, component sizing, spacing, copy, and hierarchy as the source screen:\n- Top bar: Back arrow, \"Backups\", trailing settings gear icon.\n- Tag/badge: \"📖 Field Notebook · Offline storage\"\n- Headline: \"Keep a copy of your words.\" in EB Garamond.\n- Subtitle: \"Your notebook lives on this device. Save a backup somewhere safe.\"\n- Card 1 (Export backup): folder icon inside circular badge, badge \"3 collections · 96 terms\", title \"Export backup\", description \"Create an unencrypted JSON document containing all collections, vocabulary terms, notes, and custom categories.\", button \"⬇ Export backup\" with primary styling (#B9D8BB fill, #173824 text).\n- Card 2 (Restore from a file): history/restore icon in circular badge, title \"Restore from a file\", description \"Choose a Vocabulaire backup file (.json) from your device or file manager to restore your notebook.\", secondary button \"📁 Choose backup file\".\n- Info notice at bottom: info icon, \"Backups from the old Ionic app are not supported. Only contemporary standard JSON format can be imported.\"\n- Navigation gesture bar at bottom.\nFull bleed Android mobile screen (390x892 dp), no desktop frame, no phone mockups.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55:download",
+                  "name": "projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55"
+                },
+                "theme": {},
+                "title": "45 Backups — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "2036",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/6abc763fa26d4557be0596cd04e00de2:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/6abc763fa26d4557be0596cd04e00de2"
+                },
+                "id": "e01e554f363949718a4c3bf21893d736",
+                "name": "projects/8226357890556052909/screens/e01e554f363949718a4c3bf21893d736",
+                "prompt": "Create a DARK appearance counterpart of the provided source screen \"46 Restore preview — Light\", outputting an independent mobile artboard with title \"46 Restore preview — Dark\".\nApply the semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / cards / containers: #222D27\n- Recessed containers / pills: #1C2520\n- Main text / headings: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders / dividers: #45574A\n- Primary button: #B9D8BB with on-primary text #173824\n- Secondary button: #222D27 or transparent with #45574A border, text #F3F0E7\n- Error / warning surface: #4A2926 with border #FFB4AB/muted and text #FFB4AB / #F3F0E7\n- Destructive/warning text & icon: #FFB4AB\n- Lock badge / offline reassurance text: #B8C6BC\n- System bars / gesture pill in dark mode.\n\nKeep the exact same layout, copy, and components:\n- Top app bar: Back arrow, title \"Restore preview\", settings gear.\n- Section header: \"BACKUP FILE\"\n- File card: document icon in circular badge, filename \"vocabulaire-2026-11-01.json\", subtitle \"Exported 1 November 2026\".\n- Section header: \"Notebook content\"\n- 2x2 grid of stat cards:\n  - Collections: 3 binders (folder icon)\n  - Terms: 96 entries (book icon)\n  - Categories: 12 tags (tag icon)\n  - Saved filters: 4 views (filter icon)\n- Warning card (error surface #4A2926, border and warning icon #FFB4AB):\n  - Warning triangle icon + title \"Restoring replaces all current data on this device.\"\n  - Text: \"Any current terms, collections, or custom filters not included in this backup file will be permanently removed.\"\n  - Link/action: \"⬇ Export current data first\"\n- Footer notice: lock icon + \"Data stays on your device. No cloud sync involved.\"\n- Fixed bottom actions:\n  - Primary button: \"Continue to confirmation →\" (#B9D8BB fill, #173824 text)\n  - Secondary button: \"📁 Choose another file\"\n  - Tertiary / link: \"Cancel restore\"\nFull bleed Android mobile screen (390x892 dp), no desktop frame, no phone mockups.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4577dc32c2a34dbfbc4c6b25a82fdb9e:download",
+                  "name": "projects/8226357890556052909/files/4577dc32c2a34dbfbc4c6b25a82fdb9e"
+                },
+                "theme": {},
+                "title": "46 Restore preview — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1784",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/b8b5691d9a4d43adb10470b7f3ec29dc:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/b8b5691d9a4d43adb10470b7f3ec29dc"
+                },
+                "id": "2041b292755e43efb996202bb34e5c62",
+                "name": "projects/8226357890556052909/screens/2041b292755e43efb996202bb34e5c62",
+                "prompt": "Create a DARK appearance counterpart of the provided source screen \"48 Restoring backup — Light\", outputting an independent mobile artboard with title \"48 Restoring backup — Dark\".\nApply the semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / card container: #222D27 with #45574A border\n- Recessed status pill: #1C2520\n- Main text / headings: \"Restoring your notebook...\" in EB Garamond #F3F0E7\n- Secondary text: #B8C6BC\n- Spinner circle: circular track in #45574A with active progress arc in #B9D8BB, center icon (leaf) in #B9D8BB / #C1DFC4\n- File card: #222D27, border #45574A, document icon, filename \"vocabulaire-2026-11-01.json\", progress indicator dot and text \"● Restoring contents...\" / \"● Replacing local database · In progress\" in #B9D8BB.\n- Local reassurance note: icon + \"Local device operation · No network required\" in #B8C6BC.\n- Bottom disabled action button: recessed background #1C2520 or #344D3A with disabled styling, hourglass icon + \"Please wait...\" in #B8C6BC.\n- Gesture nav bar and status bar in dark theme.\nFull bleed Android mobile screen (390x892 dp), no desktop frame, no phone mockups.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/2072fe41cb9449f192921e2a4d72ed64:download",
+                  "name": "projects/8226357890556052909/files/2072fe41cb9449f192921e2a4d72ed64"
+                },
+                "theme": {},
+                "title": "48 Restoring backup — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1784",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e271b62684234336be7c1f7317552fd3:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/e271b62684234336be7c1f7317552fd3"
+                },
+                "id": "916270eca96b42afbbeb77e98898a421",
+                "name": "projects/8226357890556052909/screens/916270eca96b42afbbeb77e98898a421",
+                "prompt": "Create a DARK appearance counterpart of the provided source screen \"47 Restore confirmation — Light\", outputting an independent mobile artboard with title \"47 Restore confirmation — Dark\".\nApply the semantic dark palette from DESIGN.md:\n- Underlying background screen (Restore notebook) dimmed under a 48% scrim (darkened #171E1B background).\n- Modal dialog card: #222D27 with #45574A border and subtle elevation shadow.\n- Warning icon circular container: #4A2926 with warning triangle icon in #FFB4AB.\n- Headline: \"Replace all current data?\" in EB Garamond, color #F3F0E7.\n- Dialog text: \"Replace your current notebook with vocabulaire-2026-11-01.json ? This cannot be undone.\" (filename in code pill #1C2520).\n- Summary pill / card: #1C2520 with border #45574A, icon and text: \"Importing: 3 collections · 96 terms\" in #F3F0E7.\n- Helper note: \"Need a copy? You can cancel and export your notebook first.\" in #B8C6BC.\n- Primary destructive button: \"Delete/Replace\" styled with destructive red fill (#A53532 or semantic red) and white/light text \"Replace all data\" with icon.\n- Secondary button: \"Cancel\" with #1C2520 or clear background and #F3F0E7 text.\n- Pinned bottom actions of underlying dimmed screen visible underneath the scrim.\n- Dark Android system status bar (09:41) and bottom gesture nav bar.\nFull bleed Android mobile screen (390x892 dp), no desktop frame, no phone mockups.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/04ad550e77ab45a8af2ec0f8fad78af4:download",
+                  "name": "projects/8226357890556052909/files/04ad550e77ab45a8af2ec0f8fad78af4"
+                },
+                "theme": {},
+                "title": "47 Restore confirmation — Dark",
+                "width": "780"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I have created the Dark appearance counterparts for all four selected source screens, generating each as an independent, full-bleed Android mobile artboard (390×892 dp) that strictly conforms to the Field Notebook semantic dark palette from `DESIGN.md`:\n\n### Produced Dark Counterparts\n\n1. **45 Backups — Dark** (counterpart to screen 45)\n   - **Canvas & Header**: Dark canvas `#171E1B` with top bar `Backups` and settings gear; offline storage folio badge `📖 Field Notebook · Offline storage` in `#1C2520`.\n   - **Action Cards**: Surface containers `#222D27` with `#45574A` borders.\n     - *Export backup*: Scope pill `3 collections · 96 terms` and high-contrast primary CTA `Export backup` in `#B9D8BB` with `#173824` on-primary label text.\n     - *Restore from a file*: Outlined secondary action `Choose backup file` in `#222D27` with `#45574A` border.\n   - **Legacy Notice**: Reassurance card in `#1C2520` explaining that older Ionic backups are not supported.\n\n2. **46 Restore preview — Dark** (counterpart to screen 46)\n   - **File & Scope Grid**: File card displaying `vocabulaire-2026-11-01.json` (`Exported 1 November 2026`); 2×2 metrics grid (*3 collections*, *96 terms*, *12 categories*, *4 saved filters*) in `#222D27` with subtle icons and borders.\n   - **Data Replacement Warning**: Critical caution card with dark error surface `#4A2926`, `#FFB4AB` warning triangle, clear removal warning copy, and optional `Export current data first` link.\n   - **Action Stack**: Pinned thumb-zone primary `Continue to confirmation →` in `#B9D8BB` / `#173824`, secondary `Choose another file`, and safe `Cancel restore`.\n\n3. **47 Restore confirmation — Dark** (counterpart to screen 47)\n   - **Modal Scrim & Dialog**: 48% dark scrim over the dimmed restore preview page; centered `#222D27` dialog box with `#45574A` border.\n   - **Warning & Scope**: Circular badge in `#4A2926` with `#FFB4AB` warning icon; title *\"Replace all current data?\"* in EB Garamond `#F3F0E7`; summary badge `Importing: 3 collections · 96 terms` in `#1C2520`.\n   - **Action Hierarchy**: Destructive primary `Replace all data` action with trash icon in high-contrast red, paired with a safe `Cancel` action.\n\n4. **48 Restoring backup — Dark** (counterpart to screen 48)\n   - **Progress & Activity**: Circular progress spinner with `#45574A` track and `#B9D8BB` active arc around the centered leaf glyph; heading *\"Restoring your notebook...\"* in EB Garamond.\n   - **File Card**: Active status card in `#222D27` highlighting file `vocabulaire-2026-11-01.json` with pulsating progress indicator `● Restoring contents...`.\n   - **Device Reassurance & Actions**: Local offline note, disabled loading button `Please wait...`, and dark Android navigation bars.\n\nAll screen identities, exact numeric titles, typography (EB Garamond & DM Sans), and component dimensions match the source screens 1:1."
+        },
+        {
+          "suggestion": "Create Dark counterparts for the remaining screens (42 Word of the Day, 43 Daily word insufficient, 44 Settings)"
+        },
+        {
+          "suggestion": "Inspect and polish any interactions or states across the dark backup flow"
+        }
+      ],
+      "projectId": "8226357890556052909",
+      "sessionId": "2804733922640681339",
+      "deviceType": "MOBILE",
+      "generatedBy": "HatterAgent",
+      "height": "2024",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/b1ec7ab87d6240ebb93f8fcced5493fe:download",
+        "mimeType": "text/html",
+        "name": "projects/8226357890556052909/files/b1ec7ab87d6240ebb93f8fcced5493fe"
+      },
+      "id": "14429aac7a924823b99b49728ab6707a",
+      "name": "projects/8226357890556052909/screens/14429aac7a924823b99b49728ab6707a",
+      "prompt": "Create a DARK appearance counterpart of the provided source screen \"45 Backups — Light\", outputting an independent mobile artboard with title \"45 Backups — Dark\".\nApply the semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface and cards: #222D27\n- Recessed fields/badges: #1C2520\n- Main text / headings: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders / dividers: #45574A\n- Primary action fill: #B9D8BB with on-primary text: #173824\n- Secondary action / tonal button: surface #222D27 or recessed #1C2520 with border #45574A and text #F3F0E7\n- Alert / info card: #1C2520 or #222D27 with #45574A border and #B8C6BC text\n- System status bar icons/text and gesture indicator in dark mode styling (#F3F0E7 and #45574A / #B8C6BC).\n\nKeep the exact same layout, component sizing, spacing, copy, and hierarchy as the source screen:\n- Top bar: Back arrow, \"Backups\", trailing settings gear icon.\n- Tag/badge: \"📖 Field Notebook · Offline storage\"\n- Headline: \"Keep a copy of your words.\" in EB Garamond.\n- Subtitle: \"Your notebook lives on this device. Save a backup somewhere safe.\"\n- Card 1 (Export backup): folder icon inside circular badge, badge \"3 collections · 96 terms\", title \"Export backup\", description \"Create an unencrypted JSON document containing all collections, vocabulary terms, notes, and custom categories.\", button \"⬇ Export backup\" with primary styling (#B9D8BB fill, #173824 text).\n- Card 2 (Restore from a file): history/restore icon in circular badge, title \"Restore from a file\", description \"Choose a Vocabulaire backup file (.json) from your device or file manager to restore your notebook.\", secondary button \"📁 Choose backup file\".\n- Info notice at bottom: info icon, \"Backups from the old Ionic app are not supported. Only contemporary standard JSON format can be imported.\"\n- Navigation gesture bar at bottom.\nFull bleed Android mobile screen (390x892 dp), no desktop frame, no phone mockups.",
+      "screenMetadata": {
+        "agentType": "PRO_AGENT",
+        "status": "COMPLETE"
+      },
+      "screenType": "DESIGN",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55:download",
+        "name": "projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55"
+      },
+      "theme": {},
+      "title": "45 Backups — Dark",
+      "width": "780",
+      "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55:download",
+      "agentText": "I have created the Dark appearance counterparts for all four selected source screens, generating each as an independent, full-bleed Android mobile artboard (390×892 dp) that strictly conforms to the Field Notebook semantic dark palette from `DESIGN.md`:\n\n### Produced Dark Counterparts\n\n1. **45 Backups — Dark** (counterpart to screen 45)\n   - **Canvas & Header**: Dark canvas `#171E1B` with top bar `Backups` and settings gear; offline storage folio badge `📖 Field Notebook · Offline storage` in `#1C2520`.\n   - **Action Cards**: Surface containers `#222D27` with `#45574A` borders.\n     - *Export backup*: Scope pill `3 collections · 96 terms` and high-contrast primary CTA `Export backup` in `#B9D8BB` with `#173824` on-primary label text.\n     - *Restore from a file*: Outlined secondary action `Choose backup file` in `#222D27` with `#45574A` border.\n   - **Legacy Notice**: Reassurance card in `#1C2520` explaining that older Ionic backups are not supported.\n\n2. **46 Restore preview — Dark** (counterpart to screen 46)\n   - **File & Scope Grid**: File card displaying `vocabulaire-2026-11-01.json` (`Exported 1 November 2026`); 2×2 metrics grid (*3 collections*, *96 terms*, *12 categories*, *4 saved filters*) in `#222D27` with subtle icons and borders.\n   - **Data Replacement Warning**: Critical caution card with dark error surface `#4A2926`, `#FFB4AB` warning triangle, clear removal warning copy, and optional `Export current data first` link.\n   - **Action Stack**: Pinned thumb-zone primary `Continue to confirmation →` in `#B9D8BB` / `#173824`, secondary `Choose another file`, and safe `Cancel restore`.\n\n3. **47 Restore confirmation — Dark** (counterpart to screen 47)\n   - **Modal Scrim & Dialog**: 48% dark scrim over the dimmed restore preview page; centered `#222D27` dialog box with `#45574A` border.\n   - **Warning & Scope**: Circular badge in `#4A2926` with `#FFB4AB` warning icon; title *\"Replace all current data?\"* in EB Garamond `#F3F0E7`; summary badge `Importing: 3 collections · 96 terms` in `#1C2520`.\n   - **Action Hierarchy**: Destructive primary `Replace all data` action with trash icon in high-contrast red, paired with a safe `Cancel` action.\n\n4. **48 Restoring backup — Dark** (counterpart to screen 48)\n   - **Progress & Activity**: Circular progress spinner with `#45574A` track and `#B9D8BB` active arc around the centered leaf glyph; heading *\"Restoring your notebook...\"* in EB Garamond.\n   - **File Card**: Active status card in `#222D27` highlighting file `vocabulaire-2026-11-01.json` with pulsating progress indicator `● Restoring contents...`.\n   - **Device Reassurance & Actions**: Local offline note, disabled loading button `Please wait...`, and dark Android navigation bars.\n\nAll screen identities, exact numeric titles, typography (EB Garamond & DM Sans), and component dimensions match the source screens 1:1.",
+      "suggestions": [
+        "Create Dark counterparts for the remaining screens (42 Word of the Day, 43 Daily word insufficient, 44 Settings)",
+        "Inspect and polish any interactions or states across the dark backup flow"
+      ]
+    },
+    "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/411578af5fb94d5f88445b2e501aae55:download",
+    "canvasUrl": "https://stitch.google.com/projects/8226357890556052909?node-id=14429aac7a924823b99b49728ab6707a"
+  }
+}

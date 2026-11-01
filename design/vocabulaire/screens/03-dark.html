@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulaire — 03 Onboarding Filters</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#344D3A",
+            "grammatical-text": "#F3C3AA",
+            "grammatical-fill": "#49362D",
+            "thematic-text": "#C1DFC4",
+            "thematic-fill": "#344D3A"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Dark paper texture tint */
+    body {
+      background-color: #121815;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4 text-main font-body antialiased selection:bg-selected-surface selection:text-main">
+<!-- Android Viewport Frame (412x892) -->
+<main class="w-[412px] h-[892px] max-w-full bg-canvas relative flex flex-col justify-between overflow-hidden shadow-2xl rounded-none sm:rounded-[36px] border border-divider/60">
+<!-- 1. System Status Bar (24dp height) -->
+<header class="w-full pt-3 px-7 flex justify-between items-center text-xs font-label text-secondary select-none tracking-tight z-20">
+<span class="font-medium text-main text-[13px] tracking-normal">9:41</span>
+<div class="flex items-center space-x-1.5 opacity-80 text-secondary">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</header>
+<!-- 2. Shared Component: TopAppBar -->
+<div class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto bg-transparent z-20 border-b border-divider/40">
+<!-- Wordmark -->
+<span class="font-headline text-2xl font-semibold tracking-tight text-main">Vocabulaire</span>
+<!-- Trailing Action -->
+<button aria-label="Skip onboarding to library" class="font-label font-medium text-sm text-secondary hover:text-primary active:opacity-70 transition-colors py-2 px-1 focus:outline-none">
+        Skip
+      </button>
+</div>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 flex flex-col justify-between px-6 pt-2 pb-2 overflow-y-auto">
+<!-- 3. Minimal Stationery Line-Art Illustration (Card / Indexing Motif) -->
+<div aria-hidden="true" class="w-full flex-1 min-h-[220px] max-h-[290px] flex items-center justify-center py-2">
+<div class="relative w-full max-w-[320px] h-[210px] rounded-2xl bg-surface border border-divider shadow-sm flex flex-col p-5 overflow-hidden">
+<!-- Stationery ruling lines inside index card -->
+<div class="absolute inset-x-0 top-12 border-b border-divider/40"></div>
+<div class="absolute inset-x-0 top-24 border-b border-divider/40"></div>
+<div class="absolute inset-x-0 top-36 border-b border-divider/40"></div>
+<div class="absolute inset-x-0 top-48 border-b border-divider/40"></div>
+<!-- Left margin notebook stitching rule -->
+<div class="absolute left-8 inset-y-0 border-r border-divider/60"></div>
+<!-- Illustrated quiet stationery search line -->
+<div class="relative z-10 bg-recessed rounded-xl border border-divider px-3.5 py-2.5 flex items-center gap-2.5 mb-6 shadow-inner">
+<span class="material-symbols-outlined text-secondary text-[18px]">search</span>
+<div class="h-2.5 w-24 bg-divider/60 rounded-full"></div>
+<div class="ml-auto w-1.5 h-1.5 rounded-full bg-secondary/40"></div>
+</div>
+<!-- Delicate line-art indexing chips -->
+<div class="relative z-10 flex flex-wrap gap-2.5 pl-7 mt-1">
+<!-- Grammatical tag: Verb -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-grammatical-fill text-grammatical-text border border-grammatical-text/30 text-xs font-medium tracking-wide">
+<span class="font-headline italic text-xs font-semibold">Aa</span>
+<span>Verb</span>
+</div>
+<!-- Thematic tag: Travel -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-thematic-fill text-thematic-text border border-thematic-text/30 text-xs font-medium tracking-wide">
+<span class="material-symbols-outlined text-[14px]">local_florist</span>
+<span>Travel</span>
+</div>
+<!-- Subtle secondary tag -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-recessed border border-divider text-[11px] text-secondary">
+<span>A–Z</span>
+</div>
+</div>
+<!-- Faint handwriting simulation note -->
+<div class="relative z-10 pl-7 mt-4 flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-[15px] text-secondary">bookmark_border</span>
+<div class="h-2 w-32 bg-divider rounded-full"></div>
+</div>
+<!-- Notebook corner folio seal -->
+<div class="absolute bottom-2.5 right-3 text-[10px] font-headline italic text-secondary/40 select-none">
+            f° 3
+          </div>
+</div>
+</div>
+<!-- 4. Editorial Content Section -->
+<section class="flex flex-col items-center text-center px-2 pt-1 pb-4">
+<h1 class="font-headline text-[32px] leading-[38px] font-semibold text-main tracking-tight mb-3">
+          Find the words you need.
+        </h1>
+<p class="font-body text-[16px] leading-[24px] text-secondary max-w-[320px]">
+          Sort your notebook, explore categories, and save your favorite ways to browse.
+        </p>
+</section>
+<!-- 5. Progress Indicator & Page Counter -->
+<div class="flex flex-col items-center gap-2.5 pt-1 pb-4 select-none">
+<span class="font-label text-xs tracking-wider font-medium text-secondary">
+          3 of 4
+        </span>
+<!-- 4-Dot Progress Row -->
+<div aria-label="Step 3 of 4" aria-valuemax="4" aria-valuemin="1" aria-valuenow="3" class="flex items-center gap-2" role="progressbar">
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+<!-- Active Dot -->
+<span class="w-5 h-1.5 rounded-full bg-primary transition-all duration-300"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+</div>
+</div>
+<!-- 6. Bottom Thumb-Zone Controls -->
+<div class="w-full flex flex-col items-center gap-4 pt-1 pb-2">
+<!-- Accessible Swipe Hint -->
+<div class="flex items-center gap-1.5 text-xs text-secondary/90 font-label tracking-wide">
+<span>Swipe right to continue</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+<!-- Action Row: Back & Next Buttons (56dp target) -->
+<div class="w-full grid grid-cols-2 gap-3">
+<!-- Back button (quiet tonal outline) -->
+<button aria-label="Go back to previous page" class="h-14 rounded-xl border border-divider bg-surface hover:bg-recessed text-main font-label font-medium text-[15px] flex items-center justify-center gap-2 active:opacity-75 transition-colors focus:outline-none">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back</span>
+</button>
+<!-- Next button (solid primary fill) -->
+<button aria-label="Go to next page" class="h-14 rounded-xl bg-primary text-on-primary font-label font-medium text-[15px] flex items-center justify-center gap-2 shadow-sm hover:brightness-105 active:opacity-85 transition-all focus:outline-none">
+<span>Next</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Quiet secondary link: Get started -->
+<button aria-label="Open get started options" class="py-1 px-3 text-secondary text-[13px] font-label font-medium hover:text-main active:opacity-60 transition-colors focus:outline-none">
+          Get started
+        </button>
+</div>
+</div>
+<!-- 7. Android Gesture Navigation Bar -->
+<footer class="w-full h-5 pb-2 flex justify-center items-center select-none z-20">
+<div class="w-28 h-1 bg-secondary/30 rounded-full"></div>
+</footer>
+</main>
+<script>
+    // Lightweight touch gesture support to respect the notebook's swipe affordance
+    let touchstartX = 0;
+    let touchendX = 0;
+    const container = document.querySelector('main');
+
+    container.addEventListener('touchstart', (e) => {
+      touchstartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      touchendX = e.changedTouches[0].screenX;
+      handleGesture();
+    }, { passive: true });
+
+    function handleGesture() {
+      const threshold = 40;
+      if (touchendX - touchstartX > threshold) {
+        // Swiped right (forward per app prompt)
+        const nextBtn = document.querySelector('button[aria-label="Go to next page"]');
+        if (nextBtn) {
+          nextBtn.classList.add('scale-[0.98]');
+          setTimeout(() => nextBtn.classList.remove('scale-[0.98]'), 150);
+        }
+      } else if (touchstartX - touchendX > threshold) {
+        // Swiped left (backward)
+        const backBtn = document.querySelector('button[aria-label="Go back to previous page"]');
+        if (backBtn) {
+          backBtn.classList.add('scale-[0.98]');
+          setTimeout(() => backBtn.classList.remove('scale-[0.98]'), 150);
+        }
+      }
+    }
+  </script>
+</body></html>

@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 41 Delete category confirmation — Light
+Categories list behind scrim. Dialog “Delete Travel?” Copy “This category will be removed from terms and saved filters. Your terms will stay.” Cancel and Delete category. No count invented. Calm destructive confirmation.
+
+SEPARATE SCREEN: 42 Word of the Day — Light
+Focused Word of the Day screen. Back to ☕ Everyday French. Small date “1 November” and collection subtitle. Quiet sun/leaf line accent. Large featured flâner, translation to wander without hurry, subtle ruled divider, optional notes On a quiet Sunday, with no destination in mind. Small “A word from your notebook, each day.” Primary Open term near bottom. No shuffle, streak, score, quiz or favorite. Elegant breathing space; not a giant card stack.
+
+SEPARATE SCREEN: 43 Daily word insufficient — Light
+Same Word of the Day toolbar for 🍋 Español de viaje containing 3 terms. Small closed notebook and sun illustration. Title “A few more words to begin.” Copy “Word of the Day is available once this collection has at least 5 terms. You have 3.” Bottom Add 2 more terms and quiet Back to collection. No progress bar, points or achievements.
+
+SEPARATE SCREEN: 44 Settings — Light
+Settings full-screen with Back to Collections. Interface language section with radio rows System / English / Español; System selected and small Current system language: English helper. Appearance section with System / Light / Dark radio rows or three labeled preview tiles, Light selected. Preferences apply immediately. Backups row with storage icon and chevron. Small footer “Your words stay on this device.” No account, notifications, social, app analytics, or gamification. Spacious and readable.
+

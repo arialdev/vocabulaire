@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>11 Emoji picker — Dark</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbars smoothly while preserving scroll function */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#101412] min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main antialiased selection:bg-selected-surface">
+<!-- Android Artboard Shell (412px x 892px) -->
+<div class="relative w-[412px] h-[892px] bg-canvas overflow-hidden shadow-2xl flex flex-col select-none" style="background-color: #171E1B;">
+<!-- ==============================================
+         BACKGROUND LAYER (Dimmed New Collection Form)
+         ============================================== -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col bg-canvas pointer-events-none" style="background-color: #171E1B; opacity: 0.65;">
+<!-- TopAppBar (From Shared Components JSON) -->
+<header class="w-full bg-surface border-b border-divider" style="background-color: #1C2520; border-color: #2D3A31;">
+<div class="flex justify-between items-center w-full h-14 px-4 max-w-[412px] mx-auto">
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-primary hover:bg-recessed transition-colors duration-150 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<span class="font-headline text-2xl font-semibold tracking-normal text-main">New collection</span>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:bg-recessed transition-colors duration-150 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Background Form Content -->
+<main class="flex-1 px-6 pt-6 pb-24 overflow-hidden flex flex-col">
+<!-- Emoji Selector Preview Field -->
+<div class="flex flex-col items-center mb-8">
+<div class="w-20 h-20 rounded-2xl bg-surface border border-divider flex items-center justify-center text-4xl shadow-sm mb-3">
+            ☕
+          </div>
+<span class="text-sm font-medium text-primary">Tap to change icon</span>
+</div>
+<!-- Name Input -->
+<div class="mb-6">
+<label class="block text-sm font-medium text-secondary mb-2">Collection name <span class="text-secondary text-xs">(Required)</span></label>
+<div class="w-full h-14 px-4 bg-surface border border-divider rounded-xl flex items-center text-main text-base">
+            Everyday French
+          </div>
+</div>
+<!-- Label / Short Description Input -->
+<!-- Quiet Helper Notebook Note -->
+<div class="p-4 bg-surface rounded-xl border border-divider mt-2">
+<p class="text-sm text-secondary leading-relaxed font-normal">
+            Collections keep your vocabulary organized by language, theme, or book. Stored entirely on this device.
+          </p>
+</div>
+</main>
+<!-- Simulated Bottom Save Area -->
+<div class="p-6 bg-surface border-t border-divider mt-auto">
+<div class="w-full h-14 bg-primary text-on-primary font-medium rounded-xl flex items-center justify-center text-base">
+          Save collection
+        </div>
+</div>
+</div>
+<!-- Scrim (Design System: Scrim 48% overlay) -->
+<div class="absolute inset-0 bg-[#000000]/48 z-10 backdrop-blur-[0.5px] transition-opacity" style="background-color: rgba(0, 0, 0, 0.65);"></div>
+<!-- ==============================================
+         MODAL BOTTOM SHEET: Emoji Picker
+         ============================================== -->
+<section aria-labelledby="emoji-picker-title" aria-modal="true" class="absolute bottom-0 inset-x-0 z-20 w-full max-h-[810px] bg-surface rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden border-t border-divider/60 animate-in slide-in-from-bottom duration-200" role="dialog" style="background-color: #222D27; border-color: #45574A;">
+<!-- Drag Handle -->
+<div class="w-full pt-3 pb-1 flex justify-center items-center">
+<div aria-hidden="true" class="w-8 h-1 bg-divider rounded-full" style="background-color: #45574A;"></div>
+</div>
+<!-- Sheet Header -->
+<div class="flex items-center justify-between px-6 py-2">
+<h2 class="font-headline text-2xl font-semibold text-main tracking-normal" id="emoji-picker-title" style="color: #F3F0E7;">
+          Choose an icon
+        </h2>
+<button aria-label="Close emoji picker" class="w-12 h-12 -mr-3 flex items-center justify-center rounded-full text-secondary hover:bg-recessed active:opacity-80 transition-colors" style="color: #F3F0E7;" type="button">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+<!-- Search Input (48dp height, recessed input) -->
+<div class="px-6 pt-1 pb-3">
+<div class="relative flex items-center w-full h-12 bg-recessed rounded-xl px-3.5 border border-transparent focus-within:border-primary focus-within:bg-surface transition-all" style="background-color: #1C2520; border-color: #45574A;">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary text-[22px] mr-2.5 shrink-0" style="color: #B8C6BC;">search</span>
+<input class="w-full bg-transparent border-none p-0 text-main placeholder-secondary text-base focus:ring-0 focus:outline-none font-body" placeholder="Search emoji" style="color: #F3F0E7;" type="search"/>
+</div>
+</div>
+<!-- Category Filter Tabs -->
+<div class="px-6 border-b border-divider/60" style="border-color: #45574A;">
+<div aria-label="Emoji categories" class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-2" role="tablist"><!-- Active Tab: All -->
+<button aria-selected="true" class="h-9 px-3.5 rounded-full text-sm font-medium flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 shadow-sm border" role="tab" style="background-color: #344D3A; color: #C1DFC4; border-color: #45574A;">
+<span>All</span>
+</button>
+<!-- Objects Tab -->
+<button aria-selected="false" class="h-9 px-3.5 rounded-full text-sm font-medium flex items-center gap-1.5 shrink-0 transition-colors border" role="tab" style="background-color: #1C2520; color: #B8C6BC; border-color: #45574A;">
+<span class="text-base leading-none">☕</span>
+<span>Objects</span>
+</button>
+<!-- Nature Tab -->
+<button aria-selected="false" class="h-9 px-3.5 rounded-full text-sm font-medium flex items-center gap-1.5 shrink-0 transition-colors border" role="tab" style="background-color: #1C2520; color: #B8C6BC; border-color: #45574A;">
+<span class="text-base leading-none">🌱</span>
+<span>Nature</span>
+</button>
+<!-- Travel Tab -->
+<button aria-selected="false" class="h-9 px-3.5 rounded-full text-sm font-medium flex items-center gap-1.5 shrink-0 transition-colors border" role="tab" style="background-color: #1C2520; color: #B8C6BC; border-color: #45574A;">
+<span class="text-base leading-none">✈️</span>
+<span>Travel</span>
+</button>
+<!-- Symbols Tab -->
+<button aria-selected="false" class="h-9 px-3.5 rounded-full text-sm font-medium flex items-center gap-1.5 shrink-0 transition-colors border" role="tab" style="background-color: #1C2520; color: #B8C6BC; border-color: #45574A;">
+<span class="text-base leading-none">🎨</span>
+<span>Symbols</span>
+</button></div>
+</div>
+<!-- Scrollable Grid Body -->
+<div class="flex-1 overflow-y-auto px-6 py-4 no-scrollbar space-y-6"><!-- Section: Recent icons -->
+<div>
+<h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #B8C6BC;">
+  RECENT ICONS
+</h3>
+<div class="flex items-center gap-3">
+<!-- ☕ Selected in Recent -->
+<button aria-label="Coffee cup (selected)" class="relative w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl transition-all shadow-xs" style="background-color: #1C2520; border-color: #B9D8BB;" type="button">
+<span>☕</span>
+<span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full flex items-center justify-center shadow-xs" style="background-color: #344D3A; border: 1px solid #45574A;">
+<span class="material-symbols-outlined text-[12px] font-bold" style="color: #C1DFC4; font-variation-settings: 'FILL' 1;">check</span>
+</span>
+</button>
+<button aria-label="Lemon" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-transform" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🍋</span>
+</button>
+<button aria-label="Seedling" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-transform" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🌱</span>
+</button>
+<button aria-label="Book" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-transform" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>📖</span>
+</button>
+<button aria-label="Airplane" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-transform" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>✈️</span>
+</button>
+</div>
+</div>
+<!-- Section: All icons Grid -->
+<div>
+<h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #B8C6BC;">
+  ALL ICONS
+</h3>
+<div class="grid grid-cols-5 gap-3.5 pb-2">
+<!-- Item 1: ☕ (Primary Selected State) -->
+<button aria-label="Coffee cup - selected" aria-pressed="true" class="relative w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl shadow-xs transition-transform active:scale-95" style="background-color: #1C2520; border-color: #B9D8BB;" type="button">
+<span>☕</span>
+<span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full flex items-center justify-center shadow-xs" style="background-color: #344D3A; border: 1px solid #45574A;">
+<span class="material-symbols-outlined text-[12px] font-bold" style="color: #C1DFC4; font-variation-settings: 'FILL' 1;">check</span>
+</span>
+</button>
+<!-- Item 2: 🍋 -->
+<button aria-label="Lemon" aria-pressed="false" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🍋</span>
+</button>
+<!-- Item 3: 🌱 -->
+<button aria-label="Seedling" aria-pressed="false" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🌱</span>
+</button>
+<!-- Item 4: 📖 -->
+<button aria-label="Open book" aria-pressed="false" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>📖</span>
+</button>
+<!-- Item 5: ✈️ -->
+<button aria-label="Airplane" aria-pressed="false" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>✈️</span>
+</button>
+<!-- Item 6: 🌍 -->
+<button aria-label="Globe showing Europe-Africa" aria-pressed="false" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🌍</span>
+</button>
+<!-- Item 7: 🗣️ -->
+<button aria-label="Speaking head" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🗣️</span>
+</button>
+<!-- Item 8: 🍜 -->
+<button aria-label="Steaming bowl" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🍜</span>
+</button>
+<!-- Item 9: 🎨 -->
+<button aria-label="Artist palette" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🎨</span>
+</button>
+<!-- Item 10: 📚 -->
+<button aria-label="Books stack" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>📚</span>
+</button>
+<!-- Item 11: 🧭 -->
+<button aria-label="Compass" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🧭</span>
+</button>
+<!-- Item 12: 🌿 -->
+<button aria-label="Herb" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🌿</span>
+</button>
+<!-- Item 13: 🥐 -->
+<button aria-label="Croissant" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🥐</span>
+</button>
+<!-- Item 14: 🕯️ -->
+<button aria-label="Candle" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>🕯️</span>
+</button>
+<!-- Item 15: ✉️ -->
+<button aria-label="Envelope" class="w-12 h-12 rounded-xl border active:scale-95 flex items-center justify-center text-2xl transition-all" style="background-color: #1C2520; border-color: #45574A;" type="button">
+<span>✉️</span>
+</button>
+</div>
+</div></div>
+<!-- Action Footer (Primary 56dp Apply emoji button) -->
+<footer class="p-6 bg-surface border-t border-divider/60 shrink-0" style="background-color: #222D27; border-color: #45574A;">
+<button class="w-full h-14 bg-primary text-on-primary font-medium rounded-xl text-base tracking-normal flex items-center justify-center shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" style="background-color: #B9D8BB; color: #173824; font-weight: 600;" type="button">
+          Apply emoji
+        </button>
+</footer>
+<!-- Android Navigation Gesture Bar Indicator -->
+<div aria-hidden="true" class="w-full pb-2 pt-0 flex justify-center items-center bg-surface" style="background-color: #222D27;">
+<div class="w-32 h-1 bg-main/20 rounded-full" style="background-color: #45574A;"></div>
+</div>
+</section>
+</div>
+</body></html>

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "5bd8c92013aa4c0f8912e10ba6bc057b",
+    "name": "projects/8226357890556052909/screens/5bd8c92013aa4c0f8912e10ba6bc057b",
+    "title": "41 Delete category confirmation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e32b24619f3a4a3cbf1c05147b0bbb13:download",
+      "name": "projects/8226357890556052909/files/e32b24619f3a4a3cbf1c05147b0bbb13"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/50e2040d22c14ad39c72a82c3fb6d7d6:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/50e2040d22c14ad39c72a82c3fb6d7d6"
+    }
+  },
+  {
+    "id": "b170b3d13197448eb5d2737c188b1fa6",
+    "name": "projects/8226357890556052909/screens/b170b3d13197448eb5d2737c188b1fa6",
+    "title": "42 Word of the Day — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e6a4d84e194a4e38a87b48c121110591:download",
+      "name": "projects/8226357890556052909/files/e6a4d84e194a4e38a87b48c121110591"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/49d5b476c20a42df8b7f224624e5cde3:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/49d5b476c20a42df8b7f224624e5cde3"
+    }
+  },
+  {
+    "id": "44f5125392c44ac795781ba33cf3058c",
+    "name": "projects/8226357890556052909/screens/44f5125392c44ac795781ba33cf3058c",
+    "title": "44 Settings — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/8e06b8e0fdf94f35b58c4dbd12f82308:download",
+      "name": "projects/8226357890556052909/files/8e06b8e0fdf94f35b58c4dbd12f82308"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f0184d7b9ca44de2bd9cfa0faf5d5a8c:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/f0184d7b9ca44de2bd9cfa0faf5d5a8c"
+    }
+  },
+  {
+    "id": "3f955898376b477aac2711078e72cd64",
+    "name": "projects/8226357890556052909/screens/3f955898376b477aac2711078e72cd64",
+    "title": "43 Daily word insufficient — Light",
+    "width": "780",
+    "height": "1768",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/b9bfe95dfc254504acbe688d32f4c118:download",
+      "name": "projects/8226357890556052909/files/b9bfe95dfc254504acbe688d32f4c118"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/457c1cd2d0d74908b1a745abcce9a9f8:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/457c1cd2d0d74908b1a745abcce9a9f8"
+    }
+  }
+]

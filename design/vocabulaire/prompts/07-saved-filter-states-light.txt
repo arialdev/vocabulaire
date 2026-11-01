@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 25 Save filter — Light
+Focused sheet “Save filter”. Small summary card “Search: café”, “Grammatical: Expression”, “Thematic: Food & drink”. Emoji selector ☕ with Change icon, persistent Filter name · Required field filled Café conversations. Helper “Saves your search and categories. Display choices stay separate.” Bottom Save filter and Cancel. No nesting sheets or extra features.
+
+SEPARATE SCREEN: 26 Filter validation — Light
+Same Save filter sheet with blank name after submitting. Query/category summary preserved, ☕ retained. Name error icon and “Give this filter a name.” Bottom Save filter. Show the error inline, comfortably above keyboard area.
+
+SEPARATE SCREEN: 27 Delete saved filter — Light
+Saved filters sheet behind scrim, dialog “Delete Café conversations?” Copy “This removes the saved filter. Your terms and categories will stay.” Cancel and Delete filter actions. Restrained destructive styling only in this confirmation.
+
+SEPARATE SCREEN: 28 Active filtered vocabulary — Light
+☕ Everyday French. Search field café, applied saved filter pill ☕ Café conversations with small remove X; active category chips Aa Expression and leaf Food & drink with remove controls. Summary “12 of 48 terms · Detailed · Original A–Z”; Filters & display with badge 2. Realistic entries un café allongé / a long coffee / A little more water than an espresso; s’il vous plaît / please / Polite ordering; l’addition, s’il vous plaît / the bill, please. Each has suitable category chips and note. Bottom Add term; compact active-control area avoiding more than two chip rows.
+

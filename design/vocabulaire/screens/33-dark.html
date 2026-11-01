@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>33 Edit term — Dark</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#344D3A",
+            "clay-text": "#F3C3AA",
+            "clay-fill": "#49362D",
+            "clay-border": "#634739",
+            "thematic-text": "#C1DFC4",
+            "thematic-fill": "#344D3A",
+            "thematic-border": "#476A4F",
+            destructive: "#FFB4AB",
+            "error-surface": "#4A2926"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased selection:bg-selected-surface selection:text-main flex justify-center items-center m-0 p-0 min-h-screen">
+<!-- Pure Mobile Viewport Artboard (390px x 892px) -->
+<div class="relative w-[390px] h-[892px] bg-canvas overflow-hidden flex flex-col justify-between">
+<!-- Top System Status Bar -->
+<header class="w-full shrink-0">
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-main tracking-tight select-none">
+<span>9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px] material-symbols-fill" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- App Bar (Notebook Top Navigation) -->
+<nav class="flex justify-between items-center w-full h-14 px-3 border-b border-divider bg-canvas/95 backdrop-blur-sm z-10 transition-colors">
+<div class="flex items-center space-x-1">
+<button aria-label="Go back" class="w-12 h-12 flex items-center justify-center rounded-full text-main hover:bg-recessed active:opacity-80 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main ml-1">Edit term</h1>
+</div>
+<div class="flex items-center">
+<button aria-label="More options" class="w-12 h-12 flex items-center justify-center rounded-full text-main hover:bg-recessed active:opacity-80 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Scrollable Notebook Form Content -->
+<main class="flex-1 overflow-y-auto px-6 pt-5 pb-6 space-y-6">
+<!-- Field 1: Original Expression -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="original-expression">
+          Original expression <span class="text-secondary/70">· Required</span>
+</label>
+<div class="relative">
+<input class="w-full h-14 px-4 rounded-xl bg-recessed border border-divider text-main font-headline text-2xl font-medium tracking-normal focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs transition-colors placeholder:text-secondary/40" id="original-expression" name="original-expression" placeholder="Expression in native script" type="text" value="flâner"/>
+</div>
+</div>
+<!-- Field 2: Translation -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="translation">
+          Translation <span class="text-secondary/70">· Required</span>
+</label>
+<div class="relative">
+<input class="w-full h-14 px-4 rounded-xl bg-recessed border border-divider text-main font-body text-base tracking-normal focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs transition-colors placeholder:text-secondary/40" id="translation" name="translation" placeholder="Translation in your language" type="text" value="to wander without hurry"/>
+</div>
+</div>
+<!-- Field 3: Notes -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="notes">
+          Notes <span class="text-secondary/70">· Optional</span>
+</label>
+<div class="relative">
+<textarea class="w-full p-4 rounded-xl bg-recessed border border-divider text-main font-body text-base italic leading-relaxed focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs resize-none transition-colors placeholder:text-secondary/40" id="notes" name="notes" placeholder="Personal context, nuances, or usage examples..." rows="3">On a quiet Sunday, with no destination in mind.</textarea>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="pt-1 border-t border-divider space-y-4">
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline text-xl font-semibold text-main">Categories</h2>
+<p class="font-body text-xs text-secondary mt-0.5">Grammatical and thematic labels</p>
+</div>
+<button class="inline-flex items-center text-xs font-medium text-primary hover:text-main transition-colors py-1 px-1.5 -mr-1.5 rounded hover:bg-selected-surface/50" type="button">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="add">add</span>
+            New category
+          </button>
+</div>
+<!-- Grammatical Group -->
+<div class="space-y-2">
+<div class="flex items-center space-x-1.5 text-xs font-medium text-secondary">
+<span class="inline-flex items-center justify-center w-4 h-4 rounded bg-clay-fill text-[11px] font-headline font-semibold text-clay-text">Aa</span>
+<span class="tracking-wide">Grammatical</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-0.5">
+<!-- Chip: Noun -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-divider bg-recessed text-secondary hover:text-main hover:bg-surface active:scale-95 text-xs font-medium transition-all" type="button">
+              Noun
+            </button>
+<!-- Chip: Verb (SELECTED) -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-clay-border bg-clay-fill text-clay-text font-medium text-xs shadow-xs active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px] mr-1.5 -ml-0.5 font-bold" data-icon="check">check</span>
+              Verb
+            </button>
+<!-- Chip: Expression -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-divider bg-recessed text-secondary hover:text-main hover:bg-surface active:scale-95 text-xs font-medium transition-all" type="button">
+              Expression
+            </button>
+</div>
+</div>
+<!-- Thematic Group -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center space-x-1.5 text-xs font-medium text-secondary">
+<span class="material-symbols-outlined text-sm text-thematic-text" data-icon="nature">nature</span>
+<span class="tracking-wide">Thematic</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-0.5">
+<!-- Chip: Everyday life (SELECTED) -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-thematic-border bg-thematic-fill text-thematic-text font-medium text-xs shadow-xs active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px] mr-1.5 -ml-0.5 font-bold" data-icon="check">check</span>
+              Everyday life
+            </button>
+<!-- Chip: Travel -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-divider bg-recessed text-secondary hover:text-main hover:bg-surface active:scale-95 text-xs font-medium transition-all" type="button">
+              Travel
+            </button>
+<!-- Chip: Food & drink -->
+<button class="inline-flex items-center h-9 px-3.5 rounded-full border border-divider bg-recessed text-secondary hover:text-main hover:bg-surface active:scale-95 text-xs font-medium transition-all" type="button">
+              Food &amp; drink
+            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Anchored Bottom Action Area (Thumb Zone) -->
+<footer class="w-full bg-canvas/95 backdrop-blur-md px-6 pt-3 pb-2 border-t border-divider shrink-0 space-y-2">
+<!-- Primary Save Button: 56dp (h-14), rounded-xl, #B9D8BB Fill with #173824 Text -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-medium text-base flex items-center justify-center space-x-2 shadow-sm hover:brightness-105 active:scale-[0.99] transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+<span>Save changes</span>
+</button>
+<!-- Secondary Cancel Action -->
+<div class="flex justify-center pb-1">
+<button class="h-10 px-6 rounded-lg text-secondary font-medium text-sm hover:text-main hover:bg-recessed active:opacity-75 transition-colors" type="button">
+          Cancel
+        </button>
+</div>
+<!-- Android Bottom Gesture Indicator Bar -->
+<div class="w-full h-4 flex justify-center items-center select-none pt-1">
+<div class="w-28 h-1 bg-main/20 rounded-full"></div>
+</div>
+</footer>
+</div>
+</body></html>

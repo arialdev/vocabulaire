@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>47 Restore confirmation — Dark</title>
+<!-- Google Fonts: EB Garamond & Inter / Source Sans 3 -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,600&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            app: {
+              bg: '#171E1B',
+              surface: '#222D27',
+              surfaceAlt: '#1C2520',
+              border: '#45574A',
+              text: '#F3F0E7',
+              textMuted: '#B8C6BC',
+              warningBg: '#4A2926',
+              warningIcon: '#FFB4AB',
+              destructive: '#A53532',
+              destructiveHover: '#8E2C29',
+              greenDark: '#23382D',
+              greenText: '#6CA382'
+            }
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    body {
+      background-color: #0c100e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mobile-screen {
+      width: 390px;
+      height: 892px;
+      position: relative;
+      overflow: hidden;
+      background-color: #171E1B;
+      color: #F3F0E7;
+    }
+  </style>
+</head>
+<body>
+<!-- BEGIN: MobileDeviceScreen -->
+<div class="mobile-screen flex flex-col justify-between selection:bg-rose-900 selection:text-white" data-purpose="mobile-viewport">
+<!-- BEGIN: UnderlyingScreenBackground -->
+<!-- Content of the dimmed "Restore notebook" page -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none select-none" data-purpose="underlying-content">
+<!-- Screen Top Bar & Headers -->
+<div>
+<!-- Android Status Bar Placeholder Behind Scrim -->
+<div class="h-11 px-6 flex justify-between items-center text-xs tracking-wide text-[#8E9E94]">
+<span class="font-medium">09:41</span>
+<div class="flex items-center space-x-2">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M2 22h20L12 2 2 22z"></path></svg>
+<svg class="w-3 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M17 4h-3V2h-4v2H7v18h10V4z"></path></svg>
+</div>
+</div>
+<!-- Navigation Bar -->
+<header class="px-5 py-3 flex items-center justify-between text-[#B8C6BC]">
+<button class="p-1" type="button">
+<svg class="w-6 h-6 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 12H5M12 19l-7-7 7-7"></path>
+</svg>
+</button>
+<span class="font-serif text-2xl tracking-normal text-[#F3F0E7]">Vocabulaire</span>
+<button class="p-1" type="button">
+<svg class="w-6 h-6 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+</button>
+</header>
+<!-- Main Page Header Copy -->
+<div class="px-6 pt-5 pb-4">
+<p class="text-[11px] font-semibold tracking-widest uppercase text-[#889B90] mb-1">BACKUPS</p>
+<h1 class="font-serif text-[32px] leading-tight text-[#F3F0E7]">Restore notebook</h1>
+<p class="text-sm text-[#B8C6BC] mt-2 leading-relaxed">
+            Previewing backup archive. Review its contents before replacing your current library.
+          </p>
+</div>
+<!-- Notebook Preview Card (Behind) -->
+<div class="px-6 mt-4">
+<div class="p-4 rounded-2xl bg-[#1C2520] border border-[#2D3C33] flex items-center space-x-3.5 opacity-60">
+<div class="w-10 h-10 rounded-xl bg-[#283830] flex items-center justify-center text-emerald-400">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M6 3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H6zm0 2h12v3H6V5zm0 5h12v9H6v-9z"></path>
+</svg>
+</div>
+<div>
+<p class="font-medium text-base text-[#F3F0E7]">日本語ノート</p>
+<p class="text-xs text-[#8E9E94]">16 terms</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Pinned Actions Behind Scrim -->
+<div class="p-6 pb-9 space-y-3">
+<button class="w-full h-14 rounded-full bg-[#1F3D2C] text-[#86A895] font-semibold text-base flex items-center justify-center cursor-default">
+          Continue to restore
+        </button>
+<button class="w-full py-2.5 text-center text-[#8E9E94] text-sm font-medium cursor-default">
+          Cancel
+        </button>
+</div>
+</div>
+<!-- END: UnderlyingScreenBackground -->
+<!-- BEGIN: ModalOverlayScrim -->
+<!-- 48% darken scrim overlay as specified -->
+<div class="absolute inset-0 bg-black/50 backdrop-blur-[2px] z-10 flex flex-col justify-between" data-purpose="scrim-overlay">
+<!-- Dark Android System Status Bar -->
+<!-- BEGIN: StatusBar -->
+<div class="h-11 px-7 flex justify-between items-center text-xs tracking-wide text-[#F3F0E7] z-20">
+<span class="font-semibold text-[13px]">09:41</span>
+<div class="flex items-center space-x-2">
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path></svg>
+<!-- Wifi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"></path></svg>
+<!-- Battery Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M16 4h-2V2h-4v2H8c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1z"></path></svg>
+</div>
+</div>
+<!-- END: StatusBar -->
+<!-- BEGIN: ConfirmationDialogModal -->
+<!-- Center Dialog Container -->
+<div class="flex-1 flex items-center justify-center px-6">
+<div class="w-full bg-app-surface border border-app-border rounded-[28px] p-6 shadow-2xl flex flex-col items-center text-center transform transition-all" data-purpose="restore-confirmation-dialog" style="box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);">
+<!-- Warning Icon Container -->
+<div class="w-14 h-14 rounded-full bg-app-warningBg flex items-center justify-center mb-5" data-purpose="warning-badge">
+<svg class="w-7 h-7 text-app-warningIcon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+<line x1="12" x2="12" y1="9" y2="13"></line>
+<line x1="12" x2="12.01" y1="17" y2="17"></line>
+</svg>
+</div>
+<!-- Headline -->
+<h2 class="font-serif text-[26px] font-semibold text-app-text leading-tight mb-3">
+            Replace all current data?
+          </h2>
+<!-- Descriptive Body Text with Code Pill -->
+<p class="text-sm text-app-text leading-relaxed font-normal mb-5 px-1">
+            Replace your current notebook with 
+            <span class="inline-block bg-app-surfaceAlt border border-app-border/40 font-mono text-[11px] text-app-text px-1.5 py-0.5 rounded mx-1">
+              vocabulaire-2026-11-01.json
+            </span> 
+            ? This cannot be undone.
+          </p>
+<!-- Summary Pill / Card -->
+<div class="w-full bg-app-surfaceAlt border border-app-border rounded-full py-2.5 px-4 mb-4 flex items-center justify-center space-x-2 text-xs text-app-text" data-purpose="backup-summary-pill">
+<svg class="w-4 h-4 text-app-textMuted flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="font-medium tracking-wide">Importing: 3 collections · 96 terms</span>
+</div>
+<!-- Export Helper Subtext -->
+<p class="text-xs text-app-textMuted leading-relaxed px-4 mb-6">
+            Need a copy? You can cancel and export your notebook first.
+          </p>
+<!-- Action Buttons Group -->
+<div class="w-full space-y-3" data-purpose="modal-actions">
+<!-- Destructive Primary Button -->
+<button class="w-full h-13 py-3.5 px-6 rounded-full bg-app-destructive hover:bg-app-destructiveHover active:scale-[0.99] text-white font-medium text-[15px] flex items-center justify-center space-x-2 transition shadow-md" data-purpose="action-confirm-replace" type="button">
+<!-- Delete/Replace Icon -->
+<svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="3 6 5 6 21 6"></polyline>
+<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+<line x1="10" x2="10" y1="11" y2="17"></line>
+<line x1="14" x2="14" y1="11" y2="17"></line>
+</svg>
+<span>Replace all data</span>
+</button>
+<!-- Secondary Cancel Button -->
+<button class="w-full py-2.5 px-6 rounded-full text-app-text font-medium text-[15px] hover:bg-app-surfaceAlt transition" data-purpose="action-cancel" type="button">
+              Cancel
+            </button>
+</div>
+</div>
+</div>
+<!-- END: ConfirmationDialogModal -->
+<!-- Android Bottom Gesture Bar Area -->
+<!-- BEGIN: BottomGestureArea -->
+<footer class="h-6 flex items-center justify-center pb-2">
+<div class="w-28 h-1 bg-[#4E5D52] rounded-full" data-purpose="android-home-pill"></div>
+</footer>
+<!-- END: BottomGestureArea -->
+</div>
+<!-- END: ModalOverlayScrim -->
+</div>
+<!-- END: MobileDeviceScreen -->
+</body></html>

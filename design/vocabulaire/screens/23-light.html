@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>23 Saved filters — Light</title>
+<!-- Typography: EB Garamond (literary serif) & DM Sans (clean editorial sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          canvas: "#F8F5EE",
+          surface: "#FFFCF6",
+          recessed: "#F0EDE5",
+          main: "#20382E",
+          secondary: "#59675E",
+          divider: "#D8DED2",
+          primary: "#2D6046",
+          "on-primary": "#FFFFFF",
+          "selected-surface": "#E2ECDF",
+          "grammatical-text": "#684435",
+          "grammatical-fill": "#F1E5DC",
+          "thematic-text": "#345B43",
+          "thematic-fill": "#E2ECDF",
+          destructive: "#A53532",
+          "error-surface": "#FBE6E1"
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          headline: ["EB Garamond", "serif"],
+          display: ["EB Garamond", "serif"],
+          body: ["DM Sans", "sans-serif"],
+          label: ["DM Sans", "sans-serif"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body class="bg-canvas min-h-screen w-full font-body text-main selection:bg-selected-surface overflow-hidden m-0 p-0">
+<!-- Android Artboard (412dp x 892dp) -->
+<main class="relative w-full h-full min-h-screen max-h-screen bg-canvas overflow-hidden flex flex-col">
+<!-- BACKGROUND: Dimmed Vocabulary List -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none select-none">
+<div class="h-6 w-full flex justify-between items-center px-6 pt-1 text-[13px] font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<header class="flex justify-between items-center h-14 px-6 border-b border-divider">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-headline font-semibold text-2xl">☕ Everyday French</span>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">more_vert</span>
+</div>
+</header>
+<div class="p-6 space-y-4">
+<div class="h-10 bg-recessed rounded-xl"></div>
+<div class="space-y-3 pt-2">
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+</div>
+</div>
+</div>
+<!-- 48% Semantic Scrim Overlay -->
+<div aria-label="Dismiss sheet" class="absolute inset-0 z-10" role="button" style="background-color: rgba(32, 56, 46, 0.48);" tabindex="0"></div>
+<!-- FOREGROUND: Tall Modal Bottom Sheet (Saved Tab) -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto w-full max-h-[830px] bg-surface rounded-t-[24px] border-t border-divider shadow-[0_-8px_30px_rgba(32,56,46,0.16)] flex flex-col" role="dialog">
+<!-- Drag Handle -->
+<div class="pt-3 pb-1 w-full flex justify-center items-center cursor-grab">
+<div class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header: Title & Close Button -->
+<div class="px-6 pt-1 pb-3 flex items-center justify-between border-b border-divider/60">
+<div>
+<h2 class="font-headline font-semibold text-[24px] leading-tight text-main tracking-tight" id="sheet-title">
+          Filters &amp; display
+        </h2>
+<p class="text-xs text-secondary mt-0.5">☕ Everyday French · 3 saved filters</p>
+</div>
+<button aria-label="Close filters" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[20px]">close</span>
+</button>
+</div>
+<!-- Segmented Navigation Tabs (Saved selected) -->
+<div class="px-6 pt-3 pb-2">
+<div class="flex items-center p-1 bg-recessed rounded-xl text-sm font-medium text-secondary">
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors" type="button">
+          Categories
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors" type="button">
+          Display
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg bg-surface text-main shadow-xs font-semibold" type="button">
+          Saved
+        </button>
+</div>
+</div>
+<!-- Scrollable Content Body: List of Saved Filters -->
+<div class="flex-1 overflow-y-auto px-6 py-3 space-y-3">
+<!-- Quiet Stationery Note -->
+<div class="flex items-center justify-between text-xs text-secondary px-0.5">
+<span>Saved combinations for this notebook</span>
+<span class="italic font-serif text-[11px]">Stores search &amp; categories</span>
+</div>
+<!-- Saved Filter 1: Highlighted / Currently Applied -->
+<div class="p-3.5 rounded-xl border-2 border-primary bg-selected-surface/40 flex items-start justify-between shadow-xs">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<div class="w-10 h-10 rounded-xl bg-surface border border-primary/40 flex items-center justify-center text-xl shrink-0 shadow-xs">
+            ☕
+          </div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h3 class="font-headline font-semibold text-[17px] text-main leading-tight truncate">Café conversations</h3>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary bg-surface px-2 py-0.5 rounded-full border border-primary/30">
+<span class="material-symbols-outlined !text-[12px]">check</span>
+<span>Applied</span>
+</span>
+</div>
+<p class="text-xs text-secondary font-medium mt-1">
+              Search: <span class="text-main">“café”</span>
+</p>
+<div class="flex items-center gap-1.5 mt-1.5 flex-wrap">
+<span class="text-[11px] px-2 py-0.5 rounded bg-grammatical-fill text-grammatical-text font-medium">Expression</span>
+<span class="text-secondary text-xs">+</span>
+<span class="text-[11px] px-2 py-0.5 rounded bg-thematic-fill text-thematic-text font-medium">Food &amp; drink</span>
+</div>
+</div>
+</div>
+<!-- Overflow Delete Button -->
+<button aria-label="Filter options" class="w-9 h-9 -mr-1 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-surface transition-colors" type="button">
+<span class="material-symbols-outlined !text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Saved Filter 2: Travel verbs -->
+<div class="p-3.5 rounded-xl border border-divider bg-surface hover:bg-recessed/40 transition-colors flex items-start justify-between">
+<button class="flex items-start gap-3 min-w-0 flex-1 text-left" type="button">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-divider flex items-center justify-center text-xl shrink-0">
+            ✈️
+          </div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between pr-2">
+<h3 class="font-headline font-semibold text-[17px] text-main leading-tight truncate">Travel verbs</h3>
+<span class="text-xs font-medium text-primary hover:underline">Apply</span>
+</div>
+<p class="text-xs text-secondary mt-1">
+              No search query
+            </p>
+<div class="flex items-center gap-1.5 mt-1.5 flex-wrap">
+<span class="text-[11px] px-2 py-0.5 rounded bg-grammatical-fill text-grammatical-text font-medium">Verb</span>
+<span class="text-secondary text-xs">+</span>
+<span class="text-[11px] px-2 py-0.5 rounded bg-thematic-fill text-thematic-text font-medium">Travel</span>
+</div>
+</div>
+</button>
+<!-- Overflow Delete Button -->
+<button aria-label="Filter options" class="w-9 h-9 -mr-1 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Saved Filter 3: Everyday words -->
+<div class="p-3.5 rounded-xl border border-divider bg-surface hover:bg-recessed/40 transition-colors flex items-start justify-between">
+<button class="flex items-start gap-3 min-w-0 flex-1 text-left" type="button">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-divider flex items-center justify-center text-xl shrink-0">
+            🌱
+          </div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between pr-2">
+<h3 class="font-headline font-semibold text-[17px] text-main leading-tight truncate">Everyday words</h3>
+<span class="text-xs font-medium text-primary hover:underline">Apply</span>
+</div>
+<p class="text-xs text-secondary mt-1">
+              No search query
+            </p>
+<div class="flex items-center gap-1.5 mt-1.5 flex-wrap">
+<span class="text-[11px] px-2 py-0.5 rounded bg-thematic-fill text-thematic-text font-medium">Everyday life</span>
+</div>
+</div>
+</button>
+<!-- Overflow Delete Button -->
+<button aria-label="Filter options" class="w-9 h-9 -mr-1 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Anchored Footer Action Zone -->
+<div class="p-6 pt-3 pb-3 border-t border-divider/60 bg-surface flex flex-col gap-2">
+<!-- Primary 56dp CTA: Save current selection -->
+<button class="w-full h-14 bg-primary text-on-primary font-medium text-base rounded-[12px] flex items-center justify-center gap-2 shadow-xs hover:opacity-95 active:opacity-90 transition duration-150" type="button">
+<span class="material-symbols-outlined !text-[20px]">bookmark_add</span>
+<span class="font-semibold tracking-wide">Save current selection</span>
+</button>
+<button class="w-full h-10 text-secondary text-sm font-medium hover:text-main flex items-center justify-center transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+<!-- Android Gesture Pill Inset -->
+<div class="h-5 w-full flex items-center justify-center pb-2 bg-surface">
+<div class="w-32 h-1 bg-main/30 rounded-full"></div>
+</div>
+</section>
+</main>
+</body>
+</html>

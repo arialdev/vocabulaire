@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>44 Settings — Light</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            clay: "#684435",
+            "clay-fill": "#F1E5DC"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for clean notebook appearance */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#e9e5dc] min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main antialiased selection:bg-selected-surface">
+<!-- Mobile Frame (412x892 Standard Android Viewport) -->
+<main class="w-[412px] h-[892px] bg-canvas relative flex flex-col overflow-hidden shadow-2xl md:rounded-[36px] border border-divider/60">
+<!-- Android Status Bar -->
+<header class="h-10 pt-2 px-6 flex justify-between items-center text-xs font-medium text-secondary tracking-tight select-none z-20 shrink-0">
+<span class="font-semibold text-main text-[13px]">09:41</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-main" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px] text-main" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[18px] text-main" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar (Shared Components Anchor execution) -->
+<nav class="h-14 px-4 flex items-center justify-between border-b border-divider/60 bg-surface shrink-0 z-10 transition-colors">
+<div class="flex items-center gap-2">
+<button aria-label="Back to Collections" class="w-12 h-12 -ml-2 rounded-full flex items-center justify-center text-main hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Settings</h1>
+</div>
+<!-- Right slot kept peaceful & empty per strict offline aesthetic -->
+<div class="w-10"></div>
+</nav>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto px-5 py-5 pb-8 space-y-6">
+<!-- SECTION 1: INTERFACE LANGUAGE -->
+<section>
+<h2 class="text-xs font-semibold tracking-wider text-secondary uppercase px-1 mb-2">INTERFACE LANGUAGE</h2>
+<div class="bg-surface border border-divider rounded-2xl overflow-hidden divide-y divide-divider/60 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<!-- Radio Option: System default (Selected) -->
+<label class="flex items-start gap-3.5 p-4 cursor-pointer hover:bg-recessed/40 transition-colors select-none">
+<div class="pt-0.5">
+<input checked="" class="sr-only peer" name="language" type="radio" value="system"/>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center transition-all peer-checked:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-[15px] font-medium text-main leading-tight">System default</p>
+<p class="text-xs text-secondary mt-0.5">Current system language: English</p>
+</div>
+</label>
+<!-- Radio Option: English -->
+<label class="flex items-start gap-3.5 p-4 cursor-pointer hover:bg-recessed/40 transition-colors select-none">
+<div class="pt-0.5">
+<input class="sr-only peer" name="language" type="radio" value="en"/>
+<div class="w-5 h-5 rounded-full border-2 border-divider flex items-center justify-center transition-all peer-checked:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-[15px] font-medium text-main leading-tight">English</p>
+</div>
+</label>
+<!-- Radio Option: Español -->
+<label class="flex items-start gap-3.5 p-4 cursor-pointer hover:bg-recessed/40 transition-colors select-none">
+<div class="pt-0.5">
+<input class="sr-only peer" name="language" type="radio" value="es"/>
+<div class="w-5 h-5 rounded-full border-2 border-divider flex items-center justify-center transition-all peer-checked:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-[15px] font-medium text-main leading-tight">Español</p>
+</div>
+</label>
+</div>
+<p class="text-xs text-secondary mt-2 px-1 leading-relaxed">
+          Interface language applies immediately. Vocabulary terms remain in their original languages.
+        </p>
+</section>
+<!-- SECTION 2: APPEARANCE -->
+<section>
+<h2 class="text-xs font-semibold tracking-wider text-secondary uppercase px-1 mb-2">APPEARANCE</h2>
+<!-- 3 Side-by-side Visual Preview Tiles -->
+<div class="grid grid-cols-3 gap-3">
+<!-- System Option -->
+<button class="group flex flex-col items-center text-center p-2.5 rounded-2xl bg-surface border border-divider hover:border-secondary/40 active:scale-[0.98] transition-all" type="button">
+<div class="w-full aspect-[4/3] rounded-lg border border-divider/80 relative overflow-hidden flex mb-2 bg-[#F8F5EE]">
+<!-- Left light side -->
+<div class="w-1/2 h-full bg-[#FFFCF6] p-1.5 flex flex-col justify-center space-y-1">
+<div class="h-1.5 w-full bg-[#20382E]/20 rounded-full"></div>
+<div class="h-1 w-3/4 bg-[#59675E]/20 rounded-full"></div>
+</div>
+<!-- Right dark side -->
+<div class="w-1/2 h-full bg-[#222D27] p-1.5 flex flex-col justify-center space-y-1 border-l border-divider/60">
+<div class="h-1.5 w-full bg-[#F3F0E7]/30 rounded-full"></div>
+<div class="h-1 w-3/4 bg-[#B8C6BC]/30 rounded-full"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-[15px] text-secondary/60 bg-surface/90 rounded-full p-0.5 shadow-sm" data-icon="brightness_auto">brightness_auto</span>
+</div>
+</div>
+<span class="text-[13px] font-medium text-main">System</span>
+</button>
+<!-- Light Option (Selected) -->
+<button class="group flex flex-col items-center text-center p-2.5 rounded-2xl bg-selected-surface/30 border-2 border-primary active:scale-[0.98] transition-all relative" type="button">
+<div class="w-full aspect-[4/3] rounded-lg border border-primary/30 relative overflow-hidden bg-surface p-2 flex flex-col justify-center space-y-1.5 mb-2 shadow-inner">
+<div class="h-1.5 w-4/5 bg-primary/30 rounded-full"></div>
+<div class="h-1 w-full bg-[#D8DED2] rounded-full"></div>
+<div class="h-1 w-2/3 bg-[#D8DED2] rounded-full"></div>
+<div class="absolute top-1.5 right-1.5 w-4 h-4 bg-primary rounded-full flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+<span class="text-[13px] font-semibold text-primary">Light</span>
+</button>
+<!-- Dark Option -->
+<button class="group flex flex-col items-center text-center p-2.5 rounded-2xl bg-surface border border-divider hover:border-secondary/40 active:scale-[0.98] transition-all" type="button">
+<div class="w-full aspect-[4/3] rounded-lg border border-[#45574A] relative overflow-hidden bg-[#222D27] p-2 flex flex-col justify-center space-y-1.5 mb-2 shadow-inner">
+<div class="h-1.5 w-4/5 bg-[#B9D8BB]/40 rounded-full"></div>
+<div class="h-1 w-full bg-[#45574A] rounded-full"></div>
+<div class="h-1 w-2/3 bg-[#45574A] rounded-full"></div>
+</div>
+<span class="text-[13px] font-medium text-main">Dark</span>
+</button>
+</div>
+<p class="text-xs text-secondary mt-2 px-1 leading-relaxed">
+          Changes appear right away across all collections.
+        </p>
+</section>
+<!-- SECTION 3: DATA & STORAGE -->
+<section>
+<h2 class="text-xs font-semibold tracking-wider text-secondary uppercase px-1 mb-2">DATA &amp; STORAGE</h2>
+<div class="bg-surface border border-divider rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<button class="w-full p-4 flex items-center gap-3.5 text-left hover:bg-recessed/40 active:bg-recessed transition-colors select-none min-h-[56px]" type="button">
+<div class="w-10 h-10 rounded-xl bg-recessed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="folder_zip">folder_zip</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[15px] font-medium text-main leading-snug">Backups</p>
+<p class="text-xs text-secondary mt-0.5 truncate">Export or restore your offline notebook</p>
+</div>
+<span class="material-symbols-outlined text-[20px] text-secondary/60 shrink-0" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- QUIET FOOTER AREA -->
+<footer class="pt-6 pb-2 text-center flex flex-col items-center select-none">
+<div class="w-11 h-11 rounded-full bg-recessed/70 border border-divider/60 flex items-center justify-center mb-3 text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="cloud_off">cloud_off</span>
+</div>
+<p class="text-[13px] font-medium text-main">Your words stay on this device.</p>
+<p class="text-xs text-secondary mt-0.5">Vocabulaire v1.2 · Entirely offline</p>
+</footer>
+</div>
+<!-- Android Bottom Gesture Bar Navigation -->
+<div class="h-6 flex justify-center items-center bg-transparent shrink-0 z-20">
+<div class="w-28 h-1 bg-main/20 rounded-full"></div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>47 Restore confirmation — Light</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "destructive-text": "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-stone-200 min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main antialiased selection:bg-selected-surface">
+<!-- Mobile Screen Container 412x892 -->
+<div class="relative w-full max-w-[412px] h-[892px] bg-canvas overflow-hidden shadow-2xl flex flex-col justify-between select-none">
+<!-- UNDERLYING VIEW: Restore preview screen (dimmed underneath modal) -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col bg-canvas pointer-events-none">
+<!-- Android System Bar -->
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-sm" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-sm fill" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (From Shared Component JSON) -->
+<header class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface text-main">
+<button aria-label="Go back" class="w-12 h-12 flex items-center justify-center text-primary rounded-full hover:bg-recessed active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Vocabulaire</h1>
+<button aria-label="Settings" class="w-12 h-12 flex items-center justify-center text-primary rounded-full hover:bg-recessed active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Underlying Restore Preview Content Canvas -->
+<main class="flex-1 px-6 pt-5 pb-6 overflow-y-auto">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary">Backups</span>
+</div>
+<h2 class="font-headline text-3xl font-semibold text-main mb-2">Restore notebook</h2>
+<p class="font-body text-secondary text-sm leading-relaxed mb-6">
+          Previewing backup archive. Review its contents before replacing your current library.
+        </p>
+<!-- Backup File Card -->
+<div class="bg-surface border border-divider rounded-xl p-4 mb-5 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-recessed border border-divider flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="description">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-medium text-main text-base truncate">vocabulaire-2026-11-01.json</p>
+<p class="text-xs text-secondary mt-0.5">Exported Nov 1, 2026 · 142 KB</p>
+</div>
+<button class="text-primary text-xs font-medium hover:underline p-1">Change</button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-divider">
+<div class="bg-recessed rounded-lg p-2.5">
+<p class="text-xs text-secondary">Collections</p>
+<p class="font-headline text-xl font-semibold text-main mt-0.5">3 collections</p>
+</div>
+<div class="bg-recessed rounded-lg p-2.5">
+<p class="text-xs text-secondary">Terms</p>
+<p class="font-headline text-xl font-semibold text-main mt-0.5">96 terms</p>
+</div>
+<div class="bg-recessed rounded-lg p-2.5">
+<p class="text-xs text-secondary">Categories</p>
+<p class="font-headline text-xl font-semibold text-main mt-0.5">12 categories</p>
+</div>
+<div class="bg-recessed rounded-lg p-2.5">
+<p class="text-xs text-secondary">Saved filters</p>
+<p class="font-headline text-xl font-semibold text-main mt-0.5">4 filters</p>
+</div>
+</div>
+</div>
+<!-- Collections preview listing in backup -->
+<div class="space-y-2 mb-6">
+<h3 class="text-xs font-semibold text-secondary uppercase tracking-wider px-1">Archive items</h3>
+<div class="p-3 bg-surface border border-divider rounded-xl flex items-center gap-3">
+<span class="text-2xl">☕</span>
+<div class="flex-1">
+<p class="font-headline text-base font-semibold text-main">Everyday French</p>
+<p class="text-xs text-secondary">48 terms</p>
+</div>
+</div>
+<div class="p-3 bg-surface border border-divider rounded-xl flex items-center gap-3">
+<span class="text-2xl">🍋</span>
+<div class="flex-1">
+<p class="font-headline text-base font-semibold text-main">Español de viaje</p>
+<p class="text-xs text-secondary">32 terms</p>
+</div>
+</div>
+<div class="p-3 bg-surface border border-divider rounded-xl flex items-center gap-3">
+<span class="text-2xl">🌱</span>
+<div class="flex-1">
+<p class="font-headline text-base font-semibold text-main">日本語ノート</p>
+<p class="text-xs text-secondary">16 terms</p>
+</div>
+</div>
+</div>
+<!-- Warning Callout on preview screen -->
+<div class="p-3.5 bg-error-surface border border-[#E9C3BC] rounded-xl flex items-start gap-2.5 mb-6">
+<span class="material-symbols-outlined text-destructive-text text-xl shrink-0 mt-0.5" data-icon="warning">warning</span>
+<p class="text-xs text-[#5D2321] leading-relaxed">
+            Restoring from this file will replace all current data. Make sure to export a backup if you need to keep existing terms.
+          </p>
+</div>
+</main>
+<!-- Underlying Screen Footer Actions -->
+<div class="p-6 bg-canvas border-t border-divider flex flex-col gap-2">
+<button class="h-14 w-full bg-primary text-on-primary rounded-xl font-medium text-base shadow-sm">
+          Continue to restore
+        </button>
+<button class="h-12 w-full text-secondary font-medium text-sm">
+          Cancel
+        </button>
+</div>
+</div>
+<!-- 48% SCRIM OVERLAY (Android Modal Backdrop) -->
+<div class="absolute inset-0 bg-[#171E1B] bg-opacity-[0.48] z-30 transition-opacity backdrop-blur-[0.5px]"></div>
+<!-- FOCUSED CONFIRMATION DIALOG MODAL (Centered on screen) -->
+<div class="relative z-40 w-full h-full flex items-center justify-center p-6 pointer-events-auto">
+<!-- Modal Container -->
+<div aria-describedby="dialog-desc" aria-labelledby="dialog-title" aria-modal="true" class="w-full max-w-[340px] bg-surface border border-divider rounded-2xl p-6 shadow-2xl flex flex-col items-center animate-in fade-in zoom-in-95 duration-200" role="alertdialog">
+<!-- Warning / Destructive Circular Badge -->
+<div class="w-14 h-14 rounded-full bg-error-surface border border-[#F3C3AA] flex items-center justify-center mb-4 text-destructive-text shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-3xl" data-icon="warning">warning</span>
+</div>
+<!-- Dialog Headline -->
+<h2 class="font-headline text-2xl font-semibold text-main text-center leading-snug" id="dialog-title">
+          Replace all current data?
+        </h2>
+<!-- Dialog Body -->
+<p class="font-body text-secondary text-sm text-center mt-2 leading-relaxed" id="dialog-desc">
+          Replace your current notebook with <span class="font-medium text-main break-all font-mono text-xs bg-recessed px-1 py-0.5 rounded">vocabulaire-2026-11-01.json</span>? This cannot be undone.
+        </p>
+<!-- Summary Badge / Pill showing scope -->
+<div class="inline-flex items-center gap-1.5 bg-recessed border border-divider text-main text-xs py-1.5 px-3 rounded-full mt-3">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="folder_zip">folder_zip</span>
+<span class="font-medium">Importing: 3 collections · 96 terms</span>
+</div>
+<!-- Optional subtle backup note link -->
+<p class="text-[11px] text-secondary text-center mt-3">
+          Need a copy? You can cancel and export your notebook first.
+        </p>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-2 mt-5">
+<!-- Destructive Primary Action Button -->
+<button class="h-14 w-full bg-[#A53532] text-white rounded-xl font-medium text-base flex items-center justify-center gap-2 hover:bg-[#922D2B] active:opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-[#A53532] focus:ring-offset-2" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="delete_sweep">delete_sweep</span>
+<span>Replace all data</span>
+</button>
+<!-- Safe Secondary Action Button -->
+<button class="h-12 w-full rounded-xl text-main font-medium text-sm hover:bg-recessed active:opacity-80 transition-colors focus:outline-none focus:ring-1 focus:ring-divider flex items-center justify-center" type="button">
+<span>Cancel</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Android Gesture Bar (Bottom Navigation Inset) -->
+<div class="absolute bottom-0 inset-x-0 h-4 flex items-center justify-center z-50 pointer-events-none">
+<div class="w-28 h-1 bg-main bg-opacity-30 rounded-full"></div>
+</div>
+</div>
+</body></html>

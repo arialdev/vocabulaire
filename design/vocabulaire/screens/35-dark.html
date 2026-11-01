@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>35 Discard term changes — Dark</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#151D19",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#2D6046",
+            "on-primary": "#F3F0E7",
+            "selected-surface": "#2D3E34",
+            "grammatical-text": "#E8BBA8",
+            "grammatical-fill": "#3B261D",
+            "thematic-text": "#B2DFC2",
+            "thematic-fill": "#1F382B",
+            destructive: "#FFB4AB",
+            "error-surface": "#3E1E1C"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #151D19;
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="text-main flex justify-center bg-canvas">
+<!-- Pure Mobile Viewport Artboard (390 x 892) -->
+<div class="relative w-[390px] h-[892px] bg-canvas overflow-hidden flex flex-col select-none">
+<!-- UNDERNEATH LAYER: The "Edit term" Form Canvas (Dark) -->
+<div aria-hidden="true" class="relative w-full h-full flex flex-col bg-canvas overflow-y-hidden">
+<!-- Android Status Bar -->
+<div class="h-6 w-full px-6 pt-2 flex items-center justify-between text-xs font-label text-secondary z-0">
+<span class="font-medium tracking-tight">09:41</span>
+<div class="flex items-center space-x-1.5 opacity-80">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- App Bar (Edit term) -->
+<header class="flex justify-between items-center w-full h-14 px-4 bg-surface border-b border-divider">
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary hover:bg-recessed transition-colors" tabindex="-1" type="button">
+<span class="material-symbols-outlined text-2xl text-main" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-tight text-main">Edit term</h1>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary hover:bg-recessed transition-colors" tabindex="-1" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Form Body with draft changes visible underneath -->
+<div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+<!-- Field 1: Original expression (Required) -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<label class="block text-xs font-medium text-secondary uppercase tracking-wider font-label">
+              Original expression <span class="text-secondary/70 lowercase font-normal">(required)</span>
+</label>
+</div>
+<div class="h-14 px-4 rounded-xl border border-divider bg-surface flex items-center shadow-xs">
+<span class="font-headline text-xl text-main">flâner</span>
+</div>
+</div>
+<!-- Field 2: Translation (Required) -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<label class="block text-xs font-medium text-secondary uppercase tracking-wider font-label">
+              Translation <span class="text-secondary/70 lowercase font-normal">(required)</span>
+</label>
+</div>
+<div class="h-14 px-4 rounded-xl border border-divider bg-surface flex items-center shadow-xs">
+<span class="font-body text-base text-main">to wander without hurry</span>
+</div>
+</div>
+<!-- Field 3: Categories Selection Chips -->
+<div class="space-y-2">
+<label class="block text-xs font-medium text-secondary uppercase tracking-wider font-label">
+            Categories
+          </label>
+<div class="flex flex-wrap gap-2">
+<!-- Grammatical Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-grammatical-fill border border-grammatical-text/30 text-grammatical-text text-xs font-medium">
+<span class="text-[11px] font-serif font-bold">Aa</span>
+<span>Verb</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+</div>
+<!-- Thematic Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-thematic-fill border border-thematic-text/30 text-thematic-text text-xs font-medium">
+<span class="material-symbols-outlined text-[13px]" data-icon="eco">eco</span>
+<span>Everyday life</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Field 4: Notes -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<label class="block text-xs font-medium text-secondary uppercase tracking-wider font-label">
+              Notes
+            </label>
+<span class="text-xs text-secondary/60 font-label">Draft edited</span>
+</div>
+<div class="min-h-[110px] p-4 rounded-xl border border-divider bg-surface shadow-xs">
+<p class="font-body text-base text-main leading-relaxed">
+              On a quiet Sunday, with no destination in mind. Maybe near the Seine.
+            </p>
+</div>
+</div>
+<!-- Bottom Action Button placeholder in form flow -->
+<div class="pt-4">
+<div class="h-14 w-full bg-primary text-on-primary rounded-xl flex items-center justify-center font-medium font-body opacity-90 shadow-xs">
+            Save changes
+          </div>
+</div>
+</div>
+<!-- Android Gesture Pill (Canvas Background) -->
+<div class="h-4 w-full flex items-center justify-center pb-2">
+<div class="w-32 h-1 bg-divider rounded-full"></div>
+</div>
+</div>
+<!-- MODAL SCRIM OVERLAY (Dark 48% black scrim) -->
+<div class="absolute inset-0 bg-black/48 z-40 backdrop-blur-[0.5px] transition-opacity duration-200"></div>
+<!-- CENTERED CONFIRMATION DIALOG -->
+<div class="absolute inset-0 z-50 flex items-center justify-center px-6 pointer-events-none">
+<!-- Card Container (Surface #222D27, border #45574A, rounded 24px, 24px padding) -->
+<div aria-describedby="dialog-desc" aria-labelledby="dialog-title" aria-modal="true" class="pointer-events-auto w-full max-w-[348px] bg-surface rounded-[24px] border border-divider p-6 shadow-2xl flex flex-col transform transition-all animate-in fade-in zoom-in-95 duration-200" role="dialog">
+<!-- Dialog Header / Title -->
+<h2 class="font-headline text-[22px] leading-7 font-semibold text-main tracking-tight text-left" id="dialog-title">
+          Discard this draft?
+        </h2>
+<!-- Dialog Body Copy -->
+<p class="font-body text-[15px] leading-relaxed text-secondary mt-2.5 text-left" id="dialog-desc">
+          Your term changes have not been saved.
+        </p>
+<!-- Vertical Action Stack -->
+<div class="mt-6 flex flex-col space-y-2">
+<!-- Safe Primary Button: Recessed on #1C2520 with border #45574A and text #F3F0E7 -->
+<button class="w-full h-[52px] rounded-xl bg-recessed hover:bg-selected-surface border border-divider text-main font-body font-medium text-base flex items-center justify-center transition-colors active:opacity-90 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">
+            Keep editing
+          </button>
+<!-- Destructive text/button option: Discard changes in #FFB4AB -->
+<button class="w-full py-3 rounded-lg text-destructive font-body font-semibold text-base text-center hover:bg-destructive/10 transition-colors active:opacity-80 focus:outline-none" type="button">
+            Discard changes
+          </button>
+</div>
+</div>
+</div>
+<!-- Persistent Gesture Pill on front -->
+<div class="absolute bottom-0 inset-x-0 h-4 flex items-center justify-center pb-2 z-50 pointer-events-none">
+<div class="w-32 h-1 bg-[#F3F0E7]/40 rounded-full"></div>
+</div>
+</div>
+</body></html>

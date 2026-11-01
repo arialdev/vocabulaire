@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>45 Backups — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "error-surface": "#FBE6E1",
+            "destructive-text": "#A53532"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-main font-body antialiased flex justify-center min-h-screen">
+<!-- Mobile Screen Container (Android 412x892) -->
+<main class="w-full max-w-[412px] min-h-[892px] bg-canvas flex flex-col justify-between relative shadow-sm selection:bg-selected-surface selection:text-main">
+<!-- Top Region: Status Bar & Shared TopAppBar -->
+<header class="w-full shrink-0">
+<!-- Android Status Bar -->
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-label text-secondary tracking-tight select-none">
+<span class="font-medium text-main">9:41</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON specifications) -->
+<nav class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center gap-1">
+<button aria-label="Back to Settings" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main ml-1">Backups</h1>
+</div>
+<div class="flex items-center">
+<button aria-label="Settings" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Scrollable Notebook Canvas Area -->
+<section class="flex-1 px-6 pt-6 pb-4 overflow-y-auto">
+<!-- Headline & Offline Philosophy Narrative -->
+<div class="mb-7">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-recessed text-secondary text-xs font-label mb-3 border border-divider/60">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="menu_book">menu_book</span>
+<span>Field Notebook · Offline storage</span>
+</div>
+<h2 class="font-headline text-[32px] leading-[38px] font-semibold text-main tracking-tight">
+          Keep a copy of your words.
+        </h2>
+<p class="font-body text-base text-secondary mt-2 leading-relaxed">
+          Your notebook lives on this device. Save a backup somewhere safe.
+        </p>
+</div>
+<!-- Bento-style Partitioned Paper Cards -->
+<div class="space-y-4">
+<!-- 1. Export Backup Card -->
+<article class="bg-surface rounded-xl p-5 border border-divider shadow-[0_1px_3px_rgba(0,0,0,0.03)] relative overflow-hidden">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-selected-surface/60 flex items-center justify-center text-primary shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-xl" data-icon="folder_zip">folder_zip</span>
+</div>
+<!-- Indicator pill -->
+<div class="inline-flex items-center px-2.5 py-1 rounded-md bg-recessed text-main font-label text-xs font-medium border border-divider/50">
+              3 collections · 96 terms
+            </div>
+</div>
+<h3 class="font-headline text-xl font-semibold text-main mb-1.5">
+            Export backup
+          </h3>
+<p class="font-body text-sm text-secondary leading-relaxed mb-5">
+            Create an unencrypted JSON document containing all collections, vocabulary terms, notes, and custom categories.
+          </p>
+<button class="w-full h-14 bg-primary text-on-primary font-label text-base font-medium rounded-xl flex items-center justify-center gap-2 hover:opacity-95 active:opacity-90 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="file_download">file_download</span>
+<span>Export backup</span>
+</button>
+</article>
+<!-- 2. Restore from a File Card -->
+<article class="bg-surface rounded-xl p-5 border border-divider shadow-[0_1px_3px_rgba(0,0,0,0.03)] relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-recessed flex items-center justify-center text-secondary shrink-0 border border-divider">
+<span class="material-symbols-outlined text-xl" data-icon="settings_backup_restore">settings_backup_restore</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-semibold text-main">
+                Restore from a file
+              </h3>
+</div>
+</div>
+<p class="font-body text-sm text-secondary leading-relaxed mb-5">
+            Choose a Vocabulaire backup file (.json) from your device or file manager to restore your notebook.
+          </p>
+<button class="w-full h-14 bg-surface hover:bg-recessed active:opacity-85 text-main font-label text-base font-medium rounded-xl border border-divider flex items-center justify-center gap-2.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl text-secondary" data-icon="folder_open">folder_open</span>
+<span>Choose backup file</span>
+</button>
+</article>
+<!-- Bottom Compatibility Notice Card -->
+<div class="bg-recessed/60 rounded-lg p-3.5 border border-divider/60 flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5 shrink-0" data-icon="info">info</span>
+<p class="font-body text-xs text-secondary leading-relaxed">
+            Backups from the old Ionic app are not supported. Only contemporary standard JSON format can be imported.
+          </p>
+</div>
+</div>
+</section>
+<!-- Android Home Indicator / Navigation Bar Inset -->
+<footer class="w-full py-3 flex justify-center items-center shrink-0">
+<div class="w-28 h-1 bg-main/20 rounded-full"></div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>18 Collection tools — Light</title>
+<!-- Typography: EB Garamond (literary serif) & DM Sans (clean editorial sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Subtle paper ruling simulation */
+    .ruled-line {
+      border-bottom: 1px solid #D8DED2;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#ECE7DC] min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main selection:bg-selected-surface">
+<!-- Android Artboard (412dp x 892dp) -->
+<main class="relative w-full max-w-[412px] h-[892px] bg-canvas overflow-hidden shadow-2xl flex flex-col md:rounded-[2.5rem] border border-[#DDD5C5]">
+<!-- ============================================================ -->
+<!-- BACKGROUND SCREEN: Vocabulary List (Dimmed behind Scrim)     -->
+<!-- ============================================================ -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none select-none">
+<!-- Android System Status Bar (24dp) -->
+<div class="h-6 w-full flex justify-between items-center px-6 pt-1 text-[13px] font-medium text-secondary tracking-tight">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- App Bar (56dp) docked top per shared component spec -->
+<header class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto border-b border-divider">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-main" tabindex="-1">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-baseline gap-2">
+<h1 class="font-headline font-semibold text-2xl tracking-tight text-main">Everyday French</h1>
+<span class="text-base">☕</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-main" tabindex="-1">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-main" tabindex="-1">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Persistent Filter / Summary Row -->
+<div class="px-6 py-2.5 flex items-center justify-between text-xs text-secondary border-b border-divider/60 bg-recessed/40">
+<span class="font-medium tracking-wide">48 entries · Original A–Z</span>
+<div class="flex items-center gap-1.5 text-main font-medium">
+<span class="material-symbols-outlined !text-[15px]">view_agenda</span>
+<span>Compact</span>
+</div>
+</div>
+<!-- Compact Vocabulary Entries (Background representation) -->
+<div class="flex-1 overflow-hidden px-6 divide-y divide-divider/70">
+<!-- Entry 1 -->
+<div class="py-3.5 flex flex-col gap-0.5">
+<div class="flex items-baseline justify-between">
+<p class="font-headline text-[18px] text-main font-medium leading-snug">à bientôt</p>
+<span class="text-[11px] px-1.5 py-0.5 rounded font-label text-thematic-text bg-thematic-fill">Everyday</span>
+</div>
+<p class="text-[13px] text-secondary font-normal">see you soon</p>
+</div>
+<!-- Entry 2 -->
+<div class="py-3.5 flex flex-col gap-0.5">
+<div class="flex items-baseline justify-between">
+<p class="font-headline text-[18px] text-main font-medium leading-snug">avoir le coup de foudre</p>
+<span class="text-[11px] px-1.5 py-0.5 rounded font-label text-grammatical-text bg-grammatical-fill">Expression</span>
+</div>
+<p class="text-[13px] text-secondary font-normal">to fall in love at first sight</p>
+</div>
+<!-- Entry 3 -->
+<div class="py-3.5 flex flex-col gap-0.5">
+<div class="flex items-baseline justify-between">
+<p class="font-headline text-[18px] text-main font-medium leading-snug">dépaysement</p>
+<span class="text-[11px] px-1.5 py-0.5 rounded font-label text-grammatical-text bg-grammatical-fill">Noun</span>
+</div>
+<p class="text-[13px] text-secondary font-normal">the feeling of being somewhere unfamiliar</p>
+</div>
+<!-- Entry 4 -->
+<div class="py-3.5 flex flex-col gap-0.5">
+<div class="flex items-baseline justify-between">
+<p class="font-headline text-[18px] text-main font-medium leading-snug">flâner</p>
+<span class="text-[11px] px-1.5 py-0.5 rounded font-label text-grammatical-text bg-grammatical-fill">Verb</span>
+</div>
+<p class="text-[13px] text-secondary font-normal">to wander without hurry</p>
+</div>
+<!-- Entry 5 -->
+<div class="py-3.5 flex flex-col gap-0.5">
+<div class="flex items-baseline justify-between">
+<p class="font-headline text-[18px] text-main font-medium leading-snug">prendre son temps</p>
+<span class="text-[11px] px-1.5 py-0.5 rounded font-label text-thematic-text bg-thematic-fill">Everyday</span>
+</div>
+<p class="text-[13px] text-secondary font-normal">to take one's time</p>
+</div>
+</div>
+<!-- Background Bottom Floating Action Zone (Primary button behind scrim) -->
+<div class="p-6 pb-12 flex justify-center">
+<div class="h-14 w-full bg-primary text-on-primary rounded-[12px] flex items-center justify-center gap-2 font-medium text-base shadow-sm">
+<span class="material-symbols-outlined !text-[20px]">add</span>
+<span>Add term</span>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- 48% AUTHENTIC SCRIM OVERLAY (#20382E with 48% opacity)       -->
+<!-- ============================================================ -->
+<div aria-label="Dismiss sheet" class="absolute inset-0 z-10 transition-opacity duration-300" role="button" style="background-color: rgba(32, 56, 46, 0.48);" tabindex="0"></div>
+<!-- ============================================================ -->
+<!-- FOREGROUND: Modal Android Bottom Sheet (24dp top radius)     -->
+<!-- ============================================================ -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto w-full bg-surface rounded-t-[24px] border-t border-divider shadow-[0_-8px_30px_rgba(32,56,46,0.14)] flex flex-col transition-transform duration-300 ease-out" role="dialog">
+<!-- Android Drag Handle Bar -->
+<div class="pt-3 pb-1 w-full flex justify-center items-center cursor-grab active:cursor-grabbing">
+<div aria-hidden="true" class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header: Title, Collection Subtitle, Close Button -->
+<div class="px-6 pt-2 pb-4 flex items-start justify-between border-b border-divider/60">
+<div class="flex flex-col gap-0.5">
+<h2 class="font-headline font-semibold text-[22px] leading-7 text-main tracking-tight" id="sheet-title">
+            Collection tools
+          </h2>
+<div class="flex items-center gap-1.5 text-secondary text-[14px] font-normal">
+<span class="text-sm">☕</span>
+<span>Everyday French</span>
+<span class="text-xs text-secondary/60">·</span>
+<span class="text-xs text-secondary/80">48 terms</span>
+</div>
+</div>
+<!-- Accessible 48x48 hit target Close button -->
+<button aria-label="Close collection tools" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined !text-[20px]">close</span>
+</button>
+</div>
+<!-- List of Tools: 56dp accessible rows, restrained stationery aesthetic -->
+<nav aria-label="Collection tools options" class="flex flex-col py-1.5 divide-y divide-divider/40">
+<!-- Tool 1: Word of the Day -->
+<button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg flex items-center justify-center bg-canvas text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined !text-[20px]">wb_sunny</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body text-[15px] font-medium text-main leading-tight">Word of the Day</span>
+<span class="text-[12px] text-secondary font-normal">Daily reflection from this collection</span>
+</div>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-secondary/70 group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+<!-- Tool 2: Manage categories -->
+<button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg flex items-center justify-center bg-canvas text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined !text-[20px]">local_offer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body text-[15px] font-medium text-main leading-tight">Manage categories</span>
+<span class="text-[12px] text-secondary font-normal">Grammatical &amp; thematic labels</span>
+</div>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-secondary/70 group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+<!-- Tool 3: Export PDF -->
+<button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg flex items-center justify-center bg-canvas text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined !text-[20px]">picture_as_pdf</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body text-[15px] font-medium text-main leading-tight">Export PDF</span>
+<span class="text-[12px] text-secondary font-normal">Clean, printable study sheet</span>
+</div>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-secondary/70 group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+<!-- Tool 4: Edit collection -->
+<button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-lg flex items-center justify-center bg-canvas text-secondary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined !text-[20px]">edit_note</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body text-[15px] font-medium text-main leading-tight">Edit collection</span>
+<span class="text-[12px] text-secondary font-normal">Rename or change emoji icon</span>
+</div>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-secondary/70 group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+</nav>
+<!-- Bottom Note / Stationery Accent (Quiet non-gamified reminder) -->
+<div class="px-6 pt-3 pb-2 flex items-center justify-center border-t border-divider/40">
+<p class="font-label text-[12px] text-secondary/80 flex items-center gap-1.5 italic font-serif">
+<span>Kept locally on this device</span>
+<span class="not-italic text-[10px] text-divider">•</span>
+<span>Offline notebook</span>
+</p>
+</div>
+<!-- Android System Navigation Inset & Gesture Pill (48dp height area) -->
+<div class="h-10 w-full flex items-center justify-center pb-2">
+<div aria-hidden="true" class="w-28 h-1 bg-main/40 rounded-full"></div>
+</div>
+</section>
+</main>
+</body></html>

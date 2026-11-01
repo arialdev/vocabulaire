@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>26 Filter validation — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1",
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#101412] min-h-screen flex items-center justify-center p-0 sm:p-6 font-body text-main selection:bg-selected-surface">
+<!-- Mobile Device Simulation Frame (412x892 Android dp) -->
+<main class="w-[412px] h-[892px] bg-canvas relative overflow-hidden flex flex-col shadow-2xl rounded-[32px] border border-[#2E3B33]/20 select-none">
+<!-- ============================================== -->
+<!-- BACKGROUND CANVAS LAYER (Under Scrim)          -->
+<!-- Everyday French Vocabulary List with "café"    -->
+<!-- ============================================== -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none">
+<!-- Android System Status Bar -->
+<header class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- App Bar (TopAppBar Shared Component Anchor) -->
+<nav class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center gap-3">
+<button aria-label="Back" class="w-12 h-12 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xl">☕</span>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Everyday French</h1>
+</div>
+</div>
+<div class="flex items-center">
+<button aria-label="Settings" class="w-12 h-12 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]" data-icon="settings">settings</span>
+</button>
+</div>
+</nav>
+<!-- Inactive Search & Filter Bar -->
+<section class="p-4 flex flex-col gap-2.5">
+<div class="h-12 bg-surface rounded-xl border border-divider px-3.5 flex items-center gap-2 text-main">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="search">search</span>
+<span class="text-sm font-normal">café</span>
+<div class="ml-auto text-secondary text-xs bg-recessed px-2 py-0.5 rounded-full font-medium">3 terms</div>
+</div>
+<!-- Active Filter Pills summary on list -->
+<div class="flex items-center gap-2 overflow-x-hidden pt-0.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-grammatical-fill text-grammatical-text">
+<span>Aa</span> Expression
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-thematic-fill text-thematic-text">
+<span class="material-symbols-outlined text-[14px]" data-icon="eco">eco</span> Food &amp; drink
+          </span>
+</div>
+</section>
+<!-- Simulated List Items beneath scrim -->
+<section class="flex-1 px-4 flex flex-col divide-y divide-divider/70">
+<article class="py-3.5">
+<div class="font-headline text-lg font-semibold text-main">café au lait</div>
+<div class="text-sm text-secondary">coffee with hot milk</div>
+</article>
+<article class="py-3.5">
+<div class="font-headline text-lg font-semibold text-main">pause-café</div>
+<div class="text-sm text-secondary">coffee break at work</div>
+</article>
+<article class="py-3.5">
+<div class="font-headline text-lg font-semibold text-main">garçon de café</div>
+<div class="text-sm text-secondary">waiter in a traditional bistro</div>
+</article>
+</section>
+</div>
+<!-- ============================================== -->
+<!-- MODAL SCRIM OVERLAY (48% Black as per specs)   -->
+<!-- ============================================== -->
+<div aria-hidden="true" class="absolute inset-0 bg-[#171E1B]/50 backdrop-blur-[1px] z-10"></div>
+<!-- ============================================== -->
+<!-- MODAL BOTTOM SHEET LAYER                        -->
+<!-- 24dp top corners, high precision field errors  -->
+<!-- ============================================== -->
+<section aria-labelledby="modal-sheet-title" aria-modal="true" class="absolute bottom-0 inset-x-0 bg-surface rounded-t-[24px] border-t border-divider shadow-2xl z-20 flex flex-col max-h-[840px] overflow-hidden" role="dialog">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-9 h-1 bg-[#D8DED2] rounded-full"></div>
+</div>
+<!-- Sheet Header: Title & Close -->
+<header class="px-6 py-2.5 flex items-center justify-between">
+<h2 class="font-headline text-[26px] font-semibold tracking-tight text-main" id="modal-sheet-title">Save filter</h2>
+<button aria-label="Close sheet" class="w-12 h-12 -mr-3 flex items-center justify-center rounded-full text-secondary hover:bg-recessed active:opacity-75 transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="close">close</span>
+</button>
+</header>
+<!-- Scrollable Sheet Content -->
+<div class="px-6 pt-1 pb-4 flex flex-col gap-4 overflow-y-auto">
+<!-- Active Filter Scope Card (Read-only Summary) -->
+<section class="bg-recessed/60 rounded-xl p-3.5 border border-divider/80">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary">Active filter scope</span>
+<span class="text-xs text-secondary font-medium">3 results</span>
+</div>
+<div class="space-y-2 text-sm">
+<!-- Search criteria -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-secondary w-20 shrink-0">Search:</span>
+<span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full bg-surface border border-divider font-medium text-main">
+<span class="material-symbols-outlined text-[13px] text-secondary" data-icon="search">search</span>
+                “café”
+              </span>
+</div>
+<!-- Categories -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-secondary w-20 shrink-0">Categories:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-grammatical-fill text-grammatical-text font-medium">
+<span>Aa</span> Expression
+                </span>
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-thematic-fill text-thematic-text font-medium">
+<span class="material-symbols-outlined text-[13px]" data-icon="eco">eco</span> Food &amp; drink
+                </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Emoji Icon Picker Row -->
+<div class="flex items-center gap-3.5 py-1">
+<div class="w-[52px] h-[52px] rounded-xl bg-canvas border border-divider flex items-center justify-center text-2xl shadow-sm">
+            ☕
+          </div>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-secondary">Filter symbol</span>
+<button class="text-sm font-medium text-primary hover:underline text-left inline-flex items-center gap-1 py-1" type="button">
+<span>Change icon</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<!-- Form Input Field with Validation Error -->
+<div class="flex flex-col">
+<!-- Persistent Label with "Required" in error accent -->
+<div class="flex items-baseline justify-between mb-1.5">
+<label class="text-sm font-medium text-main" for="filter-name-input">
+              Filter name
+            </label>
+<span class="text-xs font-semibold text-destructive">Required</span>
+</div>
+<!-- Input with Red Error Border and Inline Icon -->
+<div class="relative">
+<input aria-describedby="filter-name-error" aria-invalid="true" autofocus="" class="w-full h-14 px-4 pr-12 rounded-xl bg-surface border-2 border-destructive ring-4 ring-error-surface/80 text-base text-main placeholder:text-secondary/50 focus:outline-none transition-shadow" id="filter-name-input" placeholder="e.g., Café conversations" type="text" value=""/>
+<div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-destructive flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]" data-icon="error">error</span>
+</div>
+</div>
+<!-- Inline Error Message below Input -->
+<div class="flex items-center gap-1.5 mt-2 text-destructive" id="filter-name-error" role="alert">
+<span class="material-symbols-outlined text-[18px] shrink-0" data-icon="error">error</span>
+<span class="text-xs font-medium leading-tight">Give this filter a name.</span>
+</div>
+</div>
+<!-- Explanatory Helper Note -->
+<p class="text-xs leading-relaxed text-secondary px-0.5">
+          Saves your search and categories. Display choices stay separate.
+        </p>
+</div>
+<!-- Action Footer (Primary 56dp and safe-area Cancel) -->
+<footer class="p-6 pt-3 bg-surface border-t border-divider/60 flex flex-col gap-2">
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-medium text-base shadow-sm hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2" type="button">
+<span>Save filter</span>
+</button>
+<button class="w-full h-12 text-secondary hover:text-main rounded-xl font-medium text-sm hover:bg-recessed active:bg-recessed/80 transition-colors flex items-center justify-center" type="button">
+<span>Cancel</span>
+</button>
+</footer>
+<!-- Android Gesture Navigation Bar Spacing -->
+<div class="w-full h-5 flex justify-center items-center pb-1">
+<div class="w-28 h-1 bg-main/30 rounded-full"></div>
+</div>
+</section>
+</main>
+</body></html>

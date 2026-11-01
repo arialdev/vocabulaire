@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>51 Restore failed — Dark</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {},
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          },
+          fontSize: {}
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for clean mobile preview */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased m-0 p-0 flex justify-center items-start min-h-screen select-none" style="background-color: #171E1B; color: #F3F0E7;">
+<!-- Mobile Container: 390px x 892px Edge-to-edge -->
+<div class="relative w-[390px] h-[892px] bg-canvas flex flex-col justify-between overflow-hidden shadow-none" style="background-color: #171E1B;">
+<!-- Header Zone: System Status Bar & TopAppBar -->
+<header class="flex-none bg-surface border-b border-divider" style="background-color: #171E1B; border-bottom: 1px solid #45574A;">
+<!-- Native Android Status Bar (24dp / ~32px) -->
+<div class="w-full h-8 px-6 pt-1 flex justify-between items-center text-xs font-medium text-secondary" style="color: #B8C6BC;">
+<span>9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar with Close Action -->
+<div class="flex items-center justify-between w-full h-14 px-3"><div class="flex items-center space-x-3"><button aria-label="Cancel restore and close" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors" style="color: #F3F0E7;" type="button"><span class="material-symbols-outlined text-2xl" data-icon="close">close</span></button><div class="flex flex-col"><h1 class="font-headline text-xl font-semibold leading-tight tracking-normal" style="color: #F3F0E7;">Restore notebook</h1><span class="text-[12px] font-medium leading-none" style="color: #B8C6BC;">Step 2 of 2 · Confirmation</span></div></div><div aria-hidden="true" class="w-10 h-10 flex items-center justify-center opacity-0" style="color: #B8C6BC;"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></div></div>
+</header>
+<!-- Scrollable Main Canvas Content -->
+<main class="flex-1 overflow-y-auto px-5 py-4 space-y-4"><div class="rounded-xl p-4 flex flex-col space-y-3" style="background-color: #4A2926; border: 1px solid #FFB4AB;"><div class="flex items-start space-x-3"><div class="flex-none w-8 h-8 rounded-full flex items-center justify-center mt-0.5" style="background-color: rgba(255, 180, 171, 0.2); color: #FFB4AB;"><span class="material-symbols-outlined text-xl" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span></div><div class="flex-1"><h2 class="font-headline text-lg font-semibold leading-snug" style="color: #FFB4AB;">Could not restore this backup.</h2><p class="text-sm mt-1 leading-relaxed" style="color: #F3F0E7;">Your previous data was kept.</p></div></div><div class="pt-2 flex items-center justify-between" style="border-top: 1px solid rgba(255, 180, 171, 0.3);"><div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md" style="background-color: #1C2520; border: 1px solid #344D3A;"><span class="material-symbols-outlined text-[17px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1; color: #C1DFC4;">check_circle</span><span class="text-xs font-medium" style="color: #C1DFC4;">Your previous data was kept.</span></div><span class="text-[11px]" style="color: #B8C6BC;">No entries altered</span></div></div><div class="flex items-center justify-between pt-1"><span class="text-xs font-semibold tracking-wider" style="color: #B8C6BC;">SELECTED FILE SUMMARY</span><span class="text-xs px-2 py-0.5 rounded font-mono" style="background-color: #1C2520; color: #B8C6BC; border: 1px solid #45574A;">JSON file</span></div><div class="rounded-xl p-4 space-y-4" style="background-color: #222D27; border: 1px solid #45574A;"><div class="flex items-center space-x-3 pb-3" style="border-bottom: 1px solid #45574A;"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-none" style="background-color: #1C2520; color: #B8C6BC;"><span class="material-symbols-outlined text-2xl" data-icon="draft">draft</span></div><div class="min-w-0 flex-1"><p class="font-medium text-sm truncate font-mono" style="color: #F3F0E7;">vocabulaire-2026-11-01.json</p><p class="text-xs truncate mt-0.5" style="color: #B8C6BC;">Exported Nov 1, 2026 · Local storage</p></div></div><div class="grid grid-cols-2 gap-2.5"><div class="p-3 rounded-lg" style="background-color: #1C2520; border: 1px solid #45574A;"><div class="flex items-center space-x-1.5 text-xs mb-1" style="color: #B8C6BC;"><span class="material-symbols-outlined text-sm" data-icon="auto_stories">auto_stories</span><span>Collections</span></div><p class="font-headline text-lg font-semibold leading-tight" style="color: #F3F0E7;">3 notebooks</p></div><div class="p-3 rounded-lg" style="background-color: #1C2520; border: 1px solid #45574A;"><div class="flex items-center space-x-1.5 text-xs mb-1" style="color: #B8C6BC;"><span class="material-symbols-outlined text-sm" data-icon="translate">translate</span><span>Terms</span></div><p class="font-headline text-lg font-semibold leading-tight" style="color: #F3F0E7;">96 terms</p></div><div class="p-3 rounded-lg" style="background-color: #1C2520; border: 1px solid #45574A;"><div class="flex items-center space-x-1.5 text-xs mb-1" style="color: #B8C6BC;"><span class="material-symbols-outlined text-sm" data-icon="label">label</span><span>Categories</span></div><p class="font-headline text-lg font-semibold leading-tight" style="color: #F3F0E7;">12 labels</p></div><div class="p-3 rounded-lg" style="background-color: #1C2520; border: 1px solid #45574A;"><div class="flex items-center space-x-1.5 text-xs mb-1" style="color: #B8C6BC;"><span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span><span>Saved filters</span></div><p class="font-headline text-lg font-semibold leading-tight" style="color: #F3F0E7;">4 filters</p></div></div></div><div class="flex items-start space-x-2.5 px-2 py-1"><span class="material-symbols-outlined text-lg flex-none mt-0.5" data-icon="info" style="color: #B8C6BC;">info</span><p class="text-xs leading-relaxed" style="color: #B8C6BC;">Vocabulaire operates entirely on this device. Your current notebook remains unchanged.</p></div></main>
+<!-- Pinned Bottom Actions Area (Lower Thumb Zone) -->
+<footer class="flex-none bg-canvas px-5 pt-3 pb-2 border-t border-divider/60 space-y-2.5" style="background-color: #171E1B; border-top: 1px solid #45574A;"><button class="w-full h-14 rounded-xl font-medium flex items-center justify-center space-x-2 active:opacity-90 hover:opacity-95 transition-opacity shadow-sm" style="background-color: #B9D8BB; color: #173824;" type="button"><span class="material-symbols-outlined text-xl" data-icon="refresh">refresh</span><span class="text-base tracking-wide font-semibold">Try again</span></button><button class="w-full h-14 rounded-xl font-medium flex items-center justify-center space-x-2 active:opacity-80 transition-colors" style="background-color: #222D27; border: 1px solid #45574A; color: #F3F0E7;" type="button"><span class="material-symbols-outlined text-xl" data-icon="folder_open" style="color: #B8C6BC;">folder_open</span><span class="text-base">Choose another file</span></button><button class="w-full py-2.5 text-sm font-medium transition-colors text-center" style="color: #B8C6BC;" type="button">Cancel restore</button><div class="w-full h-4 flex justify-center items-center pt-1 pb-1"><div class="w-32 h-1 rounded-full" style="background-color: rgba(243, 240, 231, 0.2);"></div></div></footer>
+</div>
+</body></html>

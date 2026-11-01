@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>32 Add term — Dark</title>
+<!-- Google Fonts: EB Garamond & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#171E1B',
+            surface: '#222D27',
+            recessed: '#1C2520',
+            primaryText: '#F3F0E7',
+            secondaryText: '#B8C6BC',
+            borderDark: '#45574A',
+            actionFill: '#B9D8BB',
+            onAction: '#173824',
+            chipGrammarBg: '#49362D',
+            chipGrammarText: '#F3C3AA',
+            chipThemeBg: '#344D3A',
+            chipThemeText: '#C1DFC4',
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="base-styling">
+    /* Remove default outline highlight on mobile tap */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100vw;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-primaryText min-h-screen flex flex-col justify-between antialiased selection:bg-actionFill selection:text-onAction">
+<!-- BEGIN: TopHeaderAndStatusBar -->
+<header class="w-full shrink-0 pt-2 px-6">
+<!-- Android Status Bar -->
+<div class="w-full flex items-center justify-between text-xs font-medium text-secondaryText tracking-tight py-1" data-purpose="status-bar">
+<span>09:41</span>
+<div class="flex items-center gap-1.5">
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M16 4h-2V2h-4v2H8c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1z"></path>
+</svg>
+</div>
+</div>
+<!-- Navigation / Top App Bar -->
+<div class="flex items-center justify-between mt-3 pb-3 border-b border-borderDark/50" data-purpose="top-app-bar">
+<div class="flex items-center gap-4">
+<!-- Close Button -->
+<button aria-label="Close" class="text-primaryText hover:text-secondaryText transition-colors p-1 -ml-1" type="button">
+<svg class="w-6 h-6 stroke-current stroke-2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+<!-- Title -->
+<h1 class="text-2xl font-serif text-primaryText font-normal tracking-wide">Add term</h1>
+</div>
+<!-- Collection Indicator Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-recessed border border-borderDark text-xs text-secondaryText shadow-sm" data-purpose="notebook-indicator">
+<span class="text-xs">☕</span>
+<span class="font-medium text-primaryText">Everyday French</span>
+</div>
+</div>
+</header>
+<!-- END: TopHeaderAndStatusBar -->
+<!-- BEGIN: FormMainContent -->
+<main class="flex-1 w-full px-6 pt-3 flex flex-col gap-6 overflow-y-auto" data-purpose="entry-form-content">
+<!-- Folio Info Row -->
+<!-- Original Expression Field -->
+<div class="space-y-2" data-purpose="field-original-expression">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-primaryText" for="original-expression">Original expression</label>
+<span class="text-xs text-secondaryText font-normal">Required</span>
+</div>
+<div class="relative">
+<input class="w-full bg-recessed border border-borderDark rounded-2xl p-4 text-base text-primaryText placeholder-secondaryText/50 focus:border-actionFill focus:ring-1 focus:ring-actionFill transition-all outline-none" id="original-expression" placeholder="e.g., flâner" type="text"/>
+</div>
+<p class="text-xs text-secondaryText leading-relaxed">
+        Preserve accents, articles, or full expressions as heard.
+      </p>
+</div>
+<!-- Translation Field -->
+<div class="space-y-2" data-purpose="field-translation">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-primaryText" for="translation">Translation</label>
+<span class="text-xs text-secondaryText font-normal">Required</span>
+</div>
+<input class="w-full bg-recessed border border-borderDark rounded-2xl p-4 text-base text-primaryText placeholder-secondaryText/50 focus:border-actionFill focus:ring-1 focus:ring-actionFill transition-all outline-none" id="translation" placeholder="Meaning or translation" type="text"/>
+</div>
+<!-- Notes Field -->
+<div class="space-y-2" data-purpose="field-notes">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-primaryText" for="notes">Notes</label>
+<span class="text-xs text-secondaryText font-normal">Optional</span>
+</div>
+<textarea class="w-full bg-recessed border border-borderDark rounded-2xl p-4 text-base text-primaryText placeholder-secondaryText/50 focus:border-actionFill focus:ring-1 focus:ring-actionFill transition-all outline-none resize-none leading-relaxed" id="notes" placeholder="Context, example sentence, or memorable nuance..." rows="3"></textarea>
+</div>
+<!-- Categories Section -->
+<div class="space-y-4 pt-1" data-purpose="section-categories">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-2">
+<h2 class="text-base font-semibold text-primaryText">Categories</h2>
+<span class="text-xs text-secondaryText font-normal">Optional</span>
+</div>
+<button class="text-xs text-actionFill hover:underline font-medium transition-colors" type="button">+ Manage</button>
+</div>
+<p class="text-xs text-secondaryText leading-relaxed">
+Select tags to filter your notebook. Match will combine grammatical forms and themes.
+</p>
+<!-- Group 1: Grammatical -->
+<div class="space-y-2.5 pt-1">
+<div class="flex items-center gap-2 text-[11px] font-semibold tracking-wider text-secondaryText uppercase">
+<span class="px-1.5 py-0.5 rounded bg-[#49362D] text-[#F3C3AA] font-serif italic text-xs font-semibold">Aa</span>
+<span>Grammatical</span>
+</div>
+<div class="flex flex-wrap gap-2.5" data-purpose="grammatical-chips">
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Noun</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Verb</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Expression</span>
+</button>
+</div>
+</div>
+<!-- Group 2: Thematic -->
+<div class="space-y-2.5 pt-2">
+<div class="flex items-center gap-2 text-[11px] font-semibold tracking-wider text-secondaryText uppercase">
+<span class="w-5 h-5 rounded-full bg-[#344D3A] text-[#C1DFC4] flex items-center justify-center text-xs">🌿</span>
+<span>Thematic</span>
+</div>
+<div class="flex flex-wrap gap-2.5" data-purpose="thematic-chips">
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Everyday life</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Travel</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-recessed border border-borderDark text-secondaryText text-sm hover:border-secondaryText/60 transition-all font-medium" type="button">
+<span>Food &amp; drink</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- END: FormMainContent -->
+<!-- BEGIN: BottomPinnedActionBar -->
+<footer class="w-full shrink-0 px-6 pt-3 pb-3 bg-canvas/95 backdrop-blur border-t border-borderDark/30 space-y-3" data-purpose="bottom-sticky-actions">
+<!-- Save Term Button -->
+<button class="w-full bg-[#B9D8BB] hover:bg-[#a8cdab] active:scale-[0.99] text-[#173824] rounded-2xl font-semibold py-4 text-base flex items-center justify-center gap-2.5 shadow-lg shadow-black/20 transition-all duration-150" type="button">
+<svg class="w-5 h-5 stroke-current stroke-[2.5]" fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+<span>Save term</span>
+</button>
+<!-- Secondary Cancel Option -->
+<button class="w-full text-secondaryText hover:text-primaryText text-sm font-medium py-1 transition-colors text-center" type="button">
+      Cancel
+    </button>
+<!-- Bottom Android Gesture Bar -->
+<div class="w-full flex justify-center pt-2 pb-1" data-purpose="android-gesture-pill">
+<div class="w-32 h-1 bg-secondaryText/30 rounded-full"></div>
+</div>
+</footer>
+<!-- END: BottomPinnedActionBar -->
+</body></html>

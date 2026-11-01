@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 09 New collection — Light
+Focused new collection full-screen form. Close top left and title New collection. Friendly short intro “Give your words a home.” Large emoji icon control default 📖 with Change icon label. Persistent labels Name · Required, placeholder e.g. Everyday French; Short label · Optional, placeholder e.g. Little conversations. Plenty of room, no language selector. Anchored bottom Save collection, secondary Cancel. Do not show validation before submit.
+
+SEPARATE SCREEN: 10 Edit collection — Light
+Same focused form, toolbar Back and Edit collection. Selected emoji ☕. Name field Everyday French, optional Short label Little conversations. Bottom Save changes. Name and label editable. Do not place delete as primary or add language selection.
+
+SEPARATE SCREEN: 11 Emoji picker — Light
+New collection form dimmed behind a native-feeling large bottom sheet. Title Choose an icon, search field Search emoji, category tabs with meaningful accessible icons. Generous 48dp grid of emoji including ☕ 🍋 🌱 📖 ✈️ 🌍 🗣️ 🍜 🎨. ☕ selected with check and strong outline, recent icons section, bottom Apply emoji. This reusable picker also serves saved filters. No cluttered rainbow decorative background.
+
+SEPARATE SCREEN: 12 Collection validation — Light
+New collection form submitted with blank Name. Emoji ☕ and optional label Little conversations retained. Name has an error icon, error outline and inline “Give your collection a name.” Persistent labels, keyboard-compatible scroll area, bottom Save collection visible above keyboard region. Error is calm and specific, not a giant banner.
+

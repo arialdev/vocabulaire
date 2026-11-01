@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>22 Filters display — Dark</title>
+<!-- Typography: EB Garamond (literary serif) & DM Sans (clean editorial sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          canvas: "#171E1B",
+          surface: "#222D27",
+          recessed: "#1C2520",
+          main: "#F3F0E7",
+          secondary: "#B8C6BC",
+          divider: "#45574A",
+          primary: "#B9D8BB",
+          "on-primary": "#173824",
+          "selected-surface": "#344D3A",
+          "selected-text": "#C1DFC4",
+          "grammatical-text": "#F3C3AA",
+          "grammatical-fill": "#3C2E2A",
+          "thematic-text": "#B9D8BB",
+          "thematic-fill": "#25382B",
+          destructive: "#FF8F8C",
+          "error-surface": "#3A2424"
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          headline: ["EB Garamond", "serif"],
+          display: ["EB Garamond", "serif"],
+          body: ["DM Sans", "sans-serif"],
+          label: ["DM Sans", "sans-serif"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body class="bg-canvas min-h-screen h-screen w-full font-body text-main selection:bg-selected-surface overflow-hidden m-0 p-0">
+<!-- Android Artboard (412dp x 892dp) -->
+<main class="relative w-full h-full min-h-screen max-h-screen bg-canvas overflow-hidden flex flex-col">
+<!-- BACKGROUND: Dimmed Vocabulary List -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none select-none">
+<div class="h-6 w-full flex justify-between items-center px-6 pt-1 text-[13px] font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<header class="flex justify-between items-center h-14 px-6 border-b border-divider">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">arrow_back</span>
+<span class="font-headline font-semibold text-2xl text-main">☕ Everyday French</span>
+</div>
+<div class="flex gap-1 text-secondary">
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">more_vert</span>
+</div>
+</header>
+<div class="p-6 space-y-4">
+<div class="h-10 bg-recessed rounded-xl border border-divider/40"></div>
+<div class="space-y-3 pt-2">
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+</div>
+</div>
+</div>
+<!-- 48% Semantic Scrim Overlay -->
+<div aria-label="Dismiss sheet" class="absolute inset-0 z-10" role="button" style="background-color: rgba(10, 15, 13, 0.48);" tabindex="0"></div>
+<!-- FOREGROUND: Tall Modal Bottom Sheet (Display Tab) -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto w-full max-h-[88vh] bg-surface rounded-t-[24px] border-t border-divider shadow-[0_-8px_30px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden" role="dialog">
+<!-- Drag Handle -->
+<div class="pt-3 pb-1 w-full flex justify-center items-center cursor-grab">
+<div class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header: Title & Close Button -->
+<div class="px-6 pt-1 pb-3 flex items-center justify-between border-b border-divider/60">
+<div>
+<h2 class="font-headline font-semibold text-[24px] leading-tight text-main tracking-tight" id="sheet-title">
+          Filters &amp; display
+        </h2>
+<p class="text-xs text-secondary mt-0.5">☕ Everyday French · 48 terms total</p>
+</div>
+<button aria-label="Close filters" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[20px]">close</span>
+</button>
+</div>
+<!-- Segmented Navigation Tabs (Display selected) -->
+<div class="px-6 pt-3 pb-2">
+<div class="flex items-center p-1 bg-recessed rounded-xl text-sm font-medium text-secondary border border-divider/40">
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors text-secondary" type="button">
+          Categories
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg bg-surface text-main border border-divider shadow-xs font-semibold" type="button">
+          Display
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors text-secondary" type="button">
+          Saved
+        </button>
+</div>
+</div>
+<!-- Scrollable Content Body (No category controls mixed in) -->
+<div class="flex-1 overflow-y-auto px-6 py-3 space-y-6">
+<!-- Section 1: Sort by radio rows -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-semibold text-[17px] text-main">Sort by</h3>
+<span class="text-xs text-secondary">Order of vocabulary</span>
+</div>
+<div class="divide-y divide-divider border border-divider rounded-xl bg-recessed overflow-hidden">
+<!-- Row 1: Original expression (Selected) -->
+<label class="flex items-center justify-between px-4 py-3 cursor-pointer bg-surface/50">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+</span>
+<span class="text-sm font-semibold text-main">Original expression</span>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-primary">check</span>
+</label>
+<!-- Row 2: Translation (Unselected) -->
+<label class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-surface/30 transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full border border-secondary/60 flex items-center justify-center"></span>
+<span class="text-sm font-normal text-secondary">Translation</span>
+</div>
+</label>
+<!-- Row 3: Last updated (Unselected) -->
+<label class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-surface/30 transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full border border-secondary/60 flex items-center justify-center"></span>
+<span class="text-sm font-normal text-secondary">Last updated</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Section 2: Direction segmented control & helper -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-semibold text-[17px] text-main">Direction</h3>
+<span class="text-xs text-secondary">Alphabetical sequence</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<!-- A-Z Selected -->
+<button class="h-11 px-4 rounded-xl border border-divider bg-selected-surface text-selected-text font-semibold text-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined !text-[18px] text-primary">arrow_downward</span>
+<span>A to Z</span>
+</button>
+<!-- Z-A Unselected -->
+<button class="h-11 px-4 rounded-xl border border-divider bg-recessed text-secondary hover:text-main font-medium text-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined !text-[18px] text-secondary">arrow_upward</span>
+<span>Z to A</span>
+</button>
+</div>
+<p class="text-xs text-secondary leading-relaxed px-1">
+          Last updated uses Oldest first / Newest first.
+        </p>
+</div>
+<!-- Section 3: View Layout Segmented with Tiny Preview Icons (Detailed Selected) -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-semibold text-[17px] text-main">View layout</h3>
+<span class="text-xs text-secondary">List density</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Compact Option (Unselected) -->
+<button class="p-3.5 rounded-xl border border-[#45574A] bg-[#1C2520] hover:bg-surface/50 transition-colors text-left flex flex-col gap-2 group" type="button">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-secondary group-hover:text-main">Compact</span>
+<span class="w-4 h-4 rounded-full border border-secondary/50"></span>
+</div>
+<!-- Tiny list preview icon: Compact (two single lines) -->
+<div class="h-12 w-full bg-canvas rounded-lg p-2 flex flex-col justify-center gap-1.5 border border-divider/60">
+<div class="w-4/5 h-1.5 bg-[#45574A] rounded-full"></div>
+<div class="w-3/5 h-1.5 bg-[#45574A]/60 rounded-full"></div>
+</div>
+<span class="text-[11px] text-secondary">Headword &amp; translation</span>
+</button>
+<!-- Detailed Option (Selected) -->
+<button class="p-3.5 rounded-xl border-2 border-[#B9D8BB] bg-[#1C2520] text-left flex flex-col gap-2 shadow-xs" type="button">
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-[#F3F0E7]">Detailed</span>
+<span class="w-4 h-4 rounded-full bg-[#B9D8BB] flex items-center justify-center text-[#173824]">
+<span class="material-symbols-outlined !text-[12px] font-bold">check</span>
+</span>
+</div>
+<!-- Tiny list preview icon: Detailed (headword + translation + note + chip) -->
+<div class="h-12 w-full bg-surface rounded-lg p-2 flex flex-col justify-center gap-1 border border-divider/60">
+<div class="flex items-center justify-between">
+<div class="w-3/5 h-1.5 bg-[#B8C6BC]/80 rounded-full"></div>
+<div class="w-3 h-1.5 bg-[#F3C3AA] rounded-full"></div>
+</div>
+<div class="w-2/5 h-1 bg-[#45574A] rounded-full"></div>
+<div class="w-4/5 h-1 bg-[#45574A]/70 rounded-full italic"></div>
+</div>
+<span class="text-[11px] text-secondary font-medium">Full notes &amp; category tags</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Anchored Footer Action Zone -->
+<div class="p-6 pt-3 pb-3 border-t border-divider/60 bg-surface flex flex-col gap-2">
+<!-- Primary 56dp CTA -->
+<button class="w-full h-14 bg-primary text-on-primary font-medium text-base rounded-[12px] flex items-center justify-center gap-2 shadow-xs hover:opacity-95 active:opacity-90 transition duration-150" type="button">
+<span class="material-symbols-outlined !text-[20px] text-on-primary font-semibold">check</span>
+<span class="font-semibold tracking-wide text-on-primary">Apply · 48 terms</span>
+</button>
+<button class="w-full h-10 bg-transparent text-secondary text-sm font-medium hover:text-main flex items-center justify-center transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+<!-- Android Gesture Pill Inset -->
+<div class="h-5 w-full flex items-center justify-center pb-2 bg-surface">
+<div class="w-32 h-1 bg-divider rounded-full"></div>
+</div>
+</section>
+</main>
+</body></html>

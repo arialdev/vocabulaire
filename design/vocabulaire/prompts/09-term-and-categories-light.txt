@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 33 Edit term — Light
+Same comfortable form titled Edit term. Original flâner, Translation to wander without hurry, Notes On a quiet Sunday, with no destination in mind. Grammatical Verb checked and Thematic Everyday life checked; other chips unselected. Labels remain visible above values. Bottom Save changes. No delete button in the form.
+
+SEPARATE SCREEN: 34 Term validation — Light
+Add term form after submit: original field blank with “Enter an expression.”, translation blank with “Add a translation.” Error icon and outline on each, notes A phrase I heard at the café retained, Expression and Food & drink checked. Focus first invalid field, show comfortable keyboard-aware scroll spacing and anchored Save term. No giant error banner.
+
+SEPARATE SCREEN: 35 Discard term changes — Light
+Edit term form behind scrim, changed note retained visibly. Dialog “Discard this draft?” Copy “Your term changes have not been saved.” Keep editing and Discard changes. Same confirmation styling as collection guard. No autosave claim.
+
+SEPARATE SCREEN: 36 Manage categories — Light
+Full-screen Categories, Back to ☕ Everyday French, short collection subtitle. Two clear sections Grammatical Aa: Noun, Verb, Expression; Thematic leaf: Everyday life, Travel, Food & drink. Each category row has separate overflow Edit/Delete. Distinguish types by icon and label as well as tint. One bottom + Add category primary. Do not put an editing form into the list.
+

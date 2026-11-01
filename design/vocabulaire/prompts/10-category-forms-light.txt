@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 37 Categories empty — Light
+Categories full-screen for ☕ Everyday French, no existing categories. Small two-tags line drawing, title “A little order, your way.” Copy “Group words by grammar or by the things you love talking about.” Explain Grammatical: noun, verb, expression; Thematic: travel, food, everyday life with two subtle examples, not saved chips. Bottom Add your first category.
+
+SEPARATE SCREEN: 38 New category — Light
+Focused Add category sheet over category list. Required Name field with Travel entered. Type choices as two large labeled radio rows Aa Grammatical / How a word works and leaf Thematic / What a word is about. Thematic selected. Bottom Add category and Cancel. Type selection only for creation.
+
+SEPARATE SCREEN: 39 Edit category — Light
+Focused Edit category sheet. Name Food & drink, type Thematic shown as read-only label with helper “Category type stays the same when editing.” Bottom Save changes and Cancel. Never offer type change on edit, matching repository behavior.
+
+SEPARATE SCREEN: 40 Category validation — Light
+Add category sheet with blank Name after submit, error icon and inline “Enter a category name.” Type Thematic retained and checked. Type rows remain accessible. Bottom Add category. No modal inside modal.
+

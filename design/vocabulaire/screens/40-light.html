@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>40 Category validation — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1",
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            "2xl": "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-main font-body antialiased flex justify-center items-center min-h-screen p-0 sm:p-4">
+<!-- Mobile Screen Container (412x892 Android reference) -->
+<main class="relative w-full max-w-[412px] h-[892px] max-h-[892px] bg-canvas overflow-hidden shadow-2xl flex flex-col justify-between select-none">
+<!-- UNDERLYING BACKGROUND SCREEN: Categories of ☕ Everyday French -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col bg-canvas pointer-events-none">
+<!-- Android Status Bar Simulation -->
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar from JSON Anchors -->
+<header class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary" tabindex="-1">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xl">☕</span>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Everyday French</h1>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary" tabindex="-1">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</header>
+<!-- Subheader / Notebook rule -->
+<div class="px-6 pt-5 pb-3">
+<p class="text-xs tracking-wider uppercase text-secondary font-medium">Categories · 48 terms</p>
+<p class="font-headline text-2xl font-semibold text-main mt-0.5">Manage groupings</p>
+</div>
+<!-- Underneath List Content (blurred/dimmed backdrop hint) -->
+<div class="px-6 space-y-6 pt-2 opacity-50">
+<!-- Section: Grammatical -->
+<div>
+<div class="flex items-center gap-2 pb-2 border-b border-divider">
+<span class="w-2 h-2 rounded-full bg-grammatical-text"></span>
+<span class="text-xs font-semibold uppercase tracking-wider text-grammatical-text">Grammatical</span>
+</div>
+<div class="divide-y divide-divider/60 text-sm">
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Noun</span>
+<span class="text-secondary text-xs">18 terms</span>
+</div>
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Verb</span>
+<span class="text-secondary text-xs">22 terms</span>
+</div>
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Expression</span>
+<span class="text-secondary text-xs">8 terms</span>
+</div>
+</div>
+</div>
+<!-- Section: Thematic -->
+<div>
+<div class="flex items-center gap-2 pb-2 border-b border-divider">
+<span class="w-2 h-2 rounded-full bg-thematic-text"></span>
+<span class="text-xs font-semibold uppercase tracking-wider text-thematic-text">Thematic</span>
+</div>
+<div class="divide-y divide-divider/60 text-sm">
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Everyday life</span>
+<span class="text-secondary text-xs">24 terms</span>
+</div>
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Travel</span>
+<span class="text-secondary text-xs">14 terms</span>
+</div>
+<div class="py-3 flex justify-between items-center">
+<span class="font-medium text-main">Food &amp; drink</span>
+<span class="text-secondary text-xs">10 terms</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL SCRIM (48% Scrim per Design System) -->
+<div aria-hidden="true" class="absolute inset-0 bg-black/48 z-10 transition-opacity backdrop-blur-[0.5px]"></div>
+<!-- FOCUSED BOTTOM SHEET: "New category" (Error Validation State) -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 w-full mt-auto bg-surface rounded-t-[24px] shadow-2xl flex flex-col max-h-[850px] border-t border-divider/40 transition-transform duration-200" role="dialog">
+<!-- Sheet Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-9 h-1 rounded-full bg-divider/80"></div>
+</div>
+<!-- Sheet Header -->
+<div class="flex items-center justify-between px-6 pt-2 pb-4">
+<h2 class="font-headline text-[26px] leading-[32px] font-semibold text-main tracking-tight" id="sheet-title">
+          New category
+        </h2>
+<button aria-label="Close" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Scrollable Form Body -->
+<div class="px-6 overflow-y-auto space-y-6 pb-4">
+<!-- Field 1: Category Name with Validation Error -->
+<div class="space-y-1.5">
+<div class="flex items-baseline justify-between">
+<label class="text-sm font-medium text-destructive flex items-center gap-1" for="category-name-input">
+<span>Name</span>
+<span class="text-xs text-destructive/80 font-normal">· Required</span>
+</label>
+</div>
+<!-- Input Container: 56dp height, error border, error tint bg, trailing red alert circle -->
+<div class="relative flex items-center">
+<input aria-describedby="name-error-message" aria-invalid="true" autofocus="" class="w-full h-14 pl-4 pr-12 rounded-xl bg-error-surface text-main placeholder-secondary/50 text-base font-normal border-2 border-destructive focus:border-destructive focus:ring-1 focus:ring-destructive focus:outline-none transition-all" id="category-name-input" placeholder="e.g. Travel, Verbs..." type="text"/>
+<!-- Trailing Error Alert Icon (48dp touch region centering) -->
+<div class="absolute right-0 pr-3.5 flex items-center pointer-events-none text-destructive">
+<span class="material-symbols-outlined fill text-[22px]" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+</div>
+<!-- Inline Accessible Error Notice below input -->
+<div class="flex items-center gap-1.5 pt-1 text-destructive" id="name-error-message" role="alert">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span class="text-[13px] font-medium tracking-tight">Enter a category name.</span>
+</div>
+</div>
+<!-- Field 2: Category Type Selection (Retained Thematic as checked) -->
+<fieldset class="space-y-2.5">
+<legend class="text-sm font-medium text-main">Category type</legend>
+<div aria-label="Category type" class="space-y-2.5" role="radiogroup">
+<!-- Option 1: Thematic (CHECKED) -->
+<label class="flex items-center justify-between p-3.5 rounded-xl border-2 border-primary bg-selected-surface cursor-pointer select-none transition-all active:scale-[0.99]">
+<div class="flex items-center gap-3.5">
+<!-- Leaf / Tag glyph in green container -->
+<div class="w-10 h-10 rounded-lg bg-thematic-fill text-thematic-text flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-[20px]">local_offer</span>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-medium text-main">Thematic</span>
+<span class="text-xs text-secondary">What a word is about (topic, context)</span>
+</div>
+</div>
+<!-- Radio Control: Checked state -->
+<input checked="" class="sr-only" name="category-type" type="radio" value="thematic"/>
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</label>
+<!-- Option 2: Grammatical (UNCHECKED) -->
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-divider bg-recessed/50 hover:bg-recessed cursor-pointer select-none transition-all active:scale-[0.99]">
+<div class="flex items-center gap-3.5">
+<!-- Aa glyph in clay container -->
+<div class="w-10 h-10 rounded-lg bg-grammatical-fill text-grammatical-text flex items-center justify-center border border-grammatical-text/20">
+<span class="font-headline font-semibold text-lg leading-none">Aa</span>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-medium text-main">Grammatical</span>
+<span class="text-xs text-secondary">Part of speech (noun, verb, idiom)</span>
+</div>
+</div>
+<!-- Radio Control: Unchecked state -->
+<input class="sr-only" name="category-type" type="radio" value="grammatical"/>
+<div class="w-6 h-6 rounded-full border-2 border-secondary/40 flex-shrink-0"></div>
+</label>
+</div>
+<!-- Helper Explanatory Note -->
+<p class="text-xs text-secondary pt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">info</span>
+<span>Choose how this category groups your expressions.</span>
+</p>
+</fieldset>
+</div>
+<!-- Action Footer with 56dp Primary Button & Cancel -->
+<div class="px-6 pt-3 pb-6 flex flex-col gap-2.5 bg-surface border-t border-divider/40">
+<!-- Primary Action Button: 56dp height, 12dp radius, solid green #2D6046 -->
+<button class="w-full h-14 bg-primary text-on-primary font-medium text-base rounded-xl shadow-sm hover:opacity-95 active:opacity-90 flex items-center justify-center gap-2 transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add category</span>
+</button>
+<!-- Secondary Action: Cancel -->
+<button class="w-full h-11 text-secondary font-medium text-sm rounded-lg hover:text-main hover:bg-recessed/60 active:bg-recessed transition-colors flex items-center justify-center cursor-pointer" type="button">
+          Cancel
+        </button>
+</div>
+<!-- Android Navigation Gesture Inset Bar -->
+<div class="w-full pb-2 pt-1 flex justify-center items-center bg-surface">
+<div class="w-32 h-1 bg-secondary/30 rounded-full"></div>
+</div>
+</section>
+</main>
+<!-- Interactive Radio Toggle Micro-interaction -->
+<script>
+    document.querySelectorAll('input[name="category-type"]').forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        document.querySelectorAll('input[name="category-type"]').forEach((input) => {
+          const parentLabel = input.closest('label');
+          const indicator = parentLabel.querySelector('div:last-child');
+          if (input.checked) {
+            parentLabel.className = 'flex items-center justify-between p-3.5 rounded-xl border-2 border-primary bg-selected-surface cursor-pointer select-none transition-all active:scale-[0.99]';
+            indicator.className = 'w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm';
+            indicator.innerHTML = '<span class="material-symbols-outlined text-[16px] font-bold">check</span>';
+          } else {
+            parentLabel.className = 'flex items-center justify-between p-3.5 rounded-xl border border-divider bg-recessed/50 hover:bg-recessed cursor-pointer select-none transition-all active:scale-[0.99]';
+            indicator.className = 'w-6 h-6 rounded-full border-2 border-secondary/40 flex-shrink-0';
+            indicator.innerHTML = '';
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

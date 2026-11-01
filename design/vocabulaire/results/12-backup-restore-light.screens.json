@@ -1,0 +1,66 @@
+[
+  {
+    "id": "37033c732f404fc498f11b72084a5473",
+    "name": "projects/8226357890556052909/screens/37033c732f404fc498f11b72084a5473",
+    "title": "45 Backups — Light",
+    "width": "780",
+    "height": "1902",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/feb06e49ffe441fca908cc8cabe5bd0c:download",
+      "name": "projects/8226357890556052909/files/feb06e49ffe441fca908cc8cabe5bd0c"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/2a7e1fb826024239aa83a530d9e8af9d:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/2a7e1fb826024239aa83a530d9e8af9d"
+    }
+  },
+  {
+    "id": "ea18d8864ef44ef6bc4a54ea240d23e7",
+    "name": "projects/8226357890556052909/screens/ea18d8864ef44ef6bc4a54ea240d23e7",
+    "title": "46 Restore preview — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/69922b494dde4fc48d947bf62a3246d1:download",
+      "name": "projects/8226357890556052909/files/69922b494dde4fc48d947bf62a3246d1"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/219ee20a4ace47038934e85eae7007ad:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/219ee20a4ace47038934e85eae7007ad"
+    }
+  },
+  {
+    "id": "50310f9e6f3f4942a67791f9b18a708d",
+    "name": "projects/8226357890556052909/screens/50310f9e6f3f4942a67791f9b18a708d",
+    "title": "47 Restore confirmation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/806f3365794d477890c0bbb72a172b98:download",
+      "name": "projects/8226357890556052909/files/806f3365794d477890c0bbb72a172b98"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/ba44c1769be0447588f2d4d2532386ac:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/ba44c1769be0447588f2d4d2532386ac"
+    }
+  },
+  {
+    "id": "1cd8add92fc043de8f9fc23d8894babb",
+    "name": "projects/8226357890556052909/screens/1cd8add92fc043de8f9fc23d8894babb",
+    "title": "48 Restoring backup — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/82154fe3f99c4892a80f65a78a37c13b:download",
+      "name": "projects/8226357890556052909/files/82154fe3f99c4892a80f65a78a37c13b"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/768c2890fc6d447d8508176db2ef3f94:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/768c2890fc6d447d8508176db2ef3f94"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "items": [
+      {
+        "id": "16782361019747798407",
+        "name": "projects/8226357890556052909/screens/16782361019747798407",
+        "title": "DESIGN.md",
+        "width": "780",
+        "height": "1768"
+      }
+    ],
+    "returnedCount": 1,
+    "isTruncated": false
+  }
+}

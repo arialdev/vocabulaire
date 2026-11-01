@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulaire — Delete term confirmation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1",
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.25rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-stone-200 flex justify-center items-center min-h-screen m-0 p-0 font-body text-main antialiased selection:bg-selected-surface">
+<!-- Artboard Canvas: 412px x 892px Android Mobile viewport -->
+<main class="relative w-[412px] h-[892px] bg-canvas overflow-hidden flex flex-col justify-between shadow-2xl">
+<!-- UNDERLYING SCREEN: Term details ("flâner") in Everyday French (Aria-hidden for modal accessibility) -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col justify-between bg-canvas filter blur-[2.5px] select-none pointer-events-none">
+<!-- Top App Bar (Shared Component Anchor) -->
+<header class="w-full bg-surface border-b border-divider z-0">
+<!-- Android Status Bar spacer (24dp) -->
+<div class="h-6 w-full px-6 flex items-center justify-between text-xs text-secondary opacity-70">
+<span class="font-medium">09:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- App bar content -->
+<div class="flex justify-between items-center w-full h-14 px-4 max-w-[412px] mx-auto">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5 text-main font-headline text-2xl font-semibold tracking-tight">
+<span>☕</span>
+<span class="truncate">Everyday French</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-secondary" type="button">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Term Details View (Background) -->
+<div class="flex-1 px-6 pt-7 overflow-y-auto">
+<!-- Metadata Folio -->
+<div class="flex items-center justify-between text-xs text-secondary tracking-wider mb-2">
+<span>TERM 24 OF 48</span>
+<span>ADDED OCT 14</span>
+</div>
+<!-- Expression Headword -->
+<h1 class="font-headline text-[34px] leading-tight font-semibold text-main mb-2 tracking-tight">
+          flâner
+        </h1>
+<!-- Phonetic / Type subtitle -->
+<!-- Translation Card/Section -->
+<div class="border-t border-b border-divider py-5 mb-6">
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary block mb-1">TRANSLATION</span>
+<p class="font-body text-xl text-main font-medium">
+            to wander without hurry
+          </p>
+</div>
+<!-- Notes Section -->
+<div class="mb-6">
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary block mb-2">FIELD NOTES</span>
+<div class="bg-surface rounded-lg p-4 border border-divider">
+<p class="font-body text-base text-main leading-relaxed italic">
+              “On a quiet Sunday, with no destination in mind.”
+            </p>
+</div>
+</div>
+<!-- Categories Grouping -->
+<div class="space-y-4">
+<div>
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary block mb-2">CATEGORIES</span>
+<div class="flex flex-wrap gap-2">
+<!-- Grammatical Chip -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-grammatical-fill text-grammatical-text">
+<span class="font-bold text-xs tracking-tighter">Aa</span>
+                Verb
+              </span>
+<!-- Thematic Chip -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-thematic-fill text-thematic-text">
+<span class="material-symbols-outlined text-[16px]">park</span>
+                Everyday life
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom action button (Underlying) -->
+<div class="p-6 bg-surface/80 border-t border-divider">
+<div class="w-full h-14 rounded-lg bg-primary text-on-primary flex items-center justify-center font-medium gap-2">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+          Edit term
+        </div>
+</div>
+</div>
+<!-- SCRIM OVERLAY: Exactly 48% black overlay per Design System -->
+<div class="absolute inset-0 bg-black/48 z-10 transition-opacity duration-200"></div>
+<!-- MODAL DIALOG CONTAINER: Centered in mobile artboard -->
+<div class="relative z-20 flex-1 flex items-center justify-center p-6">
+<!-- Confirmation Dialog Card -->
+<section aria-describedby="dialog-description" aria-labelledby="dialog-title" class="w-full max-w-[340px] bg-surface rounded-2xl border border-divider p-6 shadow-xl flex flex-col" role="alertdialog">
+<!-- Icon Badge Header -->
+<div class="flex items-center justify-start mb-4">
+<div class="w-12 h-12 rounded-full bg-error-surface flex items-center justify-center text-destructive">
+<span class="material-symbols-outlined text-[24px]" data-icon="delete">delete</span>
+</div>
+</div>
+<!-- Dialog Title -->
+<h2 class="font-headline text-[22px] leading-7 font-semibold text-main mb-2" id="dialog-title">
+          Delete flâner?
+        </h2>
+<!-- Dialog Body Description -->
+<p class="font-body text-[15px] leading-relaxed text-secondary mb-3" id="dialog-description">
+          This term and its notes will be removed from <span class="text-main font-medium">Everyday French</span>.
+        </p>
+<!-- Notebook Context Reinforcement -->
+<div class="bg-recessed/60 rounded-lg p-2.5 mb-6 border border-divider/60 flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5" data-icon="info">info</span>
+<p class="font-body text-xs text-secondary leading-tight">
+            Categories (<span class="text-main">Verb</span>, <span class="text-main">Everyday life</span>) and the collection will not be deleted.
+          </p>
+</div>
+<!-- Button Actions -->
+<div class="flex flex-col gap-2.5">
+<!-- Destructive Action -->
+<button class="w-full h-12 rounded-lg bg-destructive hover:bg-destructive/95 active:opacity-90 transition text-white font-medium text-base flex items-center justify-center gap-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-destructive focus:ring-offset-2" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+            Delete term
+          </button>
+<!-- Safe Cancel Action -->
+<button class="w-full h-12 rounded-lg bg-recessed hover:bg-divider/50 active:opacity-80 transition text-main font-medium text-base flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-secondary/40" type="button">
+            Cancel
+          </button>
+</div>
+</section>
+</div>
+<!-- Android Gesture Bar Inset (Bottom indicator) -->
+<div class="relative z-20 w-full h-4 pb-2 flex justify-center items-center pointer-events-none">
+<div class="w-28 h-1 bg-main/20 rounded-full"></div>
+</div>
+</main>
+</body></html>

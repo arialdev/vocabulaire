@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 05 Collections home — Light
+Root home. Small app wordmark Vocabulaire at upper left, accessible Settings gear upper right. Editorial title “Your collections” and short “A home for every word you find.” Three clean spacious notebook rows, not a dashboard grid: ☕ Everyday French / Little conversations / 48 terms; 🍋 Español de viaje / For the next adventure / 32 terms; 🌱 日本語ノート / Small discoveries / 16 terms. Separate trailing overflow on every row and chevron for opening. One anchored bottom + Create collection primary button. No bottom navigation, activity feed or stats.
+
+SEPARATE SCREEN: 06 Collections empty — Light
+New user home with same toolbar and Settings gear, small book-and-leaf line illustration, title “Your first page starts here.” Copy “Make a collection for a language, a journey, or whatever catches your ear.” Bottom primary Create collection and secondary Restore backup. No fabricated collections or counts.
+
+SEPARATE SCREEN: 07 Collection actions — Light
+Same populated Collections home behind a modest bottom sheet. Sheet title “☕ Everyday French”, rows Edit collection with pencil and Delete collection with subtle destructive icon/text, then Cancel. Show only these actions; keep delete less visually prominent than ordinary editing.
+
+SEPARATE SCREEN: 08 Delete collection confirmation — Light
+Populated Collections home behind scrim. Accessible confirmation dialog “Delete Everyday French?” Copy “This removes its 48 terms, categories, and saved filters from this device.” Safe Cancel action and destructive Delete collection action. No swipe-to-delete dependency. Keep safe action clear.
+

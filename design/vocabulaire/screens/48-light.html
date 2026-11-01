@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>48 Restoring backup — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            error: "#FBE6E1"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    @keyframes gentle-pulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 0.45; }
+    }
+    .animate-gentle-pulse {
+      animation: gentle-pulse 2.4s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center p-0 font-body text-main antialiased selection:bg-selected-surface bg-canvas">
+<!-- Android Viewport Frame: 412x892 Standard Reference -->
+<main class="w-full h-[892px] bg-canvas relative overflow-hidden flex flex-col justify-between border-divider/60">
+<!-- Top Status Bar Area (Android Material System Inset) -->
+<header class="w-full flex-none">
+<div class="h-6 w-full px-6 flex justify-between items-center text-xs font-medium text-secondary tracking-tight select-none pt-1">
+<span>9:41</span>
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Docked Full-Width Top -->
+<nav aria-label="Top App Bar" class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center gap-3">
+<!-- Disabled / Suppressed Back Button (Transaction in progress) -->
+<button aria-disabled="true" aria-label="Navigation locked during restore" class="w-10 h-10 flex items-center justify-center rounded-full text-secondary/35 cursor-not-allowed transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main leading-none">
+            Restoring backup
+          </h1>
+</div>
+<!-- Trailing Lock/Status indicator -->
+<div class="w-10 h-10 flex items-center justify-center text-secondary/40 select-none" title="Database locked">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+</div>
+</nav>
+</header>
+<!-- Main Content Canvas (Quiet Centered Progress State) -->
+<section aria-busy="true" aria-live="polite" class="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center select-none">
+<!-- Minimalist Circular Stationery Progress Spinner -->
+<div class="relative w-20 h-20 flex items-center justify-center mb-1">
+<!-- Quiet Background Track Ring -->
+<svg aria-hidden="true" class="w-20 h-20 transform -rotate-90" viewbox="0 0 80 80">
+<circle class="opacity-60" cx="40" cy="40" fill="none" r="34" stroke="#D8DED2" stroke-width="3"></circle>
+<!-- Forest Green Rotating Accent Arc -->
+<circle class="animate-spin origin-center" cx="40" cy="40" fill="none" r="34" stroke="#2D6046" stroke-dasharray="213" stroke-dashoffset="150" stroke-linecap="round" stroke-width="3.5" style="animation-duration: 1.6s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"></circle>
+</svg>
+<!-- Subtle Central Leaf / Stationery Glyph -->
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/70 text-2xl" data-icon="spa">spa</span>
+</div>
+</div>
+<!-- Restoring Headline -->
+<h2 class="font-headline text-2xl font-semibold text-main mt-6 tracking-normal">
+        Restoring your notebook…
+      </h2>
+<!-- Reassuring Body Copy -->
+<p class="font-body text-secondary text-base mt-2 text-center max-w-[280px] leading-relaxed">
+        Keep Vocabulaire open while your data is restored.
+      </p>
+<!-- File Indicator Card -->
+<div class="bg-surface border border-divider rounded-xl p-4 mt-8 w-full max-w-[320px] text-center shadow-none transition-all">
+<!-- File Name & Icon -->
+<div class="flex items-center justify-center gap-2 mb-2 text-main">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="description">description</span>
+<span class="font-medium text-xs tracking-tight text-main break-all font-mono">
+            vocabulaire-2026-11-01.json
+          </span>
+</div>
+<!-- Transaction Status Line -->
+<div class="inline-flex items-center gap-1.5 text-xs text-secondary/70 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-gentle-pulse"></span><span>Restoring contents…</span></div>
+</div>
+<!-- Additional Ambient Note -->
+<div class="mt-8 flex items-center justify-center gap-1.5 text-xs text-secondary/70">
+<span class="material-symbols-outlined text-sm" data-icon="sync_saved_locally">sync_saved_locally</span>
+<span>Local device operation · No network required</span>
+</div>
+</section>
+<!-- Bottom Actions Area (Locked / Disabled State in Lower Thumb Zone) -->
+<footer class="w-full flex-none px-6 pb-4 pt-2">
+<!-- Locked Primary Action Button (56dp height, 12dp rounded) -->
+<div class="w-full max-w-[364px] mx-auto">
+<button aria-disabled="true" class="w-full h-14 rounded-xl bg-primary/20 text-main/40 font-medium text-base flex items-center justify-center gap-2.5 cursor-not-allowed select-none transition-none shadow-none" disabled="" type="button">
+<span class="material-symbols-outlined text-lg opacity-50" data-icon="hourglass_top">hourglass_top</span>
+<span>Please wait…</span>
+</button>
+</div>
+<!-- Android Navigation Gesture Bar Inset -->
+<div class="w-full h-7 flex items-center justify-center mt-1 select-none">
+<div class="w-28 h-1 bg-main/25 rounded-full"></div>
+</div>
+</footer>
+</main>
+</body></html>

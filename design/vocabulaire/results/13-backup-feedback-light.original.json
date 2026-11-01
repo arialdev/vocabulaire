@@ -1,0 +1,168 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "id": "aff94130e7d64d5fbfa744ea35ff27dd",
+    "project": "8226357890556052909",
+    "title": "50 Unsupported backup — Light",
+    "device": "DESKTOP",
+    "screenType": "DESIGN",
+    "canvasUrl": "https://stitch.google.com/projects/8226357890556052909?node-id=aff94130e7d64d5fbfa744ea35ff27dd",
+    "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5:download",
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954"
+    },
+    "rawScreen": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954"
+                },
+                "id": "aff94130e7d64d5fbfa744ea35ff27dd",
+                "name": "projects/8226357890556052909/screens/aff94130e7d64d5fbfa744ea35ff27dd",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5:download",
+                  "name": "projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5"
+                },
+                "theme": {},
+                "title": "50 Unsupported backup — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/90ea4c6e48b74bbdb3077b1e545acf54:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/90ea4c6e48b74bbdb3077b1e545acf54"
+                },
+                "id": "1578301a441641778afc13c66563732c",
+                "name": "projects/8226357890556052909/screens/1578301a441641778afc13c66563732c",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/85f202effbf74b4481a6183676672838:download",
+                  "name": "projects/8226357890556052909/files/85f202effbf74b4481a6183676672838"
+                },
+                "theme": {},
+                "title": "51 Restore failed — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/ecdf8f7e10124287948860406905973b:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/ecdf8f7e10124287948860406905973b"
+                },
+                "id": "c9cd1c323a524eaea3d84a0f3fed519c",
+                "name": "projects/8226357890556052909/screens/c9cd1c323a524eaea3d84a0f3fed519c",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/cb97a186239b4407aab9f119d00ae1d4:download",
+                  "name": "projects/8226357890556052909/files/cb97a186239b4407aab9f119d00ae1d4"
+                },
+                "theme": {},
+                "title": "52 Backup export ready — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/d3e7c4109e874d6a9426b27e96999802:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/d3e7c4109e874d6a9426b27e96999802"
+                },
+                "id": "881da2b57e544401ac140722e28cef8c",
+                "name": "projects/8226357890556052909/screens/881da2b57e544401ac140722e28cef8c",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/d931bb693c9b45efa5995f3c121422df:download",
+                  "name": "projects/8226357890556052909/files/d931bb693c9b45efa5995f3c121422df"
+                },
+                "theme": {},
+                "title": "49 Restore success — Light",
+                "width": "2560"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I have designed the 4 connected Android mobile screens (412×892 dp artboards) for Vocabulaire in **Light appearance**, faithfully executing the Field Notebook design system and backup/restore specifications from `DESIGN.md`:\n\n### 1. 49 Restore success — Light (`49 Restore success — Light`)\n- **Root Screen Restoration**: Displays the restored populated Collections home view featuring the three standard notebooks (☕ *Everyday French* [48 terms], 🍋 *Español de viaje* [32 terms], 🌱 *日本語ノート* [16 terms]) and the bottom primary `+ Create collection` button (56dp height, 12dp radius, `#2D6046`).\n- **Accessible Feedback**: Features a calm, high-contrast dark green snackbar (`#20382E`) positioned above the bottom action stating `“Backup restored · 3 collections, 96 terms”` with an `OK` action, without disruptive popups or gamified animations.\n- **Header & Navigation**: Full root navigation with the EB Garamond wordmark and accessible Settings gear icon in the app bar.\n\n### 2. 50 Unsupported backup — Light (`50 Unsupported backup — Light`)\n- **Context & Header**: TopAppBar with leading back arrow returning to Settings · Backups.\n- **Specific Error State**: Displays `vocabulaire-old-export.json` flagged with a clear error icon and `Legacy format` tag. Clear literary headline `“This backup cannot be opened.”` and explicit copy explaining that older Ionic backups are incompatible with the Field Notebook storage engine.\n- **Safety Guarantee**: Reassurance card confirming `“Nothing on this device has changed.”` with existing terms and notebooks untouched.\n- **Accessible Export Link**: Includes an unobtrusive `Export backup` card for safety without competing with the primary `Choose another file` CTA and quiet `Back to backups` navigation.\n\n### 3. 51 Restore failed — Light (`51 Restore failed — Light`)\n- **Calm Persistent Error Panel**: Displays `“Could not restore this backup.”` on `#FBE6E1` with reassuring badge `“Your previous data was kept.”`\n- **File Metadata Intact**: Retains the selected file summary (`vocabulaire-2026-11-01.json`) and 4-tile preview count breakdown (3 notebooks, 96 terms, 12 categories, 4 filters) without claiming data was replaced.\n- **Offline Integrity**: Explanatory note avoiding speculative network troubleshooting, accurately reflecting device-only local storage operations.\n- **Action Hierarchy**: Clear primary `Try again`, secondary `Choose another file`, and quiet `Cancel restore`.\n\n### 4. 52 Backup export ready — Light (`52 Backup export ready — Light`)\n- **Confirmation Bottom Sheet**: Floated over a 48% dimmed notebook scrim with rounded 24dp top corners and drag handle.\n- **Complete Scope Details**: Outlines the exported bundle `vocabulaire-2026-11-01.json` with explicit inclusion chips: `3 collections`, `96 terms`, `12 categories`, and `4 saved filters`.\n- **System Handoff Guidance**: Copy emphasizes `“Save this file somewhere safe. You’ll need it to restore your notebook”` alongside an explanatory indicator that tapping triggers the native Android document picker.\n- **Action Controls**: Full-width primary `Share or save backup` button and secondary `Done` dismissal."
+        },
+        {
+          "suggestion": "Generate the Dark appearance counterparts for screens 49, 50, 51, and 52"
+        },
+        {
+          "suggestion": "Design the Settings appearance and language switcher screen"
+        },
+        {
+          "suggestion": "Design the Backup restore confirmation modal with Replace warning"
+        }
+      ],
+      "projectId": "8226357890556052909",
+      "sessionId": "16969103818424533531",
+      "deviceType": "DESKTOP",
+      "generatedBy": "create_datastore_entry",
+      "height": "2048",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954:download",
+        "mimeType": "text/html",
+        "name": "projects/8226357890556052909/files/ff55aecb425741caaf1a4d60f6a10954"
+      },
+      "id": "aff94130e7d64d5fbfa744ea35ff27dd",
+      "name": "projects/8226357890556052909/screens/aff94130e7d64d5fbfa744ea35ff27dd",
+      "screenMetadata": {
+        "agentType": "PRO_AGENT",
+        "status": "COMPLETE"
+      },
+      "screenType": "DESIGN",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5:download",
+        "name": "projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5"
+      },
+      "theme": {},
+      "title": "50 Unsupported backup — Light",
+      "width": "2560",
+      "agentText": "I have designed the 4 connected Android mobile screens (412×892 dp artboards) for Vocabulaire in **Light appearance**, faithfully executing the Field Notebook design system and backup/restore specifications from `DESIGN.md`:\n\n### 1. 49 Restore success — Light (`49 Restore success — Light`)\n- **Root Screen Restoration**: Displays the restored populated Collections home view featuring the three standard notebooks (☕ *Everyday French* [48 terms], 🍋 *Español de viaje* [32 terms], 🌱 *日本語ノート* [16 terms]) and the bottom primary `+ Create collection` button (56dp height, 12dp radius, `#2D6046`).\n- **Accessible Feedback**: Features a calm, high-contrast dark green snackbar (`#20382E`) positioned above the bottom action stating `“Backup restored · 3 collections, 96 terms”` with an `OK` action, without disruptive popups or gamified animations.\n- **Header & Navigation**: Full root navigation with the EB Garamond wordmark and accessible Settings gear icon in the app bar.\n\n### 2. 50 Unsupported backup — Light (`50 Unsupported backup — Light`)\n- **Context & Header**: TopAppBar with leading back arrow returning to Settings · Backups.\n- **Specific Error State**: Displays `vocabulaire-old-export.json` flagged with a clear error icon and `Legacy format` tag. Clear literary headline `“This backup cannot be opened.”` and explicit copy explaining that older Ionic backups are incompatible with the Field Notebook storage engine.\n- **Safety Guarantee**: Reassurance card confirming `“Nothing on this device has changed.”` with existing terms and notebooks untouched.\n- **Accessible Export Link**: Includes an unobtrusive `Export backup` card for safety without competing with the primary `Choose another file` CTA and quiet `Back to backups` navigation.\n\n### 3. 51 Restore failed — Light (`51 Restore failed — Light`)\n- **Calm Persistent Error Panel**: Displays `“Could not restore this backup.”` on `#FBE6E1` with reassuring badge `“Your previous data was kept.”`\n- **File Metadata Intact**: Retains the selected file summary (`vocabulaire-2026-11-01.json`) and 4-tile preview count breakdown (3 notebooks, 96 terms, 12 categories, 4 filters) without claiming data was replaced.\n- **Offline Integrity**: Explanatory note avoiding speculative network troubleshooting, accurately reflecting device-only local storage operations.\n- **Action Hierarchy**: Clear primary `Try again`, secondary `Choose another file`, and quiet `Cancel restore`.\n\n### 4. 52 Backup export ready — Light (`52 Backup export ready — Light`)\n- **Confirmation Bottom Sheet**: Floated over a 48% dimmed notebook scrim with rounded 24dp top corners and drag handle.\n- **Complete Scope Details**: Outlines the exported bundle `vocabulaire-2026-11-01.json` with explicit inclusion chips: `3 collections`, `96 terms`, `12 categories`, and `4 saved filters`.\n- **System Handoff Guidance**: Copy emphasizes `“Save this file somewhere safe. You’ll need it to restore your notebook”` alongside an explanatory indicator that tapping triggers the native Android document picker.\n- **Action Controls**: Full-width primary `Share or save backup` button and secondary `Done` dismissal.",
+      "suggestions": [
+        "Generate the Dark appearance counterparts for screens 49, 50, 51, and 52",
+        "Design the Settings appearance and language switcher screen",
+        "Design the Backup restore confirmation modal with Replace warning"
+      ],
+      "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4ea40e235f2a41878a1f2aadf16767a5:download"
+    }
+  }
+}

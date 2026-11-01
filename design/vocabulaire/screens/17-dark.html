@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>17 No matching terms — Dark</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#344D3A",
+            "grammatical-text": "#F3C3AA",
+            "grammatical-fill": "#49362D",
+            "thematic-text": "#C1DFC4",
+            "thematic-fill": "#344D3A",
+            destructive: "#E57373",
+            "error-surface": "#382424"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "button": "12px",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased flex justify-center items-center min-h-screen p-0 sm:p-4">
+<!-- Mobile Android Artboard: 412x892 dp -->
+<div class="relative w-full max-w-[412px] h-[892px] bg-canvas flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[32px] border border-divider/60 select-none">
+<!-- Top System & Application Container -->
+<div class="w-full flex-shrink-0 z-20">
+<!-- Android Status Bar (24dp equivalent) -->
+<div class="w-full h-8 px-6 pt-1 flex justify-between items-center text-xs font-medium tracking-tight text-secondary select-none">
+<span class="font-semibold text-[13px] text-main">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- App Bar (56dp) -->
+<header class="h-14 px-4 flex items-center justify-between border-b border-divider bg-canvas">
+<div class="flex items-center space-x-3">
+<!-- Back navigation -->
+<button aria-label="Navigate back" class="w-12 h-12 -ml-2 rounded-full flex items-center justify-center text-main active:bg-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Emoji + Title & Subtitle -->
+<div class="flex items-center space-x-2.5">
+<span aria-label="Everyday French" class="text-xl leading-none" role="img">☕</span>
+<div class="flex flex-col">
+<h1 class="font-headline font-semibold text-[19px] leading-tight text-main tracking-tight">Everyday French</h1>
+<span class="text-[12px] font-medium text-secondary leading-none mt-0.5">48 terms</span>
+</div>
+</div>
+</div>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center">
+<button aria-label="More options" class="w-12 h-12 rounded-full flex items-center justify-center text-secondary hover:text-main active:bg-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Recessed Search Input -->
+<div class="px-5 pt-3 pb-2.5">
+<div class="h-14 bg-recessed rounded-[12px] border border-divider/80 px-4 flex items-center justify-between focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
+<div class="flex items-center space-x-3 flex-1 overflow-hidden">
+<span class="material-symbols-outlined text-secondary text-[22px] flex-shrink-0" data-icon="search">search</span>
+<input aria-label="Search collection" class="w-full bg-transparent border-0 p-0 text-main text-base focus:ring-0 focus:outline-none placeholder-secondary font-body font-normal" placeholder="Search expressions, notes..." type="text" value="montaña"/>
+</div>
+<!-- Clear Button -->
+<button aria-label="Clear search input" class="w-10 h-10 -mr-1 rounded-full flex items-center justify-center text-secondary active:text-main active:bg-divider/40 transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Active Filters Row (Scrollable chips with removal) -->
+<div class="px-5 pb-3 flex items-center space-x-2 overflow-x-auto no-scrollbar">
+<!-- Grammatical Chip: Aa Verb -->
+<div class="inline-flex items-center h-8 bg-grammatical-fill text-grammatical-text pl-2.5 pr-1 rounded-full text-xs font-medium border border-[#5C4539] flex-shrink-0">
+<span class="font-serif font-bold text-[11px] mr-1.5 opacity-90">Aa</span>
+<span class="tracking-tight mr-1">Verb</span>
+<button aria-label="Remove Verb filter" class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/10 active:bg-white/20 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Thematic Chip: Travel -->
+<div class="inline-flex items-center h-8 bg-thematic-fill text-thematic-text pl-2.5 pr-1 rounded-full text-xs font-medium border border-[#45644C] flex-shrink-0">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="eco">eco</span>
+<span class="tracking-tight mr-1">Travel</span>
+<button aria-label="Remove Travel filter" class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/10 active:bg-white/20 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="close">close</span>
+</button>
+</div>
+<div class="h-4 w-px bg-divider mx-0.5 flex-shrink-0"></div>
+<!-- Quiet quick reset -->
+<button class="text-xs font-medium text-secondary hover:text-main px-1 py-1 flex-shrink-0 whitespace-nowrap transition-colors" type="button">
+          Reset filters
+        </button>
+</div>
+<!-- Persistent Filter Bar / Summary -->
+<div class="px-5 py-2.5 bg-canvas border-y border-divider/70 flex items-center justify-between text-sm">
+<button class="inline-flex items-center space-x-2 py-1.5 px-3 rounded-lg bg-surface border border-divider hover:border-secondary/40 active:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="tune">tune</span>
+<span class="font-medium text-xs text-main">Filters &amp; display</span>
+<span class="w-4 h-4 bg-primary text-on-primary text-[10px] font-bold rounded-full flex items-center justify-center leading-none">2</span>
+</button>
+<span class="text-xs font-medium text-secondary tracking-tight">
+          0 of 48 terms
+        </span>
+</div>
+</div>
+<!-- Empty State Body (Generous notebook page / stationery layout) -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 text-center z-10 -mt-6">
+<!-- Line Illustration: Open Field Notebook & Magnifier & Leaf -->
+<div class="w-24 h-24 mb-6 flex items-center justify-center">
+<svg class="w-20 h-20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 80 80">
+<!-- Notebook spread pages -->
+<path d="M14 26C14 26 24 24 40 28C56 24 66 26 66 26V58C66 58 54 56 40 60C26 56 14 58 14 58V26Z" stroke="#45574A" stroke-width="1.6"></path>
+<path d="M40 28V60" stroke="#45574A" stroke-width="1.6"></path>
+<!-- Stationery ruling lines on left page -->
+<line stroke="#45574A" stroke-width="1.2" x1="20" x2="34" y1="36" y2="36"></line>
+<line stroke="#45574A" stroke-width="1.2" x1="20" x2="32" y1="43" y2="43"></line>
+<line stroke="#45574A" stroke-width="1.2" x1="20" x2="28" y1="50" y2="50"></line>
+<!-- Stationery ruling lines on right page -->
+<line stroke="#45574A" stroke-width="1.2" x1="46" x2="60" y1="36" y2="36"></line>
+<line stroke="#45574A" stroke-width="1.2" x1="48" x2="60" y1="43" y2="43"></line>
+<!-- Small foliage accent (notebook bookmark) -->
+<path d="M39 18C41.5 21 41.5 24 40 28C38.5 24 38.5 21 41 18Z" fill="#344D3A" stroke="#B9D8BB" stroke-width="1.2"></path>
+<!-- Restrained Magnifying Glass Glass & Handle -->
+<circle cx="50" cy="44" fill="#222D27" r="11" stroke="#B9D8BB" stroke-width="1.6"></circle>
+<line stroke="#B9D8BB" stroke-linecap="round" stroke-width="2" x1="58" x2="68" y1="52" y2="62"></line>
+<!-- Tiny zero/dash glyph inside lens -->
+<path d="M48 44H52" stroke="#B8C6BC" stroke-linecap="round" stroke-width="1.2"></path>
+</svg>
+</div>
+<!-- Headline: EB Garamond Semibold 24/30 -->
+<h2 class="font-headline font-semibold text-[24px] leading-[30px] text-main tracking-tight">
+        No words on this page.
+      </h2>
+<!-- Supporting Body: DM Sans 16/24 -->
+<p class="font-body text-[15px] leading-[22px] text-secondary mt-2 max-w-[270px]">
+        Try another search or clear your filters to reveal saved expressions.
+      </p>
+<!-- Action Group -->
+<div class="w-full mt-7 flex flex-col items-center space-y-3">
+<!-- Primary Button (56dp, rounded-button, solid primary) -->
+<button class="w-full h-14 bg-primary text-on-primary font-body font-medium text-[15px] rounded-button flex items-center justify-center space-x-2 shadow-sm active:opacity-90 active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_alt_off">filter_alt_off</span>
+<span>Clear search &amp; filters</span>
+</button>
+<!-- Secondary Quiet Action -->
+<button class="h-11 px-4 text-secondary hover:text-main font-body font-medium text-[14px] rounded-button active:bg-surface transition-colors" type="button">
+          Edit filters
+        </button>
+</div>
+</main>
+<!-- Bottom Thumb Zone & System Navigation Area -->
+<div class="w-full flex-shrink-0 z-20 pb-3 pt-2 bg-canvas">
+<!-- Contextual Add Action: Always allows notebook expansion -->
+<div class="px-5 mb-2 flex justify-end">
+<button aria-label="Add new vocabulary term" class="h-12 px-4 rounded-full bg-surface border border-divider text-main font-body font-medium text-xs flex items-center space-x-1.5 shadow-sm active:bg-recessed transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add">add</span>
+<span>Add term</span>
+</button>
+</div>
+<!-- Android Standard Gesture Navigation Bar (16dp equivalent) -->
+<div class="w-full h-4 flex items-center justify-center">
+<div class="w-[72px] h-1 bg-[#45574A] rounded-full"></div>
+</div>
+</div>
+</div>
+</body></html>
