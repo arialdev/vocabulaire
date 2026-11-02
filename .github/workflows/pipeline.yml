@@ -53,6 +53,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Generate Android project
         run: CI=1 EXPO_OFFLINE=1 pnpm exec expo prebuild --platform android --no-install
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4.0.4
       - name: Install Android SDK components
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;27.1.12297006' 'cmake;3.22.1'
       - name: Build standalone Android APK
