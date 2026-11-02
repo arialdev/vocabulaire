@@ -1,0 +1,14 @@
+appId: dev.arial.vocabulaire
+---
+- back
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn: Downloads
+- tapOn: vocabulaire-legacy-test.json
+- assertVisible: 'Unsupported backup format or version.*'
+- back
+- back
+- tapOn: '.*Restored Japanese.*'
+- assertVisible: '.*neko.*restored cat.*'

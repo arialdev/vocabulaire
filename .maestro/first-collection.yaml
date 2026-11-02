@@ -1,0 +1,27 @@
+appId: dev.arial.vocabulaire
+---
+- clearState
+- launchApp
+- assertVisible: Welcome to Vocabulaire
+- tapOn: Create a collection
+- tapOn: Collection name
+- inputText: Japanese
+- hideKeyboard
+- tapOn: 'Choose icon:.*'
+- assertVisible: Cancel
+- back
+- assertVisible: 'Choose icon:.*'
+- tapOn: Save
+- assertVisible: '.*Japanese.*'
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: neko
+- tapOn: Translation
+- inputText: cat
+- hideKeyboard
+- tapOn: Save
+- assertVisible: '.*neko.*cat.*'
+- stopApp
+- launchApp
+- tapOn: '.*Japanese.*'
+- assertVisible: '.*neko.*cat.*'

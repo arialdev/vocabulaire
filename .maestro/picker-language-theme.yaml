@@ -1,0 +1,14 @@
+appId: dev.arial.vocabulaire
+---
+- runFlow: first-collection.yaml
+- back
+- tapOn: Settings
+- tapOn: Dark
+- tapOn: Spanish
+- back
+- tapOn: Editar
+- tapOn: 'Elegir icono:.*'
+- assertVisible: Cancelar
+- assertVisible: '.*USADOS RECIENTEMENTE.*'
+- back
+- assertVisible: 'Elegir icono:.*'

@@ -1,0 +1,7 @@
+appId: dev.arial.vocabulaire
+---
+- runFlow: first-collection.yaml
+- back
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Export current data

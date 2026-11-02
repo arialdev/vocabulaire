@@ -1,0 +1,15 @@
+appId: dev.arial.vocabulaire
+---
+- clearState
+- launchApp
+- tapOn: Create a collection
+- tapOn: Collection name
+- inputText: Emoji
+- hideKeyboard
+- tapOn: 'Choose icon:.*'
+- tapOn:
+    text: '.*emoji'
+    index: 0
+- assertVisible: 'Choose icon:.*😀.*'
+- tapOn: Save
+- assertVisible: '.*😀 Emoji.*'

@@ -1,0 +1,19 @@
+appId: dev.arial.vocabulaire
+---
+- back
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn: Downloads
+- tapOn: vocabulaire-restore-test.json
+- assertVisible: 'Backup: 1 collections, 1 terms.*'
+- tapOn: Continue to confirmation
+- tapOn: Replace
+- assertVisible: '.*Restored Japanese.*'
+- tapOn: '.*Restored Japanese.*'
+- assertVisible: '.*neko.*restored cat.*'
+- stopApp
+- launchApp
+- tapOn: '.*Restored Japanese.*'
+- assertVisible: '.*neko.*restored cat.*'
