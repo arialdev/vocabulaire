@@ -2,28 +2,60 @@ appId: dev.arial.vocabulaire
 ---
 - clearState
 - launchApp
+- swipe:
+    start: 50%, 80%
+    end: 50%, 25%
+    duration: 500
+- swipe:
+    start: 50%, 80%
+    end: 50%, 25%
+    duration: 500
+- tapOn: Get started
 - tapOn: Create a collection
 - tapOn: Collection name
 - inputText: Japanese
 - hideKeyboard
 - tapOn: Save
-- tapOn: '.*Japanese.*'
+- tapOn: Open Japanese
 - tapOn: Add term
-- tapOn: Original expression
+- tapOn:
+    id: term-original
 - inputText: neko
+- runFlow:
+    when:
+      visible: Keyboard font size updated
+    commands:
+      - tapOn: OK
 - scrollUntilVisible:
-    element: Translation
+    element:
+      id: term-translation
     direction: DOWN
-- tapOn: Translation
+- tapOn:
+    id: term-translation
+- assertVisible:
+    id: term-translation
+    focused: true
 - inputText: gato
+- swipe:
+    start: 50%, 45%
+    end: 50%, 15%
+    duration: 500
 - scrollUntilVisible:
-    element: Notes
+    element:
+      id: term-notes
     direction: DOWN
-- tapOn: Notes
-- inputText: notes
+- tapOn:
+    id: term-notes
+- assertVisible:
+    id: term-notes
+    focused: true
+- inputText: fieldmemo
 - scrollUntilVisible:
     element: Save
     direction: DOWN
 - assertVisible: Save
 - tapOn: Save
-- assertVisible: '.*neko.*gato.*'
+- assertVisible: neko
+- assertVisible: '[Gg]ato'
+- tapOn: neko
+- assertVisible: '[Ff]ieldmemo'

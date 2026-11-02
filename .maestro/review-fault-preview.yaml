@@ -1,0 +1,15 @@
+appId: dev.arial.vocabulaire
+---
+# Only for an isolated emulator running the opt-in review build.
+- clearState
+- launchApp
+- tapOn: Skip
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn:
+    text: Downloads
+    id: android:id/title
+- tapOn: vocabulaire-restore-test.json
+- assertVisible: '1 collection · 1 term.*'

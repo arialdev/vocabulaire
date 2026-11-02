@@ -1,0 +1,11 @@
+appId: dev.arial.vocabulaire
+---
+- runFlow: review-fixture.yaml
+- tapOn: Collection tools
+- tapOn: Export PDF
+- assertVisible: '60 terms'
+- assertNotVisible: Page preview
+- tapOn: Create PDF
+- assertVisible: PDF ready
+- tapOn: Share or save PDF
+- assertVisible: Sharing 1 file

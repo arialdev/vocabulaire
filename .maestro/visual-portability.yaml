@@ -1,0 +1,48 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with both backup fixtures in Downloads.
+- clearState
+- launchApp
+- tapOn: Skip
+- tapOn: Settings
+- takeScreenshot: 44-${APPEARANCE}-emulator
+- tapOn: Backups
+- takeScreenshot: 45-${APPEARANCE}-emulator
+- tapOn: Export current data
+- assertVisible: Backup ready
+- takeScreenshot: 52-${APPEARANCE}-emulator
+- tapOn: Done
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn:
+    text: Downloads
+    id: android:id/title
+- tapOn: vocabulaire-restore-test.json
+- assertVisible: '1 collection · 1 term.*'
+- assertNotVisible: Review restoring state
+- assertNotVisible: Review rollback state
+- takeScreenshot: 46-${APPEARANCE}-emulator
+- tapOn: Continue to confirmation
+- takeScreenshot: 47-${APPEARANCE}-emulator
+- tapOn: Cancel
+- tapOn: Export current data first
+- assertVisible: Backup ready
+- tapOn: Done
+- assertVisible: vocabulaire-restore-test.json
+- tapOn: Continue to confirmation
+- tapOn: Replace all data
+- assertVisible: Open Restored Japanese
+- assertVisible: Backup restored.
+- takeScreenshot: 49-${APPEARANCE}-emulator
+- tapOn: Dismiss
+- assertNotVisible: Backup restored.
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn:
+    text: Downloads
+    id: android:id/title
+- tapOn: vocabulaire-legacy-test.json
+- assertVisible: This backup format is not supported.
+- takeScreenshot: 50-${APPEARANCE}-emulator

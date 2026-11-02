@@ -35,3 +35,29 @@ test('escapes vocabulary and includes every supplied result including notes and 
   expect(html).not.toContain('<猫');
   expect(html).not.toMatch(/https?:\/\//);
 });
+
+test('compact output includes all expressions and translations without optional details', () => {
+  const html = createVocabularyHtml(
+    { id: 1, name: 'Notes', icon: '📚', shortLabel: null, createdAt: '', updatedAt: '' },
+    [
+      {
+        id: 1,
+        collectionId: 1,
+        original: '<word>',
+        translation: 'meaning & sense',
+        notes: 'private notes',
+        categoryIds: [1],
+        createdAt: '',
+        updatedAt: '',
+      },
+    ],
+    [{ id: 1, collectionId: 1, name: 'Verb', kind: 'grammatical' }],
+    { translation: 'Translation', notes: 'Notes', categories: 'Categories', empty: 'Empty' },
+    undefined,
+    'compact',
+  );
+  expect(html).toContain('&lt;word&gt;');
+  expect(html).toContain('meaning &amp; sense');
+  expect(html).not.toContain('private notes');
+  expect(html).not.toContain('Verb');
+});

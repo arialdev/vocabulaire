@@ -11,8 +11,11 @@ appId: dev.arial.vocabulaire
 - assertVisible: unsaved
 - back
 - tapOn: Discard
-- assertVisible: '.*neko.*cat.*'
+- assertVisible: neko
+- assertVisible: cat
+- tapOn: Actions for neko
 - tapOn: Delete
 - assertVisible: Delete term\?
 - tapOn: Cancel
-- assertVisible: '.*neko.*cat.*'
+- assertVisible: neko
+- assertVisible: cat

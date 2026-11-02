@@ -1,19 +1,23 @@
 import { useTranslation } from "react-i18next";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useState } from "react";
-import { Button, KeyboardAvoidingView, Platform } from "react-native";
-import { ScrollView, Text, TextInput } from "../../ui/theme";
+import { useEffect, useRef, useState } from "react";
+import { AccessibilityInfo, TextInput as NativeTextInput } from "react-native";
+import { Text, TextInput, View, useTheme } from "../../ui/theme";
+import { NotebookText } from "../../ui/typography";
+import { ActionButton } from "../../ui/action-button";
+import { CategoryChip } from "../../ui/controls";
 import { useServices } from "../../data/services";
 import { useUnsavedGuard } from "../../ui/use-unsaved-guard";
-import { useKeyboardInset } from "../../ui/use-keyboard-inset";
+import { AppBar, ScreenLayout } from "../../ui/layout";
 
 export default function EditTerm() {
   const { t } = useTranslation();
   const params = useLocalSearchParams<{ id?: string; collectionId: string }>();
   const collectionId = Number(params.collectionId);
-  const { repository, refresh } = useServices();
+  const { repository, refresh, revision } = useServices();
   const router = useRouter();
-  const keyboardInset = useKeyboardInset();
+  const theme = useTheme();
+  const [focused, setFocused] = useState<"original" | "translation" | "notes">();
   const existing = params.id
     ? repository.listTerms(collectionId).find((term) => term.id === Number(params.id))
     : undefined;
@@ -21,24 +25,47 @@ export default function EditTerm() {
   const [translation, setTranslation] = useState(existing?.translation ?? "");
   const [notes, setNotes] = useState(existing?.notes ?? "");
   const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [categoryIds, setCategoryIds] = useState<number[]>(existing?.categoryIds ?? []);
+  const originalRef = useRef<React.ElementRef<typeof NativeTextInput>>(null);
+  const translationRef = useRef<React.ElementRef<typeof NativeTextInput>>(null);
+  const saving = useRef(false);
+  const categories = repository.listCategories(collectionId);
+  useEffect(() => {
+    const allowed = new Set(repository.listCategories(collectionId).map((category) => category.id));
+    let active = true;
+    void Promise.resolve().then(() => {
+      if (active) setCategoryIds((ids) => ids.filter((id) => allowed.has(id)));
+    });
+    return () => {
+      active = false;
+    };
+  }, [repository, collectionId, revision]);
   const allowLeave = useUnsavedGuard(
     original !== (existing?.original ?? "") ||
       translation !== (existing?.translation ?? "") ||
       notes !== (existing?.notes ?? "") ||
       JSON.stringify([...categoryIds].sort()) !==
         JSON.stringify([...(existing?.categoryIds ?? [])].sort()),
+    () => originalRef.current?.focus(),
   );
   if (
     (params.id && !existing) ||
     !repository.listCollections().some((item) => item.id === collectionId)
   )
     return <Text>{t("Term or collection not found.")}</Text>;
+  const invalidOriginal = submitted && !original.trim();
+  const invalidTranslation = submitted && !translation.trim();
   const save = () => {
+    if (saving.current) return;
+    setSubmitted(true);
     if (!original.trim() || !translation.trim()) {
-      setError(t("Enter an original expression and translation to save the term."));
+      const message = t(!original.trim() ? "Enter an expression." : "Add a translation.");
+      AccessibilityInfo.announceForAccessibility(message);
+      (!original.trim() ? originalRef : translationRef).current?.focus();
       return;
     }
+    saving.current = true;
     try {
       repository.saveTerm({
         id: existing?.id,
@@ -46,63 +73,135 @@ export default function EditTerm() {
         original,
         translation,
         notes,
-        categoryIds,
+        categoryIds: categoryIds.filter((id) => categories.some((category) => category.id === id)),
       });
       refresh();
       allowLeave();
       router.back();
     } catch {
+      saving.current = false;
       setError(t("saveTermError"));
     }
   };
+  const inputStyle = {
+    borderWidth: 1,
+    borderRadius: 12,
+    minHeight: 56,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: theme.input,
+    fontSize: 16,
+  } as const;
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
-    >
-      <ScrollView
-        contentContainerStyle={{ padding: 20, paddingBottom: 20 + keyboardInset, gap: 12 }}
-        keyboardShouldPersistTaps="handled"
-      >
+    <ScreenLayout footer={<ActionButton label={t("Save")} onPress={save} />}>
+      <AppBar
+        title={t(existing ? "Edit term" : "Add term")}
+        onBack={() => router.back()}
+        backLabel={t("Close")}
+      />
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text>{t("Original expression")}</Text>
-        <TextInput
-          accessibilityLabel={t("Original expression")}
-          value={original}
-          onChangeText={setOriginal}
-          style={{ borderWidth: 1, padding: 10 }}
-        />
+        <Text style={{ color: theme.secondaryText }}>{t("Required")}</Text>
+      </View>
+      <TextInput
+        ref={originalRef}
+        testID="term-original"
+        accessibilityLabel={t("Original expression")}
+        accessibilityHint={t("Required")}
+        multiline
+        onFocus={() => setFocused("original")}
+        onBlur={() => setFocused(undefined)}
+        value={original}
+        onChangeText={setOriginal}
+        style={[
+          inputStyle,
+          { textAlignVertical: "top" },
+          focused === "original" && { borderWidth: 2, borderColor: theme.primary },
+          invalidOriginal && { borderColor: theme.destructive },
+        ]}
+      />
+      {invalidOriginal && (
+        <Text accessibilityRole="alert" style={{ color: theme.destructive }}>
+          {t("Enter an expression.")}
+        </Text>
+      )}
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text>{t("Translation")}</Text>
-        <TextInput
-          accessibilityLabel={t("Translation")}
-          value={translation}
-          onChangeText={setTranslation}
-          style={{ borderWidth: 1, padding: 10 }}
-        />
-        <Text>{t("Notes (optional)")}</Text>
-        <TextInput
-          accessibilityLabel={t("Notes")}
-          value={notes}
-          onChangeText={setNotes}
-          multiline
-          style={{ borderWidth: 1, padding: 10, minHeight: 80 }}
-        />
-        <Text>{t("Categories")}</Text>
-        {repository.listCategories(collectionId).map((category) => (
-          <Button
-            key={category.id}
-            title={`${categoryIds.includes(category.id) ? "✓ " : ""}${category.name} (${t(category.kind === "grammatical" ? "Grammatical" : "Thematic")})`}
-            onPress={() =>
-              setCategoryIds((current) =>
-                current.includes(category.id)
-                  ? current.filter((id) => id !== category.id)
-                  : [...current, category.id],
-              )
-            }
-          />
-        ))}
-        {error ? <Text accessibilityRole="alert">{error}</Text> : null}
-        <Button title={t("Save")} onPress={save} />
-      </ScrollView>
-    </KeyboardAvoidingView>
+        <Text style={{ color: theme.secondaryText }}>{t("Required")}</Text>
+      </View>
+      <TextInput
+        ref={translationRef}
+        testID="term-translation"
+        accessibilityLabel={t("Translation")}
+        accessibilityHint={t("Required")}
+        multiline
+        onFocus={() => setFocused("translation")}
+        onBlur={() => setFocused(undefined)}
+        value={translation}
+        onChangeText={setTranslation}
+        style={[
+          inputStyle,
+          { textAlignVertical: "top" },
+          focused === "translation" && { borderWidth: 2, borderColor: theme.primary },
+          invalidTranslation && { borderColor: theme.destructive },
+        ]}
+      />
+      {invalidTranslation && (
+        <Text accessibilityRole="alert" style={{ color: theme.destructive }}>
+          {t("Add a translation.")}
+        </Text>
+      )}
+      <Text>{t("Notes (optional)")}</Text>
+      <TextInput
+        testID="term-notes"
+        accessibilityLabel={t("Notes")}
+        onFocus={() => setFocused("notes")}
+        onBlur={() => setFocused(undefined)}
+        value={notes}
+        onChangeText={setNotes}
+        multiline
+        style={[
+          inputStyle,
+          { minHeight: 96, textAlignVertical: "top" },
+          focused === "notes" && { borderWidth: 2, borderColor: theme.primary },
+        ]}
+      />
+      <NotebookText variant="section">{t("Categories")}</NotebookText>
+      {(["grammatical", "thematic"] as const).map((kind) => (
+        <View key={kind} style={{ gap: 8 }}>
+          <NotebookText emphasis>
+            {t(kind === "grammatical" ? "Grammatical" : "Thematic")}
+          </NotebookText>
+          {categories
+            .filter((category) => category.kind === kind)
+            .map((category) => {
+              const selected = categoryIds.includes(category.id);
+              return (
+                <CategoryChip
+                  key={category.id}
+                  label={category.name}
+                  kind={kind}
+                  selected={selected}
+                  onPress={() =>
+                    setCategoryIds((current) =>
+                      selected
+                        ? current.filter((id) => id !== category.id)
+                        : [...current, category.id],
+                    )
+                  }
+                />
+              );
+            })}
+        </View>
+      ))}
+      <ActionButton
+        label={t("Manage categories")}
+        variant="secondary"
+        onPress={() =>
+          router.push({ pathname: "/collection/categories", params: { collectionId } })
+        }
+      />
+      {error ? <Text accessibilityRole="alert">{error}</Text> : null}
+    </ScreenLayout>
   );
 }

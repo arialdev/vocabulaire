@@ -1,0 +1,44 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with -e APPEARANCE=light or dark.
+- clearState
+- launchApp
+- tapOn: Skip
+- assertVisible: Your collections
+- takeScreenshot: 06-${APPEARANCE}-emulator
+- tapOn: Create collection
+- assertVisible: New collection
+- takeScreenshot: 09-${APPEARANCE}-emulator
+- tapOn: Save
+- assertVisible: Give your collection a name.
+- hideKeyboard
+- takeScreenshot: 12-${APPEARANCE}-emulator
+- tapOn: Collection name
+- inputText: Draft
+- hideKeyboard
+- tapOn: 'Choose icon:.*'
+- assertVisible: Cancel
+- takeScreenshot: 11-${APPEARANCE}-emulator
+- back
+- back
+- assertVisible: Discard changes\?
+- takeScreenshot: 13-${APPEARANCE}-emulator
+- tapOn: Discard
+- tapOn: Create collection
+- tapOn: Collection name
+- inputText: Japanese
+- hideKeyboard
+- tapOn: Save
+- assertVisible: Open Japanese
+- takeScreenshot: 05-${APPEARANCE}-emulator
+- tapOn: Actions for Japanese
+- assertVisible: Edit collection
+- takeScreenshot: 07-${APPEARANCE}-emulator
+- tapOn: Delete collection
+- assertVisible: Delete collection\?
+- takeScreenshot: 08-${APPEARANCE}-emulator
+- back
+- tapOn: Actions for Japanese
+- tapOn: Edit collection
+- assertVisible: Collection name
+- takeScreenshot: 10-${APPEARANCE}-emulator

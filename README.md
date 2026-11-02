@@ -26,7 +26,7 @@ mise exec -- pnpm android
 mise exec -- pnpm start --dev-client
 ```
 
-The Android emoji picker is an app-owned Expo module backed by Jetpack. It is included when the native project is generated and requires a development build; Expo Go cannot load it. Select an emoji in the picker and save the containing form to persist it.
+The Android emoji picker is an app-owned Expo module backed by Jetpack. It is included when the native project is generated and requires a development build; Expo Go cannot load it. Select an emoji and apply it in the picker, then save the containing form to persist it. The bundled typefaces and icons work offline; their license notices are in `assets/fonts/`.
 
 For a standalone arm64 release APK with bundled JavaScript, run:
 
@@ -57,4 +57,6 @@ maestro test .maestro/categories-filters.yaml
 maestro test .maestro/form-guards.yaml
 ```
 
-These flows clear the app's data on the selected emulator. Use a disposable test device. See [COMPATIBILITY.md](COMPATIBILITY.md) for the tested dependency matrix, recorded Android results and the accepted Expo online compatibility warnings. The ignored `.legacy/` directory, if present from migration work, is local reference material; historical source is also available in Git history.
+These flows clear the app's data on the selected emulator. Use a disposable test device. The review fixture in `.maestro/fixtures/field-notebook-review.json` is test-only; push it to the disposable device's Downloads folder before running `review-fixture.yaml` or `pdf-handoff.yaml`. The detailed design-acceptance results are recorded in [verification.md](openspec/changes/implement-field-notebook-design/verification.md). See [COMPATIBILITY.md](COMPATIBILITY.md) for the tested dependency matrix, recorded Android results and the accepted Expo online compatibility warnings. The ignored `.legacy/` directory, if present from migration work, is local reference material; historical source is also available in Git history.
+
+For isolated visual review of the transient restore and proven-rollback presentations, build with `EXPO_PUBLIC_NOTEBOOK_REVIEW_FAULTS=1` and run `.maestro/visual-restore-faults.yaml` with the supported restore fixture in Downloads. The two review controls only select presentation states; they do not perform a restore or simulate a database rollback. Never distribute that review build. Rebuild with the variable unset or set to `0` for normal use; the normal build has no review controls. The flow clears the selected emulator's app data.

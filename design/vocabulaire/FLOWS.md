@@ -55,7 +55,7 @@ flowchart TD
 
 | Screens | Workflow | Coverage |
 | --- | --- | --- |
-| 01–04, 53 | Onboarding | Four distinct pages, progress, rightward advance gesture, Back/Next/Skip, create/restore shortcuts |
+| 01–04, 53 | Onboarding | Four distinct pages, progress, leftward advance gesture, Back/Next/Skip, create/restore shortcuts |
 | 05–08 | Collections | Populated home, welcoming empty home, edit/delete actions, destructive confirmation |
 | 09–13 | Collection form | Create, edit, reusable emoji picker, required-name validation, unsaved-change guard |
 | 14–20, 28 | Vocabulary | Compact and detailed lists, no terms, no matches, tool menu, current-results PDF export, export ready, active saved filter |
@@ -70,7 +70,7 @@ All 53 states have matching light and dark designs. Native Android file picking 
 
 ## Interaction contracts
 
-- **Introduction:** swipe right advances, left returns. Next and Back do the same. Skip completes onboarding and opens home. Create starts the collection draft; Restore opens Backups.
+- **Introduction:** swipe left advances, right returns. Next and Back do the same. Skip completes onboarding and opens home. Create starts the collection draft; Restore opens Backups. This supersedes the direction shown in the original screen images.
 - **Root navigation:** no redundant bottom tabs. Settings is accessible from home. Every pushed screen has a Back action. Opening a modal or sheet contains focus; Back dismisses it.
 - **Save:** validate on submit and after correcting an invalid field. Keep entered values, announce the error, and focus the first invalid field. Commit once; disable repeat saves while committing. Return to the invoking screen and announce success.
 - **Collection fields:** ask only for the required name and emoji. The legacy alias and migrated short-label field are retired from the proposed UI; collection rows show name, emoji and term count.

@@ -1,0 +1,31 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator configured to 320 dp and 200% font size.
+- runFlow: small-screen-keyboard.yaml
+- back
+- tapOn: Filters and display
+- tapOn: Display
+- scrollUntilVisible:
+    element: Detailed view
+    direction: DOWN
+- tapOn: Detailed view
+- scrollUntilVisible:
+    element: Apply
+    direction: DOWN
+- tapOn: Apply
+- tapOn: Filters and display
+- tapOn: Saved filters
+- scrollUntilVisible:
+    element: Save current selection
+    direction: DOWN
+- tapOn: Save current selection
+- tapOn: Saved filter name
+- inputText: field selection
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: save-filter
+    direction: DOWN
+- tapOn:
+    id: save-filter
+- assertVisible: Apply [Ff]ield selection

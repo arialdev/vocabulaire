@@ -1,0 +1,27 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with the review fixture in Downloads.
+- runFlow: review-fixture.yaml
+- tapOn: Collection tools
+- tapOn: Manage categories
+- takeScreenshot: 36-${APPEARANCE}-emulator
+- tapOn: Add category
+- takeScreenshot: 38-${APPEARANCE}-emulator
+- tapOn: Save category
+- hideKeyboard
+- assertVisible: Enter a category name.
+- takeScreenshot: 40-${APPEARANCE}-emulator
+- back
+- tapOn: Edit Expression
+- takeScreenshot: 39-${APPEARANCE}-emulator
+- back
+- tapOn: Delete Expression
+- takeScreenshot: 41-${APPEARANCE}-emulator
+- back
+- back
+- back
+- tapOn: Open Empty notebook
+- tapOn: Collection tools
+- tapOn: Manage categories
+- assertVisible: No categories yet.
+- takeScreenshot: 37-${APPEARANCE}-emulator

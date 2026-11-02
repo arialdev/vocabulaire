@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, type ReactNode } from "react";
+import { createContext, forwardRef, useContext, useEffect, type ReactNode } from "react";
 import {
   Appearance,
   ScrollView as NativeScrollView,
@@ -12,10 +12,9 @@ import {
   useColorScheme,
 } from "react-native";
 
-type Theme = { background: string; foreground: string; border: string };
-const light: Theme = { background: "#ffffff", foreground: "#171717", border: "#555555" };
-const dark: Theme = { background: "#171717", foreground: "#f5f5f5", border: "#bbbbbb" };
-const ThemeContext = createContext<Theme>(light);
+import { darkTheme, lightTheme, type Theme } from "./tokens";
+
+const ThemeContext = createContext<Theme>(lightTheme);
 export function ThemeProvider({
   appearance,
   children,
@@ -29,7 +28,7 @@ export function ThemeProvider({
   }, [appearance]);
   return (
     <ThemeContext.Provider
-      value={(appearance === "system" ? system : appearance) === "dark" ? dark : light}
+      value={(appearance === "system" ? system : appearance) === "dark" ? darkTheme : lightTheme}
     >
       {children}
     </ThemeContext.Provider>
@@ -40,25 +39,26 @@ export function useTheme() {
 }
 export function Text(props: TextProps) {
   const theme = useTheme();
-  return <NativeText {...props} style={[{ color: theme.foreground }, props.style]} />;
+  return <NativeText {...props} style={[{ color: theme.text }, props.style]} />;
 }
-export function TextInput(props: TextInputProps) {
-  const theme = useTheme();
-  return (
-    <NativeTextInput
-      {...props}
-      placeholderTextColor={theme.border}
-      style={[{ color: theme.foreground, borderColor: theme.border }, props.style]}
-    />
-  );
-}
+export const TextInput = forwardRef<React.ElementRef<typeof NativeTextInput>, TextInputProps>(
+  function TextInput(props, ref) {
+    const theme = useTheme();
+    return (
+      <NativeTextInput
+        {...props}
+        ref={ref}
+        placeholderTextColor={props.placeholderTextColor ?? theme.secondaryText}
+        style={[{ color: theme.text, borderColor: theme.controlOutline }, props.style]}
+      />
+    );
+  },
+);
 export function View(props: ViewProps) {
   const theme = useTheme();
-  return <NativeView {...props} style={[{ backgroundColor: theme.background }, props.style]} />;
+  return <NativeView {...props} style={[{ backgroundColor: theme.canvas }, props.style]} />;
 }
 export function ScrollView(props: ScrollViewProps) {
   const theme = useTheme();
-  return (
-    <NativeScrollView {...props} style={[{ backgroundColor: theme.background }, props.style]} />
-  );
+  return <NativeScrollView {...props} style={[{ backgroundColor: theme.canvas }, props.style]} />;
 }

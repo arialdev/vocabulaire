@@ -1,0 +1,628 @@
+{
+  "format": "vocabulaire",
+  "schemaVersion": 1,
+  "exportedAt": "2026-11-01T10:00:00.000Z",
+  "data": {
+    "collections": [
+      {
+        "id": 1,
+        "name": "Field notes",
+        "shortLabel": "FR",
+        "icon": "👩🏽‍💻",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "name": "Empty notebook",
+        "shortLabel": null,
+        "icon": "📓",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      }
+    ],
+    "terms": [
+      {
+        "id": 1,
+        "collectionId": 1,
+        "original": "flâner dans les rues sans avoir de destination précise",
+        "translation": "to wander through the streets without a particular destination",
+        "notes": "Notes: café, 日本語, العربية, हिन्दी",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "collectionId": 1,
+        "original": "日本語の長い表現をここに書きます",
+        "translation": "Una expresión larga para comprobar que el texto se ajusta correctamente",
+        "notes": "Notes: café, 日本語, العربية, हिन्दी",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 3,
+        "collectionId": 1,
+        "original": "مرحبا بالعالم",
+        "translation": "नमस्ते दुनिया",
+        "notes": "Notes: café, 日本語, العربية, हिन्दी",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 4,
+        "collectionId": 1,
+        "original": "expression 01",
+        "translation": "translation 01",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 5,
+        "collectionId": 1,
+        "original": "expression 02",
+        "translation": "translation 02",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 6,
+        "collectionId": 1,
+        "original": "expression 03",
+        "translation": "translation 03",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 7,
+        "collectionId": 1,
+        "original": "expression 04",
+        "translation": "translation 04",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 8,
+        "collectionId": 1,
+        "original": "expression 05",
+        "translation": "translation 05",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 9,
+        "collectionId": 1,
+        "original": "expression 06",
+        "translation": "translation 06",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 10,
+        "collectionId": 1,
+        "original": "expression 07",
+        "translation": "translation 07",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 11,
+        "collectionId": 1,
+        "original": "expression 08",
+        "translation": "translation 08",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 12,
+        "collectionId": 1,
+        "original": "expression 09",
+        "translation": "translation 09",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 13,
+        "collectionId": 1,
+        "original": "expression 10",
+        "translation": "translation 10",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 14,
+        "collectionId": 1,
+        "original": "expression 11",
+        "translation": "translation 11",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 15,
+        "collectionId": 1,
+        "original": "expression 12",
+        "translation": "translation 12",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 16,
+        "collectionId": 1,
+        "original": "expression 13",
+        "translation": "translation 13",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 17,
+        "collectionId": 1,
+        "original": "expression 14",
+        "translation": "translation 14",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 18,
+        "collectionId": 1,
+        "original": "expression 15",
+        "translation": "translation 15",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 19,
+        "collectionId": 1,
+        "original": "expression 16",
+        "translation": "translation 16",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 20,
+        "collectionId": 1,
+        "original": "expression 17",
+        "translation": "translation 17",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 21,
+        "collectionId": 1,
+        "original": "expression 18",
+        "translation": "translation 18",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 22,
+        "collectionId": 1,
+        "original": "expression 19",
+        "translation": "translation 19",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 23,
+        "collectionId": 1,
+        "original": "expression 20",
+        "translation": "translation 20",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 24,
+        "collectionId": 1,
+        "original": "expression 21",
+        "translation": "translation 21",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 25,
+        "collectionId": 1,
+        "original": "expression 22",
+        "translation": "translation 22",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 26,
+        "collectionId": 1,
+        "original": "expression 23",
+        "translation": "translation 23",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 27,
+        "collectionId": 1,
+        "original": "expression 24",
+        "translation": "translation 24",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 28,
+        "collectionId": 1,
+        "original": "expression 25",
+        "translation": "translation 25",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 29,
+        "collectionId": 1,
+        "original": "expression 26",
+        "translation": "translation 26",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 30,
+        "collectionId": 1,
+        "original": "expression 27",
+        "translation": "translation 27",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 31,
+        "collectionId": 1,
+        "original": "expression 28",
+        "translation": "translation 28",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 32,
+        "collectionId": 1,
+        "original": "expression 29",
+        "translation": "translation 29",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 33,
+        "collectionId": 1,
+        "original": "expression 30",
+        "translation": "translation 30",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 34,
+        "collectionId": 1,
+        "original": "expression 31",
+        "translation": "translation 31",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 35,
+        "collectionId": 1,
+        "original": "expression 32",
+        "translation": "translation 32",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 36,
+        "collectionId": 1,
+        "original": "expression 33",
+        "translation": "translation 33",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 37,
+        "collectionId": 1,
+        "original": "expression 34",
+        "translation": "translation 34",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 38,
+        "collectionId": 1,
+        "original": "expression 35",
+        "translation": "translation 35",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 39,
+        "collectionId": 1,
+        "original": "expression 36",
+        "translation": "translation 36",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 40,
+        "collectionId": 1,
+        "original": "expression 37",
+        "translation": "translation 37",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 41,
+        "collectionId": 1,
+        "original": "expression 38",
+        "translation": "translation 38",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 42,
+        "collectionId": 1,
+        "original": "expression 39",
+        "translation": "translation 39",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 43,
+        "collectionId": 1,
+        "original": "expression 40",
+        "translation": "translation 40",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 44,
+        "collectionId": 1,
+        "original": "expression 41",
+        "translation": "translation 41",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 45,
+        "collectionId": 1,
+        "original": "expression 42",
+        "translation": "translation 42",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 46,
+        "collectionId": 1,
+        "original": "expression 43",
+        "translation": "translation 43",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 47,
+        "collectionId": 1,
+        "original": "expression 44",
+        "translation": "translation 44",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 48,
+        "collectionId": 1,
+        "original": "expression 45",
+        "translation": "translation 45",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 49,
+        "collectionId": 1,
+        "original": "expression 46",
+        "translation": "translation 46",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 50,
+        "collectionId": 1,
+        "original": "expression 47",
+        "translation": "translation 47",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 51,
+        "collectionId": 1,
+        "original": "expression 48",
+        "translation": "translation 48",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 52,
+        "collectionId": 1,
+        "original": "expression 49",
+        "translation": "translation 49",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 53,
+        "collectionId": 1,
+        "original": "expression 50",
+        "translation": "translation 50",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 54,
+        "collectionId": 1,
+        "original": "expression 51",
+        "translation": "translation 51",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 55,
+        "collectionId": 1,
+        "original": "expression 52",
+        "translation": "translation 52",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 56,
+        "collectionId": 1,
+        "original": "expression 53",
+        "translation": "translation 53",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 57,
+        "collectionId": 1,
+        "original": "expression 54",
+        "translation": "translation 54",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 58,
+        "collectionId": 1,
+        "original": "expression 55",
+        "translation": "translation 55",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 59,
+        "collectionId": 1,
+        "original": "expression 56",
+        "translation": "translation 56",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      },
+      {
+        "id": 60,
+        "collectionId": 1,
+        "original": "expression 57",
+        "translation": "translation 57",
+        "notes": "",
+        "createdAt": "2026-11-01T10:00:00.000Z",
+        "updatedAt": "2026-11-01T10:00:00.000Z"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "collectionId": 1,
+        "kind": "grammatical",
+        "name": "Expression"
+      },
+      {
+        "id": 2,
+        "collectionId": 1,
+        "kind": "thematic",
+        "name": "Travel"
+      }
+    ],
+    "termCategories": [
+      {
+        "collectionId": 1,
+        "termId": 1,
+        "categoryId": 1
+      },
+      {
+        "collectionId": 1,
+        "termId": 1,
+        "categoryId": 2
+      }
+    ],
+    "savedFilters": [
+      {
+        "id": 1,
+        "collectionId": 1,
+        "name": "Travel expressions",
+        "icon": "🧭",
+        "search": "flâner"
+      }
+    ],
+    "savedFilterCategories": [
+      {
+        "collectionId": 1,
+        "filterId": 1,
+        "categoryId": 1
+      },
+      {
+        "collectionId": 1,
+        "filterId": 1,
+        "categoryId": 2
+      }
+    ],
+    "dailyPicks": [],
+    "preferences": [
+      {
+        "id": 1,
+        "selectedCollectionId": 1,
+        "locale": "en",
+        "appearance": "system",
+        "onboardingComplete": true,
+        "onboardingStep": 3,
+        "termView": "compact",
+        "sortField": "original",
+        "sortDirection": "asc"
+      }
+    ]
+  }
+}

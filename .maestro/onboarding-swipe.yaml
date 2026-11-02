@@ -1,0 +1,23 @@
+appId: dev.arial.vocabulaire
+---
+- clearState
+- launchApp
+- assertVisible: A little home for every language
+- swipe:
+    start: 70%, 42%
+    end: 30%, 42%
+    duration: 450
+- assertVisible: Keep the whole expression
+- stopApp
+- launchApp
+- assertVisible: Keep the whole expression
+- swipe:
+    start: 50%, 42%
+    end: 55%, 42%
+    duration: 450
+- assertVisible: Keep the whole expression
+- swipe:
+    start: 30%, 42%
+    end: 70%, 42%
+    duration: 450
+- assertVisible: A little home for every language

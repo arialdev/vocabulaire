@@ -18,9 +18,12 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#F8F5EE",
           "image": "./assets/images/vocabulaire-icon.png",
-          "imageWidth": 76
+          "imageWidth": 76,
+          "dark": {
+            "backgroundColor": "#171E1B"
+          }
         }
       ],
       "expo-sqlite",

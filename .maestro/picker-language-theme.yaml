@@ -4,9 +4,10 @@ appId: dev.arial.vocabulaire
 - back
 - tapOn: Settings
 - tapOn: Dark
-- tapOn: Spanish
+- tapOn: Español
 - back
-- tapOn: Editar
+- tapOn: Acciones para Japanese
+- tapOn: Editar colección
 - tapOn: 'Elegir icono:.*'
 - assertVisible: Cancelar
 - assertVisible: '.*USADOS RECIENTEMENTE.*'

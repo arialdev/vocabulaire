@@ -1,0 +1,17 @@
+appId: dev.arial.vocabulaire
+---
+- clearState
+- launchApp
+- tapOn: Skip
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn:
+    text: Downloads
+    id: android:id/title
+- tapOn: field-notebook-review.json
+- assertVisible: '2 collections · 60 terms.*'
+- tapOn: Continue to confirmation
+- tapOn: Replace all data
+- tapOn: Open Field notes

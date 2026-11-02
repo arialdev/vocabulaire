@@ -1,29 +1,41 @@
 appId: dev.arial.vocabulaire
 ---
 - runFlow: first-collection.yaml
+- tapOn: Collection tools
 - tapOn: Manage categories
+- tapOn: Add category
 - tapOn: Category name
 - inputText: Noun
 - hideKeyboard
-- tapOn: Add category
+- tapOn: Save category
 - assertVisible: '.*Noun.*'
 - back
-- tapOn: '.*neko.*cat.*'
-- tapOn: Edit
+- tapOn: neko
+- tapOn: Edit term
 - tapOn: '.*Noun.*'
 - tapOn: Save
 - back
 - tapOn: Filters and display
-- tapOn: '.*Noun.*'
+- tapOn: Noun
+- tapOn: Save current selection
 - tapOn: Saved filter name
 - inputText: Animals
 - hideKeyboard
-- tapOn: Save current filter
-- assertVisible: '.*Animals.*'
-- tapOn: '.*Animals.*'
-- assertVisible: '.*neko.*cat.*'
+- tapOn:
+    id: save-filter
+- tapOn: Saved filters
+- tapOn: Apply Animals
+- assertVisible: neko
+- assertVisible: cat
+- tapOn: Filters and display
+- tapOn: Display
+- tapOn: Detailed view
+- tapOn: Apply
+- assertVisible: ".*Aa Noun.*"
 - stopApp
 - launchApp
-- tapOn: '.*Japanese.*'
+- tapOn: Open Japanese
+- assertVisible: ".*Aa Noun.*"
 - tapOn: Filters and display
+- tapOn: Saved filters
 - assertVisible: '.*Animals.*'

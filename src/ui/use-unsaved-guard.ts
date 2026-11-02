@@ -1,22 +1,24 @@
 import { usePreventRemove } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert } from 'react-native';
+import { useConfirmation } from './confirmation-provider';
 
-export function useUnsavedGuard(dirty: boolean) {
+export function useUnsavedGuard(dirty: boolean, onKeepEditing?: () => void) {
   const { t } = useTranslation();
   const [discarding, setDiscarding] = useState(false);
+  const confirm = useConfirmation();
   return usePreventRemove(dirty && !discarding, ({ repeat }) => {
-    Alert.alert(t('discardTitle'), t('discardMessage'), [
-      { text: t('keepEditing'), style: 'cancel' },
-      {
-        text: t('discard'),
-        style: 'destructive',
-        onPress: () => {
-          setDiscarding(true);
-          repeat();
-        },
+    confirm({
+      title: t('discardTitle'),
+      message: t('discardMessage'),
+      cancel: t('keepEditing'),
+      confirm: t('discard'),
+      destructive: true,
+      onCancel: onKeepEditing,
+      onConfirm: () => {
+        setDiscarding(true);
+        repeat();
       },
-    ]);
+    });
   });
 }

@@ -1,0 +1,8 @@
+appId: dev.arial.vocabulaire
+---
+- stopApp
+- launchApp
+- tapOn: Open Field notes
+- tapOn: Collection tools
+- tapOn: Word of the day
+- assertVisible: Open term
