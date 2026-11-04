@@ -1,3 +1,4 @@
+import { cleanPronunciationCache } from "../platform/pronunciation-cache";
 import { useTranslation } from "react-i18next";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { Button } from "react-native";
@@ -10,6 +11,7 @@ import { FontsProvider } from "../ui/typography";
 import { loadNotebookFonts } from "../ui/fonts";
 
 void SplashScreen.preventAutoHideAsync().catch(() => {});
+cleanPronunciationCache();
 
 type Services = {
   db: Database;

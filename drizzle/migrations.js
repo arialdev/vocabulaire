@@ -3,11 +3,13 @@
 import journal from "./meta/_journal.json";
 import m0000 from "./0000_eager_thing.sql";
 import m0001 from "./0001_steady_steel_serpent.sql";
+import m0002 from "./0002_yummy_turbo.sql";
 
 export default {
   journal,
   migrations: {
     m0000,
     m0001,
+    m0002,
   },
 };

@@ -71,7 +71,9 @@ Collection create/edit: emoji picker and required Name only; bottom Save collect
 
 Term add/edit: required Original expression and Translation; optional multiline Notes; multi-select categories grouped into grammatical and thematic. Add-category link goes to the category editor then returns preserving the draft. For “flâner” use translation “to wander without hurry”; notes “On a quiet Sunday, with no destination in mind.” and categories Verb / Everyday life. Validation: “Enter an expression.” / “Add a translation.” Leaving either dirty form opens Keep editing / Discard changes. Successful saves return to the invoking list or details and announce success.
 
-The current and legacy term models have no dedicated pronunciation field. Never invent IPA, phonetic transcription, pronunciation metadata, or related controls in onboarding illustrations, term details, dialog underlays or Word of the Day. A user may enter arbitrary text in Notes; that does not establish a separate pronunciation feature.
+Notes accept arbitrary user text. Keep IPA, phonetic transcription, and pronunciation assessment out of the UI.
+
+The proposed audio-only extension adds an inline recorder to the term editor, with one clip of up to seven seconds per term. Follow the [pronunciation audio handoff](../../openspec/changes/add-term-pronunciation-audio/stitch-handoff.md) for that change's editor, details, and backup states.
 
 ### Vocabulary and discovery
 

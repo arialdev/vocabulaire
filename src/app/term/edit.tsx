@@ -1,3 +1,5 @@
+import { usePronunciation } from "../../features/vocabulary/use-pronunciation";
+import { PronunciationControls } from "../../features/vocabulary/pronunciation-controls";
 import { useTranslation } from "react-i18next";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
@@ -21,6 +23,9 @@ export default function EditTerm() {
   const existing = params.id
     ? repository.listTerms(collectionId).find((term) => term.id === Number(params.id))
     : undefined;
+  const audio = usePronunciation(
+    existing ? repository.getTermAudio(collectionId, existing.id) : undefined,
+  );
   const [original, setOriginal] = useState(existing?.original ?? "");
   const [translation, setTranslation] = useState(existing?.translation ?? "");
   const [notes, setNotes] = useState(existing?.notes ?? "");
@@ -42,7 +47,8 @@ export default function EditTerm() {
     };
   }, [repository, collectionId, revision]);
   const allowLeave = useUnsavedGuard(
-    original !== (existing?.original ?? "") ||
+    audio.changed ||
+      original !== (existing?.original ?? "") ||
       translation !== (existing?.translation ?? "") ||
       notes !== (existing?.notes ?? "") ||
       JSON.stringify([...categoryIds].sort()) !==
@@ -57,7 +63,7 @@ export default function EditTerm() {
   const invalidOriginal = submitted && !original.trim();
   const invalidTranslation = submitted && !translation.trim();
   const save = () => {
-    if (saving.current) return;
+    if (saving.current || audio.recording || audio.busy) return;
     setSubmitted(true);
     if (!original.trim() || !translation.trim()) {
       const message = t(!original.trim() ? "Enter an expression." : "Add a translation.");
@@ -73,6 +79,7 @@ export default function EditTerm() {
         original,
         translation,
         notes,
+        audio: audio.changed ? audio.clip : undefined,
         categoryIds: categoryIds.filter((id) => categories.some((category) => category.id === id)),
       });
       refresh();
@@ -93,7 +100,11 @@ export default function EditTerm() {
     fontSize: 16,
   } as const;
   return (
-    <ScreenLayout footer={<ActionButton label={t("Save")} onPress={save} />}>
+    <ScreenLayout
+      footer={
+        <ActionButton label={t("Save")} disabled={audio.recording || audio.busy} onPress={save} />
+      }
+    >
       <AppBar
         title={t(existing ? "Edit term" : "Add term")}
         onBack={() => router.back()}
@@ -151,6 +162,7 @@ export default function EditTerm() {
           {t("Add a translation.")}
         </Text>
       )}
+      <PronunciationControls audio={audio} editor />
       <Text>{t("Notes (optional)")}</Text>
       <TextInput
         testID="term-notes"

@@ -84,6 +84,9 @@ export default function BackupScreen() {
       t("termCount", { count: backup.data.terms.length }),
       t("categoryCount", { count: backup.data.categories.length }),
       t("filterCount", { count: backup.data.savedFilters.length }),
+      t("recordingCount", {
+        count: backup.schemaVersion === 2 ? (backup.data.termAudio?.length ?? 0) : 0,
+      }),
     ].join(" · ");
   const choose = async () => {
     if (operation.current) return;
@@ -137,8 +140,15 @@ export default function BackupScreen() {
       setPrepared(file);
       setReturnTo(stage === "preview" ? "preview" : "home");
       setStage("export");
-    } catch {
-      if (mounted.current) setError(t("Could not prepare the backup. Please try again."));
+    } catch (failure) {
+      if (mounted.current)
+        setError(
+          t(
+            failure instanceof Error && failure.message === "Backup too large"
+              ? "Backup is too large to restore."
+              : "Could not prepare the backup. Please try again.",
+          ),
+        );
     } finally {
       operation.current = false;
       if (mounted.current) setBusy(false);

@@ -1,0 +1,18 @@
+appId: dev.arial.vocabulaire
+---
+- launchApp
+- tapOn: Open Japanese
+- tapOn: pronunciation
+- tapOn: Edit term
+- scrollUntilVisible:
+    element: Record again
+    direction: DOWN
+- tapOn: Record again
+- assertVisible: Stop recording
+- pressKey: Home
+- launchApp:
+    stopApp: false
+- extendedWaitUntil:
+    visible: Play pronunciation
+    timeout: 15000
+- assertVisible: Record again

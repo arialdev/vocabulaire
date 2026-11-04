@@ -1,0 +1,40 @@
+appId: dev.arial.vocabulaire
+---
+- launchApp
+- tapOn: Open Japanese
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: pronunciation
+- tapOn: Translation
+- inputText: word
+- hideKeyboard
+- scrollUntilVisible:
+    element: Record pronunciation
+    direction: DOWN
+- tapOn: Record pronunciation
+- tapOn:
+    text: While using the app
+    optional: true
+- extendedWaitUntil:
+    visible: Play pronunciation
+    timeout: 25000
+- assertVisible: Saved when you save the term\.
+- tapOn: Play pronunciation
+- extendedWaitUntil:
+    visible: Play pronunciation
+    timeout: 15000
+- back
+- assertVisible: Discard changes\?
+- tapOn: Keep editing
+- assertVisible: Play pronunciation
+- scrollUntilVisible:
+    element: Save
+    direction: DOWN
+- tapOn: Save
+- assertVisible: pronunciation
+- tapOn: pronunciation
+- assertVisible: Play pronunciation
+- tapOn: Play pronunciation
+- extendedWaitUntil:
+    visible: Play pronunciation
+    timeout: 15000

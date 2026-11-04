@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>33 Edit term — Recording in progress (Light)</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "clay-text": "#684435",
+            "clay-fill": "#F1E5DC",
+            "clay-border": "#D8C2B5",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            "thematic-border": "#B8D6BE",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      min-height: max(892px, 100dvh);
+    }
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.25;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+    }
+    .recording-pulse {
+      animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main flex justify-center items-start min-h-screen p-0 font-body antialiased selection:bg-selected-surface selection:text-main">
+<!-- Mobile Frame: 390x892 Full bleed artboard -->
+<div class="relative w-full max-w-[390px] h-[892px] bg-canvas overflow-hidden flex flex-col justify-between shadow-2xl">
+<!-- Top System Status Bar -->
+<header class="w-full shrink-0">
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-secondary tracking-tight select-none">
+<span>9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px] material-symbols-fill" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- App Bar (Notebook Top Navigation) -->
+<nav class="flex justify-between items-center w-full h-14 px-3 border-b border-divider/80 bg-canvas/95 backdrop-blur-sm z-10 transition-colors">
+<div class="flex items-center space-x-1">
+<button aria-label="Go back" class="min-w-[48px] min-h-[48px] w-12 h-12 flex items-center justify-center rounded-full text-main hover:bg-recessed active:opacity-80 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main ml-1">Edit term</h1>
+</div>
+<div class="flex items-center">
+<button aria-label="More options" class="min-w-[48px] min-h-[48px] w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-recessed active:opacity-80 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Scrollable Notebook Form Content -->
+<main class="flex-1 overflow-y-auto px-5 pt-4 pb-6 space-y-5 scrollbar-thin">
+<!-- Field 1: Original Expression -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="original-expression">
+  Original expression <span class="text-secondary/70">· Required</span>
+</label>
+<div class="relative">
+<input class="w-full h-14 px-4 rounded-xl bg-surface border border-divider text-main font-headline text-2xl font-medium tracking-normal focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs transition-colors placeholder:text-secondary/40" id="original-expression" name="original-expression" placeholder="Expression in native script" type="text" value="flâner"/>
+</div>
+</div>
+<!-- Field 2: Translation -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="translation">
+  Translation <span class="text-secondary/70">· Required</span>
+</label>
+<div class="relative">
+<input class="w-full h-14 px-4 rounded-xl bg-surface border border-divider text-main font-body text-base tracking-normal focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs transition-colors placeholder:text-secondary/40" id="translation" name="translation" placeholder="Translation in your language" type="text" value="to wander without hurry"/>
+</div>
+</div>
+<!-- Field 3: Pronunciation (Concept A — Inline Recorder - Active State) -->
+<div class="space-y-1.5">
+<div class="flex items-baseline justify-between">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide">
+    Pronunciation <span class="text-secondary/70">· Optional</span>
+</label>
+<span class="text-[11px] font-medium text-secondary/70">Max 7 seconds</span>
+</div>
+<div class="bg-surface rounded-xl border border-divider/90 p-4 shadow-xs space-y-3.5"><!-- Status row: Recording indicator + timer -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="relative flex h-3 w-3 items-center justify-center">
+<span class="recording-pulse absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-destructive"></span>
+</span>
+<span class="font-body text-xs font-semibold tracking-wide text-destructive">
+Recording
+</span>
+</div>
+<span class="font-body text-xs font-medium tabular-nums text-secondary">
+0:03 <span class="text-secondary/50">/ 0:07</span>
+</span>
+</div>
+<!-- Action Controls: Single Stop recording button -->
+<div class="flex items-center pt-1">
+<button class="min-h-[48px] px-4 py-2.5 rounded-lg border border-clay-border bg-clay-fill hover:bg-clay-fill/80 text-clay-text font-medium text-xs flex items-center space-x-2 shadow-xs active:scale-[0.98] transition-all" type="button">
+<span class="w-3.5 h-3.5 rounded-xs bg-destructive flex items-center justify-center"></span>
+<span class="font-medium">Stop recording</span>
+</button>
+</div>
+<!-- Helper Note -->
+<p class="text-[11px] leading-relaxed text-secondary/80 border-t border-divider/40 pt-2.5">
+Stops automatically at 0:07. Clip is attached only when saved.
+</p></div>
+</div>
+<!-- Field 4: Notes -->
+<div class="space-y-1.5">
+<label class="block font-label text-xs font-medium text-secondary tracking-wide" for="notes">
+  Notes <span class="text-secondary/70">· Optional</span>
+</label>
+<div class="relative">
+<textarea class="w-full p-4 rounded-xl bg-surface border border-divider text-main font-body text-base italic leading-relaxed focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-xs resize-none transition-colors placeholder:text-secondary/40" id="notes" name="notes" placeholder="Personal context, nuances, or usage examples..." rows="3">On a quiet Sunday, with no destination in mind.</textarea>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="pt-2 border-t border-divider/60 space-y-4">
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline text-xl font-semibold text-main">Categories</h2>
+<p class="font-body text-xs text-secondary mt-0.5">Grammatical and thematic labels</p>
+</div>
+<button class="min-h-[48px] inline-flex items-center text-xs font-medium text-primary hover:text-main transition-colors px-1 rounded hover:bg-selected-surface/50" type="button">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="add">add</span>
+  New category
+</button>
+</div>
+<!-- Grammatical Group -->
+<div class="space-y-2">
+<div class="flex items-center space-x-1.5 text-xs font-medium text-secondary">
+<span class="inline-flex items-center justify-center w-4 h-4 rounded bg-recessed text-[11px] font-headline font-semibold text-clay-text">Aa</span>
+<span class="tracking-wide">Grammatical</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-0.5">
+<!-- Chip: Noun -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:scale-95 text-xs font-medium transition-all" type="button">
+  Noun
+</button>
+<!-- Chip: Verb (SELECTED) -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-clay-border bg-clay-fill text-clay-text font-medium text-xs shadow-xs active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px] mr-1.5 -ml-0.5 font-bold" data-icon="check">check</span>
+  Verb
+</button>
+<!-- Chip: Expression -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:scale-95 text-xs font-medium transition-all" type="button">
+  Expression
+</button>
+</div>
+</div>
+<!-- Thematic Group -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center space-x-1.5 text-xs font-medium text-secondary">
+<span class="material-symbols-outlined text-sm text-thematic-text" data-icon="nature">nature</span>
+<span class="tracking-wide">Thematic</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-0.5">
+<!-- Chip: Everyday life (SELECTED) -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-thematic-border bg-thematic-fill text-thematic-text font-medium text-xs shadow-xs active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px] mr-1.5 -ml-0.5 font-bold" data-icon="check">check</span>
+  Everyday life
+</button>
+<!-- Chip: Travel -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:scale-95 text-xs font-medium transition-all" type="button">
+  Travel
+</button>
+<!-- Chip: Food & drink -->
+<button class="min-h-[48px] inline-flex items-center px-3.5 rounded-full border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:scale-95 text-xs font-medium transition-all" type="button">
+  Food &amp; drink
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Anchored Bottom Action Area (Thumb Zone) -->
+<footer class="w-full bg-canvas/95 backdrop-blur-md px-5 pt-3 pb-2 border-t border-divider/60 shrink-0 space-y-2">
+<!-- Primary Save Button: DISABLED / Dimmed state while recording -->
+<div>
+<button class="w-full h-14 min-h-[48px] bg-primary/45 text-on-primary/75 cursor-not-allowed rounded-xl font-medium text-base flex items-center justify-center space-x-2 select-none shadow-none" disabled="" type="button">
+<span class="material-symbols-outlined text-xl opacity-75" data-icon="check">check</span>
+<span>Save term</span>
+</button>
+<p class="text-center text-[11px] text-secondary/70 mt-1">Recording in progress — stop to save</p>
+</div>
+<!-- Secondary Cancel Action -->
+<div class="flex justify-center pb-0.5">
+<button class="min-h-[48px] h-10 px-6 rounded-lg text-secondary font-medium text-sm hover:text-main hover:bg-recessed/60 active:opacity-75 transition-colors flex items-center justify-center" type="button">
+  Cancel
+</button>
+</div>
+<!-- Android Bottom Gesture Indicator Bar -->
+<div class="w-full h-4 flex justify-center items-center select-none pt-1">
+<div class="w-28 h-1 bg-main/20 rounded-full"></div>
+</div>
+</footer>
+</div>
+</body></html>

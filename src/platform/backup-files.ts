@@ -2,7 +2,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import { File, Paths } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import type { Database } from '../data/database';
-import { createSnapshot, validateBackup, type Backup } from './backup';
+import { BACKUP_SIZE_LIMIT, createSnapshot, validateBackup, type Backup } from './backup';
 import i18n from '../i18n';
 
 export type PreparedBackup = { uri: string; filename: string; snapshot: Backup };
@@ -18,9 +18,16 @@ export class BackupSelectionError extends Error {
 }
 export async function prepareBackup(db: Database): Promise<PreparedBackup> {
   const snapshot = createSnapshot(db);
+  const content = JSON.stringify(snapshot, null, 2);
+  let utf8Size = 0;
+  for (const character of content) {
+    const codePoint = character.codePointAt(0)!;
+    utf8Size += codePoint < 0x80 ? 1 : codePoint < 0x800 ? 2 : codePoint < 0x10000 ? 3 : 4;
+    if (utf8Size > BACKUP_SIZE_LIMIT) throw new Error('Backup too large');
+  }
   const filename = `backup-${Date.now()}.json`;
   const file = new File(Paths.cache, filename);
-  await file.write(JSON.stringify(snapshot, null, 2));
+  await file.write(content);
   return { uri: file.uri, filename, snapshot };
 }
 export async function sharePreparedBackup(file: PreparedBackup): Promise<void> {
@@ -56,7 +63,7 @@ export async function selectBackup(): Promise<SelectedBackup | undefined> {
   } catch {
     throw new BackupSelectionError('read', filename);
   }
-  if (size > 25 * 1024 * 1024) throw new BackupSelectionError('oversized', filename);
+  if (size > BACKUP_SIZE_LIMIT) throw new BackupSelectionError('oversized', filename);
   let text: string;
   try {
     text = await file.text();

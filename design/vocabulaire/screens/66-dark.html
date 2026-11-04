@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>45 Backups — Oversized backup error (Dark)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#cdead0",
+            "error": "#ffb4ab",
+            "surface-tint": "#b0ceb2",
+            "surface-container-low": "#161d1a",
+            "chip-grammatical-text": "#F3C3AA",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#334c39",
+            "surface-recessed": "#1C2520",
+            "on-secondary-fixed-variant": "#334c39",
+            "on-surface-variant": "#c2c8c0",
+            "secondary": "#b1ceb5",
+            "surface": "#171E1B",
+            "destructive-text": "#FFB4AB",
+            "tertiary-container": "#e7cabd",
+            "secondary-fixed-dim": "#b1ceb5",
+            "on-primary-fixed": "#06200e",
+            "on-primary": "#173824",
+            "inverse-on-surface": "#2b322f",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#09100d",
+            "on-secondary": "#1d3624",
+            "tertiary-fixed": "#fbdccf",
+            "inverse-primary": "#49654d",
+            "tertiary-fixed-dim": "#ddc1b4",
+            "surface-container-highest": "#2f3633",
+            "on-primary-fixed-variant": "#324d37",
+            "text-secondary": "#B8C6BC",
+            "surface-dim": "#0e1512",
+            "on-tertiary-fixed-variant": "#574239",
+            "chip-thematic-text": "#C1DFC4",
+            "surface-bright": "#343b37",
+            "surface-container": "#1a211e",
+            "tertiary": "#ffe7dd",
+            "outline": "#8c928b",
+            "background": "#171E1B",
+            "surface-variant": "#2f3633",
+            "outline-variant": "#424842",
+            "text-main": "#F3F0E7",
+            "surface-sheet": "#222D27",
+            "on-tertiary-container": "#6a544a",
+            "primary-fixed-dim": "#b0ceb2",
+            "chip-thematic-fill": "#344D3A",
+            "on-primary-container": "#445f48",
+            "primary-fixed": "#cbebcd",
+            "on-secondary-fixed": "#072010",
+            "on-error": "#690005",
+            "on-tertiary": "#3e2c24",
+            "chip-grammatical-fill": "#49362D",
+            "destructive-surface": "#4A2926",
+            "on-surface": "#dde4df",
+            "inverse-surface": "#dde4df",
+            "border-subtle": "#45574A",
+            "surface-container-high": "#242c28",
+            "on-tertiary-fixed": "#271810",
+            "primary": "#d5f5d6",
+            "on-secondary-container": "#a0bca4",
+            "on-background": "#dde4df",
+            "primary-container": "#B9D8BB"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-2xl": "2rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "body-medium": [
+              "DM Sans"
+            ],
+            "section-heading": [
+              "EB Garamond"
+            ],
+            "secondary-medium": [
+              "DM Sans"
+            ],
+            "body-default": [
+              "DM Sans"
+            ],
+            "display": [
+              "EB Garamond"
+            ],
+            "label-small": [
+              "DM Sans"
+            ],
+            "button-text": [
+              "DM Sans"
+            ],
+            "entry-headword": [
+              "EB Garamond"
+            ],
+            "page-title": [
+              "EB Garamond"
+            ],
+            "secondary": [
+              "DM Sans"
+            ]
+          },
+          "fontSize": {
+            "body-medium": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "500"
+              }
+            ],
+            "section-heading": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "secondary-medium": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "body-default": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "display": [
+              "36px",
+              {
+                "lineHeight": "40px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-small": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "500"
+              }
+            ],
+            "button-text": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "entry-headword": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "fontWeight": "500"
+              }
+            ],
+            "page-title": [
+              "30px",
+              {
+                "lineHeight": "36px",
+                "fontWeight": "600"
+              }
+            ],
+            "secondary": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#101412] min-h-screen flex items-center justify-center p-0 sm:p-4 text-text-main selection:bg-primary-container selection:text-on-primary">
+<!-- Android Artboard Container 390x892 -->
+<div class="relative w-full max-w-[390px] h-[892px] max-h-[892px] bg-surface flex flex-col overflow-hidden shadow-2xl border border-border-subtle/30 sm:rounded-[36px]">
+<!-- Native Android Status Bar (9:41) -->
+<header class="w-full h-8 px-6 pt-2 flex items-center justify-between z-20 shrink-0">
+<span class="font-secondary-medium text-secondary-medium text-text-secondary select-none">9:41</span>
+<div class="flex items-center space-x-2 text-text-secondary select-none">
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar (Shared Component Anchor Pattern) -->
+<nav class="flex justify-between items-center w-full h-14 px-4 shrink-0 bg-surface">
+<button aria-label="Back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-text-main text-[22px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-page-title text-section-heading font-semibold tracking-normal text-text-main">Backups</h1>
+<button aria-label="Settings" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-text-secondary text-[22px]" data-icon="settings">settings</span>
+</button>
+</nav>
+<!-- Scrollable Content Canvas -->
+<main class="flex-1 overflow-y-auto px-6 pt-3 pb-8 space-y-4 overscroll-contain">
+<!-- Category Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-chip-thematic-fill text-chip-thematic-text">
+<span class="text-xs">📖</span>
+<span class="font-label-small text-label-small font-medium tracking-wide">Field Notebook · Offline storage</span>
+</div>
+<!-- Header Section -->
+<div class="space-y-1.5 pt-1">
+<h2 class="font-page-title text-[28px] leading-[34px] font-semibold text-text-main">Keep a copy of your words.</h2>
+<p class="font-secondary text-secondary text-text-secondary">Your notebook lives on this device. Save a backup somewhere safe.</p>
+</div>
+<!-- Card 1: Export backup -->
+<section class="bg-surface-sheet rounded-xl border border-border-subtle p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-recessed border border-border-subtle flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]" data-icon="folder_zip">folder_zip</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-recessed border border-border-subtle/80 font-label-small text-label-small text-text-secondary">
+            3 collections · 96 terms
+          </span>
+</div>
+<div class="space-y-1">
+<h3 class="font-section-heading text-section-heading text-text-main font-semibold">Export backup</h3>
+<p class="font-secondary text-secondary text-text-secondary leading-relaxed">
+            Create an unencrypted JSON document containing all collections, vocabulary terms, notes, and custom categories.
+          </p>
+</div>
+<button class="w-full h-14 bg-primary-container text-on-primary rounded-xl font-button-text text-button-text flex items-center justify-center gap-2 active:opacity-90 hover:brightness-105 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+<span>Export backup</span>
+</button>
+</section>
+<!-- Card 2: Localized error card -->
+<section class="bg-destructive-surface rounded-xl border border-error/30 p-5 space-y-3.5">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#381e1c] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-destructive-text text-[22px]" data-icon="warning">warning</span>
+</div>
+<div class="space-y-1 pt-0.5">
+<h3 class="font-body-medium text-body-medium font-semibold text-destructive-text">Backup is over 25 MiB</h3>
+<p class="font-secondary text-secondary text-text-secondary leading-relaxed">Remove recordings or terms, then try again.</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 pt-1">
+<button class="px-4 py-2 font-button-text text-secondary-medium text-text-secondary hover:text-text-main active:opacity-75 transition-colors" type="button">
+            Dismiss
+          </button>
+<button class="px-4 py-2 bg-[#8C2F2C] hover:bg-[#9B3532] text-text-main rounded-full font-button-text text-secondary-medium active:opacity-90 transition-colors" type="button">Export current data</button>
+</div>
+</section>
+<!-- Card 3: Restore from a file -->
+<section class="bg-surface-sheet rounded-xl border border-border-subtle p-5 space-y-4">
+<div class="w-10 h-10 rounded-lg bg-surface-recessed border border-border-subtle flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[22px]" data-icon="history">history</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-section-heading text-section-heading text-text-main font-semibold">Restore from a file</h3>
+<p class="font-secondary text-secondary text-text-secondary leading-relaxed">
+            Choose a Vocabulaire backup file (.json) from your device or file manager to restore your notebook.
+          </p>
+</div>
+<button class="w-full h-14 bg-transparent border border-[#7D9383] text-text-main rounded-xl font-button-text text-button-text flex items-center justify-center gap-2 hover:bg-surface-recessed active:opacity-80 transition-colors" type="button"><span class="material-symbols-outlined text-[20px] text-text-secondary" data-icon="folder_open">folder_open</span><span>Choose backup to restore</span></button>
+</section>
+<!-- Bottom informational card -->
+</main>
+<!-- Native Android Bottom Gesture Navigation Bar -->
+<footer class="w-full h-6 flex items-center justify-center pb-2 shrink-0 bg-surface">
+<div class="w-32 h-1 bg-border-subtle rounded-full"></div>
+</footer>
+</div>
+</body></html>

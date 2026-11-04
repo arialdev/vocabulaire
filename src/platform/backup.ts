@@ -6,9 +6,14 @@ import {
   savedFilterCategories,
   savedFilters,
   termCategories,
+  termAudio,
   terms,
 } from '../data/schema';
 import type { Database } from '../data/database';
+import { sql } from 'drizzle-orm';
+import { decodeAudio, encodeAudio, validateAudio } from './pronunciation-format';
+
+export const BACKUP_SIZE_LIMIT = 25 * 1024 * 1024;
 
 type Data = {
   collections: (typeof collections.$inferSelect)[];
@@ -19,25 +24,47 @@ type Data = {
   savedFilterCategories: (typeof savedFilterCategories.$inferSelect)[];
   dailyPicks: (typeof dailyPicks.$inferSelect)[];
   preferences: (typeof preferences.$inferSelect)[];
+  termAudio?: { collectionId: number; termId: number; durationMs: number; audioBase64: string }[];
 };
-export type Backup = { format: 'vocabulaire'; schemaVersion: 1; exportedAt: string; data: Data };
+export type Backup = {
+  format: 'vocabulaire';
+  schemaVersion: 1 | 2;
+  exportedAt: string;
+  data: Data;
+};
 
 export function createSnapshot(db: Database): Backup {
-  return db.transaction((tx) => ({
-    format: 'vocabulaire',
-    schemaVersion: 1,
-    exportedAt: new Date().toISOString(),
-    data: {
-      collections: tx.select().from(collections).all(),
-      terms: tx.select().from(terms).all(),
-      categories: tx.select().from(categories).all(),
-      termCategories: tx.select().from(termCategories).all(),
-      savedFilters: tx.select().from(savedFilters).all(),
-      savedFilterCategories: tx.select().from(savedFilterCategories).all(),
-      dailyPicks: tx.select().from(dailyPicks).all(),
-      preferences: tx.select().from(preferences).all(),
-    },
-  }));
+  return db.transaction((tx) => {
+    const size =
+      tx
+        .select({ size: sql<number>`coalesce(sum(length(${termAudio.audio})), 0)` })
+        .from(termAudio)
+        .get()?.size ?? 0;
+    if (Math.ceil(size / 3) * 4 > BACKUP_SIZE_LIMIT) throw new Error('Backup too large');
+    return {
+      format: 'vocabulaire',
+      schemaVersion: 2,
+      exportedAt: new Date().toISOString(),
+      data: {
+        collections: tx.select().from(collections).all(),
+        terms: tx.select().from(terms).all(),
+        categories: tx.select().from(categories).all(),
+        termCategories: tx.select().from(termCategories).all(),
+        savedFilters: tx.select().from(savedFilters).all(),
+        savedFilterCategories: tx.select().from(savedFilterCategories).all(),
+        dailyPicks: tx.select().from(dailyPicks).all(),
+        preferences: tx.select().from(preferences).all(),
+        termAudio: tx
+          .select()
+          .from(termAudio)
+          .all()
+          .map(({ audio, ...row }) => {
+            validateAudio(audio, row.durationMs);
+            return { ...row, audioBase64: encodeAudio(audio) };
+          }),
+      },
+    };
+  });
 }
 
 function object(value: unknown): value is Record<string, unknown> {
@@ -82,7 +109,11 @@ function unique(
 
 /** Validates the entire graph before the caller can perform any writes. */
 export function validateBackup(input: unknown): Backup {
-  if (!object(input) || input.format !== 'vocabulaire' || input.schemaVersion !== 1)
+  if (
+    !object(input) ||
+    input.format !== 'vocabulaire' ||
+    (input.schemaVersion !== 1 && input.schemaVersion !== 2)
+  )
     throw new Error('Unsupported backup format or version. Legacy backups are not supported.');
   if (!timestamp(input.exportedAt) || !object(input.data)) throw new Error('Invalid backup header');
   const d = input.data;
@@ -139,6 +170,21 @@ export function validateBackup(input: unknown): Backup {
   )
     throw new Error('Invalid saved filter');
   const termMap = new Map(ts.map((r) => [r.id, r.collectionId]));
+  if (input.schemaVersion === 2) {
+    const clips = records(d.termAudio, 'pronunciation recordings');
+    unique(clips, (r) => String(r.termId));
+    for (const clip of clips) {
+      if (
+        !id(clip.collectionId) ||
+        !id(clip.termId) ||
+        termMap.get(clip.termId) !== clip.collectionId ||
+        typeof clip.durationMs !== 'number' ||
+        typeof clip.audioBase64 !== 'string'
+      )
+        throw new Error('Invalid pronunciation ownership');
+      validateAudio(decodeAudio(clip.audioBase64), clip.durationMs);
+    }
+  }
   const catMap = new Map(cats.map((r) => [r.id, r.collectionId]));
   const filterMap = new Map(fs.map((r) => [r.id, r.collectionId]));
   if (
@@ -218,6 +264,15 @@ export function replaceFromBackup(db: Database, backup: Backup): void {
         tx.delete(collections).run();
         if (d.collections.length) tx.insert(collections).values(d.collections).run();
         if (d.terms.length) tx.insert(terms).values(d.terms).run();
+        if (validated.schemaVersion === 2 && d.termAudio?.length)
+          tx.insert(termAudio)
+            .values(
+              d.termAudio.map(({ audioBase64, ...row }) => ({
+                ...row,
+                audio: decodeAudio(audioBase64),
+              })),
+            )
+            .run();
         if (d.categories.length) tx.insert(categories).values(d.categories).run();
         if (d.termCategories.length) tx.insert(termCategories).values(d.termCategories).run();
         if (d.savedFilters.length) tx.insert(savedFilters).values(d.savedFilters).run();

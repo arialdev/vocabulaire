@@ -8,6 +8,7 @@ import {
   savedFilterCategories,
   savedFilters,
   termCategories,
+  termAudio,
   terms,
   type Preferences,
 } from './schema';
@@ -119,6 +120,13 @@ export function createRepository(db: Database) {
       ]);
     return rows.map((row) => ({ ...row, categoryIds: byTerm.get(row.id) ?? [] }));
   }
+  function getTermAudio(collectionId: number, termId: number) {
+    return db
+      .select()
+      .from(termAudio)
+      .where(and(eq(termAudio.collectionId, collectionId), eq(termAudio.termId, termId)))
+      .get();
+  }
   function saveTerm(input: {
     id?: number;
     collectionId: number;
@@ -126,6 +134,7 @@ export function createRepository(db: Database) {
     translation: string;
     notes: string;
     categoryIds: number[];
+    audio?: { durationMs: number; audio: Uint8Array } | null;
   }) {
     const original = required(input.original, 'Original');
     const translation = required(input.translation, 'Translation');
@@ -173,6 +182,16 @@ export function createRepository(db: Database) {
         tx.insert(termCategories)
           .values({ collectionId: input.collectionId, termId: id, categoryId })
           .run();
+      if (input.audio !== undefined) {
+        tx.delete(termAudio)
+          .where(and(eq(termAudio.collectionId, input.collectionId), eq(termAudio.termId, id)))
+          .run();
+        if (input.audio !== null) {
+          tx.insert(termAudio)
+            .values({ collectionId: input.collectionId, termId: id, ...input.audio })
+            .run();
+        }
+      }
       return id;
     });
   }
@@ -311,6 +330,7 @@ export function createRepository(db: Database) {
     saveCollection,
     deleteCollection,
     listTerms,
+    getTermAudio,
     saveTerm,
     deleteTerm,
     listCategories,

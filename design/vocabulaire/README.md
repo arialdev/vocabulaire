@@ -2,12 +2,12 @@
 
 An Android design proposal for a calm, personal, offline vocabulary notebook.
 
-[Open the Stitch project](https://stitch.google.com/projects/8226357890556052909). The handoff contains **53 states in both appearances: 106 current artboards**, each exported as PNG and HTML.
+[Open the Stitch project](https://stitch.google.com/projects/8226357890556052909). The handoff contains **66 states in both appearances**, including thirteen states for the proposed pronunciation audio feature. All 132 artboards have PNG and HTML exports.
 
 Open [the review gallery](index.html) to compare light and dark appearances, browse by workflow, and follow the links between connected states. Each artboard also links to its editable Stitch screen and generated HTML export.
 
 - [Design system and behavior](DESIGN.md): typography, semantic palettes, components, spacing, accessibility and interaction rules.
-- [Screen inventory and flow map](FLOWS.md): all 53 views and representative states, navigation, and recovery behavior.
+- [Screen inventory and flow map](FLOWS.md): views, representative states, navigation, and recovery behavior.
 - [Palette contrast calculations](CONTRAST.md): normal-text color pairs verified against the proposed tokens.
 - [Requested corrections and code findings](REVISIONS.md): pronunciation, the retired collection alias, simpler PDF export and compact-list copy.
 - [Screen metadata](screens.json): canonical IDs, titles, dimensions, assets and CLI-resolved Stitch URLs.

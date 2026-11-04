@@ -49,6 +49,15 @@ flowchart TD
     RB --> RS[49 Restored collections]
     RB --> RE[51 Restore failed]
     B --> BI[50 Unsupported backup]
+    A --> AI[54 Add term with pronunciation]
+    TE --> AR[55 Recording pronunciation]
+    AI --> AR
+    AR --> AD[56 Pronunciation draft ready]
+    AI --> AP[57 Microphone permission denied]
+    TE --> AP
+    AR --> AF[58 Pronunciation recording failed]
+    AD --> TS[59 Term details with pronunciation]
+    RP --> RA[60 Restore preview with pronunciation count]
 ```
 
 ## Every view and representative state
@@ -65,8 +74,9 @@ flowchart TD
 | 42–43 | Word of the Day | Daily word and insufficient-terms state |
 | 44 | Settings | System/English/Español and System/Light/Dark, backups |
 | 45–52 | Data portability | Backup home/export, selected-file counts, explicit replacement confirmation, progress, success, invalid-file/failure recovery |
+| 54–66 | Pronunciation audio | Inline recording, draft preview, permission and capture recovery, saved playback, restore preview with clip count, finalization, removal, playback failure, discard, validation and backup size errors |
 
-All 53 states have matching light and dark designs. Native Android file picking and sharing are system-owned transitions; their destination lists are not invented in the app design.
+All 66 states have matching light and dark designs. Android owns the file picking and sharing transitions.
 
 ## Interaction contracts
 
@@ -74,7 +84,8 @@ All 53 states have matching light and dark designs. Native Android file picking 
 - **Root navigation:** no redundant bottom tabs. Settings is accessible from home. Every pushed screen has a Back action. Opening a modal or sheet contains focus; Back dismisses it.
 - **Save:** validate on submit and after correcting an invalid field. Keep entered values, announce the error, and focus the first invalid field. Commit once; disable repeat saves while committing. Return to the invoking screen and announce success.
 - **Collection fields:** ask only for the required name and emoji. The legacy alias and migrated short-label field are retired from the proposed UI; collection rows show name, emoji and term count.
-- **Term fields:** expression, translation, optional notes and categories. Do not imply a separate pronunciation or phonetic-transcription feature in either functional screens or illustrations.
+- **Term fields:** expression, translation, optional notes and categories.
+- **Proposed pronunciation audio:** Add term and Edit term contain the inline recorder. Save term commits the clip. Term details plays saved clips, and restore preview shows the clip count. See the [pronunciation audio handoff](../../openspec/changes/add-term-pronunciation-audio/stitch-handoff.md) for state transitions.
 - **Dirty forms:** back/close prompts Keep editing / Discard changes only after a real change. The emoji picker and category editor return to the preserved draft. Canceling a sub-editor preserves its caller's draft.
 - **Categories:** multi-select in term forms and filters. Grammar/thematic types have names and icons, not only color. Type is fixed after category creation. Category deletion removes assignments, not the terms.
 - **Search:** case-insensitive, matching original expression, translation, and notes. Diacritic-insensitive for Latin scripts. Query text is always visible; search reset is explicit.

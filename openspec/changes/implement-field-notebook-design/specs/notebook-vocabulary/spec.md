@@ -23,7 +23,7 @@ Vocabulary search SHALL use the existing case/Latin-diacritic-insensitive matchi
 - **THEN** the screen offers Add your first term without fabricated example records
 
 ### Requirement: Term details and contextual actions
-Term details SHALL present the expression, translation, complete optional notes and assigned categories identified by grammatical/thematic type. Empty optional sections SHALL be omitted. Edit SHALL be prominent, and deletion SHALL be reached through contextual actions from details or a list row. The UI SHALL NOT invent pronunciation/IPA metadata or audio actions.
+Term details SHALL present the expression, translation, complete optional notes and assigned categories identified by grammatical/thematic type. Empty optional sections SHALL be omitted. Edit SHALL be prominent, and deletion SHALL be reached through contextual actions from details or a list row. Pronunciation playback follows the add-term-pronunciation-audio change. The UI SHALL NOT invent IPA or phonetic metadata.
 
 #### Scenario: Open a term without notes or categories
 - **WHEN** the selected term has only an expression and translation

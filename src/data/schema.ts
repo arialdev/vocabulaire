@@ -1,6 +1,7 @@
 import { sql } from 'drizzle-orm';
 import {
   check,
+  customType,
   foreignKey,
   index,
   integer,
@@ -35,6 +36,28 @@ export const terms = sqliteTable(
   (t) => [
     uniqueIndex('terms_collection_id_id').on(t.collectionId, t.id),
     index('terms_collection_id').on(t.collectionId),
+  ],
+);
+
+const audioBytes = customType<{ data: Uint8Array; driverData: Uint8Array }>({
+  dataType: () => 'blob',
+});
+
+export const termAudio = sqliteTable(
+  'term_audio',
+  {
+    collectionId: integer('collection_id').notNull(),
+    termId: integer('term_id').primaryKey(),
+    durationMs: integer('duration_ms').notNull(),
+    audio: audioBytes('audio').notNull(),
+  },
+  (t) => [
+    foreignKey({
+      columns: [t.collectionId, t.termId],
+      foreignColumns: [terms.collectionId, terms.id],
+    }).onDelete('cascade'),
+    check('term_audio_duration', sql`${t.durationMs} > 0 AND ${t.durationMs} <= 7000`),
+    check('term_audio_size', sql`length(${t.audio}) > 0 AND length(${t.audio}) <= 131072`),
   ],
 );
 

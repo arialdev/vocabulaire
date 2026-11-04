@@ -10,7 +10,11 @@ const { queryTerms } = require("../src/domain/term-query");
 function setup() {
   const sqlite = new DatabaseSync(":memory:");
   sqlite.exec("PRAGMA foreign_keys = ON");
-  for (const file of ["0000_eager_thing.sql", "0001_steady_steel_serpent.sql"]) {
+  for (const file of [
+    "0000_eager_thing.sql",
+    "0001_steady_steel_serpent.sql",
+    "0002_yummy_turbo.sql",
+  ]) {
     sqlite.exec(readFileSync(join(__dirname, "..", "drizzle", file), "utf8"));
   }
   const client = {
@@ -300,6 +304,73 @@ test("notebook review fixtures remain isolated and cover empty, multilingual and
     expect(repo.listFilters(fixture.populated.id)[0].categoryIds.sort()).toEqual(
       [fixture.grammar.id, fixture.theme.id].sort(),
     );
+  } finally {
+    sqlite.close();
+  }
+});
+
+test("pronunciation audio is saved atomically and cascades with its term", () => {
+  const { sqlite, repo } = setup();
+  try {
+    const collection = repo.saveCollection({ name: "French", icon: "📚" });
+    const fields = {
+      collectionId: collection.id,
+      original: "café",
+      translation: "coffee",
+      notes: "",
+      categoryIds: [],
+    };
+    const id = repo.saveTerm({
+      ...fields,
+      audio: { durationMs: 1000, audio: new Uint8Array([1, 2, 3]) },
+    });
+    expect([...repo.getTermAudio(collection.id, id).audio]).toEqual([1, 2, 3]);
+    expect(() =>
+      repo.saveTerm({
+        ...fields,
+        id,
+        translation: "changed",
+        audio: { durationMs: 8000, audio: new Uint8Array([4]) },
+      }),
+    ).toThrow();
+    expect(repo.listTerms(collection.id)[0].translation).toBe("coffee");
+    expect([...repo.getTermAudio(collection.id, id).audio]).toEqual([1, 2, 3]);
+    repo.deleteTerm(collection.id, id);
+    expect(repo.getTermAudio(collection.id, id)).toBeUndefined();
+  } finally {
+    sqlite.close();
+  }
+});
+
+test("audio survives backup restore and failed restoration rolls back", () => {
+  const { createSnapshot, replaceFromBackup } = require("../src/platform/backup");
+  const { pronunciationFixture } = require("../test-support/pronunciation-fixture.cjs");
+  const { sqlite, db, repo } = setup();
+  try {
+    const collection = repo.saveCollection({ name: "French", icon: "📚" });
+    const fields = {
+      collectionId: collection.id,
+      original: "mot",
+      translation: "word",
+      notes: "",
+      categoryIds: [],
+    };
+    const bytes = pronunciationFixture();
+    const id = repo.saveTerm({ ...fields, audio: { durationMs: 1000, audio: bytes } });
+    const backup = createSnapshot(db);
+    expect(backup.schemaVersion).toBe(2);
+    repo.saveTerm({ ...fields, id, audio: null });
+    replaceFromBackup(db, backup);
+    expect([...repo.getTermAudio(collection.id, id).audio]).toEqual([...bytes]);
+    sqlite.exec(
+      "CREATE TRIGGER reject_audio BEFORE INSERT ON term_audio BEGIN SELECT RAISE(ABORT, 'fault'); END",
+    );
+    expect(() => replaceFromBackup(db, backup)).toThrow();
+    expect([...repo.getTermAudio(collection.id, id).audio]).toEqual([...bytes]);
+    sqlite.exec("DROP TRIGGER reject_audio");
+    const v1 = { ...backup, schemaVersion: 1, data: { ...backup.data, termAudio: undefined } };
+    replaceFromBackup(db, v1);
+    expect(repo.getTermAudio(collection.id, id)).toBeUndefined();
   } finally {
     sqlite.close();
   }

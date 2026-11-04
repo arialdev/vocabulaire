@@ -2,7 +2,7 @@
 
 Vocabulaire is an offline Android app for organizing vocabulary in collections. Add expressions, translations, notes and grammatical or thematic categories; search and sort terms, save filters, review a daily word, and export a PDF or JSON backup. Collection names and vocabulary can use any language. The interface supports English and Spanish and offers light, dark and system appearance.
 
-This React Native version starts with a new database. It neither migrates the old Ionic database nor imports old Ionic JSON exports. Back up data created by this version using its own backup screen; restoring a supported backup replaces the current dataset. See [BACKUP-FORMAT.md](BACKUP-FORMAT.md). Recording, pronunciation assessment and AI features are deferred. Android is the acceptance platform; iOS and web are not yet supported releases.
+This React Native version starts with a new database. It neither migrates the old Ionic database nor imports old Ionic JSON exports. Back up data created by this version using its own backup screen; restoring a supported backup replaces the current dataset. See [BACKUP-FORMAT.md](BACKUP-FORMAT.md). Terms can include an optional pronunciation recording of up to seven seconds. Android is the acceptance platform; iOS and web are not yet supported releases.
 
 The migration and its outstanding verification are tracked in [OpenSpec](openspec/changes/migrate-to-react-native/tasks.md).
 

@@ -1,3 +1,4 @@
+import { PronunciationPlayer } from "../../features/vocabulary/pronunciation-controls";
 import { useModalFocus } from "../../ui/use-modal-focus";
 import { useReducedMotion } from "../../ui/use-reduced-motion";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -91,6 +92,7 @@ export default function TermDetails() {
       >
         <NotebookText variant="display">{term.original}</NotebookText>
         <NotebookText variant="section">{term.translation}</NotebookText>
+        <PronunciationPlayer key={revision} clip={repository.getTermAudio(collectionId, term.id)} />
         {term.notes ? (
           <View
             style={{

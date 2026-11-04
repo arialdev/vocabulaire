@@ -1,0 +1,22 @@
+appId: dev.arial.vocabulaire
+---
+- launchApp
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Choose backup to restore
+- tapOn: Show roots
+- tapOn:
+    text: Downloads
+    id: android:id/title
+- tapOn: vocab-real-audio.json
+- assertVisible: '.*1 recording.*'
+- tapOn: Continue to confirmation
+- tapOn: Replace all data
+- assertVisible: '.*Japanese.*'
+- tapOn: Open Japanese
+- tapOn: pronunciation
+- assertVisible: Play pronunciation
+- tapOn: Play pronunciation
+- extendedWaitUntil:
+    visible: Play pronunciation
+    timeout: 15000

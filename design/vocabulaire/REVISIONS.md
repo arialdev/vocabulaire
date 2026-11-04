@@ -4,9 +4,11 @@ These changes revise the proposed UI and its current Stitch artboards. Applicati
 
 ## 1. Pronunciation
 
+The later pronunciation-audio change supersedes the restriction on audio controls. The approved inline recording and playback designs are documented in the pronunciation-audio handoff. IPA and invented phonetic metadata remain outside the design.
+
 Neither term model has a dedicated pronunciation property. The legacy model contains original term, translated term, notes and two category groups (`.legacy/src/app/classes/term/term.ts:5`). The current schema contains original, translation, notes and category relations (`src/data/schema.ts:22`); the current editor provides the same fields (`src/app/term/edit.tsx:25`). Notes can contain arbitrary user text, but there is no separate pronunciation input or phonetic display contract.
 
-Remove the invented phonetic transcription from onboarding step 2, term action/deletion underlays, and Word of the Day in both appearances. Future design generations must not add a pronunciation row.
+Remove the invented phonetic transcription from onboarding step 2, term action/deletion underlays, and Word of the Day in both appearances. The later audio-only change adds a pronunciation row in term details and the term editor.
 
 ## 2. Collection alias / short label
 

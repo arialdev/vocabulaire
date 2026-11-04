@@ -33,11 +33,11 @@ PDF and backup export SHALL distinguish preparation, ready, sharing and recovera
 - **THEN** the ready file and scope remain available with retry/recovery rather than clearing the notebook or claiming the export was saved
 
 ### Requirement: Compatible complete backup export
-Backup export SHALL prepare the existing version-1 consistent snapshot, including all current record types and preferences, and expose the file through the ready/share workflow. Hidden stored aliases and Unicode sequences SHALL round-trip without reappearing as collection UI fields. Temporary files SHALL be application-controlled and no network connection SHALL be required.
+Backup export SHALL prepare a consistent snapshot including all current record types and preferences, and expose the file through the ready/share workflow. The add-term-pronunciation-audio change defines version 2 and version 1 restore compatibility. Hidden stored aliases and Unicode sequences SHALL round-trip without reappearing as collection UI fields. Temporary files SHALL be application-controlled and no network connection SHALL be required.
 
 #### Scenario: Export a hidden alias
 - **WHEN** a collection imported with `shortLabel: "FR"` is renamed through the simplified editor and backed up
-- **THEN** the backup retains the hidden value alongside the edited name and all related records without changing the schema version
+- **THEN** the backup retains the hidden value alongside the edited name and all related records
 
 ### Requirement: Validated named restore preview
 Selecting a backup SHALL retain its display filename and validate the current format, version, field/reference ownership and size limit before enabling restore confirmation. A valid preview SHALL show the actual export date and counts of collections, terms, categories and saved filters, clearly state that restoration replaces all current data and offer Choose another file/Cancel restore. Export current data first SHALL be optional and SHALL preserve the pending restore candidate while its export workflow is visited.

@@ -1058,5 +1058,265 @@
         "html": "screens/53-light.html"
       }
     }
+  },
+  {
+    "number": 54,
+    "title": "Add term with pronunciation",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "87f1ddd275254461a58e49607a62a050",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=87f1ddd275254461a58e49607a62a050",
+        "png": "screens/54-dark.png",
+        "html": "screens/54-dark.html"
+      },
+      "light": {
+        "id": "699c54a2488e4d9fad7e2f1467cccaf2",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=699c54a2488e4d9fad7e2f1467cccaf2",
+        "png": "screens/54-light.png",
+        "html": "screens/54-light.html"
+      }
+    }
+  },
+  {
+    "number": 55,
+    "title": "Recording pronunciation",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "47cb60c707334496aeba0504fb864b2a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=47cb60c707334496aeba0504fb864b2a",
+        "png": "screens/55-dark.png",
+        "html": "screens/55-dark.html"
+      },
+      "light": {
+        "id": "ea1413acb0b04d6f99401c6fde495956",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=ea1413acb0b04d6f99401c6fde495956",
+        "png": "screens/55-light.png",
+        "html": "screens/55-light.html"
+      }
+    }
+  },
+  {
+    "number": 56,
+    "title": "Pronunciation draft ready",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "f7ec2d1477f243ecb8c09853e65b4ad2",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f7ec2d1477f243ecb8c09853e65b4ad2",
+        "png": "screens/56-dark.png",
+        "html": "screens/56-dark.html"
+      },
+      "light": {
+        "id": "2f17e30b213349ed93f3e5a65e115e9f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2f17e30b213349ed93f3e5a65e115e9f",
+        "png": "screens/56-light.png",
+        "html": "screens/56-light.html"
+      }
+    }
+  },
+  {
+    "number": 57,
+    "title": "Microphone permission denied",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "d8e2da0b5d1a4284a9bc8d5551a73bd6",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d8e2da0b5d1a4284a9bc8d5551a73bd6",
+        "png": "screens/57-dark.png",
+        "html": "screens/57-dark.html"
+      },
+      "light": {
+        "id": "f13bd537c3b8463a8482724d427573b9",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f13bd537c3b8463a8482724d427573b9",
+        "png": "screens/57-light.png",
+        "html": "screens/57-light.html"
+      }
+    }
+  },
+  {
+    "number": 58,
+    "title": "Pronunciation recording failed",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4b461eb0e9004192a8f141bb6f3cdf37",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4b461eb0e9004192a8f141bb6f3cdf37",
+        "png": "screens/58-dark.png",
+        "html": "screens/58-dark.html"
+      },
+      "light": {
+        "id": "fa27ef02a296496dad97e0cba62a0f81",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=fa27ef02a296496dad97e0cba62a0f81",
+        "png": "screens/58-light.png",
+        "html": "screens/58-light.html"
+      }
+    }
+  },
+  {
+    "number": 59,
+    "title": "Term details with pronunciation",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "98cf70adb0154a0381fc60107929ab01",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=98cf70adb0154a0381fc60107929ab01",
+        "png": "screens/59-dark.png",
+        "html": "screens/59-dark.html"
+      },
+      "light": {
+        "id": "598895d972ea4413baf17d3327ddc713",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=598895d972ea4413baf17d3327ddc713",
+        "png": "screens/59-light.png",
+        "html": "screens/59-light.html"
+      }
+    }
+  },
+  {
+    "number": 60,
+    "title": "Restore preview with pronunciation count",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "c60c553e5e4f40ffadf8b57063f6c399",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=c60c553e5e4f40ffadf8b57063f6c399",
+        "png": "screens/60-dark.png",
+        "html": "screens/60-dark.html"
+      },
+      "light": {
+        "id": "1c3cdaa93a694455861b9243fc6c56f2",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=1c3cdaa93a694455861b9243fc6c56f2",
+        "png": "screens/60-light.png",
+        "html": "screens/60-light.html"
+      }
+    }
+  },
+  {
+    "number": 61,
+    "title": "Finishing pronunciation recording",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "6b9f7d519ff94432b7ceb25fa50d1da6",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=6b9f7d519ff94432b7ceb25fa50d1da6",
+        "png": "screens/61-dark.png",
+        "html": "screens/61-dark.html"
+      },
+      "light": {
+        "id": "43faafc83a0a43afb3e68cd2a39cbd1d",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=43faafc83a0a43afb3e68cd2a39cbd1d",
+        "png": "screens/61-light.png",
+        "html": "screens/61-light.html"
+      }
+    }
+  },
+  {
+    "number": 62,
+    "title": "Pronunciation removal draft",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "af1fba9dfdcf4023b5a3d0ca3601c945",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=af1fba9dfdcf4023b5a3d0ca3601c945",
+        "png": "screens/62-dark.png",
+        "html": "screens/62-dark.html"
+      },
+      "light": {
+        "id": "2a5742b10e4444c89b34c0aa3e3650e6",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2a5742b10e4444c89b34c0aa3e3650e6",
+        "png": "screens/62-light.png",
+        "html": "screens/62-light.html"
+      }
+    }
+  },
+  {
+    "number": 63,
+    "title": "Pronunciation playback failure",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "91aebea809a44687952ac7a741243bfd",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=91aebea809a44687952ac7a741243bfd",
+        "png": "screens/63-dark.png",
+        "html": "screens/63-dark.html"
+      },
+      "light": {
+        "id": "0ddda59b13044e348e7d4ee9aa95cc0e",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=0ddda59b13044e348e7d4ee9aa95cc0e",
+        "png": "screens/63-light.png",
+        "html": "screens/63-light.html"
+      }
+    }
+  },
+  {
+    "number": 64,
+    "title": "Discard pronunciation draft",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "567446fbd63d4f19a9df6e15c3baf5fb",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=567446fbd63d4f19a9df6e15c3baf5fb",
+        "png": "screens/64-dark.png",
+        "html": "screens/64-dark.html"
+      },
+      "light": {
+        "id": "a74a6153761c437e84adf655b1036795",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=a74a6153761c437e84adf655b1036795",
+        "png": "screens/64-light.png",
+        "html": "screens/64-light.html"
+      }
+    }
+  },
+  {
+    "number": 65,
+    "title": "Term validation with pronunciation",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "f46aaad0af6e4d3092df3ac23e4f7350",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f46aaad0af6e4d3092df3ac23e4f7350",
+        "png": "screens/65-dark.png",
+        "html": "screens/65-dark.html"
+      },
+      "light": {
+        "id": "a2c0d298629640f6bed7b495c4aa2a37",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=a2c0d298629640f6bed7b495c4aa2a37",
+        "png": "screens/65-light.png",
+        "html": "screens/65-light.html"
+      }
+    }
+  },
+  {
+    "number": 66,
+    "title": "Backup size error",
+    "group": "15-pronunciation-audio",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "178697f9712e4f5ab1ad25a96a2f2187",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=178697f9712e4f5ab1ad25a96a2f2187",
+        "png": "screens/66-dark.png",
+        "html": "screens/66-dark.html"
+      },
+      "light": {
+        "id": "dd88824d7d5244b8963b7483136c5ac4",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=dd88824d7d5244b8963b7483136c5ac4",
+        "png": "screens/66-light.png",
+        "html": "screens/66-light.html"
+      }
+    }
   }
 ]

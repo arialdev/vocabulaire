@@ -1,0 +1,17 @@
+appId: dev.arial.vocabulaire
+---
+- launchApp:
+    permissions:
+      microphone: unset
+- tapOn: Open Japanese
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: retained
+- hideKeyboard
+- scrollUntilVisible:
+    element: Record pronunciation
+    direction: DOWN
+- tapOn: Record pronunciation
+- tapOn: Don.t allow
+- assertVisible: Microphone access is needed\.
+- assertVisible: retained
