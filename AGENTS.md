@@ -22,17 +22,6 @@ Vocabulaire is an offline vocabulary notebook built with TypeScript, React Nativ
 - `design/vocabulaire/`: Stitch design handoff, screen inventory, exports and review gallery.
 - `openspec/`: behavior specifications and change proposals, tasks and verification evidence.
 
-## UI changes must update Stitch
-
-**Every UI change must include an update to the corresponding design in Stitch.** This includes changes to screens, components, layout, styling, typography, visible copy, navigation and interaction states.
-
-- Use the existing [Vocabulaire Stitch project](https://stitch.google.com/projects/8226357890556052909) (`8226357890556052909`). Read the Stitch skill when working with its designs or tools.
-- Read `design/vocabulaire/DESIGN.md`, `FLOWS.md` and `REVISIONS.md`, and the relevant OpenSpec specifications before changing UI. Account for documented native adaptations in the implementation verification records.
-- Update the affected Stitch screens, including both light and dark appearances and any affected empty, loading, error, validation or confirmation states. Add screens for new states and retain coherent navigation between them.
-- Keep the local handoff synchronized: refresh affected PNG/HTML exports in `design/vocabulaire/screens/`, screen IDs/URLs in `screens.json`, the review gallery in `index.html`, and design/flow documentation when their content changes.
-- Compare the running Android UI with the updated Stitch designs. Record relevant screen references and verification results in the change handoff; update OpenSpec coverage/evidence when applicable.
-- Do not mark UI work complete until the implementation, Stitch designs and affected local handoff artifacts agree. If Stitch access is unavailable, report the blocker and the outstanding design updates explicitly.
-
 ## Implementation conventions
 
 - Use strict TypeScript and the existing route, feature, repository and platform boundaries. Keep database operations and file/share logic out of presentation components.
