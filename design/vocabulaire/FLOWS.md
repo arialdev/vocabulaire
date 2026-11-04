@@ -25,6 +25,7 @@ flowchart TD
     V --> CT[18 Collection tools]
     V --> VE[16 Empty collection / 17 No matches]
     CT --> W[42 / 43 Word of the Day]
+    CT --> FP[54–60 Flashcard practice]
     CT --> CM[36 / 37 Categories]
     CT --> P[19 / 20 PDF export]
     CT --> E
@@ -65,8 +66,9 @@ flowchart TD
 | 42–43 | Word of the Day | Daily word and insufficient-terms state |
 | 44 | Settings | System/English/Español and System/Light/Dark, backups |
 | 45–52 | Data portability | Backup home/export, selected-file counts, explicit replacement confirmation, progress, success, invalid-file/failure recovery |
+| 54–60 | Flashcard practice | Hidden and revealed cards, empty and single-term collections, loading, missing collection, and read failure in both appearances |
 
-All 53 states have matching light and dark designs. Native Android file picking and sharing are system-owned transitions; their destination lists are not invented in the app design.
+All 60 states have light and dark designs. Native Android file picking and sharing are system-owned transitions; their destination lists are not invented in the app design.
 
 ## Interaction contracts
 
@@ -83,6 +85,7 @@ All 53 states have matching light and dark designs. Native Android file picking 
 - **Saved filters:** contain search and category selection, plus a name and emoji. Apply immediately updates search/categories. A changed selection ceases to display the saved-filter Applied badge. Deleting a filter keeps all vocabulary.
 - **Term deletion from list:** a row's overflow opens the same term actions and confirmation shown in 30–31. Row content remains a large details target. No permanently exposed red delete buttons.
 - **Word of the Day:** one stable daily pick from the current collection, available at five terms. No shuffle or learning score. Open term routes to the existing details view.
+- **Flashcard practice:** Collection tools opens a card drawn from the full collection. Tapping toggles its translation, and Next draws a different term with the translation hidden. Zero terms show an empty message; one term keeps the card interactive and disables Next. Back returns to the vocabulary list.
 - **PDF:** the current matching results, current order, and current density determine the document. Show that scope before creation, without a page preview or document thumbnail. Generating and handoff failures remain on the sheet with Retry; do not show Ready until generation succeeds. Native chooser cancellation returns without an error.
 - **Backups:** file selection and validation happen before preview. The preview shows collection/term/category/filter counts and replacement consequences. Only the final Replace all data action begins replacement. Do not claim merge or legacy compatibility. Export-current-first is optional.
 - **Restore:** prevent duplicate operations. Success returns to home with a concise result announcement. Validation and restore failures preserve existing data and offer recovery. Never claim data was kept if the platform cannot guarantee atomic rollback.

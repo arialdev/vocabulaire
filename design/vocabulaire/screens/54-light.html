@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulaire: The Field Notebook - Flashcard practice</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "destructive-dark": "#FFB4AB",
+            "tertiary-fixed": "#ffdada",
+            "surface-dark": "#222D27",
+            "surface-variant": "#e5e2db",
+            "on-surface": "#1c1c18",
+            "recessed-dark": "#1C2520",
+            "on-secondary-fixed": "#121e17",
+            "grammatical-fill-light": "#F1E5DC",
+            "surface-dim": "#dcdad3",
+            "primary-container": "#2d6046",
+            "grammatical-text-dark": "#F3C3AA",
+            "on-primary-dark": "#173824",
+            "canvas-dark": "#171E1B",
+            "on-primary-fixed-variant": "#1c5037",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e5e2db",
+            "on-primary-container": "#a2d8b7",
+            "on-secondary-container": "#58665d",
+            "border-dark": "#45574A",
+            "background": "#fcf9f2",
+            "tertiary-container": "#7f4649",
+            "thematic-text-light": "#345B43",
+            "thematic-fill-dark": "#344D3A",
+            "on-tertiary-container": "#ffbbbd",
+            "surface-container-lowest": "#ffffff",
+            "selected-surface-light": "#E2ECDF",
+            "surface": "#fcf9f2",
+            "canvas-light": "#F8F5EE",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#d7e6db",
+            "inverse-on-surface": "#f3f0e9",
+            "destructive-light": "#A53532",
+            "surface-bright": "#fcf9f2",
+            "secondary": "#546259",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#b8efcd",
+            "primary-fixed-dim": "#9cd3b2",
+            "error-container": "#ffdad6",
+            "on-background": "#1c1c18",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#feb3b5",
+            "surface-container-high": "#ebe8e1",
+            "primary": "#124830",
+            "on-tertiary-fixed-variant": "#6c373a",
+            "on-error-container": "#93000a",
+            "recessed-light": "#F0EDE5",
+            "primary-action-light": "#2D6046",
+            "error-surface-light": "#FBE6E1",
+            "inverse-surface": "#31312c",
+            "secondary-container": "#d4e3d8",
+            "on-secondary-fixed-variant": "#3c4a42",
+            "on-primary-light": "#FFFFFF",
+            "thematic-fill-light": "#E2ECDF",
+            "surface-container-low": "#f6f3ec",
+            "surface-light": "#FFFCF6",
+            "thematic-text-dark": "#C1DFC4",
+            "selected-surface-dark": "#344D3A",
+            "error-surface-dark": "#4A2926",
+            "tertiary": "#633033",
+            "outline-variant": "#c0c9c1",
+            "main-text-light": "#20382E",
+            "on-tertiary": "#ffffff",
+            "grammatical-text-light": "#684435",
+            "on-surface-variant": "#414943",
+            "on-tertiary-fixed": "#370d11",
+            "secondary-text-light": "#59675E",
+            "secondary-text-dark": "#B8C6BC",
+            "surface-container": "#f0eee7",
+            "outline": "#717972",
+            "on-primary-fixed": "#002112",
+            "grammatical-fill-dark": "#49362D",
+            "surface-tint": "#35684e",
+            "border-light": "#D8DED2",
+            "inverse-primary": "#9cd3b2",
+            "primary-action-dark": "#B9D8BB",
+            "main-text-dark": "#F3F0E7",
+            "secondary-fixed-dim": "#bbcabf"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "24px",
+            "space-lg": "16px",
+            "margin": "24px",
+            "space-md": "12px",
+            "gutter": "24px",
+            "space-2xl": "32px",
+            "space-xs": "4px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "secondary": [
+              "DM Sans"
+            ],
+            "page-title": [
+              "EB Garamond"
+            ],
+            "display": [
+              "EB Garamond"
+            ],
+            "body": [
+              "DM Sans"
+            ],
+            "small-labels": [
+              "DM Sans"
+            ],
+            "inputs": [
+              "DM Sans"
+            ],
+            "section-heading": [
+              "EB Garamond"
+            ],
+            "entry-headword": [
+              "EB Garamond"
+            ]
+          },
+          "fontSize": {
+            "secondary": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "page-title": [
+              "30px",
+              {
+                "lineHeight": "36px",
+                "fontWeight": "600"
+              }
+            ],
+            "display": [
+              "36px",
+              {
+                "lineHeight": "40px",
+                "fontWeight": "600"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "small-labels": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "fontWeight": "400"
+              }
+            ],
+            "inputs": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "section-heading": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "entry-headword": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center items-center">
+<!-- Mobile Android Artboard Container (412x892 reference, min-h-[892px]) -->
+<main class="w-full max-w-[412px] h-[892px] max-h-screen bg-canvas-light flex flex-col justify-between relative overflow-hidden select-none shadow-sm">
+<!-- Top Region: Status Bar & App Bar -->
+<header class="w-full shrink-0 flex flex-col z-10">
+<!-- Android Status Bar -->
+<div class="h-10 pt-2.5 px-6 flex justify-between items-center text-main-text-light font-secondary text-secondary">
+<span class="font-medium tracking-tight text-main-text-light" id="status-clock">22:37</span>
+<div class="flex items-center space-x-1.5 text-main-text-light">
+<!-- Notification / App Icons -->
+<span class="material-symbols-outlined text-[15px] opacity-80" data-icon="alarm">alarm</span>
+<span class="material-symbols-outlined text-[15px] opacity-80" data-icon="mail">mail</span>
+<span class="material-symbols-outlined text-[16px] ml-1" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="wifi">wifi</span>
+<!-- Battery Pill Representation -->
+<div class="flex items-center ml-0.5">
+<span class="material-symbols-outlined text-[18px] text-[#2D6046]" data-icon="battery_full" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+</div>
+<!-- App Bar (56dp native height, clean stationery styling, no 3 dots) -->
+<div class="h-14 px-3 flex items-center gap-2">
+<button aria-label="Back" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container active:opacity-70 transition-opacity text-main-text-light" type="button">
+<span class="material-symbols-outlined text-main-text-light" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-section-heading text-section-heading text-main-text-light font-semibold tracking-tight">
+          Flashcard practice
+        </h1>
+</div>
+</header>
+<!-- Main Content Area: Spacious & Quiet Stationery Surface -->
+<div class="flex-1 w-full px-margin pt-4 flex flex-col">
+<!-- Interactive Flashcard Card (Native Stationery Reference) -->
+<article aria-label="Flashcard: flâner. Tap to toggle translation" class="w-full bg-surface-light border border-border-light rounded-[28px] p-7 transition-all duration-200 cursor-pointer active:scale-[0.99] focus:outline-none" id="flashcard" role="button" tabindex="0">
+<!-- Headword in Literary EB Garamond -->
+<div class="font-page-title text-[32px] leading-9 text-main-text-light font-semibold tracking-tight mb-2.5" id="card-headword">
+          flâner
+        </div>
+<!-- Translation text (quietly revealed / toggled) -->
+<div class="space-y-3" id="translation-container">
+<p class="hidden font-body text-body text-main-text-light font-normal" id="translation-text">
+            to stroll, to wander aimlessly
+          </p>
+<div class="font-secondary text-secondary text-secondary-text-light select-none hover:text-main-text-light transition-colors" id="toggle-label">
+            Show translation
+          </div>
+</div>
+</article>
+</div>
+<!-- Bottom Region: Full-Width Primary Action & Android System Bar -->
+<footer class="w-full px-margin pb-3 pt-4 flex flex-col gap-4 shrink-0 bg-canvas-light z-10">
+<!-- Pinned 56dp Native Primary Action Button -->
+<button class="w-full h-14 bg-primary-action-light text-on-primary-light font-body text-body font-medium rounded-2xl flex items-center justify-center active:opacity-90 active:scale-[0.99] transition-all focus:outline-none shadow-none" id="next-button" type="button">
+        Next
+      </button>
+<!-- Android Home Navigation Gesture Inset -->
+<div class="w-full flex justify-center items-center py-1">
+<div class="w-36 h-1 bg-main-text-light/80 rounded-full"></div>
+</div>
+</footer>
+</main>
+<!-- Interactive Logic for Card Toggle and Next Flow -->
+<script>
+    (function() {
+      // Realtime subtle clock update
+      function updateClock() {
+        const clockEl = document.getElementById('status-clock');
+        if (!clockEl) return;
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        clockEl.textContent = `${hours}:${minutes}`;
+      }
+      updateClock();
+      setInterval(updateClock, 30000);
+
+      // Flashcards dataset
+      const cards = [
+        { word: "flâner", translation: "to stroll, to wander aimlessly" },
+        { word: "neko", translation: "cat" },
+        { word: "komorebi", translation: "sunlight filtering through trees" },
+        { word: "dépaysant", translation: "giving a feeling of total change of scenery" },
+        { word: "saudade", translation: "a deep melancholic longing" }
+      ];
+
+      let currentIndex = 0;
+      let isTranslationVisible = false;
+
+      const cardElement = document.getElementById('flashcard');
+      const headwordEl = document.getElementById('card-headword');
+      const translationTextEl = document.getElementById('translation-text');
+      const toggleLabelEl = document.getElementById('toggle-label');
+      const nextBtn = document.getElementById('next-button');
+
+      function updateCardView() {
+        const item = cards[currentIndex];
+        headwordEl.textContent = item.word;
+        translationTextEl.textContent = item.translation;
+
+        if (isTranslationVisible) {
+          translationTextEl.classList.remove('hidden');
+          toggleLabelEl.textContent = 'Hide translation';
+        } else {
+          translationTextEl.classList.add('hidden');
+          toggleLabelEl.textContent = 'Show translation';
+        }
+      }
+
+      function toggleTranslation() {
+        isTranslationVisible = !isTranslationVisible;
+        updateCardView();
+      }
+
+      function nextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        isTranslationVisible = false;
+        updateCardView();
+      }
+
+      // Event Listeners
+      cardElement.addEventListener('click', toggleTranslation);
+      cardElement.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTranslation();
+        }
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextCard();
+      });
+
+      // Initial state render
+      updateCardView();
+    })();
+  </script>
+</body></html>

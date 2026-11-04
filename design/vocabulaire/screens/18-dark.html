@@ -177,85 +177,66 @@
 <div aria-hidden="true" class="w-10 h-1 rounded-full bg-divider"></div>
 </div>
 <!-- Sheet Header: Title, Collection Subtitle, Close Button -->
-<div class="px-6 pt-2 pb-4 flex items-start justify-between border-b border-divider">
-<div class="flex flex-col gap-0.5">
-<h2 class="font-headline font-semibold text-[22px] leading-7 text-main tracking-tight" id="sheet-title">
-            Collection tools
-          </h2>
-<div class="flex items-center gap-1.5 text-secondary text-[14px] font-normal">
-<span class="text-sm">☕</span>
-<span>Everyday French</span>
-<span class="text-xs text-secondary/60">·</span>
-<span class="text-xs text-secondary/80">48 terms</span>
-</div>
-</div>
-<!-- Accessible 48x48 hit target Close button -->
+<div class="px-6 pt-2 pb-4 flex items-start justify-between border-b border-divider"><h2 class="font-headline font-semibold text-[22px] leading-7 text-main tracking-tight" id="sheet-title">Collection tools</h2>
 <button aria-label="Close collection tools" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
 <span class="material-symbols-outlined !text-[20px]">close</span>
-</button>
-</div>
+</button></div>
 <!-- List of Tools: 56dp accessible rows, restrained stationery aesthetic -->
-<nav aria-label="Collection tools options" class="flex flex-col py-1.5 divide-y divide-divider">
-<!-- Tool 1: Word of the Day -->
+<nav aria-label="Collection tools options" class="flex flex-col py-1.5 divide-y divide-divider"><!-- Tool 1: Word of the day -->
 <button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
 <div class="flex items-center gap-3.5 min-w-0">
 <div class="w-9 h-9 rounded-full flex items-center justify-center bg-recessed border border-divider text-secondary group-hover:text-main transition-colors">
 <span class="material-symbols-outlined !text-[20px]">wb_sunny</span>
 </div>
-<div class="flex flex-col">
-<span class="font-body text-[15px] font-medium text-main leading-tight">Word of the Day</span>
-<span class="text-[12px] text-secondary font-normal">Daily reflection from this collection</span>
-</div>
+<span class="font-body text-[15px] font-medium text-main leading-tight">Word of the day</span>
 </div>
 <span class="material-symbols-outlined !text-[18px] text-secondary group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
 </button>
-<!-- Tool 2: Manage categories -->
+<!-- Tool 2: Flashcard practice -->
+<button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-full flex items-center justify-center bg-recessed border border-divider text-secondary group-hover:text-main transition-colors">
+<span class="material-symbols-outlined !text-[20px]">style</span>
+</div>
+<span class="font-body text-[15px] font-medium text-main leading-tight">Flashcard practice</span>
+</div>
+<span class="material-symbols-outlined !text-[18px] text-secondary group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+<!-- Tool 3: Manage categories -->
 <button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
 <div class="flex items-center gap-3.5 min-w-0">
 <div class="w-9 h-9 rounded-full flex items-center justify-center bg-recessed border border-divider text-secondary group-hover:text-main transition-colors">
 <span class="material-symbols-outlined !text-[20px]">label</span>
 </div>
-<div class="flex flex-col">
 <span class="font-body text-[15px] font-medium text-main leading-tight">Manage categories</span>
-<span class="text-[12px] text-secondary font-normal">Grammatical &amp; thematic labels</span>
-</div>
 </div>
 <span class="material-symbols-outlined !text-[18px] text-secondary group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
 </button>
-<!-- Tool 3: Export PDF -->
+<!-- Tool 4: Export PDF -->
 <button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
 <div class="flex items-center gap-3.5 min-w-0">
 <div class="w-9 h-9 rounded-full flex items-center justify-center bg-recessed border border-divider text-secondary group-hover:text-main transition-colors">
 <span class="material-symbols-outlined !text-[20px]">picture_as_pdf</span>
 </div>
-<div class="flex flex-col">
 <span class="font-body text-[15px] font-medium text-main leading-tight">Export PDF</span>
-<span class="text-[12px] text-secondary font-normal">Clean, printable study sheet</span>
-</div>
 </div>
 <span class="material-symbols-outlined !text-[18px] text-secondary group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
 </button>
-<!-- Tool 4: Edit collection -->
+<!-- Tool 5: Edit collection -->
 <button class="group h-14 px-6 flex items-center justify-between text-left w-full hover:bg-recessed/60 active:bg-selected-surface transition-colors focus:outline-none focus-visible:bg-recessed" type="button">
 <div class="flex items-center gap-3.5 min-w-0">
 <div class="w-9 h-9 rounded-full flex items-center justify-center bg-recessed border border-divider text-secondary group-hover:text-main transition-colors">
 <span class="material-symbols-outlined !text-[20px]">edit_note</span>
 </div>
-<div class="flex flex-col">
 <span class="font-body text-[15px] font-medium text-main leading-tight">Edit collection</span>
-<span class="text-[12px] text-secondary font-normal">Rename or change emoji icon</span>
-</div>
 </div>
 <span class="material-symbols-outlined !text-[18px] text-secondary group-hover:text-main transition-transform group-hover:translate-x-0.5">chevron_right</span>
-</button>
-</nav>
+</button></nav>
 <!-- Bottom Note / Stationery Accent (Quiet non-gamified reminder) -->
-<div class="px-6 pt-3 pb-2 flex items-center justify-center border-t border-divider">
-<p class="font-label text-[12px] text-secondary flex items-center gap-1.5 italic font-serif">
-<span>Kept locally on this device</span>
-<span class="not-italic text-[10px] text-divider">•</span>
-<span>Offline notebook</span>
-</p>
+<div class="p-4 pt-2 border-t border-divider">
+<button class="w-full h-12 rounded-[12px] bg-recessed border border-divider hover:bg-recessed/60 active:bg-selected-surface text-secondary hover:text-main text-[15px] font-medium transition-colors flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+Cancel
+</button>
 </div>
 <!-- Android System Navigation Inset & Gesture Pill (48dp height area) -->
 <div class="h-10 w-full flex items-center justify-center pb-2">

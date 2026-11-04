@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcard practice</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "surface-tint": "#35684e",
+            "on-tertiary-fixed": "#370d11",
+            "grammatical-fill-light": "#F1E5DC",
+            "thematic-text-light": "#345B43",
+            "outline": "#717972",
+            "primary": "#124830",
+            "border-light": "#D8DED2",
+            "inverse-surface": "#31312c",
+            "surface-bright": "#fcf9f2",
+            "primary-container": "#2d6046",
+            "error-surface-light": "#FBE6E1",
+            "secondary-container": "#d4e3d8",
+            "surface-variant": "#e5e2db",
+            "on-surface": "#1c1c18",
+            "on-primary": "#ffffff",
+            "secondary-text-light": "#59675E",
+            "surface-container": "#f0eee7",
+            "surface": "#fcf9f2",
+            "on-primary-fixed": "#002112",
+            "inverse-primary": "#9cd3b2",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "background": "#fcf9f2",
+            "tertiary": "#633033",
+            "secondary": "#546259",
+            "surface-container-low": "#f6f3ec",
+            "outline-variant": "#c0c9c1",
+            "recessed-light": "#F0EDE5",
+            "grammatical-text-light": "#684435",
+            "on-tertiary-fixed-variant": "#6c373a",
+            "primary-fixed": "#b8efcd",
+            "on-tertiary-container": "#ffbbbd",
+            "on-surface-variant": "#414943",
+            "tertiary-fixed": "#ffdada",
+            "tertiary-fixed-dim": "#feb3b5",
+            "on-tertiary": "#ffffff",
+            "canvas-light": "#F8F5EE",
+            "destructive-light": "#A53532",
+            "on-primary-fixed-variant": "#1c5037",
+            "on-secondary-fixed": "#121e17",
+            "surface-container-high": "#ebe8e1",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dcdad3",
+            "on-secondary-container": "#58665d",
+            "secondary-fixed-dim": "#bbcabf",
+            "error": "#ba1a1a",
+            "on-background": "#1c1c18",
+            "thematic-fill-light": "#E2ECDF",
+            "inverse-on-surface": "#f3f0e9",
+            "on-secondary-fixed-variant": "#3c4a42",
+            "secondary-fixed": "#d7e6db",
+            "on-primary-container": "#a2d8b7",
+            "main-text-light": "#20382E",
+            "primary-fixed-dim": "#9cd3b2",
+            "on-error": "#ffffff",
+            "surface-light": "#FFFCF6",
+            "tertiary-container": "#7f4649"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-md": "0.75rem",
+            "space-xl": "1.5rem",
+            "space-2xl": "2rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "1.5rem"
+          },
+          "fontFamily": {
+            "body-medium": ["DM Sans", "sans-serif"],
+            "page-title": ["EB Garamond", "serif"],
+            "body": ["DM Sans", "sans-serif"],
+            "entry-headword": ["EB Garamond", "serif"],
+            "display": ["EB Garamond", "serif"],
+            "section-heading": ["EB Garamond", "serif"],
+            "small-labels": ["DM Sans", "sans-serif"],
+            "secondary": ["DM Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "page-title": ["30px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "entry-headword": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display": ["36px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "section-heading": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "small-labels": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "secondary": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas-light text-main-text-light antialiased min-h-screen flex justify-center items-center selection:bg-thematic-fill-light selection:text-thematic-text-light font-body">
+<!-- Mobile Device Frame Container -->
+<main class="w-full max-w-[440px] min-h-screen flex flex-col justify-between bg-canvas-light relative overflow-hidden">
+<div>
+<!-- Android Native Status Bar -->
+<div class="w-full h-11 px-gutter flex items-center justify-between text-main-text-light select-none pt-2">
+<span class="font-body-medium text-body-medium text-main-text-light">13:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-main-text-light">wifi</span>
+<span class="material-symbols-outlined text-[20px] text-main-text-light" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component as specified in Shared Components JSON -->
+<header class="bg-surface docked full-width top-0 h-14 shadow-none">
+<div class="flex items-center w-full px-gutter max-w-[480px] mx-auto h-14">
+<button aria-label="Back" class="w-12 h-12 -ml-3 flex items-center justify-center rounded-full text-primary hover:bg-thematic-fill-light active:scale-[0.99] transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="ml-2 font-section-heading text-section-heading text-main-text-light">Flashcard practice</h1>
+</div>
+</header>
+<!-- Main Flashcard Workspace -->
+<div class="px-gutter pt-3">
+<!-- Interactive Compact Flashcard Container -->
+<article class="bg-surface-light border border-border-light rounded-2xl p-[28px] transition-all duration-200 select-none cursor-pointer active:scale-[0.99] shadow-none" id="flashcard">
+<!-- Headword Presentation -->
+<h2 class="font-entry-headword text-entry-headword text-main-text-light mb-3">flâner</h2>
+<!-- Translation / Meaning block -->
+<div class="transition-all duration-200" id="translation-section">
+<p class="font-body text-body text-main-text-light mb-5" id="translation-text">to wander without hurry</p>
+</div>
+<!-- Secondary Quiet Toggle Action Text/Button -->
+<button class="font-secondary text-secondary text-secondary-text-light hover:text-main-text-light p-0 transition-colors focus:outline-none text-left" id="toggle-action" type="button">
+            Hide translation
+          </button>
+</article>
+</div>
+</div>
+<!-- Bottom Thumb Zone & Native Navigation -->
+<div class="px-gutter pb-3 pt-6 flex flex-col items-center">
+<!-- Full-Width Primary Action Button (Next) -->
+<button class="w-full h-14 bg-primary-container hover:bg-primary text-on-primary font-body-medium text-body-medium rounded-2xl flex items-center justify-center transition-all duration-150 active:scale-[0.99] shadow-none" type="button">
+        Next
+      </button>
+<!-- Android Standard Gesture Bar -->
+<div class="w-full flex justify-center items-center pt-5 pb-2">
+<div class="w-36 h-1 bg-main-text-light/40 rounded-full"></div>
+</div>
+</div>
+</main>
+<!-- Interactive State Logic -->
+<script>
+    const toggleButton = document.getElementById('toggle-action');
+    const translationText = document.getElementById('translation-text');
+    let isTranslationVisible = true;
+
+    toggleButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isTranslationVisible = !isTranslationVisible;
+      
+      if (isTranslationVisible) {
+        translationText.style.display = 'block';
+        toggleButton.innerText = 'Hide translation';
+      } else {
+        translationText.style.display = 'none';
+        toggleButton.innerText = 'Show translation';
+      }
+    });
+  </script>
+</body></html>

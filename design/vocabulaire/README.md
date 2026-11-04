@@ -2,7 +2,7 @@
 
 An Android design proposal for a calm, personal, offline vocabulary notebook.
 
-[Open the Stitch project](https://stitch.google.com/projects/8226357890556052909). The handoff contains **53 states in both appearances: 106 current artboards**, each exported as PNG and HTML.
+[Open the Stitch project](https://stitch.google.com/projects/8226357890556052909). The handoff contains 60 states in both appearances, each with PNG and HTML exports.
 
 Open [the review gallery](index.html) to compare light and dark appearances, browse by workflow, and follow the links between connected states. Each artboard also links to its editable Stitch screen and generated HTML export.
 

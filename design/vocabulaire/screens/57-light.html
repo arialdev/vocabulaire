@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcard Practice</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "surface-tint": "#35684e",
+            "on-tertiary-fixed": "#370d11",
+            "grammatical-fill-light": "#F1E5DC",
+            "thematic-text-light": "#345B43",
+            "outline": "#717972",
+            "primary": "#124830",
+            "border-light": "#D8DED2",
+            "inverse-surface": "#31312c",
+            "surface-bright": "#fcf9f2",
+            "primary-container": "#2d6046",
+            "error-surface-light": "#FBE6E1",
+            "secondary-container": "#d4e3d8",
+            "surface-variant": "#e5e2db",
+            "on-surface": "#1c1c18",
+            "on-primary": "#ffffff",
+            "secondary-text-light": "#59675E",
+            "surface-container": "#f0eee7",
+            "surface": "#fcf9f2",
+            "on-primary-fixed": "#002112",
+            "inverse-primary": "#9cd3b2",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "background": "#fcf9f2",
+            "tertiary": "#633033",
+            "secondary": "#546259",
+            "surface-container-low": "#f6f3ec",
+            "outline-variant": "#c0c9c1",
+            "recessed-light": "#F0EDE5",
+            "grammatical-text-light": "#684435",
+            "on-tertiary-fixed-variant": "#6c373a",
+            "primary-fixed": "#b8efcd",
+            "on-tertiary-container": "#ffbbbd",
+            "on-surface-variant": "#414943",
+            "tertiary-fixed": "#ffdada",
+            "tertiary-fixed-dim": "#feb3b5",
+            "on-tertiary": "#ffffff",
+            "canvas-light": "#F8F5EE",
+            "destructive-light": "#A53532",
+            "on-primary-fixed-variant": "#1c5037",
+            "on-secondary-fixed": "#121e17",
+            "surface-container-high": "#ebe8e1",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dcdad3",
+            "on-secondary-container": "#58665d",
+            "secondary-fixed-dim": "#bbcabf",
+            "error": "#ba1a1a",
+            "on-background": "#1c1c18",
+            "thematic-fill-light": "#E2ECDF",
+            "inverse-on-surface": "#f3f0e9",
+            "on-secondary-fixed-variant": "#3c4a42",
+            "secondary-fixed": "#d7e6db",
+            "on-primary-container": "#a2d8b7",
+            "surface-container-highest": "#e5e2db",
+            "main-text-light": "#20382E",
+            "primary-fixed-dim": "#9cd3b2",
+            "on-error": "#ffffff",
+            "surface-light": "#FFFCF6",
+            "tertiary-container": "#7f4649"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-md": "0.75rem",
+            "space-xl": "1.5rem",
+            "space-2xl": "2rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "1.5rem"
+          },
+          "fontFamily": {
+            "body-medium": ["DM Sans"],
+            "page-title": ["EB Garamond"],
+            "body": ["DM Sans"],
+            "entry-headword": ["EB Garamond"],
+            "display": ["EB Garamond"],
+            "section-heading": ["EB Garamond"],
+            "small-labels": ["DM Sans"],
+            "secondary": ["DM Sans"]
+          },
+          "fontSize": {
+            "body-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "page-title": ["30px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "entry-headword": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display": ["36px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "section-heading": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "small-labels": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "secondary": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-main-text-light antialiased min-h-screen flex justify-center selection:bg-secondary-container">
+<!-- Android Canvas Container (Max 480px, responsive) -->
+<main class="w-full max-w-[480px] min-h-screen flex flex-col justify-between relative bg-surface">
+<!-- Top Section: Status Bar & TopAppBar -->
+<header class="w-full">
+<!-- Standard Android Status Bar -->
+<div class="w-full h-10 px-gutter flex items-center justify-between text-main-text-light select-none pt-1">
+<span class="font-body-medium text-secondary text-main-text-light">22:37</span>
+<div class="flex items-center space-x-1.5 text-main-text-light">
+<span class="material-symbols-outlined text-[17px] leading-none">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px] leading-none">wifi</span>
+<span class="material-symbols-outlined text-[20px] leading-none font-bold">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (from Shared Components JSON: docked h-14, 24dp horizontal padding) -->
+<div class="flex items-center w-full px-gutter max-w-[480px] mx-auto h-14 bg-surface shadow-none select-none">
+<button aria-label="Back" class="w-12 h-12 -ml-3 flex items-center justify-center rounded-full text-primary hover:bg-thematic-fill-light active:scale-[0.99] transition-transform duration-150 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="ml-1 text-section-heading font-section-heading text-main-text-light tracking-tight">Flashcard practice</h1>
+</div>
+</header>
+<!-- Main Content Canvas (Standard 24dp Margins) -->
+<div class="flex-1 w-full px-gutter pt-3 pb-6 flex flex-col">
+<!-- Hidden Card: Compact, 24dp radius, subtle border, stationery ivory fill -->
+<article class="w-full bg-surface-light border border-border-light rounded-2xl p-7 flex flex-col items-start transition-all duration-200 cursor-pointer active:scale-[0.99] select-none" id="flashcard">
+<!-- Large Headword (EB Garamond) -->
+<h2 class="text-entry-headword font-entry-headword text-main-text-light tracking-tight">flâner</h2>
+<!-- Hidden Translation Container (Revealed via interactive toggle) -->
+<div class="hidden mt-3 mb-1" id="translation-container">
+<p class="text-body font-body text-main-text-light">to stroll leisurely, to roam aimlessly</p>
+</div>
+<!-- Quiet Secondary Toggle Action -->
+<button class="mt-4 text-secondary font-secondary text-secondary-text-light hover:text-main-text-light transition-colors focus:outline-none text-left" id="toggle-btn" type="button">
+          Show translation
+        </button>
+</article>
+</div>
+<!-- Bottom Thumb Zone Actions & Android Navigation Bar -->
+<footer class="w-full px-gutter pb-3 flex flex-col">
+<!-- Disabled Primary Button: Muted light grayish green background, disabled styling -->
+<button aria-disabled="true" class="w-full h-14 rounded-2xl bg-secondary-container/50 text-secondary-text-light font-body-medium text-body-medium flex items-center justify-center cursor-not-allowed select-none transition-colors duration-150" disabled="" id="next-btn" type="button">
+        Next
+      </button>
+<!-- Standard Android Gesture Navigation Bar -->
+<div class="w-full h-6 flex items-center justify-center pt-2">
+<div class="w-28 h-1 bg-main-text-light/80 rounded-full"></div>
+</div>
+</footer>
+</main>
+<!-- Interactive script for state toggle (Minimal enhancement) -->
+<script>
+    const card = document.getElementById('flashcard');
+    const toggleBtn = document.getElementById('toggle-btn');
+    const translation = document.getElementById('translation-container');
+    const nextBtn = document.getElementById('next-btn');
+
+    let isRevealed = false;
+
+    function handleToggle(e) {
+      if (e) e.stopPropagation();
+      isRevealed = !isRevealed;
+      if (isRevealed) {
+        translation.classList.remove('hidden');
+        toggleBtn.textContent = 'Hide translation';
+        // Enable Next button when card is inspected
+        nextBtn.removeAttribute('disabled');
+        nextBtn.setAttribute('aria-disabled', 'false');
+        nextBtn.classList.remove('bg-secondary-container/50', 'text-secondary-text-light', 'cursor-not-allowed');
+        nextBtn.classList.add('bg-primary', 'text-on-primary', 'cursor-pointer', 'active:scale-[0.99]');
+      } else {
+        translation.classList.add('hidden');
+        toggleBtn.textContent = 'Show translation';
+        // Return to disabled state
+        nextBtn.setAttribute('disabled', 'true');
+        nextBtn.setAttribute('aria-disabled', 'true');
+        nextBtn.classList.remove('bg-primary', 'text-on-primary', 'cursor-pointer', 'active:scale-[0.99]');
+        nextBtn.classList.add('bg-secondary-container/50', 'text-secondary-text-light', 'cursor-not-allowed');
+      }
+    }
+
+    card.addEventListener('click', handleToggle);
+  </script>
+</body></html>

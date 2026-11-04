@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>55 Flashcard practice — Revealed card (Dark)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#e7cabd",
+            "surface-bright": "#343b37",
+            "destructive-text": "#FFB4AB",
+            "outline-variant": "#424842",
+            "secondary-fixed-dim": "#b1ceb5",
+            "on-tertiary": "#3e2c24",
+            "border-subtle": "#45574A",
+            "on-primary-fixed-variant": "#324d37",
+            "chip-thematic-text": "#C1DFC4",
+            "surface-sheet": "#222D27",
+            "on-primary": "#1c3622",
+            "tertiary": "#ffe7dd",
+            "surface-container-highest": "#2f3633",
+            "on-secondary-container": "#a0bca4",
+            "on-secondary-fixed": "#072010",
+            "inverse-primary": "#49654d",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#b0ceb2",
+            "on-secondary": "#1d3624",
+            "tertiary-fixed-dim": "#ddc1b4",
+            "surface-container-low": "#161d1a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#dde4df",
+            "surface-recessed": "#1C2520",
+            "primary": "#d5f5d6",
+            "text-secondary": "#B8C6BC",
+            "primary-container": "#b9d8bb",
+            "inverse-on-surface": "#2b322f",
+            "tertiary-fixed": "#fbdccf",
+            "surface-container-high": "#242c28",
+            "surface": "#0e1512",
+            "destructive-surface": "#4A2926",
+            "on-tertiary-fixed-variant": "#574239",
+            "chip-grammatical-text": "#F3C3AA",
+            "secondary-container": "#334c39",
+            "surface-container-lowest": "#09100d",
+            "on-primary-fixed": "#06200e",
+            "secondary-fixed": "#cdead0",
+            "surface-tint": "#b0ceb2",
+            "on-tertiary-container": "#6a544a",
+            "secondary": "#b1ceb5",
+            "primary-fixed": "#cbebcd",
+            "on-tertiary-fixed": "#271810",
+            "surface-container": "#1a211e",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "on-background": "#dde4df",
+            "chip-grammatical-fill": "#49362D",
+            "outline": "#8c928b",
+            "surface-dim": "#0e1512",
+            "chip-thematic-fill": "#344D3A",
+            "surface-variant": "#2f3633",
+            "on-primary-container": "#445f48",
+            "background": "#0e1512",
+            "on-surface-variant": "#c2c8c0",
+            "on-surface": "#dde4df",
+            "text-main": "#F3F0E7",
+            "on-secondary-fixed-variant": "#334c39"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "space-2xl": "2rem",
+            "margin": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-md": "0.75rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "section-heading": ["EB Garamond"],
+            "label-small": ["DM Sans"],
+            "entry-headword": ["EB Garamond"],
+            "display": ["EB Garamond"],
+            "secondary-medium": ["DM Sans"],
+            "body-medium": ["DM Sans"],
+            "secondary": ["DM Sans"],
+            "body-default": ["DM Sans"],
+            "button-text": ["DM Sans"],
+            "page-title": ["EB Garamond"]
+          },
+          "fontSize": {
+            "section-heading": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-small": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "entry-headword": ["24px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "display": ["36px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "secondary-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "secondary": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-default": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "button-text": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "page-title": ["30px", { "lineHeight": "36px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#171E1B] text-text-main min-h-screen flex items-center justify-center p-0 m-0">
+<!-- Android Artboard Shell (390 x 892 standard dp framing) -->
+<div class="relative w-full max-w-[390px] h-[892px] bg-[#171E1B] flex flex-col justify-between overflow-hidden select-none">
+<!-- Top System Architecture -->
+<header class="w-full flex-shrink-0 z-10">
+<!-- 1. Native Android Status Bar (24dp / h-6) -->
+<div class="h-6 w-full px-6 pt-2 flex items-center justify-between text-text-secondary">
+<span class="text-xs font-medium tracking-tight font-secondary-medium text-text-main">09:41</span>
+<div class="flex items-center space-x-2 text-[14px]">
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="network_wifi">network_wifi</span>
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- 2. TopAppBar (Shared Component implementation) -->
+<div class="flex items-center w-full px-gutter max-w-[480px] mx-auto h-14 bg-surface dark:bg-surface">
+<button aria-label="Navigate back" class="p-2 -ml-2 rounded-full text-primary dark:text-inverse-primary hover:bg-thematic-fill-light dark:hover:bg-surface-variant transition-colors active:scale-[0.99] transition-transform duration-150 flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-2xl text-text-main" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-2 font-page-title text-section-heading font-semibold text-text-main tracking-normal">
+          Flashcard practice
+        </h1>
+</div>
+</header>
+<!-- 3. Primary Content Area: Field Notebook Minimal Card Canvas -->
+<main class="flex-1 w-full px-gutter flex flex-col justify-start pt-6">
+<!-- Compact Revealed Flashcard Card -->
+<div aria-label="Flashcard: flâner. Click to toggle translation visibility." class="w-full bg-[#222D27] border border-[#45574A] rounded-3xl p-6 sm:p-7 flex flex-col items-start text-left cursor-pointer transition-colors active:scale-[0.99] focus:outline-none" id="flashcard" role="button" tabindex="0">
+<!-- Headword (EB Garamond) -->
+<h2 class="font-entry-headword text-[30px] leading-[36px] font-normal text-text-main tracking-tight">
+          flâner
+        </h2>
+<!-- Translation (Revealed State) -->
+<p class="font-body-default text-body-default text-text-main mt-3 leading-relaxed" id="translation-text">
+          to wander without hurry
+        </p>
+<!-- Secondary Toggle Cue -->
+<span class="font-secondary-medium text-secondary-medium text-text-secondary mt-5 hover:text-text-main transition-colors" id="toggle-label">
+          Hide translation
+        </span>
+</div>
+</main>
+<!-- 4. Bottom Area (Pinned Primary Action & Android Navigation Bar) -->
+<footer class="w-full px-gutter pb-4 flex flex-col items-center flex-shrink-0 z-10">
+<!-- Primary Action Button: 'Next' -->
+<button class="w-full h-14 rounded-full bg-primary-container hover:opacity-95 active:scale-[0.99] transition-transform flex items-center justify-center text-[#173824] font-button-text text-button-text font-medium" type="button">
+        Next
+      </button>
+<!-- Android Navigation Gesture Bar Handle -->
+<div class="w-full pt-4 pb-1 flex justify-center items-center">
+<div class="w-28 h-1 bg-[#45574A] rounded-full"></div>
+</div>
+</footer>
+</div>
+<!-- Interactive State Script (Card Tap Toggle) -->
+<script>
+    const flashcard = document.getElementById('flashcard');
+    const translationText = document.getElementById('translation-text');
+    const toggleLabel = document.getElementById('toggle-label');
+
+    let isRevealed = true;
+
+    flashcard.addEventListener('click', () => {
+      isRevealed = !isRevealed;
+      if (isRevealed) {
+        translationText.style.display = 'block';
+        toggleLabel.textContent = 'Hide translation';
+      } else {
+        translationText.style.display = 'none';
+        toggleLabel.textContent = 'Show translation';
+      }
+    });
+
+    flashcard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flashcard.click();
+      }
+    });
+  </script>
+</body></html>

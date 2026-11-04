@@ -73,6 +73,10 @@ export const resources = {
       'Enter a name and icon to save the collection.':
         'Enter a name and icon to save the collection.',
       'Could not load vocabulary.': 'Could not load vocabulary.',
+      'Flashcard practice': 'Flashcard practice',
+      'Show translation': 'Show translation',
+      'Hide translation': 'Hide translation',
+      'Next card': 'Next',
       'Search vocabulary': 'Search vocabulary',
       Search: 'Search',
       'Hide filters': 'Hide filters',
@@ -373,6 +377,10 @@ export const resources = {
       'Enter a name and icon to save the collection.':
         'Introduce un nombre y un icono para guardar la colección.',
       'Could not load vocabulary.': 'No se pudo cargar el vocabulario.',
+      'Flashcard practice': 'Practicar con tarjetas',
+      'Show translation': 'Mostrar traducción',
+      'Hide translation': 'Ocultar traducción',
+      'Next card': 'Siguiente',
       'Search vocabulary': 'Buscar vocabulario',
       Search: 'Buscar',
       'Hide filters': 'Ocultar filtros',

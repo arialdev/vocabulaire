@@ -81,6 +81,8 @@ The compact footer reads “48 entries” only. Do not add “Page 1”, “stor
 
 Term details shows headword, translation, Notes, and categories grouped by type, with Edit term primary and Delete term inside overflow. Word of the Day is one stable daily pick from the entire collection with optional notes and Open term. No reshuffle, streak, reward, or quiz. Insufficient state uses a 3-term collection: “Add 2 more terms”; at least 5 are required. There is no decorative progress meter.
 
+Flashcard practice opens from Collection tools and uses the whole current collection. The card shows the expression and toggles the translation when tapped. Next chooses a different term and hides its translation. An empty collection shows a message and Back; a single-term collection has a tappable card and disabled Next. Practice remains in memory for the current screen.
+
 ### Filters
 
 Within a category type, selected categories match ANY; between types, match BOTH groups; text search combines with categories. Explain briefly in a helper row. Display offers Original expression / Translation / Last updated; A–Z / Z–A for text, Oldest first / Newest first for updated; Compact / Detailed with labeled preview icons. Category clear does not clear the search or display preferences. Full reset on a no-results screen explicitly clears search and categories.

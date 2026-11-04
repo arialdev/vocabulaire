@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>60 Flashcard practice — Read failure (Dark)</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#e7cabd",
+            "surface-bright": "#343b37",
+            "destructive-text": "#FFB4AB",
+            "outline-variant": "#424842",
+            "secondary-fixed-dim": "#b1ceb5",
+            "on-tertiary": "#3e2c24",
+            "border-subtle": "#45574A",
+            "on-primary-fixed-variant": "#324d37",
+            "chip-thematic-text": "#C1DFC4",
+            "surface-sheet": "#222D27",
+            "on-primary": "#1c3622",
+            "tertiary": "#ffe7dd",
+            "surface-container-highest": "#2f3633",
+            "on-secondary-container": "#a0bca4",
+            "on-secondary-fixed": "#072010",
+            "inverse-primary": "#49654d",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#b0ceb2",
+            "on-secondary": "#1d3624",
+            "tertiary-fixed-dim": "#ddc1b4",
+            "surface-container-low": "#161d1a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#dde4df",
+            "surface-recessed": "#1C2520",
+            "primary": "#d5f5d6",
+            "text-secondary": "#B8C6BC",
+            "primary-container": "#b9d8bb",
+            "inverse-on-surface": "#2b322f",
+            "tertiary-fixed": "#fbdccf",
+            "surface-container-high": "#242c28",
+            "surface": "#0e1512",
+            "destructive-surface": "#4A2926",
+            "on-tertiary-fixed-variant": "#574239",
+            "chip-grammatical-text": "#F3C3AA",
+            "secondary-container": "#334c39",
+            "surface-container-lowest": "#09100d",
+            "on-primary-fixed": "#06200e",
+            "secondary-fixed": "#cdead0",
+            "surface-tint": "#b0ceb2",
+            "on-tertiary-container": "#6a544a",
+            "secondary": "#b1ceb5",
+            "primary-fixed": "#cbebcd",
+            "on-tertiary-fixed": "#271810",
+            "surface-container": "#1a211e",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "on-background": "#dde4df",
+            "chip-grammatical-fill": "#49362D",
+            "outline": "#8c928b",
+            "surface-dim": "#0e1512",
+            "chip-thematic-fill": "#344D3A",
+            "surface-variant": "#2f3633",
+            "on-primary-container": "#445f48",
+            "background": "#0e1512",
+            "on-surface-variant": "#c2c8c0",
+            "on-surface": "#dde4df",
+            "text-main": "#F3F0E7",
+            "on-secondary-fixed-variant": "#334c39"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "space-2xl": "2rem",
+            "margin": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-md": "0.75rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "section-heading": ["EB Garamond", "serif"],
+            "label-small": ["DM Sans", "sans-serif"],
+            "entry-headword": ["EB Garamond", "serif"],
+            "display": ["EB Garamond", "serif"],
+            "secondary-medium": ["DM Sans", "sans-serif"],
+            "body-medium": ["DM Sans", "sans-serif"],
+            "secondary": ["DM Sans", "sans-serif"],
+            "body-default": ["DM Sans", "sans-serif"],
+            "button-text": ["DM Sans", "sans-serif"],
+            "page-title": ["EB Garamond", "serif"]
+          },
+          "fontSize": {
+            "section-heading": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-small": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "500"
+              }
+            ],
+            "entry-headword": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "fontWeight": "500"
+              }
+            ],
+            "display": [
+              "36px",
+              {
+                "lineHeight": "40px",
+                "fontWeight": "600"
+              }
+            ],
+            "secondary-medium": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "body-medium": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "500"
+              }
+            ],
+            "secondary": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-default": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "button-text": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "page-title": [
+              "30px",
+              {
+                "lineHeight": "36px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#171E1B] text-text-main antialiased selection:bg-secondary-container selection:text-chip-thematic-text min-h-screen flex items-center justify-center p-0 sm:p-4">
+<!-- Android Device Shell: 390x892dp Canvas -->
+<main class="w-full max-w-[390px] h-[892px] max-h-[892px] bg-[#171E1B] relative flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[36px] sm:border sm:border-border-subtle/30">
+<!-- Top System Container: Status Bar & Docked TopAppBar -->
+<header class="w-full flex flex-col shrink-0 select-none z-10">
+<!-- Native Android Status Bar (Dark) -->
+<div class="h-10 w-full px-6 flex items-center justify-between text-text-secondary text-xs tracking-tight font-medium">
+<span class="font-body-medium text-text-main text-[13px] tracking-normal">09:41</span>
+<div class="flex items-center space-x-2 text-[14px]">
+<!-- Signal Icon -->
+<span class="material-symbols-outlined text-[16px] text-text-secondary leading-none" data-icon="network_cell">network_cell</span>
+<!-- Wifi Icon -->
+<span class="material-symbols-outlined text-[16px] text-text-secondary leading-none" data-icon="wifi">wifi</span>
+<!-- Battery Icon -->
+<span class="material-symbols-outlined text-[18px] text-text-secondary leading-none" data-icon="battery_full" data-weight="fill" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON specifications) -->
+<div class="flex items-center w-full px-margin h-14 bg-surface dark:bg-surface shadow-none">
+<button aria-label="Go back" class="p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors text-text-main active:scale-[0.97] flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-2 font-section-heading text-section-heading text-text-main select-none tracking-normal font-semibold">
+          Flashcard practice
+        </h1>
+</div>
+</header>
+<!-- Main Content Canvas (px-6/margin gutters, compact card state) -->
+<section class="flex-1 w-full px-margin pt-4 flex flex-col justify-start"><p class="text-body-default font-body-default text-text-main mb-4">Could not load vocabulary.</p>
+<button class="w-full h-12 bg-secondary-container hover:bg-surface-variant text-text-main font-button-text text-button-text rounded-2xl flex items-center justify-center transition-all duration-150 active:scale-[0.99]" type="button">Retry</button></section>
+<!-- Bottom Action Dock & Android Gesture Navigation Bar -->
+<footer class="w-full px-margin pb-3 pt-4 flex flex-col items-center shrink-0 z-10">
+<!-- Primary Action Button: Retry -->
+<!-- Android Gesture Navigation Handle Pill -->
+<div class="w-full h-8 flex items-center justify-center mt-1">
+<div class="w-28 h-1 bg-[#45574A] rounded-full opacity-60"></div>
+</div>
+</footer>
+</main>
+</body></html>

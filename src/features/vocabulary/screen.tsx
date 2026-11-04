@@ -3,7 +3,14 @@ import { useReducedMotion } from "../../ui/use-reduced-motion";
 import { useTranslation } from "react-i18next";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { FlatList, Modal, Pressable, useWindowDimensions, View as NativeView } from "react-native";
+import {
+  FlatList,
+  Modal,
+  Pressable,
+  ScrollView,
+  useWindowDimensions,
+  View as NativeView,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Text, TextInput, View, useTheme } from "../../ui/theme";
 import { NotebookText, Icon } from "../../ui/typography";
@@ -460,6 +467,7 @@ function CollectionContents({ id }: { id: string }) {
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
             backgroundColor: theme.surface,
+            maxHeight: "85%",
           }}
         >
           <View
@@ -482,43 +490,53 @@ function CollectionContents({ id }: { id: string }) {
             </Pressable>
             <IconButton name="close" label={t("Close")} onPress={() => setToolsOpen(false)} />
           </View>
-          <MenuAction
-            name="daily"
-            label={t("Word of the day")}
-            onPress={() => {
-              setToolsOpen(false);
-              router.push({ pathname: "/collection/daily", params: { collectionId } });
-            }}
-          />
-          <MenuAction
-            name="categories"
-            label={t("Manage categories")}
-            onPress={() => {
-              setToolsOpen(false);
-              router.push({ pathname: "/collection/categories", params: { collectionId } });
-            }}
-          />
-          <MenuAction
-            name="pdf"
-            label={t("Export PDF")}
-            onPress={() => {
-              setToolsOpen(false);
-              setPdfOpen(true);
-            }}
-          />
-          <MenuAction
-            name="edit"
-            label={t("Edit collection")}
-            onPress={() => {
-              setToolsOpen(false);
-              router.push({ pathname: "/collection/edit", params: { id: collectionId } });
-            }}
-          />
-          <ActionButton
-            label={t("Cancel")}
-            variant="secondary"
-            onPress={() => setToolsOpen(false)}
-          />
+          <ScrollView>
+            <MenuAction
+              name="daily"
+              label={t("Word of the day")}
+              onPress={() => {
+                setToolsOpen(false);
+                router.push({ pathname: "/collection/daily", params: { collectionId } });
+              }}
+            />
+            <MenuAction
+              name="categories"
+              label={t("Flashcard practice")}
+              onPress={() => {
+                setToolsOpen(false);
+                router.push({ pathname: "/collection/practice", params: { collectionId } });
+              }}
+            />
+            <MenuAction
+              name="categories"
+              label={t("Manage categories")}
+              onPress={() => {
+                setToolsOpen(false);
+                router.push({ pathname: "/collection/categories", params: { collectionId } });
+              }}
+            />
+            <MenuAction
+              name="pdf"
+              label={t("Export PDF")}
+              onPress={() => {
+                setToolsOpen(false);
+                setPdfOpen(true);
+              }}
+            />
+            <MenuAction
+              name="edit"
+              label={t("Edit collection")}
+              onPress={() => {
+                setToolsOpen(false);
+                router.push({ pathname: "/collection/edit", params: { id: collectionId } });
+              }}
+            />
+            <ActionButton
+              label={t("Cancel")}
+              variant="secondary"
+              onPress={() => setToolsOpen(false)}
+            />
+          </ScrollView>
         </View>
       </Modal>
       <Modal

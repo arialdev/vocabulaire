@@ -1,0 +1,60 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator. This flow clears application data.
+- clearState
+- launchApp
+- tapOn: Skip
+- tapOn: Create collection
+- tapOn: Collection name
+- inputText: Practice
+- hideKeyboard
+- tapOn: Save
+- tapOn: Open Practice
+- tapOn: Collection tools
+- tapOn: Flashcard practice
+- assertVisible: A new word is a good beginning.
+- back
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: neko
+- tapOn: Translation
+- inputText: cat
+- hideKeyboard
+- tapOn: Save
+- tapOn: Collection tools
+- tapOn: Flashcard practice
+- tapOn: neko, Show translation
+- assertVisible: cat
+- assertVisible:
+    text: Next
+    enabled: false
+- tapOn: neko, cat, Hide translation
+- assertNotVisible: cat
+- back
+- tapOn: Add term
+- tapOn: Original expression
+- inputText: inu
+- tapOn: Translation
+- inputText: dog
+- hideKeyboard
+- tapOn: Save
+- tapOn: Search vocabulary
+- inputText: no-matching-term
+- hideKeyboard
+- tapOn: Collection tools
+- tapOn: Flashcard practice
+- assertVisible: '.*Show translation'
+- runFlow:
+    when:
+      visible: 'neko, Show translation'
+    commands:
+      - tapOn: Next
+      - assertVisible: 'inu, Show translation'
+- runFlow:
+    when:
+      visible: 'inu, Show translation'
+    commands:
+      - tapOn: Next
+      - assertVisible: 'neko, Show translation'
+- back
+- assertVisible: no-matching-term

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>56 Flashcard practice — Empty practice (Dark)</title>
+<!-- Typography: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#e7cabd",
+            "surface-bright": "#343b37",
+            "destructive-text": "#FFB4AB",
+            "outline-variant": "#424842",
+            "secondary-fixed-dim": "#b1ceb5",
+            "on-tertiary": "#3e2c24",
+            "border-subtle": "#45574A",
+            "on-primary-fixed-variant": "#324d37",
+            "chip-thematic-text": "#C1DFC4",
+            "surface-sheet": "#222D27",
+            "on-primary": "#1c3622",
+            "tertiary": "#ffe7dd",
+            "surface-container-highest": "#2f3633",
+            "on-secondary-container": "#a0bca4",
+            "on-secondary-fixed": "#072010",
+            "inverse-primary": "#49654d",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#b0ceb2",
+            "on-secondary": "#1d3624",
+            "tertiary-fixed-dim": "#ddc1b4",
+            "surface-container-low": "#161d1a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#dde4df",
+            "surface-recessed": "#1C2520",
+            "primary": "#d5f5d6",
+            "text-secondary": "#B8C6BC",
+            "primary-container": "#b9d8bb",
+            "inverse-on-surface": "#2b322f",
+            "tertiary-fixed": "#fbdccf",
+            "surface-container-high": "#242c28",
+            "surface": "#0e1512",
+            "destructive-surface": "#4A2926",
+            "on-tertiary-fixed-variant": "#574239",
+            "chip-grammatical-text": "#F3C3AA",
+            "secondary-container": "#334c39",
+            "surface-container-lowest": "#09100d",
+            "on-primary-fixed": "#06200e",
+            "secondary-fixed": "#cdead0",
+            "surface-tint": "#b0ceb2",
+            "on-tertiary-container": "#6a544a",
+            "secondary": "#b1ceb5",
+            "primary-fixed": "#cbebcd",
+            "on-tertiary-fixed": "#271810",
+            "surface-container": "#1a211e",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "on-background": "#dde4df",
+            "chip-grammatical-fill": "#49362D",
+            "outline": "#8c928b",
+            "surface-dim": "#0e1512",
+            "chip-thematic-fill": "#344D3A",
+            "surface-variant": "#2f3633",
+            "on-primary-container": "#445f48",
+            "background": "#0e1512",
+            "on-surface-variant": "#c2c8c0",
+            "on-surface": "#dde4df",
+            "text-main": "#F3F0E7",
+            "on-secondary-fixed-variant": "#334c39"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "space-2xl": "2rem",
+            "margin": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-md": "0.75rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "section-heading": [
+              "EB Garamond", "serif"
+            ],
+            "label-small": [
+              "DM Sans", "sans-serif"
+            ],
+            "entry-headword": [
+              "EB Garamond", "serif"
+            ],
+            "display": [
+              "EB Garamond", "serif"
+            ],
+            "secondary-medium": [
+              "DM Sans", "sans-serif"
+            ],
+            "body-medium": [
+              "DM Sans", "sans-serif"
+            ],
+            "secondary": [
+              "DM Sans", "sans-serif"
+            ],
+            "body-default": [
+              "DM Sans", "sans-serif"
+            ],
+            "button-text": [
+              "DM Sans", "sans-serif"
+            ],
+            "page-title": [
+              "EB Garamond", "serif"
+            ]
+          },
+          "fontSize": {
+            "section-heading": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-small": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "500"
+              }
+            ],
+            "entry-headword": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "fontWeight": "500"
+              }
+            ],
+            "display": [
+              "36px",
+              {
+                "lineHeight": "40px",
+                "fontWeight": "600"
+              }
+            ],
+            "secondary-medium": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "body-medium": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "500"
+              }
+            ],
+            "secondary": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-default": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "button-text": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "page-title": [
+              "30px",
+              {
+                "lineHeight": "36px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-text-main antialiased min-h-screen flex items-center justify-center p-0 selection:bg-chip-thematic-fill selection:text-chip-thematic-text">
+<!-- Device Frame (390 x 892 standard mobile canvas) -->
+<main class="w-full max-w-[390px] h-[892px] bg-surface flex flex-col justify-between overflow-hidden relative shadow-2xl">
+<!-- Top Chrome Area: Status Bar + App Bar -->
+<header class="w-full shrink-0 z-20">
+<!-- Native Android Status Bar (40dp) -->
+<div class="h-10 w-full px-6 flex items-center justify-between text-text-secondary select-none text-xs">
+<span class="font-secondary-medium text-secondary-medium text-text-secondary tracking-normal">09:41</span>
+<div class="flex items-center space-x-2">
+<!-- Signal Icon -->
+<span class="material-symbols-outlined text-base leading-none text-text-secondary" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<!-- WiFi Icon -->
+<span class="material-symbols-outlined text-base leading-none text-text-secondary" data-icon="wifi">wifi</span>
+<!-- Battery Icon -->
+<span class="material-symbols-outlined text-base leading-none text-text-secondary" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON: type: small, headline: Flashcard practice, leading_type: icon, leading_icon: arrow_back) -->
+<div class="h-14 w-full px-gutter flex items-center bg-surface select-none shadow-none">
+<div class="flex items-center w-full max-w-[480px] mx-auto h-14">
+<button aria-label="Go back" class="p-2 -ml-2 rounded-full text-text-main hover:bg-surface-variant transition-colors active:scale-[0.99] duration-150 inline-flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-2xl leading-none text-text-main" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-3 font-section-heading text-section-heading text-text-main tracking-tight">Flashcard practice</h1>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Empty Practice State) -->
+<!-- Distraction-free, contemplative notebook atmosphere; pure editorial typography without gamified elements -->
+<section class="flex-1 flex flex-col items-center text-center px-gutter z-10 pt-6">
+<div class="max-w-[310px] flex flex-col items-center">
+<!-- Contemplative Headword -->
+<h2 class="font-page-title text-page-title text-text-main tracking-tight leading-snug">
+          A new word is a good beginning.
+        </h2>
+<!-- Quiet Explanatory Text -->
+<p class="font-body-default text-body-default text-text-secondary mt-3 leading-relaxed">
+          Add an expression and its translation. The rest can come later.
+        </p>
+</div>
+</section>
+<!-- Bottom Gesture Area (Android Gesture Navigation Pill) -->
+<footer class="w-full shrink-0 pb-3 flex flex-col items-center justify-end z-20">
+<div class="w-28 h-1 bg-border-subtle/80 rounded-full mb-1 transition-opacity opacity-70"></div>
+</footer>
+</main>
+</body></html>

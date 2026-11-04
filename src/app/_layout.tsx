@@ -27,6 +27,7 @@ function Navigation() {
         <Stack.Screen name="term/[id]" options={{ headerShown: false }} />
         <Stack.Screen name="collection/categories" options={{ headerShown: false }} />
         <Stack.Screen name="collection/daily" options={{ headerShown: false }} />
+        <Stack.Screen name="collection/practice" options={{ headerShown: false }} />
         <Stack.Screen name="backup" options={{ headerShown: false }} />
         <Stack.Screen name="settings" options={{ headerShown: false }} />
       </Stack>
