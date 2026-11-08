@@ -1,5 +1,5 @@
 import { getLocales } from 'expo-localization';
-import { resolveLanguage, resources } from '../src/i18n';
+import i18n, { resolveLanguage, resources } from '../src/i18n';
 
 jest.mock('expo-localization', () => ({ getLocales: jest.fn(() => []) }));
 
@@ -19,4 +19,11 @@ test('English and Spanish contain the same bundled translation keys', () => {
   expect(Object.keys(resources.es.translation).sort()).toEqual(
     Object.keys(resources.en.translation).sort(),
   );
+});
+
+test('count labels use singular and plural in both supported languages', () => {
+  expect(i18n.t('entryCount', { lng: 'en', count: 1 })).toBe('1 entry');
+  expect(i18n.t('entryCount', { lng: 'en', count: 2 })).toBe('2 entries');
+  expect(i18n.t('collectionCount', { lng: 'es', count: 1 })).toBe('1 colección');
+  expect(i18n.t('filterCount', { lng: 'es', count: 2 })).toBe('2 filtros guardados');
 });

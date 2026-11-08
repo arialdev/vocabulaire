@@ -1,0 +1,12 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with the review fixture in Downloads.
+- runFlow: review-fixture.yaml
+- tapOn: Filters and display
+- tapOn: Saved filters
+- tapOn: Apply Travel expressions
+- tapOn: 'flâner dans les rues.*'
+- tapOn: Edit term
+- takeScreenshot: 33-${APPEARANCE}-emulator
+- assertVisible: '.*flâner dans les rues sans avoir de destination précise.*'
+- assertVisible: '.*to wander through the streets without a particular destination.*'

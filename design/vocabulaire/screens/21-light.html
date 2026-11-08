@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>21 Filters categories — Light</title>
+<!-- Typography: EB Garamond (literary serif) & DM Sans (clean editorial sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          canvas: "#F8F5EE",
+          surface: "#FFFCF6",
+          recessed: "#F0EDE5",
+          main: "#20382E",
+          secondary: "#59675E",
+          divider: "#D8DED2",
+          primary: "#2D6046",
+          "on-primary": "#FFFFFF",
+          "selected-surface": "#E2ECDF",
+          "grammatical-text": "#684435",
+          "grammatical-fill": "#F1E5DC",
+          "thematic-text": "#345B43",
+          "thematic-fill": "#E2ECDF",
+          destructive: "#A53532",
+          "error-surface": "#FBE6E1"
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          headline: ["EB Garamond", "serif"],
+          display: ["EB Garamond", "serif"],
+          body: ["DM Sans", "sans-serif"],
+          label: ["DM Sans", "sans-serif"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body class="bg-canvas min-h-screen w-full font-body text-main selection:bg-selected-surface m-0 p-0 overflow-hidden">
+<!-- Android Artboard (412dp x 892dp) -->
+<main class="relative w-full h-full min-h-screen max-h-screen bg-canvas overflow-hidden flex flex-col">
+<!-- BACKGROUND: Scrimmed Vocabulary List -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none select-none">
+<div class="h-6 w-full flex justify-between items-center px-6 pt-1 text-[13px] font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<header class="flex justify-between items-center h-14 px-6 border-b border-divider">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-headline font-semibold text-2xl">☕ Everyday French</span>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">more_vert</span>
+</div>
+</header>
+<div class="p-6 space-y-4">
+<div class="h-10 bg-recessed rounded-xl"></div>
+<div class="space-y-3 pt-2">
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+<div class="h-14 border-b border-divider/60"></div>
+</div>
+</div>
+</div>
+<!-- 48% Semantic Scrim Overlay -->
+<div aria-label="Dismiss sheet" class="absolute inset-0 z-10" role="button" style="background-color: rgba(32, 56, 46, 0.48);" tabindex="0"></div>
+<!-- FOREGROUND: Tall Modal Bottom Sheet (24dp top radius) -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto w-full max-h-[88vh] bg-surface rounded-t-[24px] border-t border-divider shadow-[0_-8px_30px_rgba(32,56,46,0.16)] flex flex-col overflow-hidden" role="dialog">
+<!-- Drag Handle -->
+<div class="pt-3 pb-1 w-full flex justify-center items-center cursor-grab">
+<div class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header: Title & Close Button -->
+<div class="px-6 pt-1 pb-3 flex items-center justify-between border-b border-divider/60">
+<div>
+<h2 class="font-headline font-semibold text-[24px] leading-tight text-main tracking-tight" id="sheet-title">
+          Filters &amp; display
+        </h2>
+<p class="text-xs text-secondary mt-0.5">☕ Everyday French · 12 of 48 terms</p>
+</div>
+<button aria-label="Close filters" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[20px]">close</span>
+</button>
+</div>
+<!-- Segmented Navigation Tabs (Categories, Display, Saved) -->
+<div class="px-6 pt-3 pb-2">
+<div class="flex items-center p-1 bg-recessed rounded-xl text-sm font-medium text-secondary">
+<button class="flex-1 py-2 text-center rounded-lg bg-surface text-main shadow-xs font-semibold" type="button">
+          Categories
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors" type="button">
+          Display
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors" type="button">
+          Saved
+        </button>
+</div>
+</div>
+<!-- Scrollable Content Body -->
+<div class="flex-1 overflow-y-auto px-6 py-3 space-y-5">
+<!-- Read-only Current Search Scope Indicator -->
+<div class="flex items-center justify-between px-3.5 py-2.5 bg-canvas border border-divider rounded-xl text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-[16px] text-secondary">search</span>
+<span class="text-secondary font-medium">Current search:</span>
+<span class="font-semibold text-main">“café”</span>
+</div>
+<span class="text-[11px] text-secondary italic">from vocabulary list</span>
+</div>
+<!-- Group 1: Grammatical Categories -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-grammatical-fill text-grammatical-text flex items-center justify-center text-[11px] font-bold tracking-tight">Aa</span>
+<h3 class="font-headline font-semibold text-[17px] text-main">Grammatical</h3>
+</div>
+<span class="text-[11px] text-secondary">1 selected</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Unchecked Chip: Noun -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors flex items-center gap-2 text-sm font-medium" type="button">
+<span>Noun</span>
+</button>
+<!-- Unchecked Chip: Verb -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors flex items-center gap-2 text-sm font-medium" type="button">
+<span>Verb</span>
+</button>
+<!-- Checked Chip: Expression -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border-2 border-primary bg-grammatical-fill text-grammatical-text transition-colors flex items-center gap-2 text-sm font-semibold shadow-xs" type="button">
+<span class="material-symbols-outlined !text-[16px] text-grammatical-text">check</span>
+<span>Expression</span>
+</button>
+</div>
+</div>
+<!-- Group 2: Thematic Categories -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-thematic-fill text-thematic-text flex items-center justify-center">
+<span class="material-symbols-outlined !text-[15px]">eco</span>
+</span>
+<h3 class="font-headline font-semibold text-[17px] text-main">Thematic</h3>
+</div>
+<span class="text-[11px] text-secondary">1 selected</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Unchecked Chip: Everyday life -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors flex items-center gap-2 text-sm font-medium" type="button">
+<span>Everyday life</span>
+</button>
+<!-- Unchecked Chip: Travel -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border border-divider bg-surface text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors flex items-center gap-2 text-sm font-medium" type="button">
+<span>Travel</span>
+</button>
+<!-- Checked Chip: Food & drink -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl border-2 border-primary bg-thematic-fill text-thematic-text transition-colors flex items-center gap-2 text-sm font-semibold shadow-xs" type="button">
+<span class="material-symbols-outlined !text-[16px] text-thematic-text">check</span>
+<span>Food &amp; drink</span>
+</button>
+</div>
+</div>
+<!-- Logical Helper Text -->
+<div class="p-3 bg-canvas/70 rounded-xl border border-divider/60 flex items-start gap-2">
+<span class="material-symbols-outlined !text-[16px] text-secondary mt-0.5">info</span>
+<p class="text-xs text-secondary leading-relaxed">
+          Any selected category within a group; both groups together.
+        </p>
+</div>
+<!-- In-sheet Secondary Action Row -->
+<div class="flex items-center justify-between pt-1 border-t border-divider/50">
+<button class="text-sm font-medium text-secondary hover:text-main py-2 flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined !text-[16px]">clear_all</span>
+<span>Clear category filters</span>
+</button>
+<button class="text-sm font-medium text-primary hover:underline py-2 flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined !text-[16px]">bookmark_add</span>
+<span>Save selection as filter</span>
+</button>
+</div>
+</div>
+<!-- Anchored Footer Action Zone (Safe thumb zone) -->
+<div class="p-6 pt-3 pb-3 border-t border-divider/60 bg-surface flex flex-col gap-2">
+<!-- Primary 56dp CTA -->
+<button class="w-full h-14 bg-primary text-on-primary font-medium text-base rounded-[12px] flex items-center justify-center gap-2 shadow-xs hover:opacity-95 active:opacity-90 transition duration-150" type="button">
+<span class="material-symbols-outlined !text-[20px]">check</span>
+<span class="font-semibold tracking-wide">Apply · 12 terms</span>
+</button>
+<button class="w-full h-10 text-secondary text-sm font-medium hover:text-main flex items-center justify-center transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+<!-- Android Gesture Pill Inset -->
+<div class="h-5 w-full flex items-center justify-center pb-2 bg-surface">
+<div class="w-32 h-1 bg-main/30 rounded-full"></div>
+</div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, height=892, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>52 Backup export ready — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 390px;
+      height: 892px;
+      overflow: hidden;
+      background-color: #F8F5EE;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body text-main select-none flex flex-col justify-between relative bg-canvas">
+<!-- ============================================== -->
+<!-- UNDERLYING PAGE: Backups & export Screen      -->
+<!-- ============================================== -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none">
+<!-- Android Native Status Bar -->
+<div class="w-full h-8 px-6 pt-1 flex justify-between items-center text-xs font-label text-secondary z-10">
+<span class="font-medium tracking-tight">09:41</span>
+<div class="flex items-center space-x-1.5 opacity-80">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Underlying Top App Bar -->
+<header class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center space-x-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed text-main transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold text-main tracking-tight">Backups &amp; export</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed text-secondary transition-colors">
+<span class="material-symbols-outlined text-2xl">help_outline</span>
+</button>
+</header>
+<!-- Underlying Content Simulation -->
+<main class="flex-1 px-6 pt-6 space-y-6 bg-canvas overflow-hidden">
+<!-- Section: Device Storage Card -->
+<section class="p-5 rounded-xl bg-surface border border-divider space-y-3">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary text-2xl">security</span>
+<div>
+<h2 class="font-headline text-xl font-semibold text-main">Device-only archive</h2>
+<p class="font-body text-xs text-secondary mt-0.5">Vocabulaire stores nothing in the cloud.</p>
+</div>
+</div>
+<p class="font-body text-sm text-secondary leading-relaxed">
+          Your collections remain strictly on this device. Create periodic JSON archives to protect your notes against hardware loss.
+        </p>
+</section>
+<!-- Section: Actions -->
+<section class="space-y-3">
+<div class="p-4 rounded-xl bg-surface border border-divider flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary text-2xl">file_upload</span>
+<div>
+<div class="font-body text-sm font-medium text-main">Export backup archive</div>
+<div class="font-body text-xs text-secondary">JSON format · All collections</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">chevron_right</span>
+</div>
+<div class="p-4 rounded-xl bg-surface border border-divider flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-secondary text-2xl">file_download</span>
+<div>
+<div class="font-body text-sm font-medium text-main">Restore notebook</div>
+<div class="font-body text-xs text-secondary">Choose previous JSON file</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">chevron_right</span>
+</div>
+</section>
+<!-- Section: Previous Backup -->
+<div class="pt-2 px-1">
+<span class="font-label text-xs uppercase tracking-wider text-secondary font-semibold">Last recorded export</span>
+<div class="mt-2 text-sm text-main font-body flex items-center space-x-2">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Today, 09:38 · Local device memory</span>
+</div>
+</div>
+</main>
+</div>
+<!-- ============================================== -->
+<!-- 48% DARK SCRIM OVERLAY                        -->
+<!-- ============================================== -->
+<div class="absolute inset-0 bg-[#171E1B] bg-opacity-[0.48] backdrop-blur-[0.5px] z-20 transition-opacity"></div>
+<!-- ============================================== -->
+<!-- ANCHORED BOTTOM SHEET: "Backup ready"          -->
+<!-- ============================================== -->
+<div class="relative z-30 w-full mt-auto flex flex-col bg-surface rounded-t-[24px] border-t border-divider shadow-2xl overflow-hidden">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header -->
+<div class="px-6 pt-2 pb-3 border-b border-divider/60">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-3">
+<!-- Green Circle Checkmark Badge -->
+<div class="w-10 h-10 rounded-full bg-selected-surface flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h2 class="font-headline text-2xl font-semibold text-main leading-tight">Backup ready</h2>
+<p class="font-body text-xs text-secondary mt-0.5">Formatted for offline device storage</p>
+</div>
+</div>
+<!-- Close Control Button -->
+<button aria-label="Close sheet" class="w-10 h-10 -mr-2 flex items-center justify-center rounded-full hover:bg-recessed text-secondary active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+<!-- Sheet Scrollable Content -->
+<div class="px-6 py-4 space-y-4 overflow-y-auto max-h-[520px]">
+<!-- Primary instruction text -->
+<p class="font-body text-sm text-secondary leading-relaxed">
+        Save this file somewhere safe. You'll need it to restore your notebook.
+      </p>
+<!-- File Card -->
+<div class="p-4 rounded-xl bg-recessed border border-divider space-y-3">
+<div class="flex items-start justify-between gap-2"><div class="flex items-start space-x-3 flex-1 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface border border-divider flex items-center justify-center text-primary flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-2xl">description</span></div><div class="min-w-0 flex-1"><div class="font-body font-semibold text-sm text-main leading-tight"><span>vocabulaire-</span><br/><span>2026-11-01.json</span></div><div class="font-body text-xs text-secondary mt-1">JSON notebook bundle</div></div></div><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-thematic-fill text-thematic-text border border-thematic-text/20 flex-shrink-0">Exported</span></div>
+<!-- Included contents pills / Bento Grid Info -->
+<div class="pt-2 border-t border-divider/70 grid grid-cols-2 gap-2 text-xs font-body">
+<div class="flex items-center space-x-1.5 bg-surface px-2.5 py-1.5 rounded-md border border-divider/80">
+<span class="text-sm">☕ 🍋 🌱</span>
+<span class="font-medium text-main">3 collections</span>
+</div>
+<div class="flex items-center space-x-1.5 bg-surface px-2.5 py-1.5 rounded-md border border-divider/80">
+<span class="text-sm">📖</span>
+<span class="font-medium text-main">96 terms</span>
+</div>
+<div class="flex items-center space-x-1.5 bg-surface px-2.5 py-1.5 rounded-md border border-divider/80">
+<span class="text-sm">🏷️</span>
+<span class="font-medium text-main">12 categories</span>
+</div>
+<div class="flex items-center space-x-1.5 bg-surface px-2.5 py-1.5 rounded-md border border-divider/80">
+<span class="text-sm">🔍</span>
+<span class="font-medium text-main">4 saved filters</span>
+</div>
+</div>
+</div>
+<!-- Info Helper Row -->
+<div class="flex items-start space-x-2.5 px-1 py-1">
+<span class="material-symbols-outlined text-secondary text-lg flex-shrink-0 mt-0.5">info</span>
+<p class="font-body text-xs text-secondary leading-normal">Opens the Android share sheet.</p>
+</div>
+</div>
+<!-- Pinned Action Footer (56dp primary button + Done text action) -->
+<div class="px-6 pt-2 pb-4 bg-surface border-t border-divider space-y-2">
+<!-- Primary Action: 56dp Height, #2D6046, 12dp Radius -->
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-body text-base font-semibold flex items-center justify-center space-x-2.5 active:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-xl">share</span>
+<span>Share or save backup</span>
+</button>
+<!-- Secondary Quiet Action: Done -->
+<button class="w-full h-11 rounded-xl text-secondary hover:text-main font-body text-sm font-medium flex items-center justify-center active:opacity-80 transition-colors">
+        Done
+      </button>
+</div>
+<!-- Native Android Gesture Navigation Inset Bar -->
+<div class="w-full h-5 flex justify-center items-center pb-1">
+<div class="w-32 h-1 bg-[#20382E]/30 rounded-full"></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "f90df89dfa7d45c3acb1a43078db5d26",
+    "name": "projects/8226357890556052909/screens/f90df89dfa7d45c3acb1a43078db5d26",
+    "title": "34 Term validation — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/edbf165d07dd4975acfa846f209201b4:download",
+      "name": "projects/8226357890556052909/files/edbf165d07dd4975acfa846f209201b4"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f242bb796dd3415391a3beb3087a9198:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/f242bb796dd3415391a3beb3087a9198"
+    }
+  },
+  {
+    "id": "95bb37c6df1f47e694aa6924205a6b4c",
+    "name": "projects/8226357890556052909/screens/95bb37c6df1f47e694aa6924205a6b4c",
+    "title": "35 Discard term changes — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/36fe3d98924542698d2577b5838c57d8:download",
+      "name": "projects/8226357890556052909/files/36fe3d98924542698d2577b5838c57d8"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/9bd7fe7fb4854096b42ef6ca29e03ec0:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/9bd7fe7fb4854096b42ef6ca29e03ec0"
+    }
+  },
+  {
+    "id": "00e713e8accd4921a07ec01999a624a6",
+    "name": "projects/8226357890556052909/screens/00e713e8accd4921a07ec01999a624a6",
+    "title": "33 Edit term — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/8af1aac4719549c88434e96f9300638c:download",
+      "name": "projects/8226357890556052909/files/8af1aac4719549c88434e96f9300638c"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/840431147d1e444180d878a188f92e62:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/840431147d1e444180d878a188f92e62"
+    }
+  },
+  {
+    "id": "0613ca3a8a2e4d3d9a14bca79733b9e5",
+    "name": "projects/8226357890556052909/screens/0613ca3a8a2e4d3d9a14bca79733b9e5",
+    "title": "36 Manage categories — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/70dc1b15b73d48a58892ff52a12d1254:download",
+      "name": "projects/8226357890556052909/files/70dc1b15b73d48a58892ff52a12d1254"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/681b3e61b6754086b7aa9eb9e0b13b5a:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/681b3e61b6754086b7aa9eb9e0b13b5a"
+    }
+  }
+]

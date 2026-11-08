@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>24 Saved filters empty — Dark</title>
+<!-- Typography: EB Garamond (literary serif) & DM Sans (clean editorial sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          canvas: "#171E1B",
+          surface: "#222D27",
+          recessed: "#1C2520",
+          main: "#F3F0E7",
+          secondary: "#B8C6BC",
+          divider: "#45574A",
+          primary: "#B9D8BB",
+          "on-primary": "#173824",
+          "selected-surface": "#2D3E33",
+          "grammatical-text": "#F3C3AA",
+          "grammatical-fill": "#49362D",
+          "thematic-text": "#C1DFC4",
+          "thematic-fill": "#344D3A",
+          destructive: "#E57373",
+          "error-surface": "#442726"
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          headline: ["EB Garamond", "serif"],
+          display: ["EB Garamond", "serif"],
+          body: ["DM Sans", "sans-serif"],
+          label: ["DM Sans", "sans-serif"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body class="bg-canvas min-h-screen w-full font-body text-main selection:bg-selected-surface p-0 m-0 overflow-hidden">
+<!-- Android Artboard (412dp x 892dp) -->
+<main class="relative w-full h-screen min-h-screen max-h-screen bg-canvas overflow-hidden flex flex-col">
+<!-- BACKGROUND: Dimmed Vocabulary List -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none select-none">
+<div class="h-6 w-full flex justify-between items-center px-6 pt-1 text-[13px] font-medium text-secondary">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<header class="flex justify-between items-center h-14 px-6 border-b border-divider/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">arrow_back</span>
+<span class="font-headline font-semibold text-2xl text-main">☕ Everyday French</span>
+</div>
+<div class="flex gap-1 text-secondary">
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">more_vert</span>
+</div>
+</header>
+<div class="p-6 space-y-4">
+<div class="h-10 bg-recessed rounded-xl border border-divider/40"></div>
+<div class="space-y-3 pt-2">
+<div class="h-14 border-b border-divider/40"></div>
+<div class="h-14 border-b border-divider/40"></div>
+<div class="h-14 border-b border-divider/40"></div>
+</div>
+</div>
+</div>
+<!-- 48% Semantic Dark Scrim Overlay -->
+<div aria-label="Dismiss sheet" class="absolute inset-0 z-10" role="button" style="background-color: rgba(10, 14, 12, 0.65);" tabindex="0"></div>
+<!-- FOREGROUND: Tall Modal Bottom Sheet (Saved Tab Empty) -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 mt-auto w-full max-h-[830px] bg-surface rounded-t-[24px] border-t border-divider shadow-[0_-8px_30px_rgba(0,0,0,0.5)] flex flex-col" role="dialog">
+<!-- Drag Handle -->
+<div class="pt-3 pb-1 w-full flex justify-center items-center cursor-grab">
+<div class="w-10 h-1 rounded-full bg-divider"></div>
+</div>
+<!-- Sheet Header: Title & Close Button -->
+<div class="px-6 pt-1 pb-3 flex items-center justify-between border-b border-divider/60">
+<div>
+<h2 class="font-headline font-semibold text-[24px] leading-tight text-main tracking-tight" id="sheet-title">
+          Filters &amp; display
+        </h2>
+<p class="text-xs text-secondary mt-0.5">☕ Everyday French · No saved filters yet</p>
+</div>
+<button aria-label="Close filters" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-main hover:bg-recessed active:bg-recessed transition-colors" type="button">
+<span class="material-symbols-outlined !text-[20px]">close</span>
+</button>
+</div>
+<!-- Segmented Navigation Tabs (Saved selected) -->
+<div class="px-6 pt-3 pb-2">
+<div class="flex items-center p-1 bg-recessed rounded-xl text-sm font-medium text-secondary border border-divider/40">
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors text-secondary" type="button">
+          Categories
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg hover:text-main transition-colors text-secondary" type="button">
+          Display
+        </button>
+<button class="flex-1 py-2 text-center rounded-lg bg-surface text-main border border-divider shadow-xs font-semibold" type="button">
+          Saved
+        </button>
+</div>
+</div>
+<!-- Scrollable Content Body: Empty State with Subtle Line Drawing & Current Scope Summary -->
+<div class="flex-1 overflow-y-auto px-6 py-4 flex flex-col items-center justify-center text-center space-y-4">
+<!-- Quiet Stationery Line Illustration: Bookmark inside notebook -->
+<div class="w-16 h-16 rounded-2xl bg-recessed border border-divider flex items-center justify-center text-primary shadow-xs">
+<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 32 32">
+<!-- Notebook outline -->
+<rect class="stroke-secondary" height="23" rx="2.5" width="20" x="6" y="5"></rect>
+<!-- Spine stitches -->
+<line class="stroke-primary" x1="10" x2="10" y1="9" y2="10.5"></line>
+<line class="stroke-primary" x1="10" x2="10" y1="14" y2="15.5"></line>
+<line class="stroke-primary" x1="10" x2="10" y1="19" y2="20.5"></line>
+<line class="stroke-primary" x1="10" x2="10" y1="24" y2="25.5"></line>
+<!-- Bookmark ribbon hanging down -->
+<path class="stroke-primary" d="M16 5v12l3-2.5 3 2.5V5" fill="#344D3A"></path>
+</svg>
+</div>
+<!-- Human heading & explanatory copy -->
+<div class="space-y-1.5 max-w-[280px]">
+<h3 class="font-headline font-semibold text-[21px] text-main leading-snug">
+          A shortcut to your favorite words.
+        </h3>
+<p class="text-[13px] text-secondary leading-relaxed">
+          Save this search and category selection to use it again.
+        </p>
+</div>
+<!-- Current Selection Ready to Save Card -->
+<div class="w-full bg-recessed border border-divider rounded-xl p-3.5 text-left space-y-2">
+<div class="flex items-center justify-between text-xs text-secondary font-medium border-b border-divider/60 pb-1.5">
+<span class="flex items-center gap-1.5 text-main font-semibold">
+<span class="material-symbols-outlined !text-[15px] text-primary">filter_list</span>
+            Current selection ready to save
+          </span>
+<span class="text-[11px] text-secondary">12 terms</span>
+</div>
+<div class="space-y-1.5 pt-0.5">
+<div class="flex items-center gap-2 text-xs">
+<span class="text-secondary w-14 shrink-0">Search:</span>
+<span class="font-semibold text-main bg-surface px-2 py-0.5 rounded border border-divider">“café”</span>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="text-secondary w-14 shrink-0">Categories:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[11px] px-2 py-0.5 rounded bg-grammatical-fill text-grammatical-text font-medium">Expression</span>
+<span class="text-secondary text-[11px]">•</span>
+<span class="text-[11px] px-2 py-0.5 rounded bg-thematic-fill text-thematic-text font-medium">Food &amp; drink</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Anchored Footer Action Zone -->
+<div class="p-6 pt-3 pb-3 border-t border-divider/60 bg-surface flex flex-col gap-2">
+<!-- Primary 56dp CTA: Save current selection -->
+<button class="w-full h-14 bg-primary text-on-primary font-medium text-base rounded-[12px] flex items-center justify-center gap-2 shadow-xs hover:opacity-95 active:opacity-90 transition duration-150" type="button">
+<span class="material-symbols-outlined !text-[20px] text-on-primary">bookmark_add</span>
+<span class="font-semibold tracking-wide text-on-primary">Save current selection</span>
+</button>
+<button class="w-full h-10 text-secondary text-sm font-medium hover:text-main flex items-center justify-center transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+<!-- Android Gesture Pill Inset -->
+<div class="h-5 w-full flex items-center justify-center pb-2 bg-surface">
+<div class="w-32 h-1 bg-secondary/40 rounded-full"></div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,15 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with the review fixture in Downloads.
+- runFlow: review-fixture.yaml
+- tapOn: Search vocabulary
+- inputText: flaner
+- hideKeyboard
+- tapOn: 'flâner dans les rues.*'
+- takeScreenshot: 29-${APPEARANCE}-emulator
+- tapOn: 'Actions for flâner.*'
+- takeScreenshot: 30-${APPEARANCE}-emulator
+- tapOn: Delete
+- takeScreenshot: 31-${APPEARANCE}-emulator
+- back
+- assertVisible: Edit term

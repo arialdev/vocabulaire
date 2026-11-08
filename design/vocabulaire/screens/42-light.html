@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>42 Word of the Day — Light</title>
+<!-- Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammar-text": "#684435",
+            "grammar-fill": "#F1E5DC",
+            "theme-text": "#345B43",
+            "theme-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Subtle ruled notebook pattern on the card left margin */
+    .notebook-sheet {
+      position: relative;
+    }
+    .notebook-sheet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 1.5rem;
+      width: 1px;
+      background-color: rgba(216, 222, 210, 0.45);
+      pointer-events: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#ECE8DF] flex justify-center items-center min-h-screen p-0 md:p-6 font-body text-main antialiased selection:bg-selected-surface selection:text-main">
+<!-- Android Artboard Container 412x892 -->
+<main class="w-[412px] h-[892px] bg-canvas relative flex flex-col justify-between overflow-hidden shadow-2xl border border-divider/50 rounded-[32px]">
+<!-- Top System & App Navigation Anchor -->
+<header class="w-full flex-shrink-0 z-20 bg-surface/90 backdrop-blur-sm">
+<!-- Android Status Bar -->
+<div class="h-6 px-6 pt-2 flex justify-between items-center text-xs font-label text-secondary tracking-normal select-none">
+<span class="font-medium text-[13px] text-main">09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Shared Component: TopAppBar -->
+<div class="flex justify-between items-center w-full h-14 px-3 max-w-[412px] mx-auto border-b border-divider/60">
+<!-- Leading Icon Button -->
+<button aria-label="Back to Everyday French" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Titles -->
+<div class="flex flex-col items-center justify-center text-center">
+<h1 class="font-headline text-[22px] font-semibold tracking-normal text-main leading-none">
+            Word of the Day
+          </h1>
+<span class="font-label text-xs text-secondary mt-1 tracking-tight flex items-center gap-1 font-normal">
+            ☕ Everyday French
+          </span>
+</div>
+<!-- Trailing Action Button -->
+<button aria-label="Collection options and info" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Literary Content Canvas -->
+<div class="flex-1 overflow-y-auto px-6 pt-5 pb-3 flex flex-col justify-between">
+<!-- Date Accent & Gentle Orientation Line -->
+<div>
+<div class="flex items-center justify-between border-b border-divider/50 pb-2 mb-4">
+<div class="flex items-center gap-2">
+<!-- Calm botanical line accent -->
+<svg aria-hidden="true" class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12c0-2.8 1.1-5.3 3-7.2"></path>
+<path d="M12 2c0 6 3 10 10 10"></path>
+<path d="M12 12c-4 0-7 3-7 7"></path>
+</svg>
+<span class="font-label text-xs uppercase tracking-widest font-medium text-secondary">
+              1 November
+            </span>
+</div>
+<span class="font-label text-xs text-secondary/80">
+            Daily curation
+          </span>
+</div>
+<p class="font-label text-[13px] text-secondary italic mb-4 tracking-normal">
+          “A word from your notebook, each day.”
+        </p>
+<!-- The Notebook Entry Sheet (Stationery aesthetic) -->
+<article class="notebook-sheet bg-surface border border-divider rounded-2xl p-6 shadow-[0_2px_8px_rgba(32,56,46,0.04)] relative transition-all">
+<!-- Category Chips: Grammatical & Thematic -->
+<div class="flex items-center gap-2 mb-4 pl-3">
+<!-- Grammatical Chip -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-grammar-fill text-grammar-text text-xs font-label font-medium border border-grammar-text/10">
+<span class="font-headline font-semibold text-[13px] leading-none select-none">Aa</span>
+<span>Verb</span>
+</div>
+<!-- Thematic Chip -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-fill text-theme-text text-xs font-label font-medium border border-theme-text/10">
+<span class="material-symbols-outlined text-[13px]" data-icon="eco">eco</span>
+<span>Everyday life</span>
+</div>
+</div>
+<!-- Headword & Phonetics -->
+<div class="pl-3">
+<h2 class="font-headline text-[40px] font-normal text-main tracking-tight leading-[1.1] mb-1">
+              flâner
+            </h2>
+</div>
+<!-- Subtle ruled notebook divider -->
+<div class="border-t border-divider/60 my-4 pl-3"></div>
+<!-- Translation / Meaning -->
+<div class="pl-3 mb-4">
+<span class="font-label text-xs font-medium uppercase tracking-wider text-secondary/70 block mb-0.5">
+              Meaning
+            </span>
+<p class="font-label text-[17px] font-medium text-main leading-snug">
+              to wander without hurry
+            </p>
+</div>
+<!-- Personal Notes Ruled Section -->
+<div class="pl-3 bg-recessed/40 rounded-xl p-3.5 border border-divider/40">
+<span class="font-label text-[11px] font-medium tracking-wide text-secondary uppercase block mb-1">
+              Notebook Note
+            </span>
+<p class="font-body text-[14px] italic text-secondary leading-relaxed">
+              “On a quiet Sunday, with no destination in mind. Often along the Seine or through leafy alleys.”
+            </p>
+</div>
+<!-- Small Notebook Folio Footer -->
+<div class="mt-4 pt-3 border-t border-divider/40 flex items-center justify-between text-[11px] text-secondary font-label pl-3">
+<span>Term 24 of 48</span>
+<span>Added Oct 14</span>
+</div>
+</article>
+<!-- Uncluttered Philosophy / Reassurance Note -->
+<div class="mt-4 px-2 text-center">
+<p class="font-label text-[12px] text-secondary/90 leading-relaxed">
+            Rediscover your vocabulary organically.<br/>A new term appears tomorrow.
+          </p>
+</div>
+</div>
+<!-- Lower Thumb Zone Controls -->
+<div class="pt-4 pb-1 flex flex-col gap-2">
+<!-- Primary Action Button: 56dp (h-14) -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-label font-medium text-[16px] tracking-normal shadow-sm flex items-center justify-center gap-2 hover:bg-[#25503a] active:opacity-90 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" type="button">
+<span>Open term</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Safe Back Link -->
+<button class="w-full py-2 text-center font-label text-[13px] text-secondary hover:text-main transition-colors focus:outline-none" type="button">
+          Back to Everyday French
+        </button>
+</div>
+</div>
+<!-- Android Gesture Pill / System Inset Footer -->
+<div class="h-5 w-full flex items-center justify-center pb-2 select-none flex-shrink-0">
+<div class="w-32 h-1 bg-main/20 rounded-full"></div>
+</div>
+</main>
+</body></html>

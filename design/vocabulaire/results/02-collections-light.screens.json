@@ -1,0 +1,66 @@
+[
+  {
+    "id": "c8637527f3f544ceb6bb294387daf453",
+    "name": "projects/8226357890556052909/screens/c8637527f3f544ceb6bb294387daf453",
+    "title": "06 Collections empty — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/4a4f97e74f2f4976a69c05cfd7e30c49:download",
+      "name": "projects/8226357890556052909/files/4a4f97e74f2f4976a69c05cfd7e30c49"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/09c438a618974ef29ce54b07ffabc1cd:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/09c438a618974ef29ce54b07ffabc1cd"
+    }
+  },
+  {
+    "id": "e7ec230cabaf433bb1947fb3ff4a539b",
+    "name": "projects/8226357890556052909/screens/e7ec230cabaf433bb1947fb3ff4a539b",
+    "title": "05 Collections home — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/219db64a3151466984e8747cdf6859ac:download",
+      "name": "projects/8226357890556052909/files/219db64a3151466984e8747cdf6859ac"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/520263ec851f4280a37fc7858cdb9740:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/520263ec851f4280a37fc7858cdb9740"
+    }
+  },
+  {
+    "id": "64503829f9c840d6a21b64ee77888b49",
+    "name": "projects/8226357890556052909/screens/64503829f9c840d6a21b64ee77888b49",
+    "title": "07 Collection actions — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/378c60a9300e43738da53cdc2446dc47:download",
+      "name": "projects/8226357890556052909/files/378c60a9300e43738da53cdc2446dc47"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/fce4219029ef436385ab9bee83edc8f1:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/fce4219029ef436385ab9bee83edc8f1"
+    }
+  },
+  {
+    "id": "8ab06c88f466439482ca634febc83d35",
+    "name": "projects/8226357890556052909/screens/8ab06c88f466439482ca634febc83d35",
+    "title": "08 Delete collection confirmation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/16f610e935a34a9595605955cc68fd33:download",
+      "name": "projects/8226357890556052909/files/16f610e935a34a9595605955cc68fd33"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/0a1d3da4f3bf40eaadeb0774c8c63b51:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/0a1d3da4f3bf40eaadeb0774c8c63b51"
+    }
+  }
+]

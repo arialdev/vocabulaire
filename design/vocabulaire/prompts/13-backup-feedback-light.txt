@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 49 Restore success — Light
+Collections populated home after restore, same three notebook collections and bottom Create collection. Accessible success snackbar “Backup restored · 3 collections, 96 terms”. No extra congratulations page or confetti. Show the normal root navigation and Settings access. This state returns the user to useful content.
+
+SEPARATE SCREEN: 50 Unsupported backup — Light
+Backups restore error state after selecting vocabulaire-old-export.json. File row with error icon, title “This backup cannot be opened.” Copy “Choose a backup exported by this version of Vocabulaire. Older Ionic backups are not supported.” Explain “Nothing on this device has changed.” Primary Choose another file, quiet Back to backups. Keep Export backup accessible without competing visual emphasis.
+
+SEPARATE SCREEN: 51 Restore failed — Light
+Backups restore failure with calm persistent error panel “Could not restore this backup.” Copy “Your previous data was kept.” Filename and preview counts remain visible, no successful replacement claim. Primary Try again, secondary Choose another file, quiet Cancel restore. Avoid fake specific causes or network troubleshooting because the app works offline.
+
+SEPARATE SCREEN: 52 Backup export ready — Light
+Backups screen with confirmation sheet titled Backup ready. File vocabulaire-2026-11-01.json, 3 collections · 96 terms · 12 categories · 4 saved filters. Copy “Save this file somewhere safe. You’ll need it to restore your notebook.” Primary Share or save backup, secondary Done. Native Android share/save destination chooser follows. Never imply a copy is safely stored until the system handoff succeeds.
+

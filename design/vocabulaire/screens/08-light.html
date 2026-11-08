@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>08 Delete collection confirmation — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts for Vocabulaire -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            "recessed-input": "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#ECE7DC] min-h-screen flex items-center justify-center p-0 md:p-6 antialiased font-body selection:bg-selected-surface selection:text-main">
+<!-- Android Artboard Container (412px x 892px) -->
+<div class="relative w-full max-w-[412px] h-[892px] bg-canvas text-main shadow-2xl overflow-hidden flex flex-col select-none rounded-none md:rounded-[36px] border border-divider">
+<!-- LAYER 1: Background UI (Populated Collections Home) -->
+<div aria-hidden="true" class="w-full h-full flex flex-col bg-canvas filter blur-[0.4px]">
+<!-- Android System Status Bar -->
+<div class="h-6 w-full px-6 pt-1 flex justify-between items-center text-xs font-label text-secondary tracking-normal">
+<span class="font-medium text-main">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[15px]">battery_full</span>
+</div>
+</div>
+<!-- App Bar (TopAppBar) -->
+<header class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto border-b border-divider">
+<h1 class="font-headline text-2xl font-semibold tracking-tight text-main">Vocabulaire</h1>
+<div class="flex items-center">
+<button class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-secondary hover:text-primary transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Notebook Content -->
+<div class="flex-1 overflow-y-auto px-6 pt-6 pb-24">
+<!-- Header Section -->
+<div class="flex items-baseline justify-between mb-5">
+<h2 class="font-headline text-[22px] font-semibold text-main tracking-tight">Your collections</h2>
+<span class="text-xs font-label text-secondary font-medium tracking-wide">3 notebooks</span>
+</div>
+<!-- Collections List -->
+<div class="space-y-3.5">
+<!-- Collection 1: Everyday French (Highlighted as the subject of deletion) -->
+<div class="bg-surface rounded-xl p-4 border border-divider shadow-sm flex items-center justify-between">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed-input flex items-center justify-center text-2xl shrink-0 border border-divider">
+                ☕
+              </div>
+<div class="min-w-0">
+<div class="flex items-center space-x-2">
+<h3 class="font-headline text-lg font-semibold text-main truncate">Everyday French</h3>
+</div>
+<div class="flex items-center space-x-1.5 mt-1 text-[11px] font-label text-secondary">
+<span>48 terms</span>
+<span>•</span>
+<span>4 categories</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<!-- Collection 2: Español de viaje -->
+<div class="bg-surface rounded-xl p-4 border border-divider shadow-sm flex items-center justify-between opacity-80">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed-input flex items-center justify-center text-2xl shrink-0 border border-divider">
+                🍋
+              </div>
+<div class="min-w-0">
+<h3 class="font-headline text-lg font-semibold text-main truncate">Español de viaje</h3>
+<div class="flex items-center space-x-1.5 mt-1 text-[11px] font-label text-secondary">
+<span>32 terms</span>
+<span>•</span>
+<span>3 categories</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<!-- Collection 3: 日本語ノート -->
+<div class="bg-surface rounded-xl p-4 border border-divider shadow-sm flex items-center justify-between opacity-80">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-xl bg-recessed-input flex items-center justify-center text-2xl shrink-0 border border-divider">
+                🌱
+              </div>
+<div class="min-w-0">
+<h3 class="font-headline text-lg font-semibold text-main truncate">日本語ノート</h3>
+<div class="flex items-center space-x-1.5 mt-1 text-[11px] font-label text-secondary">
+<span>16 terms</span>
+<span>•</span>
+<span>2 categories</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Subtle stationery card info block -->
+<div class="mt-8 p-4 rounded-xl border border-divider bg-recessed-input/50 text-center">
+<p class="text-xs text-secondary leading-relaxed font-body">
+            Vocabulaire stores all notebook data locally on this device.
+          </p>
+</div>
+</div>
+<!-- Bottom Floating Primary Button placeholder (muted) -->
+<div class="p-6 pt-0 bg-transparent">
+<div class="w-full h-14 bg-primary text-white font-medium rounded-xl flex items-center justify-center space-x-2 opacity-50">
+<span class="material-symbols-outlined text-xl">add</span>
+<span>New collection</span>
+</div>
+</div>
+</div>
+<!-- LAYER 2: 48% Dark Dim Scrim -->
+<div class="absolute inset-0 bg-black/48 transition-opacity duration-200 z-40 backdrop-blur-[1px]"></div>
+<!-- LAYER 3: Modal Confirmation Dialog (Z-Index 50) -->
+<div class="absolute inset-0 z-50 flex items-center justify-center p-6 pointer-events-auto">
+<!-- Surface Dialog Container -->
+<div aria-describedby="dialog-description" aria-labelledby="dialog-title" aria-modal="true" class="w-full max-w-[340px] bg-surface rounded-2xl p-6 shadow-2xl border border-divider flex flex-col transform translate-y-0" role="alertdialog">
+<!-- Dialog Icon & Headline -->
+<div class="flex items-start space-x-3.5 mb-2.5">
+<div class="w-10 h-10 rounded-xl bg-error-surface flex items-center justify-center text-destructive shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">delete</span>
+</div>
+<div>
+<h2 class="font-headline text-[22px] font-semibold text-main leading-tight" id="dialog-title">
+              Delete Everyday French?
+            </h2>
+</div>
+</div>
+<!-- Explanation Message -->
+<p class="font-body text-[15px] text-secondary leading-relaxed mt-1 mb-6" id="dialog-description">
+          This removes its 48 terms, categories, and saved filters from this device.
+        </p>
+<!-- Actions (Distinct, accessible touch targets >= 48dp) -->
+<div class="flex flex-col sm:flex-row gap-2.5 pt-1">
+<!-- Safe / Secondary Action -->
+<button class="h-12 rounded-xl bg-recessed-input hover:bg-[#E5E1D8] text-main font-medium px-4 text-[15px] flex items-center justify-center flex-1 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary/40 active:opacity-75" type="button">
+            Cancel
+          </button>
+<!-- Destructive Confirmation Action -->
+<button class="h-12 rounded-xl bg-destructive hover:bg-[#922D2A] text-white font-medium px-4 text-[15px] flex items-center justify-center flex-1 shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-destructive/50 active:opacity-90" type="button">
+            Delete collection
+          </button>
+</div>
+</div>
+</div>
+<!-- Android Home Navigation Indicator Bar -->
+<div class="absolute bottom-0 inset-x-0 h-6 flex justify-center items-center pointer-events-none z-50">
+<div class="w-28 h-1 bg-[#20382E]/30 rounded-full"></div>
+</div>
+</div>
+</body></html>

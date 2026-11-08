@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>36 Manage categories — Dark</title>
+<!-- Google Fonts: EB Garamond (display/headline) & DM Sans (body/controls) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#2D3F34",
+            "clay-text": "#F3C3AA",
+            "clay-fill": "#49362D",
+            "theme-text": "#C1DFC4",
+            "theme-fill": "#344D3A",
+            destructive: "#E57373",
+            "error-surface": "#3A2222"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .menu-sheet {
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+    body {
+      min-height: 892px;
+    }
+  </style>
+</head>
+<body class="bg-canvas min-h-screen flex justify-center p-0 font-body text-main antialiased selection:bg-selected-surface selection:text-main">
+<!-- Pure Mobile Viewport Artboard (390px x 892px) -->
+<main class="w-[390px] h-[892px] bg-canvas text-main relative flex flex-col overflow-hidden">
+<!-- Status Bar -->
+<header class="w-full h-8 px-6 flex justify-between items-center text-xs font-medium text-main shrink-0 select-none z-10 bg-canvas">
+<time class="tracking-tight text-[13px] font-semibold text-main">9:41</time>
+<div class="flex items-center gap-2 text-main">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar -->
+<section class="h-16 px-3 flex items-center justify-between border-b border-divider shrink-0 bg-canvas/95 backdrop-blur-sm z-10">
+<div class="flex items-center gap-1.5">
+<button aria-label="Back to ☕ Everyday French" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-main" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline text-[22px] leading-tight font-semibold tracking-tight text-main">
+            Categories
+          </h1>
+<p class="text-[12px] leading-none text-secondary mt-0.5 font-medium flex items-center gap-1">
+<span>☕ Everyday French</span>
+<span class="text-divider">•</span>
+<span>6 categories</span>
+</p>
+</div>
+</div>
+<div class="flex items-center">
+<button aria-label="Search categories" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-main" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+</button>
+</div>
+</section>
+<!-- Scrollable Notebook Canvas -->
+<div class="flex-1 overflow-y-auto px-5 pt-4 pb-28 space-y-6">
+<!-- Context Helper / Note Ribbon -->
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex items-start gap-3 shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 shrink-0" data-icon="folder_open">folder_open</span>
+<div class="text-xs text-secondary leading-relaxed">
+          Categories belong exclusively to <span class="font-semibold text-main">Everyday French</span>. Deleting a category detaches it from vocabulary entries without removing the expressions.
+        </div>
+</div>
+<!-- Section 1: Grammatical -->
+<section aria-labelledby="grammatical-heading">
+<!-- Section Header -->
+<div class="flex items-center justify-between pb-2.5 px-1">
+<div class="flex items-center gap-2">
+<span class="bg-clay-fill text-clay-text px-2 py-0.5 rounded text-[11px] font-bold tracking-wide flex items-center justify-center border border-clay-text/20 select-none">
+              Aa
+            </span>
+<h2 class="font-headline text-[19px] font-semibold text-main tracking-tight" id="grammatical-heading">
+              Grammatical
+            </h2>
+</div>
+<span class="text-xs text-secondary font-normal">Word types &amp; syntax</span>
+</div>
+<!-- Stationery Card / Paper Ruled Block -->
+<div class="bg-surface rounded-xl border border-divider shadow-sm divide-y divide-divider overflow-hidden">
+<!-- Row 1: Noun -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-clay-fill flex items-center justify-center shrink-0 border border-clay-text/20">
+<span class="text-xs font-semibold text-clay-text">Aa</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Noun</p>
+<p class="text-xs text-secondary">18 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Noun category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Noun', 'Grammatical', '18 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+<!-- Row 2: Verb -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-clay-fill flex items-center justify-center shrink-0 border border-clay-text/20">
+<span class="text-xs font-semibold text-clay-text">Aa</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Verb</p>
+<p class="text-xs text-secondary">14 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Verb category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Verb', 'Grammatical', '14 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+<!-- Row 3: Expression -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-clay-fill flex items-center justify-center shrink-0 border border-clay-text/20">
+<span class="text-xs font-semibold text-clay-text">Aa</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Expression</p>
+<p class="text-xs text-secondary">16 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Expression category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Expression', 'Grammatical', '16 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+</div>
+</section>
+<!-- Section 2: Thematic -->
+<section aria-labelledby="thematic-heading">
+<!-- Section Header -->
+<div class="flex items-center justify-between pb-2.5 px-1">
+<div class="flex items-center gap-2">
+<span class="bg-theme-fill text-theme-text px-2 py-0.5 rounded text-[11px] font-bold tracking-wide flex items-center justify-center border border-theme-text/25 select-none gap-0.5">
+<span class="material-symbols-outlined text-[12px] leading-none" data-icon="eco">eco</span>
+<span>Theme</span>
+</span>
+<h2 class="font-headline text-[19px] font-semibold text-main tracking-tight" id="thematic-heading">
+              Thematic
+            </h2>
+</div>
+<span class="text-xs text-secondary font-normal">Context &amp; topics</span>
+</div>
+<!-- Stationery Card / Paper Ruled Block -->
+<div class="bg-surface rounded-xl border border-divider shadow-sm divide-y divide-divider overflow-hidden">
+<!-- Row 1: Everyday life -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-theme-fill flex items-center justify-center shrink-0 border border-theme-text/20">
+<span class="material-symbols-outlined text-theme-text text-base" data-icon="eco">eco</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Everyday life</p>
+<p class="text-xs text-secondary">22 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Everyday life category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Everyday life', 'Thematic', '22 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+<!-- Row 2: Travel -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-theme-fill flex items-center justify-center shrink-0 border border-theme-text/20">
+<span class="material-symbols-outlined text-theme-text text-base" data-icon="eco">eco</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Travel</p>
+<p class="text-xs text-secondary">15 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Travel category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Travel', 'Thematic', '15 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+<!-- Row 3: Food & drink -->
+<article class="flex items-center justify-between min-h-[60px] px-3.5 py-2.5 hover:bg-recessed/60 transition-colors">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-theme-fill flex items-center justify-center shrink-0 border border-theme-text/20">
+<span class="material-symbols-outlined text-theme-text text-base" data-icon="eco">eco</span>
+</div>
+<div class="truncate">
+<p class="font-headline text-[17px] font-medium text-main leading-snug">Food &amp; drink</p>
+<p class="text-xs text-secondary">11 terms</p>
+</div>
+</div>
+<button aria-label="Actions for Food &amp; drink category" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-75 transition-colors text-secondary hover:text-main shrink-0" onclick="openSheet('Food &amp; drink', 'Thematic', '11 terms')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</article>
+</div>
+</section>
+<!-- Literary Notebook Folio Annotation -->
+<footer class="pt-2 pb-6 text-center">
+<span class="text-[12px] font-headline italic text-secondary/80 tracking-wider">
+          § Categories guide collection filters and export summaries
+        </span>
+</footer>
+</div>
+<!-- Bottom Anchored Action Area -->
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-canvas via-canvas/95 to-transparent pt-6 pb-6 px-6 z-20 flex flex-col items-center">
+<button class="w-full h-14 bg-primary text-on-primary rounded-[12px] font-body text-base font-semibold tracking-wide flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:bg-[#a6caa8] active:scale-[0.98] transition-all" id="btn-add-category" onclick="openAddModal()" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+<span>Add category</span>
+</button>
+<!-- Android Navigation Bar Handle -->
+<div class="w-32 h-1 bg-secondary/40 rounded-full mt-4"></div>
+</div>
+<!-- Backdrop Overlay for Sheets & Dialogs -->
+<div class="absolute inset-0 bg-black/60 z-30 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-[2px]" id="sheet-scrim" onclick="closeSheet(); closeAddModal();">
+</div>
+<!-- Contextual Actions Bottom Sheet (Edit / Delete overflow) -->
+<section aria-label="Category Options" class="absolute bottom-0 inset-x-0 bg-surface rounded-t-[24px] border-t border-divider p-6 z-40 transform translate-y-full transition-transform duration-200 ease-out shadow-2xl flex flex-col" id="overflow-sheet">
+<!-- Drag handle -->
+<div class="w-10 h-1 bg-divider rounded-full mx-auto mb-4"></div>
+<!-- Category header summary inside sheet -->
+<div class="mb-5 flex items-center justify-between">
+<div>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-1" id="sheet-category-type">
+            Grammatical
+          </span>
+<h3 class="font-headline text-2xl font-semibold text-main" id="sheet-category-name">
+            Noun
+          </h3>
+<p class="text-xs text-secondary mt-0.5" id="sheet-category-count">18 terms tagged</p>
+</div>
+<button aria-label="Close sheet" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed text-secondary hover:text-main" onclick="closeSheet()" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="close">close</span>
+</button>
+</div>
+<!-- Action Rows -->
+<div class="space-y-1">
+<button class="w-full h-14 px-3 flex items-center gap-3.5 rounded-xl hover:bg-recessed active:bg-recessed/80 transition-colors text-main font-medium text-left" onclick="alert('Opening category editor for ' + currentSelectedCategory); closeSheet();" type="button">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="edit">edit</span>
+<div class="flex-1">
+<p class="text-[15px] font-medium leading-none">Edit category</p>
+<p class="text-xs text-secondary mt-1">Change category name</p>
+</div>
+</button>
+<button class="w-full h-14 px-3 flex items-center gap-3.5 rounded-xl hover:bg-error-surface active:bg-error-surface/80 transition-colors text-destructive font-medium text-left" onclick="confirmDeleteCategory()" type="button">
+<span class="material-symbols-outlined text-destructive text-2xl" data-icon="delete">delete</span>
+<div class="flex-1">
+<p class="text-[15px] font-medium leading-none text-destructive">Delete category</p>
+<p class="text-xs text-destructive/80 mt-1">Detaches from vocabulary terms</p>
+</div>
+</button>
+</div>
+</section>
+<!-- Modal Form: Add Category -->
+<div aria-labelledby="dialog-title" aria-modal="true" class="absolute inset-x-4 top-24 bg-surface rounded-2xl border border-divider p-6 z-40 transform scale-95 opacity-0 pointer-events-none transition-all duration-200 shadow-2xl" id="add-category-dialog" role="dialog">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline text-2xl font-semibold text-main" id="dialog-title">New category</h3>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed text-secondary hover:text-main" onclick="closeAddModal()" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault(); closeAddModal();">
+<!-- Name field -->
+<div>
+<label class="block text-xs font-semibold text-main uppercase tracking-wider mb-1.5" for="cat-name-input">
+            Category name <span class="text-secondary font-normal lowercase">(Required)</span>
+</label>
+<input class="w-full h-12 px-3.5 rounded-lg bg-recessed border border-divider text-main placeholder-secondary/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-recessed transition-all" id="cat-name-input" placeholder="e.g. Slang, Idiom, Coffee shop" required="" type="text"/>
+</div>
+<!-- Type picker -->
+<div>
+<label class="block text-xs font-semibold text-main uppercase tracking-wider mb-2">
+            Category type
+          </label>
+<div class="grid grid-cols-2 gap-2.5">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="cat-type" type="radio" value="grammatical"/>
+<div class="p-3 rounded-xl border border-divider bg-recessed peer-checked:border-clay-text peer-checked:bg-clay-fill/40 flex items-center gap-2.5 transition-all">
+<span class="w-6 h-6 rounded bg-clay-fill text-clay-text text-xs font-bold flex items-center justify-center">Aa</span>
+<div>
+<p class="text-xs font-semibold text-main">Grammar</p>
+<p class="text-[11px] text-secondary">Parts of speech</p>
+</div>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="cat-type" type="radio" value="thematic"/>
+<div class="p-3 rounded-xl border border-divider bg-recessed peer-checked:border-theme-text peer-checked:bg-theme-fill/40 flex items-center gap-2.5 transition-all">
+<span class="w-6 h-6 rounded bg-theme-fill text-theme-text text-xs flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]" data-icon="eco">eco</span>
+</span>
+<div>
+<p class="text-xs font-semibold text-main">Theme</p>
+<p class="text-[11px] text-secondary">Topics &amp; context</p>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Helper note -->
+<p class="text-[12px] text-secondary leading-normal pt-1">
+          Type cannot be changed after creation to preserve filter groupings.
+        </p>
+<!-- Actions -->
+<div class="pt-2 flex gap-2.5">
+<button class="flex-1 h-12 rounded-xl border border-divider text-main font-medium text-sm hover:bg-recessed active:bg-divider transition-colors" onclick="closeAddModal()" type="button">
+            Cancel
+          </button>
+<button class="flex-1 h-12 rounded-xl bg-primary text-on-primary font-semibold text-sm hover:bg-[#a6caa8] active:scale-[0.98] transition-all" type="submit">
+            Save
+          </button>
+</div>
+</form>
+</div>
+</main>
+<!-- Interactive State Scripts -->
+<script>
+    let currentSelectedCategory = "";
+
+    function openSheet(name, type, count) {
+      currentSelectedCategory = name;
+      const sheet = document.getElementById('overflow-sheet');
+      const scrim = document.getElementById('sheet-scrim');
+      
+      const nameEl = document.getElementById('sheet-category-name');
+      const typeEl = document.getElementById('sheet-category-type');
+      const countEl = document.getElementById('sheet-category-count');
+
+      nameEl.textContent = name;
+      countEl.textContent = count + " tagged";
+      
+      if (type === 'Grammatical') {
+        typeEl.textContent = "Grammatical";
+        typeEl.className = "text-[11px] font-bold px-2 py-0.5 rounded bg-clay-fill text-clay-text inline-block mb-1 border border-clay-text/20";
+      } else {
+        typeEl.textContent = "Thematic";
+        typeEl.className = "text-[11px] font-bold px-2 py-0.5 rounded bg-theme-fill text-theme-text inline-block mb-1 border border-theme-text/20";
+      }
+
+      scrim.classList.remove('opacity-0', 'pointer-events-none');
+      scrim.classList.add('opacity-100', 'pointer-events-auto');
+      
+      sheet.classList.remove('translate-y-full');
+      sheet.classList.add('translate-y-0');
+    }
+
+    function closeSheet() {
+      const sheet = document.getElementById('overflow-sheet');
+      const scrim = document.getElementById('sheet-scrim');
+      
+      sheet.classList.remove('translate-y-0');
+      sheet.classList.add('translate-y-full');
+
+      const addDialog = document.getElementById('add-category-dialog');
+      if (addDialog.classList.contains('pointer-events-none')) {
+        scrim.classList.remove('opacity-100', 'pointer-events-auto');
+        scrim.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function openAddModal() {
+      const dialog = document.getElementById('add-category-dialog');
+      const scrim = document.getElementById('sheet-scrim');
+
+      closeSheet();
+
+      scrim.classList.remove('opacity-0', 'pointer-events-none');
+      scrim.classList.add('opacity-100', 'pointer-events-auto');
+
+      dialog.classList.remove('scale-95', 'opacity-0', 'pointer-events-none');
+      dialog.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
+
+      setTimeout(() => {
+        document.getElementById('cat-name-input').focus();
+      }, 150);
+    }
+
+    function closeAddModal() {
+      const dialog = document.getElementById('add-category-dialog');
+      const scrim = document.getElementById('sheet-scrim');
+
+      dialog.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+      dialog.classList.add('scale-95', 'opacity-0', 'pointer-events-none');
+
+      scrim.classList.remove('opacity-100', 'pointer-events-auto');
+      scrim.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function confirmDeleteCategory() {
+      if (confirm(`Remove "${currentSelectedCategory}"? The category will be unassigned from expressions, but no terms will be deleted.`)) {
+        closeSheet();
+      }
+    }
+  </script>
+</body></html>

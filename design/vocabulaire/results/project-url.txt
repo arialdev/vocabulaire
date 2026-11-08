@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "data": {
+    "resource": "project",
+    "id": "8226357890556052909",
+    "url": "https://stitch.google.com/projects/8226357890556052909",
+    "verified": false
+  }
+}

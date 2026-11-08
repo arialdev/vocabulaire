@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 13 Discard collection changes — Light
+Edit collection with changed label Weekend conversations behind scrim. Dialog “Discard your changes?” Copy “Your collection changes have not been saved.” Buttons Keep editing and Discard changes. Calm hierarchy, no destructive action on the underlying form. This is the back/close guard.
+
+SEPARATE SCREEN: 14 Vocabulary compact — Light
+Main collection view. Back to Collections, ☕ Everyday French heading, overflow. Prominent Search words, translations & notes field. Small result summary “48 terms · Compact · Original A–Z”, Filters & display control. Clean ruled vocabulary rows, original prominent with translation on second line: à bientôt / see you soon; avoir le coup de foudre / to fall in love at first sight; dépaysement / the feeling of being somewhere unfamiliar; flâner / to wander without hurry; prendre son temps / to take one’s time. Separate subtle row overflow, tap content opens details. Bottom + Add term primary. No notes or category chips in compact view. Do not invent tab bars or gamification.
+
+SEPARATE SCREEN: 15 Vocabulary detailed — Light
+Same collection toolbar, search and bottom Add term. Summary “48 terms · Detailed · Original A–Z”. Detailed rows show original, translation, optional short notes, and typed category chips. à bientôt / see you soon, notes A friendly goodbye, Aa Expression and leaf Everyday life. flâner / to wander without hurry, notes On a quiet Sunday, with no destination in mind., Aa Verb and leaf Everyday life. prendre son temps / to take one’s time, Aa Expression and leaf Everyday life. Category color and icons distinguish grammar from themes. Three roomy visible entries, no dense wall of chips.
+
+SEPARATE SCREEN: 16 Vocabulary empty — Light
+New collection 🍋 Español de viaje with 0 terms. Back, overflow, search and Filters & display in consistent places. Small line-art index card, headline “A new word is a good beginning.” Copy “Add an expression and its translation. The rest can come later.” Bottom primary + Add your first term. No fake sample entries; hide result density clutter until content exists.
+

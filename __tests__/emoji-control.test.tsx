@@ -24,5 +24,11 @@ test("picker selection returns the full sequence and cancellation preserves the 
   expect(onChange).not.toHaveBeenCalled();
   await fireEvent.press(screen.getByRole("button", { name: "Choose icon: 🇪🇸" }));
   await fireEvent.press(screen.getByRole("button", { name: "Select compound emoji" }));
+  expect(onChange).not.toHaveBeenCalled();
+  await fireEvent.press(screen.getByRole("button", { name: "Cancel" }));
+  expect(onChange).not.toHaveBeenCalled();
+  await fireEvent.press(screen.getByRole("button", { name: "Choose icon: 🇪🇸" }));
+  await fireEvent.press(screen.getByRole("button", { name: "Select compound emoji" }));
+  await fireEvent.press(screen.getByRole("button", { name: "Apply emoji" }));
   expect(onChange).toHaveBeenCalledWith("👩🏽‍💻");
 });

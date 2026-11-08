@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2cc7490b91ad474d95c371e25a16dffd",
+    "name": "projects/8226357890556052909/screens/2cc7490b91ad474d95c371e25a16dffd",
+    "title": "14 Vocabulary compact — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/0f6f4c91f22a4ba3bd7ef3c44f7d8e66:download",
+      "name": "projects/8226357890556052909/files/0f6f4c91f22a4ba3bd7ef3c44f7d8e66"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/97dab3a1326445119d0a1cbe6dcd1933:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/97dab3a1326445119d0a1cbe6dcd1933"
+    }
+  },
+  {
+    "id": "f3aab0c7a0ec482da6fc5772f3a1e3bc",
+    "name": "projects/8226357890556052909/screens/f3aab0c7a0ec482da6fc5772f3a1e3bc",
+    "title": "13 Discard collection changes — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/dc7738846110486db45ecdcd26027f01:download",
+      "name": "projects/8226357890556052909/files/dc7738846110486db45ecdcd26027f01"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/48723743d17a4fe19133cac4c66f6936:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/48723743d17a4fe19133cac4c66f6936"
+    }
+  },
+  {
+    "id": "a438d557f0df443b95c828132772f338",
+    "name": "projects/8226357890556052909/screens/a438d557f0df443b95c828132772f338",
+    "title": "15 Vocabulary detailed — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/b73e64117ce34ba884f0b0003b523ceb:download",
+      "name": "projects/8226357890556052909/files/b73e64117ce34ba884f0b0003b523ceb"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/c2bf300d6344476eae6645ba97ccadbb:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/c2bf300d6344476eae6645ba97ccadbb"
+    }
+  },
+  {
+    "id": "5f8b8ca34e8f4feab353873830c9e1d0",
+    "name": "projects/8226357890556052909/screens/5f8b8ca34e8f4feab353873830c9e1d0",
+    "title": "16 Vocabulary empty — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/134318316e164b3fb895268dbab8a0d4:download",
+      "name": "projects/8226357890556052909/files/134318316e164b3fb895268dbab8a0d4"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/899fafc2cd374cb8bf27ecd348d1e0fc:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/899fafc2cd374cb8bf27ecd348d1e0fc"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 21 Filters categories — Light
+Tall bottom sheet over vocabulary. Handle, title Filters & display, Close. Three segmented tabs Categories, Display, Saved; Categories selected. Read-only current search café. Group Grammatical with Aa icon and selectable Noun, Verb, Expression; Expression checked. Group Thematic with leaf icon and Everyday life, Travel, Food & drink; Food & drink checked. Helper “Any selected category within a group; both groups together.” Text Clear category filters, Save selection as filter link. Anchored Apply · 12 terms. Clear affects categories only. Scroll body safely above footer.
+
+SEPARATE SCREEN: 22 Filters display — Light
+Same Filters & display sheet, Display tab selected. Sort by radio rows Original expression, Translation, Last updated, Original expression selected. Direction A–Z and Z–A radio or segmented control, A–Z selected; small helper “Last updated uses Oldest first / Newest first.” View layout segmented Compact and Detailed with labeled tiny list preview icons, Detailed selected. Clear selection checkmarks, bottom Apply · 48 terms. No category controls mixed into this tab.
+
+SEPARATE SCREEN: 23 Saved filters — Light
+Same Filters & display sheet, Saved tab selected. Rows ☕ Café conversations / Search café · Expression + Food & drink, ✈️ Travel verbs / Verb + Travel, 🌱 Everyday words / Everyday life. Each row tap/Apply action and separate overflow for Delete. Highlight ☕ Café conversations as currently applied with a check and Applied label. Bottom Save current selection. Saved filters store search/categories, not sorting or density.
+
+SEPARATE SCREEN: 24 Saved filters empty — Light
+Same sheet with Saved selected and no saved filters. Small bookmark illustration, title “A shortcut to your favorite words.” Copy “Save this search and category selection to use it again.” Current selection summary Search café · Expression · Food & drink. Primary Save current selection. No fake filters. Close and tabs remain easy to reach.
+

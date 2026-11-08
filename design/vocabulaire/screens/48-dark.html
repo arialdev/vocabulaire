@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>48 Restoring backup — Dark</title>
+<!-- Google Fonts: EB Garamond, Inter, and JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#171E1B',
+            surface: '#222D27',
+            borderGreen: '#45574A',
+            recessed: '#1C2520',
+            buttonDark: '#26382D',
+            textLight: '#F3F0E7',
+            textMuted: '#B8C6BC',
+            accentGreen: '#B9D8BB',
+            leafGreen: '#C1DFC4'
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin 2.2s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-black flex justify-center items-center min-h-screen m-0 p-0 antialiased selection:bg-accentGreen selection:text-canvas">
+<!-- BEGIN: MobileDeviceCanvas -->
+<main class="w-[390px] h-[892px] bg-canvas flex flex-col justify-between overflow-hidden relative select-none" data-purpose="mobile-screen-container">
+<!-- BEGIN: TopSection -->
+<header class="w-full flex flex-col pt-3 z-10" data-purpose="header-and-status-bar">
+<!-- Android Status Bar -->
+<div class="px-6 flex justify-between items-center text-textMuted text-xs font-sans tracking-wide">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5 opacity-90">
+<!-- Network Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z" opacity="0.3"></path>
+<path d="M12 6c-3.31 0-6 2.69-6 6 0 1.52.57 2.91 1.52 3.97L12 19.5l4.48-3.53C17.43 14.91 18 13.52 18 12c0-3.31-2.69-6-6-6z"></path>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.62 0 6.94 1.34 9.5 3.56L12 18.25 2.5 11.06C5.06 8.84 8.38 7.5 12 7.5z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M17 4h-3V2h-4v2H7c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zm-1 16H8V6h8v14z"></path>
+</svg>
+</div>
+</div>
+<!-- App Header Bar -->
+<div class="px-5 py-3 mt-2 flex items-center justify-between border-b border-[#202924]">
+<button aria-label="Back" class="p-1 -ml-1 text-textMuted active:opacity-60 transition-opacity" type="button">
+<!-- Arrow Back Icon -->
+<svg class="w-6 h-6 stroke-current" fill="none" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="font-serif text-[22px] tracking-normal text-textLight font-medium">Restoring backup</h1>
+<button aria-label="Security Status" class="p-1 -mr-1 text-textMuted opacity-80" type="button">
+<!-- Lock Outline Icon -->
+<svg class="w-5 h-5 stroke-current" fill="none" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: TopSection -->
+<!-- BEGIN: MainContent -->
+<section class="flex-1 flex flex-col items-center justify-center px-6 -mt-8" data-purpose="restoration-progress-content">
+<!-- Circular Progress Indicator with Center Icon -->
+<div class="relative w-28 h-28 flex items-center justify-center mb-8" data-purpose="spinner-indicator">
+<!-- SVG Track & Rotating Progress Arc -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle cx="50" cy="50" fill="none" r="42" stroke="#45574A" stroke-opacity="0.5" stroke-width="4.5"></circle>
+<!-- Animated Progress Arc -->
+<circle class="animate-spin-slow origin-center" cx="50" cy="50" fill="none" r="42" stroke="#B9D8BB" stroke-dasharray="264" stroke-dashoffset="190" stroke-linecap="round" stroke-width="4.5"></circle>
+</svg>
+<!-- Center Leaf Icon Container -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-7 h-7 text-leafGreen" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<!-- Leaf Motifs matching the Vocabulaire branding -->
+<path class="opacity-0" d="M12 21a9 9 0 0 0 9-9c0-4.97-4.03-9-9-9-4.97 0-9 4.03-9 9a9 9 0 0 0 9 9z"></path>
+<path d="M12 21V12"></path>
+<path d="M12 12c-2.5-3.5-6-3-6-3s0 3.5 3 6c1.5 1.25 3 1 3 1z"></path>
+<path d="M12 12c2.5-3.5 6-3 6-3s0 3.5-3 6c-1.5 1.25-3 1-3 1z"></path>
+<path d="M12 12c0-3.5 0-6.5 0-6.5s-1.5 1.5-1.5 4"></path>
+</svg>
+</div>
+</div>
+<!-- Main Headline & Description -->
+<h2 class="font-serif text-[28px] text-textLight tracking-tight text-center font-normal mb-3">
+        Restoring your notebook...
+      </h2>
+<p class="font-sans text-[15px] text-textMuted text-center leading-relaxed max-w-[280px] mb-8 font-normal">
+        Keep Vocabulaire open while your data is restored.
+      </p>
+<!-- Backup File Card Details -->
+<article class="w-full bg-surface border border-borderGreen rounded-3xl p-5 flex flex-col items-center shadow-lg shadow-black/20" data-purpose="backup-card">
+<!-- File Name and Icon -->
+<div class="flex items-center space-x-2 text-textLight mb-2.5">
+<svg class="w-4 h-4 text-textMuted stroke-current" fill="none" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="font-mono text-[13.5px] tracking-tight text-textLight">vocabulaire-2026-11-01.json</span>
+</div>
+<!-- Restoration Progress Subtext -->
+<div class="flex items-center space-x-1.5 text-accentGreen text-[13px] font-sans">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-accentGreen animate-pulse"></span>
+<span class="font-medium tracking-normal">Restoring contents...</span>
+</div>
+</article>
+<!-- Local Reassurance Badge/Note -->
+<div class="flex items-center justify-center space-x-2 mt-6 text-textMuted text-xs font-sans tracking-tight opacity-80" data-purpose="security-note">
+<svg class="w-4 h-4 text-textMuted stroke-current" fill="none" stroke-width="1.6" viewbox="0 0 24 24">
+<path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Local device operation · No network required</span>
+</div>
+</section>
+<!-- END: MainContent -->
+<!-- BEGIN: FooterActionAndNav -->
+<footer class="w-full px-6 pb-4 flex flex-col items-center" data-purpose="footer-controls">
+<!-- Disabled Action Button -->
+<button class="w-full py-4 rounded-full bg-buttonDark border border-[#344438] flex items-center justify-center space-x-2 text-textMuted cursor-not-allowed transition duration-200" disabled="" type="button">
+<!-- Hourglass Icon -->
+<svg class="w-4 h-4 text-textMuted fill-current opacity-70" viewbox="0 0 24 24">
+<path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"></path>
+</svg>
+<span class="font-sans text-[15px] font-medium tracking-wide">Please wait...</span>
+</button>
+<!-- Android Home Bar / Navigation Bar Pill -->
+<div class="w-32 h-1 bg-[#4A5950] rounded-full mt-5 mb-1.5 opacity-60"></div>
+</footer>
+<!-- END: FooterActionAndNav -->
+</main>
+<!-- END: MobileDeviceCanvas -->
+</body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>31 Delete term confirmation — Dark</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#171E1B',
+            surface: '#222D27',
+            recessed: '#1C2520',
+            border: '#45574A',
+            textMain: '#F3F0E7',
+            textMuted: '#B8C6BC',
+            destructFill: '#A53532',
+            destructBg: '#4A2926',
+            destructText: '#FFB4AB'
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="typography">
+    body {
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style data-purpose="layout">
+    /* Android standard viewport container constraints */
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #171E1B;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-textMain relative flex items-center justify-center min-h-screen select-none">
+<!-- BEGIN: BlurredBackgroundContent -->
+<!-- Underlying term details view with blur effect -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col justify-between p-4 pointer-events-none filter blur-[3.5px] opacity-45 scale-98">
+<!-- Top Bar with Status and Header -->
+<div>
+<!-- Status Bar Area -->
+<div class="flex justify-between items-center px-4 pt-2 text-xs text-textMuted tracking-wider">
+<span>09:41</span>
+<div class="flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M17 4h-3V2h-4v2H7c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1z"></path></svg>
+</div>
+</div>
+<!-- App Header -->
+<header class="flex items-center justify-between mt-4 px-2">
+<button class="p-2 text-textMain" tabindex="-1">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="flex items-center space-x-2">
+<span class="text-xl">☕</span>
+<span class="font-serif font-semibold text-lg tracking-wide text-textMain">Everyday French</span>
+</div>
+<button class="p-2 text-textMain" tabindex="-1">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="5" r="2"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+<circle cx="12" cy="19" r="2"></circle>
+</svg>
+</button>
+</header>
+<!-- Term Content Presentation -->
+<main class="mt-8 px-4">
+<div class="flex justify-between items-center text-xs font-semibold tracking-wider text-textMuted uppercase mb-3">
+<span>TERM 24 OF 48</span>
+<span>ADDED OCT 14</span>
+</div>
+<h1 class="font-serif text-4xl font-bold text-textMain tracking-normal">flâner</h1>
+<div class="mt-8 space-y-4">
+<div class="h-4 bg-[#222D27] rounded w-3/4"></div>
+<div class="h-4 bg-[#222D27] rounded w-5/6"></div>
+<div class="h-4 bg-[#222D27] rounded w-1/2"></div>
+</div>
+</main>
+</div>
+<!-- Underlying Action Button: Edit term -->
+<div class="w-full px-4 mb-8">
+<div class="w-full bg-[#1e4a38] text-[#97dfbc] py-3.5 rounded-2xl flex items-center justify-center font-medium shadow">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        Edit term
+      </div>
+</div>
+</div>
+<!-- END: BlurredBackgroundContent -->
+<!-- BEGIN: BackdropScrim -->
+<!-- 48% Dark overlay dimming the backdrop -->
+<div aria-hidden="true" class="absolute inset-0 bg-black/50 backdrop-blur-[1px] transition-opacity"></div>
+<!-- END: BackdropScrim -->
+<!-- BEGIN: DeleteConfirmationDialog -->
+<!-- Primary active modal confirmation container -->
+<div aria-describedby="dialog-desc" aria-labelledby="dialog-title" aria-modal="true" class="relative z-10 w-[90%] max-w-[364px] bg-surface border border-border rounded-3xl p-6 shadow-2xl mx-auto flex flex-col items-center" data-purpose="delete-confirmation-dialog" role="dialog">
+<!-- Destructive Badge Icon -->
+<div class="w-12 h-12 rounded-full bg-destructBg flex items-center justify-center mb-3 text-destructText">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Title Header -->
+<h2 class="font-serif text-2xl font-semibold text-textMain tracking-normal text-center" id="dialog-title">
+      Delete flâner?
+    </h2>
+<!-- Explanatory Text -->
+<p class="text-sm text-textMuted text-center mt-2.5 leading-relaxed px-1" id="dialog-desc">
+      This term and its notes will be removed from <span class="font-semibold text-textMain">Everyday French</span>.
+    </p>
+<!-- Info Box Notice -->
+<div class="w-full bg-recessed border border-border rounded-2xl p-3.5 my-5 flex items-start gap-2.5 text-left">
+<svg class="w-4 h-4 text-textMuted flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-xs text-textMuted leading-snug">
+        Categories (<span class="font-medium text-textMain">Verb</span>, <span class="font-medium text-textMain">Everyday life</span>) and the collection will not be deleted.
+      </span>
+</div>
+<!-- Primary Action: Delete Button -->
+<button class="w-full bg-destructFill hover:brightness-110 active:brightness-95 text-[#FFFFFF] rounded-xl py-3.5 px-4 font-medium text-sm flex items-center justify-center gap-2 transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface focus:ring-destructFill shadow-md" type="button">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+      Delete term
+    </button>
+<!-- Safe Action: Cancel Button -->
+<button class="w-full bg-recessed hover:bg-[#25322b] active:bg-[#18211c] border border-border text-textMain rounded-xl py-3.5 px-4 font-medium text-sm text-center transition duration-150 mt-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface focus:ring-border" type="button">
+      Cancel
+    </button>
+</div>
+<!-- END: DeleteConfirmationDialog -->
+<!-- BEGIN: AndroidGestureBar -->
+<!-- Standard Android navigation gesture pill -->
+<div class="fixed bottom-2 left-0 right-0 flex justify-center pointer-events-none z-20">
+<div class="w-32 h-1 bg-[#45574A] rounded-full opacity-70"></div>
+</div>
+<!-- END: AndroidGestureBar -->
+</body></html>

@@ -1,0 +1,168 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "id": "1c2bee855b3c457083cc67970d30d9b6",
+    "project": "8226357890556052909",
+    "title": "21 Filters categories — Light",
+    "device": "DESKTOP",
+    "screenType": "DESIGN",
+    "canvasUrl": "https://stitch.google.com/projects/8226357890556052909?node-id=1c2bee855b3c457083cc67970d30d9b6",
+    "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b:download",
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b"
+    },
+    "rawScreen": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b"
+                },
+                "id": "1c2bee855b3c457083cc67970d30d9b6",
+                "name": "projects/8226357890556052909/screens/1c2bee855b3c457083cc67970d30d9b6",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b:download",
+                  "name": "projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b"
+                },
+                "theme": {},
+                "title": "21 Filters categories — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/a1ef97aebc854b11a78648eadd780465:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/a1ef97aebc854b11a78648eadd780465"
+                },
+                "id": "543d5be04b174ac3910c20aea15e5ea2",
+                "name": "projects/8226357890556052909/screens/543d5be04b174ac3910c20aea15e5ea2",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/d485e064598c42a3b27856954d5a46ff:download",
+                  "name": "projects/8226357890556052909/files/d485e064598c42a3b27856954d5a46ff"
+                },
+                "theme": {},
+                "title": "22 Filters display — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/dbb3361421f041b5a15706559363eb08:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/dbb3361421f041b5a15706559363eb08"
+                },
+                "id": "d89ecc30b77b4080a55e43f739f20fbf",
+                "name": "projects/8226357890556052909/screens/d89ecc30b77b4080a55e43f739f20fbf",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/5a75c62b99344016b0bcbebde483c585:download",
+                  "name": "projects/8226357890556052909/files/5a75c62b99344016b0bcbebde483c585"
+                },
+                "theme": {},
+                "title": "24 Saved filters empty — Light",
+                "width": "2560"
+              },
+              {
+                "deviceType": "DESKTOP",
+                "generatedBy": "create_datastore_entry",
+                "height": "2048",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/a0fba59b5c1541afb664c680d92f2a91:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/a0fba59b5c1541afb664c680d92f2a91"
+                },
+                "id": "579e038325f64450b9f03acc1ad46275",
+                "name": "projects/8226357890556052909/screens/579e038325f64450b9f03acc1ad46275",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f3d63b64939c4daab141289763537387:download",
+                  "name": "projects/8226357890556052909/files/f3d63b64939c4daab141289763537387"
+                },
+                "theme": {},
+                "title": "23 Saved filters — Light",
+                "width": "2560"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I have designed the 4 separate Android MOBILE screens (412×892 dp artboards) for Vocabulaire’s **Filters & display** flow in **Light** appearance, adhering strictly to **The Field Notebook** design system:\n\n1. **`21 Filters categories — Light`** (`21 Filters categories — Light`)\n   - Tall bottom sheet (24dp top radius, 48% scrim) with drag handle, title *Filters & display*, close icon, and subtitle.\n   - Three segmented tabs (*Categories*, *Display*, *Saved*) with **Categories** selected.\n   - Read-only search context banner (`Current search: “café”`).\n   - Grouped chips: **Grammatical** (`Aa` icon, clay treatment `#684435` / `#F1E5DC`) with *Expression* checked; **Thematic** (leaf icon, foliage treatment `#345B43` / `#E2ECDF`) with *Food & drink* checked.\n   - Logical helper: *“Any selected category within a group; both groups together.”*\n   - Actions: *Clear category filters* (clearing only categories) and *Save selection as filter*.\n   - Anchored thumb-zone 56dp CTA: **Apply · 12 terms**.\n\n2. **`22 Filters display — Light`** (`22 Filters display — Light`)\n   - Same bottom sheet with the **Display** tab selected.\n   - **Sort by** radio list: *Original expression* (checked), *Translation*, *Last updated*.\n   - **Direction** segmented control: *A to Z* (selected) vs *Z to A*, with helper note (*“Last updated uses Oldest first / Newest first.”*).\n   - **View layout** density picker: *Compact* vs *Detailed* (selected) accompanied by labeled miniature list preview icons.\n   - Anchored thumb-zone CTA: **Apply · 48 terms** (no category controls mixed into this tab).\n\n3. **`23 Saved filters — Light`** (`23 Saved filters — Light`)\n   - Same bottom sheet with the **Saved** tab selected.\n   - List of saved combinations:\n     - ☕ *Café conversations* (Search “café” · Expression + Food & drink) highlighted as actively applied with an **Applied** badge and checkmark.\n     - ✈️ *Travel verbs* (No query · Verb + Travel) with an inline *Apply* action and overflow menu.\n     - 🌱 *Everyday words* (No query · Everyday life) with an inline *Apply* action and overflow menu.\n   - Anchored bottom CTA: **Save current selection** (56dp, 12dp rounded primary button).\n\n4. **`24 Saved filters empty — Light`** (`24 Saved filters empty — Light`)\n   - Clean empty state with a subtle line-drawn notebook bookmark illustration.\n   - Header *“A shortcut to your favorite words.”* and copy *“Save this search and category selection to use it again.”*\n   - Summary card of the active query and categories ready to be saved (*“café”* · Expression · Food & drink · 12 terms).\n   - Primary 56dp action: **Save current selection**."
+        },
+        {
+          "suggestion": "Generate the dark appearance counterparts for these 4 Filters & display screens"
+        },
+        {
+          "suggestion": "Design the 'Save filter' naming & emoji dialog flow"
+        },
+        {
+          "suggestion": "Design the Term details screen for 'flâner'"
+        }
+      ],
+      "projectId": "8226357890556052909",
+      "sessionId": "9092631105100751084",
+      "deviceType": "DESKTOP",
+      "generatedBy": "create_datastore_entry",
+      "height": "2048",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b:download",
+        "mimeType": "text/html",
+        "name": "projects/8226357890556052909/files/9321aea555e4438fafee3c63c0c1d77b"
+      },
+      "id": "1c2bee855b3c457083cc67970d30d9b6",
+      "name": "projects/8226357890556052909/screens/1c2bee855b3c457083cc67970d30d9b6",
+      "screenMetadata": {
+        "agentType": "PRO_AGENT",
+        "status": "COMPLETE"
+      },
+      "screenType": "DESIGN",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b:download",
+        "name": "projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b"
+      },
+      "theme": {},
+      "title": "21 Filters categories — Light",
+      "width": "2560",
+      "agentText": "I have designed the 4 separate Android MOBILE screens (412×892 dp artboards) for Vocabulaire’s **Filters & display** flow in **Light** appearance, adhering strictly to **The Field Notebook** design system:\n\n1. **`21 Filters categories — Light`** (`21 Filters categories — Light`)\n   - Tall bottom sheet (24dp top radius, 48% scrim) with drag handle, title *Filters & display*, close icon, and subtitle.\n   - Three segmented tabs (*Categories*, *Display*, *Saved*) with **Categories** selected.\n   - Read-only search context banner (`Current search: “café”`).\n   - Grouped chips: **Grammatical** (`Aa` icon, clay treatment `#684435` / `#F1E5DC`) with *Expression* checked; **Thematic** (leaf icon, foliage treatment `#345B43` / `#E2ECDF`) with *Food & drink* checked.\n   - Logical helper: *“Any selected category within a group; both groups together.”*\n   - Actions: *Clear category filters* (clearing only categories) and *Save selection as filter*.\n   - Anchored thumb-zone 56dp CTA: **Apply · 12 terms**.\n\n2. **`22 Filters display — Light`** (`22 Filters display — Light`)\n   - Same bottom sheet with the **Display** tab selected.\n   - **Sort by** radio list: *Original expression* (checked), *Translation*, *Last updated*.\n   - **Direction** segmented control: *A to Z* (selected) vs *Z to A*, with helper note (*“Last updated uses Oldest first / Newest first.”*).\n   - **View layout** density picker: *Compact* vs *Detailed* (selected) accompanied by labeled miniature list preview icons.\n   - Anchored thumb-zone CTA: **Apply · 48 terms** (no category controls mixed into this tab).\n\n3. **`23 Saved filters — Light`** (`23 Saved filters — Light`)\n   - Same bottom sheet with the **Saved** tab selected.\n   - List of saved combinations:\n     - ☕ *Café conversations* (Search “café” · Expression + Food & drink) highlighted as actively applied with an **Applied** badge and checkmark.\n     - ✈️ *Travel verbs* (No query · Verb + Travel) with an inline *Apply* action and overflow menu.\n     - 🌱 *Everyday words* (No query · Everyday life) with an inline *Apply* action and overflow menu.\n   - Anchored bottom CTA: **Save current selection** (56dp, 12dp rounded primary button).\n\n4. **`24 Saved filters empty — Light`** (`24 Saved filters empty — Light`)\n   - Clean empty state with a subtle line-drawn notebook bookmark illustration.\n   - Header *“A shortcut to your favorite words.”* and copy *“Save this search and category selection to use it again.”*\n   - Summary card of the active query and categories ready to be saved (*“café”* · Expression · Food & drink · 12 terms).\n   - Primary 56dp action: **Save current selection**.",
+      "suggestions": [
+        "Generate the dark appearance counterparts for these 4 Filters & display screens",
+        "Design the 'Save filter' naming & emoji dialog flow",
+        "Design the Term details screen for 'flâner'"
+      ],
+      "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfdb7f9f47dd4ba9bb910e6bc714453b:download"
+    }
+  }
+}

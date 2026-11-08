@@ -93,3 +93,48 @@ test('rejects invalid preferences, malformed timestamps, and duplicate filter li
   duplicateLink.data.savedFilterCategories.push(duplicateLink.data.savedFilterCategories[0]);
   expect(() => validateBackup(duplicateLink)).toThrow(/duplicate/i);
 });
+
+test('native review fixture is a valid isolated backup with multilingual and hidden-alias coverage', () => {
+  const { readFileSync } = require('node:fs');
+  const { join } = require('node:path');
+  const fixture = validateBackup(
+    JSON.parse(
+      readFileSync(join(process.cwd(), '.maestro/fixtures/field-notebook-review.json'), 'utf8'),
+    ),
+  );
+  expect(fixture.data.collections[0].shortLabel).toBe('FR');
+  expect(fixture.data.collections).toHaveLength(2);
+  expect(fixture.data.terms.length).toBeGreaterThan(50);
+  expect(fixture.data.categories.map((category) => category.kind).sort()).toEqual([
+    'grammatical',
+    'thematic',
+  ]);
+  expect(fixture.data.savedFilters).toHaveLength(1);
+});
+
+test('a rollback failure is not classified as a preserved notebook', () => {
+  const { replaceFromBackup, RestoreFailure } = require('../src/platform/backup');
+  const writeError = new Error('write failed');
+  const fakeDb = {
+    transaction(callback: (tx: unknown) => void) {
+      try {
+        callback({
+          delete: () => ({
+            run: () => {
+              throw writeError;
+            },
+          }),
+        });
+      } catch {
+        throw new Error('rollback itself failed');
+      }
+    },
+  };
+  try {
+    replaceFromBackup(fakeDb, fixture());
+    throw new Error('expected failure');
+  } catch (error) {
+    expect(error).toBeInstanceOf(RestoreFailure);
+    expect((error as { outcome: string }).outcome).toBe('unknown');
+  }
+});

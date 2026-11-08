@@ -1,4 +1,4 @@
-import { and, eq, inArray } from 'drizzle-orm';
+import { and, count, eq, inArray } from 'drizzle-orm';
 import type { Database } from './database';
 import {
   categories,
@@ -22,6 +22,16 @@ function required(value: string, field: string): string {
 export function createRepository(db: Database) {
   function listCollections() {
     return db.select().from(collections).orderBy(collections.id).all();
+  }
+  function listCollectionSummaries() {
+    return db
+      .select({ collection: collections, termCount: count(terms.id) })
+      .from(collections)
+      .leftJoin(terms, eq(terms.collectionId, collections.id))
+      .groupBy(collections.id)
+      .orderBy(collections.id)
+      .all()
+      .map(({ collection, termCount }) => ({ ...collection, termCount }));
   }
   function getPreferences() {
     db.insert(preferences).values({ id: 1 }).onConflictDoNothing().run();
@@ -295,6 +305,7 @@ export function createRepository(db: Database) {
   }
   return {
     listCollections,
+    listCollectionSummaries,
     getPreferences,
     updatePreferences,
     saveCollection,

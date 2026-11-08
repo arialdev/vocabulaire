@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 29 Term details — Light
+Back to Everyday French, quiet overflow top right. Small collection identifier ☕ Everyday French. Large literary flâner, followed immediately by to wander without hurry. Notes section “On a quiet Sunday, with no destination in mind.” Categories grouped: Grammatical Aa Verb, Thematic leaf Everyday life. Plenty of reading space. Bottom primary Edit term. Delete only in overflow. No pronunciation, audio, favorites, flashcards or rewards.
+
+SEPARATE SCREEN: 30 Term actions — Light
+flâner details dimmed behind modest bottom sheet titled flâner. Rows Edit term and Delete term, and Cancel. No extra actions. Keep delete quiet until confirmation.
+
+SEPARATE SCREEN: 31 Delete term confirmation — Light
+flâner details behind scrim. Dialog “Delete flâner?” Body “This term and its notes will be removed from Everyday French.” Cancel and Delete term. No deletion of categories or collection. Compact confirmation, generous tap targets.
+
+SEPARATE SCREEN: 32 Add term — Light
+New term full-screen form for ☕ Everyday French. Close, title Add term. Original expression · Required multiline input with placeholder e.g. flâner. Translation · Required input with placeholder e.g. to wander without hurry. Notes · Optional comfortable 3-line field. Categories · Optional, grouped Grammatical Aa Noun / Verb / Expression and Thematic leaf Everyday life / Travel / Food & drink, multi-select with checkmarks. Manage categories quiet link. Bottom Save term pinned above safe area. Screen scrolls; no fields clipped by footer.
+

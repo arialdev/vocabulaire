@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>28 Active filtered vocabulary — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            "destructive-text": "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for clean notebook feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#ECE7DC] min-h-screen flex items-center justify-center p-0 sm:py-8 font-body text-main selection:bg-selected-surface">
+<!-- Mobile Frame Canvas (412x892 standard artboard) -->
+<div class="w-full max-w-[412px] h-[892px] bg-canvas relative flex flex-col overflow-hidden shadow-2xl sm:rounded-[36px] border border-divider">
+<!-- Android Status Bar (24dp height) -->
+<header class="w-full h-8 px-6 flex justify-between items-center text-xs font-medium text-main shrink-0 z-30 select-none">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[16px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar (Mapped from Shared Components specification) -->
+<div class="flex justify-between items-center w-full h-14 px-4 bg-surface border-b border-divider shrink-0 z-20">
+<div class="flex items-center gap-2">
+<button aria-label="Back to collections" class="w-10 h-10 -ml-1.5 flex items-center justify-center text-main hover:bg-recessed rounded-full transition-colors duration-150 active:opacity-80">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xl leading-none select-none">☕</span>
+<h1 class="font-headline text-2xl font-semibold text-main tracking-normal">Everyday French</h1>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Search collection" class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-recessed rounded-full transition-colors duration-150 active:opacity-80">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+</button>
+<button aria-label="Collection options" class="w-10 h-10 -mr-1 flex items-center justify-center text-secondary hover:bg-recessed rounded-full transition-colors duration-150 active:opacity-80">
+<span class="material-symbols-outlined text-[22px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Active Search & Filter Header (Max 2 clean chip rows + persistent summary) -->
+<section class="bg-surface px-4 pt-3 pb-3 border-b border-divider shrink-0 flex flex-col gap-2.5 z-10 shadow-sm">
+<!-- Search Input Container -->
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3.5 text-secondary text-[20px] pointer-events-none" data-icon="search">search</span>
+<input aria-label="Active search query" class="w-full h-11 pl-10 pr-10 bg-recessed border border-divider rounded-xl font-body text-[15px] text-main placeholder-secondary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search expressions or notes…" type="text" value="café"/>
+<button aria-label="Clear search input" class="absolute right-2.5 w-7 h-7 flex items-center justify-center text-secondary hover:text-main rounded-full hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Active Filters Horizontal Cluster (Max 2 rows of high-signal filter pills) -->
+<div class="flex flex-wrap items-center gap-1.5">
+<!-- Saved Filter Chip -->
+<span class="inline-flex items-center gap-1.5 h-7 pl-2.5 pr-1.5 bg-selected-surface border border-divider text-main text-[12px] font-medium rounded-full">
+<span>☕ Café conversations</span>
+<button aria-label="Remove saved filter" class="w-4 h-4 flex items-center justify-center text-secondary hover:text-main rounded-full transition-colors">
+<span class="material-symbols-outlined text-[13px]" data-icon="close">close</span>
+</button>
+</span>
+<!-- Active Grammatical Chip -->
+<span class="inline-flex items-center gap-1.5 h-7 pl-2 pr-1.5 bg-grammatical-fill border border-divider/60 text-grammatical-text text-[12px] font-medium rounded-full">
+<span class="font-headline font-semibold text-[13px] leading-none">Aa</span>
+<span>Expression</span>
+<button aria-label="Remove Expression filter" class="w-4 h-4 flex items-center justify-center hover:opacity-75 rounded-full transition-opacity">
+<span class="material-symbols-outlined text-[13px]" data-icon="close">close</span>
+</button>
+</span>
+<!-- Active Thematic Chip -->
+<span class="inline-flex items-center gap-1.5 h-7 pl-2 pr-1.5 bg-thematic-fill border border-divider/60 text-thematic-text text-[12px] font-medium rounded-full">
+<span class="text-[12px] leading-none">🍃</span>
+<span>Food &amp; drink</span>
+<button aria-label="Remove Food and drink filter" class="w-4 h-4 flex items-center justify-center hover:opacity-75 rounded-full transition-opacity">
+<span class="material-symbols-outlined text-[13px]" data-icon="close">close</span>
+</button>
+</span>
+</div>
+<!-- Result Summary & Filter Launcher Row -->
+<div class="flex items-center justify-between pt-1 border-t border-divider/40">
+<span class="text-[13px] text-secondary tracking-normal">
+          12 of 48 terms · Detailed · Original A–Z
+        </span>
+<button aria-label="Open filters and display settings" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-[13px] font-medium text-main hover:bg-recessed rounded-lg transition-colors duration-150">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="tune">tune</span>
+<span>Filters</span>
+<span class="inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold bg-primary text-on-primary rounded-full">2</span>
+</button>
+</div>
+</section>
+<!-- Scrollable Notebook Canvas (Vocabulary Detailed Cards) -->
+<main class="flex-1 overflow-y-auto px-4 py-3 space-y-3 pb-24">
+<!-- Card 1: un café allongé -->
+<article class="bg-surface rounded-xl border border-divider p-4 hover:border-secondary/40 transition-colors duration-150 shadow-sm relative group">
+<div class="flex justify-between items-start gap-2">
+<div class="space-y-1 flex-1 min-w-0">
+<h2 class="font-headline text-[20px] font-semibold text-main leading-tight tracking-normal break-words">
+              un café allongé
+            </h2>
+<p class="text-[15px] text-secondary font-normal leading-snug">
+              a long coffee
+            </p>
+</div>
+<button aria-label="Options for un café allongé" class="w-8 h-8 -mr-1 flex items-center justify-center text-secondary hover:text-main hover:bg-recessed rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Note snippet -->
+<p class="mt-2 text-[14px] italic text-secondary/90 leading-relaxed font-body">
+          “A little more water than an espresso.”
+        </p>
+<!-- Semantic Category Tag Cluster -->
+<footer class="mt-3.5 pt-3 border-t border-divider/50 flex flex-wrap items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-grammatical-fill text-grammatical-text">
+<span class="font-headline font-semibold text-[13px] leading-none">Aa</span>
+<span>Expression</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-thematic-fill text-thematic-text">
+<span class="text-[11px] leading-none">🍃</span>
+<span>Food &amp; drink</span>
+</span>
+</footer>
+</article>
+<!-- Card 2: s’il vous plaît -->
+<article class="bg-surface rounded-xl border border-divider p-4 hover:border-secondary/40 transition-colors duration-150 shadow-sm relative group">
+<div class="flex justify-between items-start gap-2">
+<div class="space-y-1 flex-1 min-w-0">
+<h2 class="font-headline text-[20px] font-semibold text-main leading-tight tracking-normal break-words">
+              s’il vous plaît
+            </h2>
+<p class="text-[15px] text-secondary font-normal leading-snug">
+              please
+            </p>
+</div>
+<button aria-label="Options for s'il vous plaît" class="w-8 h-8 -mr-1 flex items-center justify-center text-secondary hover:text-main hover:bg-recessed rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Note snippet -->
+<p class="mt-2 text-[14px] italic text-secondary/90 leading-relaxed font-body">
+          “Polite ordering in cafes and shops.”
+        </p>
+<!-- Semantic Category Tag Cluster -->
+<footer class="mt-3.5 pt-3 border-t border-divider/50 flex flex-wrap items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-grammatical-fill text-grammatical-text">
+<span class="font-headline font-semibold text-[13px] leading-none">Aa</span>
+<span>Expression</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-thematic-fill text-thematic-text">
+<span class="text-[11px] leading-none">🍃</span>
+<span>Everyday life</span>
+</span>
+</footer>
+</article>
+<!-- Card 3: l’addition, s’il vous plaît -->
+<article class="bg-surface rounded-xl border border-divider p-4 hover:border-secondary/40 transition-colors duration-150 shadow-sm relative group">
+<div class="flex justify-between items-start gap-2">
+<div class="space-y-1 flex-1 min-w-0">
+<h2 class="font-headline text-[20px] font-semibold text-main leading-tight tracking-normal break-words">
+              l’addition, s’il vous plaît
+            </h2>
+<p class="text-[15px] text-secondary font-normal leading-snug">
+              the bill, please
+            </p>
+</div>
+<button aria-label="Options for l'addition, s'il vous plaît" class="w-8 h-8 -mr-1 flex items-center justify-center text-secondary hover:text-main hover:bg-recessed rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Note snippet -->
+<p class="mt-2 text-[14px] italic text-secondary/90 leading-relaxed font-body">
+          “Used when finishing a meal or coffee.”
+        </p>
+<!-- Semantic Category Tag Cluster -->
+<footer class="mt-3.5 pt-3 border-t border-divider/50 flex flex-wrap items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-grammatical-fill text-grammatical-text">
+<span class="font-headline font-semibold text-[13px] leading-none">Aa</span>
+<span>Expression</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[12px] font-medium bg-thematic-fill text-thematic-text">
+<span class="text-[11px] leading-none">🍃</span>
+<span>Food &amp; drink</span>
+</span>
+</footer>
+</article>
+<!-- Atmospheric Notebook End-of-Results Marker -->
+<div class="py-4 text-center">
+<span class="text-[12px] text-secondary/60 tracking-wider uppercase font-body font-medium">
+          — End of filtered results —
+        </span>
+</div>
+</main>
+<!-- Lower Floating Primary Zone: "+ Add term" (56dp height, forest green #2D6046, thumb-friendly) -->
+<div class="absolute bottom-5 inset-x-4 flex justify-end z-20 pointer-events-none">
+<button aria-label="Add new vocabulary term" class="pointer-events-auto h-14 px-6 bg-primary text-on-primary rounded-xl font-body font-medium text-[16px] shadow-lg flex items-center gap-2 hover:brightness-105 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[22px]" data-icon="add">add</span>
+<span>Add term</span>
+</button>
+</div>
+<!-- Android Gesture Navigation Inset (Bottom Bar) -->
+<footer class="w-full h-4 pb-2 flex justify-center items-end shrink-0 z-30 select-none">
+<div class="w-32 h-1 bg-main/30 rounded-full"></div>
+</footer>
+</div>
+</body></html>

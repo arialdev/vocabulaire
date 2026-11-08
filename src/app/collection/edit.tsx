@@ -1,74 +1,105 @@
 import { useTranslation } from "react-i18next";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useState } from "react";
-import { Button, KeyboardAvoidingView, Platform } from "react-native";
-import { ScrollView, Text, TextInput } from "../../ui/theme";
+import { useRef, useState } from "react";
+import { AccessibilityInfo, TextInput as NativeTextInput } from "react-native";
+import { Text, TextInput, View } from "../../ui/theme";
 import { useServices } from "../../data/services";
 import { EmojiControl } from "../../ui/emoji-control";
 import { useUnsavedGuard } from "../../ui/use-unsaved-guard";
-import { useKeyboardInset } from "../../ui/use-keyboard-inset";
+import { AppBar, ScreenLayout } from "../../ui/layout";
+import { ActionButton } from "../../ui/action-button";
+import { NotebookText } from "../../ui/typography";
+import { useTheme } from "../../ui/theme";
 
 export default function EditCollection() {
   const { t } = useTranslation();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const router = useRouter();
-  const keyboardInset = useKeyboardInset();
+  const theme = useTheme();
   const { repository, refresh } = useServices();
   const existing = id
     ? repository.listCollections().find((item) => item.id === Number(id))
     : undefined;
   const [name, setName] = useState(existing?.name ?? "");
-  const [label, setLabel] = useState(existing?.shortLabel ?? "");
+  const saving = useRef(false);
+  const nameRef = useRef<React.ElementRef<typeof NativeTextInput>>(null);
   const [icon, setIcon] = useState(existing?.icon ?? "📚");
   const [error, setError] = useState("");
+  const [focused, setFocused] = useState(false);
   const allowLeave = useUnsavedGuard(
-    name !== (existing?.name ?? "") ||
-      label !== (existing?.shortLabel ?? "") ||
-      icon !== (existing?.icon ?? "📚"),
+    name !== (existing?.name ?? "") || icon !== (existing?.icon ?? "📚"),
+    () => nameRef.current?.focus(),
   );
   if (id && !existing) return <Text>{t("Collection not found.")}</Text>;
   const save = () => {
+    if (saving.current) return;
     if (!name.trim() || !icon.trim()) {
-      setError(t("Enter a name and icon to save the collection."));
+      const message = t("Give your collection a name.");
+      setError(message);
+      AccessibilityInfo.announceForAccessibility(message);
+      nameRef.current?.focus();
       return;
     }
+    saving.current = true;
     try {
-      const row = repository.saveCollection({ id: existing?.id, name, shortLabel: label, icon });
+      repository.saveCollection({
+        id: existing?.id,
+        name,
+        shortLabel: existing?.shortLabel ?? null,
+        icon,
+      });
       refresh();
       allowLeave();
-      if (existing) router.back();
-      else router.replace({ pathname: "/collection/[id]", params: { id: row.id } });
+      router.back();
     } catch {
+      saving.current = false;
       setError(t("saveCollectionError"));
     }
   };
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
-    >
-      <ScrollView
-        contentContainerStyle={{ padding: 20, paddingBottom: 20 + keyboardInset, gap: 12 }}
-        keyboardShouldPersistTaps="handled"
-      >
+    <ScreenLayout footer={<ActionButton label={t("Save")} onPress={save} />}>
+      <AppBar
+        title={t(existing ? "Edit collection" : "New collection")}
+        onBack={() => router.back()}
+        backLabel={t("Close")}
+      />
+      <NotebookText variant="pageTitle" emphasis>
+        {t(existing ? "collectionEditHeading" : "collectionNewHeading")}
+      </NotebookText>
+      <NotebookText style={{ color: theme.secondaryText }}>
+        {t("collectionEditorHelp")}
+      </NotebookText>
+      <EmojiControl label={t("Choose icon")} value={icon} onChange={setIcon} />
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text>{t("Collection name")}</Text>
-        <TextInput
-          accessibilityLabel={t("Collection name")}
-          value={name}
-          onChangeText={setName}
-          style={{ borderWidth: 1, padding: 10 }}
-        />
-        <Text>{t("Short label (optional)")}</Text>
-        <TextInput
-          accessibilityLabel={t("Short label")}
-          value={label}
-          onChangeText={setLabel}
-          style={{ borderWidth: 1, padding: 10 }}
-        />
-        <EmojiControl label={t("Choose icon")} value={icon} onChange={setIcon} />
-        {error ? <Text accessibilityRole="alert">{error}</Text> : null}
-        <Button title={t("Save")} onPress={save} />
-      </ScrollView>
-    </KeyboardAvoidingView>
+        <Text style={{ color: theme.secondaryText }}>{t("Required")}</Text>
+      </View>
+      <TextInput
+        ref={nameRef}
+        accessibilityLabel={t("Collection name")}
+        accessibilityHint={t("Required")}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        value={name}
+        onChangeText={(value) => {
+          setName(value);
+          if (error) setError("");
+        }}
+        style={{
+          borderWidth: focused ? 2 : 1,
+          borderRadius: 12,
+          minHeight: 56,
+          paddingHorizontal: 16,
+          backgroundColor: theme.input,
+          fontSize: 16,
+          borderColor: error ? theme.destructive : focused ? theme.primary : theme.controlOutline,
+        }}
+      />
+      {error ? (
+        <Text accessibilityRole="alert" style={{ color: theme.destructive }}>
+          {error}
+        </Text>
+      ) : null}
+    </ScreenLayout>
   );
 }

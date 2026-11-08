@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>53 Get started choices — Dark</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            field: {
+              canvas: '#171E1B',
+              surface: '#222D27',
+              recessed: '#1C2520',
+              border: '#45574A',
+              accent: '#344D3A',
+              primary: '#B9D8BB',
+              'primary-text': '#173824',
+              headline: '#F3F0E7',
+              muted: '#B8C6BC',
+              chipTheme: '#344D3A',
+              chipThemeText: '#C1DFC4',
+              chipGrammar: '#49362D',
+              chipGrammarText: '#F3C3AA',
+            }
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['"DM Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="typography-and-reset">
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      min-height: 100vh;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="relative bg-field-canvas min-h-screen flex flex-col justify-between selection:bg-field-primary selection:text-field-primary-text">
+<!-- BEGIN: Underlying Screen Content (Dimmed by Scrim) -->
+<div class="relative flex-1 flex flex-col min-h-screen pb-24" data-purpose="underlying-onboarding-view">
+<!-- BEGIN: Native Android Status Bar -->
+<header class="w-full pt-3 px-6 flex justify-between items-center text-field-muted text-xs font-sans tracking-wide z-10 select-none" data-purpose="status-bar">
+<span class="font-medium text-field-headline">09:41</span>
+<div class="flex items-center space-x-2">
+<!-- Cellular Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" opacity="0.3"></path>
+<path d="M2 22h20L12 2z"></path>
+</svg>
+<!-- Wi-Fi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4zm0 3c3.78 0 7.22 1.47 9.77 3.89L12 18.73 2.23 10.89C4.78 8.47 8.22 7 12 7z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-4 h-4 fill-current rotate-90" viewbox="0 0 24 24">
+<path d="M17 5v14c0 1.1-.9 2-2 2H9c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2zm-2 0H9v14h6V5zm-2-4v2h2V1h-2z"></path>
+</svg>
+</div>
+</header>
+<!-- END: Native Android Status Bar -->
+<!-- BEGIN: Top Navigation Bar -->
+<nav class="w-full px-6 pt-3 pb-4 flex justify-between items-center z-10" data-purpose="top-navigation">
+<h1 class="text-2xl font-serif font-medium tracking-tight text-field-headline">Vocabulaire</h1>
+<button class="text-field-muted hover:text-field-headline text-sm font-medium tracking-wide transition-colors" type="button">
+        Skip
+      </button>
+</nav>
+<!-- END: Top Navigation Bar -->
+<!-- BEGIN: Under-sheet Preview Content -->
+<main class="px-5 pt-4 flex-1 flex flex-col" data-purpose="onboarding-main-content">
+<!-- Vocabulary Sample Flashcard -->
+<div class="relative bg-field-surface border border-field-border rounded-2xl p-5 shadow-lg overflow-hidden flex" data-purpose="sample-vocab-card">
+<!-- Forest Green Accent Spine -->
+<div class="absolute left-0 top-0 bottom-0 w-2.5 bg-[#2E5E43] rounded-l-2xl"></div>
+<div class="pl-2 w-full flex flex-col">
+<!-- Card Header Info -->
+<div class="flex justify-between items-center w-full mb-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-field-recessed text-field-muted border border-field-border/60">
+              ☕ Everyday French
+            </span>
+<span class="text-xs text-field-muted/70 font-normal">
+              48 terms
+            </span>
+</div>
+<!-- Headword and Translation -->
+<div class="mb-3">
+<h2 class="text-2xl font-serif font-normal text-field-headline tracking-normal">flâner</h2>
+<p class="text-xs text-field-muted/90 italic font-sans mt-0.5">to wander without hurry</p>
+</div>
+<div class="w-full border-t border-field-border/50 my-2"></div>
+<!-- Semantic Chips -->
+<div class="flex gap-2 pt-1">
+<span class="px-2.5 py-0.5 text-[11px] rounded-md font-medium bg-field-chipTheme text-field-chipThemeText">
+              Everyday life
+            </span>
+<span class="px-2.5 py-0.5 text-[11px] rounded-md font-medium bg-field-chipGrammar text-field-chipGrammarText">
+              Verb
+            </span>
+</div>
+</div>
+</div>
+<!-- Headline & Introduction Copy -->
+<div class="mt-8 px-1">
+<h2 class="text-[32px] leading-[1.2] font-serif font-normal text-field-headline mb-3">
+          A little home for every language.
+        </h2>
+<p class="text-field-muted text-sm leading-relaxed">
+          Gather your words in collections that feel like you. Entirely offline, written with your own intent.
+        </p>
+</div>
+</main>
+<!-- END: Under-sheet Preview Content -->
+</div>
+<!-- END: Underlying Screen Content -->
+<!-- BEGIN: Modal Scrim Layer -->
+<div aria-hidden="true" class="fixed inset-0 bg-black/60 z-20 backdrop-blur-[0.5px]" data-purpose="modal-scrim"></div>
+<!-- END: Modal Scrim Layer -->
+<!-- BEGIN: Bottom Sheet Modal ("Start your notebook") -->
+<section class="fixed inset-x-0 bottom-0 z-30 bg-field-surface border-t border-field-border/80 rounded-t-[28px] px-6 pt-3 pb-4 shadow-2xl flex flex-col transition-transform" data-purpose="start-notebook-bottom-sheet">
+<!-- Drag Handle Pill -->
+<div class="w-full flex justify-center py-1.5" data-purpose="sheet-drag-handle">
+<div class="w-10 h-1 bg-field-muted/40 rounded-full"></div>
+</div>
+<!-- Header with Title and Close Button -->
+<div class="flex justify-between items-start mt-2 mb-1.5">
+<h2 class="text-[26px] font-serif font-medium tracking-tight text-field-headline">
+        Start your notebook
+      </h2>
+<button aria-label="Close bottom sheet" class="text-field-muted hover:text-field-headline p-1 rounded-full -mr-1 transition-colors" type="button">
+<svg class="w-5 h-5 stroke-current" fill="none" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Subtitle Prompt -->
+<p class="text-sm text-field-muted mb-4 font-normal leading-snug">
+      Create a collection, bring a backup, or explore first.
+    </p>
+<!-- BEGIN: Offline Privacy Info Card -->
+<div class="bg-field-recessed border border-field-border/60 rounded-xl p-3.5 mb-5 flex items-start gap-3" data-purpose="offline-guarantee-card">
+<div class="flex-shrink-0 mt-0.5 text-field-muted">
+<!-- Padlock Outline Icon -->
+<svg class="w-4 h-4 stroke-current" fill="none" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="10" rx="2" stroke-linecap="round" stroke-linejoin="round" width="14" x="5" y="11"></rect>
+<path d="M8 11V7a4 4 0 018 0v4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-xs text-field-muted leading-relaxed">
+        Everything stays strictly offline on this device. No account or signup required.
+      </p>
+</div>
+<!-- END: Offline Privacy Info Card -->
+<!-- BEGIN: Action Controls -->
+<div class="flex flex-col gap-3 w-full" data-purpose="bottom-sheet-actions">
+<!-- Primary Action CTA Button -->
+<button class="w-full h-14 bg-field-primary hover:bg-[#c6e2c8] active:bg-[#a5c7a7] text-field-primary-text font-sans font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors text-base" type="button">
+<svg class="w-5 h-5 stroke-current" fill="none" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Create collection</span>
+</button>
+<!-- Secondary Action Outline Button -->
+<button class="w-full h-14 bg-field-surface hover:bg-field-recessed active:bg-[#1a231e] border border-field-border text-field-headline font-sans font-medium rounded-xl flex items-center justify-center gap-2 transition-colors text-base" type="button">
+<svg class="w-5 h-5 stroke-current text-field-muted" fill="none" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Restore backup</span>
+</button>
+<!-- Low-emphasis Dismiss Button -->
+<button class="w-full py-3 mt-1 text-center text-sm font-medium text-field-muted hover:text-field-headline transition-colors" type="button">
+        Skip for now
+      </button>
+</div>
+<!-- END: Action Controls -->
+<!-- BEGIN: Android Navigation Bar Gesture Pill -->
+<div class="w-full flex justify-center pt-2 pb-1" data-purpose="android-gesture-pill">
+<div class="w-20 h-1 bg-field-muted/50 rounded-full"></div>
+</div>
+<!-- END: Android Navigation Bar Gesture Pill -->
+</section>
+<!-- END: Bottom Sheet Modal -->
+</body></html>

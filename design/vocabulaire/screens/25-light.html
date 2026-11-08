@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>25 Save filter — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "clay-text": "#684435",
+            "clay-bg": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-bg": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#E5E0D5] flex items-center justify-center min-h-screen font-body antialiased selection:bg-selected-surface">
+<!-- Android Artboard Container (412x892 dp) -->
+<div class="relative w-[412px] h-[892px] bg-canvas text-main overflow-hidden shadow-2xl flex flex-col justify-between select-none">
+<!-- BACKGROUND SCREEN (Vocabulaire: Everyday French List with Active Filter) -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none">
+<!-- Android Status Bar (Background layer) -->
+<div class="w-full h-7 px-6 pt-1 flex justify-between items-center text-xs font-label text-secondary z-0">
+<span class="font-medium tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- App Bar (TopAppBar Shared Component anchor template) -->
+<div class="flex justify-between items-center w-full h-14 px-4 max-w-[412px] mx-auto border-b border-divider bg-surface">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-main" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xl">☕</span>
+<h1 class="font-headline text-2xl font-semibold tracking-tight text-main">Everyday French</h1>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-opacity text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-opacity text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Search Field & Applied Filter Strip -->
+<div class="px-6 pt-4 pb-2 bg-canvas">
+<div class="h-12 bg-surface border border-divider rounded-xl px-3.5 flex items-center gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="search">search</span>
+<span class="text-main font-body text-base flex-1">café</span>
+<button class="w-7 h-7 rounded-full flex items-center justify-center text-secondary hover:bg-recessed">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Active Filter Pills under search -->
+<div class="flex items-center gap-2 mt-3 overflow-hidden text-xs font-label">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-clay-bg text-clay-text font-medium border border-clay-text/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="match_case">match_case</span>
+            Expression
+          </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-thematic-bg text-thematic-text font-medium border border-thematic-text/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="eco">eco</span>
+            Food &amp; drink
+          </span>
+<span class="text-secondary ml-auto text-[13px]">2 terms</span>
+</div>
+</div>
+<!-- Vocabulary Content List -->
+<div class="flex-1 px-6 pt-2 divide-y divide-divider/70 overflow-hidden opacity-40">
+<!-- Entry 1 -->
+<div class="py-3.5">
+<p class="font-headline text-lg font-semibold text-main">commander un café</p>
+<p class="font-body text-sm text-secondary mt-0.5">to order a coffee</p>
+</div>
+<!-- Entry 2 -->
+<div class="py-3.5">
+<p class="font-headline text-lg font-semibold text-main">café au lait</p>
+<p class="font-body text-sm text-secondary mt-0.5">coffee with hot milk</p>
+</div>
+<!-- Entry 3 -->
+<div class="py-3.5">
+<p class="font-headline text-lg font-semibold text-main">garçon de café</p>
+<p class="font-body text-sm text-secondary mt-0.5">traditional cafe waiter</p>
+</div>
+</div>
+</div>
+<!-- MODAL SCRIM (48% Scrim per Design Guidelines) -->
+<div class="absolute inset-0 bg-main/45 backdrop-blur-[1.5px] z-10 transition-opacity"></div>
+<!-- MODAL BOTTOM SHEET CONTAINER -->
+<div class="relative z-20 mt-auto w-full bg-surface rounded-t-2xl shadow-2xl border-t border-divider flex flex-col max-h-[810px]">
+<!-- Bottom Sheet Drag Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-9 h-1 bg-divider rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<div class="flex items-center justify-between px-6 pt-2 pb-3">
+<h2 class="font-headline text-2xl font-semibold tracking-tight text-main">Save filter</h2>
+<button aria-label="Close save filter sheet" class="w-10 h-10 flex items-center justify-center rounded-full text-secondary hover:bg-recessed transition-colors duration-150 active:opacity-80">
+<span class="material-symbols-outlined text-[22px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Scrollable Sheet Content -->
+<div class="px-6 space-y-5 overflow-y-auto pb-4">
+<!-- Active Filter Scope (Read-only summary card) -->
+<div class="p-3.5 bg-canvas/80 border border-divider rounded-xl space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label text-xs font-medium text-secondary uppercase tracking-wider">Active filter scope</span>
+<span class="text-xs font-label text-secondary">Matches 2 terms</span>
+</div>
+<div class="space-y-2 pt-0.5">
+<!-- Row: Search Query -->
+<div class="flex items-center justify-between text-sm font-label py-0.5">
+<span class="text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="search">search</span>
+                Search query
+              </span>
+<span class="font-body text-main font-medium bg-recessed px-2 py-0.5 rounded border border-divider">“café”</span>
+</div>
+<div class="w-full h-px bg-divider/60"></div>
+<!-- Row: Categories -->
+<div class="flex items-start justify-between text-sm font-label py-0.5 gap-2">
+<span class="text-secondary flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="category">category</span>
+                Categories
+              </span>
+<div class="flex flex-wrap justify-end gap-1.5">
+<!-- Grammatical chip -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-clay-bg text-clay-text font-medium text-xs border border-clay-text/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="match_case">match_case</span>
+                  Expression
+                </span>
+<!-- Thematic chip -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-thematic-bg text-thematic-text font-medium text-xs border border-thematic-text/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="eco">eco</span>
+                  Food &amp; drink
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Emoji Selector Row -->
+<div class="flex items-center gap-3.5 pt-1">
+<div class="w-14 h-14 rounded-2xl bg-canvas border border-divider flex items-center justify-center text-2xl shadow-sm shrink-0">
+            ☕
+          </div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label text-xs font-medium text-secondary">Collection icon</span>
+<button class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors w-fit py-0.5" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_reaction">add_reaction</span>
+              Change icon
+            </button>
+</div>
+</div>
+<!-- Input Field: Filter Name -->
+<div class="space-y-1.5">
+<label class="block font-label text-sm font-medium text-main" for="filter-name">
+            Filter name <span class="text-secondary font-normal">· Required</span>
+</label>
+<div class="relative">
+<input class="w-full h-14 px-4 bg-surface border-2 border-primary rounded-xl text-main font-body text-base placeholder:text-secondary focus:outline-none focus:ring-0 focus:border-primary transition-all shadow-xs" id="filter-name" name="filter-name" type="text" value="Café conversations"/>
+<div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-secondary hover:text-main cursor-pointer">
+<span class="material-symbols-outlined text-[20px]" data-icon="cancel">cancel</span>
+</div>
+</div>
+<p class="font-body text-xs text-secondary pt-0.5 leading-relaxed">
+            Saves your search and categories. Display choices stay separate.
+          </p>
+</div>
+</div>
+<!-- Sheet Sticky Footer Actions -->
+<div class="px-6 pt-3 pb-6 border-t border-divider/60 bg-surface space-y-2">
+<!-- Primary Action: 56dp height, 12dp radius, Forest Green (#2D6046) -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-label text-base font-semibold flex items-center justify-center gap-2 hover:bg-[#25503a] active:opacity-90 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="bookmark_add">bookmark_add</span>
+          Save filter
+        </button>
+<!-- Secondary Action: Text action "Cancel" -->
+<button class="w-full h-11 text-secondary hover:text-main hover:bg-recessed rounded-xl font-label text-sm font-medium transition-colors flex items-center justify-center active:opacity-75" type="button">
+          Cancel
+        </button>
+</div>
+<!-- Android Gesture Navigation Inset Bar -->
+<div class="w-full h-4 flex justify-center items-center pb-2 bg-surface">
+<div class="w-28 h-1 bg-main/30 rounded-full"></div>
+</div>
+</div>
+</div>
+</body></html>

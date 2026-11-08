@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>49 Restore success — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            selected: "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: #F8F5EE;
+      color: #20382E;
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas flex justify-center items-start min-h-screen antialiased">
+<!-- Mobile Root Frame (Exact 390px x 892px Android Device Screen) -->
+<main class="w-[390px] h-[892px] max-w-[390px] max-h-[892px] bg-canvas flex flex-col justify-between relative overflow-hidden text-main border border-divider">
+<!-- Status Bar (Native Android Inset) -->
+<header class="w-full shrink-0">
+<div class="h-8 px-6 pt-1.5 flex justify-between items-center text-xs font-semibold tracking-tight text-main opacity-90 select-none">
+<span class="text-xs font-medium tracking-normal">09:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">wifi</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (From Shared Component Spec) -->
+<div class="bg-surface border-b border-divider flex justify-between items-center w-full h-14 px-4">
+<!-- Brand Wordmark (EB Garamond) -->
+<div class="flex items-center space-x-2 pl-1">
+<span class="font-headline text-2xl font-semibold tracking-tight text-main">Vocabulaire</span>
+</div>
+<!-- Trailing Settings Gear Action -->
+<button aria-label="Settings" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors duration-150 text-secondary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Notebook Content Area -->
+<section class="flex-1 w-full overflow-y-auto px-6 pt-5 pb-2">
+<!-- Section Header -->
+<div class="flex items-baseline justify-between mb-4">
+<div>
+<h1 class="font-headline text-[26px] leading-[30px] font-semibold text-main">Your collections</h1>
+<p class="font-body text-xs text-secondary mt-0.5">A home for every word you find.</p>
+</div>
+<span class="font-label text-xs font-medium tracking-wide text-secondary bg-recessed px-2.5 py-1 rounded-full border border-divider">
+          3 notebooks
+        </span>
+</div>
+<!-- Collection Cards Stack -->
+<div class="flex flex-col space-y-3">
+<!-- 1. Everyday French -->
+<div class="bg-surface rounded-xl border border-divider p-4 transition-transform active:scale-[0.99] cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-lg bg-recessed flex items-center justify-center text-2xl shrink-0 border border-divider select-none">
+                ☕
+              </div>
+<div class="min-w-0">
+<div class="flex items-baseline space-x-2">
+<h2 class="font-headline text-lg font-semibold text-main truncate">Everyday French</h2>
+</div>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[11px] font-medium text-primary bg-thematic-fill px-2 py-0.5 rounded-full inline-block">48 terms</span>
+</div>
+</div>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center space-x-0.5 shrink-0 pl-2">
+<button aria-label="More actions for Everyday French" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-70 text-secondary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<span class="material-symbols-outlined text-secondary text-[20px] opacity-40" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- 2. Español de viaje -->
+<div class="bg-surface rounded-xl border border-divider p-4 transition-transform active:scale-[0.99] cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-lg bg-recessed flex items-center justify-center text-2xl shrink-0 border border-divider select-none">
+                🍋
+              </div>
+<div class="min-w-0">
+<div class="flex items-baseline space-x-2">
+<h2 class="font-headline text-lg font-semibold text-main truncate">Español de viaje</h2>
+</div>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[11px] font-medium text-primary bg-thematic-fill px-2 py-0.5 rounded-full inline-block">32 terms</span>
+</div>
+</div>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center space-x-0.5 shrink-0 pl-2">
+<button aria-label="More actions for Español de viaje" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-70 text-secondary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<span class="material-symbols-outlined text-secondary text-[20px] opacity-40" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- 3. 日本語ノート -->
+<div class="bg-surface rounded-xl border border-divider p-4 transition-transform active:scale-[0.99] cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3.5 min-w-0">
+<div class="w-[52px] h-[52px] rounded-lg bg-recessed flex items-center justify-center text-2xl shrink-0 border border-divider select-none">
+                🌱
+              </div>
+<div class="min-w-0">
+<div class="flex items-baseline space-x-2">
+<h2 class="font-headline text-lg font-semibold text-main truncate">日本語ノート</h2>
+</div>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[11px] font-medium text-primary bg-thematic-fill px-2 py-0.5 rounded-full inline-block">16 terms</span>
+</div>
+</div>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center space-x-0.5 shrink-0 pl-2">
+<button aria-label="More actions for 日本語ノート" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-70 text-secondary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<span class="material-symbols-outlined text-secondary text-[20px] opacity-40" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Notebook Folio Counter -->
+<div class="text-center mt-6 pb-2">
+<span class="text-[10px] tracking-widest font-mono text-secondary opacity-70">
+          THREE NOTEBOOKS ON SHELF · 96 TOTAL TERMS
+        </span>
+</div>
+</section>
+<!-- Bottom Sticky Action Zone: Floating Snackbar + Primary CTA + Nav Inset -->
+<footer class="w-full px-6 pb-4 pt-1 bg-gradient-to-t from-canvas via-canvas to-transparent flex flex-col space-y-3 z-10">
+<!-- Success Snackbar Toast: Dark forest green pill -->
+<div aria-live="polite" class="w-full bg-[#1C2C24] text-[#F3F0E7] px-4 py-3 rounded-xl flex items-center justify-between shadow-md transition-all duration-200" role="status">
+<div class="flex items-center space-x-2.5 min-w-0">
+<div class="w-5 h-5 rounded-full bg-[#2D6046] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#B9D8BB] text-[15px]" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-xs font-medium tracking-tight truncate">
+            Backup restored · 3 collections, 96 terms
+          </span>
+</div>
+<button class="text-xs font-semibold text-[#B9D8BB] hover:text-white px-2 py-1 ml-2 shrink-0 rounded transition-colors focus:outline-none active:opacity-80" type="button">
+          OK
+        </button>
+</div>
+<!-- Primary Action Button: 56dp (h-14), rounded-xl, #2D6046 -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-body font-medium text-base flex items-center justify-center space-x-2 hover:opacity-95 active:scale-[0.99] transition-all shadow-sm focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span>Create collection</span>
+</button>
+<!-- Native Android Gesture Bar Inset -->
+<div class="w-full flex justify-center items-center pt-1 pb-1">
+<div class="w-32 h-1 bg-main opacity-20 rounded-full"></div>
+</div>
+</footer>
+</main>
+</body></html>

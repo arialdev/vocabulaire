@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>50 Unsupported backup — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "error-surface": "#FBE6E1",
+            destructive: "#A53532",
+            "clay-text": "#684435",
+            "clay-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    /* Android scrollbar quiet styling */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body antialiased m-0 p-0 flex justify-center items-start selection:bg-selected-surface selection:text-main min-h-screen">
+<!-- Mobile Root Frame (Strict 390px x 892px, edge-to-edge Android viewport without outer shadows or frames) -->
+<main class="w-[390px] h-[892px] max-h-[892px] bg-canvas flex flex-col justify-between overflow-hidden relative select-none">
+<!-- Top System & App Bar Container -->
+<header class="w-full shrink-0 z-20">
+<!-- Android Native Status Bar -->
+<div class="w-full h-8 px-6 flex justify-between items-center text-xs font-label text-secondary font-medium tracking-normal select-none pt-1">
+<span>09:41</span>
+<div class="flex items-center gap-1.5 opacity-90">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON with task context: back leading action) -->
+<div class="flex justify-between items-center w-full h-14 px-4 bg-surface border-b border-divider transition-colors duration-150">
+<div class="flex items-center gap-3">
+<!-- Leading Back Arrow (48dp touch target) -->
+<button aria-label="Back to backups" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-main hover:bg-recessed active:opacity-80 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline text-lg font-semibold tracking-tight text-main leading-tight">Restore notebook</h1>
+<span class="text-[12px] font-label font-normal text-secondary leading-none">Settings · Backups</span>
+</div>
+</div>
+<!-- Trailing quiet space/action (preserves 48dp balance) -->
+<div class="w-10 h-10 flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 w-full overflow-y-auto px-6 pt-5 pb-4 space-y-4">
+<!-- Primary Heading & Contextual Subcopy -->
+<div class="space-y-1.5 pt-1">
+<h2 class="font-headline text-[30px] leading-[36px] font-semibold text-main tracking-tight">
+          This backup cannot be opened.
+        </h2>
+<p class="font-body text-[15px] leading-[22px] text-secondary">
+          Choose a backup exported by this version of Vocabulaire. Older Ionic backups are not supported.
+        </p>
+</div>
+<!-- Card 1: Warning/Error Card (Soft red surface #FBE6E1, border, legacy badge) -->
+<article class="bg-error-surface border border-[#EEC8C1] rounded-xl p-4 transition-all">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-white/70 flex items-center justify-center shrink-0 mt-0.5 text-destructive">
+<span class="material-symbols-outlined text-[20px]" data-icon="error">error</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="font-body text-sm font-semibold text-destructive truncate tracking-tight" title="vocabulaire-old-export-2023.json">vocabulaire-old-export.json</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label font-medium bg-[#F1D0CA] text-destructive shrink-0">Unsupported backup</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Info/Safety Card (Surface #FFFCF6 with border #D8DED2 and shield icon) -->
+<article class="bg-surface border border-divider rounded-xl p-4 transition-all">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-selected-surface flex items-center justify-center shrink-0 mt-0.5 text-thematic-text">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex-1">
+<h3 class="font-body text-[15px] font-medium text-main leading-snug">
+              Nothing on this device has changed.
+            </h3>
+<p class="font-body text-[13px] leading-[20px] text-secondary mt-1">
+              Your current 3 notebooks, 96 expressions, and custom categories remain untouched and safely preserved.
+            </p>
+</div>
+</div>
+</article>
+<!-- Card 3: Helpful Fresh Backup Action Card -->
+</div>
+<!-- Bottom Actions & Android Gesture Zone -->
+<footer class="w-full shrink-0 bg-canvas/95 backdrop-blur-sm border-t border-divider/60 px-6 pt-3 pb-2 flex flex-col items-center gap-2">
+<!-- Primary Action Button: "Choose another file" with folder icon (56dp height, primary green #2D6046, rounded-xl) -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-label text-base font-medium flex items-center justify-center gap-2.5 shadow-none hover:opacity-95 active:opacity-85 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="folder_open">folder_open</span>
+<span>Choose another file</span>
+</button>
+<!-- Secondary Link / Text Action Button: "Back to backups" -->
+<button class="w-full h-11 text-secondary hover:text-main font-label text-sm font-medium flex items-center justify-center transition-colors active:opacity-75" type="button">
+        Back to backups
+      </button>
+<!-- Native Android Gesture Bar (48dp height area with 72×4 dp bar) -->
+<div class="w-full h-4 flex items-center justify-center pt-1">
+<div class="w-[72px] h-1 bg-main/30 rounded-full"></div>
+</div>
+</footer>
+</main>
+</body></html>

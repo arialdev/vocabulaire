@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2d121d403fc04c61aef32227675c3bf7",
+    "name": "projects/8226357890556052909/screens/2d121d403fc04c61aef32227675c3bf7",
+    "title": "29 Term details — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/fc54bdec65fb4b7db9f8c9763e0fabf8:download",
+      "name": "projects/8226357890556052909/files/fc54bdec65fb4b7db9f8c9763e0fabf8"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/29cac913c5d04915aeaa5bd7372b5b96:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/29cac913c5d04915aeaa5bd7372b5b96"
+    }
+  },
+  {
+    "id": "691de80104574f2083c58a3f3277192f",
+    "name": "projects/8226357890556052909/screens/691de80104574f2083c58a3f3277192f",
+    "title": "30 Term actions — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/71311ecdfd774f419816ddd803be7285:download",
+      "name": "projects/8226357890556052909/files/71311ecdfd774f419816ddd803be7285"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/2b0722d986af494e8f603398b83d6d2e:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/2b0722d986af494e8f603398b83d6d2e"
+    }
+  },
+  {
+    "id": "ca415ab5619347248c173b2f2c9175f4",
+    "name": "projects/8226357890556052909/screens/ca415ab5619347248c173b2f2c9175f4",
+    "title": "31 Delete term confirmation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/8acd7868aeb7491a861bdd29ec87bc8d:download",
+      "name": "projects/8226357890556052909/files/8acd7868aeb7491a861bdd29ec87bc8d"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/9909f2903e624dffa814237ec56dda67:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/9909f2903e624dffa814237ec56dda67"
+    }
+  },
+  {
+    "id": "fc9108a4227f46fda1f0f25e7d105086",
+    "name": "projects/8226357890556052909/screens/fc9108a4227f46fda1f0f25e7d105086",
+    "title": "32 Add term — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/128f7d7482dc44dfb50467434fc6c9e8:download",
+      "name": "projects/8226357890556052909/files/128f7d7482dc44dfb50467434fc6c9e8"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/cd636fedcd7347599cd549f1f1d667f6:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/cd636fedcd7347599cd549f1f1d667f6"
+    }
+  }
+]

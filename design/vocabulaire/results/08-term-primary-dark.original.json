@@ -1,0 +1,178 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "id": "ff1b17fde74e4613a9848b9671d4e14a",
+    "sourceScreenId": "2d121d403fc04c61aef32227675c3bf7,691de80104574f2083c58a3f3277192f,ca415ab5619347248c173b2f2c9175f4,fc9108a4227f46fda1f0f25e7d105086",
+    "resultScreenId": "ff1b17fde74e4613a9848b9671d4e14a",
+    "sourceScreenIds": [
+      "2d121d403fc04c61aef32227675c3bf7",
+      "691de80104574f2083c58a3f3277192f",
+      "ca415ab5619347248c173b2f2c9175f4",
+      "fc9108a4227f46fda1f0f25e7d105086"
+    ],
+    "resultScreenIds": [
+      "ff1b17fde74e4613a9848b9671d4e14a",
+      "c91cb4be618145448a47316cd3e5f27f",
+      "1e93360f7c1c465b8e2c241225a63826",
+      "d838cda563d2466797ead7776711f699"
+    ],
+    "updated": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1784",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc"
+                },
+                "id": "ff1b17fde74e4613a9848b9671d4e14a",
+                "name": "projects/8226357890556052909/screens/ff1b17fde74e4613a9848b9671d4e14a",
+                "prompt": "Create the DARK appearance counterpart of screen 29 Term details — Light.\nTitle: \"29 Term details — Dark\".\nDevice type: mobile (Android 412x892 viewport, full bleed mobile artboard, no phone frame, no outer desktop canvas, no device mockup).\n\nSTRICTLY follow the Field Notebook semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / cards / sheets: #222D27\n- Recessed fields / containers: #1C2520\n- Main text: #F3F0E7\n- Secondary text: #B8C6BC\n- Divider / borders: #45574A\n- Primary action fill: #B9D8BB, on-primary text: #173824\n- Grammatical chip: fill #49362D, text #F3C3AA\n- Thematic chip: fill #344D3A, text #C1DFC4\n- Status bar & navigation gesture bar: dark theme (icons #F3F0E7, gesture bar #45574A).\n\nCONTENT & LAYOUT (reproduce 1:1 identically to screen 29):\n- Top status bar: 09:41, wifi, signal, battery icons in light/white.\n- App bar: back arrow (arrow_back), title \"Everyday French ☕\" (or coffee cup emoji), trailing overflow icon (more_vert).\n- Subheader badge: \"☕ Everyday French · Term #14\" on recessed pill (#1C2520, text #B8C6BC).\n- Main headword: \"flâner\" in EB Garamond font-serif text-4xl font-normal text-[#F3F0E7].\n- Translation: \"to wander without hurry\" in DM Sans text-lg text-[#B8C6BC].\n- Divider line: #45574A.\n- Notes card: card container with rounded-2xl bg-[#222D27] border border-[#45574A] p-4. Label \"Notes\" in text-xs text-[#B8C6BC] uppercase/tracking-wider. Body italic: \"“On a quiet Sunday, with no destination in mind.”\" in text-[#F3F0E7].\n- Categories section: label \"Categories\" in text-sm font-medium text-[#B8C6BC].\n  - Chip 1: Grammatical chip \"Aa Verb\" (bg-[#49362D] text-[#F3C3AA] rounded-full px-3 py-1.5 text-sm).\n  - Chip 2: Thematic chip \"🌿 Everyday life\" (bg-[#344D3A] text-[#C1DFC4] rounded-full px-3 py-1.5 text-sm).\n- Footer footnote: icon + \"Added Oct 2024 · Stored offline on device\" in text-xs text-[#B8C6BC].\n- Bottom pinned primary button: \"Edit term\" with edit pencil icon, bg-[#B9D8BB] text-[#173824] rounded-xl font-medium py-4 w-full.\n- Bottom native gesture bar indicator at base.\nFull bleed edge-to-edge mobile UI only.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1:download",
+                  "name": "projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1"
+                },
+                "theme": {},
+                "title": "29 Term details — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1784",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/350764be3b3248e991362884726040a9:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/350764be3b3248e991362884726040a9"
+                },
+                "id": "c91cb4be618145448a47316cd3e5f27f",
+                "name": "projects/8226357890556052909/screens/c91cb4be618145448a47316cd3e5f27f",
+                "prompt": "Create the DARK appearance counterpart of screen 30 Term actions — Light.\nTitle: \"30 Term actions — Dark\".\nDevice type: mobile (Android 412x892 viewport, full bleed mobile artboard, no phone frame, no outer desktop canvas, no device mockup).\n\nSTRICTLY follow the Field Notebook semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / sheets: #222D27\n- Recessed fields / icon tiles: #1C2520\n- Main text: #F3F0E7\n- Secondary text: #B8C6BC\n- Divider / borders: #45574A\n- Primary fill: #B9D8BB, on-primary text: #173824\n- Destructive text / icon: #FFB4AB\n- Dimmed background scrim: rgba(0, 0, 0, 0.48) over the dark Term details view.\n\nCONTENT & LAYOUT (reproduce 1:1 identically to screen 30):\n- Background: dimmed dark Term details screen (\"flâner\", notes, categories, etc.) with dark scrim overlay.\n- Bottom sheet: rounded-t-3xl bg-[#222D27] border-t border-[#45574A] shadow-2xl p-6.\n- Drag handle at top center (#45574A).\n- Sheet header: \"flâner\" in EB Garamond text-2xl font-serif text-[#F3F0E7], subtitle \"☕ Everyday French · 1 term\" in text-xs text-[#B8C6BC], close button (close 'X' icon) at top right.\n- Action items list:\n  1. \"Edit term\" row: pencil icon, chevron_right icon trailing, text-[#F3F0E7], border-b border-[#45574A] py-4.\n  2. \"Delete term\" row: trash/delete icon in #FFB4AB, text \"Delete term\" in #FFB4AB, chevron_right trailing in #FFB4AB, py-4.\n- Safe secondary action: \"Cancel\" button, rounded-2xl bg-[#1C2520] border border-[#45574A] text-[#F3F0E7] py-3.5 w-full text-center mt-4.\n- Native Android gesture pill at the very bottom.\nFull bleed edge-to-edge mobile UI only.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/aa30487c73b0402490771de1caf698c6:download",
+                  "name": "projects/8226357890556052909/files/aa30487c73b0402490771de1caf698c6"
+                },
+                "theme": {},
+                "title": "30 Term actions — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1908",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfbc25e97cf044e6a23d381a98025b57:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/bfbc25e97cf044e6a23d381a98025b57"
+                },
+                "id": "1e93360f7c1c465b8e2c241225a63826",
+                "name": "projects/8226357890556052909/screens/1e93360f7c1c465b8e2c241225a63826",
+                "prompt": "Create the DARK appearance counterpart of screen 32 Add term — Light.\nTitle: \"32 Add term — Dark\".\nDevice type: mobile (Android 412x892 viewport, full bleed mobile artboard, no phone frame, no outer desktop canvas, no device mockup).\n\nSTRICTLY follow the Field Notebook semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / cards / sheet: #222D27\n- Recessed inputs: #1C2520\n- Main text: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders & input outlines: #45574A\n- Primary action fill: #B9D8BB, on-primary text: #173824\n- Grammatical chips: fill #49362D, text #F3C3AA (selected has checkmark and highlight border)\n- Thematic chips: fill #344D3A, text #C1DFC4\n- Unselected chips: bg-[#1C2520] border border-[#45574A] text-[#B8C6BC]\n- Status bar & navigation gesture bar: dark theme.\n\nCONTENT & LAYOUT (reproduce 1:1 identically to screen 32):\n- Top status bar: 09:41, wifi, signal, battery icons.\n- Top app bar: close icon ('X'), title \"Add term\" in EB Garamond text-2xl font-serif text-[#F3F0E7], collection indicator pill on right \"☕ Everyday French\" in bg-[#1C2520] border border-[#45574A] text-xs text-[#B8C6BC].\n- Folio row: \"Field entry № 49\" (italic serif text-sm text-[#B8C6BC]) on left, \"French / Anglais\" on right.\n- Form field 1: Label \"Original expression\" (text-[#F3F0E7]) with \"Required\" indicator (text-[#B8C6BC]).\n  - Input box: bg-[#1C2520] border border-[#45574A] rounded-2xl p-4 text-[#B8C6BC] placeholder \"e.g., flâner\".\n  - Helper caption: \"Preserve accents, articles, or full expressions as heard.\" in text-xs text-[#B8C6BC].\n- Form field 2: Label \"Translation\" (text-[#F3F0E7]) with \"Required\" indicator.\n  - Input box: bg-[#1C2520] border border-[#45574A] rounded-2xl p-4 text-[#B8C6BC] placeholder \"e.g., to wander without hurry\".\n- Form field 3: Label \"Notes\" with \"Optional\" indicator.\n  - Textarea box: bg-[#1C2520] border border-[#45574A] rounded-2xl p-4 text-[#B8C6BC] placeholder \"Context, example sentence, or memorable nuance...\".\n- Categories section:\n  - Header: \"Categories\" (text-[#F3F0E7]) with \"+ Manage\" action link in text-sm text-[#B9D8BB].\n  - Subtitle: \"Select tags to filter your notebook. Match will combine grammatical forms and themes.\" in text-xs text-[#B8C6BC].\n  - Group: \"• GRAMMATICAL\" in text-xs uppercase tracking-wider text-[#B8C6BC].\n  - Chips row:\n    - \"Aa Noun\" (unselected: bg-[#1C2520] border border-[#45574A] text-[#B8C6BC])\n    - \"Aa Verb ✓\" (selected: bg-[#49362D] text-[#F3C3AA] border-2 border-[#F3C3AA])\n    - \"Aa Expression\" (unselected)\n    - \"Aa Adjective\" (unselected)\n- Bottom pinned action: \"✓ Save term\" in bg-[#B9D8BB] text-[#173824] rounded-xl font-medium py-4 w-full flex items-center justify-center gap-2.\n- Secondary \"Cancel\" text button below it in text-[#B8C6BC].\n- Gesture bar at the very bottom.\nFull bleed edge-to-edge mobile UI only.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/0f292e3cb4cf4f4d8d3f792864f55433:download",
+                  "name": "projects/8226357890556052909/files/0f292e3cb4cf4f4d8d3f792864f55433"
+                },
+                "theme": {},
+                "title": "32 Add term — Dark",
+                "width": "780"
+              },
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1768",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/96b6a4bdb52542488929a6adfcd6523d:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/96b6a4bdb52542488929a6adfcd6523d"
+                },
+                "id": "d838cda563d2466797ead7776711f699",
+                "name": "projects/8226357890556052909/screens/d838cda563d2466797ead7776711f699",
+                "prompt": "Create the DARK appearance counterpart of screen 31 Delete term confirmation — Light.\nTitle: \"31 Delete term confirmation — Dark\".\nDevice type: mobile (Android 412x892 viewport, full bleed mobile artboard, no phone frame, no outer desktop canvas, no device mockup).\n\nSTRICTLY follow the Field Notebook semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Dialog surface: #222D27\n- Recessed fields / alert info surface: #1C2520 (or error surface #4A2926)\n- Main text: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders: #45574A\n- Destructive button fill: #A53532 or semantic dark destructive button fill with #F3F0E7 or #FFB4AB text\n- Destructive text & icon: #FFB4AB\n- Dimmed background scrim: rgba(0, 0, 0, 0.48) over the blurred/dimmed dark Term details screen.\n\nCONTENT & LAYOUT (reproduce 1:1 identically to screen 31):\n- Background: dimmed dark Term details screen blurred under 48% scrim.\n- Centered modal dialog: rounded-3xl bg-[#222D27] border border-[#45574A] p-6 mx-6 shadow-2xl.\n- Top icon: circular badge in error/destructive tint (bg-[#4A2926]) with trash can icon in #FFB4AB.\n- Dialog heading: \"Delete flâner?\" in EB Garamond text-2xl font-serif text-[#F3F0E7] text-center mt-3.\n- Description: \"This term and its notes will be removed from Everyday French.\" in DM Sans text-sm text-[#B8C6BC] text-center mt-2.\n- Info box: rounded-2xl bg-[#1C2520] border border-[#45574A] p-3.5 my-5 flex items-start gap-2.5. Info icon (info) in #B8C6BC, text: \"Categories (Verb, Everyday life) and the collection will not be deleted.\" in text-xs text-[#B8C6BC].\n- Destructive action: full-width button with trash icon + \"Delete term\" in red/destructive style (bg-[#8A2424] or #A53532, text-[#FFFFFF] or text-[#FFDAD6], rounded-xl py-3.5 font-medium).\n- Safe action: \"Cancel\" button (bg-[#1C2520] border border-[#45574A] text-[#F3F0E7], rounded-xl py-3.5 w-full font-medium mt-3).\n- Dimmed bottom button \"Edit term\" visible in blurred backdrop at bottom edge.\n- Native gesture bar at base.\nFull bleed edge-to-edge mobile UI only.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/26d95d7677cc4f38a9d666fe8fc38c14:download",
+                  "name": "projects/8226357890556052909/files/26d95d7677cc4f38a9d666fe8fc38c14"
+                },
+                "theme": {},
+                "title": "31 Delete term confirmation — Dark",
+                "width": "780"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I have generated the Dark appearance counterparts for all four selected source screens, creating each as an independent, full-bleed mobile artboard strictly adhering to the Field Notebook semantic dark palette from `DESIGN.md`:\n\n### Produced Dark Screens\n\n1. **29 Term details — Dark** (`29 Term details — Dark`)\n   - **Canvas & Surface**: Dark canvas `#171E1B` with top bar, collection badge `☕ Everyday French · Term #14` in `#1C2520`, and title headword *\"flâner\"* in EB Garamond `#F3F0E7`.\n   - **Notes Card**: Surface container in `#222D27` with `#45574A` border, displaying the context note in italic `#F3F0E7`.\n   - **Category Chips**: Grammatical chip `Aa Verb` in `#49362D` / `#F3C3AA` and Thematic chip `Everyday life` in `#344D3A` / `#C1DFC4`.\n   - **Primary Action**: Pinned bottom `Edit term` button in `#B9D8BB` with `#173824` on-primary label text.\n\n2. **30 Term actions — Dark** (`30 Term actions — Dark`)\n   - **Backdrop & Scrim**: Dark Term details screen dimmed beneath a 48% scrim.\n   - **Bottom Sheet**: Sheet container in `#222D27` with `#45574A` border, drag handle, and title *\"flâner\"* with collection subtitle and close button.\n   - **Action Hierarchy**: Row items for `Edit term` with chevron and destructive `Delete term` with trash icon and label styled in `#FFB4AB`.\n   - **Dismiss Action**: Full-width `Cancel` control.\n\n3. **31 Delete term confirmation — Dark** (`31 Delete term confirmation — Dark`)\n   - **Modal Dialog**: Centered `#222D27` dialog box over a 48% dimmed and blurred dark backdrop.\n   - **Warning Header**: Circular badge with `#FFB4AB` trash icon on dark alert background `#4A2926`. Headline *\"Delete flâner?\"* in EB Garamond `#F3F0E7`.\n   - **Scope Notice**: Clarification card in `#1C2520` with `#45574A` border indicating categories and collection will remain intact.\n   - **Actions**: High-contrast destructive `Delete term` button alongside safe `Cancel` button.\n\n4. **32 Add term — Dark** (`32 Add term — Dark`)\n   - **Header & Folio**: Top bar with collection indicator `☕ Everyday French` and decorative folio subtitle *\"Field entry № 49\"*.\n   - **Form Fields**: Recessed inputs in `#1C2520` with `#45574A` borders and `#B8C6BC` placeholders for *Original expression*, *Translation*, and *Notes*.\n   - **Category Selector**: Grammatical chips with unselected state (`#1C2520` / `#45574A`) and selected state (`#49362D` / `#F3C3AA` with checkmark for `Verb`).\n   - **Actions**: Primary `✓ Save term` button in `#B9D8BB` / `#173824` and secondary `Cancel` link.\n\nAll four screens maintain 1:1 parity in layout, typography (EB Garamond & DM Sans), and component dimensions with their Light counterparts."
+        },
+        {
+          "suggestion": "Generate the dark versions for screens 33 to 36"
+        },
+        {
+          "suggestion": "Inspect or refine category chip styling in screen 32"
+        },
+        {
+          "suggestion": "Create the dark version of Word of the Day (screen 42)"
+        }
+      ],
+      "projectId": "8226357890556052909",
+      "sessionId": "9290535030539512982",
+      "deviceType": "MOBILE",
+      "generatedBy": "HatterAgent",
+      "height": "1784",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc:download",
+        "mimeType": "text/html",
+        "name": "projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc"
+      },
+      "id": "ff1b17fde74e4613a9848b9671d4e14a",
+      "name": "projects/8226357890556052909/screens/ff1b17fde74e4613a9848b9671d4e14a",
+      "prompt": "Create the DARK appearance counterpart of screen 29 Term details — Light.\nTitle: \"29 Term details — Dark\".\nDevice type: mobile (Android 412x892 viewport, full bleed mobile artboard, no phone frame, no outer desktop canvas, no device mockup).\n\nSTRICTLY follow the Field Notebook semantic dark palette from DESIGN.md:\n- Canvas: #171E1B\n- Surface / cards / sheets: #222D27\n- Recessed fields / containers: #1C2520\n- Main text: #F3F0E7\n- Secondary text: #B8C6BC\n- Divider / borders: #45574A\n- Primary action fill: #B9D8BB, on-primary text: #173824\n- Grammatical chip: fill #49362D, text #F3C3AA\n- Thematic chip: fill #344D3A, text #C1DFC4\n- Status bar & navigation gesture bar: dark theme (icons #F3F0E7, gesture bar #45574A).\n\nCONTENT & LAYOUT (reproduce 1:1 identically to screen 29):\n- Top status bar: 09:41, wifi, signal, battery icons in light/white.\n- App bar: back arrow (arrow_back), title \"Everyday French ☕\" (or coffee cup emoji), trailing overflow icon (more_vert).\n- Subheader badge: \"☕ Everyday French · Term #14\" on recessed pill (#1C2520, text #B8C6BC).\n- Main headword: \"flâner\" in EB Garamond font-serif text-4xl font-normal text-[#F3F0E7].\n- Translation: \"to wander without hurry\" in DM Sans text-lg text-[#B8C6BC].\n- Divider line: #45574A.\n- Notes card: card container with rounded-2xl bg-[#222D27] border border-[#45574A] p-4. Label \"Notes\" in text-xs text-[#B8C6BC] uppercase/tracking-wider. Body italic: \"“On a quiet Sunday, with no destination in mind.”\" in text-[#F3F0E7].\n- Categories section: label \"Categories\" in text-sm font-medium text-[#B8C6BC].\n  - Chip 1: Grammatical chip \"Aa Verb\" (bg-[#49362D] text-[#F3C3AA] rounded-full px-3 py-1.5 text-sm).\n  - Chip 2: Thematic chip \"🌿 Everyday life\" (bg-[#344D3A] text-[#C1DFC4] rounded-full px-3 py-1.5 text-sm).\n- Footer footnote: icon + \"Added Oct 2024 · Stored offline on device\" in text-xs text-[#B8C6BC].\n- Bottom pinned primary button: \"Edit term\" with edit pencil icon, bg-[#B9D8BB] text-[#173824] rounded-xl font-medium py-4 w-full.\n- Bottom native gesture bar indicator at base.\nFull bleed edge-to-edge mobile UI only.",
+      "screenMetadata": {
+        "agentType": "PRO_AGENT",
+        "status": "COMPLETE"
+      },
+      "screenType": "DESIGN",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1:download",
+        "name": "projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1"
+      },
+      "theme": {},
+      "title": "29 Term details — Dark",
+      "width": "780",
+      "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1:download",
+      "agentText": "I have generated the Dark appearance counterparts for all four selected source screens, creating each as an independent, full-bleed mobile artboard strictly adhering to the Field Notebook semantic dark palette from `DESIGN.md`:\n\n### Produced Dark Screens\n\n1. **29 Term details — Dark** (`29 Term details — Dark`)\n   - **Canvas & Surface**: Dark canvas `#171E1B` with top bar, collection badge `☕ Everyday French · Term #14` in `#1C2520`, and title headword *\"flâner\"* in EB Garamond `#F3F0E7`.\n   - **Notes Card**: Surface container in `#222D27` with `#45574A` border, displaying the context note in italic `#F3F0E7`.\n   - **Category Chips**: Grammatical chip `Aa Verb` in `#49362D` / `#F3C3AA` and Thematic chip `Everyday life` in `#344D3A` / `#C1DFC4`.\n   - **Primary Action**: Pinned bottom `Edit term` button in `#B9D8BB` with `#173824` on-primary label text.\n\n2. **30 Term actions — Dark** (`30 Term actions — Dark`)\n   - **Backdrop & Scrim**: Dark Term details screen dimmed beneath a 48% scrim.\n   - **Bottom Sheet**: Sheet container in `#222D27` with `#45574A` border, drag handle, and title *\"flâner\"* with collection subtitle and close button.\n   - **Action Hierarchy**: Row items for `Edit term` with chevron and destructive `Delete term` with trash icon and label styled in `#FFB4AB`.\n   - **Dismiss Action**: Full-width `Cancel` control.\n\n3. **31 Delete term confirmation — Dark** (`31 Delete term confirmation — Dark`)\n   - **Modal Dialog**: Centered `#222D27` dialog box over a 48% dimmed and blurred dark backdrop.\n   - **Warning Header**: Circular badge with `#FFB4AB` trash icon on dark alert background `#4A2926`. Headline *\"Delete flâner?\"* in EB Garamond `#F3F0E7`.\n   - **Scope Notice**: Clarification card in `#1C2520` with `#45574A` border indicating categories and collection will remain intact.\n   - **Actions**: High-contrast destructive `Delete term` button alongside safe `Cancel` button.\n\n4. **32 Add term — Dark** (`32 Add term — Dark`)\n   - **Header & Folio**: Top bar with collection indicator `☕ Everyday French` and decorative folio subtitle *\"Field entry № 49\"*.\n   - **Form Fields**: Recessed inputs in `#1C2520` with `#45574A` borders and `#B8C6BC` placeholders for *Original expression*, *Translation*, and *Notes*.\n   - **Category Selector**: Grammatical chips with unselected state (`#1C2520` / `#45574A`) and selected state (`#49362D` / `#F3C3AA` with checkmark for `Verb`).\n   - **Actions**: Primary `✓ Save term` button in `#B9D8BB` / `#173824` and secondary `Cancel` link.\n\nAll four screens maintain 1:1 parity in layout, typography (EB Garamond & DM Sans), and component dimensions with their Light counterparts.",
+      "suggestions": [
+        "Generate the dark versions for screens 33 to 36",
+        "Inspect or refine category chip styling in screen 32",
+        "Create the dark version of Word of the Day (screen 42)"
+      ]
+    },
+    "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1:download",
+    "canvasUrl": "https://stitch.google.com/projects/8226357890556052909?node-id=ff1b17fde74e4613a9848b9671d4e14a"
+  }
+}

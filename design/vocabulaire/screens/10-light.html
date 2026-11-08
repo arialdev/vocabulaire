@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>10 Edit collection — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main font-body min-h-screen flex justify-center items-start antialiased selection:bg-[#E2ECDF] selection:text-[#20382E]">
+<!-- Mobile Screen Container (412x892 reference canvas) -->
+<div class="w-full max-w-[412px] min-h-[892px] bg-canvas flex flex-col justify-between relative shadow-sm">
+<!-- Top Container: Status Bar + App Bar + Form Content -->
+<div class="w-full flex flex-col">
+<!-- Android System Status Bar (24dp / h-6 standard inset) -->
+<div class="w-full h-7 px-6 pt-1 flex justify-between items-center text-xs font-label text-secondary font-medium tracking-tight select-none">
+<span class="text-[13px] font-semibold text-main tracking-tight">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Top App Bar (Task-Focused back navigation) -->
+<header class="flex justify-between items-center w-full h-14 px-3 border-b border-divider">
+<div class="flex items-center">
+<button aria-label="Back" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-main focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main ml-1">
+            Edit collection
+          </h1>
+</div>
+<!-- Optional subtle actions or clean notebook glyph -->
+<div class="flex items-center pr-1">
+<button aria-label="Collection options" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-recessed active:opacity-80 transition-colors text-secondary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Editorial Form Body -->
+<main class="w-full px-6 pt-6 pb-4 flex flex-col">
+<!-- Emoji Cover Picker Section -->
+<div class="flex flex-col items-center justify-center mb-8">
+<div class="relative group">
+<div class="w-[72px] h-[72px] rounded-2xl bg-surface border border-divider shadow-xs flex items-center justify-center text-3xl select-none transition-transform active:scale-95 duration-150">
+              ☕
+            </div>
+<!-- Decorative pencil badge -->
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-surface border border-divider flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[13px]" data-icon="edit">edit</span>
+</div>
+</div>
+<button class="mt-2.5 text-sm font-label font-medium text-primary hover:underline underline-offset-4 active:opacity-80 focus:outline-none transition-all" type="button">
+            Change icon
+          </button>
+</div>
+<!-- Interactive Form Fields -->
+<form class="flex flex-col space-y-5" onsubmit="event.preventDefault();">
+<!-- Field 1: Name (Required) -->
+<div class="flex flex-col space-y-1.5">
+<div class="flex justify-between items-baseline">
+<label class="text-xs font-label font-medium text-secondary" for="collection-name">
+                Name <span class="text-primary font-semibold">· Required</span>
+</label>
+<span class="text-[11px] font-label text-secondary tracking-normal">15/40</span>
+</div>
+<div class="relative">
+<input class="w-full h-14 px-4 bg-surface border border-divider rounded-xl text-main font-body text-base placeholder:text-secondary/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all shadow-none" id="collection-name" name="name" required="" type="text" value="Everyday French"/>
+</div>
+<p class="text-xs font-label text-secondary tracking-normal pl-0.5">
+              The primary title visible on the notebook spine.
+            </p>
+</div>
+<!-- Field 2: Short label (Optional) -->
+<!-- Metadata Summary Card / Folio Note -->
+<div class="pt-4">
+<div class="w-full p-4 rounded-xl bg-surface/75 border border-divider/80 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="auto_stories">auto_stories</span>
+<div class="flex flex-col">
+<span class="text-sm font-label font-medium text-main">48 terms recorded</span>
+<span class="text-xs font-label text-secondary">Created October 2024 · Offline</span>
+</div>
+</div>
+<span class="text-xs font-label text-secondary/80 bg-recessed px-2 py-0.5 rounded border border-divider/50">
+                Local
+              </span>
+</div>
+</div>
+</form>
+</main>
+</div>
+<!-- Bottom Actions & Destructive Zone (Sticky Thumb Zone) -->
+<div class="w-full px-6 pt-3 pb-3 flex flex-col items-center bg-canvas">
+<!-- Primary & Cancel Action Cluster -->
+<div class="w-full flex flex-col space-y-2.5">
+<button class="w-full h-14 bg-primary text-on-primary font-label text-base font-medium rounded-xl flex items-center justify-center space-x-2 shadow-none hover:opacity-95 active:opacity-90 active:scale-[0.99] transition-all focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="check">check</span>
+<span>Save changes</span>
+</button>
+<button class="w-full h-12 bg-transparent text-secondary hover:text-main font-label text-sm font-medium rounded-xl flex items-center justify-center active:bg-recessed transition-all focus:outline-none" type="button">
+          Cancel
+        </button>
+</div>
+<!-- Quiet, Destructive Action (Strictly Low Prominence Text Button) -->
+<div class="mt-4 mb-2">
+<button class="text-xs font-label font-medium text-destructive hover:underline underline-offset-4 py-2 px-3 rounded-lg active:bg-error-surface/50 transition-colors focus:outline-none flex items-center space-x-1.5" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="delete_outline">delete_outline</span>
+<span>Delete collection</span>
+</button>
+</div>
+<!-- Android Home Navigation Gesture Inset -->
+<div class="w-full h-4 flex items-center justify-center pt-1 pb-1">
+<div class="w-32 h-1 bg-main/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</body></html>

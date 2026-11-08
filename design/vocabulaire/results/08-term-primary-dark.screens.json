@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ff1b17fde74e4613a9848b9671d4e14a",
+    "name": "projects/8226357890556052909/screens/ff1b17fde74e4613a9848b9671d4e14a",
+    "title": "29 Term details — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1:download",
+      "name": "projects/8226357890556052909/files/30d826567f2f40c091028d1a6cda00b1"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/e43d5c992dff40478fef8c6c4347f5fc"
+    }
+  },
+  {
+    "id": "c91cb4be618145448a47316cd3e5f27f",
+    "name": "projects/8226357890556052909/screens/c91cb4be618145448a47316cd3e5f27f",
+    "title": "30 Term actions — Dark",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/aa30487c73b0402490771de1caf698c6:download",
+      "name": "projects/8226357890556052909/files/aa30487c73b0402490771de1caf698c6"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/350764be3b3248e991362884726040a9:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/350764be3b3248e991362884726040a9"
+    }
+  },
+  {
+    "id": "1e93360f7c1c465b8e2c241225a63826",
+    "name": "projects/8226357890556052909/screens/1e93360f7c1c465b8e2c241225a63826",
+    "title": "32 Add term — Dark",
+    "width": "780",
+    "height": "1908",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/0f292e3cb4cf4f4d8d3f792864f55433:download",
+      "name": "projects/8226357890556052909/files/0f292e3cb4cf4f4d8d3f792864f55433"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bfbc25e97cf044e6a23d381a98025b57:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/bfbc25e97cf044e6a23d381a98025b57"
+    }
+  },
+  {
+    "id": "d838cda563d2466797ead7776711f699",
+    "name": "projects/8226357890556052909/screens/d838cda563d2466797ead7776711f699",
+    "title": "31 Delete term confirmation — Dark",
+    "width": "780",
+    "height": "1768",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/26d95d7677cc4f38a9d666fe8fc38c14:download",
+      "name": "projects/8226357890556052909/files/26d95d7677cc4f38a9d666fe8fc38c14"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/96b6a4bdb52542488929a6adfcd6523d:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/96b6a4bdb52542488929a6adfcd6523d"
+    }
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "afd12306c38e4c11b72204bf9489ee04",
+    "name": "projects/8226357890556052909/screens/afd12306c38e4c11b72204bf9489ee04",
+    "title": "37 Categories empty — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/406f61e145c1418491275b9c1c812690:download",
+      "name": "projects/8226357890556052909/files/406f61e145c1418491275b9c1c812690"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/7d21daca7ba5468799c4c8ce3d365892:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/7d21daca7ba5468799c4c8ce3d365892"
+    }
+  },
+  {
+    "id": "98585b4a5c1f41ebbc93837de3bb0b60",
+    "name": "projects/8226357890556052909/screens/98585b4a5c1f41ebbc93837de3bb0b60",
+    "title": "38 New category — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/6dac918fdf5c417f91ce848ab1886871:download",
+      "name": "projects/8226357890556052909/files/6dac918fdf5c417f91ce848ab1886871"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/2ce3b500eb8b45d2b2f2b50b3ba9a228:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/2ce3b500eb8b45d2b2f2b50b3ba9a228"
+    }
+  },
+  {
+    "id": "d2fc2f194551470084258dd1e1c786b7",
+    "name": "projects/8226357890556052909/screens/d2fc2f194551470084258dd1e1c786b7",
+    "title": "39 Edit category — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3af17efce5c949a59402866411ab5e12:download",
+      "name": "projects/8226357890556052909/files/3af17efce5c949a59402866411ab5e12"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f839845d5465464e930fa4181b7b0807:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/f839845d5465464e930fa4181b7b0807"
+    }
+  },
+  {
+    "id": "d2e666e2e5d644dba9918da660e13860",
+    "name": "projects/8226357890556052909/screens/d2e666e2e5d644dba9918da660e13860",
+    "title": "40 Category validation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/e94b0cf1d38d410eac29108462d7f52e:download",
+      "name": "projects/8226357890556052909/files/e94b0cf1d38d410eac29108462d7f52e"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/53c8ac0dd2c44e9e8a00f267db2d2a30:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/53c8ac0dd2c44e9e8a00f267db2d2a30"
+    }
+  }
+]

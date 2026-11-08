@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>46 Restore preview — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      background-color: #E6E2D8;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-canvas text-main font-body">
+<!-- Android Artboard Container full-bleed 390x892 -->
+<main class="w-full max-w-[390px] min-h-[892px] mx-auto bg-canvas flex flex-col justify-between relative overflow-hidden">
+<!-- Status Bar (Android Native 24dp) -->
+<header class="w-full h-8 pt-2 px-6 flex justify-between items-center text-xs font-medium text-secondary select-none z-10">
+<span class="tracking-tight text-[13px] font-semibold text-main">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- TopAppBar docked to top -->
+<nav class="flex justify-between items-center w-full h-14 px-4 bg-surface border-b border-divider">
+<div class="flex items-center gap-3">
+<button aria-label="Back to Backups" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-main hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Restore preview</h1>
+</div>
+<button aria-label="Settings" class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+</button>
+</nav>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto px-6 py-5 space-y-4">
+<!-- Quiet introductory label -->
+<div class="text-xs text-secondary font-medium tracking-wide uppercase">
+<span>Backup file</span>
+</div>
+<!-- File Details Card (Clean stationery aesthetic without jargon/specs) -->
+<article class="bg-surface border border-divider rounded-xl p-4 shadow-none">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-lg bg-selected-surface text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="description">description</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-medium text-base text-main leading-snug break-all tracking-tight font-body">vocabulaire-2026-11-01.json</p>
+<p class="text-xs text-secondary mt-1 font-body">Exported 1 November 2026</p>
+</div>
+</div>
+</article>
+<!-- Archive Content Statistics (Notebook content) -->
+<section aria-labelledby="section-stats-heading">
+<div class="flex items-baseline justify-between mb-2">
+<h2 class="font-headline text-lg font-semibold text-main" id="section-stats-heading">Notebook content</h2>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Collections Count -->
+<div class="bg-surface border border-divider rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="text-xs font-medium tracking-normal font-body">Collections</span>
+<span class="material-symbols-outlined text-lg text-primary" data-icon="folder">folder</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-3xl font-semibold text-main tracking-tight">3</span>
+<span class="text-[11px] text-secondary">binders</span>
+</div>
+</div>
+<!-- Terms Count -->
+<div class="bg-surface border border-divider rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="text-xs font-medium tracking-normal font-body">Terms</span>
+<span class="material-symbols-outlined text-lg text-primary" data-icon="menu_book">menu_book</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-3xl font-semibold text-main tracking-tight">96</span>
+<span class="text-[11px] text-secondary">entries</span>
+</div>
+</div>
+<!-- Categories Count -->
+<div class="bg-surface border border-divider rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="text-xs font-medium tracking-normal font-body">Categories</span>
+<span class="material-symbols-outlined text-lg text-grammatical-text" data-icon="label">label</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-3xl font-semibold text-main tracking-tight">12</span>
+<span class="text-[11px] text-secondary">tags</span>
+</div>
+</div>
+<!-- Saved Filters Count -->
+<div class="bg-surface border border-divider rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="text-xs font-medium tracking-normal font-body">Saved filters</span>
+<span class="material-symbols-outlined text-lg text-primary" data-icon="filter_list">filter_list</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-3xl font-semibold text-main tracking-tight">4</span>
+<span class="text-[11px] text-secondary">views</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Notice: Replacement warning & safe export link -->
+<aside class="bg-error-surface/60 border border-destructive/20 rounded-xl p-4 space-y-2.5">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-destructive text-xl flex-shrink-0 mt-0.5" data-icon="warning">warning</span>
+<div class="space-y-1">
+<p class="text-[13px] leading-snug font-medium text-destructive">
+              Restoring replaces all current data on this device.
+            </p>
+<p class="text-xs text-secondary leading-normal">
+              Any current terms, collections, or custom filters not included in this backup file will be permanently removed.
+            </p>
+</div>
+</div>
+<div class="pt-2 border-t border-destructive/15 flex items-center">
+<a class="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-main transition-colors group" href="#export">
+<span class="material-symbols-outlined text-sm group-hover:translate-y-[-1px] transition-transform" data-icon="download">download</span>
+<span class="underline underline-offset-2 decoration-primary/40 group-hover:decoration-main">Export current data first</span>
+</a>
+</div>
+</aside>
+<!-- Quiet note about offline storage -->
+<div class="text-center pt-1 pb-2">
+<p class="text-[11px] text-secondary flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span>
+          Data stays on your device. No cloud sync involved.
+        </p>
+</div>
+</div>
+<!-- Bottom Docked Actions (Android thumb zone) -->
+<div class="w-full bg-surface border-t border-divider px-6 pt-3 pb-2 space-y-2">
+<!-- Primary Action: Continue to confirmation -->
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-medium text-base flex items-center justify-center gap-2 shadow-sm hover:opacity-95 active:opacity-90 transition-all" type="button">
+<span>Continue to confirmation</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Action: Choose another file -->
+<button class="w-full h-12 rounded-xl bg-transparent border border-divider text-main font-medium text-sm flex items-center justify-center gap-2 hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="folder_open">folder_open</span>
+<span>Choose another file</span>
+</button>
+<!-- Safe Text Dismiss -->
+<div class="text-center pt-0.5">
+<button class="text-xs font-medium text-secondary hover:text-main py-1 px-4 transition-colors" type="button">
+          Cancel restore
+        </button>
+</div>
+<!-- Android Gesture Navigation Bar indicator -->
+<div class="w-full flex justify-center pt-1 pb-1">
+<div class="w-32 h-1 bg-main/20 rounded-full"></div>
+</div>
+</div>
+</main>
+</body></html>

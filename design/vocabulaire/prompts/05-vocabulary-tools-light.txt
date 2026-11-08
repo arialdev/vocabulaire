@@ -1,0 +1,14 @@
+Design 4 SEPARATE connected Android MOBILE screens for Vocabulaire. Each view must be its own independent 412x892 artboard, not a collage or single long page. LIGHT appearance. Follow the Vocabulaire Field Notebook design system in this project and its uploaded DESIGN.md. Literary notebook aesthetic; consistent typography, spacing, surfaces, Android system bars, and navigation across every frame. Preserve accessible contrast, readable 16dp controls, 48dp tap targets, generous gutters and one primary bottom action. No gamification, AI, social, pronunciation assessment, sign-in, speculative extra features, or desktop navigation. Use realistic vocabulary with correct diacritics. No design annotations or device frames inside the app.
+
+SEPARATE SCREEN: 17 No matching terms — Light
+☕ Everyday French collection, query montaña visible in search with clear X, active grammatical Verb and thematic Travel chips with remove controls, Filters & display shows badge 2. Summary “0 of 48 terms”. Small magnifier drawing and “No words on this page.” Copy “Try another search or clear your filters.” Primary Clear search & filters and quiet Edit filters. Retain Add term secondary access; do not erase the query silently.
+
+SEPARATE SCREEN: 18 Collection tools — Light
+Compact vocabulary list dimmed behind sheet titled Collection tools with ☕ Everyday French subtitle. Rows Word of the Day, Manage categories, Export PDF, Edit collection. Each has restrained icon and clear chevron; no destructive delete in this menu. Close control. Keep the large Add term behind the sheet rather than duplicate it.
+
+SEPARATE SCREEN: 19 PDF export — Light
+Vocabulary list behind bottom sheet “Export as PDF”. Show ☕ Everyday French, scope “12 matching terms”, summary Search: café, categories Expression and Food & drink, Detailed, Original A–Z. Copy “Your PDF includes the terms in your current results.” Short document thumbnail with readable headword/translation hierarchy. Primary Create PDF, secondary Cancel. Native Android share/save opens afterward. Do not add unrelated PDF settings or account/cloud destinations.
+
+SEPARATE SCREEN: 20 PDF ready — Light
+Same collection with modest confirmation bottom sheet, document icon, “Your PDF is ready”, filename Everyday-French.pdf, “12 terms · Current results”. Primary Share or save PDF, secondary Done. The share button hands off to native Android share sheet; no fabricated cloud upload. Include a small accessible snackbar success cue.
+

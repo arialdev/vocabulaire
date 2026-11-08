@@ -1,0 +1,10 @@
+appId: dev.arial.vocabulaire
+---
+- clearState
+- launchApp
+- tapOn: Get started
+- tapOn: Create a collection
+- back
+- assertVisible: Your collections
+- assertVisible: Create a collection to start adding vocabulary.
+- assertNotVisible: Open Japanese

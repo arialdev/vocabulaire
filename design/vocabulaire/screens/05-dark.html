@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>05 Collections home — Dark</title>
+<!-- Fonts: EB Garamond (literary headings) & DM Sans (interface & body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#2D3D34",
+            "error-surface": "#3E2220",
+            "destructive-text": "#F28B82"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Natural tap highlights for stationery tactile feel */
+    button, a {
+      -webkit-tap-highlight-color: rgba(185, 216, 187, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#0F1412] min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main antialiased selection:bg-[#2D3D34] selection:text-[#F3F0E7]">
+<!-- Mobile Screen Container: Android 412x892 dimensions -->
+<div class="relative w-full max-w-[412px] h-[892px] bg-canvas flex flex-col justify-between overflow-hidden shadow-2xl md:rounded-[32px] border border-divider/40">
+<!-- Top System & App Bar Area -->
+<header class="w-full shrink-0 z-20">
+<!-- Android Status Bar (24dp baseline) -->
+<div class="h-6 px-6 pt-1 flex justify-between items-center text-xs font-label text-main font-medium tracking-tight select-none">
+<span>9:41</span>
+<div class="flex items-center space-x-2 text-main">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Top App Bar: Docked full-width, clean separation, no heavy lines -->
+<div class="flex justify-between items-center h-14 px-6 w-full">
+<!-- Wordmark: EB Garamond Semibold 24sp -->
+<span class="font-headline text-2xl font-semibold tracking-tight text-main select-none">
+          Vocabulaire
+        </span>
+<!-- Settings button (min 48x48dp hit area) -->
+<button aria-label="Settings" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Notebook Canvas Area -->
+<main class="flex-1 overflow-y-auto px-6 pt-3 pb-8">
+<!-- Page Header Section -->
+<section class="mb-7 mt-2">
+<h1 class="font-headline text-[30px] leading-[36px] font-semibold text-main tracking-tight">
+          Your collections
+        </h1>
+<p class="font-body text-[16px] leading-[22px] text-secondary mt-1">
+          A home for every word you find.
+        </p>
+</section>
+<!-- Ruled Notebook Collections List -->
+<div class="flex flex-col" role="list">
+<!-- Row 1: Everyday French -->
+<div class="border-t border-divider py-3.5 transition-colors hover:bg-surface/50 -mx-2 px-2 rounded-lg" role="listitem">
+<div class="flex items-center justify-between">
+<!-- Clickable Row Area to Navigate to Vocabulary -->
+<a class="flex items-center space-x-3.5 flex-1 min-w-0 pr-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1" href="#french">
+<!-- 52dp Emoji Tile -->
+<div class="w-[52px] h-[52px] shrink-0 rounded-2xl bg-surface border border-divider/70 flex items-center justify-center text-2xl shadow-[0_1px_2px_rgba(0,0,0,0.2)] select-none">
+                ☕
+              </div>
+<!-- Collection Meta -->
+<div class="flex flex-col min-w-0">
+<span class="font-body font-medium text-[17px] text-main leading-tight truncate group-hover:text-primary transition-colors">
+                  Everyday French
+                </span>
+<span class="font-body text-[12px] text-secondary/80 font-normal leading-normal mt-0.5">
+                  48 terms
+                </span>
+</div>
+</a>
+<!-- Right Controls: Overflow action and navigational indicator -->
+<div class="flex items-center shrink-0 -mr-2">
+<button aria-label="Collection options for Everyday French" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<a aria-hidden="true" class="w-8 h-12 flex items-center justify-center text-secondary/70 group-hover:text-primary" href="#french" tabindex="-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Row 2: Español de viaje -->
+<div class="border-t border-divider py-3.5 transition-colors hover:bg-surface/50 -mx-2 px-2 rounded-lg" role="listitem">
+<div class="flex items-center justify-between">
+<a class="flex items-center space-x-3.5 flex-1 min-w-0 pr-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1" href="#spanish">
+<!-- 52dp Emoji Tile -->
+<div class="w-[52px] h-[52px] shrink-0 rounded-2xl bg-surface border border-divider/70 flex items-center justify-center text-2xl shadow-[0_1px_2px_rgba(0,0,0,0.2)] select-none">
+                🍋
+              </div>
+<!-- Collection Meta -->
+<div class="flex flex-col min-w-0">
+<span class="font-body font-medium text-[17px] text-main leading-tight truncate group-hover:text-primary transition-colors">
+                  Español de viaje
+                </span>
+<span class="font-body text-[12px] text-secondary/80 font-normal leading-normal mt-0.5">
+                  32 terms
+                </span>
+</div>
+</a>
+<!-- Right Controls -->
+<div class="flex items-center shrink-0 -mr-2">
+<button aria-label="Collection options for Español de viaje" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<a aria-hidden="true" class="w-8 h-12 flex items-center justify-center text-secondary/70 group-hover:text-primary" href="#spanish" tabindex="-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Row 3: 日本語ノート -->
+<div class="border-t border-b border-divider py-3.5 transition-colors hover:bg-surface/50 -mx-2 px-2 rounded-lg" role="listitem">
+<div class="flex items-center justify-between">
+<a class="flex items-center space-x-3.5 flex-1 min-w-0 pr-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1" href="#japanese">
+<!-- 52dp Emoji Tile -->
+<div class="w-[52px] h-[52px] shrink-0 rounded-2xl bg-surface border border-divider/70 flex items-center justify-center text-2xl shadow-[0_1px_2px_rgba(0,0,0,0.2)] select-none">
+                🌱
+              </div>
+<!-- Collection Meta -->
+<div class="flex flex-col min-w-0">
+<span class="font-body font-medium text-[17px] text-main leading-tight truncate group-hover:text-primary transition-colors">
+                  日本語ノート
+                </span>
+<span class="font-body text-[12px] text-secondary/80 font-normal leading-normal mt-0.5">
+                  16 terms
+                </span>
+</div>
+</a>
+<!-- Right Controls -->
+<div class="flex items-center shrink-0 -mr-2">
+<button aria-label="Collection options for 日本語ノート" class="w-12 h-12 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+<a aria-hidden="true" class="w-8 h-12 flex items-center justify-center text-secondary/70 group-hover:text-primary" href="#japanese" tabindex="-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle notebook annotation cue at footer of list -->
+<div class="mt-8 flex justify-center items-center text-secondary text-xs font-label">
+<span class="tracking-widest uppercase text-[11px]">Three notebooks on shelf</span>
+</div>
+</main>
+<!-- Anchored Lower Thumb Zone Area -->
+<footer class="w-full shrink-0 px-6 pb-2 pt-2 bg-gradient-to-t from-canvas via-canvas to-transparent z-10 flex flex-col items-center">
+<!-- Primary Action Button: 56dp high, 12dp radius (#B9D8BB with #173824 text) -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-[12px] font-body font-semibold text-[16px] flex items-center justify-center space-x-2 shadow-sm hover:brightness-105 active:brightness-95 active:scale-[0.99] transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="add">add</span>
+<span>Create collection</span>
+</button>
+<!-- Android Home Navigation Indicator Bar -->
+<div class="w-full h-7 flex items-center justify-center pt-2">
+<div class="w-[72px] h-1 bg-divider rounded-full"></div>
+</div>
+</footer>
+</div>
+</body></html>

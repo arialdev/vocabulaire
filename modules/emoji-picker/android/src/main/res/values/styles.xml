@@ -1,0 +1,12 @@
+<resources>
+  <style name="VocabulaireEmojiPickerLight">
+    <item name="android:colorControlNormal">#59675E</item>
+    <item name="android:colorAccent">#2D6046</item>
+    <item name="android:textColorPrimary">#20382E</item>
+  </style>
+  <style name="VocabulaireEmojiPickerDark">
+    <item name="android:colorControlNormal">#B8C6BC</item>
+    <item name="android:colorAccent">#B9D8BB</item>
+    <item name="android:textColorPrimary">#F3F0E7</item>
+  </style>
+</resources>

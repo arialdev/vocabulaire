@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>41 Delete category confirmation — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1",
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    body {
+      background-color: #F8F5EE;
+      color: #20382E;
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas flex justify-center items-center min-h-screen select-none">
+<!-- Android Viewport 412x892 -->
+<main class="relative w-[412px] h-[892px] bg-canvas overflow-hidden flex flex-col justify-between shadow-2xl">
+<!-- BACKGROUND SCREEN (Under Scrim: Manage categories view) -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col bg-canvas pointer-events-none filter blur-[2px] opacity-80">
+<!-- System Status Bar -->
+<div class="h-10 w-full pt-2 px-6 flex justify-between items-center text-xs font-label font-medium text-main">
+<span>09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px]">network_wifi</span>
+<span class="material-symbols-outlined text-[17px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- App Bar under sheet -->
+<div class="flex justify-between items-center w-full h-14 px-4 border-b border-divider bg-surface">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 flex items-center justify-center rounded-full text-main">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h1 class="font-headline text-2xl font-semibold tracking-normal text-main">Categories</h1>
+</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full text-secondary">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+</div>
+<!-- Collection Context Banner -->
+<div class="px-6 py-4 bg-surface border-b border-divider flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-2xl p-1.5 bg-recessed rounded-lg">☕</span>
+<div>
+<div class="text-xs font-medium text-secondary uppercase tracking-wider">Notebook Collection</div>
+<div class="font-headline text-lg font-semibold text-main">Everyday French</div>
+</div>
+</div>
+<span class="text-xs font-label bg-selected-surface text-thematic-text px-2.5 py-1 rounded-full font-medium">6 categories</span>
+</div>
+<!-- Content Categories Mock List -->
+<div class="p-6 space-y-6 flex-1 overflow-hidden">
+<!-- Grammatical group -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-xs font-semibold tracking-wide text-grammatical-text uppercase">Grammatical (3)</span>
+</div>
+<div class="space-y-2">
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center">
+<div class="flex items-center gap-2.5">
+<span class="text-xs px-2 py-0.5 rounded font-medium bg-grammatical-fill text-grammatical-text">Aa</span>
+<span class="font-body text-sm font-medium text-main">Noun</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center">
+<div class="flex items-center gap-2.5">
+<span class="text-xs px-2 py-0.5 rounded font-medium bg-grammatical-fill text-grammatical-text">Aa</span>
+<span class="font-body text-sm font-medium text-main">Verb</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center">
+<div class="flex items-center gap-2.5">
+<span class="text-xs px-2 py-0.5 rounded font-medium bg-grammatical-fill text-grammatical-text">Aa</span>
+<span class="font-body text-sm font-medium text-main">Expression</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+</div>
+</div>
+<!-- Thematic group -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-xs font-semibold tracking-wide text-thematic-text uppercase">Thematic (3)</span>
+</div>
+<div class="space-y-2">
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-thematic-text text-sm">local_florist</span>
+<span class="font-body text-sm font-medium text-main">Everyday life</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center ring-1 ring-destructive/40">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-thematic-text text-sm">local_florist</span>
+<span class="font-body text-sm font-medium text-main">Travel</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+<div class="p-3.5 bg-surface rounded-xl border border-divider flex justify-between items-center">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-thematic-text text-sm">local_florist</span>
+<span class="font-body text-sm font-medium text-main">Food &amp; drink</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">more_vert</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 48% SCRIM OVERLAY -->
+<div class="absolute inset-0 bg-[#171E1B]/50 transition-opacity z-10"></div>
+<!-- FOREGROUND MODAL & ACTIVE STATUS BAR -->
+<div class="relative z-20 flex flex-col h-full justify-between pointer-events-auto">
+<!-- Sharp Android System Status Bar on top of scrim -->
+<div class="h-10 w-full pt-2 px-6 flex justify-between items-center text-xs font-label font-medium text-white/90">
+<span>09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px]">network_wifi</span>
+<span class="material-symbols-outlined text-[17px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- CENTERED CALM CONFIRMATION DIALOG -->
+<div class="flex-1 flex items-center justify-center px-6">
+<div aria-describedby="dialog-description" aria-labelledby="dialog-title" aria-modal="true" class="w-full max-w-[340px] bg-surface rounded-2xl border border-divider p-6 shadow-2xl text-center transform transition-transform" role="dialog">
+<!-- Soft Destructive Badge Icon -->
+<div class="mx-auto w-12 h-12 rounded-full bg-error-surface flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-destructive text-2xl" data-icon="delete">delete</span>
+</div>
+<!-- Dialog Title -->
+<h2 class="font-headline text-2xl font-semibold text-main tracking-tight mb-2" id="dialog-title">
+            Delete Travel?
+          </h2>
+<!-- Category Identity Pill -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-thematic-fill text-thematic-text text-xs font-medium mb-3">
+<span class="material-symbols-outlined text-xs">local_florist</span>
+<span>Thematic category</span>
+</div>
+<!-- Primary Description -->
+<p class="font-body text-[15px] text-secondary leading-relaxed mb-4 text-left" id="dialog-description">
+            This category will be removed from terms and saved filters. Your terms will stay.
+          </p>
+<!-- Clarifying Tip Box (Notebook Aesthetic) -->
+<div class="bg-recessed/80 rounded-xl p-3 border border-divider/60 text-left mb-6 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">info</span>
+<p class="font-body text-xs text-secondary leading-relaxed">
+              Terms tagged with Travel will keep any other categories.
+            </p>
+</div>
+<!-- Safe Action Hierarchy -->
+<div class="flex flex-col gap-2">
+<!-- Destructive Action -->
+<button class="h-12 bg-destructive text-white rounded-xl font-label font-medium text-base w-full active:opacity-90 transition-opacity flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-destructive/40" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+<span>Delete category</span>
+</button>
+<!-- Safe Neutral Cancel Button -->
+<button class="h-12 bg-transparent text-main rounded-xl font-label font-medium text-base w-full hover:bg-black/5 active:bg-black/10 transition-colors flex items-center justify-center focus:outline-none" type="button">
+              Cancel
+            </button>
+</div>
+</div>
+</div>
+<!-- Android Bottom Gesture Inset Navigation Pill -->
+<div class="h-6 w-full flex items-center justify-center pb-2">
+<div class="w-28 h-1 bg-white/60 rounded-full"></div>
+</div>
+</div>
+</main>
+</body></html>

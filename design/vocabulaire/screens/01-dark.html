@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulaire — 01 Onboarding Collections</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            "recessed-input": "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "selected-surface": "#344D3A",
+            "grammatical-text": "#D9B8A2",
+            "grammatical-fill": "#362B25",
+            "thematic-text": "#C1DFC4",
+            "thematic-fill": "#344D3A",
+            destructive: "#E26D68",
+            "error-surface": "#382020"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#121715] min-h-screen flex items-center justify-center p-0 sm:p-6 font-body text-main antialiased selection:bg-selected-surface selection:text-thematic-text">
+<!-- Android Viewport Frame (412x892 dp standard) -->
+<main class="w-[412px] h-[892px] bg-canvas flex flex-col justify-between relative shadow-2xl overflow-hidden border border-divider/60 rounded-none sm:rounded-[32px]">
+<!-- Top System & App Bar Container -->
+<header class="w-full shrink-0 z-20">
+<!-- Android Status Bar (24dp equivalent) -->
+<div class="h-6 px-6 pt-1 flex justify-between items-center text-secondary text-xs font-label tracking-tight select-none">
+<span class="font-medium text-main text-[13px]">9:41</span>
+<div class="flex items-center space-x-1.5 opacity-85">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Shared Component Blueprint -->
+<div class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto border-b border-divider">
+<span class="font-headline text-2xl font-semibold tracking-tight text-main">Vocabulaire</span>
+<button class="font-label font-medium text-sm text-secondary hover:text-primary transition-colors duration-150 active:opacity-70 px-2 py-1 rounded focus:outline-none" type="button">
+          Skip
+        </button>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col justify-between px-6 pt-4 pb-2 overflow-hidden">
+<!-- Upper-Middle Notebook Illustration Area -->
+<div class="w-full flex-1 min-h-[220px] max-h-[300px] flex items-center justify-center relative">
+<div class="relative w-[320px] h-[240px] flex items-center justify-center">
+<!-- Background Field Journal (Slightly Angled) -->
+<div class="absolute w-[220px] h-[168px] bg-[#1C2520] rounded-xl border border-divider shadow-sm transform -rotate-6 translate-y-3 -translate-x-4 transition-transform duration-300">
+<!-- Spine Stitching Detail -->
+<div class="absolute left-0 top-0 bottom-0 w-5 border-r border-divider/80 bg-[#171E1B] rounded-l-xl flex flex-col justify-around py-3 items-center">
+<span class="w-1 h-1 rounded-full bg-secondary/50"></span>
+<span class="w-1 h-1 rounded-full bg-secondary/50"></span>
+<span class="w-1 h-1 rounded-full bg-secondary/50"></span>
+</div>
+<!-- Labeled Bookmark Tag: Español de viaje -->
+<div class="absolute -top-3.5 right-6 bg-surface border border-divider rounded-t-md px-3 py-1 text-xs text-main shadow-xs flex items-center gap-1.5 font-label">
+<span class="text-sm">🍋</span>
+<span class="font-medium text-[11px] tracking-tight text-secondary">Español de viaje</span>
+</div>
+<!-- Ruled Notebook Lines -->
+<div class="ml-8 mr-4 mt-8 space-y-3 opacity-30">
+<div class="h-px bg-divider w-3/4"></div>
+<div class="h-px bg-divider w-full"></div>
+<div class="h-px bg-divider w-4/5"></div>
+</div>
+</div>
+<!-- Foreground Field Journal (Primary Warm Linen Finish -> Dark Notebook) -->
+<div class="absolute w-[240px] h-[178px] bg-surface rounded-xl border border-divider shadow-md translate-y-2 translate-x-2">
+<!-- Bound Forest Green Spine Tape -->
+<div class="absolute left-0 top-0 bottom-0 w-6 bg-[#173824] rounded-l-[11px] flex flex-col justify-between py-4 items-center border-r border-[#2D6046]/40">
+<span class="w-1 h-4 bg-primary/40 rounded-full"></span>
+<span class="w-1 h-4 bg-primary/40 rounded-full"></span>
+</div>
+<!-- Bookmark Ribbon hanging off bottom -->
+<div class="absolute bottom-[-18px] right-14 w-3.5 h-7 bg-[#945C42] shadow-xs rounded-b-xs border-t border-[#76452E]"></div>
+<!-- Labeled Tab Card: Everyday French -->
+<div class="absolute -top-4 left-9 bg-selected-surface border border-divider rounded-t-md px-3 py-1 shadow-xs flex items-center gap-1.5">
+<span class="text-sm">☕</span>
+<span class="font-medium text-[11px] text-thematic-text font-label tracking-tight">Everyday French</span>
+</div>
+<!-- Ruled Paper Content Simulation -->
+<div class="ml-9 mr-5 mt-7 flex flex-col h-[130px] justify-between pb-3">
+<div>
+<p class="font-headline text-[17px] leading-snug text-main font-semibold tracking-normal">flâner</p>
+<p class="font-body text-xs text-secondary italic mt-0.5">to wander without hurry</p>
+</div>
+<!-- Tag Pill inside notebook -->
+<div class="pt-2 border-t border-divider flex items-center justify-between">
+<span class="inline-flex items-center text-[10px] font-label font-medium px-2 py-0.5 rounded bg-thematic-fill text-thematic-text">
+                  Everyday life
+                </span>
+<span class="text-[10px] text-secondary font-label">48 terms</span>
+</div>
+</div>
+</div>
+<!-- Small Floating Pressed Leaf Motif -->
+<div class="absolute -bottom-2 -left-2 bg-surface p-1.5 rounded-full border border-divider shadow-xs flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="potted_plant">yard</span>
+</div>
+</div>
+</div>
+<!-- Editorial Typography Section -->
+<div class="w-full pt-1 pb-3 text-center sm:text-left">
+<h1 class="font-headline text-[32px] leading-[38px] text-main font-semibold tracking-tight text-balance mb-3">
+          A little home for every language.
+        </h1>
+<p class="font-body text-[16px] leading-[24px] text-secondary text-pretty">
+          Gather your words in collections that feel like you. Entirely offline, written with your own intent.
+        </p>
+</div>
+<!-- Progress & Pagination Indicator -->
+<div class="w-full flex items-center justify-between py-2 border-t border-divider/60">
+<span class="font-label text-xs font-medium text-secondary">
+          1 of 4
+        </span>
+<!-- 4-Dot Progress Row -->
+<div aria-label="Onboarding Progress" class="flex items-center space-x-2" role="tablist">
+<span aria-label="Step 1 active" aria-selected="true" class="w-6 h-2 bg-selected-surface rounded-full transition-all duration-200 border border-thematic-text/40" role="tab"></span>
+<span aria-label="Step 2" aria-selected="false" class="w-2 h-2 bg-divider rounded-full transition-all duration-200" role="tab"></span>
+<span aria-label="Step 3" aria-selected="false" class="w-2 h-2 bg-divider rounded-full transition-all duration-200" role="tab"></span>
+<span aria-label="Step 4" aria-selected="false" class="w-2 h-2 bg-divider rounded-full transition-all duration-200" role="tab"></span>
+</div>
+</div>
+<!-- Bottom Thumb-Zone Controls -->
+<div class="w-full flex flex-col items-center pt-2 pb-1 space-y-3">
+<!-- Subtle Gesture Cue -->
+<div class="flex items-center justify-center space-x-1 text-secondary/80 font-label text-xs tracking-wide">
+<span>Swipe right to continue</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<!-- Primary Button (56dp target, Fill #B9D8BB, Text #173824) -->
+<button class="w-full h-14 bg-primary hover:bg-[#a8caa9] active:bg-[#97b999] text-on-primary rounded-xl font-label font-medium text-base flex items-center justify-center space-x-2 shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-canvas" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Quiet Action -->
+<button class="py-2 px-4 text-secondary hover:text-main text-sm font-label font-medium transition-colors duration-150 focus:outline-none" type="button">
+          Get started
+        </button>
+</div>
+</div>
+<!-- Android Gesture Navigation Bar (Bottom Inset) -->
+<footer class="h-6 w-full flex items-center justify-center shrink-0 pb-2 select-none">
+<div class="w-28 h-1 bg-main/30 rounded-full"></div>
+</footer>
+</main>
+</body></html>

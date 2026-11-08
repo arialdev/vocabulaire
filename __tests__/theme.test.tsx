@@ -10,7 +10,7 @@ test("applies the selected appearance to both native controls and app text", asy
     </ThemeProvider>,
   );
   expect(setColorScheme).toHaveBeenLastCalledWith("dark");
-  expect(screen.getByText("Example")).toHaveStyle({ color: "#f5f5f5" });
+  expect(screen.getByText("Example")).toHaveStyle({ color: "#F3F0E7" });
   await view.rerender(
     <ThemeProvider appearance="system">
       <Text>Example</Text>

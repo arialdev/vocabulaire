@@ -1,0 +1,11 @@
+appId: dev.arial.vocabulaire
+---
+# Presentation-only states; no transaction or rollback is performed here.
+- runFlow: review-fault-preview.yaml
+- tapOn: Review restoring state
+- assertVisible: Restoring backup…
+- takeScreenshot: 48-${APPEARANCE}-emulator
+- runFlow: review-fault-preview.yaml
+- tapOn: Review rollback state
+- assertVisible: Restore failed. Your previous data was kept.
+- takeScreenshot: 51-${APPEARANCE}-emulator

@@ -1,0 +1,93 @@
+{
+  "success": true,
+  "data": {
+    "resource": "screen",
+    "id": "0711bbc8b5e94eb78ab7390daac1a35f",
+    "sourceScreenId": "11ed8695830d41e4acf9729f05dd66e8",
+    "resultScreenId": "0711bbc8b5e94eb78ab7390daac1a35f",
+    "sourceScreenIds": [
+      "11ed8695830d41e4acf9729f05dd66e8"
+    ],
+    "resultScreenIds": [
+      "0711bbc8b5e94eb78ab7390daac1a35f"
+    ],
+    "updated": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "deviceType": "MOBILE",
+                "generatedBy": "HatterAgent",
+                "height": "1768",
+                "htmlCode": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bc169c8a291d4a7197fae4609123971a:download",
+                  "mimeType": "text/html",
+                  "name": "projects/8226357890556052909/files/bc169c8a291d4a7197fae4609123971a"
+                },
+                "id": "0711bbc8b5e94eb78ab7390daac1a35f",
+                "name": "projects/8226357890556052909/screens/0711bbc8b5e94eb78ab7390daac1a35f",
+                "prompt": "Create a pixel-accurate DARK appearance counterpart of the selected mobile screen \"53 Get started choices — Light\".\nTitle of generated screen: \"53 Get started choices — Dark\"\nDevice: mobile (Android 390x892 or 412x892 dp full bleed, no desktop container, no mockup frame).\n\nPreserve 1:1 identical structure, copy, hierarchy, spacing, icons, typography, and bottom sheet state:\n- Top bar: \"Vocabulaire\" title in EB Garamond serif with \"Skip\" text action on the right. Dark status bar at top (09:41, wifi, battery).\n- Background underlying screen (dimmed under dark scrim rgba(0,0,0,0.5)):\n  - Preview onboarding card: dark container with forest border/accent, showing \"☕ Everyday French\" (48 terms), headword \"flâner\", translation \"to wander without hurry\", and chips \"Everyday life\", \"Verb\".\n  - Headline: \"A little home for every language.\" in EB Garamond.\n  - Subtitle: \"Gather your words in collections that feel like you. Entirely offline, written with your own intent.\"\n- Bottom sheet modal (\"Start your notebook\"):\n  - Top drag handle in center.\n  - Close button (\"✕\") on the top right of the sheet.\n  - Title: \"Start your notebook\" in EB Garamond serif font.\n  - Subtitle: \"Create a collection, bring a backup, or explore first.\" in DM Sans.\n  - Offline info card: rounded container with lock icon and text \"Everything stays strictly offline on this device. No account or signup required.\"\n  - Primary button: \"+ Create collection\" - full width, 56dp height, rounded-xl/12dp, solid fill #B9D8BB with #173824 text, font-semibold.\n  - Secondary button: Outline/subtle card button with upload/restore icon \"Restore backup\" (dark surface #222D27, border #45574A, text #F3F0E7).\n  - Quiet text action below: \"Skip for now\" in #B8C6BC.\n  - Android home gesture bar pill at bottom.\n\nSemantic dark colors from Field Notebook DESIGN.md:\n- Canvas / background: #171E1B\n- Scrim: rgba(0,0,0,0.55)\n- Bottom sheet surface / card surfaces: #222D27\n- Info card / recessed elements: #1C2520\n- Main text / headings: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders / dividers: #45574A\n- Primary action CTA: fill #B9D8BB, on-primary text #173824\n- Secondary button: bg #222D27, border #45574A, text #F3F0E7\n- Grammatical chip: #49362D fill with #F3C3AA text\n- Thematic chip: #344D3A fill with #C1DFC4 text\n- Typography: EB Garamond for serif titles/headwords, DM Sans for all body/buttons/labels.\n- Full bleed native mobile layout with zero desktop wrappers or margins.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6:download",
+                  "name": "projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6"
+                },
+                "theme": {},
+                "title": "53 Get started choices — Dark",
+                "width": "780"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I have generated the Dark appearance counterpart for the selected source screen:\n\n### Generated Dark Counterpart\n**53 Get started choices — Dark** (counterpart to `53 Get started choices — Light`)\n- **Underlying Page & Scrim**: Darkened canvas (`#171E1B`) beneath a clean dimming scrim, displaying the top app bar (`Vocabulaire` and `Skip`), onboarding preview card with `☕ Everyday French` and sample entry `flâner`, and the headline *\"A little home for every language.\"*\n- **\"Start your notebook\" Bottom Sheet**:\n  - Drag handle and header dismiss (`✕`).\n  - Serif headline in EB Garamond (`#F3F0E7`) with DM Sans subtitle copy (`#B8C6BC`).\n  - Offline privacy notice card with padlock icon on recessed dark surface (`#1C2520`) with `#45574A` border.\n  - Primary CTA `+ Create collection` in `#B9D8BB` with `#173824` on-primary label text.\n  - Outlined secondary CTA `Restore backup` in `#222D27` with `#45574A` border and `#F3F0E7` text.\n  - Quiet text action `Skip for now` and native Android gesture navigation pill.\n- **Fidelity & Consistency**: Exact 1:1 match of screen identity, hierarchy, copy, dimensions, and typography as defined in the Field Notebook design system."
+        },
+        {
+          "suggestion": "Inspect the bottom sheet typography and contrast"
+        },
+        {
+          "suggestion": "Review the underlying dimmed onboarding card layout"
+        }
+      ],
+      "projectId": "8226357890556052909",
+      "sessionId": "10647855530808976416",
+      "deviceType": "MOBILE",
+      "generatedBy": "HatterAgent",
+      "height": "1768",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/bc169c8a291d4a7197fae4609123971a:download",
+        "mimeType": "text/html",
+        "name": "projects/8226357890556052909/files/bc169c8a291d4a7197fae4609123971a"
+      },
+      "id": "0711bbc8b5e94eb78ab7390daac1a35f",
+      "name": "projects/8226357890556052909/screens/0711bbc8b5e94eb78ab7390daac1a35f",
+      "prompt": "Create a pixel-accurate DARK appearance counterpart of the selected mobile screen \"53 Get started choices — Light\".\nTitle of generated screen: \"53 Get started choices — Dark\"\nDevice: mobile (Android 390x892 or 412x892 dp full bleed, no desktop container, no mockup frame).\n\nPreserve 1:1 identical structure, copy, hierarchy, spacing, icons, typography, and bottom sheet state:\n- Top bar: \"Vocabulaire\" title in EB Garamond serif with \"Skip\" text action on the right. Dark status bar at top (09:41, wifi, battery).\n- Background underlying screen (dimmed under dark scrim rgba(0,0,0,0.5)):\n  - Preview onboarding card: dark container with forest border/accent, showing \"☕ Everyday French\" (48 terms), headword \"flâner\", translation \"to wander without hurry\", and chips \"Everyday life\", \"Verb\".\n  - Headline: \"A little home for every language.\" in EB Garamond.\n  - Subtitle: \"Gather your words in collections that feel like you. Entirely offline, written with your own intent.\"\n- Bottom sheet modal (\"Start your notebook\"):\n  - Top drag handle in center.\n  - Close button (\"✕\") on the top right of the sheet.\n  - Title: \"Start your notebook\" in EB Garamond serif font.\n  - Subtitle: \"Create a collection, bring a backup, or explore first.\" in DM Sans.\n  - Offline info card: rounded container with lock icon and text \"Everything stays strictly offline on this device. No account or signup required.\"\n  - Primary button: \"+ Create collection\" - full width, 56dp height, rounded-xl/12dp, solid fill #B9D8BB with #173824 text, font-semibold.\n  - Secondary button: Outline/subtle card button with upload/restore icon \"Restore backup\" (dark surface #222D27, border #45574A, text #F3F0E7).\n  - Quiet text action below: \"Skip for now\" in #B8C6BC.\n  - Android home gesture bar pill at bottom.\n\nSemantic dark colors from Field Notebook DESIGN.md:\n- Canvas / background: #171E1B\n- Scrim: rgba(0,0,0,0.55)\n- Bottom sheet surface / card surfaces: #222D27\n- Info card / recessed elements: #1C2520\n- Main text / headings: #F3F0E7\n- Secondary text: #B8C6BC\n- Borders / dividers: #45574A\n- Primary action CTA: fill #B9D8BB, on-primary text #173824\n- Secondary button: bg #222D27, border #45574A, text #F3F0E7\n- Grammatical chip: #49362D fill with #F3C3AA text\n- Thematic chip: #344D3A fill with #C1DFC4 text\n- Typography: EB Garamond for serif titles/headwords, DM Sans for all body/buttons/labels.\n- Full bleed native mobile layout with zero desktop wrappers or margins.",
+      "screenMetadata": {
+        "agentType": "PRO_AGENT",
+        "status": "COMPLETE"
+      },
+      "screenType": "DESIGN",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6:download",
+        "name": "projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6"
+      },
+      "theme": {},
+      "title": "53 Get started choices — Dark",
+      "width": "780",
+      "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6:download",
+      "agentText": "I have generated the Dark appearance counterpart for the selected source screen:\n\n### Generated Dark Counterpart\n**53 Get started choices — Dark** (counterpart to `53 Get started choices — Light`)\n- **Underlying Page & Scrim**: Darkened canvas (`#171E1B`) beneath a clean dimming scrim, displaying the top app bar (`Vocabulaire` and `Skip`), onboarding preview card with `☕ Everyday French` and sample entry `flâner`, and the headline *\"A little home for every language.\"*\n- **\"Start your notebook\" Bottom Sheet**:\n  - Drag handle and header dismiss (`✕`).\n  - Serif headline in EB Garamond (`#F3F0E7`) with DM Sans subtitle copy (`#B8C6BC`).\n  - Offline privacy notice card with padlock icon on recessed dark surface (`#1C2520`) with `#45574A` border.\n  - Primary CTA `+ Create collection` in `#B9D8BB` with `#173824` on-primary label text.\n  - Outlined secondary CTA `Restore backup` in `#222D27` with `#45574A` border and `#F3F0E7` text.\n  - Quiet text action `Skip for now` and native Android gesture navigation pill.\n- **Fidelity & Consistency**: Exact 1:1 match of screen identity, hierarchy, copy, dimensions, and typography as defined in the Field Notebook design system.",
+      "suggestions": [
+        "Inspect the bottom sheet typography and contrast",
+        "Review the underlying dimmed onboarding card layout"
+      ]
+    },
+    "imageUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3a0179286f42424398a379d76ece02d6:download",
+    "canvasUrl": "https://stitch.google.com/projects/8226357890556052909?node-id=0711bbc8b5e94eb78ab7390daac1a35f"
+  }
+}

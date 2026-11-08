@@ -1,0 +1,44 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator with the review fixture in Downloads.
+- runFlow: review-fixture.yaml
+- tapOn: Collection tools
+- tapOn: Export PDF
+- takeScreenshot: 19-${APPEARANCE}-emulator
+- tapOn: Create PDF
+- assertVisible: PDF ready
+- takeScreenshot: 20-${APPEARANCE}-emulator
+- tapOn: Share or save PDF
+- assertVisible: Sharing 1 file
+- back
+- tapOn: Done
+- tapOn: Collection tools
+- tapOn: Word of the day
+- assertVisible: Open term
+- takeScreenshot: 42-${APPEARANCE}-emulator
+- tapOn: Open term
+- assertVisible: Edit term
+- back
+- back
+- tapOn: Search vocabulary
+- inputText: no-matching-term
+- hideKeyboard
+- takeScreenshot: 17-${APPEARANCE}-emulator
+- tapOn: Clear search and filters
+- back
+- tapOn: Open Empty notebook
+- takeScreenshot: 16-${APPEARANCE}-emulator
+- tapOn: Collection tools
+- tapOn: Word of the day
+- assertVisible: Add 5 more terms
+- takeScreenshot: 43-${APPEARANCE}-emulator
+- back
+- tapOn: Filters and display
+- tapOn: Saved filters
+- assertVisible: No saved filters yet.
+- takeScreenshot: 24-${APPEARANCE}-emulator
+- tapOn: Cancel
+- tapOn: Collection tools
+- tapOn: Manage categories
+- assertVisible: No categories yet.
+- takeScreenshot: 37-${APPEARANCE}-emulator

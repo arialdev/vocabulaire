@@ -2,6 +2,7 @@ import { Text, type ViewProps } from "react-native";
 export default function EmojiPickerFallback(
   _props: ViewProps & {
     language: string;
+    appearance: "light" | "dark";
     onEmojiPicked: (event: { nativeEvent: { emoji: string } }) => void;
   },
 ) {

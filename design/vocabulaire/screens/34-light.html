@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>34 Term validation — Light</title>
+<!-- Google Fonts: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            recessed: "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "clay-text": "#684435",
+            "clay-fill": "#F1E5DC",
+            "theme-chip-text": "#345B43",
+            "theme-chip-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1",
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Android pulsing vertical caret simulation */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .cursor-caret::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 1.25rem;
+      background-color: #A53532;
+      vertical-align: text-bottom;
+      margin-left: 1px;
+      animation: blink 1s step-end infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#ECE7DC] min-h-screen flex items-center justify-center p-0 md:p-6 font-body text-main antialiased selection:bg-selected-surface">
+<!-- Mobile Viewport Container: 412x892 Android Canvas -->
+<div class="w-full max-w-[412px] h-[892px] bg-canvas text-main relative flex flex-col shadow-2xl overflow-hidden border-x border-[#E2DBD0]">
+<!-- Status Bar (Android standard 24dp) -->
+<header class="w-full h-8 pt-1.5 px-6 flex items-center justify-between text-xs text-secondary tracking-tight select-none z-20">
+<span class="font-medium text-[13px] tracking-normal text-main">09:41</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">wifi</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar (56dp) -->
+<nav class="w-full h-14 px-4 flex items-center justify-between border-b border-divider bg-surface select-none z-10 shrink-0">
+<div class="flex items-center gap-3">
+<button aria-label="Discard and close" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-main hover:bg-recessed active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<h1 class="font-headline text-2xl font-semibold text-main tracking-tight">Add term</h1>
+</div>
+<div class="flex items-center pr-1">
+<span class="text-xs font-medium text-secondary bg-recessed px-2.5 py-1 rounded-full tracking-wide">Draft</span>
+</div>
+</nav>
+<!-- Scrollable Content Canvas -->
+<main class="flex-1 overflow-y-auto px-6 pt-5 pb-6 space-y-6">
+<!-- Field 1: Original expression · Required (Validation Error & Focused) -->
+<section class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-medium text-main flex items-center gap-1.5 tracking-normal" for="input-original">
+            Original expression
+            <span class="text-destructive font-medium">· Required</span>
+</label>
+</div>
+<div class="relative flex items-center">
+<div class="w-full h-14 px-4 rounded-xl bg-error-surface border-2 border-destructive flex items-center justify-between shadow-sm">
+<span class="text-base text-[#806B67] cursor-caret select-none">e.g., flâner</span>
+<span aria-hidden="true" class="material-symbols-outlined text-destructive text-[22px] shrink-0">error</span>
+</div>
+</div>
+<p class="text-xs text-destructive flex items-center gap-1.5 pt-0.5" role="alert">
+<span class="material-symbols-outlined text-[16px] shrink-0">info</span>
+<span>Enter an expression.</span>
+</p>
+</section>
+<!-- Field 2: Translation · Required (Validation Error) -->
+<section class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-medium text-main flex items-center gap-1.5 tracking-normal" for="input-translation">
+            Translation
+            <span class="text-destructive font-medium">· Required</span>
+</label>
+</div>
+<div class="relative flex items-center">
+<div class="w-full h-14 px-4 rounded-xl bg-error-surface border-2 border-destructive flex items-center justify-between shadow-sm">
+<span class="text-base text-[#806B67] select-none">Meaning or gloss</span>
+<span aria-hidden="true" class="material-symbols-outlined text-destructive text-[22px] shrink-0">error</span>
+</div>
+</div>
+<p class="text-xs text-destructive flex items-center gap-1.5 pt-0.5" role="alert">
+<span class="material-symbols-outlined text-[16px] shrink-0">info</span>
+<span>Add a translation.</span>
+</p>
+</section>
+<!-- Field 3: Notes · Optional (Retains Draft Content) -->
+<section class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-medium text-secondary tracking-normal" for="input-notes">
+            Notes <span class="font-normal opacity-80">· Optional</span>
+</label>
+</div>
+<div class="w-full min-h-[96px] p-3.5 rounded-xl bg-surface border border-divider hover:border-secondary transition-colors text-base text-main leading-relaxed">
+<p class="text-[15px]">A phrase I heard at the café</p>
+</div>
+<p class="text-[11px] text-secondary">Context, idioms, register, or where you encountered it.</p>
+</section>
+<!-- Categories Section: Grammatical & Thematic Chips -->
+<section class="space-y-4 pt-1 border-t border-divider">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary">Categories</span>
+<button class="text-xs font-medium text-primary hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> Manage
+          </button>
+</div>
+<!-- Grammatical Group -->
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-xs text-secondary">
+<span class="font-serif italic font-semibold text-clay-text text-[13px] px-1 bg-clay-fill/60 rounded">Aa</span>
+<span>Grammatical</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Expression (Checked/Selected: Warm Clay) -->
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-clay-fill text-clay-text border-2 border-clay-text text-xs font-medium shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px] text-clay-text font-bold">check</span>
+              Expression
+            </button>
+<!-- Noun (Unselected) -->
+<button class="inline-flex items-center px-3.5 py-2 rounded-lg bg-surface text-secondary border border-divider hover:border-secondary text-xs font-medium transition-colors" type="button">
+              Noun
+            </button>
+<!-- Verb (Unselected) -->
+<button class="inline-flex items-center px-3.5 py-2 rounded-lg bg-surface text-secondary border border-divider hover:border-secondary text-xs font-medium transition-colors" type="button">
+              Verb
+            </button>
+</div>
+</div>
+<!-- Thematic Group -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center gap-1.5 text-xs text-secondary">
+<span class="material-symbols-outlined text-[15px] text-primary">eco</span>
+<span>Thematic</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Food & drink (Checked/Selected: Forest Green) -->
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-theme-chip-fill text-theme-chip-text border-2 border-primary text-xs font-medium shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px] text-theme-chip-text font-bold">check</span>
+              Food &amp; drink
+            </button>
+<!-- Everyday life (Unselected) -->
+<button class="inline-flex items-center px-3.5 py-2 rounded-lg bg-surface text-secondary border border-divider hover:border-secondary text-xs font-medium transition-colors" type="button">
+              Everyday life
+            </button>
+<!-- Travel (Unselected) -->
+<button class="inline-flex items-center px-3.5 py-2 rounded-lg bg-surface text-secondary border border-divider hover:border-secondary text-xs font-medium transition-colors" type="button">
+              Travel
+            </button>
+</div>
+</div>
+</section>
+<!-- Bottom Spacer to ensure clearance above floating thumb-zone actions -->
+<div class="h-4"></div>
+</main>
+<!-- Bottom Anchored Action Footprint (56dp primary + cancel) -->
+<footer class="w-full bg-surface border-t border-divider px-6 pt-3.5 pb-3 shrink-0 flex flex-col items-center gap-2">
+<!-- Primary 56dp action button -->
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-medium text-base flex items-center justify-center gap-2 shadow-sm hover:opacity-95 active:scale-[0.99] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>Save term</span>
+</button>
+<!-- Secondary text button -->
+<button class="w-full h-10 rounded-lg text-secondary hover:text-main text-sm font-medium flex items-center justify-center hover:bg-recessed transition-colors" type="button">
+        Cancel
+      </button>
+<!-- Android Home Navigation Indicator (Gesture pill 16dp) -->
+<div class="w-full pt-1 flex justify-center">
+<div class="w-32 h-1 bg-main/20 rounded-full"></div>
+</div>
+</footer>
+</div>
+</body></html>

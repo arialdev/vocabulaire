@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>53 Get started choices — Light</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Typography: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#F8F5EE",
+            surface: "#FFFCF6",
+            "recessed-input": "#F0EDE5",
+            main: "#20382E",
+            secondary: "#59675E",
+            divider: "#D8DED2",
+            primary: "#2D6046",
+            "on-primary": "#FFFFFF",
+            "selected-surface": "#E2ECDF",
+            "grammatical-text": "#684435",
+            "grammatical-fill": "#F1E5DC",
+            "thematic-text": "#345B43",
+            "thematic-fill": "#E2ECDF",
+            destructive: "#A53532",
+            "error-surface": "#FBE6E1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8F5EE;
+      color: #20382E;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-main min-h-screen flex justify-center items-start selection:bg-selected-surface selection:text-thematic-text">
+<!-- Root Mobile Frame (412px x 892px Android reference, edge-to-edge full bleed) -->
+<main class="relative w-full max-w-[412px] h-[892px] bg-canvas overflow-hidden flex flex-col justify-between">
+<!-- ======================================================== -->
+<!-- BACKGROUND SCREEN (Page 1 Onboarding: Collections)        -->
+<!-- Underneath modal scrim                                   -->
+<!-- ======================================================== -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col justify-between select-none pointer-events-none">
+<!-- Android System Bar Inset -->
+<div class="w-full h-7 px-6 pt-2 flex justify-between items-center text-xs font-label text-secondary z-0">
+<span class="font-medium tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Shared TopAppBar (as per Shared Components JSON) -->
+<header class="flex justify-between items-center h-14 px-6 w-full max-w-[412px] mx-auto bg-transparent border-b border-divider">
+<div class="font-headline text-2xl font-semibold tracking-tight text-main">
+          Vocabulaire
+        </div>
+<button class="font-label font-medium text-sm text-secondary hover:text-primary transition-colors duration-150 active:opacity-70" tabindex="-1">
+          Skip
+        </button>
+</header>
+<!-- Onboarding Illustration & Narrative Area -->
+<section class="flex-1 px-6 pt-6 flex flex-col justify-start">
+<!-- Stylized Stationery Notebook Graphic -->
+<div class="w-full bg-surface border border-divider rounded-xl p-5 shadow-sm relative overflow-hidden mb-6">
+<div class="absolute left-0 top-0 bottom-0 w-3.5 bg-primary rounded-l-xl"></div>
+<div class="pl-2">
+<!-- Collection Pill & Tag -->
+<div class="flex items-center justify-between mb-4">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-recessed-input text-xs font-label font-medium text-main">
+<span class="text-sm">☕</span>
+<span>Everyday French</span>
+</div>
+<span class="text-xs font-label text-secondary">48 terms</span>
+</div>
+<!-- Sample Notebook Term Presentation -->
+<div class="border-b border-divider pb-3 mb-3">
+<div class="font-headline text-2xl text-main font-semibold leading-tight tracking-normal">
+                flâner
+              </div>
+<div class="font-body text-sm text-secondary mt-0.5">
+                to wander without hurry
+              </div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label font-medium bg-thematic-fill text-thematic-text">
+                Everyday life
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label font-medium bg-grammatical-fill text-grammatical-text">
+                Verb
+              </span>
+</div>
+</div>
+</div>
+<!-- Literary Headline & Body -->
+<div class="space-y-3">
+<h1 class="font-headline text-3xl font-semibold text-main leading-tight">
+            A little home for every language.
+          </h1>
+<p class="font-body text-base text-secondary leading-relaxed">
+            Gather your words in collections that feel like you. Entirely offline, written with your own intent.
+          </p>
+</div>
+<!-- Step Indicator & Direction Cue -->
+<div class="mt-8 flex items-center justify-between text-secondary">
+<div class="flex items-center gap-2">
+<span class="font-label text-xs text-secondary font-medium">1 of 4</span>
+<div class="flex items-center gap-1.5 ml-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-divider"></span>
+</div>
+</div>
+<span class="font-label text-xs text-secondary">Swipe right to continue →</span>
+</div>
+</section>
+<!-- Background Bottom Action Buttons (dimmed) -->
+<footer class="p-6 space-y-3 pb-8">
+<div class="w-full h-14 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label text-base font-medium">
+          Swipe to continue
+        </div>
+<div class="text-center font-label text-sm text-secondary py-1">
+          Get started
+        </div>
+</footer>
+</div>
+<!-- ======================================================== -->
+<!-- MODAL SCRIM                                               -->
+<!-- 48% black overlay per Design System Scrim specs          -->
+<!-- ======================================================== -->
+<div aria-label="Modal backdrop" class="absolute inset-0 bg-[#20382E]/45 backdrop-blur-[0.5px] z-10 transition-opacity duration-200"></div>
+<!-- ======================================================== -->
+<!-- MODAL BOTTOM SHEET: 53 Get started choices               -->
+<!-- 24dp top corners, #FFFCF6 sheet surface, 1dp border      -->
+<!-- ======================================================== -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="relative z-20 w-full bg-surface border-t border-divider rounded-t-[24px] shadow-2xl flex flex-col pt-3 pb-2 px-6 mt-auto" role="dialog">
+<!-- 1. Drag Handle (36x4dp) -->
+<div class="w-full flex justify-center pb-3">
+<div aria-hidden="true" class="w-9 h-1 bg-divider rounded-full"></div>
+</div>
+<!-- 2. Header Row -->
+<div class="flex items-center justify-between mb-1.5">
+<h2 class="font-headline text-2xl font-semibold text-main tracking-tight" id="sheet-title">
+          Start your notebook
+        </h2>
+<button aria-label="Close sheet" class="w-12 h-12 -mr-3 flex items-center justify-center rounded-full text-secondary hover:text-main hover:bg-recessed-input active:opacity-70 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+</button>
+</div>
+<!-- 3. Subtitle / Explanatory Copy -->
+<p class="font-body text-[15px] leading-snug text-secondary mb-4">
+        Create a collection, bring a backup, or explore first.
+      </p>
+<!-- 4. Quiet Informational Offline Guarantee Note -->
+<div class="bg-recessed-input/70 border border-divider/60 rounded-lg px-3.5 py-2.5 mb-5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5 flex-shrink-0" data-icon="lock">lock</span>
+<p class="font-body text-xs text-secondary leading-normal">
+          Everything stays strictly offline on this device. No account or signup required.
+        </p>
+</div>
+<!-- 5. Actions Stack (Vertical 12dp gap) -->
+<div class="flex flex-col gap-3">
+<!-- Primary Action: + Create collection -->
+<button class="w-full h-14 bg-primary text-on-primary font-label text-base font-medium rounded-xl flex items-center justify-center gap-2 hover:opacity-95 active:opacity-85 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+<span>Create collection</span>
+</button>
+<!-- Secondary Action: Restore backup -->
+<button class="w-full h-14 bg-surface border border-divider hover:bg-recessed-input/60 text-main font-label text-base font-medium rounded-xl flex items-center justify-center gap-2.5 active:opacity-75 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary" data-icon="file_upload">file_upload</span>
+<span>Restore backup</span>
+</button>
+<!-- Quiet Action: Skip for now -->
+<button class="w-full h-11 flex items-center justify-center text-secondary hover:text-main active:opacity-60 font-label text-[15px] font-medium transition-colors" type="button">
+<span>Skip for now</span>
+</button>
+</div>
+<!-- 6. Native Android Gesture Inset (Safe Area Navigation Bar) -->
+<div class="w-full pt-3 pb-2 flex justify-center items-center">
+<div aria-hidden="true" class="w-[72px] h-1 bg-main/30 rounded-full"></div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>39 Edit category — Dark</title>
+<!-- Typography: EB Garamond & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#171E1B",
+            surface: "#222D27",
+            recessed: "#1C2520",
+            main: "#F3F0E7",
+            secondary: "#B8C6BC",
+            divider: "#45574A",
+            primary: "#B9D8BB",
+            "on-primary": "#173824",
+            "thematic-text": "#C1DFC4",
+            "thematic-fill": "#344D3A",
+            destructive: "#FFB4AB",
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["EB Garamond", "serif"],
+            display: ["EB Garamond", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            label: ["DM Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(892px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#171E1B] text-[#F3F0E7] font-body flex justify-center items-center min-h-screen p-0 antialiased selection:bg-[#344D3A] selection:text-[#C1DFC4]">
+<!-- Full-bleed native Android Mobile Artboard (390x892) -->
+<div class="relative w-full max-w-[390px] h-[892px] bg-[#171E1B] overflow-hidden flex flex-col">
+<!-- ==================== BACKGROUND LAYER: Categories Screen (Behind Scrim) ==================== -->
+<div class="absolute inset-0 flex flex-col pointer-events-none select-none filter blur-[1px]">
+<!-- Android Status Bar Mock -->
+<div class="w-full h-8 px-6 pt-2 flex justify-between items-center text-xs font-medium text-[#B8C6BC]">
+<span>09:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-[#222D27] border-b border-[#45574A] flex justify-between items-center w-full h-14 px-4">
+<div class="flex items-center space-x-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-[#B8C6BC]">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline text-xl font-semibold tracking-tight text-[#F3F0E7]">Categories</span>
+<span class="text-[11px] text-[#B8C6BC] leading-none">☕ Everyday French</span>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-[#B8C6BC]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-[#B8C6BC]">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Background Content List Mockup -->
+<main class="flex-1 p-6 space-y-6 opacity-40">
+<div>
+<h3 class="font-headline text-lg font-semibold text-[#F3F0E7] mb-3">Grammatical</h3>
+<div class="bg-[#222D27] rounded-xl border border-[#45574A] divide-y divide-[#45574A]/60">
+<div class="p-3.5 flex justify-between items-center">
+<span class="font-medium text-[#F3F0E7]">Noun</span>
+<span class="text-xs text-[#B8C6BC]">18 terms</span>
+</div>
+<div class="p-3.5 flex justify-between items-center">
+<span class="font-medium text-[#F3F0E7]">Verb</span>
+<span class="text-xs text-[#B8C6BC]">22 terms</span>
+</div>
+<div class="p-3.5 flex justify-between items-center">
+<span class="font-medium text-[#F3F0E7]">Expression</span>
+<span class="text-xs text-[#B8C6BC]">8 terms</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-semibold text-[#F3F0E7] mb-3">Thematic</h3>
+<div class="bg-[#222D27] rounded-xl border border-[#45574A] divide-y divide-[#45574A]/60">
+<div class="p-3.5 flex justify-between items-center">
+<span class="font-medium text-[#F3F0E7]">Everyday life</span>
+<span class="text-xs text-[#B8C6BC]">16 terms</span>
+</div>
+<div class="p-3.5 flex justify-between items-center bg-[#344D3A]/40">
+<span class="font-medium text-[#C1DFC4] font-semibold">Food &amp; drink</span>
+<span class="text-xs text-[#C1DFC4] font-medium">14 terms</span>
+</div>
+<div class="p-3.5 flex justify-between items-center">
+<span class="font-medium text-[#F3F0E7]">Travel</span>
+<span class="text-xs text-[#B8C6BC]">12 terms</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ==================== MODAL OVERLAY: SCRIM ==================== -->
+<div aria-hidden="true" class="absolute inset-0 bg-[#000000]/48 transition-opacity duration-300 z-10"></div>
+<!-- ==================== FOREGROUND LAYER: EDIT CATEGORY BOTTOM SHEET ==================== -->
+<section class="absolute bottom-0 inset-x-0 bg-[#222D27] rounded-t-[24px] shadow-2xl z-20 flex flex-col max-h-[780px] border-t border-[#45574A]">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 rounded-full bg-[#45574A]"></div>
+</div>
+<!-- Sheet Header -->
+<div class="px-6 pt-2 pb-4 flex items-start justify-between border-b border-[#45574A]/60">
+<div>
+<h1 class="font-headline text-2xl font-semibold text-[#F3F0E7] tracking-tight">Edit category</h1>
+<p class="text-sm text-[#B8C6BC] mt-0.5 font-normal">Everyday French · 14 terms assigned</p>
+</div>
+<button aria-label="Close" class="w-10 h-10 -mr-2 -mt-1 flex items-center justify-center rounded-full text-[#B8C6BC] hover:bg-[#1C2520] active:opacity-75 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="close">close</span>
+</button>
+</div>
+<!-- Sheet Scrollable Form Body -->
+<div class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+<!-- Form Field 1: Category Name -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-sm font-medium text-[#F3F0E7]" for="category-name">
+              Name <span class="text-[#B8C6BC] font-normal">· Required</span>
+</label>
+</div>
+<div class="relative">
+<input class="w-full h-14 px-4 bg-[#1C2520] text-[#F3F0E7] text-base font-normal rounded-xl border border-[#45574A] hover:border-[#B8C6BC]/60 focus:border-[#B9D8BB] focus:ring-2 focus:ring-[#B9D8BB]/20 transition-all outline-none" id="category-name" name="category_name" type="text" value="Food &amp; drink"/>
+</div>
+<p class="text-xs text-[#B8C6BC] leading-relaxed pt-0.5">
+            Used in category filters and detailed vocabulary cards.
+          </p>
+</div>
+<!-- Form Field 2: Category Type (Locked / Read-Only) -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-[#F3F0E7]">Category type</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-[#B8C6BC] bg-[#222D27] border border-[#45574A] px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="lock">lock</span>
+              Fixed type
+            </span>
+</div>
+<!-- Informative Read-Only Container -->
+<div class="p-3.5 bg-[#1C2520] rounded-xl border border-[#45574A] flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<!-- Leaf / Tag glyph badge for Thematic type -->
+<div class="w-9 h-9 rounded-lg bg-[#344D3A] text-[#C1DFC4] flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="eco">eco</span>
+</div>
+<div>
+<div class="text-sm font-semibold text-[#F3F0E7] flex items-center gap-1.5">
+                  Thematic
+                  <span class="text-[11px] font-normal text-[#B8C6BC] py-0.5 px-1.5 rounded bg-[#222D27] border border-[#45574A]">Topic</span>
+</div>
+<div class="text-xs text-[#B8C6BC] mt-0.5">What a word is about</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#B8C6BC]/60 text-lg" data-icon="lock">lock</span>
+</div>
+<!-- Explicit Context Note -->
+<div class="flex items-start gap-2 pt-1 text-xs text-[#B8C6BC] leading-relaxed">
+<span class="material-symbols-outlined text-sm text-[#B8C6BC]/70 mt-0.5 shrink-0" data-icon="info">info</span>
+<span>Category type stays the same when editing. Terms and saved filters remain linked.</span>
+</div>
+</div>
+<!-- Notebook Context Folio Box -->
+<div class="p-4 rounded-xl border border-[#45574A] bg-[#1C2520] flex items-start space-x-3">
+<span class="material-symbols-outlined text-[#B8C6BC] text-lg mt-0.5 shrink-0" data-icon="menu_book">menu_book</span>
+<div class="text-xs text-[#B8C6BC] leading-relaxed">
+<span class="font-medium text-[#F3F0E7]">Everyday French notebook note:</span> Renaming updates all 14 linked vocabulary cards without changing their order or manual tags.
+          </div>
+</div>
+</div>
+<!-- Action Footer (Thumb Zone) -->
+<footer class="p-6 pt-2 pb-6 border-t border-[#45574A]/60 bg-[#222D27] flex flex-col space-y-3.5">
+<!-- Primary Action: Save changes (#B9D8BB with #173824 text) -->
+<button class="w-full h-14 bg-[#B9D8BB] text-[#173824] font-semibold text-base rounded-xl flex items-center justify-center gap-2 hover:bg-[#a8cdab] active:opacity-90 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#B9D8BB] focus:ring-offset-2 focus:ring-offset-[#222D27]" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+<span>Save changes</span>
+</button>
+<!-- Secondary Action: Cancel -->
+<button class="w-full h-10 text-[#B8C6BC] hover:text-[#F3F0E7] font-medium text-sm flex items-center justify-center rounded-lg hover:bg-[#1C2520] active:opacity-80 transition-colors" type="button">
+          Cancel
+        </button>
+<!-- Danger Link: Delete category -->
+<div class="pt-1 flex justify-center">
+<button class="text-[#FFB4AB] hover:text-[#ff9b90] text-sm font-medium inline-flex items-center gap-1.5 px-3 py-1.5 rounded hover:bg-[#FFB4AB]/10 transition-colors" type="button">
+<span class="material-symbols-outlined text-base" data-icon="delete">delete</span>
+<span>Delete category</span>
+</button>
+</div>
+</footer>
+<!-- Android Gesture Bar Mock -->
+<div class="w-full pb-2 flex justify-center items-center">
+<div class="w-32 h-1 bg-[#F3F0E7]/20 rounded-full"></div>
+</div>
+</section>
+</div>
+</body></html>

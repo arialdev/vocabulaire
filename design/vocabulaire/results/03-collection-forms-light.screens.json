@@ -1,0 +1,66 @@
+[
+  {
+    "id": "7b3dff0b02df49e6838b1570b7b059fe",
+    "name": "projects/8226357890556052909/screens/7b3dff0b02df49e6838b1570b7b059fe",
+    "title": "09 New collection — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/3749b63bb2a844deb4b3ec12150d9b5a:download",
+      "name": "projects/8226357890556052909/files/3749b63bb2a844deb4b3ec12150d9b5a"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/62dab7b70ea447fa9ed6fff9c57d1a66:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/62dab7b70ea447fa9ed6fff9c57d1a66"
+    }
+  },
+  {
+    "id": "b68dbde00e4e474083aee588fe1381d8",
+    "name": "projects/8226357890556052909/screens/b68dbde00e4e474083aee588fe1381d8",
+    "title": "12 Collection validation — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/1b4bdbcabf334e7ea12d604de5ec103f:download",
+      "name": "projects/8226357890556052909/files/1b4bdbcabf334e7ea12d604de5ec103f"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/5108f5a863db4f7d834e02205472d15b:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/5108f5a863db4f7d834e02205472d15b"
+    }
+  },
+  {
+    "id": "9ebfe431a91243e98f2bc71a177966a1",
+    "name": "projects/8226357890556052909/screens/9ebfe431a91243e98f2bc71a177966a1",
+    "title": "10 Edit collection — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/d4e3c10988a94a2e91e358dcbc87b375:download",
+      "name": "projects/8226357890556052909/files/d4e3c10988a94a2e91e358dcbc87b375"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/1709411ee54c4b588cb541493fd38fb3:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/1709411ee54c4b588cb541493fd38fb3"
+    }
+  },
+  {
+    "id": "d2b4867dba8d402088eee4c5982f76f4",
+    "name": "projects/8226357890556052909/screens/d2b4867dba8d402088eee4c5982f76f4",
+    "title": "11 Emoji picker — Light",
+    "width": "780",
+    "height": "1784",
+    "screenshot": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/f2f8df53b65646ba97cced9108a0f6be:download",
+      "name": "projects/8226357890556052909/files/f2f8df53b65646ba97cced9108a0f6be"
+    },
+    "htmlCode": {
+      "downloadUrl": "https://stitch.googleapis.com/v1/projects/8226357890556052909/files/88687b1ed3734795864d81f85cb3f339:download",
+      "mimeType": "text/html",
+      "name": "projects/8226357890556052909/files/88687b1ed3734795864d81f85cb3f339"
+    }
+  }
+]

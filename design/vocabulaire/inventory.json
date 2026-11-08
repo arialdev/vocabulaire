@@ -1,0 +1,1062 @@
+[
+  {
+    "number": 1,
+    "title": "Onboarding Collections",
+    "group": "01-onboarding",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4cf95648e9e44f708a893ca042da3aaa",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4cf95648e9e44f708a893ca042da3aaa",
+        "png": "screens/01-dark.png",
+        "html": "screens/01-dark.html"
+      },
+      "light": {
+        "id": "1e879a6f006d4d90a16c0b5efb1dc698",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=1e879a6f006d4d90a16c0b5efb1dc698",
+        "png": "screens/01-light.png",
+        "html": "screens/01-light.html"
+      }
+    }
+  },
+  {
+    "number": 2,
+    "title": "Onboarding Entries",
+    "group": "01-onboarding",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "ffc6231aa5eb4cd6907ded0dfecf1e4b",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=ffc6231aa5eb4cd6907ded0dfecf1e4b",
+        "png": "screens/02-dark.png",
+        "html": "screens/02-dark.html"
+      },
+      "light": {
+        "id": "6b3500fe1d254c1693caaf40e6825ec8",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=6b3500fe1d254c1693caaf40e6825ec8",
+        "png": "screens/02-light.png",
+        "html": "screens/02-light.html"
+      }
+    }
+  },
+  {
+    "number": 3,
+    "title": "Onboarding Filters",
+    "group": "01-onboarding",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "5e73a09e8a444fefa09a382327f99824",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5e73a09e8a444fefa09a382327f99824",
+        "png": "screens/03-dark.png",
+        "html": "screens/03-dark.html"
+      },
+      "light": {
+        "id": "e5b250609e7d489bb9d35a18f43d0319",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=e5b250609e7d489bb9d35a18f43d0319",
+        "png": "screens/03-light.png",
+        "html": "screens/03-light.html"
+      }
+    }
+  },
+  {
+    "number": 4,
+    "title": "Onboarding Backups",
+    "group": "01-onboarding",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "338ee671ce344988833ba17b7f7552eb",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=338ee671ce344988833ba17b7f7552eb",
+        "png": "screens/04-dark.png",
+        "html": "screens/04-dark.html"
+      },
+      "light": {
+        "id": "0613f6fda7ab4c5c93a777c068d45e30",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=0613f6fda7ab4c5c93a777c068d45e30",
+        "png": "screens/04-light.png",
+        "html": "screens/04-light.html"
+      }
+    }
+  },
+  {
+    "number": 5,
+    "title": "Collections home",
+    "group": "02-collections",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4d7f6064d1bc48dda5e2916109282b96",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4d7f6064d1bc48dda5e2916109282b96",
+        "png": "screens/05-dark.png",
+        "html": "screens/05-dark.html"
+      },
+      "light": {
+        "id": "9cc7616673d24866b2f54f1eaf0f5375",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=9cc7616673d24866b2f54f1eaf0f5375",
+        "png": "screens/05-light.png",
+        "html": "screens/05-light.html"
+      }
+    }
+  },
+  {
+    "number": 6,
+    "title": "Collections empty",
+    "group": "02-collections",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "735accc608164b4fbaba4a79c6b44e80",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=735accc608164b4fbaba4a79c6b44e80",
+        "png": "screens/06-dark.png",
+        "html": "screens/06-dark.html"
+      },
+      "light": {
+        "id": "c8637527f3f544ceb6bb294387daf453",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=c8637527f3f544ceb6bb294387daf453",
+        "png": "screens/06-light.png",
+        "html": "screens/06-light.html"
+      }
+    }
+  },
+  {
+    "number": 7,
+    "title": "Collection actions",
+    "group": "02-collections",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "e05fa6170f734835894c7e08974edfcc",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=e05fa6170f734835894c7e08974edfcc",
+        "png": "screens/07-dark.png",
+        "html": "screens/07-dark.html"
+      },
+      "light": {
+        "id": "507893d08a394d178053ae158e4ff5cf",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=507893d08a394d178053ae158e4ff5cf",
+        "png": "screens/07-light.png",
+        "html": "screens/07-light.html"
+      }
+    }
+  },
+  {
+    "number": 8,
+    "title": "Delete collection confirmation",
+    "group": "02-collections",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "b9012a9d4e9745d3a403a337400f7c3a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=b9012a9d4e9745d3a403a337400f7c3a",
+        "png": "screens/08-dark.png",
+        "html": "screens/08-dark.html"
+      },
+      "light": {
+        "id": "41aa2cd8d68147b0882b8227009687a5",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=41aa2cd8d68147b0882b8227009687a5",
+        "png": "screens/08-light.png",
+        "html": "screens/08-light.html"
+      }
+    }
+  },
+  {
+    "number": 9,
+    "title": "New collection",
+    "group": "03-collection-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "79c2a36286ce4c82947e4b556b07ef6b",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=79c2a36286ce4c82947e4b556b07ef6b",
+        "png": "screens/09-dark.png",
+        "html": "screens/09-dark.html"
+      },
+      "light": {
+        "id": "2741b0893b194279b6c67754ad4fd709",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2741b0893b194279b6c67754ad4fd709",
+        "png": "screens/09-light.png",
+        "html": "screens/09-light.html"
+      }
+    }
+  },
+  {
+    "number": 10,
+    "title": "Edit collection",
+    "group": "03-collection-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "2388ba2df40e4a529fb6fd84989b1f96",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2388ba2df40e4a529fb6fd84989b1f96",
+        "png": "screens/10-dark.png",
+        "html": "screens/10-dark.html"
+      },
+      "light": {
+        "id": "810dcf8271f6478ba313fc5fde2c1c1f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=810dcf8271f6478ba313fc5fde2c1c1f",
+        "png": "screens/10-light.png",
+        "html": "screens/10-light.html"
+      }
+    }
+  },
+  {
+    "number": 11,
+    "title": "Emoji picker",
+    "group": "03-collection-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4c404ec236e14580ae807b268f734634",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4c404ec236e14580ae807b268f734634",
+        "png": "screens/11-dark.png",
+        "html": "screens/11-dark.html"
+      },
+      "light": {
+        "id": "5c22ca3716424e4a90fd1bcd5cbef7e3",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5c22ca3716424e4a90fd1bcd5cbef7e3",
+        "png": "screens/11-light.png",
+        "html": "screens/11-light.html"
+      }
+    }
+  },
+  {
+    "number": 12,
+    "title": "Collection validation",
+    "group": "03-collection-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4f94291e527d4c81a0307ef7ea81c495",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4f94291e527d4c81a0307ef7ea81c495",
+        "png": "screens/12-dark.png",
+        "html": "screens/12-dark.html"
+      },
+      "light": {
+        "id": "69173aaf131841b4ac2297b12be5b597",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=69173aaf131841b4ac2297b12be5b597",
+        "png": "screens/12-light.png",
+        "html": "screens/12-light.html"
+      }
+    }
+  },
+  {
+    "number": 13,
+    "title": "Discard collection changes",
+    "group": "04-vocabulary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "4d8d08819ca34c11af7df068b4ad62f7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=4d8d08819ca34c11af7df068b4ad62f7",
+        "png": "screens/13-dark.png",
+        "html": "screens/13-dark.html"
+      },
+      "light": {
+        "id": "700c1356f7944a24b8d4edb6664feb1c",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=700c1356f7944a24b8d4edb6664feb1c",
+        "png": "screens/13-light.png",
+        "html": "screens/13-light.html"
+      }
+    }
+  },
+  {
+    "number": 14,
+    "title": "Vocabulary compact",
+    "group": "04-vocabulary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "d7060c53b7684bb2a4a128c986953b1a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d7060c53b7684bb2a4a128c986953b1a",
+        "png": "screens/14-dark.png",
+        "html": "screens/14-dark.html"
+      },
+      "light": {
+        "id": "363bc2d9de1544e3be03d99aaad2d7c0",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=363bc2d9de1544e3be03d99aaad2d7c0",
+        "png": "screens/14-light.png",
+        "html": "screens/14-light.html"
+      }
+    }
+  },
+  {
+    "number": 15,
+    "title": "Vocabulary detailed",
+    "group": "04-vocabulary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "dbc7666e6a994563b303c894a49b9493",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=dbc7666e6a994563b303c894a49b9493",
+        "png": "screens/15-dark.png",
+        "html": "screens/15-dark.html"
+      },
+      "light": {
+        "id": "a438d557f0df443b95c828132772f338",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=a438d557f0df443b95c828132772f338",
+        "png": "screens/15-light.png",
+        "html": "screens/15-light.html"
+      }
+    }
+  },
+  {
+    "number": 16,
+    "title": "Vocabulary empty",
+    "group": "04-vocabulary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "483fb794c0844a96832f56503f81c470",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=483fb794c0844a96832f56503f81c470",
+        "png": "screens/16-dark.png",
+        "html": "screens/16-dark.html"
+      },
+      "light": {
+        "id": "5f8b8ca34e8f4feab353873830c9e1d0",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5f8b8ca34e8f4feab353873830c9e1d0",
+        "png": "screens/16-light.png",
+        "html": "screens/16-light.html"
+      }
+    }
+  },
+  {
+    "number": 17,
+    "title": "No matching terms",
+    "group": "05-vocabulary-tools",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "5c2f0f0ce0084ffdb52eb6eaeb9c5918",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5c2f0f0ce0084ffdb52eb6eaeb9c5918",
+        "png": "screens/17-dark.png",
+        "html": "screens/17-dark.html"
+      },
+      "light": {
+        "id": "c2ec0bfcc5464fbc844c148e693b365b",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=c2ec0bfcc5464fbc844c148e693b365b",
+        "png": "screens/17-light.png",
+        "html": "screens/17-light.html"
+      }
+    }
+  },
+  {
+    "number": 18,
+    "title": "Collection tools",
+    "group": "05-vocabulary-tools",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "257de99458cc4e9bba0f0925864d2afb",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=257de99458cc4e9bba0f0925864d2afb",
+        "png": "screens/18-dark.png",
+        "html": "screens/18-dark.html"
+      },
+      "light": {
+        "id": "711560fd29e64d0693b96c6c29ec4413",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=711560fd29e64d0693b96c6c29ec4413",
+        "png": "screens/18-light.png",
+        "html": "screens/18-light.html"
+      }
+    }
+  },
+  {
+    "number": 19,
+    "title": "PDF export",
+    "group": "05-vocabulary-tools",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "d2a4a15db9374c15b1a363d65920b8a1",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d2a4a15db9374c15b1a363d65920b8a1",
+        "png": "screens/19-dark.png",
+        "html": "screens/19-dark.html"
+      },
+      "light": {
+        "id": "531c536f5b7846e692d0e2550265ca83",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=531c536f5b7846e692d0e2550265ca83",
+        "png": "screens/19-light.png",
+        "html": "screens/19-light.html"
+      }
+    }
+  },
+  {
+    "number": 20,
+    "title": "PDF ready",
+    "group": "05-vocabulary-tools",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "bca93851ebad4263a5e8ed741358620d",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=bca93851ebad4263a5e8ed741358620d",
+        "png": "screens/20-dark.png",
+        "html": "screens/20-dark.html"
+      },
+      "light": {
+        "id": "58cba255f2e5468f941403746817bd1a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=58cba255f2e5468f941403746817bd1a",
+        "png": "screens/20-light.png",
+        "html": "screens/20-light.html"
+      }
+    }
+  },
+  {
+    "number": 21,
+    "title": "Filters categories",
+    "group": "06-filter-tabs",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "a8dfb021c59e41a8a9cc11acdb111c2c",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=a8dfb021c59e41a8a9cc11acdb111c2c",
+        "png": "screens/21-dark.png",
+        "html": "screens/21-dark.html"
+      },
+      "light": {
+        "id": "478c6432254242268ef5888d8f7033ba",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=478c6432254242268ef5888d8f7033ba",
+        "png": "screens/21-light.png",
+        "html": "screens/21-light.html"
+      }
+    }
+  },
+  {
+    "number": 22,
+    "title": "Filters display",
+    "group": "06-filter-tabs",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "155ab911422b4d809c61213508fe9266",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=155ab911422b4d809c61213508fe9266",
+        "png": "screens/22-dark.png",
+        "html": "screens/22-dark.html"
+      },
+      "light": {
+        "id": "041b913d51f448b2be0cd32f1582b5e3",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=041b913d51f448b2be0cd32f1582b5e3",
+        "png": "screens/22-light.png",
+        "html": "screens/22-light.html"
+      }
+    }
+  },
+  {
+    "number": 23,
+    "title": "Saved filters",
+    "group": "06-filter-tabs",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "b9a97228d7e549babdd58d3a4e2e02e5",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=b9a97228d7e549babdd58d3a4e2e02e5",
+        "png": "screens/23-dark.png",
+        "html": "screens/23-dark.html"
+      },
+      "light": {
+        "id": "3af7cd7f46cd4513aa29d9fd8082fbd9",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=3af7cd7f46cd4513aa29d9fd8082fbd9",
+        "png": "screens/23-light.png",
+        "html": "screens/23-light.html"
+      }
+    }
+  },
+  {
+    "number": 24,
+    "title": "Saved filters empty",
+    "group": "06-filter-tabs",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "34fadd05325445189ed5ddbb6860775e",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=34fadd05325445189ed5ddbb6860775e",
+        "png": "screens/24-dark.png",
+        "html": "screens/24-dark.html"
+      },
+      "light": {
+        "id": "c98bb91e95b24ba3a734c93afeff62da",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=c98bb91e95b24ba3a734c93afeff62da",
+        "png": "screens/24-light.png",
+        "html": "screens/24-light.html"
+      }
+    }
+  },
+  {
+    "number": 25,
+    "title": "Save filter",
+    "group": "07-saved-filter-states",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "bc92660e3b05481f84d2c27e91ee1e86",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=bc92660e3b05481f84d2c27e91ee1e86",
+        "png": "screens/25-dark.png",
+        "html": "screens/25-dark.html"
+      },
+      "light": {
+        "id": "053c639ab76847f08e2a7101bedb35b0",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=053c639ab76847f08e2a7101bedb35b0",
+        "png": "screens/25-light.png",
+        "html": "screens/25-light.html"
+      }
+    }
+  },
+  {
+    "number": 26,
+    "title": "Filter validation",
+    "group": "07-saved-filter-states",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "871a2a15d0604307a7cbbdd54944664f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=871a2a15d0604307a7cbbdd54944664f",
+        "png": "screens/26-dark.png",
+        "html": "screens/26-dark.html"
+      },
+      "light": {
+        "id": "f3fb243e46c1408c8a8b75d50833c6b9",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f3fb243e46c1408c8a8b75d50833c6b9",
+        "png": "screens/26-light.png",
+        "html": "screens/26-light.html"
+      }
+    }
+  },
+  {
+    "number": 27,
+    "title": "Delete saved filter",
+    "group": "07-saved-filter-states",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "63c5814f1ca4422ca087b57a55ba19ad",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=63c5814f1ca4422ca087b57a55ba19ad",
+        "png": "screens/27-dark.png",
+        "html": "screens/27-dark.html"
+      },
+      "light": {
+        "id": "ae5967fc45b74ef7bda5f3dd0a5d06c7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=ae5967fc45b74ef7bda5f3dd0a5d06c7",
+        "png": "screens/27-light.png",
+        "html": "screens/27-light.html"
+      }
+    }
+  },
+  {
+    "number": 28,
+    "title": "Active filtered vocabulary",
+    "group": "07-saved-filter-states",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "12ac10b2ad2a4c5690421b506e44b146",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=12ac10b2ad2a4c5690421b506e44b146",
+        "png": "screens/28-dark.png",
+        "html": "screens/28-dark.html"
+      },
+      "light": {
+        "id": "e5d5f07485e24790aa2cb3e7b319b10d",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=e5d5f07485e24790aa2cb3e7b319b10d",
+        "png": "screens/28-light.png",
+        "html": "screens/28-light.html"
+      }
+    }
+  },
+  {
+    "number": 29,
+    "title": "Term details",
+    "group": "08-term-primary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "ff1b17fde74e4613a9848b9671d4e14a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=ff1b17fde74e4613a9848b9671d4e14a",
+        "png": "screens/29-dark.png",
+        "html": "screens/29-dark.html"
+      },
+      "light": {
+        "id": "2d121d403fc04c61aef32227675c3bf7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2d121d403fc04c61aef32227675c3bf7",
+        "png": "screens/29-light.png",
+        "html": "screens/29-light.html"
+      }
+    }
+  },
+  {
+    "number": 30,
+    "title": "Term actions",
+    "group": "08-term-primary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "487e1eb21b5d417c9e64c7f5e6835507",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=487e1eb21b5d417c9e64c7f5e6835507",
+        "png": "screens/30-dark.png",
+        "html": "screens/30-dark.html"
+      },
+      "light": {
+        "id": "dbcc5a046ccd45808021501646c8c74f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=dbcc5a046ccd45808021501646c8c74f",
+        "png": "screens/30-light.png",
+        "html": "screens/30-light.html"
+      }
+    }
+  },
+  {
+    "number": 31,
+    "title": "Delete term confirmation",
+    "group": "08-term-primary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "36f68d4fe9d3465b9c29f9dd7871e5d4",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=36f68d4fe9d3465b9c29f9dd7871e5d4",
+        "png": "screens/31-dark.png",
+        "html": "screens/31-dark.html"
+      },
+      "light": {
+        "id": "96cb3e4a82cb4f91a1a7b6a233522233",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=96cb3e4a82cb4f91a1a7b6a233522233",
+        "png": "screens/31-light.png",
+        "html": "screens/31-light.html"
+      }
+    }
+  },
+  {
+    "number": 32,
+    "title": "Add term",
+    "group": "08-term-primary",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "da8bb83888c54135a1f0ca724b566f20",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=da8bb83888c54135a1f0ca724b566f20",
+        "png": "screens/32-dark.png",
+        "html": "screens/32-dark.html"
+      },
+      "light": {
+        "id": "89a3c8f8e1fe4948ad75131b4ac35472",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=89a3c8f8e1fe4948ad75131b4ac35472",
+        "png": "screens/32-light.png",
+        "html": "screens/32-light.html"
+      }
+    }
+  },
+  {
+    "number": 33,
+    "title": "Edit term",
+    "group": "09-term-and-categories",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "00e713e8accd4921a07ec01999a624a6",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=00e713e8accd4921a07ec01999a624a6",
+        "png": "screens/33-dark.png",
+        "html": "screens/33-dark.html"
+      },
+      "light": {
+        "id": "d0c5c5feb4ab4f26ae1a58700f5911b7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d0c5c5feb4ab4f26ae1a58700f5911b7",
+        "png": "screens/33-light.png",
+        "html": "screens/33-light.html"
+      }
+    }
+  },
+  {
+    "number": 34,
+    "title": "Term validation",
+    "group": "09-term-and-categories",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "f90df89dfa7d45c3acb1a43078db5d26",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f90df89dfa7d45c3acb1a43078db5d26",
+        "png": "screens/34-dark.png",
+        "html": "screens/34-dark.html"
+      },
+      "light": {
+        "id": "c0d3cc247a6341e7ab821253780b34f0",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=c0d3cc247a6341e7ab821253780b34f0",
+        "png": "screens/34-light.png",
+        "html": "screens/34-light.html"
+      }
+    }
+  },
+  {
+    "number": 35,
+    "title": "Discard term changes",
+    "group": "09-term-and-categories",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "95bb37c6df1f47e694aa6924205a6b4c",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=95bb37c6df1f47e694aa6924205a6b4c",
+        "png": "screens/35-dark.png",
+        "html": "screens/35-dark.html"
+      },
+      "light": {
+        "id": "cf8c8f19fe7d4527947a67e8f2df21f4",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=cf8c8f19fe7d4527947a67e8f2df21f4",
+        "png": "screens/35-light.png",
+        "html": "screens/35-light.html"
+      }
+    }
+  },
+  {
+    "number": 36,
+    "title": "Manage categories",
+    "group": "09-term-and-categories",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "0613ca3a8a2e4d3d9a14bca79733b9e5",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=0613ca3a8a2e4d3d9a14bca79733b9e5",
+        "png": "screens/36-dark.png",
+        "html": "screens/36-dark.html"
+      },
+      "light": {
+        "id": "85705a4f5fd1402cab95de9d32601010",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=85705a4f5fd1402cab95de9d32601010",
+        "png": "screens/36-light.png",
+        "html": "screens/36-light.html"
+      }
+    }
+  },
+  {
+    "number": 37,
+    "title": "Categories empty",
+    "group": "10-category-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "0d764853351e4824a4e8cdeb55f1f68e",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=0d764853351e4824a4e8cdeb55f1f68e",
+        "png": "screens/37-dark.png",
+        "html": "screens/37-dark.html"
+      },
+      "light": {
+        "id": "afd12306c38e4c11b72204bf9489ee04",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=afd12306c38e4c11b72204bf9489ee04",
+        "png": "screens/37-light.png",
+        "html": "screens/37-light.html"
+      }
+    }
+  },
+  {
+    "number": 38,
+    "title": "New category",
+    "group": "10-category-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "bf9671aba17447d091da926c70eecedb",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=bf9671aba17447d091da926c70eecedb",
+        "png": "screens/38-dark.png",
+        "html": "screens/38-dark.html"
+      },
+      "light": {
+        "id": "98585b4a5c1f41ebbc93837de3bb0b60",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=98585b4a5c1f41ebbc93837de3bb0b60",
+        "png": "screens/38-light.png",
+        "html": "screens/38-light.html"
+      }
+    }
+  },
+  {
+    "number": 39,
+    "title": "Edit category",
+    "group": "10-category-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "32898a75a62542a2b8181e957f5ac041",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=32898a75a62542a2b8181e957f5ac041",
+        "png": "screens/39-dark.png",
+        "html": "screens/39-dark.html"
+      },
+      "light": {
+        "id": "d2fc2f194551470084258dd1e1c786b7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d2fc2f194551470084258dd1e1c786b7",
+        "png": "screens/39-light.png",
+        "html": "screens/39-light.html"
+      }
+    }
+  },
+  {
+    "number": 40,
+    "title": "Category validation",
+    "group": "10-category-forms",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "16a5efa537c649e1b11027a457dd1ffd",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=16a5efa537c649e1b11027a457dd1ffd",
+        "png": "screens/40-dark.png",
+        "html": "screens/40-dark.html"
+      },
+      "light": {
+        "id": "d2e666e2e5d644dba9918da660e13860",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=d2e666e2e5d644dba9918da660e13860",
+        "png": "screens/40-light.png",
+        "html": "screens/40-light.html"
+      }
+    }
+  },
+  {
+    "number": 41,
+    "title": "Delete category confirmation",
+    "group": "11-daily-settings",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "fb04c2a34440426eb9c2e100aedf161e",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=fb04c2a34440426eb9c2e100aedf161e",
+        "png": "screens/41-dark.png",
+        "html": "screens/41-dark.html"
+      },
+      "light": {
+        "id": "5bd8c92013aa4c0f8912e10ba6bc057b",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5bd8c92013aa4c0f8912e10ba6bc057b",
+        "png": "screens/41-light.png",
+        "html": "screens/41-light.html"
+      }
+    }
+  },
+  {
+    "number": 42,
+    "title": "Word of the Day",
+    "group": "11-daily-settings",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "df7f422c3cde4fe8bf69e6cc17d0b044",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=df7f422c3cde4fe8bf69e6cc17d0b044",
+        "png": "screens/42-dark.png",
+        "html": "screens/42-dark.html"
+      },
+      "light": {
+        "id": "9a32a7819b9d45ce9a22e819136621b0",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=9a32a7819b9d45ce9a22e819136621b0",
+        "png": "screens/42-light.png",
+        "html": "screens/42-light.html"
+      }
+    }
+  },
+  {
+    "number": 43,
+    "title": "Daily word insufficient",
+    "group": "11-daily-settings",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "221c632d89e94cef884e699cdf62b77f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=221c632d89e94cef884e699cdf62b77f",
+        "png": "screens/43-dark.png",
+        "html": "screens/43-dark.html"
+      },
+      "light": {
+        "id": "3f955898376b477aac2711078e72cd64",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=3f955898376b477aac2711078e72cd64",
+        "png": "screens/43-light.png",
+        "html": "screens/43-light.html"
+      }
+    }
+  },
+  {
+    "number": 44,
+    "title": "Settings",
+    "group": "11-daily-settings",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "cb9a4b4858c843ab81147f0dda64c723",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=cb9a4b4858c843ab81147f0dda64c723",
+        "png": "screens/44-dark.png",
+        "html": "screens/44-dark.html"
+      },
+      "light": {
+        "id": "44f5125392c44ac795781ba33cf3058c",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=44f5125392c44ac795781ba33cf3058c",
+        "png": "screens/44-light.png",
+        "html": "screens/44-light.html"
+      }
+    }
+  },
+  {
+    "number": 45,
+    "title": "Backups",
+    "group": "12-backup-restore",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "14429aac7a924823b99b49728ab6707a",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=14429aac7a924823b99b49728ab6707a",
+        "png": "screens/45-dark.png",
+        "html": "screens/45-dark.html"
+      },
+      "light": {
+        "id": "37033c732f404fc498f11b72084a5473",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=37033c732f404fc498f11b72084a5473",
+        "png": "screens/45-light.png",
+        "html": "screens/45-light.html"
+      }
+    }
+  },
+  {
+    "number": 46,
+    "title": "Restore preview",
+    "group": "12-backup-restore",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "e01e554f363949718a4c3bf21893d736",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=e01e554f363949718a4c3bf21893d736",
+        "png": "screens/46-dark.png",
+        "html": "screens/46-dark.html"
+      },
+      "light": {
+        "id": "a3a5335bf2634a089d354c514fa92d98",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=a3a5335bf2634a089d354c514fa92d98",
+        "png": "screens/46-light.png",
+        "html": "screens/46-light.html"
+      }
+    }
+  },
+  {
+    "number": 47,
+    "title": "Restore confirmation",
+    "group": "12-backup-restore",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "be58395b358e42c4b184737439d1530f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=be58395b358e42c4b184737439d1530f",
+        "png": "screens/47-dark.png",
+        "html": "screens/47-dark.html"
+      },
+      "light": {
+        "id": "732d649ff2e2413c998667c21ec67aed",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=732d649ff2e2413c998667c21ec67aed",
+        "png": "screens/47-light.png",
+        "html": "screens/47-light.html"
+      }
+    }
+  },
+  {
+    "number": 48,
+    "title": "Restoring backup",
+    "group": "12-backup-restore",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "2041b292755e43efb996202bb34e5c62",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=2041b292755e43efb996202bb34e5c62",
+        "png": "screens/48-dark.png",
+        "html": "screens/48-dark.html"
+      },
+      "light": {
+        "id": "6ab7c1435b704ea6b5979bce002fcd18",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=6ab7c1435b704ea6b5979bce002fcd18",
+        "png": "screens/48-light.png",
+        "html": "screens/48-light.html"
+      }
+    }
+  },
+  {
+    "number": 49,
+    "title": "Restore success",
+    "group": "13-backup-feedback",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "791fedf9201d443bb50cc6467fc2d241",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=791fedf9201d443bb50cc6467fc2d241",
+        "png": "screens/49-dark.png",
+        "html": "screens/49-dark.html"
+      },
+      "light": {
+        "id": "f01c08955b0444e593b5df0f8a0691dd",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f01c08955b0444e593b5df0f8a0691dd",
+        "png": "screens/49-light.png",
+        "html": "screens/49-light.html"
+      }
+    }
+  },
+  {
+    "number": 50,
+    "title": "Unsupported backup",
+    "group": "13-backup-feedback",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "f82669af1a68401ab0a38358496988e7",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f82669af1a68401ab0a38358496988e7",
+        "png": "screens/50-dark.png",
+        "html": "screens/50-dark.html"
+      },
+      "light": {
+        "id": "f26e2e6b374f4e7d96f39957c85dbdf5",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=f26e2e6b374f4e7d96f39957c85dbdf5",
+        "png": "screens/50-light.png",
+        "html": "screens/50-light.html"
+      }
+    }
+  },
+  {
+    "number": 51,
+    "title": "Restore failed",
+    "group": "13-backup-feedback",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "6a273d515feb43f880c26d7b4af51763",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=6a273d515feb43f880c26d7b4af51763",
+        "png": "screens/51-dark.png",
+        "html": "screens/51-dark.html"
+      },
+      "light": {
+        "id": "6979cd3d18d441929ccc27e8097c4239",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=6979cd3d18d441929ccc27e8097c4239",
+        "png": "screens/51-light.png",
+        "html": "screens/51-light.html"
+      }
+    }
+  },
+  {
+    "number": 52,
+    "title": "Backup export ready",
+    "group": "13-backup-feedback",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "5099f9106473420299e79aa507cce2fa",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=5099f9106473420299e79aa507cce2fa",
+        "png": "screens/52-dark.png",
+        "html": "screens/52-dark.html"
+      },
+      "light": {
+        "id": "9e0a4e3d21c9496abcf2c557a4130b26",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=9e0a4e3d21c9496abcf2c557a4130b26",
+        "png": "screens/52-light.png",
+        "html": "screens/52-light.html"
+      }
+    }
+  },
+  {
+    "number": 53,
+    "title": "Get started choices",
+    "group": "14-onboarding-shortcut",
+    "status": "ready",
+    "appearances": {
+      "dark": {
+        "id": "0711bbc8b5e94eb78ab7390daac1a35f",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=0711bbc8b5e94eb78ab7390daac1a35f",
+        "png": "screens/53-dark.png",
+        "html": "screens/53-dark.html"
+      },
+      "light": {
+        "id": "11ed8695830d41e4acf9729f05dd66e8",
+        "url": "https://stitch.google.com/projects/8226357890556052909?node-id=11ed8695830d41e4acf9729f05dd66e8",
+        "png": "screens/53-light.png",
+        "html": "screens/53-light.html"
+      }
+    }
+  }
+]

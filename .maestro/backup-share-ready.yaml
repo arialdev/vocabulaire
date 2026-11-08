@@ -1,0 +1,14 @@
+appId: dev.arial.vocabulaire
+---
+# Run only on a disposable emulator; this clears its app data.
+- clearState
+- launchApp
+- tapOn: Skip
+- tapOn: Settings
+- tapOn: Backups
+- tapOn: Export current data
+- assertVisible: Backup ready
+- tapOn: Share or save backup
+- assertVisible: Sharing 1 file
+- back
+- tapOn: Done

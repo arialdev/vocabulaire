@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>45 Backups — Dark</title>
+<!-- Google Fonts: EB Garamond & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#171E1B',
+            surface: '#222D27',
+            recessed: '#1C2520',
+            borderPrimary: '#45574A',
+            textPrimary: '#F3F0E7',
+            textSecondary: '#B8C6BC',
+            accentPrimary: '#B9D8BB',
+            onAccentPrimary: '#173824',
+          },
+          fontFamily: {
+            serif: ['"EB Garamond"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Core Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #171E1B;
+      color: #F3F0E7;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body class="bg-canvas min-h-screen flex justify-center items-start m-0 p-0 selection:bg-accentPrimary selection:text-onAccentPrimary">
+<!-- BEGIN: MainMobileContainer -->
+<!-- Constrained mobile viewport matching 390x892 proportions -->
+<div class="w-full max-w-[420px] min-h-screen bg-canvas flex flex-col justify-between relative shadow-2xl border-x border-[#232d26]">
+<!-- Top Screen Wrapper -->
+<div class="flex-1 flex flex-col">
+<!-- BEGIN: StatusBar -->
+<div class="w-full pt-3 px-6 pb-2 flex justify-between items-center text-textPrimary text-xs font-semibold tracking-tight" data-purpose="status-bar">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5 text-textPrimary">
+<!-- Wi-Fi Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 2.5c3.73 0 7.15 1.41 9.77 3.73L12 19.98 2.23 10.23A14.63 14.63 0 0112 6.5z"></path>
+</svg>
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M2 22h20V2L2 22zm18-2H6.83L20 6.83V20z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M17 5v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2zm2 4h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1V9z"></path>
+</svg>
+</div>
+</div>
+<!-- END: StatusBar -->
+<!-- BEGIN: NavigationHeader -->
+<header class="w-full px-5 py-3 flex items-center justify-between border-b border-borderPrimary/40" data-purpose="app-header">
+<div class="flex items-center space-x-4">
+<!-- Back Button -->
+<button aria-label="Go back" class="p-1 -ml-1 text-textPrimary hover:text-accentPrimary transition-colors focus:outline-none">
+<svg class="w-6 h-6 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<line x1="19" x2="5" y1="12" y2="12"></line>
+<polyline points="12 19 5 12 12 5"></polyline>
+</svg>
+</button>
+<h1 class="text-xl font-bold font-serif tracking-tight text-textPrimary">Backups</h1>
+</div>
+<!-- Settings Gear Icon -->
+<button aria-label="Settings" class="p-1 text-textPrimary hover:text-accentPrimary transition-colors focus:outline-none">
+<svg class="w-6 h-6 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+</button>
+</header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: ContentArea -->
+<main class="px-5 pt-6 pb-4 flex flex-col space-y-5">
+<!-- Header Introduction Section -->
+<section class="space-y-3" data-purpose="introductory-summary">
+<!-- Tag / Pill Badge -->
+<div class="inline-flex items-center space-x-1.5 px-3 py-1 bg-recessed border border-borderPrimary rounded-full text-xs font-medium text-textSecondary">
+<span class="text-xs">📖</span>
+<span>Field Notebook · Offline storage</span>
+</div>
+<!-- Main Title -->
+<h2 class="text-[34px] leading-[1.12] font-serif font-bold text-textPrimary tracking-tight pt-1">
+            Keep a copy of your words.
+          </h2>
+<!-- Descriptive Subtitle -->
+<p class="text-sm leading-relaxed text-textSecondary font-normal">
+            Your notebook lives on this device. Save a backup somewhere safe.
+          </p>
+</section>
+<!-- BEGIN: ExportCard -->
+<section class="bg-surface rounded-2xl border border-borderPrimary p-5 shadow-sm space-y-4" data-purpose="export-backup-card">
+<!-- Header of Card: Icon & Stats Pill -->
+<div class="flex items-center justify-between">
+<!-- Icon Badge -->
+<div class="w-10 h-10 rounded-full bg-recessed border border-borderPrimary flex items-center justify-center text-textSecondary">
+<svg class="w-5 h-5 stroke-current stroke-[1.75] fill-none" viewbox="0 0 24 24">
+<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+<circle cx="12" cy="14" fill="currentColor" r="1.5"></circle>
+</svg>
+</div>
+<!-- Statistics Badge -->
+<div class="px-3 py-1 bg-recessed border border-borderPrimary rounded-lg text-xs font-medium text-textSecondary">
+              3 collections · 96 terms
+            </div>
+</div>
+<!-- Title & Description -->
+<div class="space-y-1.5">
+<h3 class="text-xl font-bold font-serif text-textPrimary tracking-tight">Export backup</h3>
+<p class="text-[13px] leading-relaxed text-textSecondary">
+              Create an unencrypted JSON document containing all collections, vocabulary terms, notes, and custom categories.
+            </p>
+</div>
+<!-- Export Primary Action Button -->
+<button class="w-full py-3.5 px-4 bg-accentPrimary hover:bg-[#a6cca8] active:scale-[0.99] transition-all rounded-full flex items-center justify-center space-x-2 text-onAccentPrimary font-medium text-[15px] shadow-sm" data-purpose="export-action-button">
+<svg class="w-4 h-4 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+<span>Export backup</span>
+</button>
+</section>
+<!-- END: ExportCard -->
+<!-- BEGIN: RestoreCard -->
+<section class="bg-surface rounded-2xl border border-borderPrimary p-5 shadow-sm space-y-4" data-purpose="restore-backup-card">
+<!-- Restore Icon Badge -->
+<div>
+<div class="w-10 h-10 rounded-full bg-recessed border border-borderPrimary flex items-center justify-center text-textSecondary">
+<svg class="w-5 h-5 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+<path d="M3 3v5h5"></path>
+<path d="M12 7v5l3 3"></path>
+</svg>
+</div>
+</div>
+<!-- Title & Description -->
+<div class="space-y-1.5">
+<h3 class="text-xl font-bold font-serif text-textPrimary tracking-tight">Restore from a file</h3>
+<p class="text-[13px] leading-relaxed text-textSecondary">
+              Choose a Vocabulaire backup file (.json) from your device or file manager to restore your notebook.
+            </p>
+</div>
+<!-- Restore Secondary Action Button -->
+<button class="w-full py-3.5 px-4 bg-surface hover:bg-recessed border border-borderPrimary active:scale-[0.99] transition-all rounded-full flex items-center justify-center space-x-2 text-textPrimary font-medium text-[15px]" data-purpose="choose-file-button">
+<svg class="w-4 h-4 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+</svg>
+<span>Choose backup file</span>
+</button>
+</section>
+<!-- END: RestoreCard -->
+<!-- BEGIN: InfoNotice -->
+<aside class="bg-recessed rounded-xl border border-borderPrimary/80 p-4 flex items-start space-x-3" data-purpose="compatibility-notice">
+<div class="text-textSecondary pt-0.5 flex-shrink-0">
+<svg class="w-4 h-4 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="16" y2="12"></line>
+<line x1="12" x2="12.01" y1="8" y2="8"></line>
+</svg>
+</div>
+<p class="text-xs leading-relaxed text-textSecondary">
+            Backups from the old Ionic app are not supported. Only contemporary standard JSON format can be imported.
+          </p>
+</aside>
+<!-- END: InfoNotice -->
+</main>
+<!-- END: ContentArea -->
+</div>
+<!-- End Top Screen Wrapper -->
+<!-- BEGIN: HomeIndicator -->
+<footer class="w-full pb-3 pt-2 flex justify-center items-center" data-purpose="gesture-indicator-area">
+<div class="w-32 h-1 bg-borderPrimary rounded-full"></div>
+</footer>
+<!-- END: HomeIndicator -->
+</div>
+<!-- END: MainMobileContainer -->
+</body></html>

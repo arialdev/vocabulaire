@@ -2,6 +2,7 @@ appId: dev.arial.vocabulaire
 ---
 - clearState
 - launchApp
+- tapOn: Get started
 - tapOn: Create a collection
 - tapOn: Collection name
 - inputText: Emoji
@@ -10,6 +11,10 @@ appId: dev.arial.vocabulaire
 - tapOn:
     text: '.*emoji'
     index: 0
+- tapOn: Apply emoji
 - assertVisible: 'Choose icon:.*😀.*'
 - tapOn: Save
-- assertVisible: '.*😀 Emoji.*'
+- assertVisible: Open Emoji
+- tapOn: Actions for Emoji
+- tapOn: Edit collection
+- assertVisible: 'Choose icon:.*😀.*'

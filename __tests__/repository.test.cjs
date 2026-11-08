@@ -220,7 +220,13 @@ test("backup round trip preserves the full graph and failed replacement rolls ba
   const { sqlite, repo, db } = setup();
   const { createSnapshot, validateBackup, replaceFromBackup } = require("../src/platform/backup");
   try {
-    const collection = repo.saveCollection({ name: "日本語", icon: "👩🏽‍💻" });
+    const collection = repo.saveCollection({ name: "日本語", icon: "👩🏽‍💻", shortLabel: "FR" });
+    repo.saveCollection({
+      id: collection.id,
+      name: "日本語 notes",
+      icon: "📓",
+      shortLabel: collection.shortLabel,
+    });
     const category = repo.saveCategory({
       collectionId: collection.id,
       kind: "thematic",
@@ -244,16 +250,56 @@ test("backup round trip preserves the full graph and failed replacement rolls ba
     repo.dailyWord(collection.id, "2026-10-31", () => 0);
     repo.updatePreferences({ locale: "es", appearance: "dark", onboardingComplete: true });
     const original = createSnapshot(db);
+    expect(original.data.collections[0]).toMatchObject({
+      name: "日本語 notes",
+      icon: "📓",
+      shortLabel: "FR",
+    });
     const parsed = validateBackup(JSON.parse(JSON.stringify(original)));
     repo.saveCollection({ name: "extra", icon: "📚" });
     sqlite.exec(
       "CREATE TRIGGER reject_restore BEFORE INSERT ON terms BEGIN SELECT RAISE(ABORT, 'intentional'); END",
     );
-    expect(() => replaceFromBackup(db, parsed)).toThrow();
+    try {
+      replaceFromBackup(db, parsed);
+      throw new Error("expected restore failure");
+    } catch (error) {
+      expect(error.outcome).toBe("unchanged");
+    }
     expect(repo.listCollections()).toHaveLength(2);
     sqlite.exec("DROP TRIGGER reject_restore");
     replaceFromBackup(db, parsed);
     expect(createSnapshot(db).data).toEqual(original.data);
+  } finally {
+    sqlite.close();
+  }
+});
+
+test("notebook review fixtures remain isolated and cover empty, multilingual and saved-filter states", () => {
+  const { createNotebookFixtures } = require("../test-support/notebook-fixtures");
+  const { sqlite, repo } = setup();
+  try {
+    const fixture = createNotebookFixtures(repo);
+    expect(repo.listTerms(fixture.empty.id)).toHaveLength(0);
+    expect(repo.listTerms(fixture.populated.id)).toHaveLength(5);
+    expect(repo.listCollectionSummaries().map(({ id, termCount }) => ({ id, termCount }))).toEqual([
+      { id: fixture.empty.id, termCount: 0 },
+      { id: fixture.populated.id, termCount: 5 },
+    ]);
+    repo.deleteTerm(fixture.populated.id, repo.listTerms(fixture.populated.id)[0].id);
+    expect(repo.listCollectionSummaries()[1].termCount).toBe(4);
+    expect(repo.listCollections().find((row) => row.id === fixture.populated.id).shortLabel).toBe(
+      "FR",
+    );
+    expect(
+      repo
+        .listCategories(fixture.populated.id)
+        .map((row) => row.kind)
+        .sort(),
+    ).toEqual(["grammatical", "thematic"]);
+    expect(repo.listFilters(fixture.populated.id)[0].categoryIds.sort()).toEqual(
+      [fixture.grammar.id, fixture.theme.id].sort(),
+    );
   } finally {
     sqlite.close();
   }

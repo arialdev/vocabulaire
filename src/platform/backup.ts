@@ -194,20 +194,47 @@ export function validateBackup(input: unknown): Backup {
   return input as Backup;
 }
 
+export class RestoreFailure extends Error {
+  constructor(
+    public readonly outcome: 'unchanged' | 'unknown',
+    cause: unknown,
+  ) {
+    super('Restore transaction failed', { cause });
+  }
+}
+
+/** A thrown write error is rethrown by Drizzle only after rollback succeeds. */
 export function replaceFromBackup(db: Database, backup: Backup): void {
   const validated = validateBackup(backup);
   const d = validated.data;
-  db.transaction((tx) => {
-    tx.delete(preferences).run();
-    tx.delete(collections).run();
-    if (d.collections.length) tx.insert(collections).values(d.collections).run();
-    if (d.terms.length) tx.insert(terms).values(d.terms).run();
-    if (d.categories.length) tx.insert(categories).values(d.categories).run();
-    if (d.termCategories.length) tx.insert(termCategories).values(d.termCategories).run();
-    if (d.savedFilters.length) tx.insert(savedFilters).values(d.savedFilters).run();
-    if (d.savedFilterCategories.length)
-      tx.insert(savedFilterCategories).values(d.savedFilterCategories).run();
-    if (d.dailyPicks.length) tx.insert(dailyPicks).values(d.dailyPicks).run();
-    if (d.preferences.length) tx.insert(preferences).values(d.preferences).run();
-  });
+  let entered = false;
+  let writeFailure: unknown;
+  let writeFailed = false;
+  try {
+    db.transaction((tx) => {
+      entered = true;
+      try {
+        tx.delete(preferences).run();
+        tx.delete(collections).run();
+        if (d.collections.length) tx.insert(collections).values(d.collections).run();
+        if (d.terms.length) tx.insert(terms).values(d.terms).run();
+        if (d.categories.length) tx.insert(categories).values(d.categories).run();
+        if (d.termCategories.length) tx.insert(termCategories).values(d.termCategories).run();
+        if (d.savedFilters.length) tx.insert(savedFilters).values(d.savedFilters).run();
+        if (d.savedFilterCategories.length)
+          tx.insert(savedFilterCategories).values(d.savedFilterCategories).run();
+        if (d.dailyPicks.length) tx.insert(dailyPicks).values(d.dailyPicks).run();
+        if (d.preferences.length) tx.insert(preferences).values(d.preferences).run();
+      } catch (error) {
+        writeFailed = true;
+        writeFailure = error;
+        throw error;
+      }
+    });
+  } catch (error) {
+    throw new RestoreFailure(
+      !entered || (writeFailed && error === writeFailure) ? 'unchanged' : 'unknown',
+      error,
+    );
+  }
 }
