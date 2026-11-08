@@ -2,6 +2,7 @@
   "name": "vocabulaire",
   "version": "1.0.0",
   "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",

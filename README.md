@@ -6,6 +6,14 @@ This React Native version starts with a new database. It neither migrates the ol
 
 The migration and its outstanding verification are tracked in [OpenSpec](openspec/changes/migrate-to-react-native/tasks.md).
 
+## License
+
+Starting with the license-change commit on 2026-11-08, the project's original code is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). The source remains publicly available, but this is not an open-source license.
+
+The license permits use, modification and redistribution for its permitted purposes, including noncommercial purposes and the organization-specific uses described in the license. Commercial uses outside those permissions require separate authorization from the copyright holder. Redistribution must include the license text or its URL and the `Required Notice:` attribution supplied in `LICENSE`; this also applies to modified versions. The license does not require publishing modified source code.
+
+Versions previously released under GNU GPL version 3 remain available under those terms. This change does not revoke permissions already granted for that code and does not retroactively restrict its reuse. The previous license is preserved in Git history. Third-party dependencies, fonts, icons and other third-party materials retain their own licenses; bundled font and icon-font notices are in [`assets/fonts/`](assets/fonts/).
+
 ## Prerequisites
 
 Install [mise](https://mise.jdx.dev/) and the Android SDK, including platform tools, platform 37, build tools 37.0.0, NDK 27.1.12297006 and CMake 3.22.1. `mise.toml` pins Node, pnpm and Java for this project. Set `ANDROID_HOME` to the SDK directory and put `$ANDROID_HOME/platform-tools` and `$ANDROID_HOME/emulator` on `PATH`; on macOS the SDK is normally `$HOME/Library/Android/sdk`. Install SDK packages with the `sdkmanager` executable under `$ANDROID_HOME/cmdline-tools/latest/bin`.
