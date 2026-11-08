@@ -73,7 +73,7 @@ Term add/edit: required Original expression and Translation; optional multiline 
 
 Notes accept arbitrary user text. Keep IPA, phonetic transcription, and pronunciation assessment out of the UI.
 
-The proposed audio-only extension adds an inline recorder to the term editor, with one clip of up to seven seconds per term. Follow the [pronunciation audio handoff](../../openspec/changes/add-term-pronunciation-audio/stitch-handoff.md) for that change's editor, details, and backup states.
+The proposed audio-only extension adds an inline recorder to the term editor, with one clip of up to seven seconds per term. Follow the [pronunciation audio handoff](../../openspec/changes/archive/2026-11-08-add-term-pronunciation-audio/stitch-handoff.md) for that change's editor, details, and backup states.
 
 ### Vocabulary and discovery
 

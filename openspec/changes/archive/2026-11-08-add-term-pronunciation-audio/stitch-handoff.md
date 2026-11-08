@@ -29,7 +29,7 @@ The seven-second cap applies to capture and to version 2 backup validation. Wire
 
 ## Stitch references
 
-The paired PNG and HTML exports are registered as screens 54–60 in the [review gallery](../../../design/vocabulaire/index.html#54).
+The paired PNG and HTML exports are registered as screens 54–60 in the [review gallery](../../../../design/vocabulaire/index.html#54).
 
 | State | Light | Dark |
 | --- | --- | --- |
