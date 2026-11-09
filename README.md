@@ -60,6 +60,7 @@ Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The ch
 
 ```sh
 adb install -r android/app/build/outputs/apk/release/app-release.apk
+adb shell pm clear dev.arial.vocabulaire
 maestro test -e APP_ID=dev.arial.vocabulaire .maestro/first-collection.yaml
 maestro test .maestro/categories-filters.yaml
 maestro test .maestro/form-guards.yaml

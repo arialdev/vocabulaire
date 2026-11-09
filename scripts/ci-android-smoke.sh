@@ -12,4 +12,5 @@ capture_diagnostics() {
 }
 trap capture_diagnostics EXIT
 adb install android/app/build/outputs/apk/release/app-release.apk
+adb shell -T pm clear "$CI_APP_ID" | tr -d '\r' | grep -x Success
 maestro test --debug-output android-diagnostics/maestro --format JUNIT --output android-diagnostics/maestro.xml -e "APP_ID=$CI_APP_ID" .maestro/first-collection.yaml 2>&1 | tee android-diagnostics/maestro.log

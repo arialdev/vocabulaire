@@ -1,6 +1,5 @@
 appId: ${APP_ID}
 ---
-- clearState
 - launchApp
 - assertVisible: A little home for every language
 - tapOn: Get started
