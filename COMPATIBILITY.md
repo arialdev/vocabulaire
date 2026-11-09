@@ -67,7 +67,7 @@ On 2026-10-31, a six-term backup was restored on the API 37 emulator. The daily 
 
 On the same emulator, canceling the document picker left the dataset unchanged and selecting an old-format file displayed the unsupported-format error without replacing records. The SQLite repository test round-trips all record types with Unicode icons and vocabulary and verifies rollback using an injected failure. Other validation tests cover malformed and invalid-reference inputs.
 
-The GitHub Actions workflow builds a standalone x86_64 APK and configures an API 37.0 emulator and pinned Maestro smoke flow; Jest coverage writes the LCOV path consumed by the existing optional Sonar scan. Local source checks and arm64 device flows passed; the updated hosted x86_64 workflow has not yet run on GitHub.
+The earlier GitHub Actions workflow built a standalone x86_64 APK and ran a pinned Maestro smoke flow. Local source checks and arm64 device flows passed; subsequent hosted runs failed in the Android smoke test. See the current CI change verification for the replacement workflow's status.
 
 On API 37, a 720×1280 emulator with 1.5× font scaling exposed a keyboard overlap on the term editor. After adding Android keyboard scroll space, the `small-screen-keyboard` Maestro flow reached the original, translation, notes, and Save controls with the keyboard open and saved the term. The form-guards and picker-language-theme checks cover Back, discard, labeled picker controls, and language changes; translation resource parity is checked by Jest. This is not a substitute for testing every device or screen-reader combination.
 

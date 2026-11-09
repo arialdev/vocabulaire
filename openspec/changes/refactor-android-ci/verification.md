@@ -1,0 +1,13 @@
+## Local verification
+
+- Pinned `mise exec -- pnpm lint`, `format:check`, `typecheck`, and `test --runInBand --coverage` passed. Jest: 30 suites, 96 tests, including release signing fail-closed and preview isolation checks; output captured at `/private/tmp/vocab-ci-jest-final.log` for this session.
+- Expo Android prebuild and an arm64 standalone release build succeeded locally. The Kotlin daemon could not write to the user Library under the sandbox; Gradle's fallback compilation succeeded.
+- `act --list` recognized the jobs. Docker was unavailable, so this is not a workflow execution.
+- Shell and Node syntax checks passed. A synthetic Maestro failure verified that the smoke wrapper preserves exit code 17 and collects diagnostics.
+- On a disposable API 37 arm64 emulator at 320×640 and density 160, the original flow reproduced the hosted failure: after text entry it could not find Save. The [screen](evidence/original-flow-save-missing.png) and [UI hierarchy](evidence/original-flow-window.xml) show the form continuing below the viewport. Logcat was captured at `/private/tmp/vocab-ci-old-logcat.txt`. This reproduces the symptom on a different API and architecture from hosted CI, not the separate launch failure.
+- With the adjusted flow and the standalone arm64 preview APK installed as `dev.arial.vocabulaire.preview`, the complete Maestro flow passed, including collection creation, term save, restart and persistence. Local Maestro was 2.12.1; hosted CI is pinned to 2.12.0.
+- A local production-ID arm64 APK was built and signed with a disposable test keystore. Its v2 signing certificate matched that keystore. The verification script accepted the matching fingerprint and rejected a mismatch; the x86_64 listing was simulated for this isolated fingerprint check, not verified in that test. The real release key and hosted secrets are not configured.
+- A subsequent local build with both `arm64-v8a` and `x86_64` succeeded. The actual APK passed the verification script's package, ABI, signature, fingerprint and checksum checks using the disposable test key. Hosted artifact upload still requires a real workflow run.
+- The owner generated the release keystore and configured all five `ANDROID_*` GitHub secret names. Their values and the actual production signing operation have not been verified by a hosted build. The Android signing guide documents updating the secrets and preserving the signing key.
+- Docker was not running, so `act` could list the jobs but could not execute them. `act` would not establish GitHub-hosted secret, artifact, or KVM behavior; hosted runs remain required.
+- Hosted workflow behavior, release signature and emulator results remain to be verified; see the open tasks.

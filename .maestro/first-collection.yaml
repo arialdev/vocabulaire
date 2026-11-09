@@ -1,4 +1,4 @@
-appId: dev.arial.vocabulaire
+appId: ${APP_ID}
 ---
 - clearState
 - launchApp
@@ -21,6 +21,9 @@ appId: dev.arial.vocabulaire
 - tapOn: Translation
 - inputText: cat
 - hideKeyboard
+- scrollUntilVisible:
+    element: Save
+    direction: DOWN
 - tapOn: Save
 - assertVisible: neko
 - assertVisible: cat
