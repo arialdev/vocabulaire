@@ -35,7 +35,7 @@ jobs:
           pnpm test --runInBand --coverage 2>&1 | tee test-results/jest.log
       - name: Upload test output and coverage
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: jest-${{ github.sha }}
           path: |
@@ -129,7 +129,7 @@ jobs:
           script: bash scripts/ci-android-smoke.sh
       - name: Upload Android diagnostics
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android-diagnostics-${{ github.sha }}
           path: android-diagnostics/
@@ -138,7 +138,7 @@ jobs:
           retention-days: 7
       - name: Upload verified APK
         if: ${{ success() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android-${{ env.CI_APK_VARIANT }}-${{ github.sha }}
           path: android-artifact/
