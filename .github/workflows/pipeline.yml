@@ -1,10 +1,14 @@
-name: React Native CI
+name: Android CI
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -13,12 +17,8 @@ concurrency:
 jobs:
   checks:
     runs-on: ubuntu-latest
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
       - uses: actions/checkout@v7.0.1
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v7.1.0
         with:
           node-version: 26.12.1
@@ -29,15 +29,28 @@ jobs:
       - run: pnpm lint
       - run: pnpm format:check
       - run: pnpm typecheck
-      - run: pnpm test --runInBand --coverage
-      - name: SonarCloud scan
-        if: ${{ env.SONAR_TOKEN != '' }}
-        uses: SonarSource/sonarqube-scan-action@v8.3.0
-        env:
-          SONAR_HOST_URL: https://sonarcloud.io
+      - name: Jest and coverage
+        run: |
+          mkdir -p test-results
+          pnpm test --runInBand --coverage 2>&1 | tee test-results/jest.log
+      - name: Upload test output and coverage
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: jest-${{ github.sha }}
+          path: |
+            test-results/
+            coverage/
+          if-no-files-found: warn
+          retention-days: 7
 
-  android-build:
+  android:
+    needs: checks
     runs-on: ubuntu-latest
+    env:
+      CI_APK_VARIANT: ${{ github.event_name == 'pull_request' && 'preview' || 'release' }}
+      CI_APP_ID: ${{ github.event_name == 'pull_request' && 'dev.arial.vocabulaire.preview' || 'dev.arial.vocabulaire' }}
+      MAESTRO_CLI_NO_ANALYTICS: '1'
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
@@ -53,13 +66,48 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Generate Android project
         run: CI=1 EXPO_OFFLINE=1 pnpm exec expo prebuild --platform android --no-install
+      - name: Configure preview signing and identity
+        if: ${{ github.event_name == 'pull_request' }}
+        run: node scripts/configure-ci-android.cjs
+      - name: Configure release signing
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        env:
+          CI_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          CI_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          CI_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          CI_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          CI_KEYSTORE_PATH: ${{ runner.temp }}/release.keystore
+          CI_CERT_SHA256: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: |
+          test -n "$CI_KEYSTORE_BASE64" && test -n "$CI_CERT_SHA256" || { echo 'Release signing secrets are required'; exit 1; }
+          umask 077
+          printf '%s' "$CI_KEYSTORE_BASE64" | base64 --decode > "$CI_KEYSTORE_PATH"
+          node scripts/configure-ci-android.cjs
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4.0.4
       - name: Install Android SDK components
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;27.1.12297006' 'cmake;3.22.1'
-      - name: Build standalone Android APK
+      - name: Build preview APK
+        if: ${{ github.event_name == 'pull_request' }}
         working-directory: android
-        run: ./gradlew assembleRelease -PreactNativeArchitectures=x86_64
+        run: ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86_64
+      - name: Build release APK
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        working-directory: android
+        env:
+          CI_KEYSTORE_PATH: ${{ runner.temp }}/release.keystore
+          CI_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          CI_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          CI_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86_64
+      - name: Verify preview APK identity, ABIs and signature
+        if: ${{ github.event_name == 'pull_request' }}
+        run: bash scripts/verify-ci-apk.sh
+      - name: Verify release APK identity, ABIs and signature
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        env:
+          CI_CERT_SHA256: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: bash scripts/verify-ci-apk.sh
       - name: Install Maestro
         run: |
           curl -fsSL https://github.com/mobile-dev-inc/maestro/releases/download/cli-2.12.0/maestro.zip -o "$RUNNER_TEMP/maestro.zip"
@@ -78,6 +126,21 @@ jobs:
           arch: x86_64
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
           disable-animations: true
-          script: |
-            adb install android/app/build/outputs/apk/release/app-release.apk
-            maestro test .maestro/first-collection.yaml
+          script: bash scripts/ci-android-smoke.sh
+      - name: Upload Android diagnostics
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: android-diagnostics-${{ github.sha }}
+          path: android-diagnostics/
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Upload verified APK
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: android-${{ env.CI_APK_VARIANT }}-${{ github.sha }}
+          path: android-artifact/
+          if-no-files-found: error
+          retention-days: 7

@@ -60,7 +60,8 @@ Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The ch
 
 ```sh
 adb install -r android/app/build/outputs/apk/release/app-release.apk
-maestro test .maestro/first-collection.yaml
+adb shell pm clear dev.arial.vocabulaire
+maestro test -e APP_ID=dev.arial.vocabulaire .maestro/first-collection.yaml
 maestro test .maestro/categories-filters.yaml
 maestro test .maestro/form-guards.yaml
 ```
@@ -68,3 +69,11 @@ maestro test .maestro/form-guards.yaml
 These flows clear the app's data on the selected emulator. Use a disposable test device. The review fixture in `.maestro/fixtures/field-notebook-review.json` is test-only; push it to the disposable device's Downloads folder before running `review-fixture.yaml` or `pdf-handoff.yaml`. The detailed design-acceptance results are recorded in [verification.md](openspec/changes/implement-field-notebook-design/verification.md). See [COMPATIBILITY.md](COMPATIBILITY.md) for the tested dependency matrix, recorded Android results and the accepted Expo online compatibility warnings. The ignored `.legacy/` directory, if present from migration work, is local reference material; historical source is also available in Git history.
 
 For isolated visual review of the transient restore and proven-rollback presentations, build with `EXPO_PUBLIC_NOTEBOOK_REVIEW_FAULTS=1` and run `.maestro/visual-restore-faults.yaml` with the supported restore fixture in Downloads. The two review controls only select presentation states; they do not perform a restore or simulate a database rollback. Never distribute that review build. Rebuild with the variable unset or set to `0` for normal use; the normal build has no review controls. The flow clears the selected emulator's app data.
+
+## Android CI and signing
+
+Pull requests to `main` run quality checks, Jest coverage and an Android smoke test. A successful run uploads a standalone preview APK with application ID `dev.arial.vocabulaire.preview`; it can coexist with the production app. It uses Expo's public development signing key and is for testing only. Pushes to `main` build `dev.arial.vocabulaire` with the release key. Both APKs contain arm64-v8a and x86_64 native code. Artifacts include checksums and signing metadata; test results, coverage and available Android diagnostics are retained for seven days.
+
+See [Android release signing](docs/android-signing.md) for keystore setup, backups and instructions for updating signing secrets.
+
+Only standard GitHub-hosted runners are used; public repositories currently receive free compute, while private repositories and artifact storage have plan limits. Configure GitHub billing with a zero-spend budget that stops usage at its limit, and monitor storage; otherwise account settings can permit charges. Artifact expiry is not a substitute for a durable backup of the release key or APK.
