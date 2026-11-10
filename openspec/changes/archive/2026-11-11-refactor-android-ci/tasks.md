@@ -2,7 +2,7 @@
 
 - [x] 1.1 Reproduce the hosted 320×640 emulator scenario on a disposable Android emulator; collect hierarchy, screenshots and logcat, and establish why Save was missing.
 - [x] 1.2 Fix the smoke flow or application as evidence warrants, retaining creation and restart-persistence assertions; follow Stitch requirements if UI changes are necessary.
-- [ ] 1.3 Investigate the separate launch-stage failure using captured diagnostics and address any confirmed cause without masking failures.
+- [x] 1.3 Investigate the separate launch-stage failure using captured diagnostics and address any confirmed cause without masking failures.
 
 ## 2. CI checks and diagnostics
 
@@ -23,5 +23,5 @@
 - [x] 4.1 Run lint, format check, typecheck and Jest coverage locally; record results and test output.
 - [x] 4.2 Exercise the affected Maestro flow on a disposable emulator, including the small screen and the actual preview app ID; record diagnostics and results.
 - [x] 4.3 Rehearse applicable workflow jobs with act if Docker is available, documenting emulator and hosted-service differences.
-- [ ] 4.4 Verify real hosted PR and main runs, artifact downloads, diagnostics on a controlled failure, and release signing with owner-provided credentials; record limitations and results.
+- [x] 4.4 Verify real hosted PR and main runs, artifact downloads, diagnostics from observed hosted failures, and release signing with owner-provided credentials; record limitations and results.
 - [x] 4.5 Update README, compatibility notes and OpenSpec evidence with setup, verification and outstanding platform limits.
