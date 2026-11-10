@@ -58,3 +58,10 @@ CI SHALL use existing standard GitHub-hosted runners and the existing Expo and A
 #### Scenario: Fork pull request
 - **WHEN** an untrusted fork opens a pull request against main
 - **THEN** its checks do not require or expose production signing secrets
+
+### Requirement: Remove SonarCloud integration
+The repository SHALL remove the SonarCloud scan and its configuration while continuing Oxlint and Jest coverage checks.
+
+#### Scenario: Run CI without Sonar credentials
+- **WHEN** CI runs without a Sonar token
+- **THEN** lint, tests and coverage run independently of SonarCloud
