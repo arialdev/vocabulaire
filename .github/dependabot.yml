@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 1
+    groups:
+      dependencies:
+        dependency-type: production
+      dev-dependencies:
+        dependency-type: development
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"

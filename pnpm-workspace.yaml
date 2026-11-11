@@ -2,6 +2,7 @@ allowBuilds:
   "@parcel/watcher": true
   esbuild: true
   unrs-resolver: true
+minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@expo/cli@58.1.17 || 58.1.18"
   - "@expo/config-plugins@58.0.11"
