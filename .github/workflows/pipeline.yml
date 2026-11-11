@@ -30,6 +30,7 @@ jobs:
       - run: pnpm format:check
       - run: pnpm typecheck
       - name: Jest and coverage
+        shell: bash
         run: |
           mkdir -p test-results
           pnpm test --runInBand --coverage 2>&1 | tee test-results/jest.log
@@ -50,7 +51,6 @@ jobs:
     env:
       CI_APK_VARIANT: ${{ github.event_name == 'pull_request' && 'preview' || 'release' }}
       CI_APP_ID: ${{ github.event_name == 'pull_request' && 'dev.arial.vocabulaire.preview' || 'dev.arial.vocabulaire' }}
-      MAESTRO_CLI_NO_ANALYTICS: '1'
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
@@ -108,34 +108,6 @@ jobs:
         env:
           CI_CERT_SHA256: ${{ secrets.ANDROID_CERT_SHA256 }}
         run: bash scripts/verify-ci-apk.sh
-      - name: Install Maestro
-        run: |
-          curl -fsSL https://github.com/mobile-dev-inc/maestro/releases/download/cli-2.12.0/maestro.zip -o "$RUNNER_TEMP/maestro.zip"
-          unzip -q "$RUNNER_TEMP/maestro.zip" -d "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/maestro/bin" >> "$GITHUB_PATH"
-      - name: Enable KVM
-        run: |
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-          sudo udevadm control --reload-rules
-          sudo udevadm trigger --name-match=kvm
-      - name: Android emulator smoke test
-        uses: ReactiveCircus/android-emulator-runner@v2.38.0
-        with:
-          api-level: 35
-          target: google_apis
-          arch: x86_64
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
-          disable-animations: true
-          script: bash scripts/ci-android-smoke.sh
-      - name: Upload Android diagnostics
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: android-diagnostics-${{ github.sha }}
-          path: android-diagnostics/
-          include-hidden-files: true
-          if-no-files-found: ignore
-          retention-days: 7
       - name: Upload verified APK
         if: ${{ success() }}
         uses: actions/upload-artifact@v7

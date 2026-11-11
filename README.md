@@ -72,7 +72,19 @@ For isolated visual review of the transient restore and proven-rollback presenta
 
 ## Android CI and signing
 
-Pull requests to `main` run quality checks, Jest coverage and an Android smoke test. A successful run uploads a standalone preview APK with application ID `dev.arial.vocabulaire.preview`; it can coexist with the production app. It uses Expo's public development signing key and is for testing only. Pushes to `main` build `dev.arial.vocabulaire` with the release key. Both APKs contain arm64-v8a and x86_64 native code. Artifacts include checksums and signing metadata; test results, coverage and available Android diagnostics are retained for seven days.
+Pull requests to `main` require source checks and an Android build with static APK verification. The checks cover lint, formatting, type checking, and Jest with coverage. Automatic CI does not boot an emulator or run Maestro. Run native Android acceptance locally on a disposable device or emulator.
+
+A successful pull request uploads a standalone preview APK with application ID `dev.arial.vocabulaire.preview`. It can coexist with the production app and uses Expo's public development signing key for testing. Pushes to `main` build `dev.arial.vocabulaire` with the release key. Both APKs contain arm64-v8a and x86_64 native code. APK artifacts include checksums and signing metadata. Jest output and coverage, plus APK artifacts, are retained for seven days.
+
+With a preview APK and an Android device or emulator connected through ADB, install it, clear its data, and run the first-collection acceptance flow:
+
+```sh
+adb install -r android/app/build/outputs/apk/release/app-release.apk
+adb shell pm clear dev.arial.vocabulaire.preview
+maestro test -e APP_ID=dev.arial.vocabulaire.preview .maestro/first-collection.yaml
+```
+
+The first-collection flow covers onboarding, collection creation, term creation, and persistence after an app restart. Other local Maestro acceptance flows are listed above.
 
 See [Android release signing](docs/android-signing.md) for keystore setup, backups and instructions for updating signing secrets.
 
