@@ -88,4 +88,6 @@ The first-collection flow covers onboarding, collection creation, term creation,
 
 See [Android release signing](docs/android-signing.md) for keystore setup, backups and instructions for updating signing secrets.
 
+See [Android releases](docs/android-releases.md) for the manual stable and beta release process.
+
 Only standard GitHub-hosted runners are used; public repositories currently receive free compute, while private repositories and artifact storage have plan limits. Configure GitHub billing with a zero-spend budget that stops usage at its limit, and monitor storage; otherwise account settings can permit charges. Artifact expiry is not a substitute for a durable backup of the release key or APK.

@@ -5,6 +5,10 @@ build_tools="$ANDROID_HOME/build-tools/37.0.0"
 mkdir -p android-artifact
 "$build_tools/aapt" dump badging "$apk" > android-artifact/badging.txt
 grep -F "package: name='$CI_APP_ID'" android-artifact/badging.txt
+if [[ -n "${CI_VERSION_NAME:-}" ]]; then
+  grep -F "versionName='$CI_VERSION_NAME'" android-artifact/badging.txt
+  grep -F "versionCode='$CI_VERSION_CODE'" android-artifact/badging.txt
+fi
 unzip -l "$apk" > android-artifact/apk-contents.txt
 grep -q 'lib/arm64-v8a/' android-artifact/apk-contents.txt
 grep -q 'lib/x86_64/' android-artifact/apk-contents.txt
@@ -18,4 +22,8 @@ if [[ "$CI_APK_VARIANT" == release ]]; then
 fi
 cp "$apk" "android-artifact/vocabulaire-$CI_APK_VARIANT.apk"
 (cd android-artifact && sha256sum "vocabulaire-$CI_APK_VARIANT.apk" > SHA256SUMS)
-printf 'commit=%s\nrun=%s\nvariant=%s\n' "${GITHUB_SHA:-local}" "${GITHUB_RUN_ID:-local}" "$CI_APK_VARIANT" > android-artifact/build-info.txt
+fingerprint=$(sed -nE 's/^(Signer #1|V[0-9.]+ Signer:) certificate SHA-256 digest: //p' android-artifact/signature.txt | head -n 1)
+printf 'commit=%s\npr_head=%s\nrun=%s\nrun_url=%s\nvariant=%s\nversion_name=%s\nversion_code=%s\napplication_id=%s\ncertificate_sha256=%s\n' \
+  "${CI_SOURCE_SHA:-${GITHUB_SHA:-local}}" "${PR_HEAD_SHA:-}" "${GITHUB_RUN_ID:-local}" \
+  "${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-local}/actions/runs/${GITHUB_RUN_ID:-local}" "$CI_APK_VARIANT" \
+  "${CI_VERSION_NAME:-unknown}" "${CI_VERSION_CODE:-unknown}" "$CI_APP_ID" "$fingerprint" > android-artifact/build-info.txt
