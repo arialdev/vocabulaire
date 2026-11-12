@@ -29,3 +29,5 @@ After rebasing onto `main` at `dfc861efc443f22b8810e9dd1ed9e5db690bfcd2`, the re
 GitHub CLI 2.103.3 attempted to unzip the individual unarchived PR artifacts. The Actions artifact API returned the individual files successfully.
 
 [Run 43263175587](https://github.com/arialdev/vocabulaire/actions/runs/43263175587) passed after adding the versioned preview filename. Its separately downloaded APK was `vocabulaire-preview-1.0.0-pr.15.g33a396a.apk`, and its checksum matched. The APK package, version, arm64-v8a and x86_64 ABIs, and signing certificate matched the build information. Local lint, formatting, typecheck, Actionlint, and all 102 Jest tests passed. A local beta preparation dry run also selected an explicitly supplied earlier commit and generated `1.0.0-beta.1000001`.
+
+Focused APK verification fixtures also confirmed that a mismatched version or release certificate fails before an APK artifact is produced. The complete local suite passed with 104 tests.

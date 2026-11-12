@@ -1,5 +1,6 @@
 const {
   chmodSync,
+  existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -45,7 +46,7 @@ beforeEach(() => {
 
 afterEach(() => rmSync(directory, { recursive: true, force: true }));
 
-function verify(variant) {
+function verify(variant, overrides = {}) {
   return spawnSync("bash", [script], {
     cwd: directory,
     encoding: "utf8",
@@ -58,6 +59,7 @@ function verify(variant) {
       CI_VERSION_NAME: "1.2.3-pr.42.gabc1234",
       CI_VERSION_CODE: "1",
       CI_CERT_SHA256: "abc123",
+      ...overrides,
     },
   });
 }
@@ -85,4 +87,22 @@ test("keeps the release APK name used by publication", () => {
   expect(readFileSync(join(directory, "android-artifact/SHA256SUMS"), "utf8")).toContain(
     "vocabulaire-release.apk",
   );
+});
+
+test("does not produce an artifact when the APK version differs", () => {
+  executable(
+    join(buildTools, "aapt"),
+    `echo "package: name='$CI_APP_ID' versionCode='$CI_VERSION_CODE' versionName='wrong-version'"`,
+  );
+  const result = verify("preview");
+  expect(result.status).not.toBe(0);
+  expect(
+    existsSync(join(directory, "android-artifact/vocabulaire-preview-1.2.3-pr.42.gabc1234.apk")),
+  ).toBe(false);
+});
+
+test("does not produce a release artifact when its certificate differs", () => {
+  const result = verify("release", { CI_CERT_SHA256: "wrong-certificate" });
+  expect(result.status).not.toBe(0);
+  expect(existsSync(join(directory, "android-artifact/vocabulaire-release.apk"))).toBe(false);
 });
