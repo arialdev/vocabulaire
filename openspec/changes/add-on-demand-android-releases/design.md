@@ -1,6 +1,6 @@
 ## Context
 
-`Android CI` already builds standalone APKs, uses the persistent production signing key on `main`, verifies the package and signer, and runs a Maestro smoke test. It uploads the resulting files as a seven-day artifact. The only existing release tag is `v1.0.0-beta`, and Expo's checked-in version is `1.0.0`.
+`Android CI` builds standalone APKs, uses the persistent production signing key on `main`, and verifies the package and signer. It uploads the resulting files as a seven-day artifact. The only existing release tag is `v1.0.0-beta`, and Expo's checked-in version is `1.0.0`.
 
 ## Goals / Non-Goals
 
@@ -13,7 +13,7 @@
 **Non-goals**
 
 - Google Play distribution and a separate beta application ID.
-- Promotion of artifacts from prior CI runs. The release build embeds its final version name and code before smoke testing.
+- Promotion of artifacts from prior CI runs. The release build embeds its final version name and code before APK verification.
 
 ## Decisions
 
@@ -23,7 +23,7 @@ Use a GitHub Actions `workflow_dispatch` workflow with a channel input defaultin
 
 ### Conventional Commits and git-cliff
 
-Run the pinned `amannn/action-semantic-pull-request` action as the first job of `Android CI` for `pull_request` events targeting `main`. Give the title job read-only PR access and omit checkout. Make `checks` depend on the title job, and keep the Android build and smoke test dependent on `checks`. Use native GitHub Actions job dependencies so a failed title check skips the downstream jobs. The `main` push path bypasses the title job and still runs `checks` and Android verification.
+Run the pinned `amannn/action-semantic-pull-request` action as the first job of `Android CI` for `pull_request` events targeting `main`. Give the title job read-only PR access and omit checkout. Make `checks` depend on the title job, and keep the Android build dependent on `checks`. Use native GitHub Actions job dependencies so a failed title check skips the downstream jobs. The `main` push path bypasses the title job and still runs `checks` and Android verification.
 
 Add `edited` to the existing `opened`, `reopened`, and `synchronize` triggers. Keep the existing per-PR concurrency group so a new run supersedes an in-progress run for the same PR. This lets a corrected title start the full pipeline without a new commit. GitHub also emits `edited` for PR description changes, so these edits can rerun CI with a valid title.
 
@@ -37,17 +37,17 @@ GitHub's generated release notes would provide a PR summary with a manually sele
 
 Use the newest stable release version reachable from the CI base commit, with `1.0.0` as the initial fallback. Main APKs use the plain version. PR APKs append `-pr.<number>.g<short-tested-sha>` and keep the full checked-out SHA and the PR head SHA in build information. The `g` prefix keeps the short hash valid as a SemVer identifier even when it consists entirely of digits.
 
-Share the existing Expo, Gradle, verification, and Maestro steps through a reusable workflow. Pass the release version to Expo before prebuild and verify the built APK's actual version name, version code, application ID, supported ABIs, and signer. Use the same production application ID and key for stable and beta, so a newer beta can update a stable installation and the next stable release can update the beta. Derive production release version codes from a documented starting offset plus the single release workflow's run number. Use the same number as the beta suffix `N`.
+Share the existing Expo, Gradle, and APK verification steps through a reusable workflow. Pass the release version to Expo before prebuild and verify the built APK's actual version name, version code, application ID, supported ABIs, and signer. Use the same production application ID and key for stable and beta, so a newer beta can update a stable installation and the next stable release can update the beta. Derive production release version codes from a documented starting offset plus the single release workflow's run number. Use the same number as the beta suffix `N`.
 
 ### Assets and publication
 
-Upload the successful PR APK, `SHA256SUMS`, and `build-info.txt` with single-file artifact uploads using `archive: false`. Keep test and smoke diagnostics on their existing retention schedule. Include the resolved SHA, APK version name and code, application ID, signing certificate fingerprint, and workflow run reference in build information.
+Upload the successful PR APK, `SHA256SUMS`, and `build-info.txt` with single-file artifact uploads using `archive: false`. Keep test output on its existing retention schedule. Include the resolved SHA, APK version name and code, application ID, signing certificate fingerprint, and workflow run reference in build information.
 
 Keep publication in a job with `contents: write` that consumes only the verified output of the current release workflow. Grant signing credentials only to the trusted build job. Serialize stable and beta dispatches, check for existing release tags, and reject a version code at or below a previously published code for the same application ID and signer. Use `gh release create` with the resolved SHA, generated notes, and the three files. GitHub CLI stages assets on a draft before publishing. Mark beta releases as prereleases and leave the latest stable release designation intact.
 
 ## Risks / Trade-offs
 
-- Rebuilding adds one build and smoke test per dispatch. Testing the actual distribution APK verifies its final version and signer.
+- Rebuilding adds one Android build per dispatch. APK verification checks the final version and signer.
 - GitHub preserves the workflow run number on rerun. The published version-code check stops an older rerun from creating a release that existing users cannot install as an update.
 - Publication creates the tag at the resolved source before uploading assets. If publication fails, verify the tag, draft, source, and run before removing the incomplete draft and its tag and retrying. Published releases retain their original tags and assets.
 - Historical commits predate title enforcement. Bootstrap notes use the existing history since `v1.0.0-beta`. Required title validation governs future PRs.

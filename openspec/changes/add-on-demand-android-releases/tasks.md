@@ -5,7 +5,7 @@
 
 ## 2. Shared APK build and CI artifacts
 
-- [x] 2.1 Reuse the existing Android build and Maestro jobs across CI and manual releases. Preserve PR isolation, production signing on `main`, pinned toolchains, and failure diagnostics.
+- [x] 2.1 Reuse the existing Android build and APK verification jobs across CI and manual releases. Preserve PR isolation, production signing on `main`, pinned toolchains, and test diagnostics.
 - [x] 2.2 Resolve CI version names from the stable base and PR identity. Apply version name and code before prebuild and check the resulting APK metadata with the existing identity, ABI, and signature checks.
 - [x] 2.3 Extend build information with actual source, version, signing, and workflow metadata. Upload the successful PR APK, checksum, and build information as three individual files.
 
@@ -19,5 +19,5 @@
 
 - [x] 4.1 Document the release steps, signing and version-code baseline, beta upgrade path, CI versus release retention, and incomplete draft recovery.
 - [ ] 4.2 Configure squash-only merges with the PR-title default and require the Conventional Commit check on `main` after a successful hosted run. Verify that an invalid title skips quality and Android jobs, a title-only correction starts a full run, and a push to `main` runs checks independently of the title job.
-- [ ] 4.3 Verify hosted PR and `main` builds, APK metadata, checksums, separate PR downloads, and the existing Maestro smoke test. Confirm an ordinary push does not publish a release.
-- [ ] 4.4 Exercise release SHA selection, signing and smoke failure gates, separate asset staging, and beta/stable version ordering using a non-public verification run. Record results and any hosted or device verification limits.
+- [ ] 4.3 Verify hosted PR and `main` builds, APK metadata, checksums, and separate PR downloads. Confirm an ordinary push does not publish a release.
+- [ ] 4.4 Exercise release SHA selection, signing and APK verification failure gates, separate asset staging, and beta/stable version ordering using a non-public verification run. Record results and any hosted verification limits.

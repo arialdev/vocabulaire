@@ -31,10 +31,10 @@ Stable release versions SHALL use `x.y.z`. After the first stable release, the n
 - **THEN** the next version is a patch release and the changelog includes those changes
 
 ### Requirement: Verify the distribution APK before publication
-The workflow SHALL build a standalone APK with the resolved release version name and Android version code, sign it with the production key, verify its package identity, supported ABIs and signing certificate, and pass the existing Android smoke test on that APK. The workflow SHALL use a shared increasing Android version-code sequence for stable and beta releases of the production application.
+The workflow SHALL build a standalone APK with the resolved release version name and Android version code, sign it with the production key, and verify its package identity, supported ABIs and signing certificate. The workflow SHALL use a shared increasing Android version-code sequence for stable and beta releases of the production application.
 
 #### Scenario: Release APK fails validation
-- **WHEN** production signing is unavailable, the APK metadata or signature differs from the expected values, or the smoke test fails
+- **WHEN** production signing is unavailable or the APK metadata or signature differs from the expected values
 - **THEN** no release is published and available diagnostics are retained
 
 #### Scenario: A retry would publish a duplicate or lower version code

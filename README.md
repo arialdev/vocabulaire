@@ -56,7 +56,7 @@ mise exec -- pnpm test --runInBand
 mise exec -- pnpm exec expo install --check
 ```
 
-Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The checks have used an Android 37.0 `google_apis_playstore` arm64 emulator; CI uses a `google_apis` x86_64 image. With an emulator running and a standalone APK installed, for example:
+Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The checks have used an Android 37.0 `google_apis_playstore` arm64 emulator. With an emulator running and a standalone APK installed, for example:
 
 ```sh
 adb install -r android/app/build/outputs/apk/release/app-release.apk

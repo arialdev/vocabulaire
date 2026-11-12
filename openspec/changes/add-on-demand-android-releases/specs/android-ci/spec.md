@@ -18,7 +18,7 @@ Pull requests targeting `main` SHALL pass a required Conventional Commit title c
 ## MODIFIED Requirements
 
 ### Requirement: CI checks pull requests and main
-CI SHALL run on pull requests targeting `main` from any branch when opened, reopened, updated with a new commit, or edited to change the title. For PRs that pass the title check and for every push to `main`, CI SHALL use the pinned toolchain and frozen dependency installation and enforce lint, formatting, type checking, Jest with coverage, Android build and Maestro smoke checks.
+CI SHALL run on pull requests targeting `main` from any branch when opened, reopened, updated with a new commit, or edited to change the title. For PRs that pass the title check and for every push to `main`, CI SHALL use the pinned toolchain and frozen dependency installation and enforce lint, formatting, type checking, Jest with coverage, Android build, and static APK verification.
 
 #### Scenario: Pull request is updated
 - **WHEN** a pull request targeting `main` with a valid title receives a new commit
@@ -29,7 +29,7 @@ CI SHALL run on pull requests targeting `main` from any branch when opened, reop
 - **THEN** CI runs the required quality and Android checks on that commit without requiring a PR title check
 
 ### Requirement: Installable isolated preview APK
-CI SHALL produce a test-signed standalone PR APK with bundled JavaScript, an application ID distinct from production and arm64-v8a support. Its Android version name SHALL be a semantic prerelease that identifies the PR number and the tested commit. The Android smoke flow SHALL target the actual installed app ID and execute on a compatible emulator build. After successful verification, the APK, its SHA-256 checksum, and build information SHALL be downloadable as individual files from the run.
+CI SHALL produce a test-signed standalone PR APK with bundled JavaScript, an application ID distinct from production, and arm64-v8a and x86_64 support. Its Android version name SHALL be a semantic prerelease that identifies the PR number and the tested commit. CI SHALL verify the APK's package ID, ABIs, and signature. After successful verification, the APK, its SHA-256 checksum, and build information SHALL be downloadable as individual files from the run.
 
 #### Scenario: Review a successful pull request
 - **WHEN** the pull request build and checks succeed

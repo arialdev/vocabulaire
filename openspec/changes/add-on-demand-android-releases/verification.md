@@ -13,3 +13,7 @@ Local checks completed for the CI changes:
 - Draft PR [#15](https://github.com/arialdev/vocabulaire/pull/15) was opened for hosted verification. Its initial runs remained queued without jobs for more than ten minutes. The PR title was restored after an attempted invalid-title check.
 
 The application checks used `MISE_AUTO_INSTALL=0` because this sandbox cannot install the new git-cliff tool into mise's global installation directory. Git-cliff was run from a downloaded release binary in a temporary directory. Hosted GitHub Actions, a signed Android APK, and emulator behavior remain to be verified. The manual release workflow must exist on `main` before GitHub permits its dispatch.
+
+After rebasing onto `main` at `dfc861efc443f22b8810e9dd1ed9e5db690bfcd2`, the release workflow uses the build-only Android CI and static APK checks. Frozen installation, lint, formatting, typecheck, Actionlint, shell syntax, strict OpenSpec validation, and all 100 Jest tests passed locally. Hosted verification remains pending.
+
+`EXPO_NO_CACHE=1 pnpm exec expo install --check` reported compatibility differences for the dependencies already present on `main`, including Expo packages and React. These versions were retained from `main`.
