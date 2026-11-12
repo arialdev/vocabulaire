@@ -23,9 +23,9 @@ Use a GitHub Actions `workflow_dispatch` workflow with a channel input defaultin
 
 ### Conventional Commits and git-cliff
 
-Run the pinned `amannn/action-semantic-pull-request` action as the first job of `Android CI` for `pull_request` events targeting `main`. Give the title job read-only PR access and omit checkout. Make `checks` depend on the title job, and keep the Android build dependent on `checks`. Use native GitHub Actions job dependencies so a failed title check skips the downstream jobs. The `main` push path bypasses the title job and still runs `checks` and Android verification.
+Run the pinned `amannn/action-semantic-pull-request` action in a separate `PR title` workflow for `pull_request` events targeting `main`. Give its `title` job read-only PR access and omit checkout. Require `title` for merging independently of the `checks` and `android` jobs in `Android CI`.
 
-Add `edited` to the existing `opened`, `reopened`, and `synchronize` triggers. Keep the existing per-PR concurrency group so a new run supersedes an in-progress run for the same PR. This lets a corrected title start the full pipeline without a new commit. GitHub also emits `edited` for PR description changes, so these edits can rerun CI with a valid title.
+The title workflow listens for `opened`, `reopened`, `synchronize`, and `edited` events. A title or description edit reruns the lightweight title check. Android CI listens for PR opening, reopening, and new commits, so an edit does not cancel or rerun its source checks and build. Each workflow uses its own per-PR concurrency group.
 
 Require PRs and the title status check for `main`, enable squash as the sole merge method, and set the default squash commit message to the PR title. Maintainers keep the suggested subject when merging.
 

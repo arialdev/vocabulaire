@@ -1,6 +1,6 @@
 ## 1. Commit history and release versioning
 
-- [x] 1.1 Add the pinned `amannn/action-semantic-pull-request` job to Android CI with read-only PR access and no checkout. Run it on PR opening, reopening, updates, and edits. Gate `checks` and its downstream Android job on the result for PRs and preserve the `main` push path.
+- [x] 1.1 Add a separate required `amannn/action-semantic-pull-request` PR check with read-only PR access and no checkout. Run it on PR opening, reopening, updates, and edits independently of `checks` and `android`.
 - [x] 1.2 Pin git-cliff and configure Conventional Commit version bumps and notes. Verify the `1.0.0` bootstrap, patch/minor/major changes, maintenance-only history, and stable notes across intervening beta tags using fixture histories.
 
 ## 2. Shared APK build and CI artifacts
@@ -18,6 +18,6 @@
 ## 4. Rollout and verification
 
 - [x] 4.1 Document the release steps, signing and version-code baseline, beta upgrade path, CI versus release retention, and incomplete draft recovery.
-- [x] 4.2 Configure squash-only merges with the PR-title default and require the Conventional Commit check on `main` after a successful hosted run. Verify that an invalid title skips quality and Android jobs, a title-only correction starts a full run, and a push to `main` runs checks independently of the title job.
+- [ ] 4.2 Verify that an invalid title fails the required title check while source checks and Android build run independently. Verify that title and description edits rerun only the title workflow without canceling an in-progress build. Preserve the existing required checks and squash-only merge settings.
 - [x] 4.3 Verify hosted PR and `main` builds, the versioned preview filename, APK metadata, checksums, and separate PR downloads. Confirm an ordinary push does not publish a release.
 - [ ] 4.4 Exercise release SHA selection, signing and APK verification failure gates, separate asset staging, and beta/stable version ordering using a non-public verification run. Record results and any hosted verification limits.

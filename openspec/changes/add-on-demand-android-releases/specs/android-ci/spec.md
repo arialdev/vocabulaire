@@ -1,15 +1,19 @@
 ## ADDED Requirements
 
 ### Requirement: Conventional Commit PR titles
-Pull requests targeting `main` SHALL pass a required Conventional Commit title check before merging. CI SHALL run the title check before the quality and Android jobs and SHALL revalidate edits to the title. The repository SHALL use squash merges with the PR title as the default squash commit subject.
+Pull requests targeting `main` SHALL pass a required Conventional Commit title check before merging. The title check SHALL run independently of the quality and Android jobs and SHALL revalidate edits to the title. The repository SHALL use squash merges with the PR title as the default squash commit subject.
 
 #### Scenario: A PR title is invalid
 - **WHEN** a pull request targeting `main` opens or is edited with a title that fails Conventional Commit validation
-- **THEN** the required check fails, skips the downstream quality and Android jobs, and blocks merging until the title is corrected
+- **THEN** the required title check fails and blocks merging until the title is corrected, while quality and Android checks run independently
 
 #### Scenario: A contributor corrects an invalid title
 - **WHEN** a contributor edits an invalid PR title to follow Conventional Commits without pushing a new commit
-- **THEN** CI starts a new run and proceeds to the quality and Android jobs after title validation succeeds
+- **THEN** the title check reruns and reports the corrected title without restarting the quality or Android jobs
+
+#### Scenario: A contributor edits the PR description
+- **WHEN** a contributor changes the PR description without pushing a new commit
+- **THEN** the title check may rerun, and quality and Android jobs continue without cancellation or a new run
 
 #### Scenario: A validated PR is merged
 - **WHEN** a pull request with a valid title is squash-merged using the default message
@@ -18,10 +22,10 @@ Pull requests targeting `main` SHALL pass a required Conventional Commit title c
 ## MODIFIED Requirements
 
 ### Requirement: CI checks pull requests and main
-CI SHALL run on pull requests targeting `main` from any branch when opened, reopened, updated with a new commit, or edited to change the title. For PRs that pass the title check and for every push to `main`, CI SHALL use the pinned toolchain and frozen dependency installation and enforce lint, formatting, type checking, Jest with coverage, Android build, and static APK verification.
+CI SHALL run on pull requests targeting `main` from any branch when opened, reopened, or updated with a new commit, and on every push to `main`. CI SHALL use the pinned toolchain and frozen dependency installation and enforce lint, formatting, type checking, Jest with coverage, Android build, and static APK verification independently of the title check.
 
 #### Scenario: Pull request is updated
-- **WHEN** a pull request targeting `main` with a valid title receives a new commit
+- **WHEN** a pull request targeting `main` receives a new commit
 - **THEN** CI checks the updated proposed changes and reports failures as failures
 
 #### Scenario: Main receives a commit
