@@ -20,8 +20,12 @@ if [[ "$CI_APK_VARIANT" == release ]]; then
   expected=$(printf '%s' "$CI_CERT_SHA256" | tr '[:upper:]' '[:lower:]' | tr -d ':[:space:]')
   [[ "$actual" == "$expected" ]] || { echo 'Release certificate fingerprint does not match'; exit 1; }
 fi
-cp "$apk" "android-artifact/vocabulaire-$CI_APK_VARIANT.apk"
-(cd android-artifact && sha256sum "vocabulaire-$CI_APK_VARIANT.apk" > SHA256SUMS)
+artifact_name="vocabulaire-$CI_APK_VARIANT.apk"
+if [[ "$CI_APK_VARIANT" == preview && -n "${CI_VERSION_NAME:-}" ]]; then
+  artifact_name="vocabulaire-preview-$CI_VERSION_NAME.apk"
+fi
+cp "$apk" "android-artifact/$artifact_name"
+(cd android-artifact && sha256sum "$artifact_name" > SHA256SUMS)
 fingerprint=$(sed -nE 's/^(Signer #1|V[0-9.]+ Signer:) certificate SHA-256 digest: //p' android-artifact/signature.txt | head -n 1)
 printf 'commit=%s\npr_head=%s\nrun=%s\nrun_url=%s\nvariant=%s\nversion_name=%s\nversion_code=%s\napplication_id=%s\ncertificate_sha256=%s\n' \
   "${CI_SOURCE_SHA:-${GITHUB_SHA:-local}}" "${PR_HEAD_SHA:-}" "${GITHUB_RUN_ID:-local}" \

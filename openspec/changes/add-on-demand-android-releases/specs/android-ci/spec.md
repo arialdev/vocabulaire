@@ -29,12 +29,12 @@ CI SHALL run on pull requests targeting `main` from any branch when opened, reop
 - **THEN** CI runs the required quality and Android checks on that commit without requiring a PR title check
 
 ### Requirement: Installable isolated preview APK
-CI SHALL produce a test-signed standalone PR APK with bundled JavaScript, an application ID distinct from production, and arm64-v8a and x86_64 support. Its Android version name SHALL be a semantic prerelease that identifies the PR number and the tested commit. CI SHALL verify the APK's package ID, ABIs, and signature. After successful verification, the APK, its SHA-256 checksum, and build information SHALL be downloadable as individual files from the run.
+CI SHALL produce a test-signed standalone PR APK with bundled JavaScript, an application ID distinct from production, and arm64-v8a and x86_64 support. Its Android version name SHALL be a semantic prerelease that identifies the PR number and the tested commit. The APK filename SHALL be `vocabulaire-preview-<version>.apk` using that version. CI SHALL verify the APK's package ID, ABIs, and signature. After successful verification, the APK, its SHA-256 checksum, and build information SHALL be downloadable as individual files from the run.
 
 #### Scenario: Review a successful pull request
 - **WHEN** the pull request build and checks succeed
 - **THEN** the APK, checksum, and build information are available individually and the APK can be installed alongside production without Metro
-- **AND** its version name identifies the PR and tested commit and its build information records the full tested SHA and PR head SHA
+- **AND** its filename and version name identify the PR and tested commit, its checksum names the downloaded APK, and its build information records the full tested SHA and PR head SHA
 
 ### Requirement: Signed main APK
 CI SHALL produce an arm64-v8a-capable standalone APK on `main` signed with a persistent production key provided through protected credentials. The APK SHALL use a plain `x.y.z` Android version name. CI SHALL verify the package identity and signing certificate, identify the source commit, and provide a checksum. It MUST fail without release credentials rather than silently using a debug key.

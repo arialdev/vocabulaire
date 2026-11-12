@@ -184,7 +184,7 @@ jobs:
         if: ${{ success() && github.event_name == 'pull_request' }}
         uses: actions/upload-artifact@v7
         with:
-          path: android-artifact/vocabulaire-preview.apk
+          path: android-artifact/vocabulaire-preview-${{ env.CI_VERSION_NAME }}.apk
           archive: false
           if-no-files-found: error
           retention-days: 7
