@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Validate the release source and history, then calculate its version and notes.
 set -Eeuo pipefail
 
 [[ "$GITHUB_REF" == refs/heads/main ]] || { echo 'Run the release workflow from main.' >&2; exit 1; }

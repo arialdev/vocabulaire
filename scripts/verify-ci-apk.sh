@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Verify the APK's identity and signature, then create its checksum and build metadata.
 set -Eeuo pipefail
 apk=android/app/build/outputs/apk/release/app-release.apk
 build_tools="$ANDROID_HOME/build-tools/37.0.0"
