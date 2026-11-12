@@ -27,3 +27,5 @@ After rebasing onto `main` at `dfc861efc443f22b8810e9dd1ed9e5db690bfcd2`, the re
 - A local dry run against the rebased source and actual GitHub release list selected `1.0.0` and generated notes since `v1.0.0-beta` without creating a release. A hosted dispatch and asset-staging run remains pending because GitHub requires the workflow file on the default branch before manual dispatch.
 
 GitHub CLI 2.103.3 attempted to unzip the individual unarchived PR artifacts. The Actions artifact API returned the individual files successfully.
+
+[Run 43263175587](https://github.com/arialdev/vocabulaire/actions/runs/43263175587) passed after adding the versioned preview filename. Its separately downloaded APK was `vocabulaire-preview-1.0.0-pr.15.g33a396a.apk`, and its checksum matched. The APK package, version, arm64-v8a and x86_64 ABIs, and signing certificate matched the build information. Local lint, formatting, typecheck, Actionlint, and all 102 Jest tests passed. A local beta preparation dry run also selected an explicitly supplied earlier commit and generated `1.0.0-beta.1000001`.
