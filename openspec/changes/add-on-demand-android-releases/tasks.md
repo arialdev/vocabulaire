@@ -18,6 +18,6 @@
 ## 4. Rollout and verification
 
 - [x] 4.1 Document the release steps, signing and version-code baseline, beta upgrade path, CI versus release retention, and incomplete draft recovery.
-- [ ] 4.2 Configure squash-only merges with the PR-title default and require the Conventional Commit check on `main` after a successful hosted run. Verify that an invalid title skips quality and Android jobs, a title-only correction starts a full run, and a push to `main` runs checks independently of the title job.
-- [ ] 4.3 Verify hosted PR and `main` builds, APK metadata, checksums, and separate PR downloads. Confirm an ordinary push does not publish a release.
+- [x] 4.2 Configure squash-only merges with the PR-title default and require the Conventional Commit check on `main` after a successful hosted run. Verify that an invalid title skips quality and Android jobs, a title-only correction starts a full run, and a push to `main` runs checks independently of the title job.
+- [x] 4.3 Verify hosted PR and `main` builds, APK metadata, checksums, and separate PR downloads. Confirm an ordinary push does not publish a release.
 - [ ] 4.4 Exercise release SHA selection, signing and APK verification failure gates, separate asset staging, and beta/stable version ordering using a non-public verification run. Record results and any hosted verification limits.

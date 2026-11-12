@@ -17,3 +17,13 @@ The application checks used `MISE_AUTO_INSTALL=0` because this sandbox cannot in
 After rebasing onto `main` at `dfc861efc443f22b8810e9dd1ed9e5db690bfcd2`, the release workflow uses the build-only Android CI and static APK checks. Frozen installation, lint, formatting, typecheck, Actionlint, shell syntax, strict OpenSpec validation, and all 100 Jest tests passed locally. Hosted verification remains pending.
 
 `EXPO_NO_CACHE=1 pnpm exec expo install --check` reported compatibility differences for the dependencies already present on `main`, including Expo packages and React. These versions were retained from `main`.
+
+## Hosted verification after the rebase
+
+- [Invalid-title run 43259557934](https://github.com/arialdev/vocabulaire/actions/runs/43259557934) failed `title` and skipped `checks` and `android`. Restoring the title without a new commit started [run 43259721767](https://github.com/arialdev/vocabulaire/actions/runs/43259721767), which passed all three jobs.
+- Run 43259721767 produced separate `vocabulaire-preview.apk`, `SHA256SUMS`, and `build-info.txt` artifacts. Downloads through the Actions artifact API verified the SHA-256 checksum, `dev.arial.vocabulaire.preview`, version `1.0.0-pr.15.g1088c7a`, both native ABIs, and a single signing certificate. The build information recorded merge commit `1088c7a75f36bef48811b7073596d9cc3f0b95b0` and PR head `3d582cdb0844644b37e7f2d04025fcb28929e5a9`.
+- [Main run 43258244633](https://github.com/arialdev/vocabulaire/actions/runs/43258244633) passed source checks, built and verified a signed APK, and published CI artifacts without creating a GitHub Release. Its APK checksum and signature were independently verified, with production package ID `dev.arial.vocabulaire`, version `1.0.0`, and Android version code `1`.
+- GitHub repository settings now permit squash merges only and default the squash commit title to the PR title. The protected `main` branch requires the existing `checks` and `android` contexts and the new `title` context, all bound to GitHub Actions.
+- A local dry run against the rebased source and actual GitHub release list selected `1.0.0` and generated notes since `v1.0.0-beta` without creating a release. A hosted dispatch and asset-staging run remains pending because GitHub requires the workflow file on the default branch before manual dispatch.
+
+GitHub CLI 2.103.3 attempted to unzip the individual unarchived PR artifacts. The Actions artifact API returned the individual files successfully.
