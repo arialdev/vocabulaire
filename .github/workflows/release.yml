@@ -86,9 +86,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ needs.prepare.outputs.tag }}
+          RELEASE_VERSION: ${{ needs.prepare.outputs.version }}
           SOURCE_SHA: ${{ needs.prepare.outputs.source_sha }}
           RELEASE_CHANNEL: ${{ inputs.channel }}
         run: |
+          apk_name="vocabulaire-$RELEASE_VERSION.apk"
+          (cd android-artifact && sha256sum --check SHA256SUMS)
+          mv android-artifact/vocabulaire-release.apk "android-artifact/$apk_name"
+          (cd android-artifact && sha256sum "$apk_name" > SHA256SUMS)
           options=()
           if [[ "$RELEASE_CHANNEL" == beta ]]; then
             options+=(--prerelease --latest=false)
@@ -96,5 +101,5 @@ jobs:
           gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
             -f "ref=refs/tags/$RELEASE_TAG" -f "sha=$SOURCE_SHA" > /dev/null
           gh release create "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --verify-tag \
-            --title "$RELEASE_TAG" --notes-file notes/release-notes.md "${options[@]}" \
-            android-artifact/vocabulaire-release.apk android-artifact/SHA256SUMS android-artifact/build-info.txt
+            --title "Vocabulaire $RELEASE_VERSION" --notes-file notes/release-notes.md "${options[@]}" \
+            "android-artifact/$apk_name" android-artifact/SHA256SUMS android-artifact/build-info.txt

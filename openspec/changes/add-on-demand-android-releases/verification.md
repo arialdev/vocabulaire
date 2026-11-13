@@ -35,3 +35,7 @@ Focused APK verification fixtures also confirmed that a mismatched version or re
 ## Independent PR title verification
 
 The separate title workflow was tested on PR #15 at `7933a94b40a3c46617d8c64bcd861dc162a3da51`. An invalid title failed [run 43275426081](https://github.com/arialdev/vocabulaire/actions/runs/43275426081) and blocked the PR while [Android CI run 43275311994](https://github.com/arialdev/vocabulaire/actions/runs/43275311994) continued. Editing the description ran only [title run 43275568580](https://github.com/arialdev/vocabulaire/actions/runs/43275568580), which remained failed with the invalid title, and did not cancel the Android build. Restoring the valid title passed [title run 43275671006](https://github.com/arialdev/vocabulaire/actions/runs/43275671006) without restarting Android CI. The `checks`, `android`, and `title` contexts remain required on `main`.
+
+## Versioned release assets
+
+The release publication step was exercised locally with stable and beta versions using the original `vocabulaire-release.apk` CI artifact name. It produced the requested release title and versioned APK name, with a matching checksum. A corrupted input APK failed checksum verification before tag creation. A local staging run using the previously published beta APK produced `Vocabulaire 1.0.0-beta.1000001` and `vocabulaire-1.0.0-beta.1000001.apk` with the original APK digest. GitHub publication was stubbed during this check. Hosted verification of the updated publication step remains pending.

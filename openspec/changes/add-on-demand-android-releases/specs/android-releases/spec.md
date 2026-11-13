@@ -42,11 +42,11 @@ The workflow SHALL build a standalone APK with the resolved release version name
 - **THEN** the workflow leaves published releases untouched
 
 ### Requirement: Distribute stable and beta APKs as GitHub Release assets
-Every published Android release SHALL contain the signed APK, SHA-256 checksum, and build information as separate GitHub Release assets outside the CI artifact retention policy. The build information SHALL identify the source SHA, APK version name and code, application ID, signing certificate fingerprint, and workflow run. Beta releases SHALL use a semantic prerelease version and a GitHub prerelease designation.
+Every published Android release SHALL be titled `Vocabulaire <version>` and contain the signed `vocabulaire-<version>.apk`, SHA-256 checksum, and build information as separate GitHub Release assets outside the CI artifact retention policy. The checksum SHALL reference the published APK filename. The build information SHALL identify the source SHA, APK version name and code, application ID, signing certificate fingerprint, and workflow run. Beta releases SHALL use a semantic prerelease version and a GitHub prerelease designation.
 
 #### Scenario: All release assets are ready
 - **WHEN** release verification and asset uploads succeed
-- **THEN** users can download the APK, checksum, and build information individually from the release page
+- **THEN** users can download the versioned APK, matching checksum, and build information individually from the version-titled release page
 
 #### Scenario: Beta is distributed
 - **WHEN** a maintainer dispatches a beta release that passes verification
