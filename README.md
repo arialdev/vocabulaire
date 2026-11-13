@@ -56,7 +56,7 @@ mise exec -- pnpm test --runInBand
 mise exec -- pnpm exec expo install --check
 ```
 
-Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The checks have used an Android 37.0 `google_apis_playstore` arm64 emulator; CI uses a `google_apis` x86_64 image. With an emulator running and a standalone APK installed, for example:
+Install [Maestro](https://docs.maestro.dev/) 2.12.0 for Android UI tests. The checks have used an Android 37.0 `google_apis_playstore` arm64 emulator. With an emulator running and a standalone APK installed, for example:
 
 ```sh
 adb install -r android/app/build/outputs/apk/release/app-release.apk
@@ -74,6 +74,8 @@ For isolated visual review of the transient restore and proven-rollback presenta
 
 Pull requests to `main` require source checks and an Android build with static APK verification. The checks cover lint, formatting, type checking, and Jest with coverage. Automatic CI does not boot an emulator or run Maestro. Run native Android acceptance locally on a disposable device or emulator.
 
+An independent required check validates PR titles against Conventional Commits. Editing a PR title or description reruns that check without restarting the Android CI workflow.
+
 A successful pull request uploads a standalone preview APK with application ID `dev.arial.vocabulaire.preview`. It can coexist with the production app and uses Expo's public development signing key for testing. Pushes to `main` build `dev.arial.vocabulaire` with the release key. Both APKs contain arm64-v8a and x86_64 native code. APK artifacts include checksums and signing metadata. Jest output and coverage, plus APK artifacts, are retained for seven days.
 
 With a preview APK and an Android device or emulator connected through ADB, install it, clear its data, and run the first-collection acceptance flow:
@@ -87,5 +89,7 @@ maestro test -e APP_ID=dev.arial.vocabulaire.preview .maestro/first-collection.y
 The first-collection flow covers onboarding, collection creation, term creation, and persistence after an app restart. Other local Maestro acceptance flows are listed above.
 
 See [Android release signing](docs/android-signing.md) for keystore setup, backups and instructions for updating signing secrets.
+
+See [Release process](docs/release.md) for the manual Android stable and beta release process.
 
 Only standard GitHub-hosted runners are used; public repositories currently receive free compute, while private repositories and artifact storage have plan limits. Configure GitHub billing with a zero-spend budget that stops usage at its limit, and monitor storage; otherwise account settings can permit charges. Artifact expiry is not a substitute for a durable backup of the release key or APK.

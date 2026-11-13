@@ -1,0 +1,42 @@
+# Configure the text generated for release notes.
+[changelog]
+# The template groups commits by the parser-assigned group, writes a heading
+# for each group, then lists each commit's first message line and seven-character
+# hash. The two endfor statements close the commit and group loops.
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group }}
+{% for commit in commits %}
+- {{ commit.message | split(pat="\n") | first }} ({{ commit.id | truncate(length=7, end="") }})
+{% endfor %}
+{% endfor %}
+"""
+# Remove surrounding whitespace from the generated changelog sections.
+trim = true
+
+# Configure how git-cliff reads and categorizes repository history.
+[git]
+# Parse commit messages according to the Conventional Commits format.
+conventional_commits = true
+# Exclude commit messages that do not follow the convention.
+filter_unconventional = true
+# Include conventional commits that do not match a parser.
+filter_commits = false
+# Keep breaking commits even when they match a parser that skips their type.
+protect_breaking_commits = true
+# Use only stable tags of the form vMAJOR.MINOR.PATCH as release boundaries.
+tag_pattern = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+# Apply these parsers in order to assign changelog groups.
+commit_parsers = [
+  # Group feature commits under Features.
+  { message = "^feat", group = "Features" },
+  # Group fix commits under Bug fixes.
+  { message = "^fix", group = "Bug fixes" },
+  # Group remaining conventional commits, including maintenance, under Other changes.
+  { message = "^", group = "Other changes" },
+]
+
+# Configure the initial version used before a stable tag exists.
+[bump]
+# Start the first stable release at v1.0.0.
+initial_tag = "v1.0.0"

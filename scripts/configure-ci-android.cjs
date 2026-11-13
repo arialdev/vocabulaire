@@ -1,4 +1,5 @@
-// Configure the generated project only; Expo prebuild may replace android/.
+// Configure the generated Android project for preview identity or release signing.
+// Expo prebuild may replace android/.
 const fs = require("node:fs");
 
 const variant = process.env.CI_APK_VARIANT;

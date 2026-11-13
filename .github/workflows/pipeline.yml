@@ -1,6 +1,28 @@
 name: Android CI
 
 on:
+  workflow_call:
+    inputs:
+      source_sha:
+        required: true
+        type: string
+      release_version:
+        required: true
+        type: string
+      version_code:
+        required: true
+        type: number
+    secrets:
+      ANDROID_KEYSTORE_BASE64:
+        required: true
+      ANDROID_KEYSTORE_PASSWORD:
+        required: true
+      ANDROID_KEY_ALIAS:
+        required: true
+      ANDROID_KEY_PASSWORD:
+        required: true
+      ANDROID_CERT_SHA256:
+        required: true
   push:
     branches: [main]
   pull_request:
@@ -19,6 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ inputs.source_sha || github.sha }}
       - uses: actions/setup-node@v7.1.0
         with:
           node-version: 26.12.1
@@ -51,8 +75,12 @@ jobs:
     env:
       CI_APK_VARIANT: ${{ github.event_name == 'pull_request' && 'preview' || 'release' }}
       CI_APP_ID: ${{ github.event_name == 'pull_request' && 'dev.arial.vocabulaire.preview' || 'dev.arial.vocabulaire' }}
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.source_sha || github.sha }}
       - uses: actions/setup-node@v7.1.0
         with:
           node-version: 26.12.1
@@ -64,13 +92,37 @@ jobs:
           distribution: temurin
           java-version: 26.0.2.1+1
       - run: pnpm install --frozen-lockfile
+      - name: Set Android build version
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          RELEASE_CODE: ${{ inputs.version_code }}
+        run: |
+          source_sha=$(git rev-parse HEAD)
+          echo "CI_SOURCE_SHA=$source_sha" >> "$GITHUB_ENV"
+          if [[ -n "$RELEASE_VERSION" ]]; then
+            version=$RELEASE_VERSION
+            code=$RELEASE_CODE
+          else
+            stable_tag=$(git tag --merged "$BASE_SHA" --sort=-version:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
+            version=${stable_tag#v}
+            version=${version:-1.0.0}
+            code=1
+            if [[ -n "$PR_NUMBER" ]]; then
+              version="$version-pr.$PR_NUMBER.g${source_sha:0:7}"
+            fi
+          fi
+          echo "CI_VERSION_NAME=$version" >> "$GITHUB_ENV"
+          echo "CI_VERSION_CODE=$code" >> "$GITHUB_ENV"
+          VERSION="$version" VERSION_CODE="$code" node -e 'const fs = require("node:fs"); const app = JSON.parse(fs.readFileSync("app.json", "utf8")); app.expo.version = process.env.VERSION; app.expo.android.versionCode = Number(process.env.VERSION_CODE); fs.writeFileSync("app.json", JSON.stringify(app, null, 2));'
       - name: Generate Android project
         run: CI=1 EXPO_OFFLINE=1 pnpm exec expo prebuild --platform android --no-install
       - name: Configure preview signing and identity
         if: ${{ github.event_name == 'pull_request' }}
         run: node scripts/configure-ci-android.cjs
       - name: Configure release signing
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
         env:
           CI_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           CI_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -92,7 +144,7 @@ jobs:
         working-directory: android
         run: ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86_64
       - name: Build release APK
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
         working-directory: android
         env:
           CI_KEYSTORE_PATH: ${{ runner.temp }}/release.keystore
@@ -104,15 +156,39 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: bash scripts/verify-ci-apk.sh
       - name: Verify release APK identity, ABIs and signature
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
         env:
           CI_CERT_SHA256: ${{ secrets.ANDROID_CERT_SHA256 }}
         run: bash scripts/verify-ci-apk.sh
       - name: Upload verified APK
-        if: ${{ success() }}
+        if: ${{ success() && github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v7
         with:
-          name: android-${{ env.CI_APK_VARIANT }}-${{ github.sha }}
+          name: android-${{ env.CI_APK_VARIANT }}-${{ env.CI_SOURCE_SHA }}
           path: android-artifact/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload preview APK
+        if: ${{ success() && github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v7
+        with:
+          path: android-artifact/vocabulaire-preview-${{ env.CI_VERSION_NAME }}.apk
+          archive: false
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload preview checksum
+        if: ${{ success() && github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v7
+        with:
+          path: android-artifact/SHA256SUMS
+          archive: false
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload preview build information
+        if: ${{ success() && github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v7
+        with:
+          path: android-artifact/build-info.txt
+          archive: false
           if-no-files-found: error
           retention-days: 7
