@@ -14,6 +14,7 @@
 - [x] 3.1 Add the `main`-only manual workflow with a stable/beta choice and optional SHA. Validate the captured or selected commit, resolve the version and notes, and pass the resolved inputs to the shared build.
 - [x] 3.2 Allocate a shared increasing Android version code for stable and beta. Serialize releases and verify that a duplicate tag or stale rerun cannot publish or overwrite an existing release.
 - [x] 3.3 Use `gh release create` in a separate write-enabled publication job after successful verification. Attach the three required files and ensure a beta is marked as a prerelease and leaves the latest stable designation intact.
+- [x] 3.4 Include the version in the release title and APK filename, and regenerate the checksum for the published filename while supporting older selected commits.
 
 ## 4. Rollout and verification
 

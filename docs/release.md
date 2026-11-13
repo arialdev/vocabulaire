@@ -16,7 +16,7 @@ The release workflow uses `1000000 + GITHUB_RUN_NUMBER` for the Android version 
 
 ### Artifacts
 
-Each GitHub Release contains the APK, `SHA256SUMS`, and `build-info.txt` as separate assets. Published assets remain attached to their release. CI artifacts and diagnostics expire after seven days.
+Each GitHub Release is titled `Vocabulaire <version>` and contains `vocabulaire-<version>.apk`, `SHA256SUMS`, and `build-info.txt` as separate assets. The checksum references the versioned APK filename. Published assets remain attached to their release. CI artifacts and diagnostics expire after seven days.
 
 PR previews are test-signed, have a separate application ID, and are available as three individual CI artifact downloads. The preview APK is named `vocabulaire-preview-<version>.apk`, using the version in its build information.
 

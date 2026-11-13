@@ -78,7 +78,7 @@ test("names the preview APK and checksum with its version", () => {
   );
 });
 
-test("keeps the release APK name used by publication", () => {
+test("keeps the release APK name used by CI artifacts", () => {
   const result = verify("release");
   expect(result.status).toBe(0);
   expect(readFileSync(join(directory, "android-artifact/vocabulaire-release.apk"), "utf8")).toBe(
