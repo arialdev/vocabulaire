@@ -39,3 +39,10 @@ The separate title workflow was tested on PR #15 at `7933a94b40a3c46617d8c64bcd8
 ## Versioned release assets
 
 The release publication step was exercised locally with stable and beta versions using the original `vocabulaire-release.apk` CI artifact name. It produced the requested release title and versioned APK name, with a matching checksum. A corrupted input APK failed checksum verification before tag creation. A local staging run using the previously published beta APK produced `Vocabulaire 1.0.0-beta.1000001` and `vocabulaire-1.0.0-beta.1000001.apk` with the original APK digest. GitHub publication was stubbed during this check. Hosted verification of the updated publication step remains pending.
+
+## Published beta and stable verification
+
+- [Beta run 43484071106](https://github.com/arialdev/vocabulaire/actions/runs/43484071106) and [stable run 45027265423](https://github.com/arialdev/vocabulaire/actions/runs/45027265423) passed checks, built and verified production-signed APKs, and published versioned releases. The beta is a prerelease and the stable release is designated Latest. Both release notes include maintenance changes and the stable notes include earlier beta changes.
+- The separately downloaded APKs, checksum files, and build information were checked. Both checksums matched the named files; APK version names, application ID, source commits, and signing-certificate fingerprints agreed with build metadata. Version codes increased from `1000002` to `1000003`; both APKs support arm64-v8a and x86_64.
+- On a disposable Android 17 arm64 emulator, the beta installed and launched, a collection was created, and the stable APK installed as an update. The stable app launched and displayed the same collection. This was a basic upgrade check, not full regression or physical-device testing.
+- Task 4.4 remains incomplete: the planned non-public hosted run exercising selected SHA and signing/APK verification failure gates was not performed. Existing local fixtures cover some failure and selection cases, and the published runs verified asset staging and observed beta-to-stable ordering. The user approved archiving with this limitation.
