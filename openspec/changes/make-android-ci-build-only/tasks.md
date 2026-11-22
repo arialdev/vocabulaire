@@ -11,5 +11,5 @@
 ## 3. Verification
 
 - [x] 3.1 Run lint, format check, typecheck, and Jest with coverage. Exercise the Jest logging command with a deliberately failing test in an isolated copy and confirm it exits nonzero while writing the log.
-- [ ] 3.2 Verify a hosted PR run reports both required checks and uploads the preview APK after static verification. Download it and inspect the checksum, preview package ID, ABIs, and signature. Record the run and artifact.
-- [ ] 3.3 Verify the first trusted `main` run checks the configured production certificate and uploads the signed APK and its metadata. Record the run and artifact when available.
+- [x] 3.2 Verify a hosted PR run reports both required checks and uploads the preview APK after static verification. Download it and inspect the checksum, preview package ID, ABIs, and signature. Record the run and artifact.
+- [x] 3.3 Verify the first trusted `main` run checks the configured production certificate and uploads the signed APK and its metadata. Record the run and artifact when available.
